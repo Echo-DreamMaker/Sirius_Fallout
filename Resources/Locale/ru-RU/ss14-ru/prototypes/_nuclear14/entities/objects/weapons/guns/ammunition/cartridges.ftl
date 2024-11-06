@@ -32,3 +32,5 @@ ent-N14CartridgePistol5 = патрон (5mm)
     .desc = { ent-BaseCartridgePistol.desc }
 ent-N14CartridgePistol9 = патрон (9mm)
     .desc = Патрон калибра 9mm.
+ent-N14Cartridge50HEIAP = патрон (.50 анти-материальный разрывной)
+    .desc = { ent-N14Cartridge50.desc }
