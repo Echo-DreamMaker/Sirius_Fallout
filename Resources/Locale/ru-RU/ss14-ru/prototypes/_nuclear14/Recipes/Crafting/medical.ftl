@@ -1,0 +1,12 @@
+recipe-N14MortarPestle-name = { ent-N14MortarpestleGrinder }
+recipe-N14MortarPestle-desc = { ent-N14MortarpestleGrinder.desc }
+recipe-N14HealingPowder-name = { ent-N14HealingPowder }
+recipe-N14HealingPowder-desc = { ent-N14HealingPowder.desc }
+recipe-N14Stimpak-name = { ent-N14Stimpak }
+recipe-N14Stimpak-desc = { ent-N14Stimpak.desc }
+recipe-N14RadAwayInhaler-name = { ent-N14RadAwayInhaler }
+recipe-N14RadAwayInhaler-desc = { ent-N14RadAwayInhaler.desc }
+recipe-N14RadAwayPhial-name = { ent-N14RadAwayPhial }
+recipe-N14RadAwayPhial-desc = { ent-N14RadAwayPhial.desc }
+recipe-N14JetInhaler-name = { ent-N14JetInhaler }
+recipe-N14JetInhaler-desc = { ent-N14JetInhaler.desc }
