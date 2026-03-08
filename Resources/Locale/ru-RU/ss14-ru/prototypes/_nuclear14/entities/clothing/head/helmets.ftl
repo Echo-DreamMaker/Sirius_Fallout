@@ -1,15 +1,39 @@
 ent-ClothingHeadHatLightBase = { ent-ClothingHeadBase }
     .desc = { ent-ClothingHeadBase.desc }
+
+# Обитатели пустоши
 ent-N14ClothingHeadHatBaseHelmetMetal = металлический шлем
     .desc = Простой металлический шлем, способный защитить голову от лёгких ударов.
-ent-N14ClothingHeadHatBaseHelmetMK2 = металлический шлем МК2
+ent-N14ClothingHeadHatBaseHelmetMK2 = металлический шлем Mk.2
     .desc = Улучшенная версия простого шлема, обеспечивающая более надёжную защиту.
 ent-N14ClothingHeadHatCombatHelmet = боевой шлем
     .desc = Старый добрый боевой шлем - пережиток довоенного мира, все ещё способный защитить своего владельца.
-ent-N14ClothingHeadHatCombatHelmetMK2 = боевой шлем МК2
+ent-N14ClothingHeadHatCombatHelmetCargo = { ent-N14ClothingHeadHatCombatHelmet }
+    .desc = Старый добрый боевой шлем - пережиток довоенного мира, все ещё способный защитить своего владельца.
+ent-N14ClothingHeadHatCombatHelmetMK2 = боевой шлем Mk.2
+    .desc = Усовершенствованная модель боевого шлема, обеспечивающая повышенную защиту в бою.
+ent-N14ClothingHeadHatCombatHelmetMK2Cargo = { ent-N14ClothingHeadHatCombatHelmetMK2 }
     .desc = Усовершенствованная модель боевого шлема, обеспечивающая повышенную защиту в бою.
 ent-N14ClothingHeadHatBaseHelmetmarine = шлем пехотинца
     .desc = Шлем, созданный для самых суровых сражений, – надёжная защита для тех, кто идёт в пекло.
+ent-ClothingHeadBrotherhoodScribeHeadset = налобный фонарик
+    .desc = Простая гарнитура со встроенным фонариком - незаменимая вещь для исследований тёмных уголков Пустоши.
+ent-N14ClothingHeadHatHelmetRCMP = боевой шлем КККП
+    .desc = Простой боевой шлем, окрашенный в черный цвет.
+ent-N14ClothingHeadHatSpecHelmetRCMP = шлем специалиста КККП
+    .desc = Простой боевой шлем, окрашенный в черный цвет, оснащен встроенной системой связи.
+ent-N14ClothingHeadHatChineseHelmet = китайский шлем
+    .desc = Китайский округлый зеленый шлем, простой и дешевый.
+ent-N14ClothingHeadHatChineseHelmetMk2 = китайский шлем специального назначения
+    .desc = Китайский округлый черный шлем с интегрированным ночным видением.
+ent-N14ClothingHeadHatPressHelmet = шлем репортера
+    .desc = Старый кусок брони, когда-то использовавшийся Свободной Прессой. Должен все еще обеспечивать некоторую защиту.
+ent-N14ClothingHeadHatPrewarMilitaryHelmet = военный шлем
+    .desc = Старый кусок брони, когда-то использовавшийся армией США.
+ent-N14ClothingHeadHatHelmetChineseStealthSuitHelmet = шлем китайской стелс брони
+    .desc = Шлем, используемый для полной работы китайской стелс брони.
+
+# Среднезападное Браство Стали (СЗБС)
 ent-N14ClothingHeadHatBrotherhoodHelmet = шлем Братства Стали
     .desc = Этот шлем – символ Братства Стали, знак того, что его владелец готов защищать знания прошлого.
 ent-N14ClothingHeadHatBrotherhoodHelmetKnight = шлем рыцаря Братства Стали
@@ -20,8 +44,18 @@ ent-N14ClothingHeadHatBrotherhoodHelmetPaladin = шлем паладина Бр�
     .desc = Шлем паладина Братства - грозное напоминание о том, что знания - это сила.
 ent-N14ClothingHeadHatBrotherhoodHelmetOutcast = шлем изгоя Братства Стали
     .desc = Шлем, хранящий историю падений и предательств. Даже изгнанные помнят о технологиях.
-ent-N14ClothingHeadHatBrotherhoodHelmetMK2 = шлем Братства Стали МК2
+ent-N14ClothingHeadHatBrotherhoodHelmetMK2 = шлем Братства Стали Mk.2
     .desc = Усовершенствованный шлем Братства Стали, созданный для борьбы с самыми опасными врагами.
+ent-N14ClothingHeadHatBrotherhoodMidwestHelmet = шлем Среднезападного Братства
+    .desc = Модифицированный боевой шлем, который служит верой и правдой бойцам Среднезападного Братства Стали.
+ent-N14ClothingHeadHatBrotherhoodMidwestHelmetVeteran = боевой шлем ветерана Среднезападного Братства
+    .desc = Сколы на этом шлеме - метки боевого опыта, говорящие о нелёгкой службе в Среднезападном Братстве.
+ent-N14ClothingHeadHatBrotherhoodHelmetMK3 = шлем Братства Стали Mk.3
+    .desc = Шлем, постоянно модернизируемый Вашингтонским Братством, в котором почти не осталось довоенных компонентов.
+ent-N14ClothingHeadHatBrotherhoodMidwestHelmetRecon = разведывательный шлем Среднезападного Братства
+    .desc = Шлем, изготовленный Братством Среднего Запада, разработанный как для защиты, так и для скрытных операций.
+
+# Новая Калифорнийская Республика (НКР)
 ent-N14ClothingHeadHatNCRHelmetMetal = металлический шлем НКР
     .desc = Простой шлем, защищающий головы бойцов, отстаивающих идеалы НКР.
 ent-N14ClothingHeadHatNCRHelmetMetalMilitaryPolice = полицейский шлем НКР
@@ -44,19 +78,56 @@ ent-N14ClothingHeadHatRangerHelmetFox = боевой шлем рейнджера
     .desc = Закаленный в боях шлем, собранный из частей штурмового снаряжения, кожаной брони и трофеев с поверженных Центурионов. Снайперская вуаль, обмотанная вокруг шеи, намекает на то, что владелец этого шлема предпочитал действовать скрытно и точно.
 ent-N14ClothingHeadHatRangerHelmetEliteModif = модифицированный боевой шлем рейнджера
     .desc = Усиленный шлем, который носят рейнджеры в самых опасных уголках Пустоши. Маска намертво приварена к корпусу, а сам шлем явно подвергался кустарным модификациям.
-ent-N14ClothingHeadHatBrotherhoodMidwestHelmet = шлем среднезападного БС
-    .desc = Модифицированный боевой шлем, который служит верой и правдой бойцам среднезападного Братства Стали.
-ent-N14ClothingHeadHatBrotherhoodMidwestHelmetVeteran = боевой шлем ветерана среднезападного БС
-    .desc = Сколы на этом шлеме - метки боевого опыта, говорящие о нелёгкой службе в среднезападном Братстве.
-ent-ClothingHeadBrotherhoodScribeHeadset = налобный фонарик
-    .desc = Простая гарнитура со встроенным фонариком - незаменимая вещь для исследований тёмных уголков Пустоши.
 ent-N14ClothingHeadHatNCRHelmetMetalSnow = Зимний металлический шлем НКР
     .desc = Простой шлем, защищающий головы бойцов, отстаивающих идеалы НКР. Этот шлем покрыт белоснежным камуфляжем.
 ent-N14ClothingHeadHatNCRHelmetMetalWoods = Лесной металлический шлем НКР
     .desc = Простой шлем, защищающий головы бойцов, отстаивающих идеалы НКР. Этот шлем покрыт лесным камуфляжем.
 ent-N14ClothingHeadHatNCRHelmetMetalDesert = пустынный металлический шлем НКР
     .desc = Простой шлем, защищающий головы бойцов, отстаивающих идеалы НКР. Этот шлем покрыт пустынным камуфляжем.
-ent-N14ClothingHeadHatHelmetRCMP = боевой шлем КККП
-    .desc = Простой боевой шлем, окрашенный в черный цвет.
-ent-N14ClothingHeadHatSpecHelmetRCMP = шлем специалиста КККП
-    .desc = Простой боевой шлем, окрашенный в черный цвет, оснащен встроенной системой связи.
+ent-N14ClothingHeadHatNCRHelmetMetalGhillie = Шлем НКР с маскировочной сеткой
+    .desc = Округлый шлем НКР, обеспечивающий некоторую защиту. Этот экземпляр покрыт лесным камуфляжем типа "маскировочная сеть".
+ent-N14ClothingHeadHatNCRHelmetMetalRadioSnow = Шлем радиста НКР
+    .desc = Округлый шлем НКР, обеспечивающий некоторую защиту. Обычно используется радистами и унтер-офицерами.
+ent-N14ClothingHeadHatNCRHelmetMetalRadioWood = { ent-N14ClothingHeadHatNCRHelmetMetalRadioSnow }
+    .desc = { ent-N14ClothingHeadHatNCRHelmetMetalRadioSnow.desc }
+
+# Племя
+ent-N14ClothingHeadHatTribalPowerhelm = тяжёлый шлем старейшины
+    .desc = Реликвия прошлого, переданная вам.
+ent-N14ClothingHeadHatEdlerSkullhelm = Шлем из черепа старейшины
+    .desc = Череп могучего зверя, носимый как трофей.
+ent-N14ClothingHeadHatEldersDamagedSkullHelm = Поврежденный шлем из черепа старейшины
+    .desc = Череп могучего зверя, что был повреждён в бою, при этом остающийся все ещё хорошим трофеем.
+
+# Легион Цезаря
+ent-N14ClothingHeadHatDeanPrimeHelmet = Галея
+    .desc = Защитный шлем с поперечным гребнем.
+ent-N14ClothingHeadHatDeanRecruitHelmet = { ent-N14ClothingHeadHatDeanPrimeHelmet }
+    .desc = { ent-N14ClothingHeadHatDeanPrimeHelmet.desc }
+ent-N14ClothingHeadHatDeanVeteranHelmet = { ent-N14ClothingHeadHatDeanPrimeHelmet }
+    .desc = { ent-N14ClothingHeadHatDeanPrimeHelmet.desc }
+
+# Горожане
+ent-N14ClothingHeadTownGuardBrodie = Шлем Броди
+    .desc = Металлический шлем, обеспечивающий некоторую защиту для стражи города.
+ent-N14ClothingHeadTownGuardBrodieCover = { ent-N14ClothingHeadTownGuardBrodie }
+    .desc = Металлический шлем, обеспечивающий некоторую защиту для стражи города. Оснащён защитой для шеи, чтобы лучше противостоять осколкам и холоду.
+ent-N14ClothingHeadTownGuardBrodieVisor = { ent-N14ClothingHeadTownGuardBrodie }
+    .desc = Металлический шлем, обеспечивающий некоторую защиту для стражи города. Оснащён визором для защиты глаз от прямых повреждений.
+
+# Западное Братство Стали (ЗБС)
+ent-N14ClothingHeadHatBrotherHelmet = Шлем западного Братства
+    .desc = Стандартный шлем. Удобный и эффективный для всех кроме оруженосцев.
+ent-N14ClothingHeadHatBrotherCapralHelmet = Шлем капрала западного Братства
+    .desc = Укрепленный шлем выдаваемый самым выдающимся членам Западного Братства Стали.
+
+# Спонсорские
+ent-N14ClothingHeadHelmetLegionPaladinKiller = Шлем "Убийца Паладинов"
+    .desc =
+    Этот взгляд… он остаётся с тобой.
+    Ты видишь мир через щель, которую когда-то носил мёртвый человек.
+    Ты чувствуешь его последний пот.
+    И теперь он служит мне. Он направляет мой гнев.
+    Когда Братство видит его, они видят не меня.
+    Они видят призраков всех, кого они потеряли.
+    Они видят своё будущее...

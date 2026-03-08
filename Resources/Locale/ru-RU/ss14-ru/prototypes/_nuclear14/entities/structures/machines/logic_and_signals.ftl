@@ -1,6 +1,3 @@
-ent-N14ControlTerminalButton = { ent-SignalButton }
-    .suffix = Кнопка
-    .desc = { ent-SignalButton.desc }
 ent-N14ControlTerminalVault = { ent-N14ControlTerminalButton }
     .suffix = Дверь Убежища
     .desc = { ent-N14ControlTerminalButton.desc }
