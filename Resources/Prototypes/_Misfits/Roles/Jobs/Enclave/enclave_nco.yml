@@ -48,7 +48,6 @@
     gloves: N14ClothingHandsGlovesCombat
     belt: ClothingBeltMilitary
     ears: N14ClothingHeadsetEnclave
-    pocket1: EnclaveSoldierloadoutkits
     id: SiriusIDEnclaveNCO
   satchel: N14ClothingBackpackSatchelMilitaryFilled
   duffelbag: N14ClothingBackpackDuffelMilitaryFilled
