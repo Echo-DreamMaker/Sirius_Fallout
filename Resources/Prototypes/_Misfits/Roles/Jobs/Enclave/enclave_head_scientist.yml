@@ -52,7 +52,6 @@
     neck: ClothingNeckPinEnclaveHeadScientist
     belt: ClothingBeltMilitary
     ears: N14ClothingHeadsetEnclave
-    pocket2: EnclaveScientistloadoutkits
     id: SiriusIDEnclaveHeadScientist
   satchel: N14ClothingBackpackSatchelMilitaryFilled
   storage:
