@@ -8,7 +8,6 @@ using Robust.Shared.Containers;
 // When a cell is inserted into a gun that has a FireCostMultiplier, the cell's
 // FireCost is scaled up so fewer shots are available. Restored on ejection.
 // Bonus damage is applied separately in GunSystem.cs (server-side hitscan hit path).
-
 namespace Content.Shared._Misfits.Weapons;
 
 public sealed class GunDamageBonusSystem : EntitySystem
@@ -19,21 +18,16 @@ public sealed class GunDamageBonusSystem : EntitySystem
     {
         base.Initialize();
 
-        // Listen for cell insertion/ejection on guns that have the bonus component
         SubscribeLocalEvent<GunDamageBonusComponent, EntInsertedIntoContainerMessage>(OnMagInserted);
         SubscribeLocalEvent<GunDamageBonusComponent, EntRemovedFromContainerMessage>(OnMagRemoved);
         SubscribeLocalEvent<GunDamageBonusComponent, ComponentStartup>(OnStartup);
     }
 
-    /// <summary>
-    /// On map init / startup, apply multiplier to any already-inserted cell.
-    /// </summary>
     private void OnStartup(EntityUid uid, GunDamageBonusComponent comp, ComponentStartup args)
     {
         if (comp.FireCostMultiplier == 1.0f)
             return;
 
-        // Check if there's already a cell in the magazine slot
         if (!TryComp<ContainerManagerComponent>(uid, out var containers))
             return;
 
@@ -43,7 +37,7 @@ public sealed class GunDamageBonusSystem : EntitySystem
         foreach (var ent in container.ContainedEntities)
         {
             ApplyFireCostMultiplier(uid, ent, comp);
-            break; // Only one cell per slot
+            break;
         }
     }
 
@@ -66,33 +60,74 @@ public sealed class GunDamageBonusSystem : EntitySystem
         RestoreFireCost(args.Entity, comp);
     }
 
-    /// <summary>
-    /// Multiply the cell's FireCost and store the original value for restoration.
-    /// </summary>
-    private void ApplyFireCostMultiplier(EntityUid gunUid, EntityUid cellUid, GunDamageBonusComponent comp)
-    {
-        if (!TryComp<HitscanBatteryAmmoProviderComponent>(cellUid, out var battery))
-            return;
+    // #Sirius Add:
 
-        // Store original cost before modifying
-        comp.OriginalFireCost = battery.FireCost;
-        battery.FireCost *= comp.FireCostMultiplier;
-        Dirty(cellUid, battery);
+    private bool TryGetFireCost(EntityUid uid, out float fireCost)
+    {
+        if (TryComp<HitscanBatteryAmmoProviderComponent>(uid, out var hitscan))
+        {
+            fireCost = hitscan.FireCost;
+            return true;
+        }
+
+        if (TryComp<ProjectileBatteryAmmoProviderComponent>(uid, out var proj))
+        {
+            fireCost = proj.FireCost;
+            return true;
+        }
+
+        if (TryComp<BallisticAmmoProviderComponent>(uid, out var ballistic))
+        {
+        }
+
+        fireCost = 0;
+        return false;
     }
 
-    /// <summary>
-    /// Restore the cell's original FireCost when ejected from the gun.
-    /// </summary>
+    private bool TrySetFireCost(EntityUid uid, float newCost)
+    {
+        if (TryComp<HitscanBatteryAmmoProviderComponent>(uid, out var hitscan))
+        {
+            hitscan.FireCost = newCost;
+            Dirty(uid, hitscan);
+            return true;
+        }
+
+        if (TryComp<ProjectileBatteryAmmoProviderComponent>(uid, out var proj))
+        {
+            proj.FireCost = newCost;
+            Dirty(uid, proj);
+            return true;
+        }
+
+        if (TryComp<BallisticAmmoProviderComponent>(uid, out var ballistic))
+        {
+            Dirty(uid, ballistic);
+            return true;
+        }
+
+        return false;
+    }
+
+    // ----- Применение и восстановление множителя -----
+
+    private void ApplyFireCostMultiplier(EntityUid gunUid, EntityUid cellUid, GunDamageBonusComponent comp)
+    {
+        if (!TryGetFireCost(cellUid, out var currentCost))
+            return;
+
+        comp.OriginalFireCost = currentCost;
+
+        float newCost = currentCost * comp.FireCostMultiplier;
+        TrySetFireCost(cellUid, newCost);
+    }
+
     private void RestoreFireCost(EntityUid cellUid, GunDamageBonusComponent comp)
     {
         if (comp.OriginalFireCost == null)
             return;
 
-        if (!TryComp<HitscanBatteryAmmoProviderComponent>(cellUid, out var battery))
-            return;
-
-        battery.FireCost = comp.OriginalFireCost.Value;
+        TrySetFireCost(cellUid, comp.OriginalFireCost.Value);
         comp.OriginalFireCost = null;
-        Dirty(cellUid, battery);
     }
 }
