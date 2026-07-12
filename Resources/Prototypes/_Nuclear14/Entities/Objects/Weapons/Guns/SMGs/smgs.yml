@@ -765,6 +765,10 @@
             - N14CartridgePistol127
   - type: StaticPrice
     price: 175
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 2
 
 - type: entity
   name: chinese SMG
@@ -826,6 +830,10 @@
             - N14CartridgePistol10
   - type: StaticPrice
     price: 100
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 1
 
 # #Misfits Add — PPSh-41, M3A1 Grease Gun, American 180
 # Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
@@ -887,6 +895,10 @@
             - N14CartridgePistol9
   - type: StaticPrice
     price: 150
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 5
 
 - type: entity
   name: M3A1 grease gun
@@ -1043,6 +1055,10 @@
     maxAngle: -7
   - type: StaticPrice
     price: 50
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 5
 
 - type: entity
   name: P90
@@ -1104,4 +1120,8 @@
             - N14CartridgePistol9
   - type: StaticPrice
     price: 200
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 2
 #sirius change end

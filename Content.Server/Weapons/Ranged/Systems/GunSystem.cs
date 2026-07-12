@@ -77,9 +77,25 @@ public sealed partial class GunSystem : SharedGunSystem
             return;
         }
 
-        // Probably good enough for most.
         var price = _pricing.GetEstimatedPrice(proto);
         args.Price += price * component.UnspawnedCount;
+    }
+
+    // #Sirius Add: вспомогательный метод для применения бонуса к снаряду
+    private void ApplyBonusDamageToProjectile(EntityUid projectile, EntityUid gunUid)
+    {
+        if (!TryComp<GunDamageBonusComponent>(gunUid, out var gunBonus) || gunBonus.BonusDamage == null)
+            return;
+
+        if (!TryComp<ProjectileComponent>(projectile, out var proj))
+            return;
+
+        if (proj.Damage == null)
+            proj.Damage = new DamageSpecifier();
+
+        proj.Damage = new DamageSpecifier(proj.Damage);
+        proj.Damage += gunBonus.BonusDamage;
+        Dirty(projectile, proj);
     }
 
     public override List<EntityUid>? Shoot(EntityUid gunUid,
@@ -112,18 +128,14 @@ public sealed partial class GunSystem : SharedGunSystem
         var mapAngle = mapDirection.ToAngle();
         var angle = base.GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle(), user);
 
-        // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out var grid)
             ? fromCoordinates.WithEntityId(gridUid, EntityManager)
             : new EntityCoordinates(MapManager.GetMapEntityId(fromMap.MapId), fromMap.Position);
 
-        // Update shot based on the recoil
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
         mapDirection = toMap - fromMap.Position;
         var gunVelocity = Physics.GetMapLinearVelocity(fromEnt);
 
-        // I must be high because this was getting tripped even when true.
-        // DebugTools.Assert(direction != Vector2.Zero);
         var shotProjectiles = new List<EntityUid>(ammo.Count);
         var predictedIndex = 0;
 
@@ -145,7 +157,6 @@ public sealed partial class GunSystem : SharedGunSystem
 
         foreach (var (ent, shootable) in ammo)
         {
-            // pneumatic cannon doesn't shoot bullets it just throws them, ignore ammo handling
             if (throwItems && ent != null)
             {
                 base.ShootOrThrow(ent.Value, mapDirection, gunVelocity, gun, gunUid, user);
@@ -154,12 +165,15 @@ public sealed partial class GunSystem : SharedGunSystem
 
             switch (shootable)
             {
-                // Cartridge shoots something else
                 case CartridgeAmmoComponent cartridge:
                     if (!cartridge.Spent)
                     {
                         var uid = Spawn(cartridge.Prototype, fromEnt);
-                        CreateAndFireProjectiles(uid, cartridge);
+                        // #Misfits Add: применяем бонус к снаряду
+                        ApplyBonusDamageToProjectile(uid, gunUid);
+                        base.ShootOrThrow(uid, mapDirection, gunVelocity, gun, gunUid, user);
+                        shotProjectiles.Add(uid);
+                        MarkPredicted(uid);
 
                         RaiseLocalEvent(ent!.Value, new AmmoShotEvent()
                         {
@@ -177,35 +191,29 @@ public sealed partial class GunSystem : SharedGunSystem
                         Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
                     }
 
-                    // Something like ballistic might want to leave it in the container still
                     if (!cartridge.DeleteOnSpawn && !Containers.IsEntityInContainer(ent!.Value))
                         EjectCartridge(ent.Value, angle);
 
                     Dirty(ent!.Value, cartridge);
                     break;
-                // Ammo shoots itself
+
                 case AmmoComponent newAmmo:
                     if (ent == null)
                         break;
+                    // #Sirius Change: используем обновлённую функцию с бонусом
                     CreateAndFireProjectiles(ent.Value, newAmmo);
-
                     break;
+
                 case HitscanPrototype hitscan:
                     if (TryResolveGunHitscan(gunUid, out var resolvedHitscan))
                         hitscan = resolvedHitscan;
 
                     EntityUid? lastHit = null;
-
                     var from = fromMap;
-                    // [Changed by MisfitsCrew/Operator] Use grid/map effect coordinates so beam
-                    // sprites are not parented to bikes or other ridden entities.
                     var fromEffect = GetShotEffectCoordinates(fromMap);
                     var dir = mapDirection.Normalized();
 
-                    //in the situation when user == null, means that the cannon fires on its own (via signals). And we need the gun to not fire by itself in this case
                     var lastUser = user ?? gunUid;
-                    // [Changed by MisfitsCrew/Operator] Rider-fired hitscan must ignore both
-                    // the rider and their mounted vehicle; one ignored entity is not enough.
                     var rayExtraIgnore = GetShotExtraIgnoredEntity(user);
 
                     if (hitscan.Reflective != ReflectType.None)
@@ -227,7 +235,6 @@ public sealed partial class GunSystem : SharedGunSystem
                             }
 
                             lastHit = hit;
-
                             FireEffects(fromEffect, distance, dir.Normalized().ToAngle(), hitscan, hit, userSession);
 
                             var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false);
@@ -269,7 +276,6 @@ public sealed partial class GunSystem : SharedGunSystem
                         if (dmg != null)
                             dmg = Damageable.TryChangeDamage(hitEntity, dmg, origin: user);
 
-                        // check null again, as TryChangeDamage returns modified damage values
                         if (dmg != null)
                         {
                             if (!Deleted(hitEntity))
@@ -283,7 +289,6 @@ public sealed partial class GunSystem : SharedGunSystem
                                     _color.RaiseEffect(Color.Red, new List<EntityUid>() { hitEntity }, filter);
                                 }
 
-                                // TODO get fallback position for playing hit sound.
                                 base.PlayImpactSound(hitEntity, dmg, hitscan.Sound, hitscan.ForceSound);
                             }
 
@@ -312,10 +317,13 @@ public sealed partial class GunSystem : SharedGunSystem
 
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     break;
+
                 case FlamerShot flamerShot:
                     if (flamerShot.ProjectileProto is { } projectileProto)
                     {
                         var projectile = Spawn(projectileProto, fromEnt);
+                        // #Sirius Add: бонус для фламера (если снаряд)
+                        ApplyBonusDamageToProjectile(projectile, gunUid);
                         base.ShootOrThrow(projectile, mapDirection, gunVelocity, gun, gunUid, user);
                         MarkPredicted(projectile);
                         shotProjectiles.Add(projectile);
@@ -323,6 +331,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     _flamerLine.ShootLine(user ?? gunUid, gunUid, flamerShot, fromEnt, gun.ShootCoordinates);
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -335,6 +344,9 @@ public sealed partial class GunSystem : SharedGunSystem
 
         void CreateAndFireProjectiles(EntityUid ammoEnt, AmmoComponent ammoComp)
         {
+            // #Sirius Add: применяем бонус к основному снаряду
+            ApplyBonusDamageToProjectile(ammoEnt, gunUid);
+
             if (TryComp<ProjectileSpreadComponent>(ammoEnt, out var ammoSpreadComp))
             {
                 var spreadEvent = new GunGetAmmoSpreadEvent(ammoSpreadComp.Spread);
@@ -350,6 +362,8 @@ public sealed partial class GunSystem : SharedGunSystem
                 for (var i = 1; i < ammoSpreadComp.Count; i++)
                 {
                     var newuid = Spawn(ammoSpreadComp.Proto, fromEnt);
+                    // #Sirius Add: бонус для каждого снаряда разброса
+                    ApplyBonusDamageToProjectile(newuid, gunUid);
                     base.ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, gunUid, user);
                     shotProjectiles.Add(newuid);
                     MarkPredicted(newuid);
@@ -368,6 +382,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
         return shotProjectiles;
     }
+
 
     private bool TryGetHitscanResult(
         MapCoordinates from,

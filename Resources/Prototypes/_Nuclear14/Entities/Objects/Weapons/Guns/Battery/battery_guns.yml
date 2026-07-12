@@ -906,10 +906,9 @@
     availableModes:
     - SemiAuto
   - type: GunDamageBonus
-    hitscanProtoOverride: N14MFLaserYellow
     bonusDamage:
       types:
-        Heat: 33 #sirius change
+        Heat: 5 #sirius change
     fireCostMultiplier: 2.0
   - type: FollowDistance
     backStrength: 5

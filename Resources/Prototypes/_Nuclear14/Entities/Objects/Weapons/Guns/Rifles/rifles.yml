@@ -1566,6 +1566,10 @@
             - N14Cartridge556Rifle
   - type: StaticPrice
     price: 250
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 2
 
 - type: entity
   name: Enfield XL70E3
@@ -1618,6 +1622,10 @@
             - N14Cartridge556Rifle
   - type: StaticPrice
     price: 150
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 3
 
 - type: entity
   name: Steir Aug
@@ -1669,4 +1677,8 @@
             - N14Cartridge556Rifle
   - type: StaticPrice
     price: 100
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 2
 #sirius change end
