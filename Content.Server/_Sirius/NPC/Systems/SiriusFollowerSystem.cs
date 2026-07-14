@@ -3,6 +3,8 @@ using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Pathfinding;
 using Content.Server.NPC.Systems;
+using Content.Shared._Misfits.Special;
+using Content.Shared._Misfits.Special.Components;
 using Content.Shared._Sirius.NPC;
 using Content.Shared._Sirius.NPC.Components;
 using Content.Shared._Sirius.Verbs;
@@ -29,9 +31,11 @@ public sealed class SiriusFollowerSystem : EntitySystem
     [Dependency] private readonly NPCSystem _npcSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedSpecialSystem _special = default!;
 
     private const string FollowCompoundId = "RuminantFollowCompound";
     private const string HoldPositionCompoundId = "HoldPositionCompound";
+    private const int RequiredCharisma = 6;
 
     public override void Initialize()
     {
@@ -157,7 +161,7 @@ public sealed class SiriusFollowerSystem : EntitySystem
             args.Verbs.Add(deadVerb);
             return;
         }
-
+        var hasRequiredCharisma = _special.GetEffective(args.User, SpecialStat.Charisma) >= RequiredCharisma;
         var follower = ent.Comp;
         var user = args.User;
 
@@ -189,20 +193,41 @@ public sealed class SiriusFollowerSystem : EntitySystem
             return;
         }
 
-        var follow = new Verb
+        if (hasRequiredCharisma)
         {
-            Text = Loc.GetString("follower-verb-follow"),
-            Priority = 1,
-            Category = SiriusVerbCategory.Follow,
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/open.svg.192dpi.png")),
-            Act = () => StartFollowing(ent, user)
-        };
-        args.Verbs.Add(follow);
+            var follow = new Verb
+            {
+                Text = Loc.GetString("follower-verb-follow"),
+                Priority = 1,
+                Category = SiriusVerbCategory.Follow,
+                Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/open.svg.192dpi.png")),
+                Act = () => StartFollowing(ent, user)
+            };
+            args.Verbs.Add(follow);
+        }
+        else
+        {
+            var disabledFollow = new Verb
+            {
+                Text = Loc.GetString("follower-verb-follow-disabled"),
+                Priority = 1,
+                Disabled = true,
+                Category = SiriusVerbCategory.Follow,
+                Message = Loc.GetString("follower-verb-follow-charisma-needed")
+            };
+            args.Verbs.Add(disabledFollow);
+        }
     }
 
     public void StartFollowing(Entity<SiriusFollowerComponent> ent, EntityUid commander)
     {
         var follower = ent.Comp;
+
+        if (_special.GetEffective(commander, SpecialStat.Charisma) < RequiredCharisma)
+        {
+            _popup.PopupEntity(Loc.GetString("follower-cant-follow-low-charisma"), ent, commander, PopupType.Small);
+            return;
+        }
 
         if (follower.Commander != null && follower.Commander != commander)
         {
