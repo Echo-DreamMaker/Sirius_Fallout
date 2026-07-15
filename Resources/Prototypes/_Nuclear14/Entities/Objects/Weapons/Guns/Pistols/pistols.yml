@@ -335,7 +335,10 @@
             - N14CartridgePistol10
   - type: StaticPrice
     price: 15
-
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: -2
 
 - type: entity
   parent: N14WeaponPistol10mmPipe
@@ -358,6 +361,10 @@
   - type: Construction
     graph: N14WeaponPistol10mmPipeEmpty
     node: start
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: -2
 
 - type: entity
   name: chinese pistol

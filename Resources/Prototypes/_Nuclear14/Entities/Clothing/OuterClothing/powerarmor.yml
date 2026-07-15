@@ -12,7 +12,7 @@
   # Repair with a welder to restore the pool and re-enable absorption.
   - type: Damageable
   - type: PowerArmorIntegrity
-    maxIntegrity: 500 # #Misfits Tweak: By Bill, 500 durability for a little more standing power.
+    maxIntegrity: 400 # #Misfits Tweak: By Bill, 500 durability for a little more standing power.
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
   - type: Repairable
     fuelCost: 10
@@ -109,7 +109,7 @@
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 580 # #Misfits Tweak: By Bill, 580 durability.
+    maxIntegrity: 480 # #Misfits
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t51.rsi
   - type: Clothing
@@ -144,7 +144,7 @@
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 500 # #Misfits Tweak: By Bill, 500 durability.
+    maxIntegrity: 400 # #Misfits Tweak: By Bill, 500 durability.
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/PowerArmor/Mutant_PA.rsi
   - type: Clothing
@@ -185,7 +185,7 @@
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 545 # #Misfits Tweak: By Bill, 545 durability.
+    maxIntegrity: 445 # #Misfits Tweak: By Bill, 545 durability.
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t60.rsi
   - type: Clothing
@@ -269,7 +269,7 @@
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 560 # #Misfits Tweak: By Bill, 460 a little better than T60 but not T51.
+    maxIntegrity: 460 # #Misfits Tweak: By Bill, 460 a little better than T60 but not T51.
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/advanced1.rsi
   - type: Clothing
@@ -310,7 +310,7 @@
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 585 # #Misfits Tweak: X-02 durability.
+    maxIntegrity: 485 # #Misfits Tweak: X-02 durability.
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/advanced2.rsi
   - type: Clothing
@@ -373,7 +373,7 @@
   description: A deep black suit of Enclave-manufactured heavy power armor based on pre-war designs such as the T-51 and improving off of data gathered by post-war designs such as the X-01. Most commonly fielded on the East Coast, no suit rivals its strength.
   components:
   - type: PowerArmorIntegrity
-    maxIntegrity: 600 # #Misfits Tweak: Hellfire durability.
+    maxIntegrity: 500 # #Misfits Tweak: Hellfire durability.
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/hellfire.rsi
   - type: Clothing
@@ -408,7 +408,7 @@
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 400 # #Misfits Tweak: +150 flat integrity buff
+    maxIntegrity: 300 # #Misfits Tweak: +150 flat integrity buff
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/raider.rsi
   - type: Clothing
@@ -452,7 +452,7 @@
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 500 # #Misfits Tweak: +150 flat integrity buff
+    maxIntegrity: 400 # #Misfits Tweak: +150 flat integrity buff
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/midwest.rsi
   - type: Clothing
@@ -522,7 +522,7 @@
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 585 # #Misfits Tweak: Very slightly above standard T-51.
+    maxIntegrity: 485 # #Misfits
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/midwestcommander.rsi
   - type: Clothing
@@ -553,7 +553,7 @@
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 590 # #Misfits Tweak: By Bill, little more durability than normal T-51
+    maxIntegrity: 490 # #Misfits
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t51bc.rsi
   - type: Clothing
@@ -608,7 +608,7 @@
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 325 # #Misfits Tweak: +150 flat integrity buff
+    maxIntegrity: 225 # #Misfits
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t45ncr.rsi
   - type: Clothing
@@ -642,6 +642,9 @@
     reflectProb: 0.4
     innate: true
     spread: 90
+  - type: ClothingSpeedModifier #sirius change
+    walkModifier: 0.8
+    sprintModifier: 0.8
 
 - type: entity
   parent: N14ClothingOuterPowerArmorT51
@@ -679,7 +682,7 @@
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 400 # #Misfits Tweak: +150 flat integrity buff
+    maxIntegrity: 300 # #Misfits Tweak: +150 flat integrity buff
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t51wash.rsi
   - type: Clothing
@@ -732,7 +735,7 @@
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 585 # #Misfits Tweak: By Bill, a little better than T51 but not as good as T51BC
+    maxIntegrity: 485 # #Misfits Tweak: By Bill, a little better than T51 but not as good as T51BC
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t51washelite.rsi
   - type: Clothing
