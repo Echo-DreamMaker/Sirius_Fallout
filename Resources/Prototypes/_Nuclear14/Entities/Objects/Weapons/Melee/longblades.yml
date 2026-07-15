@@ -268,3 +268,36 @@
     sprite: _Nuclear14/Objects/Weapons/Melee/tribal_sword.rsi
   - type: StaticPrice
     price: 50
+
+#Sirius add:
+- type: entity
+  name: scrap katana
+  parent: N14Machete
+  id: N14ScrapKatanaSirius
+  description: Katana from scrap
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Melee/scrapkatana.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/scrapkatana.rsi
+    state: icon
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 35
+        Piercing: 10
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 34
+        Piercing: 6
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Melee/scrapkatana.rsi
+  - type: StaticPrice
+    price: 30

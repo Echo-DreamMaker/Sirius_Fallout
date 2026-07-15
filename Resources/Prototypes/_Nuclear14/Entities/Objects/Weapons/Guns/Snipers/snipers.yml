@@ -71,6 +71,10 @@
     proto: N14Cartridge308Rifle
   - type: StaticPrice
     price: 100
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 3
   # #Misfits Add — scope attachment slot on Lee Enfield
   # - type: ItemSlots
   #   slots:

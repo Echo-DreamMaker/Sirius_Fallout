@@ -212,7 +212,7 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 2.5 #sirius change
+    fireRate: 3 #sirius change
     soundGunshot:
       collection: N14Pistol12mmGunshot
     selectedMode: Fullauto
@@ -248,7 +248,10 @@
             - N14CartridgePistol127
   - type: StaticPrice
     price: 10
-
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: -3
 
 - type: entity
   parent: N14WeaponSMG12mmPipe
@@ -274,6 +277,10 @@
   - type: Construction
     graph: N14WeaponSMG12mmPipeEmpty
     node: start
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: -3
 
 - type: entity
   name: 10mm pipe SMG
@@ -354,6 +361,10 @@
   - type: Construction
     graph: N14WeaponSMG10mmPipeEmpty
     node: start
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: -2
 
 - type: entity
   name: advanced 12.7mm SMG
