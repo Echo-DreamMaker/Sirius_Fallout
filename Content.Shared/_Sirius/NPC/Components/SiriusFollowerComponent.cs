@@ -34,4 +34,7 @@ public sealed partial class SiriusFollowerComponent : Component
 
     [DataField]
     public bool IsStaying = false;
+
+    [DataField]
+    public bool AttackMode = false;
 }

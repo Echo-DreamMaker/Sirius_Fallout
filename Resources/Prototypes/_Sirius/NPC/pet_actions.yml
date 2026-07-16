@@ -5,7 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 1
+    useDelay: 0.5
     icon:
       sprite: Interface/Actions/actions_rat_king.rsi
       state: follow
@@ -15,17 +15,20 @@
     event: !type:PetFollowStayActionEvent
 
 - type: entity
-  id: ActionPetAttack
-  name: Attack Target
-  description: Command your pet to attack a target you point at.
+  id: ActionPetAttackCancel
+  name: Attack
+  description: Toggle attack mode on/off. Click a target while in attack mode to attack.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 1
+    useDelay: 0.5
     icon:
       sprite: Interface/Actions/actions_rat_king.rsi
       state: attack
-    event: !type:PetAttackActionEvent
+    iconOn:
+      sprite: Interface/Actions/actions_rat_king.rsi
+      state: loose
+    event: !type:PetAttackCancelActionEvent
 
 - type: entity
   id: ActionPetRelease
@@ -34,7 +37,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 1
+    useDelay: 0.5
     icon:
       sprite: Interface/Actions/actions_rat_king.rsi
       state: loose

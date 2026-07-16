@@ -1,6 +1,7 @@
 using Content.Server.NPC;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
+using Content.Server.NPC.Pathfinding;
 using Content.Server.NPC.Systems;
 using Content.Shared._Sirius.NPC.Actions;
 using Content.Shared._Sirius.NPC.Components;
@@ -11,8 +12,9 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Pointing;
 using Content.Shared.Popups;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Server.NPC.Pathfinding;
+using System.Linq;
 
 namespace Content.Server._Sirius.NPC.Systems;
 
@@ -33,9 +35,46 @@ public sealed class PetActionsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PetFollowStayActionEvent>(OnPetFollowStay);
-        SubscribeLocalEvent<PetAttackActionEvent>(OnPetAttack);
+        SubscribeLocalEvent<PetAttackCancelActionEvent>(OnPetAttackCancel);
         SubscribeLocalEvent<PetReleaseActionEvent>(OnPetRelease);
-        SubscribeLocalEvent<SiriusFollowerComponent, AfterPointedAtEvent>(OnPointedAt);
+
+        SubscribeLocalEvent<ActorComponent, AfterPointedAtEvent>(OnPlayerPointedAt);
+    }
+
+    private void OnPlayerPointedAt(Entity<ActorComponent> player, ref AfterPointedAtEvent args)
+    {
+        if (!TryGetPet(player, out var pet, out var follower))
+            return;
+
+        if (!follower.AttackMode)
+            return;
+
+        var pointed = args.Pointed;
+
+        if (pointed == player.Owner)
+        {
+            _popup.PopupEntity(Loc.GetString("follower-cant-attack-owner"), pet, player, PopupType.Small);
+            return;
+        }
+
+        if (TryComp<SiriusFollowerComponent>(pointed, out var targetFollower) &&
+            targetFollower.IsTamed && targetFollower.Tamer == player)
+        {
+            _popup.PopupEntity(Loc.GetString("follower-cant-attack-pet"), pet, player, PopupType.Small);
+            return;
+        }
+
+        if (!TryComp<HTNComponent>(pet, out var htn))
+            return;
+
+        htn.Blackboard.SetValue(NPCBlackboard.CurrentOrderedTarget, pointed);
+
+        if (!TryComp<FactionExceptionComponent>(pet, out var factionException))
+            factionException = EnsureComp<FactionExceptionComponent>(pet);
+
+        _npcFaction.AggroEntity((pet, factionException), pointed);
+        _htn.Replan(htn);
+        _popup.PopupEntity(Loc.GetString("follower-attacking-target"), pet, player, PopupType.Small);
     }
 
     private void OnPetFollowStay(PetFollowStayActionEvent ev)
@@ -56,7 +95,6 @@ public sealed class PetActionsSystem : EntitySystem
 
             ApplyFollowOrder(pet, follower);
             _popup.PopupEntity(Loc.GetString("follower-now-following"), pet, ev.Performer, PopupType.Small);
-
             _actions.SetToggled(ev.Action, false);
         }
         else
@@ -68,12 +106,11 @@ public sealed class PetActionsSystem : EntitySystem
 
             ApplyWanderOrder(pet, follower);
             _popup.PopupEntity(Loc.GetString("follower-stopped-following"), pet, ev.Performer, PopupType.Small);
-
             _actions.SetToggled(ev.Action, true);
         }
     }
 
-    private void OnPetAttack(PetAttackActionEvent ev)
+    private void OnPetAttackCancel(PetAttackCancelActionEvent ev)
     {
         if (!TryGetPet(ev.Performer, out var pet, out var follower))
             return;
@@ -84,48 +121,33 @@ public sealed class PetActionsSystem : EntitySystem
         if (!TryComp<HTNComponent>(pet, out var htn))
             return;
 
-        htn.Blackboard.SetValue("AttackMode", true);
-        _htn.Replan(htn);
-        _popup.PopupEntity(Loc.GetString("follower-attack-mode"), pet, ev.Performer, PopupType.Small);
-    }
-
-    private void OnPointedAt(Entity<SiriusFollowerComponent> ent, ref AfterPointedAtEvent args)
-    {
-        var follower = ent.Comp;
-
-        if (!follower.IsTamed || follower.Tamer == null)
-            return;
-
-        if (!TryComp<HTNComponent>(ent, out var htn))
-            return;
-
-        if (!htn.Blackboard.TryGetValue<bool>("AttackMode", out var attackMode, EntityManager) || !attackMode)
-            return;
-
-        if (args.Pointed == follower.Tamer)
+        if (follower.AttackMode)
         {
-            _popup.PopupEntity(Loc.GetString("follower-cant-attack-owner"), ent, follower.Tamer.Value, PopupType.Small);
-            htn.Blackboard.Remove<bool>("AttackMode");
-            return;
-        }
+            if (TryComp<FactionExceptionComponent>(pet, out var factionException))
+            {
+                foreach (var hostile in factionException.Hostiles.ToList())
+                {
+                    _npcFaction.DeAggroEntity((pet, factionException), hostile);
+                }
+            }
 
-        if (TryComp<SiriusFollowerComponent>(args.Pointed, out var targetFollower) &&
-            targetFollower.IsTamed && targetFollower.Tamer == follower.Tamer)
+            htn.Blackboard.Remove<EntityUid>(NPCBlackboard.CurrentOrderedTarget);
+            htn.Blackboard.Remove<EntityUid>("Target");
+            htn.Blackboard.Remove<bool>("AttackMode");
+
+            follower.AttackMode = false;
+            _actions.SetToggled(ev.Action, false);
+            _htn.Replan(htn);
+            _popup.PopupEntity(Loc.GetString("follower-attack-mode-off"), pet, ev.Performer, PopupType.Small);
+        }
+        else
         {
-            _popup.PopupEntity(Loc.GetString("follower-cant-attack-pet"), ent, follower.Tamer.Value, PopupType.Small);
-            htn.Blackboard.Remove<bool>("AttackMode");
-            return;
+            follower.AttackMode = true;
+            htn.Blackboard.SetValue("AttackMode", true);
+            _actions.SetToggled(ev.Action, true);
+            _htn.Replan(htn);
+            _popup.PopupEntity(Loc.GetString("follower-attack-mode-on"), pet, ev.Performer, PopupType.Small);
         }
-
-        htn.Blackboard.SetValue(NPCBlackboard.CurrentOrderedTarget, args.Pointed);
-        htn.Blackboard.Remove<bool>("AttackMode");
-
-        if (!TryComp<FactionExceptionComponent>(ent, out var factionException))
-            factionException = EnsureComp<FactionExceptionComponent>(ent);
-
-        _npcFaction.AggroEntity((ent, factionException), args.Pointed);
-        _htn.Replan(htn);
-        _popup.PopupEntity(Loc.GetString("follower-attacking-target"), ent, follower.Tamer.Value, PopupType.Small);
     }
 
     private void OnPetRelease(PetReleaseActionEvent ev)
@@ -168,7 +190,7 @@ public sealed class PetActionsSystem : EntitySystem
 
         if (TryComp<FactionExceptionComponent>(pet, out var factionException))
         {
-            foreach (var hostile in factionException.Hostiles)
+            foreach (var hostile in factionException.Hostiles.ToList())
             {
                 _npcFaction.DeAggroEntity((pet, factionException), hostile);
             }
@@ -196,6 +218,7 @@ public sealed class PetActionsSystem : EntitySystem
         follower.Commander = null;
         follower.IsFollowing = false;
         follower.IsStaying = false;
+        follower.AttackMode = false;
         follower.WasAutoHeld = false;
         follower.NoPathAccumulator = 0f;
         follower.PetActionEntities.Clear();

@@ -1,4 +1,3 @@
-verb-categories-follow = Command
 verb-categories-tame = Tame
 
 follower-verb-follow = Follow
@@ -18,6 +17,8 @@ follower-attack-mode = Attack mode enabled! Click on a target to attack.
 follower-released = Pet has been released.
 follower-cant-attack-owner = You can't command your pet to attack you!
 follower-cant-attack-pet = You can't command your pet to attack another pet!
+follower-attack-mode-on = Attack mode enabled! Click on a target to attack.
+follower-attack-mode-off = Attack mode disabled.
 
 taming-verb-tame = Tame
 taming-verb-already-tamed = Already tamed

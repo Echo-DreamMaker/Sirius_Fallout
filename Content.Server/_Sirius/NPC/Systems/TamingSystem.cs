@@ -331,11 +331,11 @@ public sealed class TamingSystem : EntitySystem
         RemovePetActions(tamer, follower);
 
         string[] actionPrototypes = new string[]
-        {
+    {
         "ActionPetFollowStay",
-        "ActionPetAttack",
+        "ActionPetAttackCancel",
         "ActionPetRelease"
-        };
+    };
 
         foreach (var proto in actionPrototypes)
         {
