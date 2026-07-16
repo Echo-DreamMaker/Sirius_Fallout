@@ -22,4 +22,16 @@ public sealed partial class SiriusFollowerComponent : Component
 
     [DataField]
     public float NoPathTimeoutSeconds = 15f;
+
+    [DataField]
+    public bool IsTamed = false;
+
+    [DataField]
+    public EntityUid? Tamer;
+
+    [DataField]
+    public List<EntityUid> PetActionEntities = new();
+
+    [DataField]
+    public bool IsStaying = false;
 }

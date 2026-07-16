@@ -1,0 +1,41 @@
+- type: entity
+  id: ActionPetFollowStay
+  name: Follow
+  description: Toggle between following and wandering.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 1
+    icon:
+      sprite: Interface/Actions/actions_rat_king.rsi
+      state: follow
+    iconOn:
+      sprite: Interface/Actions/actions_rat_king.rsi
+      state: stay
+    event: !type:PetFollowStayActionEvent
+
+- type: entity
+  id: ActionPetAttack
+  name: Attack Target
+  description: Command your pet to attack a target you point at.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 1
+    icon:
+      sprite: Interface/Actions/actions_rat_king.rsi
+      state: attack
+    event: !type:PetAttackActionEvent
+
+- type: entity
+  id: ActionPetRelease
+  name: Release
+  description: Release your pet back into the wild.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 1
+    icon:
+      sprite: Interface/Actions/actions_rat_king.rsi
+      state: loose
+    event: !type:PetReleaseActionEvent

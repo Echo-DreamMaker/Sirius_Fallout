@@ -1,9 +1,9 @@
 - type: entity
-  name: friendly wasteland animal
-  abstract: true
-  id: N14MobBaseFriendly
-  parent: N14MobBaseSimple
-  description: A friendly wasteland animal. It seems to trust you.
+  name: brahmin
+  parent: N14MobBrahmin
+  id: N14MobBrahminFriendly
+  description: Moo? It seems friendly and approachable.
+  suffix: Friendly
   components:
   - type: NpcFactionMember
     factions:
@@ -11,6 +11,30 @@
     - Passive
     friendlyOrderable: true
   - type: SiriusFollower
+  - type: Tameable
+    favoriteFoods:
+    - N14FoodCarrot
+    - N14FoodApple
+    - N14FoodCorn
+    likedFoods:
+    - N14FoodPotato
+    - N14FoodCabbage
+    - N14FoodOnion
+    - N14CookedFoodBreadPlain
+    - N14CookedFoodBreadCorn
+    dislikedFoods:
+    - N14FoodMeatBrahmin
+    - N14FoodMeatRadstag
+    - N14FoodMeatBighorner
+    - N14FoodMeatRadhog
+    - N14FoodMeatPigrat
+    - N14FoodMeatYaoguai
+    baseTameChance: 0.3
+    favoriteMultiplier: 2.0
+    likedMultiplier: 1.5
+    dislikedMultiplier: 0.5
+    minCharisma: 3
+    tamingTime: 3.0
   - type: HTN
     rootTask:
       task: RuminantFollowCompound
@@ -39,36 +63,6 @@
     thresholds:
       0: Alive
       75: Dead
-
-- type: entity
-  name: brahmin
-  parent: N14MobBrahmin
-  id: N14MobBrahminFriendly
-  description: Moo? It seems friendly and approachable.
-  suffix: Friendly
-  components:
-  - type: NpcFactionMember
-    factions:
-    - N14FriendlyAnimal
-    - Passive
-    friendlyOrderable: true
-  - type: SiriusFollower
-  - type: HTN
-    rootTask:
-      task: RuminantFollowCompound
-    blackboard:
-      NavSmash: !type:Bool
-        false
-      FollowRange: !type:Single
-        3.0
-      FollowCloseRange: !type:Single
-        1.0
-      IdleRange: !type:Single
-        5.0
-  - type: NPCRetaliation
-    attackMemoryLength: 10
-    retaliateFriendlies: false
-  - type: FactionException
   - type: Strap
     whitelist:
       requireAll: true
@@ -174,6 +168,30 @@
     - Passive
     friendlyOrderable: true
   - type: SiriusFollower
+  - type: Tameable
+    favoriteFoods:
+    - N14FoodApple
+    - N14FoodCarrot
+    - N14FoodBerries
+    likedFoods:
+    - N14FoodCorn
+    - N14FoodPotato
+    - N14FoodCabbage
+    - N14FoodOnion
+    - N14CookedFoodBreadPlain
+    - N14CookedFoodBreadCorn
+    dislikedFoods:
+    - N14FoodMeatRadstag
+    - N14FoodMeatBrahmin
+    - N14FoodMeatBighorner
+    - N14FoodMeatRadhog
+    - N14FoodMeatPigrat
+    baseTameChance: 0.3
+    favoriteMultiplier: 2.0
+    likedMultiplier: 1.5
+    dislikedMultiplier: 0.5
+    minCharisma: 4
+    tamingTime: 3.0
   - type: HTN
     rootTask:
       task: RuminantFollowCompound
@@ -262,6 +280,31 @@
     - Passive
     friendlyOrderable: true
   - type: SiriusFollower
+  - type: Tameable
+    favoriteFoods:
+    - N14FoodCheese
+    - N14FoodCorn
+    - N14CookedFoodPizzaMargheritaSlice
+    likedFoods:
+    - N14FoodCarrot
+    - N14FoodApple
+    - N14FoodPotato
+    - N14CookedFoodBreadPlain
+    - N14CookedFoodBreadCorn
+    - N14CookedFoodDonutPlain
+    dislikedFoods:
+    - N14FoodMeatRadhog
+    - N14FoodMeatPigrat
+    - N14FoodMeatYaoguai
+    - N14FoodMeatRadscorpion
+    - N14FoodMeatGecko
+    - N14FoodMeatRadroachFillet
+    baseTameChance: 0.35
+    favoriteMultiplier: 2.0
+    likedMultiplier: 1.5
+    dislikedMultiplier: 0.5
+    minCharisma: 2
+    tamingTime: 2.5
   - type: HTN
     rootTask:
       task: FollowCompound
@@ -282,3 +325,18 @@
     thresholds:
       0: Alive
       70: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 3.5
+  - type: Puller
+    needsHands: true
+  - type: Butcherable
+    spawned:
+    - id: N14FoodMeatPigrat
+      amount: 2
+    - id: N14MaterialRawLeather1
+      amount: 1
+      prob: 0.5
+  - type: Tag
+    tags:
+    - Molerat
