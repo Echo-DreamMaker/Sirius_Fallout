@@ -14,7 +14,10 @@
     - !type:CharacterSpeciesRequirement
       species:
       - Human
-    # #Misfits Change: Explorer is now open to Female characters.
+    - !type:CharacterSexRequirement
+      sex: Male
+    - !type:CharacterGenderRequirement
+      gender: Male
   startingGear: CaesarLegionExplorerGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerVenator"

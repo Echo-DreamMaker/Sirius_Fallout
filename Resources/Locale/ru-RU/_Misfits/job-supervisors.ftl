@@ -5,9 +5,9 @@ job-supervisors-enclave-commander = Высшему командованию Ан
 job-supervisors-enclave-senior-officer = Командиру Анклава
 job-supervisors-enclave-junior-officer = Старшим офицерам и Командиру
 job-supervisors-enclave-nco = офицерам и Командиру
-job-supervisors-enclave-head-scientist = Командиру Анклава и вашему исследовательскому мандату
-job-supervisors-enclave-scientist = Директору исследований и офицерам
-job-supervisors-enclave-junior-scientist = учёным и Директору исследований
+job-supervisors-enclave-head-scientist = Командиру Анклава и вашему мандату
+job-supervisors-enclave-scientist = Администратору и офицерам
+job-supervisors-enclave-junior-scientist = специалистам, Администратору и офицерам
 job-supervisors-synthetic = вашему программированию и вашему собственному мнению
 
 # #Misfits Add - Rangers admin-only leadership role.

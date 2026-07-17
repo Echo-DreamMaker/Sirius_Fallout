@@ -169,3 +169,20 @@
     icon: Interface/VerbIcons/anchor.svg.192dpi.png
     checkConsciousness: false
     event: !type:StationAiHoldSelectedNpcsActionEvent
+
+- type: entity
+  id: ActionStationAiHackCamera
+  name: Hack camera
+  description: Remotely hacks a visible camera into the Z.A.X camera network.
+  components:
+  - type: EntityTargetAction
+    priority: -27
+    itemIconStyle: BigAction
+    icon: Interface/VerbIcons/zap.svg.192dpi.png
+    checkCanInteract: false
+    checkConsciousness: false
+    checkCanAccess: false
+    range: 0
+    repeat: true
+    deselectOnMiss: false
+    event: !type:StationAiHackCameraActionEvent

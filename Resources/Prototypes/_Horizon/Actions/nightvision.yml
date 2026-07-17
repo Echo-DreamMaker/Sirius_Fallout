@@ -1,0 +1,27 @@
+- type: entity
+  id: NVToggleAction
+  name: Переключение ПНВ
+  description: Переключает ваше ПНВ
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Horizon/Objects/Specific/Medical/implants.rsi
+      state: eyes_night
+    event: !type:NVInstantActionEvent
+    useDelay: 0.5
+    checkCanInteract: false
+
+- type: entity
+  id: SwitchNightVision
+  name: Переключение ночного зрения
+  description: Переключает ночное зрение
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Horizon/Objects/Specific/Medical/implants.rsi
+      state: eyes_thermal
+    event: !type:NVInstantActionEvent
+    useDelay: 0.5
+    checkCanInteract: false

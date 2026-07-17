@@ -18,25 +18,38 @@ job-description-ncr-nco = Вы возглавляете отряд солдат 
 job-name-ncr-weapon-specialist = Оружейный специалист НКР
 job-description-ncr-weapon-specialist = Вы являетесь квалифицированным специалистом по вооружению НКР. Ваша цель — огневая мощь и боевая эффективность, а не командование. По мере накопления опыта ваш ранг повышается от PV2 до SPC.
 
+job-name-ncr-requisition-officer = Офицер снабжения НКР
+job-description-ncr-requisition-officer = Вы являетесь квартирмейстером и офицером по реквизиции НКР, обслуживаете армейское снаряжение и контролируете распределение ресурсов.
+
+job-name-ncr-citizen = Гражданин НКР
+job-description-ncr-citizen = Вы гражданин НКР, приехавший на восток на заработки, чтобы помогать военным в качестве гражданского подрядчика.
+
+job-name-ncr-trader = Торговец НКР
+job-description-ncr-trader = Вы - караванщик и гражданин НКР, обслуживающий торговые пути республики.
+
 # #Misfits Add - Enclave job locale (expanded 8-role hierarchy). Reformer is admin-only apex role.
 job-name-enclave-reformer = Губернатор Штата
 job-description-enclave-reformer = Вы — высший авторитет Анклава, губернатор этой земли. Формируйте доктрину ячейки, судите её членов и определяйте её будущее. Подотчётен только Президенту.
 job-name-enclave-commander = Командир Анклава
-job-description-enclave-commander = Руководите ячейкой Анклава с абсолютной властью, координируйте военную и научную отрасли, а также обеспечивайте оперативную безопасность.
+job-description-enclave-commander = Руководите ячейкой Анклава с абсолютной властью, координируйте военную и гражданскую отрасли, а также обеспечивайте оперативную безопасность. Вы подчиняетесь губернатору местного штата.
 job-name-enclave-senior-officer = Старший офицер Анклава
 job-description-enclave-senior-officer = Служите правой рукой командующего, руководя полевыми операциями и управляя подчиненными офицерами.
 job-name-enclave-junior-officer = Младший офицер Анклава
 job-description-enclave-junior-officer = Возглавьте отряды на местах, выполняйте задачи миссий и устраняйте разрыв между сержантами и старшим командованием.
-job-name-enclave-nco = Сержант Анклава
-job-description-enclave-nco = Ваша задача - поддерживать дисциплину, обучать личный состав, обеспечивать тактическую готовность на местах.
+job-name-enclave-nco = Командир отряда Анклава
+job-description-enclave-nco = Ваша задача - поддерживать дисциплину, обучать личный состав, обеспечивать тактическую готовность на местах. Вы также командуете своим отрядом в полевых условиях.
 job-name-enclave-enlisted = Солдат Анклава
 job-description-enclave-enlisted = Станьте передовым солдатом Анклава, выполняйте приказы и миссии.
-job-name-enclave-head-scientist = Директор исследований Анклава
-job-description-enclave-head-scientist = Руководит исследовательскими программами Анклава, наблюдает за младшими учёными и консультирует командование по техническим вопросам.
-job-name-enclave-scientist = Учёный Анклава
-job-description-enclave-scientist = Проводите полевые исследования, обслуживайте современное оборудование и поддерживайте научную миссию ячейки.
-job-name-enclave-junior-scientist = Лаборант Анклава
-job-description-enclave-junior-scientist = Помогайте старшим ученым, изучайте протоколы Анклава и вносите вклад в текущие исследования.
+job-name-enclave-head-scientist = Администратор Анклава
+job-description-enclave-head-scientist = Руководит гражданской секцией бункера Анклава, наблюдает за гражданским персоналом и консультирует командование по техническим и бюрократическим вопросам.
+job-name-enclave-scientist = Специалист Анклава
+job-description-enclave-scientist = Специалист широкого профиля. Обладает познаниями в науке, медицине и инженерии. Может браться как за полевую, так и за бункерную работу.
+job-name-enclave-junior-scientist = Рабочий Анклава
+job-description-enclave-junior-scientist = Помогайте поддерживать бункер в рабочем состоянии. Работайте на кухне, поддерживайте чистоту, чините мелкие поломки и помогайте специалистам в их работе.
+
+# #Misfits Add - EnclaveRecruit: hidden job for per-round recruitment tracking.
+job-name-enclave-recruit = Рекрут Анклава
+job-description-enclave-recruit = Набор в Анклав производится за каждый раунд. Игровое время здесь учитывается при подсчете времени отдела Анклава.
 
 # Synthetics
 # #Misfits Add - Chief Ranger: admin-only Rangers leadership role.
@@ -135,7 +148,7 @@ job-description-bos-initiate = Изучите кодекс Братства, в�
 # #Misfits Add — Squire loadout kit locale for new Misfits_SqrBasic_Set.
 # #Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
 undecided-loadout-category-misfits-sqr-basic-name = Базовый комплект
-undecided-loadout-category-misfits-sqr-basic-description = 
+undecided-loadout-category-misfits-sqr-basic-description =
     A cache containing belongings of a Brotherhood chapter member.
     Includes 1 AEP-7, 2 energy cells, 1 combat knife, 1 roll of gauze,
     1 stimpak, and 1 K ration MRE.
@@ -143,8 +156,19 @@ undecided-loadout-category-misfits-sqr-basic-description =
 # #Misfits Tweak: Paladin-tier kit reverted from Wattz 2000 back to Bozar.
 # #Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
 undecided-loadout-category-misfits-pal-wattz-name = Бозар Кит
-undecided-loadout-category-misfits-pal-wattz-description = 
+undecided-loadout-category-misfits-pal-wattz-description =
     A cache containing belongings of a Brotherhood chapter member.
     Includes 1 Bozar, 3 rifle magazines, 1 12.7mm pistol,
     2 12.7mm pistol magazines, 1 roll of gauze, 1 stimpak,
     and 1 K ration MRE.
+
+# Tribal Robot
+job-name-synthetic-protectron-tribal = Протектрон Душевный-Ткач
+job-description-synthetic-protectron-tribal = Сельскохозяйственный робот, который был принят местным племенем и модифицирован на протяжении десятилетий или столетий.
+
+# Legion Acolyte of Mars
+job-name-caesar-legion-Acolyte-of-mars = Послушница Марса
+job-description-caesar-legion-Acolyte-of-mars = Вы - преданная служительница Марса, вы подчиняетесь непосредственно Жрице.
+
+job-name-bos-off-duty = Внештатник Братства
+job-description-bos-off-duty = Вы являетесь членом Братства Стали, не состоящим на службе. От вас не требуется участия в боевых операциях, вы также не должны входить в бункер, если только вам не угрожает опасность.

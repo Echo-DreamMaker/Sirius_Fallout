@@ -19,20 +19,18 @@
           overflowJobs:
             - Wastelander
           availableJobs:
-            #SuperMutantEnclave : [ 0, 0 ] # #Misfits Add - Enclave-aligned supermutant latejoin slot.
             #SuperMutantFollowerDoctor: [ 0, 0 ] # #Misfits Add: FOTA-aligned supermutant Doctor latejoin slot.
             Wastelander: [ -1, -1 ]
             SuperMutant: [ 2, 3 ] # #Misfits Change /Fix/: make the FEV Mutant role available for mid-round joins.
-            #SuperMutantGladiator: [ 0, 0 ] # #Misfits Add: Gladiator variant latejoin slot.
             #SuperMutantNCRRanger: [ 0, 0 ] # #Misfits Add: NCR Ranger variant latejoin slot.
             #SuperMutantNCRTrooper: [ 0, 0 ] # #Misfits Add: NCR Trooper variant latejoin slot.
             SuperMutantTribal: [ 1, 1 ] # #Misfits Add: Tribal variant latejoin slot.
             C27: [ 0, 1 ]    # #Misfits Add - C-27 Generic latejoin slot (whitelist gates actual access)/// Increased to 2 from 1.
-            C27NCR: [ 1, 0 ] # #Misfits Add - C-27 NCR variant latejoin slot.
-            C27BoS: [ 1, 0 ] # #Misfits Add - C-27 Brotherhood variant latejoin slot.
-            # WastelandScavenger: [ 3, 5 ]
+            #C27NCR: [ 0, 0 ] # #Misfits Add - C-27 NCR variant latejoin slot.
+            #C27BoS: [ 0, 0 ] # #Misfits Add - C-27 Brotherhood variant latejoin slot.
+            # WastelandScavenger: [ 0, 0 ]
             WastelandReporter: [ 1, 2 ]
-            # WastelandMusician: [ 2, 3 ]
+            # WastelandMusician: [ 0, 0 ]
             WastelandFarmer: [ 2, 3 ]
             WastelandChaplain: [ 1, 1 ]
             WastelandBartender: [ 1, 2 ]
@@ -50,13 +48,14 @@
             Townsperson: [ 12, 12 ]
             #NCRMajor: [ 0, 1 ] # #Misfits Add - whitelist-only command role; 0 active late-join slots
             NCRCommander: [ 1, 1 ] # #Sirius Add - whitelist-only command role; 0 active late-join slots
-            NCRExecutiveOfficer: [ 1, 1 ]
-            NCRPlatoonLeader: [ 2, 2 ]
-            NCRChiefRanger: [ 1, 1 ]  # #Misfits Change - admin-only Chief Ranger; renamed from ChiefRanger
-            NCRVeteranRanger: [ 1, 1 ] # #Misfits Change - renamed from RangerVeteran
-            NCRFieldRanger: [ 1, 1 ]   # #Misfits Add - Field Ranger slot
-            NCRPatrolRanger: [ 2, 2 ]  # #Misfits Change - renamed from RangerRecruit (was Patrol Ranger by FTL)
-            NCRRangerRecruit: [ 2, 2 ] # #Misfits Add - entry-level Ranger Recruit slot
+            NCRExecutiveOfficer: [ 1, 1 ] # #Misfits Add - EXO slot
+            NCRPlatoonLeader: [ 1, 1 ] # #Sirius Add - Field Officer slot
+            NCRRO: [ 1, 1 ] # #Misfits Add - NCR QM slot
+            #NCRChiefRanger: [ 1, 1 ]  # #Misfits Change - admin-only Chief Ranger; renamed from ChiefRanger
+            #NCRVeteranRanger: [ 1, 1 ] # #Misfits Change - renamed from RangerVeteran
+            #NCRFieldRanger: [ 1, 1 ]   # #Misfits Add - Field Ranger slot
+            #NCRPatrolRanger: [ 2, 2 ]  # #Misfits Change - renamed from RangerRecruit (was Patrol Ranger by FTL)
+            #NCRRangerRecruit: [ 2, 2 ] # #Misfits Add - entry-level Ranger Recruit slot
             #NCRFirstSergeant: [ 1, 1 ]
             #NCRStaffSergeant: [ 1, 1 ] # #Misfits Removed - replaced by NCRHeavyTrooper as T5 specialist slot
             NCRHeavyTrooper: [ 2, 2 ] # #Misfits Add - Heavy Trooper: 2 slots, between Specialist and Sergeant
@@ -84,17 +83,17 @@
             # BoSWashingtonKnight: [ 2, 2 ]
             # BoSWashingtonInitiate: [ 0, 2 ]
             BoSMidPaladinCommander: [ 1, 1 ]
-            BoSHeadKnight: [ 1, 1 ]  #Misfits Change /Add/: New consolidated BoS jobs
-            BoSWestScribe: [ 1, 1 ] # Misfits Change
+            # BoSHeadKnight: [ 1, 1 ]  #Misfits Change /Add/: New consolidated BoS jobs
+            # BoSWestScribe: [ 1, 1 ] # Misfits Change
             BoSMidPaladin: [ 1, 1 ]  #Misfits Tweak: 1 slot — Senior Paladin is a rare rank
             BoSMidKnight: [ 1, 1 ]
             BoSMidScribe: [ 1, 1 ]
             BoSPaladin: [ 2, 2 ]  #Misfits Tweak: 3 slots — standard Paladin complement
             BoSKnight: [ 3, 3 ]  #Misfits Change /Add/
-            BoSScribe: [ 3, 3 ]  #Misfits Change /Add/
-            BoSMidSquire: [ 4, 4 ]
-            BoSInitiate: [ 3, 3 ]  #Misfits Change /Add/
-            BoSMidSerf: [ 6, 6 ]
+            BoSScribe: [ 2, 2 ]  #Misfits Change /Add/
+            BoSMidSquire: [ 3, 3 ]
+            BoSInitiate: [ 2, 2 ]  #Misfits Change /Add/
+            BoSMidSerf: [ 5, 5 ]
             # BoSWashingtonInitiate: [ 3, 3 ] #Misfits Change /Comment-out/: Washington BoS removed
             VaultManagement: [ 1, 1 ] # #Misfits Tweak - 0 active slots (admin-notify role)
             Overseer: [ 1, 1 ]
@@ -144,10 +143,11 @@
             EnclaveReformer: [ 1, 1 ]      # admin-only leader (The Reformer); 0 active latejoin slots
             EnclaveCommander: [ 1, 1 ]
             EnclaveSeniorOfficer: [ 1, 1 ]
+            EnclaveCommunicationsOfficer: [ 1, 1 ]
             EnclaveJuniorOfficer: [ 2, 2 ]
             EnclaveNCO: [ 4, 4 ]
-            EnclaveEnlisted: [ 8, 8 ]
+            EnclaveEnlisted: [ 9, 9 ]
             EnclaveHeadScientist: [ 1, 1 ]
-            EnclaveScientist: [ 3, 3 ]
+            EnclaveScientist: [ 2, 2 ]
             EnclaveJuniorScientist: [ 3, 3 ]
-            SuperMutantEnclave: [ 1, 1 ]
+            # SuperMutantEnclave: [ 0, 0 ] # #Misfits Add - Enclave-aligned supermutant latejoin slot

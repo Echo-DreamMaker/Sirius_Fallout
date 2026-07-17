@@ -72,6 +72,21 @@
   - type: TimedDespawn
     lifetime: 0.05
 
+# Visual-only flamer spew projectile — no damage, no ignite, just sprite + light.
+- type: entity
+  id: FlamerSpew
+  parent: BaseFire
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Projectile
+    impactEffect: null
+    damage: {}
+    soundHit: null
+  - type: IgniteOnCollide
+    fireStacks: 0
+
 - type: entity
   id: BaseFireExplosiveProjectile
   name: fire

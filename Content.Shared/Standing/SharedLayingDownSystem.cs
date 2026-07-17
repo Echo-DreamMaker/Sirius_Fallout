@@ -9,6 +9,7 @@ using Content.Shared.Body.Components;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Standing;
 using Content.Shared.Popups;
+using Content.Shared._Misfits.C27;
 using Content.Shared.Silicon.Components;
 using Content.Shared.Stunnable;
 using Robust.Shared.Configuration;
@@ -134,10 +135,11 @@ public abstract class SharedLayingDownSystem : EntitySystem
         var modifier = component.LyingSpeedModifier * (component.IsCrawlingUnder ? component.CrawlingUnderSpeedModifier : 1);
 
         // Misfits Add: apply additional speed penalty when crawling while in Critical state
-        // Only players (not NPCs) crit crawl, and robots/silicons never crit crawl
+        // Only players (not NPCs) crit crawl, and robots/silicons/C27s never crit crawl
         if (_mobState.IsCritical(uid)
             && HasComp<ActorComponent>(uid)
-            && !HasComp<SiliconComponent>(uid))
+            && !HasComp<SiliconComponent>(uid)
+            && !HasComp<MisfitsC27Component>(uid))
             modifier *= component.CritCrawlSpeedModifier;
 
         args.ModifySpeed(modifier, modifier);

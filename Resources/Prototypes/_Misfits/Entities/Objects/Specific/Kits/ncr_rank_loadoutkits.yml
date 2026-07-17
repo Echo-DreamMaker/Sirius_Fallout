@@ -1,9 +1,10 @@
 #Misfits Change /Add/: NCR rank-specific loadout kit flavors.
 
+# #Misfits Add - MSL kit and mantle sprites credited to Pinky109.
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_PFCFireteamSet
   name: undecided-loadout-category-misfits-ncra-pfc-fireteam-name
-  description: undecided-loadout-category-misfits-ncra-pfc-fireteam-description
+#  description: undecided-loadout-category-misfits-ncra-pfc-fireteam-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: pointman
@@ -13,7 +14,7 @@
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_CorporalPatrolSet
   name: undecided-loadout-category-misfits-ncra-corporal-patrol-name
-  description: undecided-loadout-category-misfits-ncra-corporal-patrol-description
+#  description: undecided-loadout-category-misfits-ncra-corporal-patrol-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: marksman
@@ -23,7 +24,7 @@
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_StaffSergeantLineSet
   name: undecided-loadout-category-misfits-ncra-staff-sergeant-line-name
-  description: undecided-loadout-category-misfits-ncra-staff-sergeant-line-description
+#  description: undecided-loadout-category-misfits-ncra-staff-sergeant-line-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: rifleman
@@ -31,9 +32,19 @@
   - KitNCR_StaffSergeantLine
 
 - type: UndecidedLoadoutBackpackSet
+  id: NCRA_SGTMSLSet
+  name: undecided-loadout-category-misfits-ncra-sgt-msl-name
+#  description: undecided-loadout-category-misfits-ncra-sgt-msl-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: pointman
+  content:
+  - KitNCR_SGTMSL
+
+- type: UndecidedLoadoutBackpackSet
   id: NCRA_FirstSergeantVeteranSet
   name: undecided-loadout-category-misfits-ncra-first-sergeant-veteran-name
-  description: undecided-loadout-category-misfits-ncra-first-sergeant-veteran-description
+#  description: undecided-loadout-category-misfits-ncra-first-sergeant-veteran-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: pointman
@@ -43,7 +54,7 @@
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_CaptainCommandSet
   name: undecided-loadout-category-misfits-ncra-captain-command-name
-  description: undecided-loadout-category-misfits-ncra-captain-command-description
+#  description: undecided-loadout-category-misfits-ncra-captain-command-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: rifleman
@@ -53,7 +64,7 @@
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_CaptainMarksmanSet
   name: undecided-loadout-category-misfits-ncra-captain-marksman-name
-  description: undecided-loadout-category-misfits-ncra-captain-marksman-description
+#  description: undecided-loadout-category-misfits-ncra-captain-marksman-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: marksman
@@ -64,7 +75,7 @@
   name: private first class fireteam kit
   parent: KitBase
   id: KitNCR_PFCFireteam
-  description: A crate containing trusted fireteam gear for a dependable NCR private first class.
+#  description: A crate containing trusted fireteam gear for a dependable NCR private first class.
   components:
   - type: Sprite
     state: pointman
@@ -93,7 +104,7 @@
   name: specialist patrol leader kit # #Misfits Tweak - renamed from corporal
   parent: KitBase
   id: KitNCR_CorporalPatrol
-  description: A crate containing field leadership gear for an NCR specialist tasked with pushing scouts and screening a column.
+#  description: A crate containing field leadership gear for an NCR specialist tasked with pushing scouts and screening a column.
   components:
   - type: Sprite
     state: marksman
@@ -124,7 +135,7 @@
   name: staff sergeant linebreaker kit
   parent: KitBase
   id: KitNCR_StaffSergeantLine
-  description: A crate containing veteran line gear for an NCR staff sergeant expected to steady a wavering push.
+#  description: A crate containing veteran line gear for an NCR staff sergeant expected to steady a wavering push.
   components:
   - type: Sprite
     state: rifleman
@@ -151,10 +162,45 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
+  name: squad leader msl kit
+  parent: KitBase
+  id: KitNCR_SGTMSL
+##  description: A crate containing an NCR squad leader's MSL package: custom mantle, trench shotgun, close-range ammunition, and a combat-stim field dose.
+  components:
+  - type: Sprite
+    state: pointman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: MisfitsNCRMSLUniform
+      - id: MisfitsNCRMSLHelmet
+      - id: MisfitsNCRMSLGloves
+      - id: MisfitsNCRMSLBoots
+      - id: MisfitsNCRMSLMask
+      - id: MisfitsNCRMSLArmor
+      - id: ClothingBeltNCRShotgunner
+      - id: N14WeaponShotgunTrench
+      - id: N14MagazineShotgun12
+        amount: 4
+      - id: N14WeaponPistol9mm
+      - id: N14MagazinePistol9mm
+        amount: 2
+      - id: RadioHandheld
+      - id: SmokeGrenade
+      - id: N14BoxCardboardMREBoxCFilled
+      - id: N14Stimpak
+      - id: N14Psycho
+      - id: N14CleanGauze10
+      - id: N14Flare
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
   name: sergeant first class veteran kit
   parent: KitBase
   id: KitNCR_FirstSergeantVeteran
-  description: A crate containing campaign-proven command gear for a sergeant first class who leads by example.
+#  description: A crate containing campaign-proven command gear for a sergeant first class who leads by example.
   components:
   - type: Sprite
     state: pointman
@@ -185,7 +231,7 @@
   name: captain command kit
   parent: KitBase
   id: KitNCR_CaptainCommand
-  description: A crate containing stronger command gear for an NCR captain who may need to hold the line personally.
+#  description: A crate containing stronger command gear for an NCR captain who may need to hold the line personally.
   components:
   - type: Sprite
     state: rifleman
@@ -217,7 +263,7 @@
   name: captain frontier marksman kit
   parent: KitBase
   id: KitNCR_CaptainMarksman
-  description: A crate containing a precision marksman package for an NCR captain — the Republic's Pride scoped M1C, issued to scout captains by the Gunrunners.
+#  description: A crate containing a precision marksman package for an NCR captain — the Republic's Pride scoped M1C, issued to scout captains by the Gunrunners.
   components:
   - type: Sprite
     state: marksman
@@ -245,7 +291,7 @@
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_CaptainServiceRifleSet
   name: undecided-loadout-category-misfits-ncra-captain-service-rifle-name
-  description: undecided-loadout-category-misfits-ncra-captain-service-rifle-description
+#  description: undecided-loadout-category-misfits-ncra-captain-service-rifle-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: rifleman
@@ -256,7 +302,7 @@
   name: captain field officer kit
   parent: KitBase
   id: KitNCR_CaptainServiceRifle
-  description: A crate containing field officer gear for an NCR captain who favors the service rifle on the front line.
+#  description: A crate containing field officer gear for an NCR captain who favors the service rifle on the front line.
   components:
   - type: Sprite
     state: rifleman

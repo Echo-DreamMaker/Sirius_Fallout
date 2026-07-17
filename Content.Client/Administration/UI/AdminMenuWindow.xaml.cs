@@ -38,6 +38,8 @@ public sealed partial class AdminMenuWindow : DefaultWindow
         MasterTabContainer.SetTabTitle((int) TabIndex.Staff, Loc.GetString("misfits-admin-menu-staff-tab"));
         // #Misfits Change - LoreMaster tab (faction objective management)
         MasterTabContainer.SetTabTitle((int) TabIndex.LoreMaster, Loc.GetString("misfits-admin-menu-loremaster-tab"));
+        // #Misfits Change - Door Logs tab
+        MasterTabContainer.SetTabTitle((int) TabIndex.DoorLogs, Loc.GetString("misfits-admin-menu-door-logs-tab"));
         MasterTabContainer.OnTabChanged += OnTabChanged;
 
         // #Misfits Add — subscribe to ticket events for badge count on Staff tab
@@ -111,5 +113,6 @@ public sealed partial class AdminMenuWindow : DefaultWindow
         Staff, // #Misfits Change
         // TicketStats removed — stats are now squished into the Staff tab
         LoreMaster, // #Misfits Change
+        DoorLogs, // #Misfits Change
     }
 }

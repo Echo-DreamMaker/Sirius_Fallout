@@ -297,6 +297,11 @@ public sealed class FactionWarParticipantInfo
     public byte Side;
     public string WarKey = string.Empty;
     public bool Surrendered;
+    /// <summary>
+    /// #Misfits Add - Observer participants can see overlay tags but don't get one rendered on them.
+    /// Used by admins to monitor wars without appearing as [ALLY]/[ENEMY].
+    /// </summary>
+    public bool IsObserver;
 }
 
 /// <summary>
@@ -360,6 +365,28 @@ public sealed class PlayerWarSurrenderRequestEvent : EntityEventArgs { }
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class FactionWarSurrenderResultEvent : EntityEventArgs
+{
+    public bool   Success = false;
+    public string Message = string.Empty;
+}
+
+// ── /forceobservewar admin network messages ──────────────────────────────
+
+/// <summary>
+/// #Misfits Add - Client → server. Admin requests to observe a war from a participant's perspective.
+/// The admin sending the request IS the observer — no need to specify separately.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class PlayerWarForceObserveRequestEvent : EntityEventArgs
+{
+    public NetUserId Participant;
+}
+
+/// <summary>
+/// #Misfits Add - Server → the requesting admin client. Result feedback for the forceobservewar GUI.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class FactionWarForceObserveResultEvent : EntityEventArgs
 {
     public bool   Success = false;
     public string Message = string.Empty;

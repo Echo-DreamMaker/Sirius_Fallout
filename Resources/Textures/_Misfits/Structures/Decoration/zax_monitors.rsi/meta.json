@@ -8,7 +8,8 @@
   },
   "states": [
     {
-      "name": "eye1_left"
+      "name": "eye1_left",
+      "directions": 4
     },
     {
       "name": "eye1_left_body"
@@ -23,7 +24,8 @@
       ]
     },
     {
-      "name": "eye1_right"
+      "name": "eye1_right",
+      "directions": 4
     },
     {
       "name": "eye1_right_body"
@@ -38,7 +40,8 @@
       ]
     },
     {
-      "name": "eye2_left"
+      "name": "eye2_left",
+      "directions": 4
     },
     {
       "name": "eye2_left_body"
@@ -53,7 +56,8 @@
       ]
     },
     {
-      "name": "eye2_right"
+      "name": "eye2_right",
+      "directions": 4
     },
     {
       "name": "eye2_right_body"
@@ -68,7 +72,8 @@
       ]
     },
     {
-      "name": "eye3_left"
+      "name": "eye3_left",
+      "directions": 4
     },
     {
       "name": "eye3_left_body"
@@ -83,7 +88,8 @@
       ]
     },
     {
-      "name": "eye3_right"
+      "name": "eye3_right",
+      "directions": 4
     },
     {
       "name": "eye3_right_body"
@@ -98,7 +104,8 @@
       ]
     },
     {
-      "name": "eye4_left"
+      "name": "eye4_left",
+      "directions": 4
     },
     {
       "name": "eye4_left_body"
@@ -113,7 +120,8 @@
       ]
     },
     {
-      "name": "eye4_right"
+      "name": "eye4_right",
+      "directions": 4
     },
     {
       "name": "eye4_right_body"
@@ -128,7 +136,8 @@
       ]
     },
     {
-      "name": "static_left"
+      "name": "static_left",
+      "directions": 4
     },
     {
       "name": "static_left_body"
@@ -143,7 +152,8 @@
       ]
     },
     {
-      "name": "static_right"
+      "name": "static_right",
+      "directions": 4
     },
     {
       "name": "static_right_body"

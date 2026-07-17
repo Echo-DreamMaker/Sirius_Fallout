@@ -52,9 +52,7 @@
   components:
   - type: Sprite
     layers:
-    - state: static_left_body
-    - state: static_left_glow
-      shader: unshaded
+    - state: static_left
 
 - type: entity
   parent: MisfitsZaxMonitorBase
@@ -63,9 +61,7 @@
   components:
   - type: Sprite
     layers:
-    - state: static_right_body
-    - state: static_right_glow
-      shader: unshaded
+    - state: static_right
 
 - type: entity
   parent: MisfitsZaxMonitorBase
@@ -74,9 +70,7 @@
   components:
   - type: Sprite
     layers:
-    - state: eye1_left_body
-    - state: eye1_left_glow
-      shader: unshaded
+    - state: eye1_left
 
 - type: entity
   parent: MisfitsZaxMonitorBase
@@ -85,9 +79,7 @@
   components:
   - type: Sprite
     layers:
-    - state: eye1_right_body
-    - state: eye1_right_glow
-      shader: unshaded
+    - state: eye1_right
 
 - type: entity
   parent: MisfitsZaxMonitorBase
@@ -96,9 +88,7 @@
   components:
   - type: Sprite
     layers:
-    - state: eye2_left_body
-    - state: eye2_left_glow
-      shader: unshaded
+    - state: eye2_left
 
 - type: entity
   parent: MisfitsZaxMonitorBase
@@ -107,9 +97,7 @@
   components:
   - type: Sprite
     layers:
-    - state: eye2_right_body
-    - state: eye2_right_glow
-      shader: unshaded
+    - state: eye2_right
 
 - type: entity
   parent: MisfitsZaxMonitorBase
@@ -118,9 +106,7 @@
   components:
   - type: Sprite
     layers:
-    - state: eye3_left_body
-    - state: eye3_left_glow
-      shader: unshaded
+    - state: eye3_left
 
 - type: entity
   parent: MisfitsZaxMonitorBase
@@ -129,9 +115,7 @@
   components:
   - type: Sprite
     layers:
-    - state: eye3_right_body
-    - state: eye3_right_glow
-      shader: unshaded
+    - state: eye3_right
 
 - type: entity
   parent: MisfitsZaxMonitorBase
@@ -140,9 +124,7 @@
   components:
   - type: Sprite
     layers:
-    - state: eye4_left_body
-    - state: eye4_left_glow
-      shader: unshaded
+    - state: eye4_left
 
 - type: entity
   parent: MisfitsZaxMonitorBase
@@ -151,9 +133,7 @@
   components:
   - type: Sprite
     layers:
-    - state: eye4_right_body
-    - state: eye4_right_glow
-      shader: unshaded
+    - state: eye4_right
 
 - type: entity
   parent: MisfitsZaxMonitorBase

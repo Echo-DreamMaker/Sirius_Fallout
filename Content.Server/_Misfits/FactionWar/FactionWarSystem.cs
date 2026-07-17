@@ -151,6 +151,12 @@ public sealed class FactionWarSystem : EntitySystem
     /// <summary>Participants who have surrendered, keyed by character entity.</summary>
     private readonly HashSet<NetEntity> _surrenderedParticipants = new();
 
+    /// <summary>
+    /// #Misfits Add - Observer participants can see overlay tags but don't get one rendered on them.
+    /// Used by admins to monitor wars without appearing as [ALLY]/[ENEMY].
+    /// </summary>
+    private readonly HashSet<NetEntity> _observerParticipants = new();
+
     // ── Performance gates ──────────────────────────────────────────────────
 
     private float _participantResyncAccumulator;
@@ -189,6 +195,14 @@ public sealed class FactionWarSystem : EntitySystem
             ForceWarJoinCommand,
             ForceWarJoinCompletion);
 
+        // #Misfits Add - Admin-only: observe a war without appearing as [ALLY]/[ENEMY].
+        _conHost.RegisterCommand(
+            "forceobservewar",
+            "Observe a war from a participant's perspective. See overlay tags without getting one yourself.",
+            "forceobservewar <observer_username> <war_participant_username>",
+            ForceObserveWarCommand,
+            ForceObserveWarCompletion);
+
         // Receive GUI form submissions from clients.
         SubscribeNetworkEvent<FactionWarOpenPanelRequestEvent>(OnPanelRequest);
         SubscribeNetworkEvent<PlayerWarDeclareRequestEvent>(OnDeclareRequest);
@@ -212,6 +226,7 @@ public sealed class FactionWarSystem : EntitySystem
         // Admin force-war GUI.
         SubscribeNetworkEvent<PlayerWarForceRequestEvent>(OnForceWarRequest);
         SubscribeNetworkEvent<PlayerWarForceCeasefireRequestEvent>(OnForceCeasefireRequest);
+        SubscribeNetworkEvent<PlayerWarForceObserveRequestEvent>(OnForceObserveRequest); // #Misfits Add
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeLocalEvent<MindContainerComponent, MindAddedMessage>(OnMindAdded);
@@ -1305,6 +1320,99 @@ public sealed class FactionWarSystem : EntitySystem
         };
     }
 
+    // #Misfits Add - Admin command to observe a war without appearing as [ALLY]/[ENEMY].
+    private void ForceObserveWarCommand(IConsoleShell shell, string argStr, string[] args)
+    {
+        if (shell.Player is { } player && !_adminManager.IsAdmin(player))
+        {
+            shell.WriteError("You must be an admin.");
+            return;
+        }
+
+        if (args.Length < 2)
+        {
+            shell.WriteError("Usage: forceobservewar <observer_username> <war_participant_username>");
+            return;
+        }
+
+        var observerId = ResolvePlayerIdentifier(args[0]);
+        var participantId = ResolvePlayerIdentifier(args[1]);
+
+        if (observerId == null || participantId == null)
+        {
+            shell.WriteError("Observer or participant player not found.");
+            return;
+        }
+
+        if (!TryGetSessionForPlayer(observerId.Value, out var observerSession) ||
+            observerSession.AttachedEntity is not { } observerEntity)
+        {
+            shell.WriteError("Observer player is not currently in-game with a character.");
+            return;
+        }
+
+        if (!TryGetSessionForPlayer(participantId.Value, out var participantSession) ||
+            participantSession.AttachedEntity is not { } participantEntity)
+        {
+            shell.WriteError("Participant player is not currently in-game with a character.");
+            return;
+        }
+
+        var participantNetEntity = GetNetEntity(participantEntity);
+        if (!_warParticipants.TryGetValue(participantNetEntity, out var participantEntry) ||
+            !_activeWars.TryGetValue(participantEntry.WarKey, out var war))
+        {
+            shell.WriteError("Participant player is not in a war.");
+            return;
+        }
+
+        var observerNetEntity = GetNetEntity(observerEntity);
+
+        // Remove from any existing war first.
+        if (_warParticipants.TryGetValue(observerNetEntity, out var oldEntry) &&
+            _activeWars.TryGetValue(oldEntry.WarKey, out var oldWar))
+        {
+            oldWar.Participants.Remove(observerNetEntity);
+        }
+
+        var side = participantEntry.Side;
+
+        // Track as observer - can see overlay tags but won't get one rendered.
+        war.Participants[observerNetEntity] = side;
+        _warParticipants[observerNetEntity] = (war.WarKey, side);
+        _observerParticipants.Add(observerNetEntity);
+        _surrenderedParticipants.Remove(observerNetEntity);
+
+        war.History.Add(new WarHistoryEvent
+        {
+            EventType = WarHistoryEventType.PlayerJoined,
+            OccurredAtUtc = DateTime.UtcNow,
+            ActorUserId = observerSession.UserId,
+            ActorUserName = observerSession.Name,
+            ActorCharacterName = Name(observerEntity),
+            Details = $"Admin-forced observer on side {side}"
+        });
+
+        BroadcastParticipants();
+        BroadcastWarState();
+        SendPanelDataToAll();
+
+        var sideName = side == 1 ? war.SideName1 : war.SideName2;
+        _chat.DispatchServerMessage(observerSession,
+            $"You are now observing the war from {sideName}'s perspective. You can see overlay tags but others cannot see yours.");
+        shell.WriteLine($"Forced {Name(observerEntity)} to observe the war from {sideName}'s side.");
+    }
+
+    private CompletionResult ForceObserveWarCompletion(IConsoleShell shell, string[] args)
+    {
+        return args.Length switch
+        {
+            1 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _playerManager), "<observer username>"),
+            2 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(players: _playerManager), "<war participant username>"),
+            _ => CompletionResult.Empty
+        };
+    }
+
     private void OnForceWarRequest(PlayerWarForceRequestEvent msg, EntitySessionEventArgs args)
     {
         var player = args.SenderSession;
@@ -1386,6 +1494,76 @@ public sealed class FactionWarSystem : EntitySystem
 
         RemoveWar(fcWar);
         RaiseNetworkEvent(new FactionWarForceResultEvent { Success = true, Message = "War ended.", IsCeasefire = true }, player);
+    }
+
+    // #Misfits Add - Admin GUI observe handler. The admin clicking the button IS the observer.
+    private void OnForceObserveRequest(PlayerWarForceObserveRequestEvent msg, EntitySessionEventArgs args)
+    {
+        var obsSess = args.SenderSession;
+
+        if (!_adminManager.IsAdmin(obsSess))
+        {
+            RaiseNetworkEvent(new FactionWarForceObserveResultEvent { Success = false, Message = "Admin only." }, obsSess);
+            return;
+        }
+
+        if (obsSess.AttachedEntity is not { } obsEntity)
+        {
+            RaiseNetworkEvent(new FactionWarForceObserveResultEvent { Success = false, Message = "You must be in-game with a character." }, obsSess);
+            return;
+        }
+
+        if (!TryGetSessionForPlayer(msg.Participant, out var partSess) || partSess.AttachedEntity is not { } partEntity)
+        {
+            RaiseNetworkEvent(new FactionWarForceObserveResultEvent { Success = false, Message = "Participant player is not in-game." }, obsSess);
+            return;
+        }
+
+        var partNetEntity = GetNetEntity(partEntity);
+        if (!_warParticipants.TryGetValue(partNetEntity, out var partEntry) ||
+            !_activeWars.TryGetValue(partEntry.WarKey, out var war))
+        {
+            RaiseNetworkEvent(new FactionWarForceObserveResultEvent { Success = false, Message = "Participant is not in an active war." }, obsSess);
+            return;
+        }
+
+        var obsNetEntity = GetNetEntity(obsEntity);
+
+        // Remove observer from any existing war first.
+        if (_warParticipants.TryGetValue(obsNetEntity, out var oldEntry) &&
+            _activeWars.TryGetValue(oldEntry.WarKey, out var oldWar))
+        {
+            oldWar.Participants.Remove(obsNetEntity);
+        }
+
+        var side = partEntry.Side;
+        war.Participants[obsNetEntity] = side;
+        _warParticipants[obsNetEntity] = (war.WarKey, side);
+        _observerParticipants.Add(obsNetEntity);
+        _surrenderedParticipants.Remove(obsNetEntity);
+
+        war.History.Add(new WarHistoryEvent
+        {
+            EventType = WarHistoryEventType.PlayerJoined,
+            OccurredAtUtc = DateTime.UtcNow,
+            ActorUserId = obsSess.UserId,
+            ActorUserName = obsSess.Name,
+            ActorCharacterName = Name(obsEntity),
+            Details = $"Admin-forced observer on side {side}"
+        });
+
+        BroadcastParticipants();
+        BroadcastWarState();
+        SendPanelDataToAll();
+
+        var sideName = side == 1 ? war.SideName1 : war.SideName2;
+        _chat.DispatchServerMessage(obsSess,
+            $"You are now observing the war from {sideName}'s perspective. You can see overlay tags but others cannot see yours.");
+        RaiseNetworkEvent(new FactionWarForceObserveResultEvent
+        {
+            Success = true,
+            Message = $"Now observing the war from {sideName}'s side.",
+        }, obsSess);
     }
 
     // ── Round lifecycle ────────────────────────────────────────────────────
@@ -1504,6 +1682,7 @@ public sealed class FactionWarSystem : EntitySystem
         {
             _warParticipants.Remove(entity);
             _surrenderedParticipants.Remove(entity);
+            _observerParticipants.Remove(entity); // #Misfits Add - clean up observer tracking
         }
 
         war.History.Add(new WarHistoryEvent
@@ -1573,6 +1752,7 @@ public sealed class FactionWarSystem : EntitySystem
                     Side = side,
                     WarKey = war.WarKey,
                     Surrendered = _surrenderedParticipants.Contains(netEntity),
+                    IsObserver = _observerParticipants.Contains(netEntity), // #Misfits Add
                 };
             }
         }

@@ -1,0 +1,24 @@
+<!-- #Misfits Add - Door Logs admin panel XAML -->
+<controls:FancyWindow
+        xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="Door Logs" MinSize="900 500">
+    <BoxContainer Orientation="Vertical" Margin="4">
+        <!-- Header -->
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+            <Label Text="Door Destruction Log" Margin="0 0 8 0" VerticalAlignment="Center" StyleClasses="LabelHeadingBig" />
+        </BoxContainer>
+
+        <!-- Column headers -->
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 4" SeparationOverride="12">
+            <Label Text="Time" MinWidth="160" StyleClasses="LabelSubText" />
+            <Label Text="Door Prototype" MinWidth="420" StyleClasses="LabelSubText" />
+            <Label Text="Destroyed By" MinWidth="200" StyleClasses="LabelSubText" />
+        </BoxContainer>
+
+        <!-- Log entries list -->
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True" MinSize="0 200">
+            <BoxContainer Name="LogList" Orientation="Vertical" HorizontalExpand="True" SeparationOverride="2" />
+        </ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>

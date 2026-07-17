@@ -116,7 +116,7 @@
       useKey: false
     # TODO: Power ammo provider?
     - type: BallisticAmmoProvider
-      proto: N14CartridgePistol10 
+      proto: N14CartridgePistol45
       capacity: 500
     - type: HTN
       rootTask:

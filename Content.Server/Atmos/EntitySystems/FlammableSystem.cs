@@ -33,6 +33,19 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Atmos.EntitySystems
 {
+    // #Misfits Add - Raised when entity catches fire. Used by volatile fuel explosion system.
+    public sealed class IgnitedEvent : EntityEventArgs
+    {
+        public EntityUid? IgnitionSource;
+        public EntityUid? IgnitionSourceUser;
+
+        public IgnitedEvent(EntityUid? ignitionSource = null, EntityUid? ignitionSourceUser = null)
+        {
+            IgnitionSource = ignitionSource;
+            IgnitionSourceUser = ignitionSourceUser;
+        }
+    }
+
     public sealed class FlammableSystem : EntitySystem
     {
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
@@ -342,6 +355,7 @@ namespace Content.Server.Atmos.EntitySystems
                 else
                     _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):target} set on fire by {ToPrettyString(ignitionSource):actor}");
                 flammable.OnFire = true;
+                RaiseLocalEvent(uid, new IgnitedEvent(ignitionSource, ignitionSourceUser)); // #Misfits Add - volatile fuel explosion
             }
 
             if (ignoreFireProtection)

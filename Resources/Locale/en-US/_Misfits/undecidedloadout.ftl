@@ -628,6 +628,13 @@ undecided-loadout-category-misfits-ncra-staff-sergeant-line-description =
     a stimpak, a super stimpak, a RadAway blood bag,
     a gauze pack, and a flare.
 
+undecided-loadout-category-misfits-ncra-sgt-msl-name = Squad Leader MSL Kit
+undecided-loadout-category-misfits-ncra-sgt-msl-description =
+    Includes the MSL mantle, a trench shotgun with 4 drums,
+    a 9mm pistol with 2 magazines,
+    a handheld radio, a smoke grenade, a C ration MRE,
+    a stimpak, a dose of Psycho, a gauze pack, and a flare.
+
 undecided-loadout-category-misfits-ncra-first-sergeant-veteran-name = Sergeant First Class Veteran Kit
 undecided-loadout-category-misfits-ncra-first-sergeant-veteran-description =
     Includes an NCR trench coat, a loaded revolver belt,

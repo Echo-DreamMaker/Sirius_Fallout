@@ -15,7 +15,7 @@ namespace Content.Client._Misfits.FactionWar.UI;
 /// <summary>
 /// Admin-only Force War window. Selects aggressor + target from all war-capable factions,
 /// optional casus belli, and fires the event to the server.
-/// Also includes a Force Ceasefire section listing active wars.
+/// Also includes a Force Ceasefire section listing active wars and an Admin Observe War section.
 /// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class ForceWarWindow : FancyWindow
@@ -23,6 +23,9 @@ public sealed partial class ForceWarWindow : FancyWindow
     public event Action<NetUserId, string, NetUserId, string, string>? OnForceWar;
 
     public event Action<NetUserId, NetUserId>? OnForceCeasefire;
+
+    // #Misfits Add - Admin observe war. Observer is always the admin using this panel.
+    public event Action<NetUserId>? OnForceObserve;
 
     private readonly List<OnlinePlayerInfo> _players = new();
 
@@ -45,6 +48,7 @@ public sealed partial class ForceWarWindow : FancyWindow
 
         ForceWarButton.OnPressed += _ => SubmitForceWar();
         ForceCeasefireButton.OnPressed += _ => SubmitForceCeasefire();
+        ForceObserveButton.OnPressed += _ => SubmitForceObserve(); // #Misfits Add
     }
 
     /// <summary>
@@ -79,11 +83,14 @@ public sealed partial class ForceWarWindow : FancyWindow
 
         AggressorSelector.Clear();
         TargetSelector.Clear();
+        // #Misfits Add - populate observe dropdown too
+        ObserveParticipantSelector.Clear();
 
         foreach (var player in _players)
         {
             AggressorSelector.AddItem(player.CharacterName);
             TargetSelector.AddItem(player.CharacterName);
+            ObserveParticipantSelector.AddItem(player.CharacterName); // #Misfits Add
         }
 
         if (_players.Count > 1)
@@ -102,6 +109,22 @@ public sealed partial class ForceWarWindow : FancyWindow
     {
         var color = success ? "#32CD32" : "#FF4500";
         CeasefireResultLabel.SetMarkup($"[color={color}]{FormattedMessage.EscapeText(message)}[/color]");
+    }
+
+    /// <summary>#Misfits Add - Display a success or error message in the observe result label.</summary>
+    public void ShowObserveResult(bool success, string message)
+    {
+        var color = success ? "#32CD32" : "#FF4500";
+        ObserveResultLabel.SetMarkup($"[color={color}]{FormattedMessage.EscapeText(message)}[/color]");
+    }
+
+    private void SubmitForceObserve()
+    {
+        var idx = ObserveParticipantSelector.SelectedId;
+        if (idx < 0 || idx >= _players.Count)
+            return;
+
+        OnForceObserve?.Invoke(_players[idx].UserId);
     }
 
     private void SubmitForceWar()

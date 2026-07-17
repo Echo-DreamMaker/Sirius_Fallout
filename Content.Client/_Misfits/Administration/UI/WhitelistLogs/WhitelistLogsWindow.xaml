@@ -1,0 +1,23 @@
+<controls:FancyWindow
+        xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="Whitelist Logs" MinSize="1200 500">
+    <BoxContainer Orientation="Vertical" Margin="4">
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+            <Label Text="Whitelist Action Log" Margin="0 0 8 0" VerticalAlignment="Center" StyleClasses="LabelHeadingBig" />
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 4" SeparationOverride="12">
+            <Label Text="Time" MinWidth="90" StyleClasses="LabelSubText" />
+            <Label Text="Action" MinWidth="80" StyleClasses="LabelSubText" />
+            <Label Text="Admin" MinWidth="170" StyleClasses="LabelSubText" />
+            <Label Text="Player" MinWidth="170" StyleClasses="LabelSubText" />
+            <Label Text="Roles" MinWidth="220" StyleClasses="LabelSubText" />
+            <Label Text="Reason / Discord / Application" MinWidth="420" StyleClasses="LabelSubText" />
+        </BoxContainer>
+
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True" MinSize="0 200">
+            <BoxContainer Name="LogList" Orientation="Vertical" HorizontalExpand="True" SeparationOverride="2" />
+        </ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>

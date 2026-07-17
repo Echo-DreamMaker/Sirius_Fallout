@@ -5,8 +5,11 @@
   id: SiriusID80sDogtagRoadRash
   name: road rash dogtags
   description: An ID dogtag worn by raiders.
-  suffix: Soldier
+  suffix: Raider Recruit
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/identification.rsi
+    state: raider
   - type: PresetIdCard
     job: EightiesRoadRash
 
@@ -15,8 +18,11 @@
   id: SiriusID80sDogtagOilers
   name: oiler dogtags
   description: An ID dogtag worn by raiders.
-  suffix: Private First Class
+  suffix: Raider Thug
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/identification.rsi
+    state: raider
   - type: PresetIdCard
     job: EightiesOilers
 
@@ -25,8 +31,11 @@
   id: SiriusID80sDogtagPiston
   name: piston dogtags
   description: An ID dogtag worn by raiders.
-  suffix: Sergeant First Class
+  suffix: Raider NCO
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/identification.rsi
+    state: raider
   - type: PresetIdCard
     job: EightiesPistons
 
@@ -35,8 +44,11 @@
   id: SiriusID80sDogtagCylinder
   name: cylinder dogtags
   description: An ID dogtag worn by raiders.
-  suffix: MP Investigator
+  suffix: Raider Officer
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/identification.rsi
+    state: raider
   - type: PresetIdCard
     job: EightiesCylinders
 
@@ -45,7 +57,10 @@
   id: SiriusID80sDogtagBlock
   name: the Block dogtags
   description: An ID dogtag worn by raider boss.
-  suffix: Doctor
+  suffix: Raider Boss
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/identification.rsi
+    state: boss
   - type: PresetIdCard
     job: EightiesTheBlock

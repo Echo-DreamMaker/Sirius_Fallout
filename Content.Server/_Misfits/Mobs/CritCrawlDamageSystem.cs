@@ -5,6 +5,7 @@ using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared._Misfits.C27;
 using Content.Shared.Silicon.Components;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
@@ -65,8 +66,9 @@ public sealed class CritCrawlDamageSystem : EntitySystem
             if (!HasComp<ActorComponent>(uid))
                 continue;
 
-            // Robots/silicons never crit crawl here
-            if (HasComp<SiliconComponent>(uid))
+            // Robots/silicons/C27s never crit crawl here
+            if (HasComp<SiliconComponent>(uid)
+                || HasComp<MisfitsC27Component>(uid))
                 continue;
 
             // Must actually be moving

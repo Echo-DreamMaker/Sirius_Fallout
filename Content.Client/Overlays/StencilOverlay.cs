@@ -35,6 +35,12 @@ public sealed partial class StencilOverlay : Overlay
     private readonly ShaderInstance _shader;
     private readonly ShaderInstance _weatherDrawShader;
 
+    // #Misfits Fix - Stencil mask throttle: only rebuild the roofed-tile stencil
+    // mask at 4 Hz instead of every frame. The mask changes slowly (only when
+    // tiles/roofs change or camera moves), so per-frame rebuilds were wasteful.
+    private float _stencilAccum;
+    private Vector2 _lastStencilEyePos;
+
     public StencilOverlay(ParallaxSystem parallax, SharedTransformSystem transform, SpriteSystem sprite, WeatherSystem weather)
     {
         ZIndex = ParallaxSystem.ParallaxZIndex + 1;

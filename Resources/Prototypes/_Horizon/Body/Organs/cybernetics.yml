@@ -1,0 +1,342 @@
+- type: entity
+  id: OrganBsStomach
+  parent: OrganHumanStomach
+  name: пьезоядерный желудок
+  description: Продвинутый пьезоядерный желудок, обладающий увеличенной вместимостью до 240 единиц. Имеет маркировку PZ-BX-100-4-1. Разработан и произведён корпорацией West Tek.
+  suffix: Horizon, West Tek
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_bs.rsi
+    state: stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 240
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    maxReagents: 4
+
+- type: entity
+  id: OrganCyberStomach
+  parent: OrganHumanStomach
+  name: кибернетический желудок
+  description: Кибернетический желудок с увеличенной скоростью переваривания пищи. Вместимость 75 единиц. Имеет маркировку HR-IP-60/4/0,5. Разработан и произведён корпорацией General Atomics International.
+  suffix: Horizon, General Atomics
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_cyber.rsi
+    state: stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
+  - type: Stomach
+    updateInterval: 0.5
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 75
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    maxReagents: 4
+    updateInterval: 0.5
+
+- type: entity
+  id: OrganBioStomach
+  parent: OrganHumanStomach
+  name: бионический желудок
+  description: Бионический желудок, усваивает до 6 реагентов. Вместимость 60 единиц. Имеет маркировку HR-IP-60/6/1. Разработан и произведён корпорацией West Tek.
+  suffix: Horizon, West Tek
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_bio.rsi
+    state: stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
+  - type: Stomach
+    updateInterval: 0.75
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 60
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    maxReagents: 6
+
+- type: entity
+  id: OrganBsLungs
+  parent: OrganHumanLungs
+  name: пьезоядерные лёгкие
+  description: Продвинутые пьезоядерные лёгкие с увеличенной вместимостью до 7500 единиц газа и ускоренным газообменом. Имеют маркировку PZ-BX-2000-100-1. Разработаны и произведены корпорацией West Tek.
+  suffix: Horizon, West Tek
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_bs.rsi
+    layers:
+      - state: lung-l
+      - state: lung-r
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Human ]
+    groups:
+    - id: Gas
+      rateModifier: 75.0
+  - type: SolutionContainerManager
+    solutions:
+      Lung:
+        maxVol: 7500.0
+        canReact: false
+
+- type: entity
+  id: OrganCyberLungs
+  parent: OrganHumanLungs
+  name: кибернетические лёгкие
+  description: Кибернетические лёгкие с замедленным поглощением газов для экономии ресурсов. Вместимость 150 единиц. Имеют маркировку CY-150/50/1. Разработаны и произведены корпорацией General Atomics International.
+  suffix: Horizon, General Atomics
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_cyber.rsi
+    state: lungs
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Human ]
+    groups:
+    - id: Gas
+      rateModifier: 50.0
+  - type: SolutionContainerManager
+    solutions:
+      Lung:
+        maxVol: 150.0
+        canReact: false
+
+- type: entity
+  id: OrganBioLungs
+  parent: OrganHumanLungs
+  name: бионические лёгкие
+  description: Бионические лёгкие с улучшенной системой фильтрации и ускоренным газообменом. Вместимость 100 единиц. Имеют маркировку LG-IP-100-100-5. Разработаны и произведены корпорацией West Tek.
+  suffix: Horizon, West Tek
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_bio.rsi
+    state: lungs
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Human ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      Lung:
+        maxVol: 100
+        canReact: False
+
+- type: entity
+  id: OrganBsHeart
+  parent: OrganHumanHeart
+  name: пьезоядерное сердце
+  description: Пьезоядерное сердце. Обрабатывает до 3 реагентов одновременно. Имеет маркировку PZ-BX-3-1. Разработано и произведено корпорацией West Tek.
+  suffix: Horizon, West Tek
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_bs.rsi
+    layers:
+      - state: heart
+  - type: Metabolizer
+    updateInterval: 0.3
+    maxReagents: 3
+    metabolizerTypes: [Human]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+
+- type: entity
+  id: OrganCyberHeart
+  parent: OrganHumanHeart
+  name: кибернетическое сердце
+  description: Кибернетическое сердце с улучшенной производительностью. Обрабатывает до 4 реагентов одновременно. Имеет маркировку IP-BX-4-0,5. Разработано и произведено корпорацией General Atomics International.
+  suffix: Horizon, General Atomics
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_cyber.rsi
+    layers:
+      - state: heart
+  - type: Metabolizer
+    updateInterval: 0.5
+    maxReagents: 4
+    metabolizerTypes: [Human]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+
+- type: entity
+  id: OrganBioHeart
+  parent: OrganHumanHeart
+  name: бионическое сердце
+  description: Бионическое сердце с улучшенной системой фильтрации. Обрабатывает до 2 реагентов одновременно. Имеет маркировку IP-BX-2-1,5. Разработано и произведено корпорацией West Tek.
+  suffix: Horizon, West Tek
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_bio.rsi
+    layers:
+      - state: heart
+  - type: Metabolizer
+    updateInterval: 1.5
+    maxReagents: 2
+    metabolizerTypes: [Human]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+
+- type: entity
+  id: OrganBsLiver
+  parent: OrganHumanLiver
+  name: пьезоядерная печень
+  description: Пьезоядерная печень. Ускоренный метаболизм алкоголя. Обрабатывает до 3 реагентов одновременно. Имеет маркировку PZ-BX-3-1. Разработана и произведена корпорацией West Tek.
+  suffix: Horizon, West Tek
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_bs.rsi
+    layers:
+      - state: liver
+  - type: Item
+    size: Small
+    heldPrefix: liver
+  - type: Metabolizer
+    updateInterval: 1.0
+    maxReagents: 3
+    metabolizerTypes: [Human]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+
+- type: entity
+  id: OrganCyberLiver
+  parent: OrganHumanLiver
+  name: кибернетическая печень
+  description: Кибернетическая печень. Ускоренный метаболизм алкоголя. Обрабатывает до 2 реагентов одновременно. Имеет маркировку LV-IP-2-0,5. Разработана и произведена корпорацией General Atomics International.
+  suffix: Horizon, General Atomics
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_cyber.rsi
+    layers:
+      - state: liver
+  - type: Item
+    size: Small
+    heldPrefix: liver
+  - type: Metabolizer
+    updateInterval: 0.5
+    maxReagents: 2
+    metabolizerTypes: [Human]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.2
+
+- type: entity
+  id: OrganBioLiver
+  parent: OrganHumanLiver
+  name: бионическая печень
+  description: Бионическая печень. Медленный но эффективный метаболизм алкоголя. Обрабатывает до 3 реагентов одновременно. Имеет маркировку LV-IP-3-1,5. Разработана и произведена корпорацией West Tek.
+  suffix: Horizon, West Tek
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_bio.rsi
+    layers:
+      - state: liver
+  - type: Item
+    size: Small
+    heldPrefix: liver
+  - type: Metabolizer
+    updateInterval: 1.5
+    maxReagents: 3
+    metabolizerTypes: [Human]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.2
+
+- type: entity
+  id: OrganBsKidneys
+  parent: OrganHumanKidneys
+  name: пьезоядерные почки
+  description: Пьезоядерные почки. Ускоренная фильтрация крови. Обрабатывает до 5 реагентов одновременно. Имеет маркировку PZ-BX-5-1. Разработаны и произведены корпорацией West Tek.
+  suffix: Horizon, West Tek
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_bs.rsi
+    layers:
+      - state: kidney-l
+      - state: kidney-r
+  - type: Item
+    size: Small
+    heldPrefix: kidneys
+  - type: Metabolizer
+    updateInterval: 1.0
+    maxReagents: 5
+    metabolizerTypes: [Human]
+    removeEmpty: true
+
+- type: entity
+  id: OrganCyberKidneys
+  parent: OrganHumanKidneys
+  name: кибернетические почки
+  description: Кибернетические почки. Быстрая фильтрация крови. Обрабатывает до 5 реагентов одновременно. Имеет маркировку KD-BX-5-0,5. Разработаны и произведены корпорацией General Atomics International.
+  suffix: Horizon, General Atomics
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_cyber.rsi
+    layers:
+      - state: kidney-l
+      - state: kidney-r
+  - type: Item
+    size: Small
+    heldPrefix: kidneys
+  - type: Metabolizer
+    updateInterval: 0.5
+    maxReagents: 5
+    metabolizerTypes: [Human]
+    removeEmpty: true
+
+- type: entity
+  id: OrganBioKidneys
+  parent: OrganHumanKidneys
+  name: бионические почки
+  description: Бионические почки. Увеличенная пропускная способность. Обрабатывает до 10 реагентов одновременно. Имеет маркировку KD-BX-7-1. Разработаны и произведены корпорацией West Tek.
+  suffix: Horizon, West Tek
+  components:
+  - type: Sprite
+    sprite: _Horizon/Mobs/Species/Cyberlimbs/organs_bio.rsi
+    layers:
+      - state: kidney-l
+      - state: kidney-r
+  - type: Item
+    size: Small
+    heldPrefix: kidneys
+  - type: Metabolizer
+    updateInterval: 1.0
+    maxReagents: 10
+    metabolizerTypes: [Human]
+    removeEmpty: true

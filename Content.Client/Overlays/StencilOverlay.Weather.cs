@@ -31,9 +31,23 @@ public sealed partial class StencilOverlay
         var eyePosition = viewport.Eye?.Position.Position ?? Vector2.Zero;
         var eyeZoom = viewport.Eye?.Zoom ?? Vector2.One;
 
+        // #Misfits Fix - Throttle stencil mask rebuild to 4 Hz. The roofed-tile mask
+        // only changes when tiles/roofs change or the camera moves significantly;
+        // per-frame rebuilds were the #1 weather rendering cost.
+        const float StencilInterval = 0.25f;
+        const float StencilMoveThreshold = 1.5f; // tiles
+        var eyeDist = Vector2.Distance(position, _lastStencilEyePos);
+        _stencilAccum += (float) _timing.FrameTime.TotalSeconds;
+        var rebuildStencil = _stencilAccum >= StencilInterval || eyeDist >= StencilMoveThreshold;
+
         // Cut out the irrelevant bits via stencil
         // This is why we don't just use parallax; we might want specific tiles to get drawn over
         // particularly for planet maps or stations.
+        if (rebuildStencil)
+        {
+            _stencilAccum = 0f;
+            _lastStencilEyePos = position;
+
         worldHandle.RenderInRenderTarget(_blep!, () =>
         {
             var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
@@ -71,6 +85,8 @@ public sealed partial class StencilOverlay
                 }
             }
         }, Color.Transparent);
+
+        } // #Misfits Fix - end stencil rebuild throttle block
 
         worldHandle.SetTransform(Matrix3x2.Identity);
         var curTime = _timing.RealTime;

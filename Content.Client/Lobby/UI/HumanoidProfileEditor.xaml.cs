@@ -2687,11 +2687,14 @@ namespace Content.Client.Lobby.UI
             var carry = SharedSpecialSystem.GetCurvedEffectModifier(
                 delta,
                 tuning.StrengthCarryPullSpeedMultiplierPerPoint);
+            var throwSpeed = SharedSpecialSystem.GetCurvedEffectModifier(
+                delta,
+                tuning.StrengthThrowSpeedMultiplierPerPoint);
             var duffel = value >= 7
                 ? ", ignores duffel bag slowdown"
                 : string.Empty;
 
-            return $"melee damage {FormatSignedPercent(melee)}, unarmed damage {FormatSignedPercent(unarmed)}, carry/pull speed {FormatSignedPercent(carry)}{duffel}.";
+            return $"melee damage {FormatSignedPercent(melee)}, unarmed damage {FormatSignedPercent(unarmed)}, carry/pull speed {FormatSignedPercent(carry)}, throw speed {FormatSignedPercent(throwSpeed)}{duffel}.";
         }
 
         private static string GetPerceptionEffectDetails(int value, SpecialTuningPrototype tuning)
@@ -2761,12 +2764,12 @@ namespace Content.Client.Lobby.UI
             var lathe = value <= 3
                 ? "lathes locked"
                 : $"lathe production time {FormatSignedPercent(GetIntelligenceLatheTimeModifier(value, tuning))}";
-            var medical = $"medical action speed {FormatSignedPercent(SharedSpecialSystem.GetIntelligenceMedicalActionSpeed(value) - 1f)} (CPR, healing, surgery, scans)";
+            var medical = $"medical action speed {FormatSignedPercent(SharedSpecialSystem.GetIntelligenceMedicalActionSpeed(value) - 1f)} (CPR, healing, surgery, scans), topical healing {FormatSignedPercent(SharedSpecialSystem.GetIntelligenceTopicalHealingMultiplier(value) - 1f)}";
             var extra = value switch
             {
                 <= 1 => ", low-intelligence accent",
-                >= 10 => ", detailed chemical scans, medical HUD",
-                >= 8 => ", detailed chemical scans",
+                >= 10 => ", solution examine on all containers, medical HUD",
+                >= 8 => ", solution scan verb",
                 >= 7 => ", hand caft workbench recipes",
                 _ => string.Empty,
             };

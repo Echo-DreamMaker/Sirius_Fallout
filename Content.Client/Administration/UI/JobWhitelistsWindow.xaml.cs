@@ -34,7 +34,7 @@ public sealed partial class JobWhitelistsWindow : FancyWindow
         "Raider",
     };
 
-    public Action<ProtoId<JobPrototype>, bool>? OnSetJob;
+    public Action<List<ProtoId<JobPrototype>>, bool>? OnSetJobs;
 
     public JobWhitelistsWindow()
     {
@@ -55,7 +55,7 @@ public sealed partial class JobWhitelistsWindow : FancyWindow
                 continue;
 
             var panel = new DepartmentWhitelistPanel(proto, _proto, state.Whitelists);
-            panel.OnSetJob += (id, whitelisting) => OnSetJob?.Invoke(id, whitelisting);
+            panel.OnSetJobs += (ids, whitelisting) => OnSetJobs?.Invoke(ids, whitelisting);
             Departments.AddChild(panel);
         }
     }

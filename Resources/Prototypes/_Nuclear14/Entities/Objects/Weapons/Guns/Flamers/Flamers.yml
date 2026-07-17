@@ -23,9 +23,12 @@
         reagents:
         - ReagentId: WeldingFuel
           Quantity: 500
-  - type: SolutionAmmoProvider
+  - type: FlamerAmmoProvider
     solutionId: chamber
-    proto: FireProjectile
+    fireCost: 5
+    fireTilePrototype: MisfitsTileFire
+    projectileProto: FlamerSpew
+    range: 6
   - type: SolutionTransfer
     transferAmount: 5
     maxTransferAmount: 50
@@ -47,6 +50,10 @@
     price: 100
   - type: FollowDistance
     backStrength: 6
+  - type: VolatileFuelContainer
+    solutionId: chamber
+    igniteChance: 0.9
+    shotChance: 0.35
 
 - type: entity
   parent: WeaponFireGunBase
@@ -56,7 +63,7 @@
   components:
   - type: Gun
     cameraRecoilScalar: 0 #no recoil
-    fireRate: 20
+    fireRate: 1
     selectedMode: FullAuto
     availableModes:
     - FullAuto

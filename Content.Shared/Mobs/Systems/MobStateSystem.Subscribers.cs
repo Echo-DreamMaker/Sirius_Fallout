@@ -15,7 +15,9 @@ using Content.Shared.Pointing;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
+using Content.Shared._Misfits.C27;
 using Content.Shared._Misfits.Standing;
+using Content.Shared.Silicon.Components;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Configuration;
@@ -74,6 +76,9 @@ public partial class MobStateSystem
             || ent.Comp.CurrentState is MobState.Critical
             && ent.Comp.AllowMovementWhileCrit
             && _configurationManager.GetCVar(CCVars.AllowMovementWhileCrit)
+            // #Misfits Add - robots/silicons/C27s never crit crawl
+            && !HasComp<SiliconComponent>(ent)
+            && !HasComp<MisfitsC27Component>(ent)
             || ent.Comp.CurrentState is MobState.SoftCritical
             && ent.Comp.AllowMovementWhileSoftCrit
             || ent.Comp.CurrentState is MobState.Dead

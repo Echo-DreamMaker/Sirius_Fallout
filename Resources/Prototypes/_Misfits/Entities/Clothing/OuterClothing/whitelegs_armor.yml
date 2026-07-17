@@ -21,5 +21,11 @@
         Slash: 0.80   # better than baseline (0.85) — layered gecko hide deflects blades
         Piercing: 0.82 # near-baseline — enough to slow a bullet, not stop it
         Heat: 0.78    # better than baseline (0.80) — treated hides insulate
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 1
+        Heat: 1
+        Caustic: 2
   - type: ExplosionResistance
     damageCoefficient: 0.92 # slightly worse than NCR Private (0.90) — light armor

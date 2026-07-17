@@ -7,6 +7,7 @@
   id: ClothingNeckPinEnclaveBase
   name: enclave pin
   description: A United States Government rank insignia showing the wearer's rank.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
@@ -86,7 +87,7 @@
   name: enclave sergeant first class pin
   components:
   - type: RankTitle
-    rankTitle: Сержант 1го кл. Анклава
+    rankTitle: Старший сержант Анклава
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -98,7 +99,7 @@
   name: enclave master sergeant pin
   components:
   - type: RankTitle
-    rankTitle: Мастер-сержант Анклава
+    rankTitle: Сержант-майор Анклава
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -108,6 +109,7 @@
 - type: entity
   parent: ClothingNeckPinEnclaveBase
   id: ClothingNeckPinEnclaveBaseOfficer
+  categories: [ HideSpawnMenu ]
   name: enclave officer pin
   components:
   - type: Sprite
@@ -126,7 +128,7 @@
   name: enclave second lieutenant pin
   components:
   - type: RankTitle
-    rankTitle: 2й Лейтенант Анклава
+    rankTitle: 2й лейтенант Анклава
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -138,7 +140,7 @@
   name: enclave first lieutenant pin
   components:
   - type: RankTitle
-    rankTitle: 1й Лейтенант Анклава
+    rankTitle: 1й лейтенант Анклава
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:

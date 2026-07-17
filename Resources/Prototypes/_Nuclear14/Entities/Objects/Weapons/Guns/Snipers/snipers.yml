@@ -67,8 +67,14 @@
     whitelist:
       tags:
       - N14Cartridge308Rifle
+    capacity: 8
+    proto: N14Cartridge308Rifle
   - type: StaticPrice
     price: 100
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 3
   # #Misfits Add — scope attachment slot on Lee Enfield
   # - type: ItemSlots
   #   slots:
@@ -153,7 +159,7 @@
   - type: GunDamageBonus
     bonusDamage:
       types:
-        Piercing: 20
+        Piercing: 25
 
 - type: entity
   name: .50 NCR rifle
@@ -200,6 +206,10 @@
   #       whitelist:
   #         tags:
   #         - RifleScope
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 20
 
 - type: entity
   name: lever action carbine
@@ -426,6 +436,10 @@
     backStrength: 3
   - type: StaticPrice
     price: 10
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 10
 
 - type: entity
   name: huntstick
@@ -478,6 +492,10 @@
     backStrength: 3
   - type: StaticPrice
     price: 90
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 2
 
 - type: entity
   name: F1 sniper rifle
@@ -555,7 +573,7 @@
     angleDecay: 16
     soundGunshot:
       collection: N14MarksmanGunshot
-    fireRate: 2.4 #sirius change
+    fireRate: 2.0 #sirius change
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -629,6 +647,10 @@
     backStrength: 3
   - type: StaticPrice
     price: 80
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 2
 
 - type: entity
   name: Paciencia
@@ -696,7 +718,11 @@
     soundGunshot:
       collection: N14SniperVarmintGunshot
   - type: StaticPrice
-    price: 500
+    price: 100
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 2
 
 - type: entity
   name: M1 carbine
@@ -790,6 +816,8 @@
   - type: StaticPrice
     price: 150
 
+#sirius change start
+
 - type: entity
   name: M72 Gauss rifle
   parent: N14WeaponRifleBase
@@ -863,4 +891,6 @@
   - type: GunDamageBonus
     bonusDamage:
       types:
-        Piercing: 20
+        Piercing: 38
+
+#sirius change end

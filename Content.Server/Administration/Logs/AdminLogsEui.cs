@@ -153,10 +153,11 @@ public sealed class AdminLogsEui : BaseEui
 
     // #Misfits Add - pre-seed the filter before Opened() fires so the initial DB load is already scoped
     // to the desired types and impacts (used by the Staff Panel "Activity Log" button).
-    public void SetInitialFilter(HashSet<LogType>? types, HashSet<LogImpact>? impacts)
+    public void SetInitialFilter(HashSet<LogType>? types, HashSet<LogImpact>? impacts, string? search = null)
     {
         _filter.Types = types;
         _filter.Impacts = impacts;
+        _filter.Search = search;
     }
 
     private async void SendLogs(bool replace)

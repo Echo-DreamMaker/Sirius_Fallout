@@ -2,8 +2,8 @@
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       Title="Force War (Admin)"
                       Resizable="False"
-                      SetSize="420 520"
-                      MinSize="400 480">
+                      SetSize="420 590"
+                      MinSize="400 550">
 
     <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="0">
@@ -65,7 +65,26 @@
         <Button Name="ForceCeasefireButton" Text="Force Ceasefire"
                 Margin="10 2 10 6" HorizontalExpand="True" Disabled="True"/>
 
-        <RichTextLabel Name="CeasefireResultLabel" Margin="10 4 10 8" HorizontalExpand="True"/>
+        <RichTextLabel Name="CeasefireResultLabel" Margin="10 4 10 4" HorizontalExpand="True"/>
+
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 4"/>
+
+        <!-- #Misfits Add - Admin Observe ───────────────────────── -->
+        <Label Text="Admin Observe" Margin="10 4 10 2" Modulate="#FFA500"
+               StyleClasses="LabelBig"/>
+
+        <Label Text="Observe a war from a participant's perspective. See [ALLY]/[ENEMY] tags without getting one yourself."
+               Margin="10 0 10 4" Modulate="#AAAAAA" StyleClasses="LabelSubText"/>
+
+        <BoxContainer Orientation="Horizontal" Margin="10 4 10 4" SeparationOverride="8">
+            <Label Text="War Participant:" VerticalAlignment="Center" MinWidth="90"/>
+            <OptionButton Name="ObserveParticipantSelector" HorizontalExpand="True"/>
+        </BoxContainer>
+
+        <Button Name="ForceObserveButton" Text="Admin Observe"
+                Margin="10 2 10 6" HorizontalExpand="True"/>
+
+        <RichTextLabel Name="ObserveResultLabel" Margin="10 4 10 8" HorizontalExpand="True"/>
 
     </BoxContainer>
     </ScrollContainer>

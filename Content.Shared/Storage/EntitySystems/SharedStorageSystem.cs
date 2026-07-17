@@ -793,6 +793,12 @@ public abstract class SharedStorageSystem : EntitySystem
 
         if (!entity.Comp.StoredItems.ContainsKey(args.Entity))
         {
+            // During client state application the container contents can arrive before the storage component state
+            // that carries the authoritative stored-item positions. Do not try to invent a temporary slot or eject
+            // the item in that window, or full storages can briefly spill contents into nullspace/map attach paths.
+            if (Timing.ApplyingState)
+                return;
+
             if (!TryGetAvailableGridSpace((entity.Owner, entity.Comp), (args.Entity, null), out var location))
             {
                 ContainerSystem.Remove(args.Entity, args.Container, force: true);

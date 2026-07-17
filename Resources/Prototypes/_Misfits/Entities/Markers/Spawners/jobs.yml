@@ -628,6 +628,18 @@
 
 - type: entity
   parent: MisfitsSpawnPointEnclaveCommander
+  id: SiriusSpawnPointEnclaveCommunicationsOfficer
+  name: Enclave Communications Officer
+  components:
+  - type: SpawnPoint
+    job_id: EnclaveCommunicationsOfficer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: lt
+
+- type: entity
+  parent: MisfitsSpawnPointEnclaveCommander
   id: MisfitsSpawnPointEnclaveNCO
   name: Enclave NCO
   components:

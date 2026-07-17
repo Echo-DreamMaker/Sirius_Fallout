@@ -1,0 +1,21 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSiriusEnclaveAdministrator
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: anclav_GP
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSiriusEnclaveCommunicationsOfficer
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: anclav_svyazist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSiriusEnclaveWorker
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: anclave_rabochiy
+

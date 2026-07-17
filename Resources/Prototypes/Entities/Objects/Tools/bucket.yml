@@ -22,12 +22,6 @@
     slots:
     - HEAD
     quickEquip: false
-  - type: Armor
-    modifiers:
-      coefficients:
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.9
   - type: SolutionContainerManager
     solutions:
       bucket:
@@ -70,4 +64,17 @@
       - Bucket
   - type: PhysicalComposition
     materialComposition:
-      Plastic: 50
+      Steel: 50
+  - type: TrashOnSolutionEmpty # Frontier
+    solution: bucket # Frontier
+
+- type: entity
+  parent: Bucket
+  id: BorgBucket
+  name: internal tank
+  description: The internal reservoir of a custodial cyborg, capable of holding a entire mop bucket worth of water.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      bucket:
+        maxVol: 500

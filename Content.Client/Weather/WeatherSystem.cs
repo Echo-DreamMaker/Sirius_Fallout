@@ -52,11 +52,20 @@ public sealed class WeatherSystem : SharedWeatherSystem
         if (!TryComp(weather.Stream, out AudioComponent? comp))
             return;
 
-        var occlusion = 0f;
+        // #Misfits Fix - Throttle audio occlusion BFS to 4 Hz instead of every tick.
+        // The BFS flood-fill allocates new Queue+HashSet each run; per-tick was wasteful
+        // since audio occlusion changes slowly as the player moves.
+        const float AudioBFSInterval = 0.25f;
+        weather.AudioBFSAccumulator += frameTime;
+        var runBFS = weather.AudioBFSAccumulator >= AudioBFSInterval;
+
+        var occlusion = comp.Occlusion; // keep last value if skipping BFS
 
         // Work out tiles nearby to determine volume.
-        if (TryComp<MapGridComponent>(entXform.GridUid, out var grid))
+        if (runBFS && TryComp<MapGridComponent>(entXform.GridUid, out var grid))
         {
+            weather.AudioBFSAccumulator -= AudioBFSInterval;
+
             TryComp(entXform.GridUid, out RoofComponent? roofComp);
             var gridId = entXform.GridUid.Value;
             // FloodFill to the nearest tile and use that for audio.

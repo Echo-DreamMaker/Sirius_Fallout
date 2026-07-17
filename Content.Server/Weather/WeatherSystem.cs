@@ -36,12 +36,14 @@ public sealed class WeatherSystem : SharedWeatherSystem
 
     private const float WeatherEffectInterval = 1f;
     private const string DefaultWeatherPrototype = "Default";
-    private static readonly TimeSpan RandomWeatherMinDelay = TimeSpan.FromMinutes(20);
-    private static readonly TimeSpan RandomWeatherMaxDelay = TimeSpan.FromMinutes(30);
+    // #Misfits Fix - Reverted from 20/30 min delay and 4/8 min radioactive; was causing
+    // too-frequent weather events which amplified stencil rendering + NPC visibility costs.
+    private static readonly TimeSpan RandomWeatherMinDelay = TimeSpan.FromMinutes(30);
+    private static readonly TimeSpan RandomWeatherMaxDelay = TimeSpan.FromMinutes(60);
     private static readonly TimeSpan RandomWeatherMinDuration = TimeSpan.FromMinutes(5);
     private static readonly TimeSpan RandomWeatherMaxDuration = TimeSpan.FromMinutes(10);
-    private static readonly TimeSpan RandomRadioactiveWeatherMinDuration = TimeSpan.FromMinutes(4);
-    private static readonly TimeSpan RandomRadioactiveWeatherMaxDuration = TimeSpan.FromMinutes(8);
+    private static readonly TimeSpan RandomRadioactiveWeatherMinDuration = TimeSpan.FromMinutes(1);
+    private static readonly TimeSpan RandomRadioactiveWeatherMaxDuration = TimeSpan.FromMinutes(3);
 
     private readonly Dictionary<(EntityUid MapUid, string ProtoId), float> _effectAccumulators = new();
     private TimeSpan? _nextRandomWeatherTime;

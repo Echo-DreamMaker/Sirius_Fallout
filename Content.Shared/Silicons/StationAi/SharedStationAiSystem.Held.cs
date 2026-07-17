@@ -1,8 +1,11 @@
+using Content.Shared.Access;
+using Content.Shared.Access.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
@@ -16,6 +19,7 @@ public abstract partial class SharedStationAiSystem
 
     //TODO: Fix this, please
     private const string JobNameLocId = "job-name-station-ai";
+    private static readonly ProtoId<AccessGroupPrototype> StationAiAccessGroup = "AllAccessN14";
 
     private void InitializeHeld()
     {
@@ -26,7 +30,13 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, InteractionAttemptEvent>(OnHeldInteraction);
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
         SubscribeLocalEvent<StationAiHeldComponent, JumpToCoreEvent>(OnCoreJump);
+        SubscribeLocalEvent<StationAiHeldComponent, GetAccessTagsEvent>(OnHeldGetAccessTags);
         SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
+    }
+
+    private void OnHeldGetAccessTags(Entity<StationAiHeldComponent> ent, ref GetAccessTagsEvent args)
+    {
+        args.AddGroup(StationAiAccessGroup);
     }
 
     private void OnTryGetIdentityShortInfo(TryGetIdentityShortInfoEvent args)

@@ -147,6 +147,7 @@
     - NCRA_SGTGunnerSet
     - NCRA_SGTScoutSet
     - NCRA_SGTPointSet
+    - NCRA_SGTMSLSet
 
 - type: entity
   id: NCRstaffsergeantloadoutkits

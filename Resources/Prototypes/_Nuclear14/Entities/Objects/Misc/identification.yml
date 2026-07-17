@@ -337,14 +337,13 @@
 - type: entity
   parent: N14IDPassportBlank
   id: SiriusIDEnclaveReformer
-  name: Enclave high command holotag
-  description: An ID holotag worn by higher ranking memebers of the Enclave. This one belongs to a President Representative.
-  categories: [ HideSpawnMenu ]
-  suffix: Commander; General
+  name: Enclave state governor passport
+  description: An passport with ID holotag worn by higher ranking memebers of the Enclave. This one belongs to a President Representative.
+  suffix: Official; Governor
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
-    state: enclave_officer
+    state: passport_presidential
   - type: IdCard # #Misfits Add - display "holotags" instead of default "ID card"
     nameLocId: n14-id-holotag-name
     fullNameLocId: n14-id-holotag-full-name
@@ -356,8 +355,7 @@
   id: SiriusIDEnclaveCommander
   name: Enclave commander holotag
   description: An ID holotag worn by higher ranking memebers of the Enclave. This one belongs to a regional Enclave commander.
-  categories: [ HideSpawnMenu ]
-  suffix: Commander; Colonel
+  suffix: Commander; Lieutenant-colonel, Colonel, General
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -373,8 +371,7 @@
   id: SiriusIDEnclaveSeniorOfficer
   name: Enclave senior officer holotag
   description: An ID holotag worn by higher ranking memebers of the Enclave. This one belongs to a senior officer.
-  categories: [ HideSpawnMenu ]
-  suffix: Officer; Captain, Major, Lieutenant-colonel
+  suffix: Officer; Captain, Major
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -387,10 +384,25 @@
 
 - type: entity
   parent: N14IDPassportBlank
+  id: SiriusIDEnclaveCommunicationsOfficer
+  name: Enclave communications officer holotag
+  description: An ID holotag worn by higher ranking memebers of the Enclave. This one belongs to a communications officer.
+  suffix: Communications Officer; 1st Lieutenant, Captain
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/identification.rsi
+    state: enclave_officer
+  - type: IdCard # #Misfits Add - display "holotags" instead of default "ID card"
+    nameLocId: n14-id-holotag-name
+    fullNameLocId: n14-id-holotag-full-name
+  - type: PresetIdCard
+    job: EnclaveCommunicationsOfficer
+
+- type: entity
+  parent: N14IDPassportBlank
   id: SiriusIDEnclaveJuniorOfficer
   name: Enclave junior officer holotag
   description: An ID holotag worn by higher ranking memebers of the Enclave. This one belongs to a junior officer.
-  categories: [ HideSpawnMenu ]
   suffix: Officer; 2nd Lieutenant, 1st Lieutenant
   components:
   - type: Sprite
@@ -407,8 +419,7 @@
   id: SiriusIDEnclaveNCO
   name: Enclave sergeant holotag
   description: An ID holotag worn by the Enclave. This one is for sergeant. Don't call me sarge!
-  categories: [ HideSpawnMenu ]
-  suffix: Trooper; Sergeant, Staff-Sergeant, Sergeant 1st class, Master Sergeant
+  suffix: Trooper; Sergeant, Staff-Sergeant, Senior Sergeant, Sergeant-Major
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -428,7 +439,6 @@
   id: SiriusIDEnclaveEnlisted
   name: Enclave enlisted holotag
   description: An ID holotag worn by the Enclave. This one is for enlisted trooper. Did you put on your power armor?
-  categories: [ HideSpawnMenu ]
   suffix: Trooper; Private, Private 1st class, Corporal
   components:
   - type: Sprite
@@ -447,10 +457,9 @@
 - type: entity
   parent: N14IDPassportBlank
   id: SiriusIDEnclaveHeadScientist
-  name: Enclave research director's holotag
-  description: An ID holotag worn by the non-combat members of Enclave. This one is for the research director.
-  categories: [ HideSpawnMenu ]
-  suffix: Scientist , Noncombat
+  name: Enclave administrator's ID card
+  description: An ID card worn by the non-combat members of Enclave. This one is for the administrator.
+  suffix: Civilian; Administrator
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -464,10 +473,9 @@
 - type: entity
   parent: N14IDPassportBlank
   id: SiriusIDEnclaveScientist
-  name: Enclave scientist holotag
-  description: An ID holotag worn by the non-combat members of Enclave. This one is for the scientist.
-  categories: [ HideSpawnMenu ]
-  suffix: Scientist , Noncombat
+  name: Enclave specialist ID card
+  description: An ID card worn by the non-combat members of Enclave. This one is for the specialist.
+  suffix: Civilian; Specialist
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -481,10 +489,9 @@
 - type: entity
   parent: N14IDPassportBlank
   id: SiriusIDEnclaveJuniorScientist
-  name: Enclave jr. scientist holotag
-  description: An ID holotag worn by the non-combat members of Enclave. This one is for the jr. scientist.
-  categories: [ HideSpawnMenu ]
-  suffix: Scientist , Noncombat
+  name: Enclave worker ID card
+  description: An ID card worn by the non-combat members of Enclave. This one is for the worker.
+  suffix: Civilian; Worker
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi

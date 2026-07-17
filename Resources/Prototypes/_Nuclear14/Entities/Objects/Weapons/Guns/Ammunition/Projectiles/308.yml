@@ -23,9 +23,9 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 58
+        Piercing: 48
         Structural: 30
-  # Misfits Add -  Overpressure. Best of the best ammo. Long range, high damage, lethal impact. 
+  # Misfits Add -  Overpressure. Best of the best ammo. Long range, high damage, lethal impact.
   - type: BallisticDamageFalloff
     falloffStartTiles: 15.0
     maxFalloffTiles: 25.0

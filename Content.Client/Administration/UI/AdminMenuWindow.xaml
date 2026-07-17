@@ -24,5 +24,7 @@
         <misfitsTabs:StaffTab />
         <!-- #Misfits Change - LoreMaster tab (faction objective management) -->
         <misfitsTabs:LoreMasterTab />
+        <!-- #Misfits Change - Door Logs tab -->
+        <misfitsTabs:DoorLogsTab />
     </TabContainer>
 </DefaultWindow>

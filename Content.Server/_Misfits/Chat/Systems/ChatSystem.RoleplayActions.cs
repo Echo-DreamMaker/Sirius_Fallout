@@ -129,6 +129,51 @@ public sealed partial class ChatSystem
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Do from {ToPrettyString(source):user}: {action}");
     }
 
+    public void SendEntityNamelessEmote(
+        EntityUid source,
+        string action,
+        ChatTransmitRange range,
+        bool hideLog = false,
+        bool ignoreActionBlocker = false,
+        NetUserId? author = null,
+        float? recipientRange = null)
+    {
+        if (!_actionBlocker.CanEmote(source) && !ignoreActionBlocker)
+            return;
+
+        var wrappedMessage = BuildDoWrappedMessage(action);
+        var voiceRange = recipientRange ?? (Transform(source).GridUid == null ? 0.3f : VoiceRange);
+
+        foreach (var (session, data) in GetRecipients(source, voiceRange))
+        {
+            if (session.AttachedEntity != null
+                && Transform(session.AttachedEntity.Value).GridUid != Transform(source).GridUid
+                && !CheckAttachedGrids(source, session.AttachedEntity.Value))
+                continue;
+
+            var entRange = MessageRangeCheck(session, data, range);
+            if (entRange == MessageRangeCheckResult.Disallowed)
+                continue;
+
+            var entHideChat = entRange == MessageRangeCheckResult.HideChat;
+
+            _chatManager.ChatMessageToOne(
+                ChatChannel.Emotes,
+                action,
+                wrappedMessage,
+                source,
+                entHideChat,
+                session.Channel,
+                author: author);
+        }
+
+        _replay.RecordServerMessage(
+            new ChatMessage(ChatChannel.Emotes, action, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
+
+        if (!hideLog)
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Nameless emote from {ToPrettyString(source):user}: {action}");
+    }
+
     private string BuildEmoteWrappedMessage(EntityUid source, string escapedName, string action)
     {
         var ent = Identity.Entity(source, EntityManager);

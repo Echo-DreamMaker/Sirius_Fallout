@@ -148,9 +148,11 @@
         reagents:
         - ReagentId: WeldingFuel
           Quantity: 100
-  - type: SolutionAmmoProvider
+  - type: FlamerAmmoProvider
     solutionId: chamber
-    proto: FireProjectile
+    fireCost: 5
+    fireTilePrototype: MisfitsTileFire
+    range: 4
   - type: SolutionRegeneration
     solution: chamber
     generated:

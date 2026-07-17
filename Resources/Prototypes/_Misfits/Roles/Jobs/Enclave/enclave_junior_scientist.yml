@@ -20,7 +20,7 @@
       department: Enclave
       min: 14400 # 4 hours
   startingGear: EnclaveJuniorScientistGear
-  icon: "JobIconEnclaveJuniorScientist"
+  icon: "JobIconSiriusEnclaveWorker"
   supervisors: job-supervisors-enclave-junior-scientist
   alwaysUseSpawner: true
   accessGroups:
@@ -36,7 +36,6 @@
 - type: startingGear
   id: EnclaveJuniorScientistGear
   equipment:
-    head: N14ClothingHeadHatEnclaveScientist
     back: N14ClothingBackpackSatchelMilitary
     jumpsuit: N14ClothingUniformJumpsuitEnclave
     shoes: N14ClothingBootsLeatherFilled

@@ -1,0 +1,17 @@
+- type: loadout
+  id: LoadoutLegionPrinceps
+  category: Outer
+  cost: 18
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - CaesarLegionVeteranDecanus
+    - !type:CharacterPlaytimeRequirement
+      tracker: CaesarLegionVeteranDecanus
+      min: 90000 # 25 hours
+  items:
+    - MisfitsLegionPrincepsArmor
+    - MisfitsLegionPrincepsHelmet
+    - MisfitsLegionPrincepsGloves
+    - MisfitsLegionPrincepsBoots

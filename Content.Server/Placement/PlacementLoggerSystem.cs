@@ -50,13 +50,13 @@ public sealed class PlacementLoggerSystem : EntitySystem
         var actorEntity = actor?.AttachedEntity;
 
         if (actorEntity != null)
-            _adminLogger.Add(LogType.Tile, LogImpact.High,
+            _adminLogger.Add(LogType.Tile, LogImpact.Medium,
                 $"{ToPrettyString(actorEntity.Value):actor} used placement system to set tile {_tileDefinitionManager[ev.TileType].Name} at {ev.Coordinates}");
         else if (actor != null)
-            _adminLogger.Add(LogType.Tile, LogImpact.High,
+            _adminLogger.Add(LogType.Tile, LogImpact.Medium,
                 $"{actor} used placement system to set tile {_tileDefinitionManager[ev.TileType].Name} at {ev.Coordinates}");
         else
-            _adminLogger.Add(LogType.Tile, LogImpact.High,
+            _adminLogger.Add(LogType.Tile, LogImpact.Medium,
                 $"Placement system set tile {_tileDefinitionManager[ev.TileType].Name} at {ev.Coordinates}");
     }
 }

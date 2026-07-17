@@ -123,7 +123,7 @@
   name: second lieutenant pin
   components:
   - type: RankTitle
-    rankTitle: 2й Лейтенант НКР
+    rankTitle: 2й лейтенант НКР
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -135,7 +135,7 @@
   name: first lieutenant pin
   components:
   - type: RankTitle
-    rankTitle: 1й Лейтенант НКР
+    rankTitle: 1й лейтенант НКР
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:

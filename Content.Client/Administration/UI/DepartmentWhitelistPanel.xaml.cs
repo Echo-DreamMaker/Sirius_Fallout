@@ -11,7 +11,7 @@ namespace Content.Client.Administration.UI;
 [GenerateTypedNameReferences]
 public sealed partial class DepartmentWhitelistPanel : PanelContainer
 {
-    public Action<ProtoId<JobPrototype>, bool>? OnSetJob;
+    public Action<List<ProtoId<JobPrototype>>, bool>? OnSetJobs;
 
     public DepartmentWhitelistPanel(DepartmentPrototype department, IPrototypeManager proto, HashSet<ProtoId<JobPrototype>> whitelists)
     {
@@ -27,7 +27,7 @@ public sealed partial class DepartmentWhitelistPanel : PanelContainer
             if (!proto.Index<JobPrototype>(id).Whitelisted)
                 button.Modulate = grey; // Let admins know whitelisting this job is only for futureproofing.
             button.Pressed = whitelists.Contains(id);
-            button.OnPressed += _ => OnSetJob?.Invoke(thisJob, button.Pressed);
+            button.OnPressed += _ => OnSetJobs?.Invoke(new List<ProtoId<JobPrototype>> { thisJob }, button.Pressed);
             JobsContainer.AddChild(button);
 
             allWhitelisted &= button.Pressed;
@@ -38,12 +38,16 @@ public sealed partial class DepartmentWhitelistPanel : PanelContainer
         Department.Pressed = allWhitelisted;
         Department.OnPressed += args =>
         {
+            var changedJobs = new List<ProtoId<JobPrototype>>();
             foreach (var id in department.Roles)
             {
                 // only request to whitelist roles that aren't already whitelisted, and vice versa
                 if (whitelists.Contains(id) != Department.Pressed)
-                    OnSetJob?.Invoke(id, Department.Pressed);
+                    changedJobs.Add(id);
             }
+
+            if (changedJobs.Count > 0)
+                OnSetJobs?.Invoke(changedJobs, Department.Pressed);
         };
     }
 }

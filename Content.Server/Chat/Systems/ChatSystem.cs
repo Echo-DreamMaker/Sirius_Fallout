@@ -25,6 +25,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Radio;
+using Content.Shared.Holopad;
+using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech;
 using Content.Shared.Whitelist;
 using Robust.Server.Player;
@@ -32,6 +34,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Player;
@@ -77,6 +80,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly TelepathicChatSystem _telepath = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedSpecialSystem _special = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!;
 
     // Forge-Change Moved to shared
     // public const int VoiceRange = 10; // how far voice goes in world units
@@ -648,6 +652,19 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (!_actionBlocker.CanEmote(source) && !ignoreActionBlocker)
             return;
 
+        if (TryResolveStationAiEmoteSource(source, out var stationAi, out var relaySource))
+        {
+            if (HasComp<HolopadUserComponent>(stationAi))
+            {
+                var ev = new StationAiHolopadEmoteRelayEvent(action, range);
+                RaiseLocalEvent(stationAi, ref ev);
+                return;
+            }
+
+            SendEntityNamelessEmote(relaySource, action, range, hideLog, true, author, VoiceRange);
+            return;
+        }
+
         // get the entity's apparent name (if no override provided).
         var ent = Identity.Entity(source, EntityManager);
         string name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
@@ -663,6 +680,57 @@ public sealed partial class ChatSystem : SharedChatSystem
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {ToPrettyString(source):user} as {name}: {action}");
             else
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {ToPrettyString(source):user}: {action}");
+    }
+
+    private bool TryResolveStationAiEmoteSource(EntityUid source, out EntityUid stationAi, out EntityUid relaySource)
+    {
+        stationAi = source;
+        relaySource = source;
+
+        if (HasComp<StationAiHeldComponent>(source))
+        {
+            relaySource = TryGetStationAiCoreForHeld(source) ?? source;
+            return true;
+        }
+
+        var query = EntityQueryEnumerator<StationAiCoreComponent>();
+        while (query.MoveNext(out var coreUid, out var core))
+        {
+            if (core.RemoteEntity != source)
+                continue;
+
+            if (!_containers.TryGetContainer(coreUid, StationAiCoreComponent.Container, out var container))
+                return false;
+
+            foreach (var contained in container.ContainedEntities)
+            {
+                if (!HasComp<StationAiHeldComponent>(contained))
+                    continue;
+
+                stationAi = contained;
+                relaySource = coreUid;
+                return true;
+            }
+
+            return false;
+        }
+
+        return false;
+    }
+
+    private EntityUid? TryGetStationAiCoreForHeld(EntityUid stationAi)
+    {
+        var query = EntityQueryEnumerator<StationAiCoreComponent>();
+        while (query.MoveNext(out var coreUid, out _))
+        {
+            if (!_containers.TryGetContainer(coreUid, StationAiCoreComponent.Container, out var container))
+                continue;
+
+            if (container.ContainedEntities.Contains(stationAi))
+                return coreUid;
+        }
+
+        return null;
     }
 
     // ReSharper disable once InconsistentNaming

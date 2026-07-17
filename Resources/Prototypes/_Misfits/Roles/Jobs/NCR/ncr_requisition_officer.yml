@@ -45,12 +45,10 @@
     jumpsuit: N14ClothingOfficerUniformNCRDesert
     outerClothing: N14ClothingOuterNCRDressJacket
     shoes: N14ClothingBootsCombatFilled
-
     belt: ClothingBeltNCR
     eyes: ClothingEyesGlassesSunglasses
     ears: N14ClothingHeadsetNCR
-    pocket1: NCRLTloadoutkits
-    pocket2: RadioHandheld
+    pocket1: RadioHandheld
     id: N14IDNCRDogtagNCRRO
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
   satchel: N14ClothingBackpackSatchelNCRFilled

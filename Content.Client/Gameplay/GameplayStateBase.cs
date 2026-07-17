@@ -210,6 +210,11 @@ namespace Content.Client.Gameplay
             if (args.Viewport is IViewportControl vp)
             {
                 var mousePosWorld = vp.PixelToMap(kArgs.PointerLocation.Position);
+                if (mousePosWorld.MapId == MapId.Nullspace)
+                {
+                    kArgs.Handle();
+                    return;
+                }
 
                 if (vp is ScalingViewport svp)
                 {

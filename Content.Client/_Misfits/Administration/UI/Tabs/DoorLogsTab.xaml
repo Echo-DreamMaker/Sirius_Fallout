@@ -1,0 +1,23 @@
+<!-- #Misfits Change - Logs tab for admin menu -->
+<Control
+    xmlns="https://spacestation14.io"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    Margin="4"
+    MinSize="50 50">
+    <ScrollContainer VerticalExpand="True">
+        <BoxContainer Orientation="Vertical" SeparationOverride="4">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                <cc:CommandButton Name="OpenLogsButton" Command="adminlogs" Text="{Loc misfits-logs-tab-open-logs-btn}" MinWidth="180" />
+                <Label Name="OpenLogsDescription" Text="{Loc misfits-logs-tab-open-logs-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
+            </BoxContainer>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                <cc:CommandButton Name="OpenDoorLogsButton" Command="doorlogs" Text="{Loc misfits-logs-tab-open-door-logs-btn}" MinWidth="180" />
+                <Label Name="OpenDoorLogsDescription" Text="{Loc misfits-logs-tab-open-door-logs-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
+            </BoxContainer>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                <cc:CommandButton Name="OpenWhitelistLogsButton" Command="whitelistlogs" Text="{Loc misfits-logs-tab-open-whitelist-logs-btn}" MinWidth="180" />
+                <Label Name="OpenWhitelistLogsDescription" Text="{Loc misfits-logs-tab-open-whitelist-logs-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
+            </BoxContainer>
+        </BoxContainer>
+    </ScrollContainer>
+</Control>

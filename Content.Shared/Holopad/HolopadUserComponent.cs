@@ -1,3 +1,4 @@
+using Content.Shared.Chat;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -19,6 +20,9 @@ public sealed partial class HolopadUserComponent : Component
     [ViewVariables]
     public HashSet<Entity<HolopadComponent>> LinkedHolopads = new();
 }
+
+[ByRefEvent]
+public record struct StationAiHolopadEmoteRelayEvent(string Action, ChatTransmitRange Range);
 
 /// <summary>
 /// A networked event raised when the visual state of a hologram is being updated

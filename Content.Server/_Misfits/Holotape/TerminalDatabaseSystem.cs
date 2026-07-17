@@ -9,6 +9,7 @@ using Content.Shared.Mind; // #Misfits Add - SharedMindSystem for job lookup.
 using Content.Shared.Roles.Jobs; // #Misfits Add - SharedJobSystem.MindHasJobWithId.
 using Content.Shared.Hands.EntitySystems; // #Misfits Add - Pickup-or-drop spawned holotape on export.
 using Content.Shared.Popups; // #Misfits Add - Popup feedback when export succeeds/fails.
+using Content.Shared.Silicons.StationAi;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
@@ -49,6 +50,7 @@ public sealed class TerminalDatabaseSystem : EntitySystem
     public const int MaxDocumentsPerContainer = 256;
     public const int MaxTitleChars = 64;
     public const int MaxBodyChars = 16_000;
+    private const string ZaxVaultDatabaseId = "vault-longwatch";
 
     public override void Initialize()
     {
@@ -151,6 +153,12 @@ public sealed class TerminalDatabaseSystem : EntitySystem
     /// </summary>
     private MisfitsTerminalDatabasePrototype? ResolveDatabaseForViewer(EntityUid viewer)
     {
+        if (HasComp<StationAiHeldComponent>(viewer) &&
+            _prototype.TryIndex<MisfitsTerminalDatabasePrototype>(ZaxVaultDatabaseId, out var vaultDatabase))
+        {
+            return vaultDatabase;
+        }
+
         foreach (var proto in _prototype.EnumeratePrototypes<MisfitsTerminalDatabasePrototype>())
         {
             var (read, _, _, _) = ResolveAccess(viewer, proto);
@@ -602,6 +610,9 @@ public sealed class TerminalDatabaseSystem : EntitySystem
 
     private (bool read, bool write, bool leadership, bool admin) ResolveAccess(EntityUid viewer, MisfitsTerminalDatabasePrototype proto)
     {
+        if (HasComp<StationAiHeldComponent>(viewer) && proto.ID == ZaxVaultDatabaseId)
+            return (true, true, true, true);
+
         // Tag tiers (Read/Write) — checked against the actor's ID card.
         var tags = _access.FindAccessTags(viewer);
 

@@ -19,8 +19,8 @@
   id: NCRCommandOfficerPins
   jobs:
     - NCRCommander
-  tracker: NCR
-  departmentTracker: true
+  tracker: NCRCommander
+  departmentTracker: false
   thresholds:
     - min: 0
       entity: ClothingNeckPinNCRCaptain
@@ -32,6 +32,23 @@
       entity: ClothingNeckPinNCRColonel
     - min: 360000   # 100 hours
       entity: ClothingNeckPinNCRGeneralMajor
+
+# Executive Officer: 2LT (O-1) → 1LT (O-2) at 20h → Captain (O-3) at 35h → Major (O-4) at 50h
+- type: ncrRankPinProgression
+  id: NCRExecutiveOfficerPins
+  jobs:
+    - NCRExecutiveOfficer
+  tracker: NCRExecutiveOfficer
+  departmentTracker: false
+  thresholds:
+    - min: 0
+      entity: ClothingNeckPinNCRSecondLieutenant
+    - min: 72000   # 20 hours
+      entity: ClothingNeckPinNCRFirstlLieutenant
+    - min: 126000   # 35 hours
+      entity: ClothingNeckPinNCRCaptain
+    - min: 180000   # 50 hours
+      entity: ClothingNeckPinNCRMajor
 
 # Medical Officers: 2LT (O-1) → 1LT (O-2) at 20h
 - type: ncrRankPinProgression
@@ -50,8 +67,8 @@
 - type: ncrRankPinProgression
   id: NCRJuniorOfficerPins
   jobs:
-    - NCRExecutiveOfficer
     - NCRPlatoonLeader
+    - NCRRO
   tracker: NCR
   departmentTracker: true
   thresholds:
@@ -62,7 +79,7 @@
     - min: 180000   # 50 hours
       entity: ClothingNeckPinNCRCaptain
 
-# Military Police Chief: 2LT (O-1) → 1LT (O-2) at 30h → Captain (O-3) at 60h
+# Military Police Chief: 2LT (O-1) → 1LT (O-2) at 30h → Captain (O-3) at 60h → Major (O-4) at 100h
 - type: ncrRankPinProgression
   id: NCRMPChiefPins
   jobs:
@@ -76,6 +93,8 @@
       entity: ClothingNeckPinNCRFirstlLieutenant
     - min: 216000  # 60 hours
       entity: ClothingNeckPinNCRCaptain
+    - min: 360000   # 100 hours
+      entity: ClothingNeckPinNCRMajor
 
 # Military Police Operative: SSG (E-7) → SFC (E-8) at 30h → SGM (E-9) at 60h
 - type: ncrRankPinProgression
@@ -209,6 +228,19 @@
       entity: ClothingNeckPinEnclaveCaptain
     - min: 72000   # 20 hours
       entity: ClothingNeckPinEnclaveMajor
+
+# Enclave Communications Officer
+- type: ncrRankPinProgression
+  id: EnclaveCommunicationsOfficerPins
+  jobs:
+    - EnclaveCommunicationsOfficer
+  tracker: EnclaveCommunicationsOfficer
+  departmentTracker: false
+  thresholds:
+    - min: 0
+      entity: ClothingNeckPinEnclaveFirstLieutenant
+    - min: 72000   # 20 hours
+      entity: ClothingNeckPinEnclaveCaptain
 
 # Enclave Junior Officer
 - type: ncrRankPinProgression

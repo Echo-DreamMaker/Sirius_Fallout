@@ -152,12 +152,26 @@
     soundGunshot:
       path: /Audio/_Nuclear14/Weapons/Guns/Flames/flamer.ogg
     useKey: false
-  - type: BasicEntityAmmoProvider # #Misfits Add: limited fuel bursts, auto-refills after cooldown
-    proto: FireProjectile
-    capacity: 30
-    count: 30
-  - type: RechargeBasicEntityAmmo # #Misfits Add: slow recharge simulates fuel regeneration
-    rechargeCooldown: 3
+  - type: SolutionContainerManager # #Misfits Change: internal fuel tank feeds tile-fire flamer bursts
+    solutions:
+      chamber:
+        maxVol: 150
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 150
+  - type: FlamerAmmoProvider
+    solutionId: chamber
+    fireCost: 5
+    fireTilePrototype: MisfitsTileFire
+    range: 5
+  - type: SolutionRegeneration # #Misfits Change: slow fuel regen preserves the old recharge cadence
+    solution: chamber
+    generated:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 5
+    duration: 3
+    nextChargeTime: 10
   - type: RobotGunPowerDrain # #Misfits Add: each flamer burst drains the robot's chassis battery
     drainPerShot: 20
   - type: ContainerFill
@@ -588,14 +602,6 @@
     layers:
     - state: icon
       map: ["enum.DamageStateVisualLayers.Base", "movement"]
-    - state: icon
-      map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
-      visible: false
-    - state: icon
-      shader: unshaded
-      map: ["light"]
-      visible: false
   - type: SpriteMovement
     movementLayers:
       movement:

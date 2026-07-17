@@ -54,7 +54,7 @@
   - type: FollowDistance
     backStrength: 5
 
-# Integrated flamer weapon for borg modules — battery-based to avoid SolutionContainerManager issues. #Misfits Change
+# Integrated flamer weapon for borg modules. #Misfits Change
 - type: entity
   id: N14BorgWeaponFlamer
   parent: BaseItem
@@ -69,9 +69,26 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 1000
-  - type: ProjectileBatteryAmmoProvider
-    proto: FireProjectile
-    fireCost: 100
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        maxVol: 500
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 500
+  - type: FlamerAmmoProvider
+    solutionId: chamber
+    fireCost: 5
+    fireTilePrototype: MisfitsTileFire
+    range: 6
+  - type: SolutionRegeneration
+    solution: chamber
+    generated:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 10
+    duration: 0.2
+    nextChargeTime: 10
   - type: Gun
     cameraRecoilScalar: 0
     fireRate: 10

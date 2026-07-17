@@ -5,6 +5,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Configuration;
+using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 namespace Content.Client.UserInterface.Systems.Viewport;
@@ -88,10 +89,12 @@ public sealed class ViewportUIController : UIController
         // verify that the current eye is not "null". Fuck IEyeManager.
 
         var ent = _playerMan.LocalEntity;
-        if (_eyeManager.CurrentEye.Position != default || ent == null)
+        if (_eyeManager.CurrentEye.Position.MapId != MapId.Nullspace || ent == null)
             return;
 
         _entMan.TryGetComponent(ent, out EyeComponent? eye);
+        if (TryRecoverMainEye(ent.Value, eye))
+            return;
 
         if (eye?.Eye == _eyeManager.CurrentEye
             && _entMan.GetComponent<TransformComponent>(ent.Value).WorldPosition == default)
@@ -100,5 +103,25 @@ public sealed class ViewportUIController : UIController
         // Currently, this shouldn't happen. This likely happened because the main eye was set to null. When this
         // does happen it can create hard to troubleshoot bugs, so lets print some helpful warnings:
         Logger.Warning($"Main viewport's eye is in nullspace (main eye is null?). Attached entity: {_entMan.ToPrettyString(ent.Value)}. Entity has eye comp: {eye != null}");
+    }
+
+    private bool TryRecoverMainEye(EntityUid entity, EyeComponent? eye)
+    {
+        if (eye == null)
+            return false;
+
+        var target = eye.Target ?? entity;
+        if (!_entMan.TryGetComponent<TransformComponent>(target, out var xform) ||
+            xform.MapID == MapId.Nullspace)
+        {
+            return false;
+        }
+
+        _eyeManager.CurrentEye = eye.Eye;
+        if (Viewport != null)
+            Viewport.Viewport.Eye = eye.Eye;
+
+        Logger.Warning($"Recovered main viewport eye from nullspace using {_entMan.ToPrettyString(entity)}.");
+        return true;
     }
 }

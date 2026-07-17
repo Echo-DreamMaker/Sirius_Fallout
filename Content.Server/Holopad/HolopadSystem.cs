@@ -1,4 +1,5 @@
 using Content.Server.Chat.Systems;
+using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Speech.Components;
@@ -9,6 +10,7 @@ using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Holopad;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Labels.Components;
+using Content.Shared.Mind.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.Speech;
 using Content.Shared.Telephone;
@@ -35,6 +37,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
     [Dependency] private readonly SharedStationAiSystem _stationAiSystem = default!;
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -79,7 +82,9 @@ public sealed class HolopadSystem : SharedHolopadSystem
         SubscribeLocalEvent<HolopadUserComponent, ComponentShutdown>(OnHolopadUserShutdown);
 
         // Misc events
-        SubscribeLocalEvent<HolopadUserComponent, EmoteEvent>(OnEmote);
+        SubscribeLocalEvent<HolopadUserComponent, EmoteEvent>(OnHolopadUserEmote);
+        SubscribeLocalEvent<HolopadUserComponent, StationAiHolopadEmoteRelayEvent>(OnStationAiHolopadEmoteRelay);
+        SubscribeLocalEvent<MindContainerComponent, EmoteEvent>(OnMindEmote);
         SubscribeLocalEvent<HolopadUserComponent, JumpToCoreEvent>(OnJumpToCore);
         SubscribeLocalEvent<HolopadComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleProjectorVerb);
         SubscribeLocalEvent<HolopadComponent, EntRemovedFromContainerMessage>(OnAiRemove);
@@ -376,7 +381,83 @@ public sealed class HolopadSystem : SharedHolopadSystem
 
     #region: Misc events
 
-    private void OnEmote(Entity<HolopadUserComponent> entity, ref EmoteEvent args)
+    private void OnHolopadUserEmote(Entity<HolopadUserComponent> entity, ref EmoteEvent args)
+    {
+        if (HasComp<StationAiHeldComponent>(entity))
+            return;
+
+        RelayHolopadEmote(entity, ref args);
+    }
+
+    private void OnStationAiHolopadEmoteRelay(Entity<HolopadUserComponent> entity, ref StationAiHolopadEmoteRelayEvent args)
+    {
+        if (!HasComp<StationAiHeldComponent>(entity))
+            return;
+
+        RelayStationAiHolopadAction(entity, args.Action);
+    }
+
+    private void OnMindEmote(Entity<MindContainerComponent> entity, ref EmoteEvent args)
+    {
+        if (HasComp<HolopadUserComponent>(entity))
+            return;
+
+        if (TryResolveStationAiEmoteUser(entity.Owner, out _))
+        {
+            // Station AI chat emotes are relayed through ChatSystem so they can stay nameless
+            // and attach bubbles to the current core/holopad endpoint. Do not also relay
+            // animation-only emote events through holocalls.
+            return;
+        }
+
+        var query = EntityQueryEnumerator<HolopadComponent, TelephoneComponent, ActiveListenerComponent>();
+        while (query.MoveNext(out var uid, out var holopad, out var telephone, out var activeListener))
+        {
+            var telephoneEntity = new Entity<TelephoneComponent>(uid, telephone);
+
+            if (!_telephoneSystem.IsTelephonePowered(telephoneEntity) ||
+                !_telephoneSystem.IsTelephoneEngaged(telephoneEntity) ||
+                telephone.Muted ||
+                !_interaction.InRangeUnobstructed(entity.Owner, uid, activeListener.Range))
+            {
+                continue;
+            }
+
+            LinkHolopadToUser((uid, holopad), entity);
+        }
+
+        if (TryComp<HolopadUserComponent>(entity, out var holopadUser))
+            RelayHolopadEmote((entity.Owner, holopadUser), ref args);
+    }
+
+    private bool TryResolveStationAiEmoteUser(EntityUid source, out Entity<StationAiHeldComponent> stationAi)
+    {
+        if (TryComp<StationAiHeldComponent>(source, out var held))
+        {
+            stationAi = (source, held);
+            return true;
+        }
+
+        var query = EntityQueryEnumerator<StationAiCoreComponent>();
+        while (query.MoveNext(out var coreUid, out var core))
+        {
+            if (core.RemoteEntity != source)
+                continue;
+
+            if (_stationAiSystem.TryGetInsertedAI((coreUid, core), out var insertedAi))
+            {
+                stationAi = insertedAi.Value;
+                return true;
+            }
+
+            break;
+        }
+
+        stationAi = default;
+        return false;
+    }
+
+    private void RelayHolopadEmote(Entity<HolopadUserComponent> entity, ref EmoteEvent args)
     {
         foreach (var linkedHolopad in entity.Comp.LinkedHolopads)
         {
@@ -393,15 +474,35 @@ public sealed class HolopadSystem : SharedHolopadSystem
 
             foreach (var receiver in receivingHolopads)
             {
-                if (receiver.Comp.Hologram == null)
-                    continue;
-
                 // Name is based on the physical identity of the user
                 var ent = Identity.Entity(entity, EntityManager);
-                var name = Loc.GetString("holopad-hologram-name", ("name", ent));
+                var relay = receiver.Comp.Hologram?.Owner ?? receiver.Owner;
+                var name = receiver.Comp.Hologram != null
+                    ? Loc.GetString("holopad-hologram-name", ("name", ent))
+                    : Name(ent);
 
-                // Force the emote, because if the user can do it, the hologram can too
-                _chatSystem.TryEmoteWithChat(receiver.Comp.Hologram.Value, args.Emote, range, false, name, true, true);
+                // Force the emote, because if the user can do it, the relay can too
+                _chatSystem.TryEmoteWithChat(relay, args.Emote, range, false, name, true, true);
+            }
+        }
+    }
+
+    private void RelayStationAiHolopadAction(Entity<HolopadUserComponent> entity, string action)
+    {
+        foreach (var linkedHolopad in entity.Comp.LinkedHolopads)
+        {
+            if (!TryComp<TelephoneComponent>(linkedHolopad, out var linkedHolopadTelephone) ||
+                !_telephoneSystem.IsTelephoneEngaged((linkedHolopad.Owner, linkedHolopadTelephone)))
+            {
+                continue;
+            }
+
+            var receivingHolopads = GetLinkedHolopads(linkedHolopad);
+            var range = ChatTransmitRange.GhostRangeLimit;
+
+            foreach (var receiver in receivingHolopads)
+            {
+                _chatSystem.SendEntityNamelessEmote(receiver.Owner, action, range, ignoreActionBlocker: true, recipientRange: SharedChatSystem.VoiceRange);
             }
         }
     }
@@ -422,7 +523,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
 
     private void AddToggleProjectorVerb(Entity<HolopadComponent> entity, ref GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract)
+        if (!args.CanAccess)
             return;
 
         if (!this.IsPowered(entity, EntityManager))
@@ -444,7 +545,9 @@ public sealed class HolopadSystem : SharedHolopadSystem
         AlternativeVerb verb = new()
         {
             Act = () => ActivateProjector(entity, user),
-            Text = Loc.GetString("holopad-activate-projector-verb"),
+            Text = Loc.GetString(entity.Comp.HologramProtoId == null
+                ? "holopad-use-as-holopad-verb"
+                : "holopad-activate-projector-verb"),
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/vv.svg.192dpi.png")),
         };
 

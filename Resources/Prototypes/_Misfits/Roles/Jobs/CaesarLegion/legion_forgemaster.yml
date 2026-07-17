@@ -24,7 +24,7 @@
   startingGear: CaesarLegionForgeMasterGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerDean"
-  supervisors: job-name-caesar-legion-supervisors
+  supervisors: job-supervisor-caesar-legion-centurion
   canBeAntag: false
   accessGroups:
   - CaesarLegionDean
@@ -52,7 +52,6 @@
     outerClothing: N14ClothingOuterDeanLegionnaireRecruitArmor
     gloves: N14ClothingHandsGlovesTribal
     belt: N14Gladius
-    pocket1: LegionVeteranloadoutkits
     id: N14IDLegionaryMedalForgemaster
 
 - type: playTimeTracker

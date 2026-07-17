@@ -69,7 +69,7 @@
 - type: loadout
   id: LoadoutSpeedLoader45-70
   category: LargeCaliber
-  cost: 4
+  cost: 2
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
@@ -250,7 +250,7 @@
 - type: loadout
   id: LoadoutMagazine556Rifle
   category: MediumCaliber
-  cost: 1
+  cost: 2
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
@@ -258,6 +258,7 @@
       departments:
         - BrotherhoodOfSteel
         - NCR
+        - Rangers
   items:
     - Magazine556Rifle
     - Magazine556Rifle
@@ -266,7 +267,7 @@
 - type: loadout
   id: LoadoutLongMagazine556Rifle
   category: MediumCaliber
-  cost: 1
+  cost: 2
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
@@ -275,6 +276,7 @@
         - BrotherhoodOfSteel
         - NCR
         - CaesarLegion
+        - Rangers
   items:
     - LongMagazine556Rifle
     - LongMagazine556Rifle
@@ -283,13 +285,14 @@
 - type: loadout
   id: LoadoutMagazine762Rifle
   category: MediumCaliber
-  cost: 1
+  cost: 2
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+        - Rangers
         - CaesarLegion
   items:
     - Magazine762Rifle
@@ -322,6 +325,10 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement
+      jobs:
+        - CaesarLegionCenturion    
+        - CaesarLegionLegate
   items:
     - Magazine308M60Box
     - Magazine308M60Box
@@ -332,13 +339,14 @@
 - type: loadout
   id: LoadoutSpeedLoader45-70Tube
   category: LargeCaliber
-  cost: 1
+  cost: 3
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+        - Rangers
   items:
     - SpeedLoader45-70Tube
     - SpeedLoader45-70Tube
@@ -361,13 +369,14 @@
 - type: loadout
   id: LoadoutMagazine308RifleSniper
   category: LargeCaliber
-  cost: 1
+  cost: 3
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+        - Rangers        
   items:
     - Magazine308RifleSniper
     - Magazine308RifleSniper
@@ -375,7 +384,7 @@
 - type: loadout
   id: LoadoutClipMagazine308Rifle
   category: LargeCaliber
-  cost: 1
+  cost: 3
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
@@ -394,14 +403,14 @@
 - type: loadout
   id: N14LoadoutMagazine50AMR
   category: LargeCaliber
-  cost: 1
+  cost: 2
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
-
+        - Rangers
   items:
     - N14Magazine50AMR
     - N14Magazine50AMR
@@ -560,10 +569,6 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - CaesarLegion
-        - NCR
   items:
     - MagazineBox9mm
 
@@ -574,9 +579,6 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - CaesarLegion
   items:
     - MagazineBox10mm
 
@@ -587,52 +589,28 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - CaesarLegion
   items:
     - MagazineBox45
 
 - type: loadout
   id: N14LoadoutAmmoBox556
   category: Ammobox
-  cost: 1
+  cost: 3
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - BrotherhoodOfSteel
-        - NCR
   items:
     - N14AmmoBox556
 
 - type: loadout
   id: LoadoutMagazineBox762
   category: Ammobox
-  cost: 1
+  cost: 3
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - NCR
   items:
     - MagazineBox762
-
-- type: loadout
-  id: LoadoutMagazineBox12
-  category: Ammobox
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutAmmo
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - BrotherhoodOfSteel
-        - NCR
-  items:
-    - MagazineBox12
 
 - type: loadout
   id: N14LoadoutAmmoBox12gauge
@@ -641,10 +619,6 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - BrotherhoodOfSteel
-        - NCR
   items:
     - N14AmmoBox12gauge
 
@@ -655,23 +629,16 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - CaesarLegion
   items:
     - MagazineBox20gauge
 
 - type: loadout
   id: N14LoadoutAmmoBox44Magnum
   category: Ammobox
-  cost: 1
+  cost: 3
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - BrotherhoodOfSteel
-        - NCR
   items:
     - N14AmmoBox44Magnum
 
@@ -682,38 +649,26 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - CaesarLegion
-        - NCR
   items:
     - MagazineBox308
 
 - type: loadout
   id: LoadoutMagazineBox45-70
   category: Ammobox
-  cost: 1
+  cost: 4
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - BrotherhoodOfSteel
-        - NCR
   items:
     - MagazineBox45-70
 
 - type: loadout
   id: LoadoutMagazineBox50
   category: Ammobox
-  cost: 2
+  cost: 4
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmo
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - BrotherhoodOfSteel
-        - NCR
   items:
     - MagazineBox50
 

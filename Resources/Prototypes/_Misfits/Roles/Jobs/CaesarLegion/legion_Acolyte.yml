@@ -23,7 +23,7 @@
   startingGear: CaesarLegionAcolyteOfMarsGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerRecruit"
-  supervisors: job-name-caesar-legion-other
+  supervisors: job-supervisor-caesar-legion-prisetess
   canBeAntag: false
   accessGroups:
     - CaesarLegionAcolyteOfMars

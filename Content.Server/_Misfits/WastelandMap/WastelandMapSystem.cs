@@ -560,7 +560,7 @@ public sealed class WastelandMapSystem : EntitySystem
             if (!bounds.Contains(pos))
                 continue;
 
-            buffer.Add(new WastelandMapTrackedBlip(pos.X, pos.Y, Name(uid), WastelandMapTrackedBlipKind.DeadBody));
+            buffer.Add(new WastelandMapTrackedBlip(pos.X, pos.Y, Loc.GetString("followers-missing-person"), WastelandMapTrackedBlipKind.DeadBody));
         }
     }
 
@@ -610,7 +610,7 @@ public sealed class WastelandMapSystem : EntitySystem
 
             if (_followerSessionScratch.Count > 0)
             {
-                var msg = Loc.GetString("followers-death-alert", ("name", Name(uid)));
+                var msg = Loc.GetString("followers-death-alert");
                 foreach (var session in _followerSessionScratch)
                     _chatManager.DispatchServerMessage(session, msg);
             }

@@ -1,0 +1,59 @@
+# #Misfits Add - Enclave Communications Officer role (First Lieutenant / Second Lieutenant).
+
+- type: job
+  id: EnclaveCommunicationsOfficer
+  setPreference: true
+  hideWithoutJobWhitelist: true
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 110
+  displayWeight: 127
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-enclave-communications-officer
+  description: job-description-enclave-communications-officer
+  playTimeTracker: EnclaveCommunicationsOfficer
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+    - !type:CharacterDepartmentTimeRequirement
+      department: Enclave
+      min: 57600 # 16 hours
+    - !type:CharacterPlaytimeRequirement
+      tracker: EnclaveNCO
+      min: 36000 # 10 hours
+  startingGear: EnclaveCommunicationsOfficerGear
+  icon: "JobIconSiriusEnclaveCommunicationsOfficer"
+  supervisors: job-supervisors-enclave-junior-officer
+  alwaysUseSpawner: true
+  accessGroups:
+  - EnclaveSeniorOfficer
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Enclave
+      - type: PowerArmorProficiency
+
+- type: startingGear
+  id: EnclaveCommunicationsOfficerGear
+  equipment:
+    head: N14ClothingHeadHatEnclaveIntel
+    back: N14ClothingBackpackMilitary
+    jumpsuit: N14ClothingUniformJumpsuitEnclave
+    shoes: N14ClothingBootsCombatFilled
+    gloves: N14ClothingHandsGlovesCombat
+    belt: ClothingBeltMilitary
+    ears: N14ClothingHeadsetEnclave
+    pocket1: EnclaveOfficerloadoutkits
+    pocket2: RadioHandheld
+    id: SiriusIDEnclaveCommunicationsOfficer
+  satchel: N14ClothingBackpackSatchelMilitaryFilled
+  duffelbag: N14ClothingBackpackDuffelMilitaryFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+
+- type: playTimeTracker
+  id: EnclaveCommunicationsOfficer

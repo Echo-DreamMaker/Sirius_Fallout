@@ -47,6 +47,7 @@
   - EnclaveReformer      # The Reformer (admin whitelist)  | _Misfits/Roles/Jobs/Enclave/enclave_reformer.yml  # #Misfits Add
   - EnclaveCommander
   - EnclaveSeniorOfficer
+  - EnclaveCommunicationsOfficer # Sirius Add
   - EnclaveJuniorOfficer
   - EnclaveHeadScientist
   - EnclaveScientist
@@ -54,7 +55,7 @@
   - EnclaveNCO
   - EnclaveEnlisted
   - EnclaveRecruit       # #Misfits Add - hidden job for per-round recruitment playtime tracking
-  - SuperMutantEnclave
+  # - SuperMutantEnclave
 
 # #Misfits Add — Caesar's Legion department. Groups all Legion roles for the
 # character-creation screen and for department-based requirements/lookups.

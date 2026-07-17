@@ -6,6 +6,7 @@ using Content.Shared.Database;
 using Content.Shared.Doors.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Electrocution;
+using Content.Shared.Holopad;
 using Content.Shared.Intellicard;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
@@ -199,6 +200,15 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             return;
 
         args.Result = BoundUserInterfaceRangeResult.Fail;
+
+        if (!ent.Comp.Enabled || !PowerReceiver.IsPowered(ent.Owner))
+            return;
+
+        if (HasComp<HolopadComponent>(ent) && !HasComp<StationAiVisionComponent>(ent))
+        {
+            args.Result = BoundUserInterfaceRangeResult.Pass;
+            return;
+        }
 
         // Similar to the inrange check but more optimised so server doesn't die.
         var targetXform = Transform(args.Target);

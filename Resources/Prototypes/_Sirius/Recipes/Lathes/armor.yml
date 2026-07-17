@@ -69,3 +69,74 @@
     Circuitry: 60
     ScrapElectronic: 45
     N14Brass: 250
+
+## Combat Armor
+- type: latheRecipe
+  id: SiriusClothingOuterPeacekeeperVestEnclave
+  result: N14ClothingOuterEnclavePeacekeeper
+  category: N14Armor
+  completetime: 20
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 2000
+    N14Iron: 10
+    N14Brass: 15
+
+- type: latheRecipe
+  id: SiriusClothingOuterEnclaveCombatArmor
+  result: N14ClothingOuterEnclaveArmor
+  category: N14Armor
+  completetime: 20
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 2500
+    N14Iron: 10
+    N14Brass: 20
+
+- type: latheRecipe
+  id: SiriusClothingOuterEnclaveCombatArmorMk2
+  result: N14ClothingOuterEnclaveCombatArmor
+  category: N14Armor
+  completetime: 20
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 3500
+    N14Iron: 20
+    N14Brass: 25
+
+## Helms
+- type: latheRecipe
+  id: SiriusClothingOuterEnclaveHelmet
+  result: N14ClothingHeadHatEnclaveHelmet
+  category: N14Armor
+  completetime: 15
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 1200
+    N14Brass: 15
+
+- type: latheRecipe
+  id: SiriusClothingOuterEnclaveHelmetHooded
+  result: N14ClothingHeadHatEnclaveHelmetHood
+  category: N14Armor
+  completetime: 15
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 1600
+    N14Brass: 20
+
+- type: latheRecipe
+  id: SiriusClothingOuterEnclaveHelmetMarine
+  result: N14ClothingHeadHatEnclaveHelmetMarine
+  category: N14Armor
+  completetime: 15
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 2500
+    N14Brass: 25

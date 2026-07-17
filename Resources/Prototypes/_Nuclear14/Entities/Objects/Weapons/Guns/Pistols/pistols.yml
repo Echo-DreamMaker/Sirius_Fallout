@@ -335,7 +335,10 @@
             - N14CartridgePistol10
   - type: StaticPrice
     price: 15
-
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: -2
 
 - type: entity
   parent: N14WeaponPistol10mmPipe
@@ -358,6 +361,10 @@
   - type: Construction
     graph: N14WeaponPistol10mmPipeEmpty
     node: start
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: -2
 
 - type: entity
   name: chinese pistol
@@ -647,6 +654,10 @@
     backStrength: 3
   - type: StaticPrice
     price: 70
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 1
 
 - type: entity
   name: M1911 custom
@@ -673,6 +684,10 @@
       collection: N14PistolColtGunshot
   - type: StaticPrice
     price: 250
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 2
 
 - type: entity
   name: Maria
@@ -726,6 +741,10 @@
     backStrength: 3
   - type: StaticPrice
     price: 500
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 7
 
 - type: entity
   name: That Gun
@@ -768,6 +787,8 @@
     capacity: 6
   - type: StaticPrice
     price: 350
+
+#sirius change start
 
 - type: entity
   name: Kolibri
@@ -910,7 +931,7 @@
   - type: Item
     sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/2mmPistol.rsi
   - type: Gun
-    fireRate: 3.5
+    fireRate: 4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/GaussPistol_SingleShot_1.ogg
   - type: ItemSlots
@@ -1009,3 +1030,5 @@
             - N14Cartridge50
   - type: StaticPrice
     price: 250
+
+#sirius change end

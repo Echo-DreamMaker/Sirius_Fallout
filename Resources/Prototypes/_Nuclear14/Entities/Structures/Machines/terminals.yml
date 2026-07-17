@@ -51,6 +51,19 @@
   - type: ApcPowerReceiver
     powerLoad: 100
   - type: ExtensionCableReceiver
+  - type: StationAiWhitelist
+  - type: Holopad
+  - type: Telephone
+    compatibleRanges:
+    - Grid
+    - Map
+    - Unlimited
+    listeningRange: 0
+    speakerVolume: Speak
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
+    speechBubbleOffset: 0.45
   # #Misfits Add - Holotape reader + terminal content viewer system.
   # Clicking opens a green-on-black terminal UI with randomized Wendover-era entries.
   # Using a holotape on the terminal displays the holotape's content instead.
@@ -69,6 +82,8 @@
     interfaces:
       enum.HolotapeUiKey.Key:
         type: HolotapeBoundUserInterface
+      enum.HolopadUiKey.InteractionWindow:
+        type: HolopadBoundUserInterface
   - type: ActivatableUIRequiresPower
   - type: LitOnPowered
   - type: PointLight

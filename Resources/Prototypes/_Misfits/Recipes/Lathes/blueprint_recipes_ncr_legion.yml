@@ -1296,9 +1296,9 @@
   availableFaction:
   - CaesarLegion
   materials:
-    Steel: 800
+    Steel: 1000
 
-    N14Gunpowder: 1000
+    N14Gunpowder: 1200
 
     N14Iron: 500
 
@@ -1313,13 +1313,13 @@
   availableFaction:
   - NCR
   materials:
-    Lead: 102
+    Lead: 1000
 
-    N14Brass: 102
+    N14Brass: 300
 
-    N14Gunpowder: 102
+    N14Gunpowder: 500
 
-    Steel: 500
+    Steel: 1000
 
 
 - type: latheRecipe
@@ -1395,11 +1395,11 @@
   availableFaction:
   - NCR
   materials:
-    Steel: 1000
+    Steel: 500
 
     Lead: 500
 
-    N14Gunpowder: 750
+    N14Gunpowder: 300
 
 - type: latheRecipe
   id: N14BPNCRAmmoMagTopSMG12mm
@@ -2331,9 +2331,9 @@
   availableFaction:
   - CaesarLegion
   materials:
-    Steel: 800
+    Steel: 1000
 
-    N14Gunpowder: 1000
+    N14Gunpowder: 1200
 
     N14Iron: 500
 
@@ -2416,13 +2416,13 @@
   availableFaction:
   - CaesarLegion
   materials:
-    Lead: 102
+    Lead: 1000
 
-    N14Brass: 102
+    N14Brass: 300
 
-    N14Gunpowder: 102
+    N14Gunpowder: 500
 
-    Steel: 500
+    Steel: 1000
 
 
 - type: latheRecipe

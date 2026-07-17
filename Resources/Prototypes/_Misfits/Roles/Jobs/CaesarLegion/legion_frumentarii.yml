@@ -18,7 +18,10 @@
     - !type:CharacterSpeciesRequirement
       species:
       - Human
-    # #Misfits Change: Frumentarii is now open to Female characters.
+    - !type:CharacterSexRequirement
+      sex: Male
+    - !type:CharacterGenderRequirement
+      gender: Male
   startingGear: CaesarLegionFrumentariiGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerVenator"

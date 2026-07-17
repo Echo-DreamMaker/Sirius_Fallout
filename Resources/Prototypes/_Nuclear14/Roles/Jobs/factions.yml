@@ -36,8 +36,8 @@
   - BoSMidPaladinCommander       # Head Paladin   | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_headpaladin.yml
   #Misfits Change /Comment-out/: Washington BoS jobs removed from faction — prototypes commented out.
   #- BoSWashingtonCommander       # Head Knight (old Washington)
-  - BoSHeadKnight                # Head Knight    | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_headknight.yml  #Misfits Change /Add/
-  - BoSWestScribe                # Head Scribe    | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_headscribe.yml
+  #- BoSHeadKnight                # Head Knight    | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_headknight.yml  #Misfits Change /Add/
+  #- BoSWestScribe                # Head Scribe    | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_headscribe.yml
   # Senior Members
   - BoSMidPaladin                # Senior Paladin | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_seniorpaladin.yml
   - BoSMidKnight                 # Senior Knight  | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_seniorknight.yml
@@ -51,7 +51,7 @@
   - BoSScribe                    # Scribe         | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_scribe.yml  #Misfits Change /Add/
   # Recruits
   - BoSMidSquire                 # Squire         | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_squire.yml
-  - BoSOffDuty                   # Off-duty       | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_off_duty.yml
+  #- BoSOffDuty                   # Off-duty       | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_off_duty.yml
   #- BoSWashingtonInitiate        # Initiate (old Washington)
   - BoSInitiate                  # Initiate       | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_initiate.yml  #Misfits Change /Add/
   - BoSMidSerf                  # Serf       | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_serf.yml  #Misfits Change /Add/
@@ -90,8 +90,8 @@
   - NCRCadet             # NCR Recruit             | _Misfits/Roles/Jobs/NCR/ncr_recruit.yml
   # Special
   - NCRPrisoner           # NCR Prisoner            | _Misfits/Roles/Jobs/NCR/ncr_prisoner.yml
-  - NCRCitizen           # NCR Citizen             | _Misfits/Roles/Jobs/NCR/ncr_citizen.yml # Misfits Add
-  - NCRTrader            # NCR Trader              | _Misfits/Roles/Jobs/NCR/ncr_trader.yml # Misfits Add
+  #- NCRCitizen           # NCR Citizen             | _Misfits/Roles/Jobs/NCR/ncr_citizen.yml # Misfits Add
+  #- NCRTrader            # NCR Trader              | _Misfits/Roles/Jobs/NCR/ncr_trader.yml # Misfits Add
   # Special roles outside the visible ladder (hidden from character creation):
   # Hidden — kept for compatibility, not visible in character creation:
   #- NCRMajor            # Superseded — Major is now a loadout pin for NCRCommander
@@ -234,6 +234,6 @@
   # - CaesarLegionRecruit         # Recruit             | _Misfits/Roles/Jobs/CaesarLegion/legion_recruit.yml
   - SuperMutantGladiator        # Mutant Gladiator    | _Misfits/Roles/Jobs/SuperMutant/supermutant.yml   # Misfits Add
   - CaesarLegionSlave           # Slave               | _Misfits/Roles/Jobs/CaesarLegion/legion_slave.yml # #Misfits Add
-  - CaesarLegionCitizen         # Civilian            | _Misfits/Roles/Jobs/CaesarLegion/legion_civilian.yml # #Misfits Add
-  - CaesarLegionTrader          # Trader              | _Misfits/Roles/Jobs/CaesarLegion/legion_trader.yml # #Misfits Add
-  - CaesarLegionAcolyteOfMars      # Acolyte of Mars     | _Misfits/Roles/Jobs/CaesarLegion/legion_Acolyte.yml # #Misfits Add
+  #- CaesarLegionCitizen         # Civilian            | _Misfits/Roles/Jobs/CaesarLegion/legion_civilian.yml # #Misfits Add
+  #- CaesarLegionTrader          # Trader              | _Misfits/Roles/Jobs/CaesarLegion/legion_trader.yml # #Misfits Add
+  #- CaesarLegionAcolyteOfMars      # Acolyte of Mars     | _Misfits/Roles/Jobs/CaesarLegion/legion_Acolyte.yml # #Misfits Add

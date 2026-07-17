@@ -1,0 +1,35 @@
+- type: entity
+  id: MisfitsTileFire
+  name: fire
+  categories: [ HideSpawnMenu ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: _Misfits/Effects/fire.rsi
+    noRot: true
+    drawdepth: WallTops
+    layers:
+    - map: [ "base" ]
+      state: red_4
+  - type: PointLight
+    radius: 5
+    color: "#bf6d02"
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.TileFireLayers.Base:
+        base:
+          One: { state: red_1 }
+          Two: { state: red_2 }
+          Three: { state: red_3 }
+          Four: { state: red_4 }
+  - type: TileFire
+    duration: 20
+    bigFireDuration: 0.5
+    extinguishInstantly: true
+    vaporExtinguishSeconds: 2
+    fireStacks: 1.5
+    standingDamage: 1

@@ -5,6 +5,8 @@ misfits-admin-menu-whitelisting-tab = Whitelisting
 misfits-admin-menu-staff-tab = Staff
 # #Misfits Change - LoreMaster tab for faction objective management
 misfits-admin-menu-loremaster-tab = Loremaster
+# #Misfits Change - Door Logs tab
+misfits-admin-menu-door-logs-tab = Logs
 # #Misfits Change - Ticket stats tab showing per-round admin and mentor ticket statistics
 misfits-admin-menu-ticket-stats-tab = Ticket Stats
 
@@ -225,3 +227,11 @@ misfits-server-restart-announcement-update = The server is restarting to deploy 
 misfits-server-restart-shutdown-reason = Server restarting by admin request.
 # Admin-only chat notification when the watchdog signals a new build is staged and ready
 misfits-server-update-pending-admin = [UPDATE] A new server build is staged and ready. Use "Restart Server" in the F7 Server tab to deploy it.
+
+# Logs tab button descriptions
+misfits-logs-tab-open-logs-btn = Logs
+misfits-logs-tab-open-logs-desc = Open the regular admin logs viewer.
+misfits-logs-tab-open-door-logs-btn = Door Logs
+misfits-logs-tab-open-door-logs-desc = View the door destruction log - which doors were destroyed and by whom.
+misfits-logs-tab-open-whitelist-logs-btn = Whitelist Logs
+misfits-logs-tab-open-whitelist-logs-desc = View whitelist grants and removals in a dedicated log.

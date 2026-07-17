@@ -40,6 +40,7 @@ holopad-hologram-name = hologram of {THE($name)}
 
 # Holopad actions
 holopad-activate-projector-verb = Activate holopad projector
+holopad-use-as-holopad-verb = Use as holopad
 holopad-ai-is-unable-to-reach-holopad = You are unable to interface with the source of the call, it is too far from your core.
 
 # Mapping prototypes

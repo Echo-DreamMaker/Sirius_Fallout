@@ -186,6 +186,10 @@ internal sealed class AllyTagOverlay : Overlay
             if (!cacheEntry.Visible)
                 continue;
 
+            // #Misfits Add - Observer participants see tags but don't get one rendered on them.
+            if (info.IsObserver)
+                continue;
+
             string tag;
             Color color;
 

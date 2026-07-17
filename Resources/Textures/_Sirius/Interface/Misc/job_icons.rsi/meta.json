@@ -1,0 +1,21 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Producted by rozycosmic for 300 bucks to Sirius Fallout project. Steal it and I fist ur ahh",
+
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "anclav_GP"
+        },
+        {
+            "name": "anclav_svyazist"
+        },
+        {
+            "name": "anclave_rabochiy"
+        }
+    ]
+}

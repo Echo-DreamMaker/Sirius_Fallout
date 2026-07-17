@@ -2,6 +2,7 @@ using Content.Shared.Eui;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using System.Linq;
 
 namespace Content.Shared.Administration;
 
@@ -24,12 +25,12 @@ public sealed class JobWhitelistsEuiState : EuiStateBase
 [Serializable, NetSerializable]
 public sealed class SetJobWhitelistedMessage : EuiMessageBase
 {
-    public ProtoId<JobPrototype> Job;
+    public List<ProtoId<JobPrototype>> Jobs;
     public bool Whitelisting;
 
-    public SetJobWhitelistedMessage(ProtoId<JobPrototype> job, bool whitelisting)
+    public SetJobWhitelistedMessage(IEnumerable<ProtoId<JobPrototype>> jobs, bool whitelisting)
     {
-        Job = job;
+        Jobs = jobs.ToList();
         Whitelisting = whitelisting;
     }
 }

@@ -56,6 +56,7 @@ public sealed class FactionWarClientSystem : EntitySystem
         SubscribeNetworkEvent<FactionWarParticipantsUpdatedEvent>(OnParticipantsUpdated);
         SubscribeNetworkEvent<FactionWarForceResultEvent>(OnForceWarResult);
         SubscribeNetworkEvent<CeasefireProposalEvent>(OnCeasefireProposal);
+        SubscribeNetworkEvent<FactionWarForceObserveResultEvent>(OnForceObserveResult); // #Misfits Add
 
         _conHost.RegisterCommand(
             "war",
@@ -182,6 +183,12 @@ public sealed class FactionWarClientSystem : EntitySystem
             _forceWarWindow?.ShowCeasefireResult(msg.Success, msg.Message);
         else
             _forceWarWindow?.ShowResult(msg.Success, msg.Message);
+    }
+
+    // #Misfits Add - Handle observe result from server.
+    private void OnForceObserveResult(FactionWarForceObserveResultEvent msg)
+    {
+        _forceWarWindow?.ShowObserveResult(msg.Success, msg.Message);
     }
 
     // ── /war client command ────────────────────────────────────────────────
@@ -312,6 +319,15 @@ public sealed class FactionWarClientSystem : EntitySystem
             {
                 Player1 = player1,
                 Player2 = player2,
+            });
+        };
+
+        // #Misfits Add - Admin observe war. Observer is always the admin using the panel.
+        _forceWarWindow.OnForceObserve += participant =>
+        {
+            RaiseNetworkEvent(new PlayerWarForceObserveRequestEvent
+            {
+                Participant = participant,
             });
         };
 

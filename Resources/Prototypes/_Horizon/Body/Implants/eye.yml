@@ -1,0 +1,88 @@
+- type: entity
+  id: BaseEntityEyeImplant
+  abstract: true
+  parent: [ BaseItem, BaseImplant ]
+  components:
+  - type: Sprite
+    sprite: _Horizon/Objects/Specific/Medical/implants.rsi
+  - type: Organ
+    slotId: eyes
+  - type: Eyes
+  - type: Gibbable
+  - type: FlavorProfile
+    flavors:
+      - people
+
+- type: entity
+  id: EyeImplantWelding
+  name: Welding Implant
+  description: Protects eyes from welding flashes.
+  parent: BaseEntityEyeImplant
+  components:
+  - type: Sprite
+    state: eye_implant_welding
+  - type: EyeImplantWelding
+
+- type: entity
+  id: EyeImplantDiagnostic
+  name: Diagnostic Implant
+  description: Enables you to see information about mechanisms without diagnostic glasses.
+  parent: BaseEntityEyeImplant
+  components:
+  - type: Sprite
+    state: eye_implant_diagnostic
+  - type: EyeImplantDiagnostic
+
+- type: entity
+  id: EyeImplantMedical
+  name: Medical Implant
+  description: Enables you to see information about humanoids without medical glasses.
+  parent: BaseEntityEyeImplant
+  components:
+  - type: Sprite
+    state: eye_implant_medical
+  - type: EyeImplantMedical
+
+- type: entity
+  id: EyeImplantChemical
+  name: Chemical Implant
+  description: Enables you to see information about chemical compound without chemical glasses.
+  parent: BaseEntityEyeImplant
+  components:
+  - type: Sprite
+    state: eye_implant_medical
+  - type: EyeImplantChemical
+
+- type: entity
+  id: EyeImplantSecurity
+  name: Security Implant
+  description: Enables you to see information about station crew without security glasses.
+  parent: BaseEntityEyeImplant
+  components:
+  - type: Sprite
+    state: eye_implant_security
+  - type: EyeImplantSecurity
+
+- type: entity
+  id: EyeImplantSyndie
+  name: Syndie Implant
+  description: Enables you to see information about station crew, humanoids and syndie without any glasses.
+  parent: BaseEntityEyeImplant
+  components:
+  - type: Sprite
+    state: eye_implant_syndicate
+  - type: EyeImplantSyndie
+
+- type: entity
+  id: EyeImplantNight
+  name: Nightvision Implant
+  description: Enables you to see in the dark without glasses.
+  parent: BaseEntityEyeImplant
+  components:
+  - type: Sprite
+    sprite: _Horizon/Objects/Specific/Medical/implants.rsi
+    state: eyes_night
+  - type: NV
+  - type: OrganVisualization
+    layer: Eyes
+    prototype: CyberEyesNightVision
