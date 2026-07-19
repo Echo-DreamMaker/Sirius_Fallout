@@ -1,11 +1,4 @@
 verb-categories-tame = Приручить
-
-follower-verb-follow = Следовать
-follower-verb-unfollow = Стоять
-follower-verb-attack = Атаковать цель
-follower-verb-release = Отпустить питомца
-follower-verb-following = Следует за { $name }
-follower-verb-follow-disabled = Приказать следовать
 follower-verb-follow-charisma-needed = У вас слишком низкая харизма, чтобы командовать животными!
 follower-already-following = Это животное уже следует за кем-то!
 follower-now-following = Теперь следует за вами!
@@ -19,7 +12,6 @@ follower-cant-attack-owner = Вы не можете приказать пито�
 follower-cant-attack-pet = Вы не можете приказать питомцу атаковать другого питомца!
 follower-attack-mode-on = Режим атаки включён! Нажмите на цель для атаки.
 follower-attack-mode-off = Режим атаки выключен.
-
 taming-verb-tame = Приручить
 taming-verb-already-tamed = Уже приручено
 taming-verb-dead = Мертво - нельзя приручить
@@ -29,10 +21,14 @@ taming-verb-wrong-food = Неправильная еда
 taming-verb-charisma-needed = Требуется харизма { $needed }+
 taming-verb-need-food = Нужно держать подходящую еду в руке
 taming-verb-wrong-food-message = Это животное не ест такую еду
-
 taming-success = Вы успешно приручили животное!
-taming-success-other = Животное смотрит на вас с доверием.
 taming-failed = Животное отвергает вашу попытку.
-taming-failed-other = Животное пренебрежительно отворачивается.
 taming-failed-no-food = Еда исчезла!
 taming-already-tamed = Это животное уже приручено!
+ent-ActionPetFollowStay = Следовать
+    .desc = Приказать животному следовать или свободно бродить.
+ent-ActionPetAttackCancel = Натравить
+    .desc = Приказать животному атаковать цель. Укажите на цель в режиме атаки для натравливания.
+ent-ActionPetRelease = Отпустить
+    .desc = Отпустить питомца на свободу.
+

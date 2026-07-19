@@ -1,11 +1,4 @@
 verb-categories-tame = Tame
-
-follower-verb-follow = Follow
-follower-verb-unfollow = Stay
-follower-verb-attack = Attack Target
-follower-verb-release = Release Pet
-follower-verb-following = Following { $name }
-follower-verb-follow-disabled = Command to follow
 follower-verb-follow-charisma-needed = You're too uncharismatic to command animals!
 follower-already-following = This animal is already following someone!
 follower-now-following = Now following you!
@@ -19,7 +12,6 @@ follower-cant-attack-owner = You can't command your pet to attack you!
 follower-cant-attack-pet = You can't command your pet to attack another pet!
 follower-attack-mode-on = Attack mode enabled! Click on a target to attack.
 follower-attack-mode-off = Attack mode disabled.
-
 taming-verb-tame = Tame
 taming-verb-already-tamed = Already tamed
 taming-verb-dead = Dead - cannot tame
@@ -29,10 +21,13 @@ taming-verb-wrong-food = Wrong food
 taming-verb-charisma-needed = Charisma { $needed }+ required
 taming-verb-need-food = Need to hold appropriate food in hand
 taming-verb-wrong-food-message = This animal doesn't eat this food
-
 taming-success = You successfully tamed the animal!
-taming-success-other = The animal looks at you with trust.
 taming-failed = The animal rejects your attempt.
-taming-failed-other = The animal looks away dismissively.
 taming-failed-no-food = The food has disappeared!
 taming-already-tamed = This animal is already tamed!
+ent-ActionPetFollowStay = Follow
+    .desc = Toggle between following and wandering.
+ent-ActionPetAttackCancel = Attack
+    .desc = Toggle attack mode on/off. Click a target while in attack mode to attack.
+ent-ActionPetRelease = Release
+    .desc = Release your pet back into the wild.

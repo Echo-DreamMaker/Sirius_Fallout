@@ -317,12 +317,10 @@ public sealed class TamingSystem : EntitySystem
         {
             TameAnimal(ent, args.User);
             _popup.PopupEntity(Loc.GetString("taming-success"), ent, args.User, PopupType.Medium);
-            _popup.PopupEntity(Loc.GetString("taming-success-other"), ent, args.User, PopupType.Medium);
         }
         else
         {
             _popup.PopupEntity(Loc.GetString("taming-failed"), ent, args.User, PopupType.Small);
-            _popup.PopupEntity(Loc.GetString("taming-failed-other"), ent, args.User, PopupType.Small);
         }
     }
 
