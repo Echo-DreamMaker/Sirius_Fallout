@@ -51,6 +51,7 @@ public sealed class TamingSystem : EntitySystem
         SubscribeLocalEvent<SiriusFollowerComponent, ComponentShutdown>(OnFollowerShutdown);
         SubscribeLocalEvent<SiriusFollowerComponent, AttackAttemptEvent>(OnFollowerAttackAttempt);
         SubscribeLocalEvent<SiriusFollowerComponent, EntityUnpausedEvent>(OnFollowerUnpaused);
+        SubscribeLocalEvent<TameableComponent, MapInitEvent>(OnTameableMapInit);
     }
 
     public override void Update(float frameTime)
@@ -60,7 +61,41 @@ public sealed class TamingSystem : EntitySystem
         UpdateFollowerNoPathTimeout(frameTime);
         UpdateAutoHeldFollowers();
     }
+    private void OnTameableMapInit(Entity<TameableComponent> ent, ref MapInitEvent args)
+    {
+        LoadTameablePreset(ent.Comp);
+    }
+    private void LoadTameablePreset(TameableComponent component)
+    {
+        if (string.IsNullOrEmpty(component.Preset))
+            return;
 
+        if (!_prototypeManager.TryIndex<TameablePresetPrototype>(component.Preset, out var preset))
+        {
+            Log.Error($"Tameable preset '{component.Preset}' not found!");
+            return;
+        }
+
+        if (component.FavoriteFoods.Count == 0)
+            component.FavoriteFoods = new List<string>(preset.FavoriteFoods);
+        if (component.LikedFoods.Count == 0)
+            component.LikedFoods = new List<string>(preset.LikedFoods);
+        if (component.DislikedFoods.Count == 0)
+            component.DislikedFoods = new List<string>(preset.DislikedFoods);
+
+        if (component.BaseTameChance == 0.3f && preset.BaseTameChance != 0.3f)
+            component.BaseTameChance = preset.BaseTameChance;
+        if (component.FavoriteMultiplier == 2.0f && preset.FavoriteMultiplier != 2.0f)
+            component.FavoriteMultiplier = preset.FavoriteMultiplier;
+        if (component.LikedMultiplier == 1.5f && preset.LikedMultiplier != 1.5f)
+            component.LikedMultiplier = preset.LikedMultiplier;
+        if (component.DislikedMultiplier == 0.5f && preset.DislikedMultiplier != 0.5f)
+            component.DislikedMultiplier = preset.DislikedMultiplier;
+        if (component.MinCharisma == 3 && preset.MinCharisma != 3)
+            component.MinCharisma = preset.MinCharisma;
+        if (component.TamingTime == 3.0f && preset.TamingTime != 3.0f)
+            component.TamingTime = preset.TamingTime;
+    }
     private void UpdateFollowerNoPathTimeout(float frameTime)
     {
         var query = EntityQueryEnumerator<SiriusFollowerComponent, HTNComponent>();

@@ -1,12 +1,13 @@
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared._Sirius.NPC.Components;
+namespace Content.Shared._Sirius.NPC;
 
-[RegisterComponent, NetworkedComponent]
-public sealed partial class TameableComponent : Component
+[Prototype("tameablePreset")]
+public sealed partial class TameablePresetPrototype : IPrototype
 {
+    [IdDataField]
+    public string ID { get; private set; } = string.Empty;
+
     [DataField]
     public List<string> FavoriteFoods = new();
 
@@ -33,10 +34,4 @@ public sealed partial class TameableComponent : Component
 
     [DataField]
     public float TamingTime = 3.0f;
-
-    [DataField]
-    public bool CanTame = true;
-
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<TameablePresetPrototype>))]
-    public string? Preset;
 }

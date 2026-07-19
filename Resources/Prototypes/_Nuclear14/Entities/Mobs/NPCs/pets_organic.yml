@@ -109,21 +109,7 @@
     baseDecayRate: 0.0
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodMeatRadRaw
-    - N14FoodMeatPigrat
-    likedFoods:
-    - N14FoodMeatRadroachFillet
-    - N14CookedFoodBreadPlain
-    dislikedFoods:
-    - N14FoodMeatRadstag
-    - N14FoodMeatBrahmin
-    baseTameChance: 0.5
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 2
-    tamingTime: 2.0
+    preset: TameablePetBasic
 
 - type: entity
   name: Basic Mutt
@@ -490,21 +476,7 @@
     - Sign
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodMeatRadroachFillet
-    - N14FoodMeatRadRaw
-    likedFoods:
-    - N14FoodCorn
-    - N14FoodPotato
-    dislikedFoods:
-    - N14FoodMeatBrahmin
-    - N14FoodMeatRadstag
-    baseTameChance: 0.5
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 1
-    tamingTime: 2.0
+    preset: TameablePetRoach
 
 - type: entity
   name: Pet Ant
@@ -581,21 +553,7 @@
         Radiation: 2
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodMeatRadRaw
-    - N14FoodCorn
-    likedFoods:
-    - N14FoodPotato
-    - N14FoodCarrot
-    dislikedFoods:
-    - N14FoodMeatBrahmin
-    - N14FoodMeatRadstag
-    baseTameChance: 0.45
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 2
-    tamingTime: 2.5
+    preset: TameablePetAnt
 
 - type: entity
   name: Pet Rat
@@ -688,18 +646,4 @@
   - type: GhostTakeoverAvailable
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodMeatPigrat
-    - N14FoodCorn
-    likedFoods:
-    - N14FoodMeatRadRaw
-    - N14FoodPotato
-    dislikedFoods:
-    - N14FoodMeatBrahmin
-    - N14FoodMeatRadstag
-    baseTameChance: 0.45
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 2
-    tamingTime: 2.5
+    preset: TameablePetRat

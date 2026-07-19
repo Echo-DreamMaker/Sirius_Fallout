@@ -425,29 +425,7 @@
         type: StrippableBoundUserInterface
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodCarrot
-    - N14FoodApple
-    - N14FoodCorn
-    likedFoods:
-    - N14FoodPotato
-    - N14FoodCabbage
-    - N14FoodOnion
-    - N14CookedFoodBreadPlain
-    - N14CookedFoodBreadCorn
-    dislikedFoods:
-    - N14FoodMeatBrahmin
-    - N14FoodMeatRadstag
-    - N14FoodMeatBighorner
-    - N14FoodMeatRadhog
-    - N14FoodMeatPigrat
-    - N14FoodMeatYaoguai
-    baseTameChance: 0.3
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 3
-    tamingTime: 3.0
+    preset: TameableBrahmin
 
 #MARK: Bighorner
 - type: entity
@@ -536,28 +514,7 @@
   - type: ReproductivePartner
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodCorn
-    - N14FoodApple
-    - N14FoodCarrot
-    likedFoods:
-    - N14FoodPotato
-    - N14FoodCabbage
-    - N14FoodOnion
-    - N14CookedFoodBreadPlain
-    - N14CookedFoodBreadCorn
-    dislikedFoods:
-    - N14FoodMeatBighorner
-    - N14FoodMeatBrahmin
-    - N14FoodMeatRadstag
-    - N14FoodMeatRadhog
-    - N14FoodMeatPigrat
-    baseTameChance: 0.3
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 3
-    tamingTime: 3.0
+    preset: TameableBighorner
 
 #MARK: Radstag
 - type: entity
@@ -640,29 +597,7 @@
   - type: ReproductivePartner
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodApple
-    - N14FoodCarrot
-    - N14FoodBerries
-    likedFoods:
-    - N14FoodCorn
-    - N14FoodPotato
-    - N14FoodCabbage
-    - N14FoodOnion
-    - N14CookedFoodBreadPlain
-    - N14CookedFoodBreadCorn
-    dislikedFoods:
-    - N14FoodMeatRadstag
-    - N14FoodMeatBrahmin
-    - N14FoodMeatBighorner
-    - N14FoodMeatRadhog
-    - N14FoodMeatPigrat
-    baseTameChance: 0.3
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 4
-    tamingTime: 3.0
+    preset: TameableRadstag
 
 - type: entity
   name: radhog
@@ -716,26 +651,7 @@
        false
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodCorn
-    - N14FoodPotato
-    likedFoods:
-    - N14FoodCarrot
-    - N14FoodApple
-    - N14FoodCabbage
-    - N14CookedFoodBreadPlain
-    dislikedFoods:
-    - N14FoodMeatRadhog
-    - N14FoodMeatBrahmin
-    - N14FoodMeatRadstag
-    - N14FoodMeatBighorner
-    - N14FoodMeatPigrat
-    baseTameChance: 0.3
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 3
-    tamingTime: 3.0
+    preset: TameableRadhog
 
 - type: entity
   parent: MobChicken
@@ -799,26 +715,7 @@
     - N14BrotherBeep
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodCorn
-    - N14FoodBerries
-    - N14FoodCarrot
-    likedFoods:
-    - N14FoodApple
-    - N14FoodPotato
-    - N14FoodCabbage
-    - N14CookedFoodBreadPlain
-    dislikedFoods:
-    - N14FoodMeatRadchicken
-    - N14FoodMeatBrahmin
-    - N14FoodMeatRadstag
-    - N14FoodMeatMolerat
-    baseTameChance: 0.35
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 1
-    tamingTime: 2.0
+    preset: TameableChicken
 
 #MARK: Iguana
 - type: entity

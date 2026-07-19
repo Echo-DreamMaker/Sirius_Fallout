@@ -37,23 +37,7 @@
   - type: GhostTakeoverAvailable
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodCarrot
-    - N14FoodApple
-    - N14FoodCorn
-    likedFoods:
-    - N14FoodPotato
-    - N14FoodCabbage
-    - N14CookedFoodBreadPlain
-    dislikedFoods:
-    - N14FoodMeatRadstag
-    - N14FoodMeatBrahmin
-    baseTameChance: 0.5
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 2
-    tamingTime: 2.0
+    preset: TameableRabbit
 
 - type: entity
   name: Timmy
@@ -82,21 +66,7 @@
   - type: GhostTakeoverAvailable
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodMeatRadRaw
-    - N14FoodMeatRadscorpion
-    likedFoods:
-    - N14FoodMeatRadroachFillet
-    - N14FoodCorn
-    dislikedFoods:
-    - N14FoodMeatBrahmin
-    - N14FoodMeatRadstag
-    baseTameChance: 0.4
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 2
-    tamingTime: 2.5
+    preset: TameableLizard
 
 - type: entity
   name: Jimmy
@@ -125,18 +95,4 @@
   - type: GhostTakeoverAvailable
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodMeatRadRaw
-    - N14FoodMeatRadscorpion
-    likedFoods:
-    - N14FoodMeatRadroachFillet
-    - N14FoodCorn
-    dislikedFoods:
-    - N14FoodMeatBrahmin
-    - N14FoodMeatRadstag
-    baseTameChance: 0.4
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 2
-    tamingTime: 2.5
+    preset: TameableLizard

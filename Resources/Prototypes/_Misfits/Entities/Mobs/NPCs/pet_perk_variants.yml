@@ -40,29 +40,7 @@
         Airloss: -3
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodCarrot
-    - N14FoodApple
-    - N14FoodCorn
-    likedFoods:
-    - N14FoodPotato
-    - N14FoodCabbage
-    - N14FoodOnion
-    - N14CookedFoodBreadPlain
-    - N14CookedFoodBreadCorn
-    dislikedFoods:
-    - N14FoodMeatBrahmin
-    - N14FoodMeatRadstag
-    - N14FoodMeatBighorner
-    - N14FoodMeatRadhog
-    - N14FoodMeatPigrat
-    - N14FoodMeatYaoguai
-    baseTameChance: 0.3
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 3
-    tamingTime: 3.0
+    preset: TameableBrahmin
 
 # Pet Rad Chicken — irradiated chicken ghost role for the N14PetRadChicken trait
 - type: entity
@@ -98,26 +76,7 @@
         Airloss: -3
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodCorn
-    - N14FoodBerries
-    - N14FoodCarrot
-    likedFoods:
-    - N14FoodApple
-    - N14FoodPotato
-    - N14FoodCabbage
-    - N14CookedFoodBreadPlain
-    dislikedFoods:
-    - N14FoodMeatRadchicken
-    - N14FoodMeatBrahmin
-    - N14FoodMeatRadstag
-    - N14FoodMeatMolerat
-    baseTameChance: 0.35
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 1
-    tamingTime: 2.0
+    preset: TameableChicken
 
 # Pet Cat — feline companion ghost role for the N14PetCat trait
 - type: entity
@@ -174,23 +133,7 @@
         Airloss: -3
   - type: SiriusFollower
   - type: Tameable
-    favoriteFoods:
-    - N14FoodMeatRadchickenCooked
-    - N14FoodFish
-    likedFoods:
-    - N14FoodMeatRadchicken
-    - N14FoodMeatRadroachFilletCooked
-    - N14CookedFoodMeatKebab
-    dislikedFoods:
-    - N14FoodMeatBrahmin
-    - N14FoodMeatRadstag
-    - N14FoodMeatBighorner
-    baseTameChance: 0.4
-    favoriteMultiplier: 2.0
-    likedMultiplier: 1.5
-    dislikedMultiplier: 0.5
-    minCharisma: 2
-    tamingTime: 2.5
+    preset: TameableCat
 
 - type: entity
   name: black cat
