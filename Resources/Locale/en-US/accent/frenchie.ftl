@@ -1,4 +1,4 @@
-#pierow, you can now LARP as Frenchie from ''The Boys''™️
+# pierow, you can now LARP as Frenchie from ''The Boys''™️
 
 accent-Frenchie-words-1 = the
 accent-Frenchie-words-replace-1 = ze
