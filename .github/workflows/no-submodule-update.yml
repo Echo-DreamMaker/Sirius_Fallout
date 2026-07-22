@@ -13,7 +13,7 @@ jobs:
       # #Misfits Change - Allowlisted actors get green check instead of grey skip
       - name: Check submodule update permission
         run: |
-          ALLOWED="sleepyyapril VMSolidus DEATHB4DEFEAT Cythisiax"
+          ALLOWED="sleepyyapril VMSolidus DEATHB4DEFEAT Cythisiax RavenAzala"
           if echo "$ALLOWED" | grep -qw "${{ github.actor }}"; then
             echo "✅ ${{ github.actor }} is allowed to update submodules"
             exit 0
