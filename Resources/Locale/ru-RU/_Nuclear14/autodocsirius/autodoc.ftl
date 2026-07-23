@@ -66,3 +66,36 @@ autodoc-footer-no-power = [ НЕТ ПИТАНИЯ ]
 autodoc-footer-door-open = [ ДВЕРЬ ОТКРЫТА - ЗАКРОЙТЕ ДЛЯ ЛЕЧЕНИЯ ]
 autodoc-footer-insufficient-stimulants = [ НЕДОСТАТОЧНО СТИМУЛЯТОРА: НУЖНО {$required} ЕД., ДОСТУПНО {$current} ]
 autodoc-footer-ready = [ ОЖИДАНИЕ ЛЕЧЕНИЯ ]
+
+# Хирургия
+autodoc-surgery-no-patient = В автодоке нет пациента!
+autodoc-surgery-no-missing-parts = У пациента нет отсутствующих частей!
+autodoc-surgery-missing-part = Отсутствует необходимая часть: {$part}
+autodoc-surgery-missing-parent = Для пришивания необходима родительская часть: {$parent}
+autodoc-surgery-part-attached = Часть {$part} успешно пришита!
+autodoc-surgery-organ-attached = Орган {$organ} успешно пересажен!
+autodoc-surgery-no-organ-slot = Нет подходящего слота для органа {$organ}
+autodoc-surgery-all-complete = Все операции успешно завершены!
+autodoc-surgery-some-failed = Не удалось выполнить {$count} операций
+
+autodoc-surgery-button = НАЧАТЬ ОПЕРАЦИЮ
+autodoc-surgery-window-title = SIRIUS MD-3 - ХИРУРГИЯ
+autodoc-surgery-patient = ПАЦИЕНТ:
+autodoc-surgery-status = СТАТУС:
+autodoc-surgery-start-all = ПРИШИТЬ ВСЁ
+autodoc-surgery-selective = ПРИШИТЬ ВЫБОРОЧНО:
+autodoc-surgery-available = ДОСТУПНЫЕ ЧАСТИ:
+autodoc-surgery-progress = ОПЕРАЦИЯ В ПРОЦЕССЕ
+autodoc-surgery-ready = ГОТОВ К ОПЕРАЦИИ
+autodoc-surgery-awaiting = ОЖИДАНИЕ ПАЦИЕНТА
+autodoc-surgery-missing-parts = ОТСУТСТВУЮТ ЧАСТИ
+autodoc-surgery-no-parts = НЕТ ДОСТУПНЫХ ЧАСТЕЙ
+autodoc-surgery-no-patient-data = НЕТ ДАННЫХ
+autodoc-surgery-all-healthy = ВСЕ ЧАСТИ ЦЕЛЫ
+autodoc-surgery-some-missing = ОТСУТСТВУЕТ: {$count}
+autodoc-surgery-footer-ready = [ СИСТЕМА ГОТОВА ]
+
+autodoc-parts-container-full = КОНТЕЙНЕР ДЛЯ ЧАСТЕЙ ПОЛОН!
+autodoc-part-inserted = ЧАСТЬ ПОМЕЩЕНА В КОНТЕЙНЕР
+autodoc-cant-insert-during-treatment = НЕВОЗМОЖНО ВСТАВИТЬ ВО ВРЕМЯ ЛЕЧЕНИЯ
+autodoc-no-free-slot = НЕТ СВОБОДНЫХ СЛОТОВ!

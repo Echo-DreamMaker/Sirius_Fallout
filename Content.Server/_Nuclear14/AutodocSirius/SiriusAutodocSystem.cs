@@ -14,12 +14,12 @@ public sealed partial class SiriusAutodocSystem : SharedSiriusAutodocSystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<SiriusAutodocComponent, EntInsertedIntoContainerMessage>(OnContainerInserted);
         SubscribeLocalEvent<SiriusAutodocComponent, EntRemovedFromContainerMessage>(OnContainerRemoved);
         SubscribeLocalEvent<SiriusAutodocComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<SiriusAutodocComponent, BoundUIOpenedEvent>(OnBoundUIOpened);
         SubscribeLocalEvent<SiriusAutodocComponent, BoundUIClosedEvent>(OnBoundUIClosed);
-        SubscribeLocalEvent<SiriusAutodocComponent, DragDropTargetEvent>(OnDragDrop);
         SubscribeLocalEvent<SiriusAutodocComponent, AutodocUiButtonPressedMessage>(OnUiButtonPressed);
         SubscribeLocalEvent<SiriusAutodocComponent, AutodocUiToggleOpenMessage>(OnToggleOpenMessage);
     }

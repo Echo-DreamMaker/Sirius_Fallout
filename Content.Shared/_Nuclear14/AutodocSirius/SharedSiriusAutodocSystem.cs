@@ -1,6 +1,9 @@
 using Content.Shared._Nuclear14.AutodocSirius;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Organ;
+using Content.Shared.Body.Part;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Containers;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -31,6 +34,10 @@ public abstract partial class SharedSiriusAutodocSystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem _doAfterSystem = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _lastToggleTime = new();
+    private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
+
+    public const string PartsContainerId = "autodoc-parts";
+    public const string OrgansContainerId = "autodoc-organs";
 
     public override void Initialize()
     {
@@ -40,11 +47,31 @@ public abstract partial class SharedSiriusAutodocSystem : EntitySystem
         SubscribeLocalEvent<SiriusAutodocComponent, CanDropTargetEvent>(OnCanDropOn);
         SubscribeLocalEvent<SiriusAutodocComponent, GetVerbsEvent<AlternativeVerb>>(AddAlternativeVerbs);
         SubscribeLocalEvent<SiriusAutodocComponent, SiriusAutodocInsertFinished>(OnInsertFinished);
+        SubscribeLocalEvent<SiriusAutodocComponent, DragDropTargetEvent>(OnDragDrop);
     }
 
     private void OnComponentInit(EntityUid uid, SiriusAutodocComponent component, ComponentInit args)
     {
         component.BodyContainer = _containerSystem.EnsureContainer<ContainerSlot>(uid, "autodoc-body");
+
+        for (int i = 0; i < SiriusAutodocComponent.MaxSlots; i++)
+        {
+            component.PartSlotIds[i] = $"partSlot{i + 1}";
+        }
+
+        _sawmill.Info($"OnComponentInit for {uid}");
+
+        if (component.SiriusSurgeryComponent == null || !Exists(component.SiriusSurgeryComponent.Value))
+        {
+            _sawmill.Info($"Creating SiriusAutodocSurgeryComponent for {uid}");
+            var surgeryComp = EnsureComp<SiriusAutodocSurgeryComponent>(uid);
+            component.SiriusSurgeryComponent = uid;
+            Dirty(uid, component);
+        }
+        else
+        {
+            _sawmill.Info($"SiriusSurgeryComponent already exists: {component.SiriusSurgeryComponent}");
+        }
     }
 
     private void OnCanDropOn(EntityUid uid, SiriusAutodocComponent component, ref CanDropTargetEvent args)
@@ -59,7 +86,14 @@ public abstract partial class SharedSiriusAutodocSystem : EntitySystem
             return;
         }
 
-        args.CanDrop = HasComp<BodyComponent>(args.Dragged);
+        if (HasComp<BodyComponent>(args.Dragged))
+        {
+            args.CanDrop = true;
+            args.Handled = true;
+            return;
+        }
+
+        args.CanDrop = false;
         args.Handled = true;
     }
 
@@ -70,29 +104,35 @@ public abstract partial class SharedSiriusAutodocSystem : EntitySystem
 
         if (!entity.Comp.IsOpen)
         {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-not-open"), entity, args.User);
+            args.Handled = true;
             return;
         }
 
-        if (entity.Comp.BodyContainer.ContainedEntity != null)
+        if (HasComp<BodyComponent>(args.Dragged))
         {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-occupied"), entity, args.User);
+            if (entity.Comp.BodyContainer.ContainedEntity != null)
+            {
+                args.Handled = true;
+                return;
+            }
+
+            if (entity.Comp.IsTreating)
+            {
+                args.Handled = true;
+                return;
+            }
+
+            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, entity.Comp.EntryDelay, new SiriusAutodocInsertFinished(), entity, target: args.Dragged, used: entity)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                NeedHand = false,
+            };
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
+            args.Handled = true;
             return;
         }
 
-        if (entity.Comp.IsTreating)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-cant-insert-during-treatment"), entity, args.User);
-            return;
-        }
-
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, entity.Comp.EntryDelay, new SiriusAutodocInsertFinished(), entity, target: args.Dragged, used: entity)
-        {
-            BreakOnDamage = true,
-            BreakOnMove = true,
-            NeedHand = false,
-        };
-        _doAfterSystem.TryStartDoAfter(doAfterArgs);
         args.Handled = true;
     }
 
@@ -135,6 +175,7 @@ public abstract partial class SharedSiriusAutodocSystem : EntitySystem
             });
         }
     }
+
     public void TryToggleOpen(EntityUid uid, EntityUid user, SiriusAutodocComponent? component = null)
     {
         if (!Resolve(uid, ref component))

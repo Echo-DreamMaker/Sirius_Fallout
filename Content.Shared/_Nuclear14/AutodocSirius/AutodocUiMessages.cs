@@ -47,5 +47,6 @@ public enum AutodocUiButton
     EjectBeaker,
     EjectPatient,
     StartTreatment,
+    StartSurgery,
     Close
 }

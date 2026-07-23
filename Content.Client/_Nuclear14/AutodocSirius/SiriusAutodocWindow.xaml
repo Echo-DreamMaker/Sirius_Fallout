@@ -1,7 +1,7 @@
 <DefaultWindow xmlns="https://spacestation14.io"
                Title="{Loc 'autodoc-window-title'}"
-               MinSize="600 620"
-               SetSize="600 620">
+               MinSize="700 700"
+               SetSize="700 700">
     <BoxContainer Orientation="Vertical" Margin="10">
         <!-- Header -->
         <Label Name="HeaderLabel"
@@ -9,7 +9,7 @@
                FontColorOverride="#33FF33"
                StyleClasses="monospace"
                HorizontalAlignment="Center" />
-        <PanelContainer Name="SepTop" MinHeight="1" HorizontalExpand="True" />
+        <PanelContainer Name="SepTop" MinHeight="1" HorizontalExpand="True" StyleClasses="LowDivider" />
 
         <!-- Patient Status -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="8">
@@ -23,18 +23,103 @@
                    StyleClasses="monospace" />
         </BoxContainer>
 
-        <PanelContainer Name="SepMid1" MinHeight="1" HorizontalExpand="True" />
+        <PanelContainer Name="SepMid1" MinHeight="1" HorizontalExpand="True" StyleClasses="LowDivider" />
 
         <!-- Damage Report -->
         <Label Text="{Loc 'autodoc-diagnostic-report'}"
                FontColorOverride="#33FF33"
                StyleClasses="monospace"
                HorizontalAlignment="Center" />
-        <ScrollContainer VerticalExpand="True" HScrollEnabled="False" MinHeight="200">
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False" MinHeight="120">
             <BoxContainer Name="DamageContainer" Orientation="Vertical" SeparationOverride="4" />
         </ScrollContainer>
 
-        <PanelContainer Name="SepMid2" MinHeight="1" HorizontalExpand="True" />
+        <PanelContainer Name="SepMid2" MinHeight="1" HorizontalExpand="True" StyleClasses="LowDivider" />
+
+        <!-- Humanoid Doll + Surgery Panel -->
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 5" Name="HumanoidContainer" Visible="False">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                <Label Name="DollStatusLabel"
+                       FontColorOverride="#33FF33"
+                       StyleClasses="monospace"
+                       HorizontalAlignment="Center" />
+
+                <BoxContainer Orientation="Horizontal">
+                    <!-- Humanoid Doll -->
+                    <PanelContainer>
+                        <SpriteView OverrideDirection="South"
+                                    Scale="1 1"
+                                    Name="DollSpriteView"
+                                    SetSize="96 96"/>
+                        <PanelContainer
+                            Name="PartView"
+                            SetSize="57 96"
+                            Margin="18 0 0 0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left">
+                            <PanelContainer SetSize="15 33" Margin="4 0 0 0" HorizontalAlignment="Left">
+                                <TextureButton Name="RightArmButton" MinSize="15 25" StyleClasses="TargetDollButtonRightArm" VerticalAlignment="Top" Visible="False" />
+                                <TextureButton Name="RightHandButton" MinSize="15 15" VerticalAlignment="Bottom" StyleClasses="TargetDollButtonRightHand" Visible="False" />
+                            </PanelContainer>
+                            <PanelContainer SetSize="43 75" Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextureButton Name="HeadButton" MinSize="28 23" VerticalAlignment="Top" HorizontalAlignment="Center" StyleClasses="TargetDollButtonHead" Visible="False" />
+                                <TextureButton Name="ChestButton" SetSize="28 30" Margin="0 18 0 0" VerticalAlignment="Top" HorizontalAlignment="Center" StyleClasses="TargetDollButtonChest" Visible="False" />
+                                <PanelContainer MinSize="38 35" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                                    <TextureButton Name="GroinButton" MinSize="28 15" VerticalAlignment="Top" HorizontalAlignment="Center" StyleClasses="TargetDollButtonGroin" Visible="False" />
+                                    <PanelContainer MinSize="20 30" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                        <TextureButton Name="LeftLegButton" MinSize="15 28" VerticalAlignment="Top" HorizontalAlignment="Left" StyleClasses="TargetDollButtonLeftLeg" Visible="False" />
+                                        <TextureButton Name="LeftFootButton" MinSize="20 10" VerticalAlignment="Bottom" StyleClasses="TargetDollButtonLeftFoot" Visible="False" />
+                                    </PanelContainer>
+                                    <PanelContainer MinSize="20 30" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                                        <TextureButton Name="RightLegButton" MinSize="15 28" VerticalAlignment="Top" HorizontalAlignment="Right" StyleClasses="TargetDollButtonRightLeg" Visible="False" />
+                                        <TextureButton Name="RightFootButton" MinSize="20 10" VerticalAlignment="Bottom" HorizontalAlignment="Center" StyleClasses="TargetDollButtonRightFoot" Visible="False" />
+                                    </PanelContainer>
+                                </PanelContainer>
+                            </PanelContainer>
+                            <PanelContainer SetSize="15 33" Margin="0 0 4 0" HorizontalAlignment="Right">
+                                <TextureButton Name="LeftArmButton" MinSize="15 25" StyleClasses="TargetDollButtonLeftArm" VerticalAlignment="Top" Visible="False" />
+                                <TextureButton Name="LeftHandButton" MinSize="15 15" VerticalAlignment="Bottom" StyleClasses="TargetDollButtonLeftHand" Visible="False" />
+                            </PanelContainer>
+                        </PanelContainer>
+                    </PanelContainer>
+
+                    <!-- Surgery Panel -->
+                    <BoxContainer Margin="5 0 0 0"
+                                  Orientation="Vertical"
+                                  VerticalAlignment="Top"
+                                  HorizontalExpand="True"
+                                  Name="SurgeryPanel"
+                                  Visible="False">
+                        <Button Name="SurgeryAllButton"
+                                Text="{Loc 'autodoc-surgery-start-all'}"
+                                HorizontalExpand="True"
+                                MinWidth="140"
+                                Margin="0 0 0 5" />
+                        <BoxContainer Name="SurgeryProgressContainer" Orientation="Horizontal" SeparationOverride="8" Visible="False" Margin="0 0 0 5">
+                            <Label Text="{Loc 'autodoc-surgery-progress'}" FontColorOverride="#33FF33" StyleClasses="monospace" />
+                            <ProgressBar Name="SurgeryProgress" HorizontalExpand="True" MinHeight="15" />
+                            <Label Name="SurgeryProgressLabel" Text="0%" FontColorOverride="#33FF33" StyleClasses="monospace" MinWidth="45" />
+                        </BoxContainer>
+                        <Label Text="{Loc 'autodoc-surgery-selective'}"
+                               FontColorOverride="#33FF33"
+                               StyleClasses="monospace"
+                               Margin="0 5 0 0" />
+                        <ScrollContainer VerticalExpand="True" HScrollEnabled="False" MinHeight="100">
+                            <BoxContainer Name="SurgeryListContainer" Orientation="Vertical" SeparationOverride="2" />
+                        </ScrollContainer>
+                        <Label Text="{Loc 'autodoc-surgery-available'}"
+                               FontColorOverride="#33FF33"
+                               StyleClasses="monospace"
+                               Margin="0 5 0 0" />
+                        <ScrollContainer VerticalExpand="True" HScrollEnabled="False" MinHeight="80">
+                            <BoxContainer Name="AvailablePartsContainer" Orientation="Vertical" SeparationOverride="2" />
+                        </ScrollContainer>
+                    </BoxContainer>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <PanelContainer Name="SepHumanoid" MinHeight="1" HorizontalExpand="True" Visible="False" StyleClasses="LowDivider" />
 
         <!-- Stimulants -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="8">
@@ -53,7 +138,7 @@
             <Label Name="ProgressPercentLabel" Text="0%" FontColorOverride="#33FF33" StyleClasses="monospace" MinWidth="45" />
         </BoxContainer>
 
-        <PanelContainer Name="SepMid3" MinHeight="1" HorizontalExpand="True" />
+        <PanelContainer Name="SepMid3" MinHeight="1" HorizontalExpand="True" StyleClasses="LowDivider" />
 
         <!-- Door Controls -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="10" HorizontalExpand="True">
@@ -67,16 +152,7 @@
                     MinWidth="100" />
         </BoxContainer>
 
-        <PanelContainer Name="SepMid4" MinHeight="1" HorizontalExpand="True" />
-
-        <!-- Error Message -->
-        <Label Name="ErrorLabel"
-               FontColorOverride="#FF5555"
-               StyleClasses="monospace"
-               HorizontalAlignment="Center"
-               Visible="False" />
-
-        <PanelContainer Name="SepBottom" MinHeight="1" HorizontalExpand="True" />
+        <PanelContainer Name="SepMid4" MinHeight="1" HorizontalExpand="True" StyleClasses="LowDivider" />
 
         <!-- Buttons -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="10" HorizontalExpand="True">
@@ -94,6 +170,9 @@
                     MinWidth="140" />
         </BoxContainer>
 
+        <PanelContainer Name="SepBottom" MinHeight="1" HorizontalExpand="True" StyleClasses="LowDivider" />
+
+        <!-- Footer -->
         <Label Name="FooterLabel"
                Text="{Loc 'autodoc-footer-ready'}"
                FontColorOverride="#1a5c1a"

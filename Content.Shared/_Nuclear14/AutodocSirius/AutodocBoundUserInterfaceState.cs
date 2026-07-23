@@ -20,6 +20,8 @@ public sealed class AutodocBoundUserInterfaceState : BoundUserInterfaceState
     public FixedPoint2 BeakerStimulantsAmount;
     public bool TreatButtonEnabled;
     public float TreatmentProgress;
+    public bool CanSurgery;
+    public Dictionary<string, string> AvailableParts;
 
     public AutodocBoundUserInterfaceState(
         bool isOpen,
@@ -34,7 +36,9 @@ public sealed class AutodocBoundUserInterfaceState : BoundUserInterfaceState
         FixedPoint2 beakerMaxVolume,
         FixedPoint2 beakerStimulantsAmount,
         bool treatButtonEnabled,
-        float treatmentProgress = 0f)
+        float treatmentProgress = 0f,
+        bool canSurgery = false,
+        Dictionary<string, string>? availableParts = null)
     {
         IsOpen = isOpen;
         Powered = powered;
@@ -49,6 +53,8 @@ public sealed class AutodocBoundUserInterfaceState : BoundUserInterfaceState
         BeakerStimulantsAmount = beakerStimulantsAmount;
         TreatButtonEnabled = treatButtonEnabled;
         TreatmentProgress = treatmentProgress;
+        CanSurgery = canSurgery;
+        AvailableParts = availableParts ?? new Dictionary<string, string>();
     }
 }
 

@@ -29,11 +29,8 @@ public sealed class SiriusAutodocBoundUserInterface : BoundUserInterface
 
     protected override void UpdateState(BoundUserInterfaceState? state)
     {
-
         if (_window == null)
-        {
             return;
-        }
 
         if (state is AutodocBoundUserInterfaceState castState)
         {
@@ -43,7 +40,6 @@ public sealed class SiriusAutodocBoundUserInterface : BoundUserInterface
 
     private void OnButtonPressed(AutodocUiButton button)
     {
-
         if (button == AutodocUiButton.Close)
         {
             Close();
