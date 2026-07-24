@@ -539,7 +539,6 @@ public sealed partial class SiriusAutodocSystem
         {
             _surgerySystem.UpdateAvailableParts(entity, surgeryComponent2);
         }
-
         UpdateUiState(entity);
     }
     public override void Update(float frameTime)
@@ -617,17 +616,20 @@ public sealed partial class SiriusAutodocSystem
             if (!_uiSystem.IsUiOpen(uid, SiriusAutodocUiKey.Key))
                 continue;
 
-            if (!_lastUiUpdate.TryGetValue(uid, out var lastUpdate))
+            if (_surgeryOperations.ContainsKey(uid))
             {
-                _lastUiUpdate[uid] = currentTime;
-                UpdateUiState((uid, comp));
-                continue;
-            }
+                if (!_lastUiUpdate.TryGetValue(uid, out var lastUpdate))
+                {
+                    _lastUiUpdate[uid] = currentTime;
+                    UpdateUiState((uid, comp));
+                    continue;
+                }
 
-            if ((currentTime - lastUpdate).TotalSeconds >= UiUpdateInterval)
-            {
-                _lastUiUpdate[uid] = currentTime;
-                UpdateUiState((uid, comp));
+                if ((currentTime - lastUpdate).TotalSeconds >= UiUpdateInterval)
+                {
+                    _lastUiUpdate[uid] = currentTime;
+                    UpdateUiState((uid, comp));
+                }
             }
         }
     }

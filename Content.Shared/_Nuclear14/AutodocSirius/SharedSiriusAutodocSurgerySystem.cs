@@ -73,7 +73,7 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         { "right_foot", new BodyPartInfo(BodyPartType.Foot, BodyPartSymmetry.Right) },
     };
 
-    private static readonly Dictionary<string, string> OrganSlotMap = new()
+    protected static readonly Dictionary<string, string> OrganSlotMap = new()
     {
         { "brain", "brainSlot" },
         { "eyes", "eyesSlot" },
@@ -86,7 +86,8 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         { "tongue", "tongueSlot" },
         { "ears", "earsSlot" }
     };
-    private static readonly Dictionary<string, string> OrganSlotIdMap = new()
+
+    protected static readonly Dictionary<string, string> OrganSlotIdMap = new()
     {
         { "brain", "brain" },
         { "heart", "heart" },
@@ -96,7 +97,7 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         { "eyes", "eyes" },
     };
 
-    private static string? GetSlotForBodyPart(BodyPartType partType, BodyPartSymmetry symmetry)
+    protected static string? GetSlotForBodyPart(BodyPartType partType, BodyPartSymmetry symmetry)
     {
         return partType switch
         {
@@ -301,75 +302,80 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         return result;
     }
 
-    public List<AutodocOperationData> GetOperationsForPart(EntityUid patient, string partId, EntityUid autodocUid)
+    public virtual List<AutodocOperationData> GetOperationsForPart(EntityUid patient, string partId, EntityUid autodocUid)
     {
-        var result = new List<AutodocOperationData>();
+        return new List<AutodocOperationData>();
+    }
 
-        if (!patient.IsValid() || string.IsNullOrEmpty(partId))
-            return result;
+    protected List<(string Id, string DisplayName, bool IsAvailable)> GetOperationsForPartType(string partId)
+    {
+        var result = new List<(string, string, bool)>();
 
-        var entityManager = EntityManager;
-
-        var operations = GetOperationsForPartType(partId);
-
-        foreach (var (opId, displayName, isAvailable) in operations)
+        switch (partId)
         {
-            bool finalIsAvailable = isAvailable;
-
-            if (opId.StartsWith("Remove"))
-            {
-                var organType = opId.Replace("Remove", "").ToLowerInvariant();
-                var hasOrgan = HasOrganBySlotId(patient, organType, entityManager);
-                finalIsAvailable = hasOrgan;
-            }
-            else if (opId.StartsWith("Insert"))
-            {
-                var organType = opId.Replace("Insert", "").ToLowerInvariant();
-                var hasOrgan = HasOrganBySlotId(patient, organType, entityManager);
-                var hasOrganInAutodoc = HasAvailableOrganInAutodoc(organType);
-                finalIsAvailable = !hasOrgan && hasOrganInAutodoc;
-            }
-            else if (opId == "AttachPart")
-            {
-                if (BodyPartMap.TryGetValue(partId, out var partInfo))
-                {
-                    var hasPartInAutodoc = HasAvailablePartInAutodoc(partInfo.Type, partInfo.Symmetry);
-                    finalIsAvailable = isAvailable && hasPartInAutodoc;
-                }
-            }
-
-            string? tooltip = null;
-            if (!finalIsAvailable)
-            {
-                if (opId == "AttachPart")
-                {
-                    tooltip = Loc.GetString("autodoc-surgery-no-part-in-autodoc");
-                }
-                else if (opId.StartsWith("Insert"))
-                {
-                    tooltip = Loc.GetString("autodoc-surgery-no-organ-in-autodoc");
-                }
-                else if (opId.StartsWith("Remove"))
-                {
-                    tooltip = Loc.GetString("autodoc-surgery-organ-not-present");
-                }
-                else if (opId == "TendBrute")
-                {
-                    tooltip = Loc.GetString("autodoc-surgery-no-brute-damage");
-                }
-                else if (opId == "TendBurn")
-                {
-                    tooltip = Loc.GetString("autodoc-surgery-no-burn-damage");
-                }
-            }
-
-            result.Add(new AutodocOperationData(opId, displayName, finalIsAvailable, tooltip));
+            case "head":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                result.Add(("ToggleBrain", "Мозг", true));
+                result.Add(("ToggleEyes", "Глаза", true));
+                break;
+            case "torso":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                result.Add(("ToggleHeart", "Сердце", true));
+                result.Add(("ToggleLiver", "Печень", true));
+                result.Add(("ToggleLungs", "Лёгкие", true));
+                result.Add(("ToggleStomach", "Желудок", true));
+                result.Add(("AttachHead", "Пришить голову", true));
+                result.Add(("AttachLeftArm", "Пришить левую руку", true));
+                result.Add(("AttachRightArm", "Пришить правую руку", true));
+                result.Add(("AttachLeftLeg", "Пришить левую ногу", true));
+                result.Add(("AttachRightLeg", "Пришить правую ногу", true));
+                break;
+            case "left_arm":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                result.Add(("AttachHand", "Пришить левую кисть", true));
+                break;
+            case "right_arm":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                result.Add(("AttachHand", "Пришить правую кисть", true));
+                break;
+            case "left_hand":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                break;
+            case "right_hand":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                break;
+            case "left_leg":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                result.Add(("AttachFoot", "Пришить левую стопу", true));
+                break;
+            case "right_leg":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                result.Add(("AttachFoot", "Пришить правую стопу", true));
+                break;
+            case "left_foot":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                break;
+            case "right_foot":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                break;
+            default:
+                break;
         }
 
         return result;
     }
 
-    private bool HasOrganBySlotId(EntityUid patient, string organType, IEntityManager entityManager)
+    protected bool HasOrganBySlotId(EntityUid patient, string organType, IEntityManager entityManager)
     {
         if (!patient.IsValid())
             return false;
@@ -396,103 +402,9 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         return false;
     }
 
-    private List<(string Id, string DisplayName, bool IsAvailable)> GetOperationsForPartType(string partId)
-    {
-        var result = new List<(string, string, bool)>();
-
-        switch (partId)
-        {
-            case "head":
-                result.Add(("TendBrute", "Лечить ушибы", true));
-                result.Add(("TendBurn", "Лечить ожоги", true));
-                result.Add(("RemoveBrain", "Удалить мозг", true));
-                result.Add(("InsertBrain", "Вставить мозг", true));
-                break;
-            case "torso":
-                result.Add(("TendBrute", "Лечить ушибы", true));
-                result.Add(("TendBurn", "Лечить ожоги", true));
-                result.Add(("RemoveHeart", "Удалить сердце", true));
-                result.Add(("InsertHeart", "Вставить сердце", true));
-                result.Add(("RemoveLiver", "Удалить печень", true));
-                result.Add(("InsertLiver", "Вставить печень", true));
-                result.Add(("RemoveLungs", "Удалить лёгкие", true));
-                result.Add(("InsertLungs", "Вставить лёгкие", true));
-                result.Add(("RemoveStomach", "Удалить желудок", true));
-                result.Add(("InsertStomach", "Вставить желудок", true));
-                break;
-            case "left_arm":
-            case "right_arm":
-                result.Add(("TendBrute", "Лечить ушибы", true));
-                result.Add(("TendBurn", "Лечить ожоги", true));
-                result.Add(("AttachPart", "Пришить руку", true));
-                break;
-            case "left_hand":
-            case "right_hand":
-                result.Add(("TendBrute", "Лечить ушибы", true));
-                result.Add(("TendBurn", "Лечить ожоги", true));
-                result.Add(("AttachPart", "Пришить кисть", true));
-                break;
-            case "left_leg":
-            case "right_leg":
-                result.Add(("TendBrute", "Лечить ушибы", true));
-                result.Add(("TendBurn", "Лечить ожоги", true));
-                result.Add(("AttachPart", "Пришить ногу", true));
-                break;
-            case "left_foot":
-            case "right_foot":
-                result.Add(("TendBrute", "Лечить ушибы", true));
-                result.Add(("TendBurn", "Лечить ожоги", true));
-                result.Add(("AttachPart", "Пришить стопу", true));
-                break;
-            default:
-                break;
-        }
-
-        return result;
-    }
-
     public virtual bool ExecuteSurgeryOperation(EntityUid autodocUid, EntityUid patient, string partId, string operationId)
     {
-        _sawmill.Info($"ExecuteSurgeryOperation: partId={partId}, operationId={operationId}, patient={patient}");
-
-        if (!BodyPartMap.TryGetValue(partId, out var partInfo))
-        {
-            _sawmill.Info($"BodyPartMap doesn't contain {partId}");
-            return false;
-        }
-
-        var bodySystem = _bodySystem;
-        var parts = bodySystem.GetBodyChildrenOfType(patient, partInfo.Type, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
-        var partEntity = parts.FirstOrDefault().Id;
-
-        if (partEntity == default)
-        {
-            _sawmill.Info($"No part found for {partId}");
-            return false;
-        }
-
-        _sawmill.Info($"Found part entity: {partEntity}");
-
-        bool result = operationId switch
-        {
-            "TendBrute" => ExecuteTendBrute(patient, partEntity),
-            "TendBurn" => ExecuteTendBurn(patient, partEntity),
-            "RemoveBrain" => ExecuteRemoveOrgan(autodocUid, patient, "brain"),
-            "InsertBrain" => ExecuteInsertOrgan(autodocUid, patient, "brain"),
-            "RemoveHeart" => ExecuteRemoveOrgan(autodocUid, patient, "heart"),
-            "InsertHeart" => ExecuteInsertOrgan(autodocUid, patient, "heart"),
-            "RemoveLiver" => ExecuteRemoveOrgan(autodocUid, patient, "liver"),
-            "InsertLiver" => ExecuteInsertOrgan(autodocUid, patient, "liver"),
-            "RemoveLungs" => ExecuteRemoveOrgan(autodocUid, patient, "lungs"),
-            "InsertLungs" => ExecuteInsertOrgan(autodocUid, patient, "lungs"),
-            "RemoveStomach" => ExecuteRemoveOrgan(autodocUid, patient, "stomach"),
-            "InsertStomach" => ExecuteInsertOrgan(autodocUid, patient, "stomach"),
-            "AttachPart" => ExecuteAttachPart(autodocUid, patient, partId),
-            _ => false
-        };
-
-        _sawmill.Info($"ExecuteSurgeryOperation result: {result}");
-        return result;
+        return false;
     }
 
     protected bool ExecuteTendBrute(EntityUid patient, EntityUid partEntity)
@@ -547,45 +459,29 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
 
     protected bool ExecuteRemoveOrgan(EntityUid autodocUid, EntityUid patient, string organType)
     {
-        _sawmill.Info($"ExecuteRemoveOrgan: organType={organType}, patient={patient}");
-
         if (!OrganSlotIdMap.TryGetValue(organType, out var targetSlotId))
-        {
-            _sawmill.Info($"OrganSlotIdMap doesn't contain {organType}");
             return false;
-        }
-
-        _sawmill.Info($"Looking for organ with SlotId: {targetSlotId}");
 
         var bodySystem = _bodySystem;
         var parts = bodySystem.GetBodyChildren(patient);
-        _sawmill.Info($"Found {parts.Count()} body parts");
 
         foreach (var part in parts)
         {
             var organs = bodySystem.GetPartOrgans(part.Id);
-            _sawmill.Info($"Part {part.Id} has {organs.Count()} organs");
-
             foreach (var organ in organs)
             {
                 if (EntityManager.TryGetComponent<OrganComponent>(organ.Item1, out var organComp))
                 {
-                    _sawmill.Info($"Found organ with SlotId: '{organComp.SlotId}' (looking for '{targetSlotId}')");
-
                     if (string.Equals(organComp.SlotId, targetSlotId, StringComparison.OrdinalIgnoreCase))
                     {
                         bodySystem.RemoveOrgan(organ.Item1, organComp);
-                        _sawmill.Info($"Removed organ {organ.Item1} from body");
                         _transform.DropNextTo(organ.Item1, autodocUid);
-                        _sawmill.Info($"Dropped organ next to autodoc");
-
                         return true;
                     }
                 }
             }
         }
 
-        _sawmill.Info($"No organ found with SlotId: {targetSlotId}");
         return false;
     }
 
@@ -625,7 +521,6 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
             {
                 _itemSlots.TryEject(autodocUid, slotName, null, out _);
             }
-
             return true;
         }
 
@@ -679,20 +574,9 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
             {
                 _itemSlots.TryEject(autodocUid, slotName, null, out _);
             }
-
             return true;
         }
 
         return false;
     }
-}
-
-[Serializable, NetSerializable]
-public sealed partial class SiriusAutodocSurgeryDoAfterEvent : SimpleDoAfterEvent
-{
-}
-
-[Serializable, NetSerializable]
-public sealed partial class SiriusAutodocSurgeryAllDoAfterEvent : SimpleDoAfterEvent
-{
 }
