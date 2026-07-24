@@ -388,7 +388,11 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
 
             if (TryComp<BodyPartComponent>(item, out var partComp))
             {
+
                 _sawmill.Info($"    PartComp: Type={partComp.PartType}, Symmetry={partComp.Symmetry}, Enabled={partComp.Enabled}, CanEnable={partComp.CanEnable}");
+                _sawmill.Info($"    Part type: {partComp.PartType}, Symmetry: {partComp.Symmetry}, Enabled: {partComp.Enabled}, CanEnable: {partComp.CanEnable}");
+                _sawmill.Info($"    Part entity details: Name={ToPrettyString(item.Value)}, Prototype={MetaData(item.Value).EntityPrototype?.ID}");
+
 
                 if (partComp.Enabled && partComp.CanEnable)
                 {
@@ -398,7 +402,7 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
                 }
                 else
                 {
-                    _sawmill.Info($"    Part NOT added: Enabled={partComp.Enabled}, CanEnable={partComp.CanEnable}");
+                    _sawmill.Warning($"    Part NOT added: Enabled={partComp.Enabled}, CanEnable={partComp.CanEnable}");
                 }
             }
             else

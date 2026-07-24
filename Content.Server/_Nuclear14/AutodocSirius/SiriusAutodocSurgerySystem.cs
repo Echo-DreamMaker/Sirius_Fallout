@@ -109,6 +109,8 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
                     _ => ""
                 };
 
+                string? tooltip = null;
+
                 if (!string.IsNullOrEmpty(targetPartId) && BodyPartMap.TryGetValue(targetPartId, out var partInfo))
                 {
                     var key = (partInfo.Type, partInfo.Symmetry);
@@ -118,21 +120,20 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
                     _sawmill.Info($"    Target part: {targetPartId}, Type={partInfo.Type}, Symmetry={partInfo.Symmetry}");
                     _sawmill.Info($"    HasPartInAutodoc={hasPartInAutodoc}, PartExistsInBody={partExistsInBody}");
 
-                    finalIsAvailable = !partExistsInBody && hasPartInAutodoc;
-                }
-
-                string? tooltip = null;
-                if (!finalIsAvailable)
-                {
-                    if (BodyPartMap.TryGetValue(opId.Replace("Attach", "").ToLowerInvariant(), out var info))
+                    if (partExistsInBody)
                     {
-                        if (HasBodyPart(patient, info.Type, info.Symmetry))
-                            tooltip = Loc.GetString("autodoc-surgery-part-present");
-                        else
-                            tooltip = Loc.GetString("autodoc-surgery-no-part-in-autodoc");
+                        finalIsAvailable = false;
+                        tooltip = Loc.GetString("autodoc-surgery-part-already-present");
+                    }
+                    else if (!hasPartInAutodoc)
+                    {
+                        finalIsAvailable = false;
+                        tooltip = Loc.GetString("autodoc-surgery-no-part-in-autodoc");
                     }
                     else
-                        tooltip = Loc.GetString("autodoc-surgery-no-part-in-autodoc");
+                    {
+                        finalIsAvailable = true;
+                    }
                 }
 
                 result.Add(new AutodocOperationData(opId, displayName, finalIsAvailable, tooltip));
@@ -526,6 +527,15 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             return false;
         }
 
+        var bodySystem = _bodySystem;
+        var existingParts = bodySystem.GetBodyChildrenOfType(patient, partInfo.Type, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
+
+        if (existingParts.Any())
+        {
+            _sawmill.Warning($"ExecuteAttachSpecificPart: Patient ALREADY has part {partId}! Skipping.");
+            return false;
+        }
+
         var availableParts = GetAvailablePartsInAutodoc(autodocUid);
         var key = (partInfo.Type, partInfo.Symmetry);
 
@@ -540,14 +550,6 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
         if (!TryComp<BodyPartComponent>(partEntity, out var partComp))
         {
             _sawmill.Warning($"ExecuteAttachSpecificPart: Part entity {partEntity} has no BodyPartComponent");
-            return false;
-        }
-
-        var bodySystem = _bodySystem;
-        var existingParts = bodySystem.GetBodyChildrenOfType(patient, partInfo.Type, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
-        if (existingParts.Any())
-        {
-            _sawmill.Warning($"ExecuteAttachSpecificPart: Patient already has part {partId}");
             return false;
         }
 

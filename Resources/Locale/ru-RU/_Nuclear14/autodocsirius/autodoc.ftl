@@ -144,3 +144,4 @@ autodoc-surgery-part-present = ЧАСТЬ УЖЕ ПРИСОЕДИНЕНА
 autodoc-surgery-organ-present = ОРГАН УЖЕ ПРИСУТСТВУЕТ
 autodoc-surgery-no-part-in-autodoc = НЕТ ДОСТУПНОЙ ЧАСТИ В АВТОДОКЕ
 autodoc-surgery-no-organ-in-autodoc = НЕТ ДОСТУПНОГО ОРГАНА В АВТОДОКЕ
+autodoc-surgery-part-already-present: "ДАННАЯ КОНЕЧНОСТЬ УЖЕ ПРИШИТА"
