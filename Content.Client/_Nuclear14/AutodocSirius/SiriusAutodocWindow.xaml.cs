@@ -56,9 +56,12 @@ public sealed partial class SiriusAutodocWindow : DefaultWindow
     private EntityUid _spriteViewEntity;
     private static readonly EntProtoId BodyView = "AlertSpriteView";
     private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
-
     public event Action<AutodocUiButton>? OnAutodocButton;
-    public event Action<AutodocSurgeryButton, string?>? OnSurgeryButton;
+    public event Action<string>? OnPartSelected;
+    public event Action<string, string>? OnOperationSelected;
+    public event Action? OnSurgeryBack;
+
+    private string? _selectedPartId;
 
     public SiriusAutodocWindow()
     {
@@ -74,18 +77,6 @@ public sealed partial class SiriusAutodocWindow : DefaultWindow
         WireButtons();
         SetInitialButtonStates();
         OnClose += () => OnAutodocButton?.Invoke(AutodocUiButton.Close);
-
-        HeadButton.Visible = false;
-        ChestButton.Visible = false;
-        GroinButton.Visible = false;
-        LeftArmButton.Visible = false;
-        LeftHandButton.Visible = false;
-        RightArmButton.Visible = false;
-        RightHandButton.Visible = false;
-        LeftLegButton.Visible = false;
-        LeftFootButton.Visible = false;
-        RightLegButton.Visible = false;
-        RightFootButton.Visible = false;
     }
 
     private void ApplyBackgroundStyles()
@@ -108,7 +99,6 @@ public sealed partial class SiriusAutodocWindow : DefaultWindow
         EjectBeakerButton.OnPressed += _ => OnAutodocButton?.Invoke(AutodocUiButton.EjectBeaker);
         EjectPatientButton.OnPressed += _ => OnAutodocButton?.Invoke(AutodocUiButton.EjectPatient);
         StartTreatmentButton.OnPressed += _ => OnAutodocButton?.Invoke(AutodocUiButton.StartTreatment);
-        SurgeryAllButton.OnPressed += _ => OnSurgeryButton?.Invoke(AutodocSurgeryButton.StartAll, null);
     }
 
     private void SetInitialButtonStates()
@@ -116,21 +106,25 @@ public sealed partial class SiriusAutodocWindow : DefaultWindow
         EjectBeakerButton.Disabled = true;
         EjectPatientButton.Disabled = true;
         StartTreatmentButton.Disabled = true;
-        SurgeryAllButton.Disabled = true;
-        SurgeryPanel.Visible = false;
-        SurgeryProgressContainer.Visible = false;
 
         EjectBeakerButton.ModulateSelfOverride = ColorInactive;
         EjectPatientButton.ModulateSelfOverride = ColorInactive;
         StartTreatmentButton.ModulateSelfOverride = ColorInactive;
-        SurgeryAllButton.ModulateSelfOverride = ColorInactive;
+
+        SurgeryMainContainer.Visible = false;
+        SurgeryProgressContainer.Visible = false;
+        BodyPartsContainer.RemoveAllChildren();
+        OperationsContainer.RemoveAllChildren();
     }
 
     public void UpdateState(AutodocBoundUserInterfaceState state)
     {
+        _selectedPartId = state.SelectedPartId;
+
+        _sawmill.Info($"UpdateState in Window: SelectedPartId='{_selectedPartId}'");
+
         UpdatePatientInfo(state);
         UpdateDamageDisplay(state);
-        UpdateHumanoidDoll(state);
         UpdateSurgeryPanel(state);
         UpdateStimulantsDisplay(state);
         UpdateDoorButtonsState(state);
@@ -138,45 +132,167 @@ public sealed partial class SiriusAutodocWindow : DefaultWindow
         UpdateProgressDisplay(state);
         UpdateFooter(state);
     }
-
     private void UpdateSurgeryPanel(AutodocBoundUserInterfaceState state)
     {
-        if (!state.HasOccupant || !state.CanSurgery)
+        if (!state.HasOccupant || !state.CanSurgery || state.IsTreating)
         {
-            SurgeryPanel.Visible = false;
+            SurgeryMainContainer.Visible = false;
+            SepHumanoid.Visible = false;
             return;
         }
 
-        SurgeryPanel.Visible = true;
-        var isLocked = state.IsOpen || state.IsTreating;
-        SurgeryAllButton.Disabled = isLocked;
-        SurgeryAllButton.ModulateSelfOverride = isLocked ? ColorInactive : null;
-
-        foreach (var child in SurgeryListContainer.Children)
+        if (state.IsOpen)
         {
-            if (child is Button btn)
-            {
-                btn.Disabled = isLocked;
-                btn.ModulateSelfOverride = isLocked ? ColorInactive : null;
-            }
+            SurgeryMainContainer.Visible = false;
+            SepHumanoid.Visible = false;
+            return;
         }
+        SurgeryMainContainer.Visible = true;
+        SepHumanoid.Visible = true;
+        UpdateBodyPartsList(state);
+        UpdateOperationsList(state);
+        UpdateSurgeryProgress(state);
     }
-    private void UpdateAvailablePartsList(AutodocBoundUserInterfaceState state)
-    {
-        AvailablePartsContainer.RemoveAllChildren();
 
-        if (!state.CanSurgery || state.OccupantDamage == null)
+    private void UpdateBodyPartsList(AutodocBoundUserInterfaceState state)
+    {
+        BodyPartsContainer.RemoveAllChildren();
+        _selectedPartId = state.SelectedPartId;
+
+        if (state.BodyParts == null || state.BodyParts.Count == 0)
         {
             var label = new Label
             {
                 Text = Loc.GetString("autodoc-surgery-no-parts"),
                 FontColorOverride = ColorDim,
-                StyleClasses = { "monospace" }
+                StyleClasses = { "monospace" },
+                HorizontalAlignment = HAlignment.Center,
+                Margin = new Thickness(0, 10, 0, 10)
             };
-            AvailablePartsContainer.AddChild(label);
+            BodyPartsContainer.AddChild(label);
             return;
         }
+
+        foreach (var part in state.BodyParts)
+        {
+            var button = new Button
+            {
+                Text = part.DisplayName,
+                HorizontalExpand = true,
+                Disabled = !part.IsPresent,
+                ModulateSelfOverride = part.IsPresent ? (part.HasDamage ? ColorModerate : ColorActive) : ColorDim,
+                Margin = new Thickness(0, 1, 0, 1)
+            };
+
+            if (part.IsPresent)
+            {
+                button.OnPressed += _ =>
+                {
+                    _sawmill.Info($"Button clicked for part: {part.Id}");
+                    _selectedPartId = part.Id;
+                    OnPartSelected?.Invoke(part.Id);
+                };
+            }
+            else
+            {
+                button.ToolTip = Loc.GetString("autodoc-surgery-part-missing");
+            }
+            if (_selectedPartId == part.Id)
+            {
+                button.ModulateSelfOverride = Color.FromHex("#55FF55");
+                button.Modulate = Color.White;
+            }
+
+            BodyPartsContainer.AddChild(button);
+        }
     }
+
+    private void UpdateOperationsList(AutodocBoundUserInterfaceState state)
+    {
+        OperationsContainer.RemoveAllChildren();
+
+        _sawmill.Info($"UpdateOperationsList: SelectedPartId='{state.SelectedPartId}', AvailableOperations count={state.AvailableOperations?.Count ?? 0}");
+
+        if (string.IsNullOrEmpty(state.SelectedPartId))
+        {
+            var label = new Label
+            {
+                Text = Loc.GetString("autodoc-surgery-select-part"),
+                FontColorOverride = ColorDim,
+                StyleClasses = { "monospace" },
+                HorizontalAlignment = HAlignment.Center,
+                Margin = new Thickness(0, 10, 0, 10)
+            };
+            OperationsContainer.AddChild(label);
+            SelectedPartLabel.Text = Loc.GetString("autodoc-surgery-no-part-selected");
+            SelectedPartLabel.FontColorOverride = ColorDim;
+            return;
+        }
+        var selectedPart = state.BodyParts?.FirstOrDefault(p => p.Id == state.SelectedPartId);
+        SelectedPartLabel.Text = selectedPart != null
+            ? Loc.GetString("autodoc-surgery-part-selected", ("part", selectedPart.DisplayName))
+            : Loc.GetString("autodoc-surgery-no-part-selected");
+        SelectedPartLabel.FontColorOverride = ColorActive;
+
+        if (state.AvailableOperations == null || state.AvailableOperations.Count == 0)
+        {
+            var label = new Label
+            {
+                Text = Loc.GetString("autodoc-surgery-no-operations"),
+                FontColorOverride = ColorDim,
+                StyleClasses = { "monospace" },
+                HorizontalAlignment = HAlignment.Center,
+                Margin = new Thickness(0, 10, 0, 10)
+            };
+            OperationsContainer.AddChild(label);
+            return;
+        }
+
+        foreach (var op in state.AvailableOperations)
+        {
+            var button = new Button
+            {
+                Text = op.DisplayName,
+                HorizontalExpand = true,
+                Disabled = !op.IsAvailable || state.IsOperating,
+                ModulateSelfOverride = op.IsAvailable ? ColorActive : ColorDim,
+                Margin = new Thickness(0, 1, 0, 1),
+                ToolTip = op.Tooltip ?? ""
+            };
+
+            if (op.IsAvailable && !state.IsOperating)
+            {
+                var partId = state.SelectedPartId;
+                var opId = op.Id;
+                button.OnPressed += _ => OnOperationSelected?.Invoke(partId, opId);
+            }
+
+            OperationsContainer.AddChild(button);
+        }
+    }
+
+    private void UpdateSurgeryProgress(AutodocBoundUserInterfaceState state)
+    {
+        if (state.IsOperating)
+        {
+            SurgeryProgressContainer.Visible = true;
+            SurgeryProgressBar.Value = state.OperationProgress * 100;
+            SurgeryProgressPercentLabel.Text = $"{state.OperationProgress * 100:F0}%";
+
+            if (!string.IsNullOrEmpty(state.CurrentOperationName))
+            {
+                SurgeryProgressLabel.Text = state.CurrentOperationName;
+            }
+        }
+        else
+        {
+            SurgeryProgressContainer.Visible = false;
+            SurgeryProgressBar.Value = 0;
+            SurgeryProgressPercentLabel.Text = "0%";
+            SurgeryProgressLabel.Text = Loc.GetString("autodoc-surgery-progress");
+        }
+    }
+
     private void UpdatePatientInfo(AutodocBoundUserInterfaceState state)
     {
         if (state.HasOccupant && !string.IsNullOrEmpty(state.OccupantName))
@@ -321,128 +437,6 @@ public sealed partial class SiriusAutodocWindow : DefaultWindow
         return ColorDim;
     }
 
-    private EntityUid? SetupIcon(AutodocBoundUserInterfaceState state)
-    {
-        var bodyStatus = new Dictionary<TargetBodyPart, TargetIntegrity>();
-
-        if (state.OccupantDamage != null && state.OccupantDamage.Count > 0)
-        {
-            var allParts = new[]
-            {
-                TargetBodyPart.Head, TargetBodyPart.Torso, TargetBodyPart.Groin,
-                TargetBodyPart.LeftArm, TargetBodyPart.LeftHand,
-                TargetBodyPart.RightArm, TargetBodyPart.RightHand,
-                TargetBodyPart.LeftLeg, TargetBodyPart.LeftFoot,
-                TargetBodyPart.RightLeg, TargetBodyPart.RightFoot
-            };
-
-            var totalDamage = state.OccupantDamage.Values.Sum(x => x.Float());
-
-            foreach (var part in allParts)
-            {
-                bodyStatus[part] = totalDamage switch
-                {
-                    >= 75 => TargetIntegrity.CriticallyWounded,
-                    >= 50 => TargetIntegrity.HeavilyWounded,
-                    >= 25 => TargetIntegrity.ModeratelyWounded,
-                    >= 10 => TargetIntegrity.LightlyWounded,
-                    _ => TargetIntegrity.Healthy
-                };
-            }
-        }
-        else
-        {
-            var allParts = new[]
-            {
-                TargetBodyPart.Head, TargetBodyPart.Torso, TargetBodyPart.Groin,
-                TargetBodyPart.LeftArm, TargetBodyPart.LeftHand,
-                TargetBodyPart.RightArm, TargetBodyPart.RightHand,
-                TargetBodyPart.LeftLeg, TargetBodyPart.LeftFoot,
-                TargetBodyPart.RightLeg, TargetBodyPart.RightFoot
-            };
-            foreach (var part in allParts)
-            {
-                bodyStatus[part] = TargetIntegrity.Healthy;
-            }
-        }
-
-        if (bodyStatus.Count == 0)
-            return null;
-
-        if (!_entityManager.Deleted(_spriteViewEntity))
-            _entityManager.QueueDeleteEntity(_spriteViewEntity);
-
-        _spriteViewEntity = _entityManager.Spawn(BodyView);
-
-        if (!_entityManager.TryGetComponent<SpriteComponent>(_spriteViewEntity, out var sprite))
-            return null;
-
-        var spriteEnt = new Entity<SpriteComponent?>(_spriteViewEntity, sprite);
-
-        int layer = 0;
-        foreach (var (bodyPart, integrity) in bodyStatus)
-        {
-            string enumName = Enum.GetName(typeof(TargetBodyPart), bodyPart) ?? "Unknown";
-            int enumValue = (int) integrity;
-
-            var rsi = new SpriteSpecifier.Rsi(
-                new ResPath($"/Textures/_Shitmed/Interface/Targeting/Status/{enumName.ToLowerInvariant()}.rsi"),
-                $"{enumName.ToLowerInvariant()}_{enumValue}");
-
-            if (!_spriteSystem.TryGetLayer(spriteEnt, layer, out _, false))
-                _spriteSystem.AddTextureLayer(spriteEnt, _spriteSystem.Frame0(rsi));
-            else
-                _spriteSystem.LayerSetTexture(spriteEnt, layer, _spriteSystem.Frame0(rsi));
-
-            _spriteSystem.LayerSetScale(spriteEnt, layer, new Vector2(3f, 3f));
-            layer++;
-        }
-
-        return _spriteViewEntity;
-    }
-
-    private void UpdateHumanoidDoll(AutodocBoundUserInterfaceState state)
-    {
-        if (!state.HasOccupant)
-        {
-            HumanoidContainer.Visible = false;
-            SepHumanoid.Visible = false;
-            DollStatusLabel.Text = "НЕТ ПАЦИЕНТА";
-            DollStatusLabel.FontColorOverride = ColorInactive;
-            SurgeryPanel.Visible = false;
-            return;
-        }
-
-        HumanoidContainer.Visible = true;
-        SepHumanoid.Visible = true;
-
-        var spriteEntity = SetupIcon(state);
-        if (spriteEntity != null)
-        {
-            DollSpriteView.SetEntity(spriteEntity);
-        }
-
-        var totalDamage = state.OccupantDamage?.Values.Sum(x => x.Float()) ?? 0;
-        var statusText = totalDamage switch
-        {
-            0 => "ВСЕ КОНЕЧНОСТИ ЦЕЛЫ",
-            < 25 => "ЛЁГКИЕ ПОВРЕЖДЕНИЯ",
-            < 50 => "СРЕДНИЕ ПОВРЕЖДЕНИЯ",
-            < 75 => "ТЯЖЁЛЫЕ ПОВРЕЖДЕНИЯ",
-            _ => "КРИТИЧЕСКИЕ ПОВРЕЖДЕНИЯ"
-        };
-
-        DollStatusLabel.Text = statusText;
-        DollStatusLabel.FontColorOverride = totalDamage switch
-        {
-            0 => ColorMinor,
-            < 25 => Color.FromHex("#88FF44"),
-            < 50 => ColorModerate,
-            < 75 => ColorSevere,
-            _ => ColorCritical
-        };
-    }
-
     private void UpdateStimulantsDisplay(AutodocBoundUserInterfaceState state)
     {
         if (state.HasBeaker)
@@ -509,7 +503,12 @@ public sealed partial class SiriusAutodocWindow : DefaultWindow
 
     private void UpdateFooter(AutodocBoundUserInterfaceState state)
     {
-        if (state.IsTreating)
+        if (state.IsOperating)
+        {
+            FooterLabel.Text = Loc.GetString("autodoc-footer-surgery");
+            FooterLabel.FontColorOverride = ColorModerate;
+        }
+        else if (state.IsTreating)
         {
             FooterLabel.Text = Loc.GetString("autodoc-footer-treatment");
             FooterLabel.FontColorOverride = ColorModerate;

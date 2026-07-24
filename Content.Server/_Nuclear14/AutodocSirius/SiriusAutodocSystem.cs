@@ -14,7 +14,8 @@ public sealed partial class SiriusAutodocSystem : SharedSiriusAutodocSystem
     public override void Initialize()
     {
         base.Initialize();
-
+        _surgerySystem = EntityManager.System<SiriusAutodocSurgerySystem>();
+        _sawmill.Info("SiriusAutodocSystem initialized with surgery system");
         SubscribeLocalEvent<SiriusAutodocComponent, EntInsertedIntoContainerMessage>(OnContainerInserted);
         SubscribeLocalEvent<SiriusAutodocComponent, EntRemovedFromContainerMessage>(OnContainerRemoved);
         SubscribeLocalEvent<SiriusAutodocComponent, PowerChangedEvent>(OnPowerChanged);
@@ -22,5 +23,8 @@ public sealed partial class SiriusAutodocSystem : SharedSiriusAutodocSystem
         SubscribeLocalEvent<SiriusAutodocComponent, BoundUIClosedEvent>(OnBoundUIClosed);
         SubscribeLocalEvent<SiriusAutodocComponent, AutodocUiButtonPressedMessage>(OnUiButtonPressed);
         SubscribeLocalEvent<SiriusAutodocComponent, AutodocUiToggleOpenMessage>(OnToggleOpenMessage);
+        SubscribeLocalEvent<SiriusAutodocComponent, AutodocSurgeryPartSelectedMessage>(OnSurgeryPartSelected);
+        SubscribeLocalEvent<SiriusAutodocComponent, AutodocSurgeryOperationMessage>(OnSurgeryOperationSelected);
+        SubscribeLocalEvent<AutodocSurgeryOperationDoAfterEvent>(OnSurgeryOperationDoAfter);
     }
 }

@@ -32,6 +32,18 @@ public sealed partial class SiriusAutodocSurgeryComponent : Component
     [ViewVariables]
     public List<string> PendingSurgeries = new();
 
+    [ViewVariables, AutoNetworkedField]
+    public string? SelectedPartId = null;
+
+    [ViewVariables, AutoNetworkedField]
+    public string? CurrentOperationId = null;
+
+    [ViewVariables, AutoNetworkedField]
+    public string? CurrentPartId = null;
+
+    [ViewVariables, AutoNetworkedField]
+    public string? CurrentOperationName = null;
+
     public static readonly Dictionary<BodyPartType, List<BodyPartType>> PartDependencies = new()
     {
         { BodyPartType.Arm, new List<BodyPartType> { BodyPartType.Hand } },

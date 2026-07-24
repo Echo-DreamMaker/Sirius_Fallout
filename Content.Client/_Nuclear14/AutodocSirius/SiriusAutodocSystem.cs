@@ -13,6 +13,7 @@ public sealed class SiriusAutodocSystem : SharedSiriusAutodocSystem
     [Dependency] private readonly SpriteSystem _spriteSystem = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -82,6 +83,11 @@ public sealed class SiriusAutodocSystem : SharedSiriusAutodocSystem
                     patientSprite.Visible = false;
             }
         }
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
     }
 }
 

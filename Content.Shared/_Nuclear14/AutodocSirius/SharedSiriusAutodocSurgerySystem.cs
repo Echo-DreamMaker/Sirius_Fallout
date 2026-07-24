@@ -1,5 +1,4 @@
 using Content.Shared._Nuclear14.AutodocSirius;
-using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
@@ -15,6 +14,8 @@ using Robust.Shared.Serialization;
 using System.Linq;
 using System;
 using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
+using Content.Shared.Body.Components;
 
 namespace Content.Shared._Nuclear14.AutodocSirius;
 
@@ -27,6 +28,50 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+
+    public const float SurgeryOperationDuration = 5f;
+    private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
+
+    protected static readonly Dictionary<string, string> BodyPartDisplayNames = new()
+    {
+        { "head", "Голова" },
+        { "torso", "Торс" },
+        { "left_arm", "Левая рука" },
+        { "right_arm", "Правая рука" },
+        { "left_hand", "Левая кисть" },
+        { "right_hand", "Правая кисть" },
+        { "left_leg", "Левая нога" },
+        { "right_leg", "Правая нога" },
+        { "left_foot", "Левая стопа" },
+        { "right_foot", "Правая стопа" },
+    };
+
+    protected sealed class BodyPartInfo
+    {
+        public BodyPartType Type { get; }
+        public BodyPartSymmetry? Symmetry { get; }
+
+        public BodyPartInfo(BodyPartType type, BodyPartSymmetry? symmetry)
+        {
+            Type = type;
+            Symmetry = symmetry;
+        }
+    }
+
+    protected static readonly Dictionary<string, BodyPartInfo> BodyPartMap = new()
+    {
+        { "head", new BodyPartInfo(BodyPartType.Head, null) },
+        { "torso", new BodyPartInfo(BodyPartType.Torso, null) },
+        { "left_arm", new BodyPartInfo(BodyPartType.Arm, BodyPartSymmetry.Left) },
+        { "right_arm", new BodyPartInfo(BodyPartType.Arm, BodyPartSymmetry.Right) },
+        { "left_hand", new BodyPartInfo(BodyPartType.Hand, BodyPartSymmetry.Left) },
+        { "right_hand", new BodyPartInfo(BodyPartType.Hand, BodyPartSymmetry.Right) },
+        { "left_leg", new BodyPartInfo(BodyPartType.Leg, BodyPartSymmetry.Left) },
+        { "right_leg", new BodyPartInfo(BodyPartType.Leg, BodyPartSymmetry.Right) },
+        { "left_foot", new BodyPartInfo(BodyPartType.Foot, BodyPartSymmetry.Left) },
+        { "right_foot", new BodyPartInfo(BodyPartType.Foot, BodyPartSymmetry.Right) },
+    };
 
     private static readonly Dictionary<string, string> OrganSlotMap = new()
     {
@@ -40,6 +85,15 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         { "appendix", "appendixSlot" },
         { "tongue", "tongueSlot" },
         { "ears", "earsSlot" }
+    };
+    private static readonly Dictionary<string, string> OrganSlotIdMap = new()
+    {
+        { "brain", "brain" },
+        { "heart", "heart" },
+        { "liver", "liver" },
+        { "lungs", "lungs" },
+        { "stomach", "stomach" },
+        { "eyes", "eyes" },
     };
 
     private static string? GetSlotForBodyPart(BodyPartType partType, BodyPartSymmetry symmetry)
@@ -55,6 +109,11 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
             _ => null
         };
     }
+
+    public virtual bool HasAvailableOrganInAutodoc(string organType) => false;
+    public virtual bool HasAvailablePartInAutodoc(BodyPartType partType, BodyPartSymmetry? symmetry) => false;
+    public virtual EntityUid? GetAvailableOrganInAutodoc(string organType) => null;
+    public virtual EntityUid? GetAvailablePartInAutodoc(BodyPartType partType, BodyPartSymmetry? symmetry) => null;
 
     public override void Initialize()
     {
@@ -198,327 +257,347 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         }
     }
 
-    public Dictionary<BodyPartType, bool> GetMissingParts(EntityUid patient)
+    public List<AutodocBodyPartData> GetBodyPartsData(EntityUid patient)
     {
-        var missing = new Dictionary<BodyPartType, bool>();
+        var result = new List<AutodocBodyPartData>();
 
-        var bodyStatus = _bodySystem.GetBodyPartStatus(patient);
-
-        foreach (var part in SiriusAutodocSurgeryComponent.PartDependencies.Keys)
+        if (!patient.IsValid())
         {
-            if (part == BodyPartType.Other)
-                continue;
-
-            var targetPart = _bodySystem.GetTargetBodyPart(part, BodyPartSymmetry.None);
-            if (targetPart == null)
-            {
-                if (part == BodyPartType.Arm || part == BodyPartType.Hand ||
-                    part == BodyPartType.Leg || part == BodyPartType.Foot)
-                {
-                    var left = _bodySystem.GetTargetBodyPart(part, BodyPartSymmetry.Left);
-                    var right = _bodySystem.GetTargetBodyPart(part, BodyPartSymmetry.Right);
-
-                    if (left != null)
-                    {
-                        var leftStatus = bodyStatus.GetValueOrDefault(left.Value, TargetIntegrity.Severed);
-                        if (leftStatus == TargetIntegrity.Severed)
-                            missing[part] = true;
-                    }
-                    if (right != null)
-                    {
-                        var rightStatus = bodyStatus.GetValueOrDefault(right.Value, TargetIntegrity.Severed);
-                        if (rightStatus == TargetIntegrity.Severed)
-                            missing[part] = true;
-                    }
-                }
-                continue;
-            }
-
-            var status = bodyStatus.GetValueOrDefault(targetPart.Value, TargetIntegrity.Severed);
-            if (status == TargetIntegrity.Severed)
-                missing[part] = true;
+            _sawmill.Warning($"GetBodyPartsData: patient {patient} is invalid");
+            return result;
         }
 
-        return missing;
-    }
-
-    public List<string> GetRequiredSurgeries(Dictionary<BodyPartType, bool> missingParts, SiriusAutodocSurgeryComponent component)
-    {
-        var surgeries = new List<string>();
-
-        foreach (var kvp in missingParts.OrderBy(x => GetPartPriority(x.Key)))
+        if (!HasComp<BodyComponent>(patient))
         {
-            var part = kvp.Key;
-            var isMissing = kvp.Value;
+            _sawmill.Warning($"GetBodyPartsData: patient {patient} has no BodyComponent");
+            return result;
+        }
 
-            if (!isMissing)
-                continue;
+        var bodySystem = _bodySystem;
 
-            if (component.AvailableParts.ContainsKey(part))
+        foreach (var partMapping in BodyPartMap)
+        {
+            var partId = partMapping.Key;
+            var partInfo = partMapping.Value;
+            var displayName = BodyPartDisplayNames.GetValueOrDefault(partId, partId);
+
+            var parts = bodySystem.GetBodyChildrenOfType(patient, partInfo.Type, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
+            var isPresent = parts.Any();
+
+            var hasDamage = false;
+            if (isPresent)
             {
-                var deps = SiriusAutodocSurgeryComponent.PartDependencies
-                    .FirstOrDefault(x => x.Value.Contains(part));
-
-                if (deps.Key != BodyPartType.Other)
+                var partEntity = parts.First().Id;
+                if (TryComp<DamageableComponent>(partEntity, out var damageable))
                 {
-                    if (!missingParts.ContainsKey(deps.Key) || !missingParts[deps.Key])
-                        surgeries.Add(part.ToString());
-                }
-                else
-                {
-                    surgeries.Add(part.ToString());
+                    hasDamage = damageable.TotalDamage > 0;
                 }
             }
+
+            result.Add(new AutodocBodyPartData(partId, displayName, isPresent, hasDamage));
         }
 
-        foreach (var organType in SiriusAutodocSurgeryComponent.TransplantableOrgans)
+        _sawmill.Info($"GetBodyPartsData: found {result.Count} parts for patient {patient}");
+        return result;
+    }
+
+    public List<AutodocOperationData> GetOperationsForPart(EntityUid patient, string partId, EntityUid autodocUid)
+    {
+        var result = new List<AutodocOperationData>();
+
+        if (!patient.IsValid() || string.IsNullOrEmpty(partId))
+            return result;
+
+        var entityManager = EntityManager;
+
+        var operations = GetOperationsForPartType(partId);
+
+        foreach (var (opId, displayName, isAvailable) in operations)
         {
-            if (component.AvailableOrgans.ContainsKey(organType))
+            bool finalIsAvailable = isAvailable;
+
+            if (opId.StartsWith("Remove"))
             {
-                if (!HasOrgan(component.CurrentPatient ?? EntityUid.Invalid, organType))
-                    surgeries.Add(organType);
+                var organType = opId.Replace("Remove", "").ToLowerInvariant();
+                var hasOrgan = HasOrganBySlotId(patient, organType, entityManager);
+                finalIsAvailable = hasOrgan;
             }
+            else if (opId.StartsWith("Insert"))
+            {
+                var organType = opId.Replace("Insert", "").ToLowerInvariant();
+                var hasOrgan = HasOrganBySlotId(patient, organType, entityManager);
+                var hasOrganInAutodoc = HasAvailableOrganInAutodoc(organType);
+                finalIsAvailable = !hasOrgan && hasOrganInAutodoc;
+            }
+            else if (opId == "AttachPart")
+            {
+                if (BodyPartMap.TryGetValue(partId, out var partInfo))
+                {
+                    var hasPartInAutodoc = HasAvailablePartInAutodoc(partInfo.Type, partInfo.Symmetry);
+                    finalIsAvailable = isAvailable && hasPartInAutodoc;
+                }
+            }
+
+            string? tooltip = null;
+            if (!finalIsAvailable)
+            {
+                if (opId == "AttachPart")
+                {
+                    tooltip = Loc.GetString("autodoc-surgery-no-part-in-autodoc");
+                }
+                else if (opId.StartsWith("Insert"))
+                {
+                    tooltip = Loc.GetString("autodoc-surgery-no-organ-in-autodoc");
+                }
+                else if (opId.StartsWith("Remove"))
+                {
+                    tooltip = Loc.GetString("autodoc-surgery-organ-not-present");
+                }
+                else if (opId == "TendBrute")
+                {
+                    tooltip = Loc.GetString("autodoc-surgery-no-brute-damage");
+                }
+                else if (opId == "TendBurn")
+                {
+                    tooltip = Loc.GetString("autodoc-surgery-no-burn-damage");
+                }
+            }
+
+            result.Add(new AutodocOperationData(opId, displayName, finalIsAvailable, tooltip));
         }
 
-        return surgeries;
+        return result;
     }
 
-    public bool HasRequiredPart(string surgery, SiriusAutodocSurgeryComponent component)
+    private bool HasOrganBySlotId(EntityUid patient, string organType, IEntityManager entityManager)
     {
-        if (Enum.TryParse<BodyPartType>(surgery, true, out var partType))
-        {
-            return component.AvailableParts.ContainsKey(partType);
-        }
-        else if (SiriusAutodocSurgeryComponent.TransplantableOrgans.Contains(surgery))
-        {
-            return component.AvailableOrgans.ContainsKey(surgery);
-        }
-        return false;
-    }
-
-    private bool HasOrgan(EntityUid patient, string organType)
-    {
-        if (patient == EntityUid.Invalid)
+        if (!patient.IsValid())
             return false;
 
-        var parts = _bodySystem.GetBodyChildren(patient);
+        if (!OrganSlotIdMap.TryGetValue(organType, out var targetSlotId))
+            return false;
+
+        var bodySystem = entityManager.System<SharedBodySystem>();
+        var parts = bodySystem.GetBodyChildren(patient);
+
         foreach (var part in parts)
         {
-            var organs = _bodySystem.GetPartOrgans(part.Id);
+            var organs = bodySystem.GetPartOrgans(part.Id);
             foreach (var organ in organs)
             {
-                if (organ.Item2.SlotId == organType)
-                    return true;
+                if (entityManager.TryGetComponent<OrganComponent>(organ.Item1, out var organComp))
+                {
+                    if (string.Equals(organComp.SlotId, targetSlotId, StringComparison.OrdinalIgnoreCase))
+                        return true;
+                }
             }
         }
+
         return false;
     }
 
-    private int GetPartPriority(BodyPartType partType)
+    private List<(string Id, string DisplayName, bool IsAvailable)> GetOperationsForPartType(string partId)
     {
-        return partType switch
+        var result = new List<(string, string, bool)>();
+
+        switch (partId)
         {
-            BodyPartType.Torso => 0,
-            BodyPartType.Head => 1,
-            BodyPartType.Arm => 2,
-            BodyPartType.Leg => 2,
-            BodyPartType.Hand => 3,
-            BodyPartType.Foot => 3,
-            _ => 4
+            case "head":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                result.Add(("RemoveBrain", "Удалить мозг", true));
+                result.Add(("InsertBrain", "Вставить мозг", true));
+                break;
+            case "torso":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                result.Add(("RemoveHeart", "Удалить сердце", true));
+                result.Add(("InsertHeart", "Вставить сердце", true));
+                result.Add(("RemoveLiver", "Удалить печень", true));
+                result.Add(("InsertLiver", "Вставить печень", true));
+                result.Add(("RemoveLungs", "Удалить лёгкие", true));
+                result.Add(("InsertLungs", "Вставить лёгкие", true));
+                result.Add(("RemoveStomach", "Удалить желудок", true));
+                result.Add(("InsertStomach", "Вставить желудок", true));
+                break;
+            case "left_arm":
+            case "right_arm":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                result.Add(("AttachPart", "Пришить руку", true));
+                break;
+            case "left_hand":
+            case "right_hand":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                result.Add(("AttachPart", "Пришить кисть", true));
+                break;
+            case "left_leg":
+            case "right_leg":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                result.Add(("AttachPart", "Пришить ногу", true));
+                break;
+            case "left_foot":
+            case "right_foot":
+                result.Add(("TendBrute", "Лечить ушибы", true));
+                result.Add(("TendBurn", "Лечить ожоги", true));
+                result.Add(("AttachPart", "Пришить стопу", true));
+                break;
+            default:
+                break;
+        }
+
+        return result;
+    }
+
+    public virtual bool ExecuteSurgeryOperation(EntityUid autodocUid, EntityUid patient, string partId, string operationId)
+    {
+        _sawmill.Info($"ExecuteSurgeryOperation: partId={partId}, operationId={operationId}, patient={patient}");
+
+        if (!BodyPartMap.TryGetValue(partId, out var partInfo))
+        {
+            _sawmill.Info($"BodyPartMap doesn't contain {partId}");
+            return false;
+        }
+
+        var bodySystem = _bodySystem;
+        var parts = bodySystem.GetBodyChildrenOfType(patient, partInfo.Type, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
+        var partEntity = parts.FirstOrDefault().Id;
+
+        if (partEntity == default)
+        {
+            _sawmill.Info($"No part found for {partId}");
+            return false;
+        }
+
+        _sawmill.Info($"Found part entity: {partEntity}");
+
+        bool result = operationId switch
+        {
+            "TendBrute" => ExecuteTendBrute(patient, partEntity),
+            "TendBurn" => ExecuteTendBurn(patient, partEntity),
+            "RemoveBrain" => ExecuteRemoveOrgan(autodocUid, patient, "brain"),
+            "InsertBrain" => ExecuteInsertOrgan(autodocUid, patient, "brain"),
+            "RemoveHeart" => ExecuteRemoveOrgan(autodocUid, patient, "heart"),
+            "InsertHeart" => ExecuteInsertOrgan(autodocUid, patient, "heart"),
+            "RemoveLiver" => ExecuteRemoveOrgan(autodocUid, patient, "liver"),
+            "InsertLiver" => ExecuteInsertOrgan(autodocUid, patient, "liver"),
+            "RemoveLungs" => ExecuteRemoveOrgan(autodocUid, patient, "lungs"),
+            "InsertLungs" => ExecuteInsertOrgan(autodocUid, patient, "lungs"),
+            "RemoveStomach" => ExecuteRemoveOrgan(autodocUid, patient, "stomach"),
+            "InsertStomach" => ExecuteInsertOrgan(autodocUid, patient, "stomach"),
+            "AttachPart" => ExecuteAttachPart(autodocUid, patient, partId),
+            _ => false
         };
+
+        _sawmill.Info($"ExecuteSurgeryOperation result: {result}");
+        return result;
     }
 
-    private bool CanAttachPart(EntityUid patient, BodyPartType partType, out EntityUid? parentPart)
+    protected bool ExecuteTendBrute(EntityUid patient, EntityUid partEntity)
     {
-        parentPart = null;
-
-        foreach (var kvp in SiriusAutodocSurgeryComponent.PartDependencies)
-        {
-            var parent = kvp.Key;
-            var children = kvp.Value;
-
-            if (children.Contains(partType))
-            {
-                var parentParts = _bodySystem.GetBodyChildrenOfType(patient, parent);
-                if (parentParts.Any())
-                {
-                    parentPart = parentParts.First().Id;
-                    return true;
-                }
-                return false;
-            }
-        }
-
-        if (partType == BodyPartType.Head)
-        {
-            var torsoParts = _bodySystem.GetBodyChildrenOfType(patient, BodyPartType.Torso);
-            if (torsoParts.Any())
-            {
-                parentPart = torsoParts.First().Id;
-                return true;
-            }
+        if (!TryComp<DamageableComponent>(patient, out var damageable))
             return false;
+
+        var healSpec = new DamageSpecifier();
+        var bruteTypes = new[] { "Blunt", "Slash", "Piercing" };
+
+        foreach (var damageType in bruteTypes)
+        {
+            if (damageable.Damage.DamageDict.TryGetValue(damageType, out var amount) && amount > 0)
+            {
+                healSpec.DamageDict[damageType] = -Math.Min(amount.Float(), 15);
+            }
         }
 
-        if (partType == BodyPartType.Torso)
+        if (!healSpec.Empty)
+        {
+            _damageable.TryChangeDamage(patient, healSpec, true);
             return true;
+        }
 
         return false;
     }
 
-    private bool TryAttachPart(EntityUid patient, EntityUid part, EntityUid? parentPart)
+    protected bool ExecuteTendBurn(EntityUid patient, EntityUid partEntity)
     {
-        if (!TryComp<BodyPartComponent>(part, out var partComp))
+        if (!TryComp<DamageableComponent>(patient, out var damageable))
             return false;
 
-        if (parentPart != null && TryComp<BodyPartComponent>(parentPart.Value, out var parentPartComp))
+        var healSpec = new DamageSpecifier();
+        var burnTypes = new[] { "Heat", "Shock", "Caustic" };
+
+        foreach (var damageType in burnTypes)
         {
-            var slotName = _bodySystem.GetSlotFromBodyPart(partComp);
-            return _bodySystem.AttachPart(parentPart.Value, slotName, part, parentPartComp, partComp);
+            if (damageable.Damage.DamageDict.TryGetValue(damageType, out var amount) && amount > 0)
+            {
+                healSpec.DamageDict[damageType] = -Math.Min(amount.Float(), 15);
+            }
         }
 
-        return _bodySystem.AttachPartToRoot(patient, part);
+        if (!healSpec.Empty)
+        {
+            _damageable.TryChangeDamage(patient, healSpec, true);
+            return true;
+        }
+
+        return false;
     }
 
-    public virtual void PerformPartSurgery(EntityUid uid, EntityUid patient, BodyPartType partType, EntityUid user, SiriusAutodocSurgeryComponent component)
+    protected bool ExecuteRemoveOrgan(EntityUid autodocUid, EntityUid patient, string organType)
     {
-        if (!component.AvailableParts.TryGetValue(partType, out var part))
+        _sawmill.Info($"ExecuteRemoveOrgan: organType={organType}, patient={patient}");
+
+        if (!OrganSlotIdMap.TryGetValue(organType, out var targetSlotId))
         {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-part-not-available"), uid, user);
-            return;
+            _sawmill.Info($"OrganSlotIdMap doesn't contain {organType}");
+            return false;
         }
 
-        if (!CanAttachPart(patient, partType, out var parentPart))
+        _sawmill.Info($"Looking for organ with SlotId: {targetSlotId}");
+
+        var bodySystem = _bodySystem;
+        var parts = bodySystem.GetBodyChildren(patient);
+        _sawmill.Info($"Found {parts.Count()} body parts");
+
+        foreach (var part in parts)
         {
-            var dep = SiriusAutodocSurgeryComponent.PartDependencies
-                .FirstOrDefault(x => x.Value.Contains(partType));
-            if (dep.Key != BodyPartType.Other)
+            var organs = bodySystem.GetPartOrgans(part.Id);
+            _sawmill.Info($"Part {part.Id} has {organs.Count()} organs");
+
+            foreach (var organ in organs)
             {
-                _popupSystem.PopupEntity(
-                    Loc.GetString("autodoc-surgery-missing-parent", ("parent", dep.Key.ToString())),
-                    uid, user);
-            }
-            return;
-        }
-
-        string? slotId = null;
-        if (TryComp<BodyPartComponent>(part, out var partComp))
-        {
-            slotId = GetSlotForBodyPart(partComp.PartType, partComp.Symmetry);
-        }
-
-        if (slotId != null)
-        {
-            _itemSlots.TryEject(uid, slotId, user, out _);
-        }
-
-        if (TryAttachPart(patient, part, parentPart))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-part-attached", ("part", partType.ToString())), uid, user);
-
-            var healSpec = new DamageSpecifier();
-            if (TryComp<DamageableComponent>(patient, out var damageable))
-            {
-                foreach (var damage in damageable.Damage.DamageDict)
+                if (EntityManager.TryGetComponent<OrganComponent>(organ.Item1, out var organComp))
                 {
-                    if (damage.Value > 0)
+                    _sawmill.Info($"Found organ with SlotId: '{organComp.SlotId}' (looking for '{targetSlotId}')");
+
+                    if (string.Equals(organComp.SlotId, targetSlotId, StringComparison.OrdinalIgnoreCase))
                     {
-                        var damageValue = damage.Value.Float();
-                        healSpec.DamageDict[damage.Key] = -Math.Min(damageValue, 10);
+                        bodySystem.RemoveOrgan(organ.Item1, organComp);
+                        _sawmill.Info($"Removed organ {organ.Item1} from body");
+                        _transform.DropNextTo(organ.Item1, autodocUid);
+                        _sawmill.Info($"Dropped organ next to autodoc");
+
+                        return true;
                     }
                 }
             }
-            if (!healSpec.Empty)
-                _damageable.TryChangeDamage(patient, healSpec, true);
-        }
-        else
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-attach-failed"), uid, user);
         }
 
-        UpdateAvailableParts(uid, component);
+        _sawmill.Info($"No organ found with SlotId: {targetSlotId}");
+        return false;
     }
 
-    public virtual void PerformOrganSurgery(EntityUid uid, EntityUid patient, string organType, EntityUid user, SiriusAutodocSurgeryComponent component)
+    protected bool ExecuteInsertOrgan(EntityUid autodocUid, EntityUid patient, string organType)
     {
-        if (!component.AvailableOrgans.TryGetValue(organType, out var organ))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-organ-not-available"), uid, user);
-            return;
-        }
+        var organEntity = GetAvailableOrganInAutodoc(organType);
+        if (organEntity == null)
+            return false;
 
-        var targetPart = FindOrganTargetPart(patient, organType);
-        if (targetPart == null)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-no-organ-slot", ("organ", organType)), uid, user);
-            return;
-        }
+        if (!TryComp<OrganComponent>(organEntity, out var organComp))
+            return false;
 
-        string? slotId = null;
-        if (TryComp<OrganComponent>(organ, out var organComp))
-        {
-            var organSlotId = organComp.SlotId?.ToLowerInvariant();
-            if (!string.IsNullOrEmpty(organSlotId))
-            {
-                OrganSlotMap.TryGetValue(organSlotId, out slotId);
-            }
-        }
-
-        if (slotId != null)
-        {
-            _itemSlots.TryEject(uid, slotId, user, out _);
-        }
-
-        if (!TryComp<OrganComponent>(organ, out var organComp2))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-attach-failed"), uid, user);
-            UpdateAvailableParts(uid, component);
-            return;
-        }
-
-        if (!TryComp<BodyPartComponent>(targetPart, out var partComp))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-attach-failed"), uid, user);
-            UpdateAvailableParts(uid, component);
-            return;
-        }
-
-        if (string.IsNullOrEmpty(organComp2.SlotId))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-attach-failed"), uid, user);
-            UpdateAvailableParts(uid, component);
-            return;
-        }
-
-        if (_bodySystem.InsertOrgan(targetPart.Value, organ, organComp2.SlotId, partComp, organComp2))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-organ-attached", ("organ", organType)), uid, user);
-
-            var healSpec = new DamageSpecifier();
-            if (TryComp<DamageableComponent>(patient, out var damageable))
-            {
-                foreach (var damage in damageable.Damage.DamageDict)
-                {
-                    if (damage.Value > 0)
-                    {
-                        var damageValue = damage.Value.Float();
-                        healSpec.DamageDict[damage.Key] = -Math.Min(damageValue, 15);
-                    }
-                }
-            }
-            if (!healSpec.Empty)
-                _damageable.TryChangeDamage(patient, healSpec, true);
-        }
-        else
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-attach-failed"), uid, user);
-        }
-
-        UpdateAvailableParts(uid, component);
-    }
-
-    private EntityUid? FindOrganTargetPart(EntityUid patient, string organType)
-    {
         var targetPartType = organType switch
         {
             "brain" or "eyes" => BodyPartType.Head,
@@ -526,154 +605,85 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
             _ => BodyPartType.Torso
         };
 
-        var parts = _bodySystem.GetBodyChildrenOfType(patient, targetPartType);
-        return parts.FirstOrDefault().Id;
+        var bodySystem = _bodySystem;
+        var targetParts = bodySystem.GetBodyChildrenOfType(patient, targetPartType);
+
+        if (!targetParts.Any())
+            return false;
+
+        var targetPart = targetParts.First().Id;
+        if (!TryComp<BodyPartComponent>(targetPart, out var partComp))
+            return false;
+
+        var slotId = organComp.SlotId;
+        if (string.IsNullOrEmpty(slotId))
+            return false;
+
+        if (bodySystem.InsertOrgan(targetPart, organEntity.Value, slotId, partComp, organComp))
+        {
+            if (OrganSlotMap.TryGetValue(organType, out var slotName))
+            {
+                _itemSlots.TryEject(autodocUid, slotName, null, out _);
+            }
+
+            return true;
+        }
+
+        return false;
     }
 
-    public virtual void CompleteAllSurgery(EntityUid uid, SiriusAutodocSurgeryComponent component)
+    protected bool ExecuteAttachPart(EntityUid autodocUid, EntityUid patient, string partId)
     {
-        component.IsOperating = false;
-        component.OperationProgress = 0f;
+        if (!BodyPartMap.TryGetValue(partId, out var partInfo))
+            return false;
 
-        if (component.CurrentPatient is not { } patient)
+        var partEntity = GetAvailablePartInAutodoc(partInfo.Type, partInfo.Symmetry);
+        if (partEntity == null)
+            return false;
+
+        if (!TryComp<BodyPartComponent>(partEntity, out var partComp))
+            return false;
+
+        var bodySystem = _bodySystem;
+
+        EntityUid? parentPart = null;
+        var parentType = partInfo.Type switch
         {
-            component.PendingSurgeries.Clear();
-            return;
+            BodyPartType.Head => BodyPartType.Torso,
+            BodyPartType.Arm or BodyPartType.Hand => BodyPartType.Torso,
+            BodyPartType.Leg or BodyPartType.Foot => BodyPartType.Torso,
+            _ => BodyPartType.Torso
+        };
+
+        var parentParts = bodySystem.GetBodyChildrenOfType(patient, parentType);
+        if (parentParts.Any())
+        {
+            parentPart = parentParts.First().Id;
         }
 
-        var surgeries = component.PendingSurgeries.ToList();
-        component.PendingSurgeries.Clear();
+        bool success;
+        var slotName = GetSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
 
-        var failedSurgeries = new List<string>();
-
-        foreach (var surgery in surgeries)
+        if (parentPart != null && !string.IsNullOrEmpty(slotName))
         {
-            if (Enum.TryParse<BodyPartType>(surgery, true, out var partType))
-            {
-                if (component.AvailableParts.TryGetValue(partType, out var part))
-                {
-                    if (CanAttachPart(patient, partType, out var parentPart))
-                    {
-                        string? slotId = null;
-                        if (TryComp<BodyPartComponent>(part, out var partComp))
-                        {
-                            slotId = GetSlotForBodyPart(partComp.PartType, partComp.Symmetry);
-                        }
-
-                        if (slotId != null)
-                        {
-                            _itemSlots.TryEject(uid, slotId, null, out _);
-                        }
-
-                        if (TryAttachPart(patient, part, parentPart))
-                        {
-                            var healSpec = new DamageSpecifier();
-                            if (TryComp<DamageableComponent>(patient, out var damageable))
-                            {
-                                foreach (var damage in damageable.Damage.DamageDict)
-                                {
-                                    if (damage.Value > 0)
-                                    {
-                                        var damageValue = damage.Value.Float();
-                                        healSpec.DamageDict[damage.Key] = -Math.Min(damageValue, 10);
-                                    }
-                                }
-                            }
-                            if (!healSpec.Empty)
-                                _damageable.TryChangeDamage(patient, healSpec, true);
-                        }
-                        else
-                        {
-                            failedSurgeries.Add(surgery);
-                        }
-                    }
-                    else
-                    {
-                        failedSurgeries.Add(surgery);
-                    }
-                }
-                else
-                {
-                    failedSurgeries.Add(surgery);
-                }
-            }
-            else if (SiriusAutodocSurgeryComponent.TransplantableOrgans.Contains(surgery))
-            {
-                if (component.AvailableOrgans.TryGetValue(surgery, out var organ))
-                {
-                    var targetPart = FindOrganTargetPart(patient, surgery);
-                    if (targetPart != null)
-                    {
-                        string? slotId = null;
-                        if (TryComp<OrganComponent>(organ, out var organComp))
-                        {
-                            var organSlotId = organComp.SlotId?.ToLowerInvariant();
-                            if (!string.IsNullOrEmpty(organSlotId))
-                            {
-                                OrganSlotMap.TryGetValue(organSlotId, out slotId);
-                            }
-                        }
-
-                        if (slotId != null)
-                        {
-                            _itemSlots.TryEject(uid, slotId, null, out _);
-                        }
-
-                        if (TryComp<OrganComponent>(organ, out var organComp2) &&
-                            TryComp<BodyPartComponent>(targetPart, out var partComp) &&
-                            !string.IsNullOrEmpty(organComp2.SlotId))
-                        {
-                            if (_bodySystem.InsertOrgan(targetPart.Value, organ, organComp2.SlotId, partComp, organComp2))
-                            {
-                                var healSpec = new DamageSpecifier();
-                                if (TryComp<DamageableComponent>(patient, out var damageable))
-                                {
-                                    foreach (var damage in damageable.Damage.DamageDict)
-                                    {
-                                        if (damage.Value > 0)
-                                        {
-                                            var damageValue = damage.Value.Float();
-                                            healSpec.DamageDict[damage.Key] = -Math.Min(damageValue, 15);
-                                        }
-                                    }
-                                }
-                                if (!healSpec.Empty)
-                                    _damageable.TryChangeDamage(patient, healSpec, true);
-                            }
-                            else
-                            {
-                                failedSurgeries.Add(surgery);
-                            }
-                        }
-                        else
-                        {
-                            failedSurgeries.Add(surgery);
-                        }
-                    }
-                    else
-                    {
-                        failedSurgeries.Add(surgery);
-                    }
-                }
-                else
-                {
-                    failedSurgeries.Add(surgery);
-                }
-            }
-        }
-
-        if (failedSurgeries.Count > 0)
-        {
-            _popupSystem.PopupEntity(
-                Loc.GetString("autodoc-surgery-some-failed", ("count", failedSurgeries.Count)),
-                uid, uid);
+            success = bodySystem.AttachPart(parentPart.Value, slotName, partEntity.Value, partComp, partComp);
         }
         else
         {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-all-complete"), uid, uid);
+            success = bodySystem.AttachPartToRoot(patient, partEntity.Value);
         }
 
-        UpdateAvailableParts(uid, component);
+        if (success)
+        {
+            if (!string.IsNullOrEmpty(slotName))
+            {
+                _itemSlots.TryEject(autodocUid, slotName, null, out _);
+            }
+
+            return true;
+        }
+
+        return false;
     }
 }
 
