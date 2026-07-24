@@ -30,6 +30,7 @@ public sealed partial class SiriusAutodocSystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+
     private readonly Dictionary<EntityUid, TimeSpan> _treatmentStartTime = new();
     private readonly Dictionary<EntityUid, (string PartId, string OperationId, TimeSpan StartTime)> _surgeryOperations = new();
 
@@ -38,31 +39,89 @@ public sealed partial class SiriusAutodocSystem
     private bool _isUpdating = false;
     private const float UiUpdateInterval = 0.5f;
     private readonly Dictionary<EntityUid, TimeSpan> _lastUiUpdate = new();
-    private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
-    private SiriusAutodocSurgerySystem? _surgerySystem;
+
+    private bool IsOrganOrPartSlot(string slotId)
+    {
+        var organSlots = new[]
+        {
+            SiriusAutodocComponent.BrainSlotId,
+            SiriusAutodocComponent.EyesSlotId,
+            SiriusAutodocComponent.HeartSlotId,
+            SiriusAutodocComponent.LiverSlotId,
+            SiriusAutodocComponent.LungsSlotId,
+            SiriusAutodocComponent.StomachSlotId,
+            SiriusAutodocComponent.KidneysSlotId,
+            SiriusAutodocComponent.AppendixSlotId,
+            SiriusAutodocComponent.TongueSlotId,
+            SiriusAutodocComponent.EarsSlotId
+        };
+
+        var partSlots = new[]
+        {
+            SiriusAutodocComponent.LeftArmSlotId,
+            SiriusAutodocComponent.RightArmSlotId,
+            SiriusAutodocComponent.LeftHandSlotId,
+            SiriusAutodocComponent.RightHandSlotId,
+            SiriusAutodocComponent.LeftLegSlotId,
+            SiriusAutodocComponent.RightLegSlotId,
+            SiriusAutodocComponent.LeftFootSlotId,
+            SiriusAutodocComponent.RightFootSlotId,
+            SiriusAutodocComponent.HeadSlotId,
+            SiriusAutodocComponent.TorsoSlotId
+        };
+
+        return organSlots.Contains(slotId) || partSlots.Contains(slotId);
+    }
 
     private void OnContainerInserted(Entity<SiriusAutodocComponent> entity, ref EntInsertedIntoContainerMessage args)
     {
-        if (args.Container.ID == SiriusAutodocComponent.SiriusBeakerSlotId)
+        var slotId = args.Container.ID;
+
+        if (slotId == SiriusAutodocComponent.SiriusBeakerSlotId)
         {
             UpdateUiState(entity);
         }
-        else if (args.Container.ID == "autodoc-body")
+        else if (slotId == "autodoc-body")
         {
             entity.Comp.CurrentPatient = args.Entity;
             _sawmill.Info($"Patient inserted into autodoc: {args.Entity}");
             UpdateUiState(entity);
         }
+        else if (IsOrganOrPartSlot(slotId))
+        {
+            _sawmill.Info($"Item inserted into slot {slotId}: {args.Entity}");
+            if (_surgerySystem != null &&
+                TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComp))
+            {
+                _surgerySystem.UpdateAvailableParts(entity, surgeryComp);
+                _sawmill.Info($"Updated AvailableParts: {surgeryComp.AvailableParts.Count} parts, {surgeryComp.AvailableOrgans.Count} organs");
+            }
+            UpdateUiState(entity);
+        }
     }
+
     private void OnContainerRemoved(Entity<SiriusAutodocComponent> entity, ref EntRemovedFromContainerMessage args)
     {
-        if (args.Container.ID == SiriusAutodocComponent.SiriusBeakerSlotId)
+        var slotId = args.Container.ID;
+
+        if (slotId == SiriusAutodocComponent.SiriusBeakerSlotId)
         {
             UpdateUiState(entity);
         }
-        else if (args.Container.ID == "autodoc-body")
+        else if (slotId == "autodoc-body")
         {
             entity.Comp.CurrentPatient = null;
+            UpdateUiState(entity);
+        }
+        else if (IsOrganOrPartSlot(slotId))
+        {
+            _sawmill.Info($"Item removed from slot {slotId}: {args.Entity}");
+            if (_surgerySystem != null &&
+                TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComp))
+            {
+                _surgerySystem.UpdateAvailableParts(entity, surgeryComp);
+                _sawmill.Info($"Updated AvailableParts: {surgeryComp.AvailableParts.Count} parts, {surgeryComp.AvailableOrgans.Count} organs");
+            }
             UpdateUiState(entity);
         }
     }
@@ -83,6 +142,14 @@ public sealed partial class SiriusAutodocSystem
     private void OnBoundUIOpened(Entity<SiriusAutodocComponent> entity, ref BoundUIOpenedEvent args)
     {
         _lastUiUpdate[entity.Owner] = _gameTiming.CurTime;
+
+        if (_surgerySystem != null &&
+            TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComp))
+        {
+            _surgerySystem.UpdateAvailableParts(entity, surgeryComp);
+            _sawmill.Info($"UI opened - Updated AvailableParts: {surgeryComp.AvailableParts.Count} parts, {surgeryComp.AvailableOrgans.Count} organs");
+        }
+
         UpdateUiState(entity);
     }
 

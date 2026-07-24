@@ -12,7 +12,7 @@ namespace Content.Shared._Nuclear14.AutodocSirius;
 public sealed partial class SiriusAutodocSurgeryComponent : Component
 {
     [ViewVariables, AutoNetworkedField]
-    public Dictionary<BodyPartType, EntityUid> AvailableParts = new();
+    public Dictionary<(BodyPartType Type, BodyPartSymmetry? Symmetry), EntityUid> AvailableParts = new();
 
     [ViewVariables, AutoNetworkedField]
     public Dictionary<string, EntityUid> AvailableOrgans = new();
@@ -57,11 +57,11 @@ public sealed partial class SiriusAutodocSurgeryComponent : Component
 
     public static readonly HashSet<string> TransplantableOrgans = new()
     {
-        "Brain",
-        "Heart",
-        "Liver",
-        "Lung",
-        "Eyes",
-        "Stomach"
+        "brain",
+        "heart",
+        "liver",
+        "lungs",
+        "eyes",
+        "stomach"
     };
 }

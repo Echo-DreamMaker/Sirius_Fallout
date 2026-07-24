@@ -111,10 +111,10 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         };
     }
 
-    public virtual bool HasAvailableOrganInAutodoc(string organType) => false;
-    public virtual bool HasAvailablePartInAutodoc(BodyPartType partType, BodyPartSymmetry? symmetry) => false;
-    public virtual EntityUid? GetAvailableOrganInAutodoc(string organType) => null;
-    public virtual EntityUid? GetAvailablePartInAutodoc(BodyPartType partType, BodyPartSymmetry? symmetry) => null;
+    public virtual bool HasAvailableOrganInAutodoc(string organType, EntityUid autodocUid) => false;
+    public virtual bool HasAvailablePartInAutodoc(BodyPartType partType, BodyPartSymmetry? symmetry, EntityUid autodocUid) => false;
+    public virtual EntityUid? GetAvailableOrganInAutodoc(string organType, EntityUid autodocUid) => null;
+    public virtual EntityUid? GetAvailablePartInAutodoc(BodyPartType partType, BodyPartSymmetry? symmetry, EntityUid autodocUid) => null;
 
     public override void Initialize()
     {
@@ -127,6 +127,8 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
 
     private void OnComponentInit(EntityUid uid, SiriusAutodocSurgeryComponent component, ComponentInit args)
     {
+        _sawmill.Info($"OnComponentInit for {uid}");
+
         if (TryComp<SiriusAutodocComponent>(uid, out var autodoc))
         {
             component.CurrentPatient = autodoc.CurrentPatient;
@@ -136,13 +138,71 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
 
     private void OnComponentStartup(EntityUid uid, SiriusAutodocSurgeryComponent component, ComponentStartup args)
     {
+        _sawmill.Info($"OnComponentStartup for {uid}");
+
         if (TryComp<SiriusAutodocComponent>(uid, out var autodoc))
         {
             component.CurrentPatient = autodoc.CurrentPatient;
         }
         UpdateAvailableParts(uid, component);
     }
+    private void OnItemInserted(EntityUid uid, SiriusAutodocComponent component, EntInsertedIntoContainerMessage args)
+    {
+        var slotId = args.Container.ID;
+        if (IsOrganOrPartSlot(slotId))
+        {
+            _sawmill.Info($"Item inserted into slot {slotId}: {args.Entity}");
+            if (TryComp<SiriusAutodocSurgeryComponent>(uid, out var surgeryComp))
+            {
+                UpdateAvailableParts(uid, surgeryComp);
+            }
+        }
+    }
 
+    private void OnItemRemoved(EntityUid uid, SiriusAutodocComponent component, EntRemovedFromContainerMessage args)
+    {
+        var slotId = args.Container.ID;
+        if (IsOrganOrPartSlot(slotId))
+        {
+            _sawmill.Info($"Item removed from slot {slotId}: {args.Entity}");
+            if (TryComp<SiriusAutodocSurgeryComponent>(uid, out var surgeryComp))
+            {
+                UpdateAvailableParts(uid, surgeryComp);
+            }
+        }
+    }
+    private bool IsOrganOrPartSlot(string slotId)
+    {
+        var organSlots = new[]
+        {
+        SiriusAutodocComponent.BrainSlotId,
+        SiriusAutodocComponent.EyesSlotId,
+        SiriusAutodocComponent.HeartSlotId,
+        SiriusAutodocComponent.LiverSlotId,
+        SiriusAutodocComponent.LungsSlotId,
+        SiriusAutodocComponent.StomachSlotId,
+        SiriusAutodocComponent.KidneysSlotId,
+        SiriusAutodocComponent.AppendixSlotId,
+        SiriusAutodocComponent.TongueSlotId,
+        SiriusAutodocComponent.EarsSlotId
+    };
+
+        var partSlots = new[]
+        {
+        SiriusAutodocComponent.LeftArmSlotId,
+        SiriusAutodocComponent.RightArmSlotId,
+        SiriusAutodocComponent.LeftHandSlotId,
+        SiriusAutodocComponent.RightHandSlotId,
+        SiriusAutodocComponent.LeftLegSlotId,
+        SiriusAutodocComponent.RightLegSlotId,
+        SiriusAutodocComponent.LeftFootSlotId,
+        SiriusAutodocComponent.RightFootSlotId,
+        SiriusAutodocComponent.HeadSlotId,
+        SiriusAutodocComponent.TorsoSlotId
+    };
+
+        return organSlots.Contains(slotId) || partSlots.Contains(slotId);
+    }
     private void OnItemSlotInsertAttempt(Entity<SiriusAutodocComponent> entity, ref ItemSlotInsertAttemptEvent args)
     {
         var slotId = args.Slot.ID;
@@ -203,57 +263,199 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
 
     public virtual void UpdateAvailableParts(EntityUid uid, SiriusAutodocSurgeryComponent component)
     {
+        _sawmill.Info($"=== UpdateAvailableParts START for {uid} ===");
+
         component.AvailableParts.Clear();
         component.AvailableOrgans.Clear();
 
         if (!TryComp<SiriusAutodocComponent>(uid, out var autodoc))
+        {
+            _sawmill.Warning("No SiriusAutodocComponent found");
             return;
+        }
 
+        _sawmill.Info($"Checking all ItemSlots for {uid}:");
+
+        var organSlots = new[]
+        {
+        SiriusAutodocComponent.BrainSlotId,
+        SiriusAutodocComponent.EyesSlotId,
+        SiriusAutodocComponent.HeartSlotId,
+        SiriusAutodocComponent.LiverSlotId,
+        SiriusAutodocComponent.LungsSlotId,
+        SiriusAutodocComponent.StomachSlotId,
+        SiriusAutodocComponent.KidneysSlotId,
+        SiriusAutodocComponent.AppendixSlotId,
+        SiriusAutodocComponent.TongueSlotId,
+        SiriusAutodocComponent.EarsSlotId
+    };
+
+        var partSlots = new[]
+        {
+        SiriusAutodocComponent.LeftArmSlotId,
+        SiriusAutodocComponent.RightArmSlotId,
+        SiriusAutodocComponent.LeftHandSlotId,
+        SiriusAutodocComponent.RightHandSlotId,
+        SiriusAutodocComponent.LeftLegSlotId,
+        SiriusAutodocComponent.RightLegSlotId,
+        SiriusAutodocComponent.LeftFootSlotId,
+        SiriusAutodocComponent.RightFootSlotId,
+        SiriusAutodocComponent.HeadSlotId,
+        SiriusAutodocComponent.TorsoSlotId
+    };
+
+        var allSlots = organSlots.Concat(partSlots).ToArray();
+        foreach (var slotId in allSlots)
+        {
+            var item = _itemSlots.GetItemOrNull(uid, slotId);
+            if (item != null)
+            {
+                _sawmill.Info($"  Slot {slotId} contains: {item.Value}");
+
+                if (TryComp<OrganComponent>(item, out var organComp))
+                {
+                    _sawmill.Info($"    -> Is Organ: SlotId={organComp.SlotId}, Enabled={organComp.Enabled}, CanEnable={organComp.CanEnable}");
+                }
+                else if (TryComp<BodyPartComponent>(item, out var partComp))
+                {
+                    _sawmill.Info($"    -> Is BodyPart: Type={partComp.PartType}, Symmetry={partComp.Symmetry}, Enabled={partComp.Enabled}, CanEnable={partComp.CanEnable}");
+                }
+                else
+                {
+                    _sawmill.Info($"    -> Unknown item type (not Organ or BodyPart)");
+                }
+            }
+            else
+            {
+                _sawmill.Info($"  Slot {slotId} is empty");
+            }
+        }
+
+        _sawmill.Info("Processing organs...");
         foreach (var slotMapping in OrganSlotMap)
         {
-            var item = _itemSlots.GetItemOrNull(uid, slotMapping.Value);
+            var slotId = slotMapping.Value;
+            var organType = slotMapping.Key;
+
+            var item = _itemSlots.GetItemOrNull(uid, slotId);
             if (item == null)
+            {
+                _sawmill.Info($"  Slot {slotId} (organ: {organType}) is empty");
                 continue;
+            }
+
+            _sawmill.Info($"  Slot {slotId} (organ: {organType}) contains: {item.Value}");
 
             if (TryComp<OrganComponent>(item, out var organComp))
             {
-                var organType = organComp.SlotId;
-                if (SiriusAutodocSurgeryComponent.TransplantableOrgans.Contains(organType))
+                var organSlotId = organComp.SlotId?.ToLowerInvariant();
+                _sawmill.Info($"    OrganComp: SlotId={organSlotId}, Enabled={organComp.Enabled}, CanEnable={organComp.CanEnable}");
+
+                if (!string.IsNullOrEmpty(organSlotId) && SiriusAutodocSurgeryComponent.TransplantableOrgans.Contains(organSlotId))
                 {
                     if (organComp.Enabled && organComp.CanEnable)
                     {
-                        component.AvailableOrgans[organType] = item.Value;
+                        component.AvailableOrgans[organSlotId] = item.Value;
+                        _sawmill.Info($"    ADDED organ: {organSlotId} -> {item.Value}");
+                    }
+                    else
+                    {
+                        _sawmill.Info($"    Organ {organSlotId} NOT added: Enabled={organComp.Enabled}, CanEnable={organComp.CanEnable}");
+                    }
+                }
+                else
+                {
+                    _sawmill.Info($"    Organ {organSlotId} NOT in TransplantableOrgans list");
+                }
+            }
+            else
+            {
+                _sawmill.Warning($"  Item in slot {slotId} is not an OrganComponent");
+            }
+        }
+
+        _sawmill.Info("Processing body parts...");
+        foreach (var slotId in partSlots)
+        {
+            var item = _itemSlots.GetItemOrNull(uid, slotId);
+            if (item == null)
+            {
+                _sawmill.Info($"  Slot {slotId} is empty");
+                continue;
+            }
+
+            _sawmill.Info($"  Slot {slotId} contains: {item.Value}");
+
+            if (TryComp<BodyPartComponent>(item, out var partComp))
+            {
+                _sawmill.Info($"    PartComp: Type={partComp.PartType}, Symmetry={partComp.Symmetry}, Enabled={partComp.Enabled}, CanEnable={partComp.CanEnable}");
+
+                if (partComp.Enabled && partComp.CanEnable)
+                {
+                    var key = (partComp.PartType, partComp.Symmetry);
+                    component.AvailableParts[key] = item.Value;
+                    _sawmill.Info($"    ADDED part: Type={partComp.PartType}, Symmetry={partComp.Symmetry} -> {item.Value}");
+                }
+                else
+                {
+                    _sawmill.Info($"    Part NOT added: Enabled={partComp.Enabled}, CanEnable={partComp.CanEnable}");
+                }
+            }
+            else
+            {
+                _sawmill.Warning($"  Item in slot {slotId} is not a BodyPartComponent");
+            }
+        }
+
+        _sawmill.Info("Checking legacy part slots...");
+        for (int i = 0; i < SiriusAutodocComponent.MaxSlots; i++)
+        {
+            var slotId = autodoc.PartSlotIds[i];
+            if (string.IsNullOrEmpty(slotId))
+                continue;
+
+            var item = _itemSlots.GetItemOrNull(uid, slotId);
+            if (item == null)
+            {
+                _sawmill.Info($"  Legacy slot {slotId} is empty");
+                continue;
+            }
+
+            _sawmill.Info($"  Legacy slot {slotId} contains: {item.Value}");
+
+            if (TryComp<BodyPartComponent>(item, out var partComp))
+            {
+                _sawmill.Info($"    PartComp: Type={partComp.PartType}, Symmetry={partComp.Symmetry}, Enabled={partComp.Enabled}, CanEnable={partComp.CanEnable}");
+
+                if (partComp.Enabled && partComp.CanEnable)
+                {
+                    var key = (partComp.PartType, partComp.Symmetry);
+                    if (!component.AvailableParts.ContainsKey(key))
+                    {
+                        component.AvailableParts[key] = item.Value;
+                        _sawmill.Info($"    ADDED from legacy slot: Type={partComp.PartType}, Symmetry={partComp.Symmetry} -> {item.Value}");
                     }
                 }
             }
         }
 
-        var bodyPartSlots = new[]
-        {
-            SiriusAutodocComponent.LeftArmSlotId,
-            SiriusAutodocComponent.RightArmSlotId,
-            SiriusAutodocComponent.LeftHandSlotId,
-            SiriusAutodocComponent.RightHandSlotId,
-            SiriusAutodocComponent.LeftLegSlotId,
-            SiriusAutodocComponent.RightLegSlotId,
-            SiriusAutodocComponent.LeftFootSlotId,
-            SiriusAutodocComponent.RightFootSlotId,
-            SiriusAutodocComponent.HeadSlotId,
-            SiriusAutodocComponent.TorsoSlotId
-        };
+        _sawmill.Info($"UpdateAvailableParts END: Organs={component.AvailableOrgans.Count}, Parts={component.AvailableParts.Count}");
 
-        foreach (var slotId in bodyPartSlots)
+        if (component.AvailableOrgans.Count > 0)
         {
-            var item = _itemSlots.GetItemOrNull(uid, slotId);
-            if (item == null)
-                continue;
-
-            if (TryComp<BodyPartComponent>(item, out var partComp))
+            _sawmill.Info("Final organs:");
+            foreach (var organ in component.AvailableOrgans)
             {
-                if (partComp.Enabled && partComp.CanEnable)
-                {
-                    component.AvailableParts[partComp.PartType] = item.Value;
-                }
+                _sawmill.Info($"  {organ.Key} -> {organ.Value}");
+            }
+        }
+
+        if (component.AvailableParts.Count > 0)
+        {
+            _sawmill.Info("Final parts:");
+            foreach (var part in component.AvailableParts)
+            {
+                _sawmill.Info($"  Type={part.Key.Type}, Symmetry={part.Key.Symmetry} -> {part.Value}");
             }
         }
     }
@@ -487,7 +689,7 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
 
     protected bool ExecuteInsertOrgan(EntityUid autodocUid, EntityUid patient, string organType)
     {
-        var organEntity = GetAvailableOrganInAutodoc(organType);
+        var organEntity = GetAvailableOrganInAutodoc(organType, autodocUid);
         if (organEntity == null)
             return false;
 
@@ -532,7 +734,7 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         if (!BodyPartMap.TryGetValue(partId, out var partInfo))
             return false;
 
-        var partEntity = GetAvailablePartInAutodoc(partInfo.Type, partInfo.Symmetry);
+        var partEntity = GetAvailablePartInAutodoc(partInfo.Type, partInfo.Symmetry, autodocUid);
         if (partEntity == null)
             return false;
 
