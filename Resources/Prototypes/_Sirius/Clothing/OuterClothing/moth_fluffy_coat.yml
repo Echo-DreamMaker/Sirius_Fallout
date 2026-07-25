@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingOuterWinterCoatToggleable
+  id: ClothingOuterMothFluffy
+  name: fluffy moth coat
+  description: A cozy, fluffy coat with a large hood and decorative wings. Perfect for a stylish moth.
+  components:
+  - type: Sprite
+    sprite: _Sirius/Clothing/OuterClothing/moth_fluffy.rsi
+  - type: Clothing
+    sprite: _Sirius/Clothing/OuterClothing/moth_fluffy.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodMothFluffy
