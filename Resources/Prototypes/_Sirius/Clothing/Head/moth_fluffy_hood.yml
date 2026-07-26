@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodMothFluffy
+  name: fluffy moth hood
+  description: A large, fluffy hood with cute moth antennae.
+  components:
+  - type: Sprite
+    sprite: _Sirius/Clothing/Head/moth_fluffy_head.rsi
+  - type: Clothing
+    sprite: _Sirius/Clothing/Head/moth_fluffy_head.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair

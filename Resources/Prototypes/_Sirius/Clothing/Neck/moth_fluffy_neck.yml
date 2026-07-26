@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMothFluffyWings
+  name: fluffy moth wings
+  description: Decorative fluffy wings.
+  components:
+  - type: Sprite
+    sprite: _Sirius/Clothing/Neck/moth_fluffy_wings.rsi
+  - type: Clothing
+    sprite: _Sirius/Clothing/Neck/moth_fluffy_wings.rsi
