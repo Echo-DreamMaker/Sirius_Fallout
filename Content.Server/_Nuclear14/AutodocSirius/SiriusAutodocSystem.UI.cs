@@ -1,5 +1,9 @@
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared._Nuclear14.AutodocSirius;
+using Content.Shared._Shitmed.Body.Events;
+using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared.Body.Organ;
+using Content.Shared.Body.Part;
 using Content.Shared.Body.Part;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Containers.ItemSlots;
@@ -90,6 +94,9 @@ public sealed partial class SiriusAutodocSystem
         else if (IsOrganOrPartSlot(slotId))
         {
             _sawmill.Info($"Item inserted into slot {slotId}: {args.Entity}");
+
+            EnableItemForSurgery(args.Entity);
+
             if (_surgerySystem != null &&
                 TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComp))
             {
@@ -99,7 +106,22 @@ public sealed partial class SiriusAutodocSystem
             UpdateUiState(entity);
         }
     }
+    private void EnableItemForSurgery(EntityUid item)
+    {
+        if (TryComp<OrganComponent>(item, out var organ))
+        {
+            var enableEvent = new OrganEnableChangedEvent(true);
+            RaiseLocalEvent(item, ref enableEvent);
+            _sawmill.Info($"Enabled organ {item}");
+        }
 
+        if (TryComp<BodyPartComponent>(item, out var part))
+        {
+            var enableEvent = new BodyPartEnableChangedEvent(true);
+            RaiseLocalEvent(item, ref enableEvent);
+            _sawmill.Info($"Enabled body part {item}");
+        }
+    }
     private void OnContainerRemoved(Entity<SiriusAutodocComponent> entity, ref EntRemovedFromContainerMessage args)
     {
         var slotId = args.Container.ID;

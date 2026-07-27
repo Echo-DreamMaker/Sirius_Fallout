@@ -28,7 +28,7 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] protected readonly SharedTransformSystem _transform = default!;
 
     public const float SurgeryOperationDuration = 5f;
     private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
@@ -532,21 +532,21 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
                 result.Add(("ToggleLiver", "Печень", true));
                 result.Add(("ToggleLungs", "Лёгкие", true));
                 result.Add(("ToggleStomach", "Желудок", true));
-                result.Add(("AttachHead", "Пришить голову", true));
-                result.Add(("AttachLeftArm", "Пришить левую руку", true));
-                result.Add(("AttachRightArm", "Пришить правую руку", true));
-                result.Add(("AttachLeftLeg", "Пришить левую ногу", true));
-                result.Add(("AttachRightLeg", "Пришить правую ногу", true));
+                result.Add(("ToggleHead", "Голова", true));
+                result.Add(("ToggleLeftArm", "Левая рука", true));
+                result.Add(("ToggleRightArm", "Правая рука", true));
+                result.Add(("ToggleLeftLeg", "Левая нога", true));
+                result.Add(("ToggleRightLeg", "Правая нога", true));
                 break;
             case "left_arm":
                 result.Add(("TendBrute", "Лечить ушибы", true));
                 result.Add(("TendBurn", "Лечить ожоги", true));
-                result.Add(("AttachHand", "Пришить левую кисть", true));
+                result.Add(("ToggleLeftHand", "Левая кисть", true));
                 break;
             case "right_arm":
                 result.Add(("TendBrute", "Лечить ушибы", true));
                 result.Add(("TendBurn", "Лечить ожоги", true));
-                result.Add(("AttachHand", "Пришить правую кисть", true));
+                result.Add(("ToggleRightHand", "Правая кисть", true));
                 break;
             case "left_hand":
                 result.Add(("TendBrute", "Лечить ушибы", true));
@@ -559,12 +559,12 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
             case "left_leg":
                 result.Add(("TendBrute", "Лечить ушибы", true));
                 result.Add(("TendBurn", "Лечить ожоги", true));
-                result.Add(("AttachFoot", "Пришить левую стопу", true));
+                result.Add(("ToggleLeftFoot", "Левая стопа", true));
                 break;
             case "right_leg":
                 result.Add(("TendBrute", "Лечить ушибы", true));
                 result.Add(("TendBurn", "Лечить ожоги", true));
-                result.Add(("AttachFoot", "Пришить правую стопу", true));
+                result.Add(("ToggleRightFoot", "Правая стопа", true));
                 break;
             case "left_foot":
                 result.Add(("TendBrute", "Лечить ушибы", true));
