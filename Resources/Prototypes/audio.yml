@@ -195,8 +195,8 @@
     - /Audio/Ambience/ambiruin5.ogg
     - /Audio/Ambience/ambiruin6.ogg
     - /Audio/Ambience/ambiruin7.ogg
-    - /Audio/Ambience/voyage_neverending.ogg
-    - /Audio/Ambience/unanchored.ogg
+#    - /Audio/Ambience/voyage_neverending.ogg
+#    - /Audio/Ambience/unanchored.ogg
 
 - type: soundCollection
   id: AmbienceRuins
@@ -341,7 +341,7 @@
       components:
         - type: Morgue
       range: 3
-      
+
 - type: rules
   id: NearSpookyFog
   rules:

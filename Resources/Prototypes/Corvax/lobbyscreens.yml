@@ -10,14 +10,14 @@
 #   name: AD VICTORIAM
 #   artist: baohe
 
-# - type: lobbyBackground
-#   id: NCOasisBar
-#   background: /Textures/Corvax/LobbyScreens/oasisbar.png
-#   name: Oasis Bar
-#   artist: rozycosmic
+- type: lobbyBackground
+  id: NCOasisBar
+  background: /Textures/Corvax/LobbyScreens/oasisbar.png
+  name: Oasis Bar
+  artist: rozycosmic
 
-# - type: lobbyBackground
-#   id: NCTribalYama
-#   background: /Textures/Corvax/LobbyScreens/tribalyama.png
-#   name: Tribal Yama
-#   artist: sverhbomba
+- type: lobbyBackground
+  id: NCTribalYama
+  background: /Textures/Corvax/LobbyScreens/tribalyama.png
+  name: Tribal Yama
+  artist: sverhbomba

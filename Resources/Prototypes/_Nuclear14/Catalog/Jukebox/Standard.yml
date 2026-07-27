@@ -22,7 +22,7 @@
   id: PatrioticAmerica
   name: America the Beautiful
   path:
-    path: /Audio/_Nuclear14/Music/MUS_Patriotic_America.ogg 
+    path: /Audio/_Nuclear14/Music/MUS_Patriotic_America.ogg
 
 - type: jukebox
   id: AmericanSwing
@@ -185,4 +185,93 @@
   name: Yankee Doodle
   path:
     path: /Audio/_Nuclear14/Music/MUS_Patriotic_Yankee.ogg
- 
+
+- type: jukebox
+  id: Blue_Moon
+  name: Blue Moon
+  path:
+    path: /Audio/_Nuclear14/Lobby/Blue_Moon.ogg
+
+- type: jukebox
+  id: Hallo_Mister_X
+  name: Hallo Mister X
+  path:
+    path: /Audio/_Nuclear14/Lobby/Hallo_Mister_X.ogg
+
+- type: jukebox
+  id: Happy_Times
+  name: Happy Times
+  path:
+    path: /Audio/_Nuclear14/Lobby/Happy_Times.ogg
+
+- type: jukebox
+  id: Goin_Under
+  name: Goin Under
+  path:
+    path: /Audio/_Nuclear14/Lobby/Goin_Under.ogg
+
+- type: jukebox
+  id: Heartaches_by_the_Number
+  name: Heartaches by the Number
+  path:
+    path: /Audio/_Nuclear14/Lobby/Heartaches_by_the_Number.ogg
+
+- type: jukebox
+  id: Its_A_Sin_To_Tell_A_Lie
+  name: Its A Sin To Tell A Lie
+  path:
+    path: /Audio/_Nuclear14/Lobby/Its_A_Sin_To_Tell_A_Lie.ogg
+
+- type: jukebox
+  id: Manhattan
+  name: Manhattan
+  path:
+    path: /Audio/_Nuclear14/Lobby/Manhattan.ogg
+
+- type: jukebox
+  id: maybe
+  name: Maybe
+  path:
+    path: /Audio/_Nuclear14/Lobby/maybe.ogg
+
+- type: jukebox
+  id: Sit_And_Dream
+  name: Sit And Dream
+  path:
+    path: /Audio/_Nuclear14/Lobby/Sit_And_Dream.ogg
+
+- type: jukebox
+  id: Slow_Bounce
+  name: Slow Bounce
+  path:
+    path: /Audio/_Nuclear14/Lobby/Slow_Bounce.ogg
+
+- type: jukebox
+  id: Strahlende_Trompete
+  name: Strahlende Trompete
+  path:
+    path: /Audio/_Nuclear14/Lobby/Strahlende_Trompete.ogg
+
+- type: jukebox
+  id: takemehome
+  name: Take me home
+  path:
+    path: /Audio/_Nuclear14/Lobby/takemehome.ogg
+
+- type: jukebox
+  id: Where_Have_You_Been_All_My_Life
+  name: Where Have You Been All My Life
+  path:
+    path: /Audio/_Nuclear14/Lobby/Where_Have_You_Been_All_My_Life.ogg
+
+- type: jukebox
+  id: WhyDontYouDoRight
+  name: Why Dont You Do Right
+  path:
+    path: /Audio/_Nuclear14/Lobby/WhyDontYouDoRight.ogg
+
+- type: jukebox
+  id: wibn
+  name: The Wanderer
+  path:
+    path: /Audio/_Nuclear14/Lobby/wibn.ogg
