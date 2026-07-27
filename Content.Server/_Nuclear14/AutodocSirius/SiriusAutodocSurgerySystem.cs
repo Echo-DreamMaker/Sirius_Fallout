@@ -49,41 +49,58 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
         {
             _sawmill.Info($"Processing operation: {opId} ({displayName})");
 
-            if (opId.StartsWith("Toggle"))
+            if (opId.StartsWith("ToggleHead") ||
+                opId.StartsWith("ToggleLeftArm") ||
+                opId.StartsWith("ToggleRightArm") ||
+                opId.StartsWith("ToggleLeftLeg") ||
+                opId.StartsWith("ToggleRightLeg") ||
+                opId.StartsWith("ToggleLeftHand") ||
+                opId.StartsWith("ToggleRightHand") ||
+                opId.StartsWith("ToggleLeftFoot") ||
+                opId.StartsWith("ToggleRightFoot"))
             {
-                if (!opId.StartsWith("ToggleHead") &&
-                    !opId.StartsWith("ToggleLeftArm") &&
-                    !opId.StartsWith("ToggleRightArm") &&
-                    !opId.StartsWith("ToggleLeftLeg") &&
-                    !opId.StartsWith("ToggleRightLeg") &&
-                    !opId.StartsWith("ToggleLeftHand") &&
-                    !opId.StartsWith("ToggleRightHand") &&
-                    !opId.StartsWith("ToggleLeftFoot") &&
-                    !opId.StartsWith("ToggleRightFoot"))
-                {
-                    var organType = opId.Replace("Toggle", "").ToLowerInvariant();
-                    var hasOrgan = HasOrganBySlotId(patient, organType, entityManager);
-                    var hasOrganInAutodoc = availableOrgans.ContainsKey(organType);
+                _sawmill.Info($"  Toggle PART detected: {opId}");
 
-                    _sawmill.Info($"  Toggle organ: {organType}, HasOrgan={hasOrgan}, HasOrganInAutodoc={hasOrganInAutodoc}");
+                var partTypeName = opId.Replace("Toggle", "").ToLowerInvariant();
+
+                if (partTypeName == "leftarm") partTypeName = "left_arm";
+                else if (partTypeName == "rightarm") partTypeName = "right_arm";
+                else if (partTypeName == "leftleg") partTypeName = "left_leg";
+                else if (partTypeName == "rightleg") partTypeName = "right_leg";
+                else if (partTypeName == "lefthand") partTypeName = "left_hand";
+                else if (partTypeName == "righthand") partTypeName = "right_hand";
+                else if (partTypeName == "leftfoot") partTypeName = "left_foot";
+                else if (partTypeName == "rightfoot") partTypeName = "right_foot";
+
+                _sawmill.Info($"  partTypeName (corrected): {partTypeName}");
+
+                if (BodyPartMap.TryGetValue(partTypeName, out var partInfo))
+                {
+                    _sawmill.Info($"  Found in BodyPartMap: Type={partInfo.Type}, Symmetry={partInfo.Symmetry}");
+
+                    var hasPart = HasBodyPart(patient, partInfo.Type, partInfo.Symmetry);
+                    var key = (partInfo.Type, partInfo.Symmetry);
+                    var hasPartInAutodoc = availableParts.ContainsKey(key);
+
+                    _sawmill.Info($"  Toggle part: {partTypeName}, HasPart={hasPart}, HasPartInAutodoc={hasPartInAutodoc}");
 
                     string actualOpId;
                     string actualDisplayName;
                     bool finalIsAvailable;
 
-                    if (hasOrgan)
+                    if (hasPart)
                     {
-                        actualOpId = $"Remove{char.ToUpper(organType[0])}{organType.Substring(1)}";
+                        actualOpId = $"Remove{char.ToUpper(partTypeName[0])}{partTypeName.Substring(1)}";
                         actualDisplayName = $"Удалить {displayName.ToLower()}";
                         finalIsAvailable = true;
-                        _sawmill.Info($"  -> Will remove organ (available)");
+                        _sawmill.Info($"  -> Will remove part using {actualOpId} (available)");
                     }
-                    else if (hasOrganInAutodoc)
+                    else if (hasPartInAutodoc)
                     {
-                        actualOpId = $"Insert{char.ToUpper(organType[0])}{organType.Substring(1)}";
+                        actualOpId = $"Attach{char.ToUpper(partTypeName[0])}{partTypeName.Substring(1)}";
                         actualDisplayName = $"Вставить {displayName.ToLower()}";
                         finalIsAvailable = true;
-                        _sawmill.Info($"  -> Will insert organ (available)");
+                        _sawmill.Info($"  -> Will attach part using {actualOpId} (available)");
                     }
                     else
                     {
@@ -96,10 +113,10 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
                     string? tooltip = null;
                     if (!finalIsAvailable)
                     {
-                        if (hasOrgan)
-                            tooltip = Loc.GetString("autodoc-surgery-organ-present");
-                        else if (!hasOrganInAutodoc)
-                            tooltip = Loc.GetString("autodoc-surgery-no-organ-in-autodoc");
+                        if (hasPart)
+                            tooltip = Loc.GetString("autodoc-surgery-part-present");
+                        else if (!hasPartInAutodoc)
+                            tooltip = Loc.GetString("autodoc-surgery-no-part-in-autodoc");
                     }
 
                     result.Add(new AutodocOperationData(actualOpId, actualDisplayName, finalIsAvailable, tooltip));
@@ -107,101 +124,61 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
                 }
                 else
                 {
-                    var partTypeName = opId.Replace("Toggle", "").ToLowerInvariant();
-
-                    if (BodyPartMap.TryGetValue(partTypeName, out var partInfo))
-                    {
-                        var hasPart = HasBodyPart(patient, partInfo.Type, partInfo.Symmetry);
-                        var key = (partInfo.Type, partInfo.Symmetry);
-                        var hasPartInAutodoc = availableParts.ContainsKey(key);
-
-                        _sawmill.Info($"  Toggle part: {partTypeName}, HasPart={hasPart}, HasPartInAutodoc={hasPartInAutodoc}");
-
-                        string actualOpId;
-                        string actualDisplayName;
-                        bool finalIsAvailable;
-
-                        if (hasPart)
-                        {
-                            actualOpId = $"Remove{char.ToUpper(partTypeName[0])}{partTypeName.Substring(1)}";
-                            actualDisplayName = $"Удалить {displayName.ToLower()}";
-                            finalIsAvailable = true;
-                            _sawmill.Info($"  -> Will remove part (available)");
-                        }
-                        else if (hasPartInAutodoc)
-                        {
-                            actualOpId = $"Attach{char.ToUpper(partTypeName[0])}{partTypeName.Substring(1)}";
-                            actualDisplayName = $"Вставить {displayName.ToLower()}";
-                            finalIsAvailable = true;
-                            _sawmill.Info($"  -> Will attach part (available)");
-                        }
-                        else
-                        {
-                            actualOpId = opId;
-                            actualDisplayName = displayName;
-                            finalIsAvailable = false;
-                            _sawmill.Info($"  -> NOT available");
-                        }
-
-                        string? tooltip = null;
-                        if (!finalIsAvailable)
-                        {
-                            if (hasPart)
-                                tooltip = Loc.GetString("autodoc-surgery-part-present");
-                            else if (!hasPartInAutodoc)
-                                tooltip = Loc.GetString("autodoc-surgery-no-part-in-autodoc");
-                        }
-
-                        result.Add(new AutodocOperationData(actualOpId, actualDisplayName, finalIsAvailable, tooltip));
-                        continue;
-                    }
+                    _sawmill.Warning($"  NOT found in BodyPartMap for {partTypeName}");
+                    continue;
                 }
+            }
+
+            if (opId.StartsWith("Toggle"))
+            {
+                var organType = opId.Replace("Toggle", "").ToLowerInvariant();
+                var hasOrgan = HasOrganBySlotId(patient, organType, entityManager);
+                var hasOrganInAutodoc = availableOrgans.ContainsKey(organType);
+
+                _sawmill.Info($"  Toggle organ: {organType}, HasOrgan={hasOrgan}, HasOrganInAutodoc={hasOrganInAutodoc}");
+
+                string actualOpId;
+                string actualDisplayName;
+                bool finalIsAvailable;
+
+                if (hasOrgan)
+                {
+                    actualOpId = $"Remove{char.ToUpper(organType[0])}{organType.Substring(1)}";
+                    actualDisplayName = $"Удалить {displayName.ToLower()}";
+                    finalIsAvailable = true;
+                    _sawmill.Info($"  -> Will remove organ using {actualOpId} (available)");
+                }
+                else if (hasOrganInAutodoc)
+                {
+                    actualOpId = $"Insert{char.ToUpper(organType[0])}{organType.Substring(1)}";
+                    actualDisplayName = $"Вставить {displayName.ToLower()}";
+                    finalIsAvailable = true;
+                    _sawmill.Info($"  -> Will insert organ using {actualOpId} (available)");
+                }
+                else
+                {
+                    actualOpId = opId;
+                    actualDisplayName = displayName;
+                    finalIsAvailable = false;
+                    _sawmill.Info($"  -> NOT available");
+                }
+
+                string? tooltip = null;
+                if (!finalIsAvailable)
+                {
+                    if (hasOrgan)
+                        tooltip = Loc.GetString("autodoc-surgery-organ-present");
+                    else if (!hasOrganInAutodoc)
+                        tooltip = Loc.GetString("autodoc-surgery-no-organ-in-autodoc");
+                }
+
+                result.Add(new AutodocOperationData(actualOpId, actualDisplayName, finalIsAvailable, tooltip));
+                continue;
             }
 
             if (opId.StartsWith("Attach") && opId != "AttachPart")
             {
-                _sawmill.Info($"  Attach operation: {opId}");
-                bool finalIsAvailable = isAvailable;
-                var targetPartId = opId switch
-                {
-                    "AttachHead" => "head",
-                    "AttachLeftArm" => "left_arm",
-                    "AttachRightArm" => "right_arm",
-                    "AttachLeftLeg" => "left_leg",
-                    "AttachRightLeg" => "right_leg",
-                    "AttachHand" => partId == "left_arm" ? "left_hand" : "right_hand",
-                    "AttachFoot" => partId == "left_leg" ? "left_foot" : "right_foot",
-                    _ => ""
-                };
-
-                string? tooltip = null;
-
-                if (!string.IsNullOrEmpty(targetPartId) && BodyPartMap.TryGetValue(targetPartId, out var partInfo))
-                {
-                    var key = (partInfo.Type, partInfo.Symmetry);
-                    var hasPartInAutodoc = availableParts.ContainsKey(key);
-                    var partExistsInBody = HasBodyPart(patient, partInfo.Type, partInfo.Symmetry);
-
-                    _sawmill.Info($"    Target part: {targetPartId}, Type={partInfo.Type}, Symmetry={partInfo.Symmetry}");
-                    _sawmill.Info($"    HasPartInAutodoc={hasPartInAutodoc}, PartExistsInBody={partExistsInBody}");
-
-                    if (partExistsInBody)
-                    {
-                        finalIsAvailable = false;
-                        tooltip = Loc.GetString("autodoc-surgery-part-already-present");
-                    }
-                    else if (!hasPartInAutodoc)
-                    {
-                        finalIsAvailable = false;
-                        tooltip = Loc.GetString("autodoc-surgery-no-part-in-autodoc");
-                    }
-                    else
-                    {
-                        finalIsAvailable = true;
-                    }
-                }
-
-                result.Add(new AutodocOperationData(opId, displayName, finalIsAvailable, tooltip));
+                _sawmill.Info($"  Skipping Attach operation: {opId} (handled by Toggle)");
                 continue;
             }
 
@@ -252,6 +229,12 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
         }
 
         _sawmill.Info($"=== GetOperationsForPart END: {result.Count} operations ===");
+
+        foreach (var op in result)
+        {
+            _sawmill.Info($"  Result operation: Id={op.Id}, DisplayName={op.DisplayName}, Available={op.IsAvailable}");
+        }
+
         return result;
     }
 
@@ -369,9 +352,52 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
         _sawmill.Info($"=== ExecuteSurgeryOperation START ===");
         _sawmill.Info($"Autodoc: {autodocUid}, Patient: {patient}, PartId: {partId}, Operation: {operationId}");
 
-        if (!BodyPartMap.TryGetValue(partId, out var partInfo))
+        string targetPartId = partId;
+
+        if (operationId.StartsWith("Remove") && !operationId.StartsWith("RemoveBrain") &&
+            !operationId.StartsWith("RemoveHeart") && !operationId.StartsWith("RemoveLiver") &&
+            !operationId.StartsWith("RemoveLungs") && !operationId.StartsWith("RemoveStomach") &&
+            !operationId.StartsWith("RemoveEyes"))
         {
-            _sawmill.Warning($"ExecuteSurgeryOperation: PartId {partId} not found in BodyPartMap");
+            var partName = operationId.Replace("Remove", "").ToLowerInvariant();
+            if (partName == "left_arm") targetPartId = "left_arm";
+            else if (partName == "right_arm") targetPartId = "right_arm";
+            else if (partName == "left_leg") targetPartId = "left_leg";
+            else if (partName == "right_leg") targetPartId = "right_leg";
+            else if (partName == "left_hand") targetPartId = "left_hand";
+            else if (partName == "right_hand") targetPartId = "right_hand";
+            else if (partName == "left_foot") targetPartId = "left_foot";
+            else if (partName == "right_foot") targetPartId = "right_foot";
+            else if (partName == "head") targetPartId = "head";
+
+            _sawmill.Info($"ExecuteSurgeryOperation: Using targetPartId={targetPartId} from operation {operationId}");
+        }
+
+        if (operationId.StartsWith("Attach") && operationId != "AttachPart")
+        {
+            var partName = operationId.Replace("Attach", "").ToLowerInvariant();
+            if (partName == "left_arm") targetPartId = "left_arm";
+            else if (partName == "right_arm") targetPartId = "right_arm";
+            else if (partName == "left_leg") targetPartId = "left_leg";
+            else if (partName == "right_leg") targetPartId = "right_leg";
+            else if (partName == "left_hand") targetPartId = "left_hand";
+            else if (partName == "right_hand") targetPartId = "right_hand";
+            else if (partName == "left_foot") targetPartId = "left_foot";
+            else if (partName == "right_foot") targetPartId = "right_foot";
+            else if (partName == "head") targetPartId = "head";
+
+            _sawmill.Info($"ExecuteSurgeryOperation: Using targetPartId={targetPartId} from operation {operationId}");
+        }
+
+        if (!BodyPartMap.TryGetValue(targetPartId, out var partInfo))
+        {
+            _sawmill.Warning($"ExecuteSurgeryOperation: PartId {targetPartId} not found in BodyPartMap");
+            return false;
+        }
+
+        if (operationId.StartsWith("Toggle"))
+        {
+            _sawmill.Warning($"ExecuteSurgeryOperation: Received Toggle operation {operationId}, but should have been converted already!");
             return false;
         }
 
@@ -412,16 +438,16 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             "InsertStomach" => ExecuteInsertOrgan(autodocUid, patient, "stomach"),
             "RemoveEyes" => ExecuteRemoveOrgan(autodocUid, patient, "eyes"),
             "InsertEyes" => ExecuteInsertOrgan(autodocUid, patient, "eyes"),
-            "AttachPart" => ExecuteAttachPart(autodocUid, patient, partId),
+            "AttachPart" => ExecuteAttachPart(autodocUid, patient, targetPartId),
             "AttachHead" => ExecuteAttachSpecificPart(autodocUid, patient, "head"),
             "AttachLeftArm" => ExecuteAttachSpecificPart(autodocUid, patient, "left_arm"),
             "AttachRightArm" => ExecuteAttachSpecificPart(autodocUid, patient, "right_arm"),
             "AttachLeftLeg" => ExecuteAttachSpecificPart(autodocUid, patient, "left_leg"),
             "AttachRightLeg" => ExecuteAttachSpecificPart(autodocUid, patient, "right_leg"),
             "AttachHand" => ExecuteAttachSpecificPart(autodocUid, patient,
-                partId == "left_arm" ? "left_hand" : "right_hand"),
+                targetPartId == "left_arm" ? "left_hand" : "right_hand"),
             "AttachFoot" => ExecuteAttachSpecificPart(autodocUid, patient,
-                partId == "left_leg" ? "left_foot" : "right_foot"),
+                targetPartId == "left_leg" ? "left_foot" : "right_foot"),
             _ => false
         };
 
@@ -602,20 +628,34 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             return false;
         }
 
+        _sawmill.Info($"ExecuteAttachSpecificPart: PartInfo - Type={partInfo.Type}, Symmetry={partInfo.Symmetry}");
+
         var bodySystem = _bodySystem;
+
         var existingParts = bodySystem.GetBodyChildrenOfType(patient, partInfo.Type, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
+        _sawmill.Info($"ExecuteAttachSpecificPart: Found {existingParts.Count()} existing parts of this type");
+
         if (existingParts.Any())
         {
             _sawmill.Warning($"ExecuteAttachSpecificPart: Patient ALREADY has part {partId}! Skipping.");
             return false;
         }
 
+        _sawmill.Info($"ExecuteAttachSpecificPart: Looking for part in autodoc storage");
         var availableParts = GetAvailablePartsInAutodoc(autodocUid);
+
+        _sawmill.Info($"ExecuteAttachSpecificPart: Available parts in autodoc: {availableParts.Count}");
+        foreach (var p in availableParts)
+        {
+            _sawmill.Info($"  - Type={p.Key.Type}, Symmetry={p.Key.Symmetry} -> Entity={p.Value}");
+        }
+
         var key = (partInfo.Type, partInfo.Symmetry);
+        _sawmill.Info($"ExecuteAttachSpecificPart: Looking for key - Type={key.Type}, Symmetry={key.Symmetry}");
 
         if (!availableParts.TryGetValue(key, out var partEntity))
         {
-            _sawmill.Warning($"ExecuteAttachSpecificPart: No part of type {partInfo.Type} with symmetry {partInfo.Symmetry} found");
+            _sawmill.Error($"ExecuteAttachSpecificPart: No part of type {partInfo.Type} with symmetry {partInfo.Symmetry} found");
             return false;
         }
 
@@ -623,8 +663,21 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
 
         if (!TryComp<BodyPartComponent>(partEntity, out var partComp))
         {
-            _sawmill.Warning($"ExecuteAttachSpecificPart: Part entity {partEntity} has no BodyPartComponent");
+            _sawmill.Error($"ExecuteAttachSpecificPart: Part entity {partEntity} has no BodyPartComponent");
             return false;
+        }
+
+        _sawmill.Info($"ExecuteAttachSpecificPart: PartComp - Type={partComp.PartType}, Symmetry={partComp.Symmetry}, Enabled={partComp.Enabled}, CanEnable={partComp.CanEnable}");
+
+        if (!partComp.Enabled)
+        {
+            _sawmill.Info($"ExecuteAttachSpecificPart: Part is disabled, enabling via event");
+            var enableEvent = new BodyPartEnableChangedEvent(true);
+            RaiseLocalEvent(partEntity, ref enableEvent);
+            if (TryComp<BodyPartComponent>(partEntity, out var updatedPartComp))
+            {
+                partComp = updatedPartComp;
+            }
         }
 
         EntityUid? parentPart = null;
@@ -636,51 +689,99 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             _ => BodyPartType.Torso
         };
 
+        _sawmill.Info($"ExecuteAttachSpecificPart: Looking for parent part of type {parentType}");
+
         var parentParts = bodySystem.GetBodyChildrenOfType(patient, parentType);
+        _sawmill.Info($"ExecuteAttachSpecificPart: Found {parentParts.Count()} parent parts");
+
         if (parentParts.Any())
         {
             parentPart = parentParts.First().Id;
+            _sawmill.Info($"ExecuteAttachSpecificPart: Parent part: {parentPart}");
         }
 
         if (parentPart == null)
         {
-            _sawmill.Warning($"ExecuteAttachSpecificPart: No parent part found for {partId}");
+            _sawmill.Error($"ExecuteAttachSpecificPart: No parent part found for {partId}");
             return false;
         }
 
-        _sawmill.Info($"ExecuteAttachSpecificPart: Parent part: {parentPart}");
-
-        var enableEvent = new BodyPartEnableChangedEvent(true);
-        RaiseLocalEvent(partEntity, ref enableEvent);
-        bool success;
         var slotName = GetSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
-        _sawmill.Info($"ExecuteAttachSpecificPart: Slot name: {slotName}");
+        _sawmill.Info($"ExecuteAttachSpecificPart: Slot name: '{slotName}'");
 
+        if (string.IsNullOrEmpty(slotName))
+        {
+            _sawmill.Error($"ExecuteAttachSpecificPart: No slot name for part {partId}");
+            return false;
+        }
+
+        var containerId = SharedBodySystem.GetPartSlotContainerId(slotName);
+        _sawmill.Info($"ExecuteAttachSpecificPart: Container ID: {containerId}");
+
+        if (_containerSystem.TryGetContainer(parentPart.Value, containerId, out var container))
+        {
+            if (container.ContainedEntities.Count > 0)
+            {
+                _sawmill.Warning($"ExecuteAttachSpecificPart: Slot {slotName} is not empty! Contains: {container.ContainedEntities.First()}");
+                foreach (var ent in container.ContainedEntities.ToList())
+                {
+                    _containerSystem.Remove(ent, container);
+                    _sawmill.Info($"ExecuteAttachSpecificPart: Removed {ent} from slot");
+                }
+            }
+        }
+
+        bool success;
         if (!string.IsNullOrEmpty(slotName))
         {
+            _sawmill.Info($"ExecuteAttachSpecificPart: Attaching part to parent {parentPart} via slot '{slotName}'");
             success = bodySystem.AttachPart(parentPart.Value, slotName, partEntity, null, partComp);
         }
         else
         {
+            _sawmill.Info($"ExecuteAttachSpecificPart: Attaching part to root");
             success = bodySystem.AttachPartToRoot(patient, partEntity);
         }
+        _sawmill.Info($"ExecuteAttachSpecificPart: AttachPart result: {success}");
 
         if (success)
         {
             _sawmill.Info($"ExecuteAttachSpecificPart: Successfully attached part {partId}");
             EnsureComp<BodyPartReattachedComponent>(partEntity);
+            _sawmill.Info($"ExecuteAttachSpecificPart: Added BodyPartReattachedComponent");
             var attachedEvent = new BodyPartAttachedEvent((partEntity, partComp));
             RaiseLocalEvent(patient, ref attachedEvent);
+            _sawmill.Info($"ExecuteAttachSpecificPart: Raised BodyPartAttachedEvent");
             if (!string.IsNullOrEmpty(slotName))
             {
                 _sawmill.Info($"ExecuteAttachSpecificPart: Ejecting from slot {slotName}");
                 _itemSlots.TryEject(autodocUid, slotName, null, out _);
             }
 
+            _sawmill.Info($"ExecuteAttachSpecificPart SUCCESS");
             return true;
         }
 
-        _sawmill.Warning($"ExecuteAttachSpecificPart: Failed to attach part");
+        _sawmill.Error($"ExecuteAttachSpecificPart: Failed to attach part");
+
+        _sawmill.Info($"ExecuteAttachSpecificPart: Part entity {partEntity} still has Body={partComp.Body}");
+        _sawmill.Info($"ExecuteAttachSpecificPart: Parent part {parentPart} children:");
+        if (TryComp<BodyPartComponent>(parentPart, out var parentComp))
+        {
+            foreach (var child in parentComp.Children)
+            {
+                _sawmill.Info($"  - Slot: {child.Key}, Type: {child.Value.Type}");
+                var childContainerId = SharedBodySystem.GetPartSlotContainerId(child.Key);
+                if (_containerSystem.TryGetContainer(parentPart.Value, childContainerId, out var childContainer))
+                {
+                    foreach (var contained in childContainer.ContainedEntities)
+                    {
+                        _sawmill.Info($"    Contains: {contained}");
+                    }
+                }
+            }
+        }
+
         return false;
     }
 
@@ -691,16 +792,20 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
 
         if (!BodyPartMap.TryGetValue(partId, out var partInfo))
         {
-            _sawmill.Warning($"ExecuteRemoveSpecificPart: PartId {partId} not found in BodyPartMap");
+            _sawmill.Error($"ExecuteRemoveSpecificPart: PartId '{partId}' not found in BodyPartMap");
             return false;
         }
+
+        _sawmill.Info($"ExecuteRemoveSpecificPart: PartInfo - Type={partInfo.Type}, Symmetry={partInfo.Symmetry}");
 
         var bodySystem = _bodySystem;
         var parts = bodySystem.GetBodyChildrenOfType(patient, partInfo.Type, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
 
+        _sawmill.Info($"ExecuteRemoveSpecificPart: Found {parts.Count()} parts of this type on patient");
+
         if (!parts.Any())
         {
-            _sawmill.Warning($"ExecuteRemoveSpecificPart: Part {partId} not found on patient");
+            _sawmill.Error($"ExecuteRemoveSpecificPart: Part '{partId}' not found on patient");
             return false;
         }
 
@@ -709,28 +814,45 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
 
         if (bodySystem.IsPartRoot(patient, partEntity))
         {
-            _sawmill.Warning($"ExecuteRemoveSpecificPart: Cannot remove root part (Torso)");
+            _sawmill.Error($"ExecuteRemoveSpecificPart: Cannot remove root part (Torso)");
             return false;
         }
 
+        if (!TryComp<BodyPartComponent>(partEntity, out var partComp))
+        {
+            _sawmill.Error($"ExecuteRemoveSpecificPart: Part entity {partEntity} has no BodyPartComponent");
+            return false;
+        }
+
+        _sawmill.Info($"ExecuteRemoveSpecificPart: PartComp - Type={partComp.PartType}, Symmetry={partComp.Symmetry}, Enabled={partComp.Enabled}, CanEnable={partComp.CanEnable}");
+
+        _sawmill.Info($"ExecuteRemoveSpecificPart: Disabling part via BodyPartEnableChangedEvent(false)");
         var disableEvent = new BodyPartEnableChangedEvent(false);
         RaiseLocalEvent(partEntity, ref disableEvent);
 
+        _sawmill.Info($"ExecuteRemoveSpecificPart: Trying to get containing container for part");
         if (!_containerSystem.TryGetContainingContainer(partEntity, out var container))
         {
-            _sawmill.Warning($"ExecuteRemoveSpecificPart: Failed to get container for part");
+            _sawmill.Error($"ExecuteRemoveSpecificPart: Failed to get container for part {partEntity}");
             return false;
         }
+
+        _sawmill.Info($"ExecuteRemoveSpecificPart: Found container - ID={container.ID}, Owner={container.Owner}");
 
         if (!_containerSystem.Remove(partEntity, container))
         {
-            _sawmill.Warning($"ExecuteRemoveSpecificPart: Failed to remove part from container");
+            _sawmill.Error($"ExecuteRemoveSpecificPart: Failed to remove part from container");
             return false;
         }
 
+        _sawmill.Info($"ExecuteRemoveSpecificPart: Successfully removed part from container");
+
         var slotName = GetSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
+        _sawmill.Info($"ExecuteRemoveSpecificPart: Slot name for part: '{slotName}'");
+
         if (!string.IsNullOrEmpty(slotName))
         {
+            _sawmill.Info($"ExecuteRemoveSpecificPart: Trying to insert part into slot '{slotName}'");
             var inserted = _itemSlots.TryInsert(autodocUid, slotName, partEntity, null);
             if (inserted)
             {
@@ -738,14 +860,14 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             }
             else
             {
+                _sawmill.Warning($"ExecuteRemoveSpecificPart: Failed to insert into slot, dropping on floor");
                 _transform.DropNextTo(partEntity, autodocUid);
-                _sawmill.Info($"ExecuteRemoveSpecificPart: Part dropped on floor");
             }
         }
         else
         {
+            _sawmill.Warning($"ExecuteRemoveSpecificPart: No slot found, dropping on floor");
             _transform.DropNextTo(partEntity, autodocUid);
-            _sawmill.Info($"ExecuteRemoveSpecificPart: No slot found, part dropped on floor");
         }
 
         _sawmill.Info($"ExecuteRemoveSpecificPart SUCCESS");

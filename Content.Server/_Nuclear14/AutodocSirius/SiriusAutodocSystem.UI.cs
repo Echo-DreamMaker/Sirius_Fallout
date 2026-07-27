@@ -277,13 +277,16 @@ public sealed partial class SiriusAutodocSystem
             _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-not-available"), entity, message.Actor);
             return;
         }
-        _surgeryOperations[entity.Owner] = (partId, operationId, _gameTiming.CurTime);
+        var actualOperationId = operation.Id;
+        _sawmill.Info($"Using actual operation ID: {actualOperationId} (original: {operationId})");
+
+        _surgeryOperations[entity.Owner] = (partId, actualOperationId, _gameTiming.CurTime);
 
         if (TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComponent))
         {
             surgeryComponent.IsOperating = true;
             surgeryComponent.OperationProgress = 0f;
-            surgeryComponent.CurrentOperationId = operationId;
+            surgeryComponent.CurrentOperationId = actualOperationId;
             surgeryComponent.CurrentPartId = partId;
             surgeryComponent.CurrentOperationName = operation.DisplayName;
         }
