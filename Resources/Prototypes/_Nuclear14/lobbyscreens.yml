@@ -1,3 +1,21 @@
-# - type: lobbyBackground
-#   id: N14Vault
-#   background: /Textures/_Nuclear14/LobbyScreens/n14vault.png
+- type: lobbyBackground
+  id: N14Vault
+  background: /Textures/_Nuclear14/LobbyScreens/n14vault.png
+
+- type: lobbyBackground
+  id: enclavebunkersirius
+  background: /Textures/_Nuclear14/LobbyScreens/enclavebunker.png
+  name: Enclave Bunker
+  artist: Vonder
+
+- type: lobbyBackground
+  id: zombiechipssirius
+  background: /Textures/_Nuclear14/LobbyScreens/zombiechips.png
+  name: Zombie Chips
+  artist: Jakuzer
+
+- type: lobbyBackground
+  id: v14fisheyesirius
+  background: /Textures/_Nuclear14/LobbyScreens/v14fisheye.png
+  name: V14fishEYE
+  artist: Rozy Cosmic

@@ -1,13 +1,13 @@
 # Scroll down for rules and sound collections
 # Ambient Music
-#- type: ambientMusic
-#  id: Wasteland
-#  sound:
-#    params:
-#      volume: -12
-#    collection: AmbienceWasteland
-#  rules: NearWasteland
-#  priority: 2
+- type: ambientMusic
+  id: Wasteland
+  sound:
+    params:
+      volume: -12
+    collection: AmbienceWasteland
+  rules: NearWasteland
+  priority: 2
 
 #- type: ambientMusic
 #  id: Supermarket
@@ -65,16 +65,26 @@
     - /Audio/_Nuclear14/Ambience/22-All-Clear_Signal.ogg
     - /Audio/_Nuclear14/Ambience/23-Acolytes_Of_The_New_God.ogg
     - /Audio/_Nuclear14/Ambience/24-Desert_Wind.ogg
-    
+    - /Audio/_Nuclear14/Ambience/Sonora/04.-City-of-Phoenix.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/05.-Collapse.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/06.-Out-of-The-World.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/07.-City-of-Flagstaff.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/08.-La-Ciudad-del-Sol.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/09.-Ghosts.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/10.-Jackals.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/11.-Desert-Rangers.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/12.-Casa-Grande.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/13.-Garage-City.ogg
+
 - type: soundCollection
   id: AmbienceBrotherhood
   files:
-    - /Audio/_Nuclear14/Ambience/04-Metallic_Monks.ogg 
-    
+    - /Audio/_Nuclear14/Ambience/04-Metallic_Monks.ogg
+
 - type: soundCollection
   id: AmbienceEyebot
   files:
-    - /Audio/_Nuclear14/Music/MUS_Patriotic_America.ogg 
+    - /Audio/_Nuclear14/Music/MUS_Patriotic_America.ogg
     - /Audio/_Nuclear14/Music/MUS_Patriotic_BattleHymn.ogg
     - /Audio/_Nuclear14/Music/MUS_Patriotic_BattleHymn_mono.ogg
     - /Audio/_Nuclear14/Music/MUS_Patriotic_Dixie.ogg

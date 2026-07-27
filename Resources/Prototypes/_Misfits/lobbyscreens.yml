@@ -1,8 +1,8 @@
-# - type: lobbyBackground
-#   id: MisfitsPSB
-#   background: /Textures/_Misfits/LobbyScreens/1920x1080PSB.jpg
-
 - type: lobbyBackground
-  id: MisfitsSolaceGrace
-  background: /Textures/_Misfits/LobbyScreens/1920x1080SolaceGrace.jpg
-  artist: Solace-Grace
+  id: MisfitsPSB
+  background: /Textures/_Misfits/LobbyScreens/1920x1080PSB.jpg
+
+# - type: lobbyBackground
+#  id: MisfitsSolaceGrace
+#  background: /Textures/_Misfits/LobbyScreens/1920x1080SolaceGrace.jpg
+#  artist: Solace-Grace
