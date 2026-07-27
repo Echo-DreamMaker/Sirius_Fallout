@@ -289,3 +289,30 @@
         Piercing: 41
         Slash: 6
 
+- type: entity
+  name: Twin spear
+  parent: N14WastelandSpear
+  id: N14TwinspearSirius
+  #Misfits Change /Fix:/ removed duplicate damage mapping key.
+  description: Strong and with a devastating attack, these spears are commonly made and used by tribals.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Melee/twinspear.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/twinspear.rsi
+    netsync: false
+    state: spear
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 38
+        Slash: 10
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 40
+        Slash: 5
