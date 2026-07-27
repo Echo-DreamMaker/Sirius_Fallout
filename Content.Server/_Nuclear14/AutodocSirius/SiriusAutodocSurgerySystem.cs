@@ -50,29 +50,18 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             _sawmill.Info($"Processing operation: {opId} ({displayName})");
 
             if (opId.StartsWith("ToggleHead") ||
-                opId.StartsWith("ToggleLeftArm") ||
-                opId.StartsWith("ToggleRightArm") ||
-                opId.StartsWith("ToggleLeftLeg") ||
-                opId.StartsWith("ToggleRightLeg") ||
-                opId.StartsWith("ToggleLeftHand") ||
-                opId.StartsWith("ToggleRightHand") ||
-                opId.StartsWith("ToggleLeftFoot") ||
-                opId.StartsWith("ToggleRightFoot"))
+       opId.StartsWith("ToggleLeftArm") ||
+       opId.StartsWith("ToggleRightArm") ||
+       opId.StartsWith("ToggleLeftLeg") ||
+       opId.StartsWith("ToggleRightLeg") ||
+       opId.StartsWith("ToggleLeftHand") ||
+       opId.StartsWith("ToggleRightHand") ||
+       opId.StartsWith("ToggleLeftFoot") ||
+       opId.StartsWith("ToggleRightFoot"))
             {
                 _sawmill.Info($"  Toggle PART detected: {opId}");
-
                 var partTypeName = opId.Replace("Toggle", "").ToLowerInvariant();
-
-                if (partTypeName == "leftarm") partTypeName = "left_arm";
-                else if (partTypeName == "rightarm") partTypeName = "right_arm";
-                else if (partTypeName == "leftleg") partTypeName = "left_leg";
-                else if (partTypeName == "rightleg") partTypeName = "right_leg";
-                else if (partTypeName == "lefthand") partTypeName = "left_hand";
-                else if (partTypeName == "righthand") partTypeName = "right_hand";
-                else if (partTypeName == "leftfoot") partTypeName = "left_foot";
-                else if (partTypeName == "rightfoot") partTypeName = "right_foot";
-
-                _sawmill.Info($"  partTypeName (corrected): {partTypeName}");
+                _sawmill.Info($"  partTypeName: {partTypeName}");
 
                 if (BodyPartMap.TryGetValue(partTypeName, out var partInfo))
                 {
@@ -90,14 +79,16 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
 
                     if (hasPart)
                     {
-                        actualOpId = $"Remove{char.ToUpper(partTypeName[0])}{partTypeName.Substring(1)}";
+                        actualOpId = $"Remove{partTypeName}";
+
+                        actualOpId = "Remove" + char.ToUpper(partTypeName[0]) + partTypeName.Substring(1);
                         actualDisplayName = $"Удалить {displayName.ToLower()}";
                         finalIsAvailable = true;
                         _sawmill.Info($"  -> Will remove part using {actualOpId} (available)");
                     }
                     else if (hasPartInAutodoc)
                     {
-                        actualOpId = $"Attach{char.ToUpper(partTypeName[0])}{partTypeName.Substring(1)}";
+                        actualOpId = $"Attach" + char.ToUpper(partTypeName[0]) + partTypeName.Substring(1);
                         actualDisplayName = $"Вставить {displayName.ToLower()}";
                         finalIsAvailable = true;
                         _sawmill.Info($"  -> Will attach part using {actualOpId} (available)");
@@ -120,11 +111,6 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
                     }
 
                     result.Add(new AutodocOperationData(actualOpId, actualDisplayName, finalIsAvailable, tooltip));
-                    continue;
-                }
-                else
-                {
-                    _sawmill.Warning($"  NOT found in BodyPartMap for {partTypeName}");
                     continue;
                 }
             }
@@ -418,14 +404,23 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             "TendBrute" => ExecuteTendBrute(patient, partEntity),
             "TendBurn" => ExecuteTendBurn(patient, partEntity),
             "RemoveHead" => ExecuteRemoveSpecificPart(autodocUid, patient, "head"),
-            "RemoveLeftArm" => ExecuteRemoveSpecificPart(autodocUid, patient, "left_arm"),
-            "RemoveRightArm" => ExecuteRemoveSpecificPart(autodocUid, patient, "right_arm"),
-            "RemoveLeftLeg" => ExecuteRemoveSpecificPart(autodocUid, patient, "left_leg"),
-            "RemoveRightLeg" => ExecuteRemoveSpecificPart(autodocUid, patient, "right_leg"),
-            "RemoveLeftHand" => ExecuteRemoveSpecificPart(autodocUid, patient, "left_hand"),
-            "RemoveRightHand" => ExecuteRemoveSpecificPart(autodocUid, patient, "right_hand"),
-            "RemoveLeftFoot" => ExecuteRemoveSpecificPart(autodocUid, patient, "left_foot"),
-            "RemoveRightFoot" => ExecuteRemoveSpecificPart(autodocUid, patient, "right_foot"),
+            "RemoveLeftarm" => ExecuteRemoveSpecificPart(autodocUid, patient, "leftarm"),
+            "RemoveRightarm" => ExecuteRemoveSpecificPart(autodocUid, patient, "rightarm"),
+            "RemoveLeftleg" => ExecuteRemoveSpecificPart(autodocUid, patient, "leftleg"),
+            "RemoveRightleg" => ExecuteRemoveSpecificPart(autodocUid, patient, "rightleg"),
+            "RemoveLefthand" => ExecuteRemoveSpecificPart(autodocUid, patient, "lefthand"),
+            "RemoveRighthand" => ExecuteRemoveSpecificPart(autodocUid, patient, "righthand"),
+            "RemoveLeftfoot" => ExecuteRemoveSpecificPart(autodocUid, patient, "leftfoot"),
+            "RemoveRightfoot" => ExecuteRemoveSpecificPart(autodocUid, patient, "rightfoot"),
+            "AttachHead" => ExecuteAttachSpecificPart(autodocUid, patient, "head"),
+            "AttachLeftarm" => ExecuteAttachSpecificPart(autodocUid, patient, "leftarm"),
+            "AttachRightarm" => ExecuteAttachSpecificPart(autodocUid, patient, "rightarm"),
+            "AttachLeftleg" => ExecuteAttachSpecificPart(autodocUid, patient, "leftleg"),
+            "AttachRightleg" => ExecuteAttachSpecificPart(autodocUid, patient, "rightleg"),
+            "AttachLefthand" => ExecuteAttachSpecificPart(autodocUid, patient, "lefthand"),
+            "AttachRighthand" => ExecuteAttachSpecificPart(autodocUid, patient, "righthand"),
+            "AttachLeftfoot" => ExecuteAttachSpecificPart(autodocUid, patient, "leftfoot"),
+            "AttachRightfoot" => ExecuteAttachSpecificPart(autodocUid, patient, "rightfoot"),
             "RemoveBrain" => ExecuteRemoveOrgan(autodocUid, patient, "brain"),
             "InsertBrain" => ExecuteInsertOrgan(autodocUid, patient, "brain"),
             "RemoveHeart" => ExecuteRemoveOrgan(autodocUid, patient, "heart"),
@@ -438,16 +433,7 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             "InsertStomach" => ExecuteInsertOrgan(autodocUid, patient, "stomach"),
             "RemoveEyes" => ExecuteRemoveOrgan(autodocUid, patient, "eyes"),
             "InsertEyes" => ExecuteInsertOrgan(autodocUid, patient, "eyes"),
-            "AttachPart" => ExecuteAttachPart(autodocUid, patient, targetPartId),
-            "AttachHead" => ExecuteAttachSpecificPart(autodocUid, patient, "head"),
-            "AttachLeftArm" => ExecuteAttachSpecificPart(autodocUid, patient, "left_arm"),
-            "AttachRightArm" => ExecuteAttachSpecificPart(autodocUid, patient, "right_arm"),
-            "AttachLeftLeg" => ExecuteAttachSpecificPart(autodocUid, patient, "left_leg"),
-            "AttachRightLeg" => ExecuteAttachSpecificPart(autodocUid, patient, "right_leg"),
-            "AttachHand" => ExecuteAttachSpecificPart(autodocUid, patient,
-                targetPartId == "left_arm" ? "left_hand" : "right_hand"),
-            "AttachFoot" => ExecuteAttachSpecificPart(autodocUid, patient,
-                targetPartId == "left_leg" ? "left_foot" : "right_foot"),
+            "AttachPart" => ExecuteAttachPart(autodocUid, patient, partId),
             _ => false
         };
 

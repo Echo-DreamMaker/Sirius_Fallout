@@ -34,18 +34,18 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
     private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
 
     protected static readonly Dictionary<string, string> BodyPartDisplayNames = new()
-    {
-        { "head", "Голова" },
-        { "torso", "Торс" },
-        { "left_arm", "Левая рука" },
-        { "right_arm", "Правая рука" },
-        { "left_hand", "Левая кисть" },
-        { "right_hand", "Правая кисть" },
-        { "left_leg", "Левая нога" },
-        { "right_leg", "Правая нога" },
-        { "left_foot", "Левая стопа" },
-        { "right_foot", "Правая стопа" },
-    };
+{
+    { "head", "Голова" },
+    { "torso", "Торс" },
+    { "leftarm", "Левая рука" },
+    { "rightarm", "Правая рука" },
+    { "lefthand", "Левая кисть" },
+    { "righthand", "Правая кисть" },
+    { "leftleg", "Левая нога" },
+    { "rightleg", "Правая нога" },
+    { "leftfoot", "Левая стопа" },
+    { "rightfoot", "Правая стопа" },
+};
 
     protected sealed class BodyPartInfo
     {
@@ -60,18 +60,18 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
     }
 
     protected static readonly Dictionary<string, BodyPartInfo> BodyPartMap = new()
-    {
-        { "head", new BodyPartInfo(BodyPartType.Head, null) },
-        { "torso", new BodyPartInfo(BodyPartType.Torso, null) },
-        { "left_arm", new BodyPartInfo(BodyPartType.Arm, BodyPartSymmetry.Left) },
-        { "right_arm", new BodyPartInfo(BodyPartType.Arm, BodyPartSymmetry.Right) },
-        { "left_hand", new BodyPartInfo(BodyPartType.Hand, BodyPartSymmetry.Left) },
-        { "right_hand", new BodyPartInfo(BodyPartType.Hand, BodyPartSymmetry.Right) },
-        { "left_leg", new BodyPartInfo(BodyPartType.Leg, BodyPartSymmetry.Left) },
-        { "right_leg", new BodyPartInfo(BodyPartType.Leg, BodyPartSymmetry.Right) },
-        { "left_foot", new BodyPartInfo(BodyPartType.Foot, BodyPartSymmetry.Left) },
-        { "right_foot", new BodyPartInfo(BodyPartType.Foot, BodyPartSymmetry.Right) },
-    };
+{
+    { "head", new BodyPartInfo(BodyPartType.Head, null) },
+    { "torso", new BodyPartInfo(BodyPartType.Torso, null) },
+    { "leftarm", new BodyPartInfo(BodyPartType.Arm, BodyPartSymmetry.Left) },
+    { "rightarm", new BodyPartInfo(BodyPartType.Arm, BodyPartSymmetry.Right) },
+    { "lefthand", new BodyPartInfo(BodyPartType.Hand, BodyPartSymmetry.Left) },
+    { "righthand", new BodyPartInfo(BodyPartType.Hand, BodyPartSymmetry.Right) },
+    { "leftleg", new BodyPartInfo(BodyPartType.Leg, BodyPartSymmetry.Left) },
+    { "rightleg", new BodyPartInfo(BodyPartType.Leg, BodyPartSymmetry.Right) },
+    { "leftfoot", new BodyPartInfo(BodyPartType.Foot, BodyPartSymmetry.Left) },
+    { "rightfoot", new BodyPartInfo(BodyPartType.Foot, BodyPartSymmetry.Right) },
+};
 
     protected static readonly Dictionary<string, string> OrganSlotMap = new()
     {
