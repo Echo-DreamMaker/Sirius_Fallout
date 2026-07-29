@@ -65,6 +65,9 @@
     - /Audio/_Nuclear14/Ambience/22-All-Clear_Signal.ogg
     - /Audio/_Nuclear14/Ambience/23-Acolytes_Of_The_New_God.ogg
     - /Audio/_Nuclear14/Ambience/24-Desert_Wind.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/01.-Fallout-Sonora-Theme.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/02.-Villa.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/03.-Fogbound.ogg
     - /Audio/_Nuclear14/Ambience/Sonora/04.-City-of-Phoenix.ogg
     - /Audio/_Nuclear14/Ambience/Sonora/05.-Collapse.ogg
     - /Audio/_Nuclear14/Ambience/Sonora/06.-Out-of-The-World.ogg
@@ -75,6 +78,10 @@
     - /Audio/_Nuclear14/Ambience/Sonora/11.-Desert-Rangers.ogg
     - /Audio/_Nuclear14/Ambience/Sonora/12.-Casa-Grande.ogg
     - /Audio/_Nuclear14/Ambience/Sonora/13.-Garage-City.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/14.-Motel.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/15.-Out-of-Service.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/16.-One-Way.ogg
+    - /Audio/_Nuclear14/Ambience/Sonora/17.-Out-of-The-World-Alternate.ogg
 
 - type: soundCollection
   id: AmbienceBrotherhood

@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Fallout-stylezied resprite for RU Sirius Fallout, by Rozy_Cosmic(Ckey)|rozycosmic(Discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "plasteel"
+    },
+    {
+      "name": "plasteel_2"
+    },
+    {
+      "name": "plasteel_3"
+    },
+    {
+      "name": "plasteel-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "plasteel-inhand-right",
+      "directions": 4
+    }
+  ]
+}

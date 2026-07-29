@@ -24,7 +24,7 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    scale: 0.50, 0.50
+    scale: 0.4, 0.42
   - type: MagazineVisuals
     magState: mag
     steps: 2
@@ -49,7 +49,7 @@
       - N14MagazineRifle2mmEC
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/2mmEC/2mmriflemag.rsi
-    scale: 0.70, 0.70
+    scale: 0.60, 0.60
   - type: BallisticAmmoProvider
     whitelist:
       tags:

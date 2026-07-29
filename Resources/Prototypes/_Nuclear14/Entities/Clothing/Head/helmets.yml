@@ -465,9 +465,9 @@
   description: An old combat helmet seen in the Divide, repurposed for higher-ranking Rangers.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetelite.rsi
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangervetv3h.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetelite.rsi
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangervetv3h.rsi
   - type: Tag
     tags:
     - HidesHair

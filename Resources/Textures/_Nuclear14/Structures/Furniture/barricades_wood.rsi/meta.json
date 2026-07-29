@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Fallout-stylezied resprite for RU Sirius Fallout, by Rozy_Cosmic(Ckey)|rozycosmic(Discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "barricade1",
+	  "directions": 4
+    },
+    {
+      "name": "barricade2",
+	  "directions": 4
+    },
+    {
+      "name": "barricade3",
+	  "directions": 4
+    }
+  ]
+}

@@ -737,17 +737,16 @@
   components:
   - type: Stack
     stackType: N14Cement
-    baseLayer: powder_lead
+    baseLayer: cement
   - type: PhysicalComposition
     materialComposition:
       Cement: 100
   - type: Sprite
-    sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
-    state: powder_brass
-    layers:
-    - state: powder_brass
-      map: ["base"]
+    sprite: _Nuclear14/Objects/Misc/materials_new/cement.rsi
+    state: cement
+    scale: 0.7, 0.7
   - type: Item
+    sprite: _Nuclear14/Objects/Misc/materials_new/cement.rsi
     size: Small
   - type: SolutionContainerManager
     solutions:
@@ -807,16 +806,27 @@
   description: Clay brick for construction.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Stack
-    stackType: N14Brick
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/materials_new/bricks.rsi
+    state: bricks_3
+    layers:
+    - state: bricks_3
+      map: ["base"]
+    color: "#8b4513"
+    scale: 0.7, 0.7
   - type: PhysicalComposition
     materialComposition:
       Brick: 100
-  - type: Sprite
-    sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
-    state: scrap_copper
-    color: "#8b4513"
+  - type: Material
+  - type: Stack
+    stackType: N14Brick
+    baseLayer: base
+    layerStates:
+    - bricks
+    - bricks_2
+    - bricks_3
   - type: Item
+    sprite: _Nuclear14/Objects/Misc/materials_new/bricks.rsi
     size: Small
   - type: Tag
     tags:
