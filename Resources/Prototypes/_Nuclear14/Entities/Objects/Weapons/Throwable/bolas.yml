@@ -1,0 +1,63 @@
+- type: entity
+  name: Stone bola
+  parent: [BaseBola]
+  id: N14stonebola
+  description: Linked together with some spare cuffs and stone.
+  components:
+  - type: Construction
+    graph: Bola
+    node: bola
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Throwable/Bolas/stone.rsi
+    state: icon
+
+- type: entity
+  name: Spiked bola
+  parent: [BaseBola]
+  id: N14spikedbola
+  description: Linked together with some spare cuffs and stone.
+  components:
+  - type: Construction
+    graph: Bola
+    node: bola
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 45
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Throwable/Bolas/spike.rsi
+    state: icon

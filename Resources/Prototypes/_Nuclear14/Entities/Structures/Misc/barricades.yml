@@ -1,0 +1,26 @@
+- type: entity
+  id: N14WoodBarricade1
+  parent: Barricade
+  name: Wooden barricade 1
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/barricades_wood.rsi
+    state: barricade1
+
+- type: entity
+  id: N14WoodBarricade2
+  parent: Barricade
+  name: Wooden barricade 2
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/barricades_wood.rsi
+    state: barricade2
+
+- type: entity
+  id: N14WoodBarricade3
+  parent: Barricade
+  name: Wooden barricade 3
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/barricades_wood.rsi
+    state: barricade3

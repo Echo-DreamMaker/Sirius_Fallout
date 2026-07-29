@@ -50,11 +50,13 @@
     - steel_2
     - steel_3
   - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/materials_new/steel.rsi
     state: steel_3
     layers:
     - state: steel_3
       map: ["base"]
   - type: Item
+    sprite: _Nuclear14/Objects/Misc/materials_new/steel.rsi
     heldPrefix: steel
   - type: Appearance
   - type: FloorTile
@@ -264,11 +266,13 @@
     - plasteel_2
     - plasteel_3
   - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/materials_new/plasteel.rsi
     state: plasteel_3
     layers:
     - state: plasteel_3
       map: ["base"]
   - type: Item
+    sprite: _Nuclear14/Objects/Misc/materials_new/plasteel.rsi
     heldPrefix: plasteel
   - type: Appearance
   - type: Extractable

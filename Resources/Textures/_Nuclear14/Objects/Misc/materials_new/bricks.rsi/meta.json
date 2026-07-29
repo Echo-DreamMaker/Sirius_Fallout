@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Fallout-stylezied resprite for RU Sirius Fallout, by Rozy_Cosmic(Ckey)|rozycosmic(Discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bricks"
+    },
+    {
+      "name": "bricks_2"
+    },
+    {
+      "name": "bricks_3"
+    }
+  ]
+}
