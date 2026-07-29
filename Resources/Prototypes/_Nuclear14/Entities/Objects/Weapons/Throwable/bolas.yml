@@ -1,7 +1,7 @@
 - type: entity
-  name: stone bola
+  name: Stone bola
   parent: [BaseBola]
-  id: Stone bola
+  id: N14stonebola
   description: Linked together with some spare cuffs and stone.
   components:
   - type: Construction
@@ -31,9 +31,9 @@
     state: icon
 
 - type: entity
-  name: spiked bola
+  name: Spiked bola
   parent: [BaseBola]
-  id: spiked bola
+  id: N14spikedbola
   description: Linked together with some spare cuffs and stone.
   components:
   - type: Construction
