@@ -1,0 +1,44 @@
+- type: entity
+  name: Huge Poodle Moth
+  parent: MobMothroach
+  id: MobMoff
+  description: Probably the only cute creation of radiation that didn't turn into a monster. Radiation simply made the science-puzzling "Venezuelan Poodle Moth" a reality in tenfold size.
+  components:
+  - type: Sprite
+    sprite: _Sirius/Mobs/Animals/moff.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: moff
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: moff
+    noMovementLayers:
+      movement:
+        state: moff
+  - type: Item
+    size: Tiny
+    inhandVisuals:
+      left:
+      - sprite: _Sirius/Mobs/Animals/moff.rsi
+        state: inhand-left
+      right:
+      - sprite: _Sirius/Mobs/Animals/moff.rsi
+        state: inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: _Sirius/Mobs/Animals/moff.rsi
+    clothingVisuals:
+      head:
+      - sprite: _Sirius/Mobs/Animals/moff.rsi
+        state: equipped-HELMET
+    slots:
+    - HEAD
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: moff
+      Critical:
+        Base: moff_dead
+      Dead:
+        Base: moff_dead
