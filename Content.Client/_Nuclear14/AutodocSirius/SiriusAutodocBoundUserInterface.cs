@@ -9,7 +9,6 @@ namespace Content.Client._Nuclear14.AutodocSirius;
 public sealed class SiriusAutodocBoundUserInterface : BoundUserInterface
 {
     private SiriusAutodocWindow? _window;
-    private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
 
     public SiriusAutodocBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -33,14 +32,11 @@ public sealed class SiriusAutodocBoundUserInterface : BoundUserInterface
 
     protected override void UpdateState(BoundUserInterfaceState? state)
     {
-        _sawmill.Info($"UpdateState called, state is {(state == null ? "null" : "not null")}");
-
         if (_window == null)
             return;
 
         if (state is AutodocBoundUserInterfaceState castState)
         {
-            _sawmill.Info($"UpdateState: SelectedPartId={castState.SelectedPartId}, Operations={castState.AvailableOperations?.Count ?? 0}");
             _window.UpdateState(castState);
         }
     }
@@ -58,13 +54,11 @@ public sealed class SiriusAutodocBoundUserInterface : BoundUserInterface
 
     private void OnPartSelected(string partId)
     {
-        _sawmill.Info($"OnPartSelected: {partId}");
         SendMessage(new AutodocSurgeryPartSelectedMessage(partId));
     }
 
     private void OnOperationSelected(string partId, string operationId)
     {
-        _sawmill.Info($"OnOperationSelected: {partId}, {operationId}");
         SendMessage(new AutodocSurgeryOperationMessage(partId, operationId));
     }
 

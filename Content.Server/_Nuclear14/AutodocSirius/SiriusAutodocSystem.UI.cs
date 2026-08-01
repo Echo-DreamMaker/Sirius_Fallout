@@ -4,7 +4,6 @@ using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
-using Content.Shared.Body.Part;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
@@ -88,40 +87,36 @@ public sealed partial class SiriusAutodocSystem
         else if (slotId == "autodoc-body")
         {
             entity.Comp.CurrentPatient = args.Entity;
-            _sawmill.Info($"Patient inserted into autodoc: {args.Entity}");
             UpdateUiState(entity);
         }
         else if (IsOrganOrPartSlot(slotId))
         {
-            _sawmill.Info($"Item inserted into slot {slotId}: {args.Entity}");
-
             EnableItemForSurgery(args.Entity);
 
             if (_surgerySystem != null &&
                 TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComp))
             {
                 _surgerySystem.UpdateAvailableParts(entity, surgeryComp);
-                _sawmill.Info($"Updated AvailableParts: {surgeryComp.AvailableParts.Count} parts, {surgeryComp.AvailableOrgans.Count} organs");
             }
             UpdateUiState(entity);
         }
     }
+
     private void EnableItemForSurgery(EntityUid item)
     {
         if (TryComp<OrganComponent>(item, out var organ))
         {
             var enableEvent = new OrganEnableChangedEvent(true);
             RaiseLocalEvent(item, ref enableEvent);
-            _sawmill.Info($"Enabled organ {item}");
         }
 
         if (TryComp<BodyPartComponent>(item, out var part))
         {
             var enableEvent = new BodyPartEnableChangedEvent(true);
             RaiseLocalEvent(item, ref enableEvent);
-            _sawmill.Info($"Enabled body part {item}");
         }
     }
+
     private void OnContainerRemoved(Entity<SiriusAutodocComponent> entity, ref EntRemovedFromContainerMessage args)
     {
         var slotId = args.Container.ID;
@@ -137,12 +132,10 @@ public sealed partial class SiriusAutodocSystem
         }
         else if (IsOrganOrPartSlot(slotId))
         {
-            _sawmill.Info($"Item removed from slot {slotId}: {args.Entity}");
             if (_surgerySystem != null &&
                 TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComp))
             {
                 _surgerySystem.UpdateAvailableParts(entity, surgeryComp);
-                _sawmill.Info($"Updated AvailableParts: {surgeryComp.AvailableParts.Count} parts, {surgeryComp.AvailableOrgans.Count} organs");
             }
             UpdateUiState(entity);
         }
@@ -169,7 +162,6 @@ public sealed partial class SiriusAutodocSystem
             TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComp))
         {
             _surgerySystem.UpdateAvailableParts(entity, surgeryComp);
-            _sawmill.Info($"UI opened - Updated AvailableParts: {surgeryComp.AvailableParts.Count} parts, {surgeryComp.AvailableOrgans.Count} organs");
         }
 
         UpdateUiState(entity);
@@ -218,10 +210,9 @@ public sealed partial class SiriusAutodocSystem
         UpdateUiState(entity);
         UpdateAppearance(entity.Owner, entity.Comp);
     }
+
     internal void OnSurgeryPartSelected(Entity<SiriusAutodocComponent> entity, ref AutodocSurgeryPartSelectedMessage message)
     {
-        _sawmill.Info($"SurgeryPartSelected: {message.PartId}");
-
         if (entity.Comp.IsTreating || entity.Comp.IsOpen)
             return;
 
@@ -236,15 +227,12 @@ public sealed partial class SiriusAutodocSystem
         if (TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComponent))
         {
             surgeryComponent.SelectedPartId = partId;
-            _sawmill.Info($"Saved SelectedPartId: {partId}");
         }
         UpdateUiState(entity);
     }
 
     internal void OnSurgeryOperationSelected(Entity<SiriusAutodocComponent> entity, ref AutodocSurgeryOperationMessage message)
     {
-        _sawmill.Info($"SurgeryOperationSelected: Part={message.PartId}, Op={message.OperationId}");
-
         if (entity.Comp.IsTreating || entity.Comp.IsOpen)
         {
             _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-cant-during-treatment"), entity, message.Actor);
@@ -278,7 +266,6 @@ public sealed partial class SiriusAutodocSystem
             return;
         }
         var actualOperationId = operation.Id;
-        _sawmill.Info($"Using actual operation ID: {actualOperationId} (original: {operationId})");
 
         _surgeryOperations[entity.Owner] = (partId, actualOperationId, _gameTiming.CurTime);
 
@@ -293,25 +280,19 @@ public sealed partial class SiriusAutodocSystem
 
         UpdateUiState(entity);
     }
+
     internal void OnSurgeryOperationDoAfter(AutodocSurgeryOperationDoAfterEvent args)
     {
-        _sawmill.Info($"SurgeryOperationDoAfter: Part={args.PartId}, Op={args.OperationId}");
-
         if (args.Args.Used is not { } usedUid)
-        {
-            _sawmill.Info("No used Uid in args");
             return;
-        }
 
         if (!TryComp<SiriusAutodocComponent>(usedUid, out var comp))
-        {
-            _sawmill.Info("No SiriusAutodocComponent on used Uid");
             return;
-        }
 
         var entity = new Entity<SiriusAutodocComponent>(usedUid, comp);
         CompleteSurgeryOperation(entity, args.PartId, args.OperationId);
     }
+
     private string GetOperationDisplayName(string operationId)
     {
         return operationId switch
@@ -337,7 +318,6 @@ public sealed partial class SiriusAutodocSystem
 
     private void OnUiButtonPressed(Entity<SiriusAutodocComponent> entity, ref AutodocUiButtonPressedMessage message)
     {
-        _sawmill.Info($"OnUiButtonPressed: Button = {message.Button}");
         switch (message.Button)
         {
             case AutodocUiButton.OpenDoor:
@@ -452,7 +432,6 @@ public sealed partial class SiriusAutodocSystem
 
     private void UpdateUiState(Entity<SiriusAutodocComponent> entity)
     {
-
         try
         {
             if (!_uiSystem.HasUi(entity.Owner, SiriusAutodocUiKey.Key))
@@ -462,7 +441,6 @@ public sealed partial class SiriusAutodocSystem
 
             var state = GetUiState(entity);
             _uiSystem.SetUiState(entity.Owner, SiriusAutodocUiKey.Key, state);
-            _sawmill.Info($"UpdateUiState: Sent state with SelectedPartId={state.SelectedPartId}");
         }
         finally
         {
@@ -517,14 +495,11 @@ public sealed partial class SiriusAutodocSystem
             {
                 surgeryMode = true;
 
-                _sawmill.Info($"Getting body parts for patient: {patient}");
                 bodyParts = _surgerySystem.GetBodyPartsData(patient);
-                _sawmill.Info($"Found {bodyParts.Count} body parts");
 
                 if (TryComp<SiriusAutodocSurgeryComponent>(component.SiriusSurgeryComponent, out var surgeryComponent))
                 {
                     selectedPartId = surgeryComponent.SelectedPartId ?? "";
-                    _sawmill.Info($"SelectedPartId from component: '{selectedPartId}'");
 
                     isOperating = surgeryComponent.IsOperating;
                     operationProgress = surgeryComponent.OperationProgress;
@@ -533,7 +508,6 @@ public sealed partial class SiriusAutodocSystem
                     if (!string.IsNullOrEmpty(selectedPartId))
                     {
                         availableOperations = _surgerySystem.GetOperationsForPart(patient, selectedPartId, entity);
-                        _sawmill.Info($"Found {availableOperations.Count} operations for part {selectedPartId}");
                     }
                 }
             }
@@ -592,24 +566,16 @@ public sealed partial class SiriusAutodocSystem
             currentOperationName
         );
     }
+
     private void CompleteSurgeryOperation(Entity<SiriusAutodocComponent> entity, string partId, string operationId)
     {
-        _sawmill.Info($"CompleteSurgeryOperation: Part={partId}, Op={operationId}");
-
         if (_surgerySystem == null)
-        {
-            _sawmill.Info("_surgerySystem is null");
             return;
-        }
 
         if (entity.Comp.CurrentPatient is not { } patient)
-        {
-            _sawmill.Info("No patient in autodoc");
             return;
-        }
-        _sawmill.Info($"Calling ExecuteSurgeryOperation for {operationId} on patient {patient}");
+
         var success = _surgerySystem.ExecuteSurgeryOperation(entity, patient, partId, operationId);
-        _sawmill.Info($"ExecuteSurgeryOperation result: {success}");
 
         if (success)
         {
@@ -619,6 +585,7 @@ public sealed partial class SiriusAutodocSystem
         {
             _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-failed"), entity);
         }
+
         if (TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComponent))
         {
             surgeryComponent.IsOperating = false;
@@ -627,12 +594,15 @@ public sealed partial class SiriusAutodocSystem
             surgeryComponent.CurrentPartId = null;
             surgeryComponent.CurrentOperationName = null;
         }
+
         if (_surgerySystem != null && TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComponent2))
         {
             _surgerySystem.UpdateAvailableParts(entity, surgeryComponent2);
         }
+
         UpdateUiState(entity);
     }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -666,6 +636,7 @@ public sealed partial class SiriusAutodocSystem
         {
             _treatmentStartTime.Remove(uid);
         }
+
         var surgeriesToComplete = new List<EntityUid>();
         foreach (var (uid, surgeryData) in _surgeryOperations)
         {
@@ -681,18 +652,18 @@ public sealed partial class SiriusAutodocSystem
             if (TryComp<SiriusAutodocSurgeryComponent>(comp.SiriusSurgeryComponent, out var surgeryComponent))
             {
                 surgeryComponent.OperationProgress = progress;
-                _sawmill.Info($"Surgery progress: {progress * 100:F0}% for {surgeryData.OperationId}");
             }
+
             if (progress >= 1f)
             {
                 surgeriesToComplete.Add(uid);
             }
         }
+
         foreach (var uid in surgeriesToComplete)
         {
             if (_surgeryOperations.TryGetValue(uid, out var data))
             {
-                _sawmill.Info($"Surgery operation completed: {data.PartId}, {data.OperationId}");
                 _surgeryOperations.Remove(uid);
 
                 if (TryComp<SiriusAutodocComponent>(uid, out var comp))
@@ -702,6 +673,7 @@ public sealed partial class SiriusAutodocSystem
                 }
             }
         }
+
         var query = EntityQueryEnumerator<SiriusAutodocComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {

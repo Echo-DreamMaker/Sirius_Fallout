@@ -11,7 +11,6 @@ namespace Content.Server._Nuclear14.AutodocSirius;
 
 public sealed partial class SiriusAutodocSystem : SharedSiriusAutodocSystem
 {
-    private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
     private SiriusAutodocSurgerySystem? _surgerySystem;
 
     public override void Initialize()
@@ -19,7 +18,6 @@ public sealed partial class SiriusAutodocSystem : SharedSiriusAutodocSystem
         base.Initialize();
 
         _surgerySystem = EntityManager.System<SiriusAutodocSurgerySystem>();
-        _sawmill.Info("SiriusAutodocSystem initialized with surgery system");
         SubscribeLocalEvent<SiriusAutodocComponent, EntInsertedIntoContainerMessage>(OnContainerInserted);
         SubscribeLocalEvent<SiriusAutodocComponent, EntRemovedFromContainerMessage>(OnContainerRemoved);
         SubscribeLocalEvent<SiriusAutodocComponent, PowerChangedEvent>(OnPowerChanged);

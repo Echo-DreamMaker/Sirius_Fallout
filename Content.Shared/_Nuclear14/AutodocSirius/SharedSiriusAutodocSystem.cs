@@ -34,7 +34,6 @@ public abstract partial class SharedSiriusAutodocSystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem _doAfterSystem = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _lastToggleTime = new();
-    private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
 
     public const string PartsContainerId = "autodoc-parts";
     public const string OrgansContainerId = "autodoc-organs";
@@ -59,18 +58,11 @@ public abstract partial class SharedSiriusAutodocSystem : EntitySystem
             component.PartSlotIds[i] = $"partSlot{i + 1}";
         }
 
-        _sawmill.Info($"OnComponentInit for {uid}");
-
         if (component.SiriusSurgeryComponent == null || !Exists(component.SiriusSurgeryComponent.Value))
         {
-            _sawmill.Info($"Creating SiriusAutodocSurgeryComponent for {uid}");
             var surgeryComp = EnsureComp<SiriusAutodocSurgeryComponent>(uid);
             component.SiriusSurgeryComponent = uid;
             Dirty(uid, component);
-        }
-        else
-        {
-            _sawmill.Info($"SiriusSurgeryComponent already exists: {component.SiriusSurgeryComponent}");
         }
     }
 

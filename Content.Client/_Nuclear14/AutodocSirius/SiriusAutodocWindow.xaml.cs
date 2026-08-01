@@ -55,7 +55,6 @@ public sealed partial class SiriusAutodocWindow : DefaultWindow
     private readonly IResourceCache _cache;
     private EntityUid _spriteViewEntity;
     private static readonly EntProtoId BodyView = "AlertSpriteView";
-    private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
     public event Action<AutodocUiButton>? OnAutodocButton;
     public event Action<string>? OnPartSelected;
     public event Action<string, string>? OnOperationSelected;
@@ -121,8 +120,6 @@ public sealed partial class SiriusAutodocWindow : DefaultWindow
     {
         _selectedPartId = state.SelectedPartId;
 
-        _sawmill.Info($"UpdateState in Window: SelectedPartId='{_selectedPartId}'");
-
         UpdatePatientInfo(state);
         UpdateDamageDisplay(state);
         UpdateSurgeryPanel(state);
@@ -132,6 +129,7 @@ public sealed partial class SiriusAutodocWindow : DefaultWindow
         UpdateProgressDisplay(state);
         UpdateFooter(state);
     }
+
     private void UpdateSurgeryPanel(AutodocBoundUserInterfaceState state)
     {
         if (!state.HasOccupant || !state.CanSurgery || state.IsTreating)
@@ -188,7 +186,6 @@ public sealed partial class SiriusAutodocWindow : DefaultWindow
             {
                 button.OnPressed += _ =>
                 {
-                    _sawmill.Info($"Button clicked for part: {part.Id}");
                     _selectedPartId = part.Id;
                     OnPartSelected?.Invoke(part.Id);
                 };
@@ -210,8 +207,6 @@ public sealed partial class SiriusAutodocWindow : DefaultWindow
     private void UpdateOperationsList(AutodocBoundUserInterfaceState state)
     {
         OperationsContainer.RemoveAllChildren();
-
-        _sawmill.Info($"UpdateOperationsList: SelectedPartId='{state.SelectedPartId}', AvailableOperations count={state.AvailableOperations?.Count ?? 0}");
 
         if (string.IsNullOrEmpty(state.SelectedPartId))
         {
