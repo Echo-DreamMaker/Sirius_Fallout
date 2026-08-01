@@ -1,17 +1,14 @@
 - type: gameMap
   id: NewIsland
-  mapName: 'NewIsland'
-  mapPath: /Maps/N14/IslandV130.yml
+  mapName: 'New Island'
+  mapPath: /Maps/N14/IslandV112b.yml
   minPlayers: 0
   stations:
     NewIsland:
       stationProto: FalloutStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'NewIsland'
-        - type: StationDepartmentBlacklist
-          bannedDepartments:
-            - Brotherhood
+          mapNameTemplate: 'New Island'
         - type: StationJobs
           overflowJobs:
             - Wastelander
@@ -55,15 +52,15 @@
             #NCRRangerRecruit: [ 2, 2 ] # #Misfits Add - entry-level Ranger Recruit slot
             #NCRFirstSergeant: [ 1, 1 ]
             #NCRStaffSergeant: [ 1, 1 ] # #Misfits Removed - replaced by NCRHeavyTrooper as T5 specialist slot
-            NCRHeavyTrooper: [ 2, 2 ] # #Misfits Add - Heavy Trooper: 2 slots, between Specialist and Sergeant
+            # NCRHeavyTrooper: [ 2, 2 ] # #Misfits Add - Heavy Trooper: 2 slots, between Specialist and Sergeant
             # NCRNCO: [ 4, 4 ]
-            # NCRWS: [ 1, 1 ] # #Misfits Tweak - increased: absorbs Engineer (2) + Medic (1) slots
+            NCRWS: [ 2, 2 ] # #Misfits Tweak - increased: absorbs Engineer (2) + Medic (1) slots
             NCREngineer: [ 1, 1 ]
-            NCRDoctor: [ 1, 1 ]
-            # NCRMedic: [ 3, 3 ]
-            NCRPrivateFirstClass: [ 5, 5 ]
-            #NCRSoldier: [ 0, 0 ]
-            # NCRCadet: [ 15, 15 ]
+            # NCRDoctor: [ 1, 1 ]
+            NCRMedic: [ 1, 1 ]
+            # NCRPrivateFirstClass: [ 5, 5 ]
+            NCRSoldier: [ 5, 5 ]
+            NCRCadet: [ 5, 5 ]
             #NCRPrisoner : [ 5, 5 ]
             #NCRMPinvestigator : [ 1, 1 ]
             # NCRMilitaryPoliceSergeant: [ 2, 2 ]
@@ -103,7 +100,7 @@
             #CaesarLegionVeteranDecanus: [ 1, 1 ] # Forge-Legion
             #CaesarLegionDean: [ 1, 1 ] # Forge-Legion
             #CaesarLegionLegionnaireVeteran: [ 2, 2 ] # Forge-Legion
-            #CaesarLegionLegionnaireWarrior: [ 3, 3 ] # Forge-Legion
+            # CaesarLegionLegionnaireWarrior: [ 5, 5 ] # Forge-Legion
             CaesarLegionLegionnaireRecruit: [ 5, 5 ] # Forge-Legion
             #CaesarLegionVexillarius: [ 1, 1 ] # Forge-Legion
             #CaesarLegionFrumentarii: [ 2, 2 ] # Forge-Legion # #Misfits Tweak - raised total and initial slots from 1 to 2
@@ -113,6 +110,7 @@
             #CaesarLegionPriestessOfMars: [ 1, 1 ] # Misfits-Legion — Priestess of Mars late-join slot
             CaesarLegionHoundmaster: [ 1, 1 ] # Forge-Legion
             CaesarLegionForgemaster: [ 1, 1 ] # Forge-Legion
+            CaesarLegionAcolyteOfMars: [ 1, 1 ]
             #SuperMutantGladiator: [ 1, 1 ]
             # #Misfits Change: CaesarLegionRecruit slot removed — CaesarLegionLegionnaireRecruit (line 103) already covers entry-level.
             #CaesarLegionAuxilia: [ 4, 4 ] # #Misfits Change - activated

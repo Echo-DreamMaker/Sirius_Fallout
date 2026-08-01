@@ -3,11 +3,11 @@ job-supervisors-bos-mid-knight = Главный рыцарь, Главный п�
 job-supervisors-bos-mid = Старейшина и главы орденов
 job-supervisors-bos-mid-commander = Старейшина
 job-supervisors-bos-mid-serf = всем членам Братства в порядке старшинства
-#Misfits Change /Comment-out/: Washington BoS supervisor strings removed — will create new prototypes.
-#job-supervisors-bos-wash-initiate = the Brotherhood chain of command
-#job-supervisors-bos-wash-knight = the Head Knight, Head Paladin, and Elder
-#job-supervisors-bos-wash = the Elder and the chapter heads
-#job-supervisors-bos-wash-commander = the Elder
+# Misfits Change /Comment-out/: Washington BoS supervisor strings removed — will create new prototypes.
+# job-supervisors-bos-wash-initiate = the Brotherhood chain of command
+# job-supervisors-bos-wash-knight = the Head Knight, Head Paladin, and Elder
+# job-supervisors-bos-wash = the Elder and the chapter heads
+# job-supervisors-bos-wash-commander = the Elder
 job-supervisors-caravan = лидер каравана
 job-supervisors-caravan-leader = ваша жадность и лидерство Blue Line Co.
 job-supervisors-ncr = командная цепочка НКР

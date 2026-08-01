@@ -8,13 +8,13 @@ ghost-role-information-n14pet-eyebot-name = Робоглаз-компаньон
 
 ghost-role-information-n14pet-eyebot-mbos-name = Робоглаз Братства Стали
 
-#ghost-role-information-n14pet-eyebot-wbos-name = Washington Eyebot #Misfits Change /Comment-out/: Washington BoS removed
+# ghost-role-information-n14pet-eyebot-wbos-name = Washington Eyebot #Misfits Change /Comment-out/: Washington BoS removed
 
 ghost-role-information-n14pet-dog-name = Собака-компаньон
 
 ghost-role-information-n14pet-dog-mbos-name = Тактический пёс-компаньон
 
-#ghost-role-information-n14pet-dog-wbos-name = Cybernetic Dog Follower #Misfits Change /Comment-out/: Washington BoS removed
+# ghost-role-information-n14pet-dog-wbos-name = Cybernetic Dog Follower #Misfits Change /Comment-out/: Washington BoS removed
 
 ghost-role-information-n14pet-dog-cc-name = Сторожевой пёс-компаньон
 
@@ -24,11 +24,11 @@ ghost-role-information-n14pet-dog-ncrmed-name = Медпёс-компаньон
 
 ghost-role-information-n14pet-generic-description = Вы являетесь чьим-то последователем, подчиняетесь ему и пытаетесь защитить его. В случае, если он погибнет, вы можете остаться на службе у фракции, к которой он принадлежал (если он принадлежал к какой-либо).
 
-ghost-role-information-n14pet-hauler-description = 
+ghost-role-information-n14pet-hauler-description =
     Вы являетесь чьим-то последователем, подчиняетесь ему и пытаетесь защитить его. В случае, если он погибнет, вы можете остаться на службе у фракции, к которой он принадлежал (если он принадлежал к какой-либо).
     У вас есть внутренний инвентарь, к которому могут получить доступ другие, вам лучше беречь его и нести бремя своих союзников.
 
-ghost-role-information-n14pet-eyebot-description = 
+ghost-role-information-n14pet-eyebot-description =
     Вы являетесь чьим-то последователем, подчиняетесь ему и пытаетесь защитить его. В случае, если он погибнет, вы можете остаться на службе у фракции, к которой он принадлежал (если он принадлежал к какой-либо).
     Вы можете стрелять из лазеров, щёлкнув правой кнопкой мыши, но будьте осторожны, потому что ваши боеприпасы ограничены, а перезарядка происходит медленно!
 

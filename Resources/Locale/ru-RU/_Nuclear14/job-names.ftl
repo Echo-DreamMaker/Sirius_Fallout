@@ -10,18 +10,18 @@ job-description-bos-mid-scribe = Координируйте исследован
 job-name-bos-mid-squire = Оруженосец Братства
 job-description-bos-mid-squire = Тренируйтесь под руководством ветеранов Братства и докажите, что вы готовы к более высоким обязанностям.
 
-#Misfits Change /Comment-out/: Washington BoS job names removed — will create new prototypes.
+# Misfits Change /Comment-out/: Washington BoS job names removed — will create new prototypes.
 ## Washington Brotherhood
-#job-name-bos-washington-commander = Brotherhood Head Knight
-#job-description-bos-washington-commander = Oversee the Brotherhood's knightly orders, logistics, and battlefield readiness.
-#job-name-bos-washington-initiate = Brotherhood Initiate
-#job-description-bos-washington-initiate = Learn the Brotherhood's code, follow orders, and earn your place in the chapter.
-#job-name-bos-washington-knight = Brotherhood Knight
-#job-description-bos-washington-knight = Protect the chapter, escort missions, and recover technology in the field.
-#job-name-bos-washington-paladin = Brotherhood Paladin
-#job-description-bos-washington-paladin = Fight as the Brotherhood's frontline heavy infantry and defend the chapter's interests.
-#job-name-bos-washington-scribe = Brotherhood Scribe
-#job-description-bos-washington-scribe = Support the chapter with research, medicine, and technical expertise.
+# job-name-bos-washington-commander = Brotherhood Head Knight
+# job-description-bos-washington-commander = Oversee the Brotherhood's knightly orders, logistics, and battlefield readiness.
+# job-name-bos-washington-initiate = Brotherhood Initiate
+# job-description-bos-washington-initiate = Learn the Brotherhood's code, follow orders, and earn your place in the chapter.
+# job-name-bos-washington-knight = Brotherhood Knight
+# job-description-bos-washington-knight = Protect the chapter, escort missions, and recover technology in the field.
+# job-name-bos-washington-paladin = Brotherhood Paladin
+# job-description-bos-washington-paladin = Fight as the Brotherhood's frontline heavy infantry and defend the chapter's interests.
+# job-name-bos-washington-scribe = Brotherhood Scribe
+# job-description-bos-washington-scribe = Support the chapter with research, medicine, and technical expertise.
 
 # Caravan
 job-name-caravan-leader = Лидер Каравана
@@ -32,7 +32,7 @@ job-name-caravan-guard = Охранник Каравана
 job-description-caravan-guard = Защитите торговцев караванной компании, их скот и инвентарь.
 
 # NCR
-job-name-ncr-recruit = Штрафник НКР
+job-name-ncr-recruit = Кадет НКР
 job-description-ncr-recruit = Будь-то бывший зек, рейдер или несчастный солдат - вы отныне Штрафник НКР, а ваша задача исправиться и возобновить честь мундира, если вы конечно не надумали висеть на плахе.
 job-name-ncr-cadet = Призывник НКР
 job-description-ncr-cadet = Вы были призваны на срочную службу в армию Новой Калифорнийской Республики против вашей воли. Будь то преступление, призыв по службе или отсутствие иных вариантов - но вы теперь часть армии.
@@ -134,11 +134,11 @@ job-name-townmechanic = Городской механик
 job-description-townmechanic = Поддерживайте городские службы и инфраструктуру и делайте все возможное для других за деньги.
 job-name-townshopkeeper = Городской лавочник
 job-description-townshopkeeper = Открывайте магазин в городе, организуйте торговые партнерства и продавайте свои товары странникам по пустошам. Остерегайтесь налоговиков.
-job-name-towndeputy = Стража ХанТауна
+job-name-towndeputy = Помощник шерифа
 job-description-towndeputy = Сотрудник правоохранительных органов города. Поддерживайте мир и обеспечивайте поддержку своему Пахану.
-job-name-townsheriff = Глава Стражи ХанТауна
+job-name-townsheriff = Городской Шериф
 job-description-townsheriff = Поддерживайте закон и порядок в городе и поддерживайте Пахана в его правлении.
-job-name-townmayor = Пахан ХанТауна
+job-name-townmayor = Мэр города
 job-description-townmayor = Держите город в узде и правьте железной рукой. Установите налоги и законы и постарайтесь не быть убитым или захваченными.
 job-name-townreporter = Городской репортер
 job-description-townreporter = Берите интервью у людей, распространяйте новости по всему региону или просто устраивайте ток-шоу!

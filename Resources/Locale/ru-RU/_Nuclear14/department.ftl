@@ -2,7 +2,7 @@
 BrotherhoodOfSteel = Братство Стали
 department-BrotherhoodOfSteel = Братство Стали
 department-BrotherhoodMidwest = БС
-#department-BrotherhoodWashington = Washington BoS #Misfits Change /Comment-out/: Washington BoS removed
+# department-BrotherhoodWashington = Washington BoS #Misfits Change /Comment-out/: Washington BoS removed
 department-CaravanCompany = Караванная компания
 NCR = Новая Калифорнийская Республика
 department-NCR = Новая Калифорнийская Республика
@@ -22,7 +22,7 @@ department-Rangers = Рейнджеры НКР
 # Descriptions
 department-BrotherhoodOfSteel-description = Единое отделение Братства Стали.
 department-BrotherhoodMidwest-description = Братство Стали
-#department-BrotherhoodWashington-description = Washington branch of the Brotherhood of Steel #Misfits Change /Comment-out/: Washington BoS removed
+# department-BrotherhoodWashington-description = Washington branch of the Brotherhood of Steel #Misfits Change /Comment-out/: Washington BoS removed
 department-CaravanCompany-description = Местная компания-караван, ответственная за импорт и экспорт товаров.
 department-NCR-description = Отряд поселенцев, посланный Новой Калифорнийской Республикой.
 department-Ranger-description = Рейнджеры пустыни, которые не присоединились к НКР и вместо этого остались отдельной фракцией. Их отношение к НКР не самое лучшее, но они их терпят.
