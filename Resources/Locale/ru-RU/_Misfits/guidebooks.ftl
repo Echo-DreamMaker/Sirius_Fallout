@@ -1,4 +1,4 @@
-#Misfits Change — Guidebook locale overrides
+# Misfits Change — Guidebook locale overrides
 guide-entry-rules = Правила сервера
 guide-entry-nuclear14 = Отбросы: Ядерная Пустошь
 

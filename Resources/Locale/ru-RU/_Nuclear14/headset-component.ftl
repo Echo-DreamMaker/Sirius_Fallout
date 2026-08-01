@@ -10,8 +10,8 @@ chat-radio-vault-security = Охрана Убежища
 chat-radio-vault-common = Убежище
 chat-radio-caravan = СС
 # #Misfits Change - Old BoS radio names commented out, consolidated channel added
-#chat-radio-bosmidwest = BoS
-#chat-radio-boswashington = WBoS
+# chat-radio-bosmidwest = BoS
+# chat-radio-boswashington = WBoS
 chat-radio-bos = Братство
 chat-radio-enclave = Анклав
 chat-radio-ncr = НКР

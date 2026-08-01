@@ -28,20 +28,20 @@ ent-N14DoorAirlockSlantedLockedBoSPaladin = { ent-N14DoorAirlockSlanted }
 ent-N14DoorAirlockSlantedLockedBoSCommander = { ent-N14DoorAirlockSlanted }
     .suffix = BoS, Заблокировано, Командир Паладина
     .desc = { ent-N14DoorAirlockSlanted.desc }
-#Misfits Change /Comment-out/: Washington BoS door locale removed — will create new prototypes.
-#ent-N14DoorAirlockSlantedLockedBoSWashington = { ent-N14DoorAirlockSlanted }
+# Misfits Change /Comment-out/: Washington BoS door locale removed — will create new prototypes.
+# ent-N14DoorAirlockSlantedLockedBoSWashington = { ent-N14DoorAirlockSlanted }
 #    .suffix = Washington BoS, Locked
 #    .desc = { ent-N14DoorAirlockSlanted.desc }
-#ent-N14DoorAirlockSlantedLockedBoSWashingtonScribe = { ent-N14DoorAirlockSlanted }
+# ent-N14DoorAirlockSlantedLockedBoSWashingtonScribe = { ent-N14DoorAirlockSlanted }
 #    .suffix = Washington BoS, Locked, Scribe
 #    .desc = { ent-N14DoorAirlockSlanted.desc }
-#ent-N14DoorAirlockSlantedLockedBoSWashingtonKnight = { ent-N14DoorAirlockSlanted }
+# ent-N14DoorAirlockSlantedLockedBoSWashingtonKnight = { ent-N14DoorAirlockSlanted }
 #    .suffix = Washington BoS, Locked, Knight
 #    .desc = { ent-N14DoorAirlockSlanted.desc }
-#ent-N14DoorAirlockSlantedLockedBoSWashingtonPaladin = { ent-N14DoorAirlockSlanted }
+# ent-N14DoorAirlockSlantedLockedBoSWashingtonPaladin = { ent-N14DoorAirlockSlanted }
 #    .suffix = Washington BoS, Locked, Paladin
 #    .desc = { ent-N14DoorAirlockSlanted.desc }
-#ent-N14DoorAirlockSlantedLockedBoSWashingtonCommander = { ent-N14DoorAirlockSlanted }
+# ent-N14DoorAirlockSlantedLockedBoSWashingtonCommander = { ent-N14DoorAirlockSlanted }
 #    .suffix = Washington BoS, Locked, Commander
 #    .desc = { ent-N14DoorAirlockSlanted.desc }
 ent-N14DoorWoodSlantedLockedDoctor = { ent-N14DoorWoodSlanted }

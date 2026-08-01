@@ -98,7 +98,7 @@
   #- NCRFirstSergeant    # Superseded — SFC is now a loadout pin for NCRNCO
   #- NCRStaffSergeant    # Superseded — SSG is now a loadout pin for NCRNCO
   #- NCRPrivateFirstClass # Superseded — PFC is now a loadout pin for specialists
-  #- NCRSoldier          # Retired — replaced by specialist roles + NCRCadet
+  - NCRSoldier          # Retired — replaced by specialist roles + NCRCadet
 
 - type: department # #Misfits Add - Rangers department ladder moved into _Nuclear14 job definitions.
   id: Rangers
@@ -236,4 +236,4 @@
   - CaesarLegionSlave           # Slave               | _Misfits/Roles/Jobs/CaesarLegion/legion_slave.yml # #Misfits Add
   #- CaesarLegionCitizen         # Civilian            | _Misfits/Roles/Jobs/CaesarLegion/legion_civilian.yml # #Misfits Add
   #- CaesarLegionTrader          # Trader              | _Misfits/Roles/Jobs/CaesarLegion/legion_trader.yml # #Misfits Add
-  #- CaesarLegionAcolyteOfMars      # Acolyte of Mars     | _Misfits/Roles/Jobs/CaesarLegion/legion_Acolyte.yml # #Misfits Add
+  - CaesarLegionAcolyteOfMars      # Acolyte of Mars     | _Misfits/Roles/Jobs/CaesarLegion/legion_Acolyte.yml # #Misfits Add
