@@ -179,3 +179,13 @@
   - !type:TraitSpawnEntity
     prototypes:
     - MisfitsPetSpawnerEyebotTribe
+
+  # Sirius
+- type: trait
+  id: SiriusPetMoff
+  category: Pets
+  points: -2
+  functions:
+    - !type:TraitSpawnEntity
+      prototypes:
+        - SiriusPetSpawnerMoff
