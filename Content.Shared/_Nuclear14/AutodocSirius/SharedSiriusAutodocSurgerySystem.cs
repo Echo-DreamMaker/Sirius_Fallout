@@ -95,7 +95,6 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         { "stomach", "stomach" },
         { "eyes", "eyes" },
     };
-    // Для работы с автодоком (ItemSlots)
     protected static string? GetAutodocSlotForBodyPart(BodyPartType partType, BodyPartSymmetry symmetry)
     {
         return partType switch
@@ -110,7 +109,6 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         };
     }
 
-    // Для работы с BodyPart системой (_Shitmed)
     protected static string? GetBodyPartSlotForBodyPart(BodyPartType partType, BodyPartSymmetry symmetry)
     {
         return partType switch
@@ -437,39 +435,39 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
                 result.Add(("ToggleLeftLeg", "Левая нога", true));
                 result.Add(("ToggleRightLeg", "Правая нога", true));
                 break;
-            case "left_arm":
+            case "leftarm":
                 result.Add(("TendBrute", "Лечить ушибы", true));
                 result.Add(("TendBurn", "Лечить ожоги", true));
                 result.Add(("ToggleLeftHand", "Левая кисть", true));
                 break;
-            case "right_arm":
+            case "rightarm":
                 result.Add(("TendBrute", "Лечить ушибы", true));
                 result.Add(("TendBurn", "Лечить ожоги", true));
                 result.Add(("ToggleRightHand", "Правая кисть", true));
                 break;
-            case "left_hand":
+            case "lefthand":
                 result.Add(("TendBrute", "Лечить ушибы", true));
                 result.Add(("TendBurn", "Лечить ожоги", true));
                 break;
-            case "right_hand":
+            case "righthand":
                 result.Add(("TendBrute", "Лечить ушибы", true));
                 result.Add(("TendBurn", "Лечить ожоги", true));
                 break;
-            case "left_leg":
+            case "leftleg":
                 result.Add(("TendBrute", "Лечить ушибы", true));
                 result.Add(("TendBurn", "Лечить ожоги", true));
                 result.Add(("ToggleLeftFoot", "Левая стопа", true));
                 break;
-            case "right_leg":
+            case "rightleg":
                 result.Add(("TendBrute", "Лечить ушибы", true));
                 result.Add(("TendBurn", "Лечить ожоги", true));
                 result.Add(("ToggleRightFoot", "Правая стопа", true));
                 break;
-            case "left_foot":
+            case "leftfoot":
                 result.Add(("TendBrute", "Лечить ушибы", true));
                 result.Add(("TendBurn", "Лечить ожоги", true));
                 break;
-            case "right_foot":
+            case "rightfoot":
                 result.Add(("TendBrute", "Лечить ушибы", true));
                 result.Add(("TendBurn", "Лечить ожоги", true));
                 break;
@@ -662,7 +660,6 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         }
 
         bool success;
-        // ИСПРАВЛЕНО: Используем GetBodyPartSlotForBodyPart для _Shitmed системы
         var slotName = GetBodyPartSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
 
         if (parentPart != null && !string.IsNullOrEmpty(slotName))
@@ -676,7 +673,6 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
 
         if (success)
         {
-            // После успешного пришивания, удаляем часть из автодока
             var autodocSlotName = GetAutodocSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
             if (!string.IsNullOrEmpty(autodocSlotName))
             {

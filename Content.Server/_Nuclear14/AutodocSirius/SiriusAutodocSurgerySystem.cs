@@ -405,7 +405,6 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
 
         if (bodySystem.InsertOrgan(targetPart, organEntity, slotId, partComp, organComp))
         {
-            // Используем OrganSlotMap для автодока
             if (OrganSlotMap.TryGetValue(organType, out var autodocSlotName))
             {
                 _sawmill.Info($"Ejecting organ from autodoc slot {autodocSlotName}");
@@ -453,15 +452,30 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
         }
 
         EntityUid? parentPart = null;
-        var parentType = partInfo.Type switch
-        {
-            BodyPartType.Head => BodyPartType.Torso,
-            BodyPartType.Arm or BodyPartType.Hand => BodyPartType.Torso,
-            BodyPartType.Leg or BodyPartType.Foot => BodyPartType.Torso,
-            _ => BodyPartType.Torso
-        };
+        BodyPartType parentType;
 
-        var parentParts = bodySystem.GetBodyChildrenOfType(patient, parentType);
+        switch (partInfo.Type)
+        {
+            case BodyPartType.Head:
+                parentType = BodyPartType.Torso;
+                break;
+            case BodyPartType.Torso:
+                parentType = BodyPartType.Torso;
+                break;
+            case BodyPartType.Hand:
+                parentType = BodyPartType.Arm;
+                break;
+            case BodyPartType.Foot:
+                parentType = BodyPartType.Leg;
+                break;
+            case BodyPartType.Arm:
+            case BodyPartType.Leg:
+            default:
+                parentType = BodyPartType.Torso;
+                break;
+        }
+
+        var parentParts = bodySystem.GetBodyChildrenOfType(patient, parentType, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
         if (parentParts.Any())
         {
             parentPart = parentParts.First().Id;
@@ -482,9 +496,10 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
 
         if (success)
         {
-            if (!string.IsNullOrEmpty(slotName))
+            var autodocSlotName = GetAutodocSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
+            if (!string.IsNullOrEmpty(autodocSlotName))
             {
-                _itemSlots.TryEject(autodocUid, slotName, null, out _);
+                _itemSlots.TryEject(autodocUid, autodocSlotName, null, out _);
             }
             _sawmill.Info($"ExecuteAttachPart: SUCCESS");
             return true;
@@ -548,15 +563,32 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
         }
 
         EntityUid? parentPart = null;
-        var parentType = partInfo.Type switch
-        {
-            BodyPartType.Head => BodyPartType.Torso,
-            BodyPartType.Arm or BodyPartType.Hand => BodyPartType.Torso,
-            BodyPartType.Leg or BodyPartType.Foot => BodyPartType.Torso,
-            _ => BodyPartType.Torso
-        };
+        BodyPartType parentType;
 
-        var parentParts = bodySystem.GetBodyChildrenOfType(patient, parentType);
+        switch (partInfo.Type)
+        {
+            case BodyPartType.Head:
+                parentType = BodyPartType.Torso;
+                break;
+            case BodyPartType.Torso:
+                parentType = BodyPartType.Torso;
+                break;
+            case BodyPartType.Hand:
+                parentType = BodyPartType.Arm;
+                break;
+            case BodyPartType.Foot:
+                parentType = BodyPartType.Leg;
+                break;
+            case BodyPartType.Arm:
+            case BodyPartType.Leg:
+            default:
+                parentType = BodyPartType.Torso;
+                break;
+        }
+
+        _sawmill.Info($"parentType={parentType}");
+
+        var parentParts = bodySystem.GetBodyChildrenOfType(patient, parentType, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
         _sawmill.Info($"parentParts count={parentParts.Count()}, parentType={parentType}");
 
         if (parentParts.Any())
@@ -571,7 +603,6 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             return false;
         }
 
-        // ИСПРАВЛЕНО: Используем GetBodyPartSlotForBodyPart для _Shitmed системы
         var bodySlotName = GetBodyPartSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
         _sawmill.Info($"bodySlotName={bodySlotName}");
 
@@ -581,7 +612,6 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             return false;
         }
 
-        // Проверяем, есть ли слот у родителя
         if (TryComp<BodyPartComponent>(parentPart.Value, out var parentComp))
         {
             _sawmill.Info($"parentComp.Children keys: {string.Join(", ", parentComp.Children.Keys)}");
@@ -624,7 +654,6 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             var attachedEvent = new BodyPartAttachedEvent((partEntity, partComp));
             RaiseLocalEvent(patient, ref attachedEvent);
 
-            // После успешного пришивания, удаляем часть из автодока
             var autodocSlotName = GetAutodocSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
             if (!string.IsNullOrEmpty(autodocSlotName))
             {
@@ -696,7 +725,6 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             return false;
         }
 
-        // ИСПРАВЛЕНО: Используем GetAutodocSlotForBodyPart для автодока
         var autodocSlotName = GetAutodocSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
         _sawmill.Info($"autodocSlotName={autodocSlotName}");
 
