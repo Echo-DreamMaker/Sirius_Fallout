@@ -95,8 +95,8 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         { "stomach", "stomach" },
         { "eyes", "eyes" },
     };
-
-    protected static string? GetSlotForBodyPart(BodyPartType partType, BodyPartSymmetry symmetry)
+    // Для работы с автодоком (ItemSlots)
+    protected static string? GetAutodocSlotForBodyPart(BodyPartType partType, BodyPartSymmetry symmetry)
     {
         return partType switch
         {
@@ -110,6 +110,20 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         };
     }
 
+    // Для работы с BodyPart системой (_Shitmed)
+    protected static string? GetBodyPartSlotForBodyPart(BodyPartType partType, BodyPartSymmetry symmetry)
+    {
+        return partType switch
+        {
+            BodyPartType.Head => "head",
+            BodyPartType.Torso => "torso",
+            BodyPartType.Arm => symmetry == BodyPartSymmetry.Left ? "left arm" : "right arm",
+            BodyPartType.Hand => symmetry == BodyPartSymmetry.Left ? "left hand" : "right hand",
+            BodyPartType.Leg => symmetry == BodyPartSymmetry.Left ? "left leg" : "right leg",
+            BodyPartType.Foot => symmetry == BodyPartSymmetry.Left ? "left foot" : "right foot",
+            _ => null
+        };
+    }
     public virtual bool HasAvailableOrganInAutodoc(string organType, EntityUid autodocUid) => false;
     public virtual bool HasAvailablePartInAutodoc(BodyPartType partType, BodyPartSymmetry? symmetry, EntityUid autodocUid) => false;
     public virtual EntityUid? GetAvailableOrganInAutodoc(string organType, EntityUid autodocUid) => null;
@@ -240,7 +254,7 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
             var partType = bodyPartComp.PartType;
             var symmetry = bodyPartComp.Symmetry;
 
-            var correctSlot = GetSlotForBodyPart(partType, symmetry);
+            var correctSlot = GetAutodocSlotForBodyPart(partType, symmetry);
 
             if (correctSlot == null || correctSlot != slotId)
             {
@@ -648,7 +662,8 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
         }
 
         bool success;
-        var slotName = GetSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
+        // ИСПРАВЛЕНО: Используем GetBodyPartSlotForBodyPart для _Shitmed системы
+        var slotName = GetBodyPartSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
 
         if (parentPart != null && !string.IsNullOrEmpty(slotName))
         {
@@ -661,9 +676,11 @@ public abstract class SharedSiriusAutodocSurgerySystem : EntitySystem
 
         if (success)
         {
-            if (!string.IsNullOrEmpty(slotName))
+            // После успешного пришивания, удаляем часть из автодока
+            var autodocSlotName = GetAutodocSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
+            if (!string.IsNullOrEmpty(autodocSlotName))
             {
-                _itemSlots.TryEject(autodocUid, slotName, null, out _);
+                _itemSlots.TryEject(autodocUid, autodocSlotName, null, out _);
             }
             return true;
         }
