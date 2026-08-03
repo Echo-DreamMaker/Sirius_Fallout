@@ -32,7 +32,7 @@
   id: WoodPlankCrate
   icon:
     sprite: /Textures/Objects/Materials/materials.rsi
-    state: firewood
+    state: wood
   product: N14CrateBreakPlainFilledWood
   cost: 100
   category: Materials
