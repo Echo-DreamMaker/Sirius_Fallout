@@ -1,7 +1,7 @@
 <DefaultWindow xmlns="https://spacestation14.io"
                Title="{Loc 'autodoc-window-title'}"
-               MinSize="600 620"
-               SetSize="600 620">
+               MinSize="700 700"
+               SetSize="700 700">
     <BoxContainer Orientation="Vertical" Margin="10">
         <!-- Header -->
         <Label Name="HeaderLabel"
@@ -9,7 +9,7 @@
                FontColorOverride="#33FF33"
                StyleClasses="monospace"
                HorizontalAlignment="Center" />
-        <PanelContainer Name="SepTop" MinHeight="1" HorizontalExpand="True" />
+        <PanelContainer Name="SepTop" MinHeight="1" HorizontalExpand="True" StyleClasses="LowDivider" />
 
         <!-- Patient Status -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="8">
@@ -23,18 +23,58 @@
                    StyleClasses="monospace" />
         </BoxContainer>
 
-        <PanelContainer Name="SepMid1" MinHeight="1" HorizontalExpand="True" />
+        <PanelContainer Name="SepMid1" MinHeight="1" HorizontalExpand="True" StyleClasses="LowDivider" />
 
         <!-- Damage Report -->
         <Label Text="{Loc 'autodoc-diagnostic-report'}"
                FontColorOverride="#33FF33"
                StyleClasses="monospace"
                HorizontalAlignment="Center" />
-        <ScrollContainer VerticalExpand="True" HScrollEnabled="False" MinHeight="200">
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False" MinHeight="120">
             <BoxContainer Name="DamageContainer" Orientation="Vertical" SeparationOverride="4" />
         </ScrollContainer>
 
-        <PanelContainer Name="SepMid2" MinHeight="1" HorizontalExpand="True" />
+        <PanelContainer Name="SepMid2" MinHeight="1" HorizontalExpand="True" StyleClasses="LowDivider" />
+
+        <!-- Surgery Panel -->
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 5" Name="SurgeryMainContainer" Visible="False">
+            <BoxContainer Orientation="Vertical" MinWidth="200" HorizontalExpand="True">
+                <Label Name="SurgeryTitleLabel"
+                       Text="{Loc 'autodoc-surgery-parts'}"
+                       FontColorOverride="#33FF33"
+                       StyleClasses="monospace"
+                       HorizontalAlignment="Center" />
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False" MinHeight="200">
+                    <BoxContainer Name="BodyPartsContainer" Orientation="Vertical" SeparationOverride="2" />
+                </ScrollContainer>
+            </BoxContainer>
+            <PanelContainer MinWidth="1" HorizontalExpand="False" StyleClasses="LowDivider" Margin="5 0" />
+            <BoxContainer Orientation="Vertical" MinWidth="250" HorizontalExpand="True">
+                <Label Name="OperationsTitleLabel"
+                       Text="{Loc 'autodoc-surgery-operations'}"
+                       FontColorOverride="#33FF33"
+                       StyleClasses="monospace"
+                       HorizontalAlignment="Center" />
+                <Label Name="SelectedPartLabel"
+                       FontColorOverride="#55FF55"
+                       StyleClasses="monospace"
+                       HorizontalAlignment="Center"
+                       Text="{Loc 'autodoc-surgery-select-part'}" />
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False" MinHeight="200">
+                    <BoxContainer Name="OperationsContainer" Orientation="Vertical" SeparationOverride="2" />
+                </ScrollContainer>
+                <BoxContainer Name="SurgeryProgressContainer" Orientation="Horizontal" SeparationOverride="8" Visible="False" Margin="0 5 0 0">
+                    <Label Name="SurgeryProgressLabel"
+                           Text="{Loc 'autodoc-surgery-progress'}"
+                           FontColorOverride="#33FF33"
+                           StyleClasses="monospace" />
+                    <ProgressBar Name="SurgeryProgressBar" HorizontalExpand="True" MinHeight="15" />
+                    <Label Name="SurgeryProgressPercentLabel" Text="0%" FontColorOverride="#33FF33" StyleClasses="monospace" MinWidth="45" />
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <PanelContainer Name="SepHumanoid" MinHeight="1" HorizontalExpand="True" Visible="False" StyleClasses="LowDivider" />
 
         <!-- Stimulants -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="8">
@@ -53,7 +93,7 @@
             <Label Name="ProgressPercentLabel" Text="0%" FontColorOverride="#33FF33" StyleClasses="monospace" MinWidth="45" />
         </BoxContainer>
 
-        <PanelContainer Name="SepMid3" MinHeight="1" HorizontalExpand="True" />
+        <PanelContainer Name="SepMid3" MinHeight="1" HorizontalExpand="True" StyleClasses="LowDivider" />
 
         <!-- Door Controls -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="10" HorizontalExpand="True">
@@ -67,16 +107,7 @@
                     MinWidth="100" />
         </BoxContainer>
 
-        <PanelContainer Name="SepMid4" MinHeight="1" HorizontalExpand="True" />
-
-        <!-- Error Message -->
-        <Label Name="ErrorLabel"
-               FontColorOverride="#FF5555"
-               StyleClasses="monospace"
-               HorizontalAlignment="Center"
-               Visible="False" />
-
-        <PanelContainer Name="SepBottom" MinHeight="1" HorizontalExpand="True" />
+        <PanelContainer Name="SepMid4" MinHeight="1" HorizontalExpand="True" StyleClasses="LowDivider" />
 
         <!-- Buttons -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="10" HorizontalExpand="True">
@@ -94,6 +125,9 @@
                     MinWidth="140" />
         </BoxContainer>
 
+        <PanelContainer Name="SepBottom" MinHeight="1" HorizontalExpand="True" StyleClasses="LowDivider" />
+
+        <!-- Footer -->
         <Label Name="FooterLabel"
                Text="{Loc 'autodoc-footer-ready'}"
                FontColorOverride="#1a5c1a"

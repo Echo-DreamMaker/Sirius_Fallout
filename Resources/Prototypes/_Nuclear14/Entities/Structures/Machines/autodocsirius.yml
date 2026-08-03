@@ -35,11 +35,32 @@
       autodoc-body:
         !type:ContainerSlot
         showEnts: true
+      brainSlot: !type:ContainerSlot
+      eyesSlot: !type:ContainerSlot
+      heartSlot: !type:ContainerSlot
+      liverSlot: !type:ContainerSlot
+      lungsSlot: !type:ContainerSlot
+      stomachSlot: !type:ContainerSlot
+      kidneysSlot: !type:ContainerSlot
+      appendixSlot: !type:ContainerSlot
+      tongueSlot: !type:ContainerSlot
+      earsSlot: !type:ContainerSlot
+      leftArmSlot: !type:ContainerSlot
+      rightArmSlot: !type:ContainerSlot
+      leftHandSlot: !type:ContainerSlot
+      rightHandSlot: !type:ContainerSlot
+      leftLegSlot: !type:ContainerSlot
+      rightLegSlot: !type:ContainerSlot
+      leftFootSlot: !type:ContainerSlot
+      rightFootSlot: !type:ContainerSlot
+      headSlot: !type:ContainerSlot
+      torsoSlot: !type:ContainerSlot
   - type: Appearance
   - type: SiriusAutodoc
     entryDelay: 2
     treatmentDuration: 10
     isOpen: true
+  - type: SiriusAutodocSurgery
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -87,3 +108,109 @@
           components:
             - SolutionContainerManager
             - FitsInDispenser
+        blacklist:
+          components:
+            - Organ
+            - BodyPart
+      brainSlot:
+        name: brain-slot
+        whitelist:
+          components:
+            - Organ
+      eyesSlot:
+        name: eyes-slot
+        whitelist:
+          components:
+            - Organ
+      heartSlot:
+        name: heart-slot
+        whitelist:
+          components:
+            - Organ
+      liverSlot:
+        name: liver-slot
+        whitelist:
+          components:
+            - Organ
+      lungsSlot:
+        name: lungs-slot
+        whitelist:
+          components:
+            - Organ
+      stomachSlot:
+        name: stomach-slot
+        whitelist:
+          components:
+            - Organ
+      kidneysSlot:
+        name: kidneys-slot
+        whitelist:
+          components:
+            - Organ
+      appendixSlot:
+        name: appendix-slot
+        whitelist:
+          components:
+            - Organ
+      tongueSlot:
+        name: tongue-slot
+        whitelist:
+          components:
+            - Organ
+      earsSlot:
+        name: ears-slot
+        whitelist:
+          components:
+            - Organ
+      leftArmSlot:
+        name: left-arm-slot
+        whitelist:
+          components:
+            - BodyPart
+      rightArmSlot:
+        name: right-arm-slot
+        whitelist:
+          components:
+            - BodyPart
+      leftHandSlot:
+        name: left-hand-slot
+        whitelist:
+          components:
+            - BodyPart
+      rightHandSlot:
+        name: right-hand-slot
+        whitelist:
+          components:
+            - BodyPart
+      leftLegSlot:
+        name: left-leg-slot
+        whitelist:
+          components:
+            - BodyPart
+      rightLegSlot:
+        name: right-leg-slot
+        whitelist:
+          components:
+            - BodyPart
+      leftFootSlot:
+        name: left-foot-slot
+        whitelist:
+          components:
+            - BodyPart
+      rightFootSlot:
+        name: right-foot-slot
+        whitelist:
+          components:
+            - BodyPart
+      headSlot:
+        name: head-slot
+        whitelist:
+          components:
+            - BodyPart
+      torsoSlot:
+        name: torso-slot
+        whitelist:
+          components:
+            - BodyPart
+  - type: ContainerFill
+    containers: {}
