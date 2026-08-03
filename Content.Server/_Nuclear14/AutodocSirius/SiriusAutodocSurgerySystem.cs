@@ -30,22 +30,53 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
         foreach (var (opId, displayName, isAvailable) in operations)
         {
             if (opId.StartsWith("ToggleHead") ||
-                opId.StartsWith("ToggleLeftArm") ||
-                opId.StartsWith("ToggleRightArm") ||
-                opId.StartsWith("ToggleLeftLeg") ||
-                opId.StartsWith("ToggleRightLeg") ||
-                opId.StartsWith("ToggleLeftHand") ||
-                opId.StartsWith("ToggleRightHand") ||
-                opId.StartsWith("ToggleLeftFoot") ||
-                opId.StartsWith("ToggleRightFoot"))
+     opId.StartsWith("ToggleLeftArm") ||
+     opId.StartsWith("ToggleRightArm") ||
+     opId.StartsWith("ToggleLeftLeg") ||
+     opId.StartsWith("ToggleRightLeg") ||
+     opId.StartsWith("ToggleLeftHand") ||
+     opId.StartsWith("ToggleRightHand") ||
+     opId.StartsWith("ToggleLeftFoot") ||
+     opId.StartsWith("ToggleRightFoot"))
             {
                 var partTypeName = opId.Replace("Toggle", "").ToLowerInvariant();
-
+                _sawmill.Info($"Processing Toggle for partTypeName={partTypeName}");
                 if (BodyPartMap.TryGetValue(partTypeName, out var partInfo))
                 {
+                    if ((partInfo.Type == BodyPartType.Leg || partInfo.Type == BodyPartType.Arm) &&
+                        !HasBodyPart(patient, BodyPartType.Torso, BodyPartSymmetry.None))
+                    {
+                        _sawmill.Info($"  Cannot attach {partTypeName} because Torso is missing");
+                        continue;
+                    }
+
+                    if (partInfo.Type == BodyPartType.Hand)
+                    {
+                        var parentSymmetry = partInfo.Symmetry ?? BodyPartSymmetry.None;
+                        if (!HasBodyPart(patient, BodyPartType.Arm, parentSymmetry))
+                        {
+                            _sawmill.Info($"  Cannot attach {partTypeName} because parent Arm with symmetry {parentSymmetry} is missing");
+                            if (!HasBodyPart(patient, partInfo.Type, partInfo.Symmetry))
+                                continue;
+                        }
+                    }
+
+                    if (partInfo.Type == BodyPartType.Foot)
+                    {
+                        var parentSymmetry = partInfo.Symmetry ?? BodyPartSymmetry.None;
+                        if (!HasBodyPart(patient, BodyPartType.Leg, parentSymmetry))
+                        {
+                            _sawmill.Info($"  Cannot attach {partTypeName} because parent Leg with symmetry {parentSymmetry} is missing");
+                            if (!HasBodyPart(patient, partInfo.Type, partInfo.Symmetry))
+                                continue;
+                        }
+                    }
+
                     var hasPart = HasBodyPart(patient, partInfo.Type, partInfo.Symmetry);
                     var key = (partInfo.Type, partInfo.Symmetry);
                     var hasPartInAutodoc = availableParts.ContainsKey(key);
+                    _sawmill.Info($"  hasPart={hasPart}, hasPartInAutodoc={hasPartInAutodoc}, key={key}");
+                    _sawmill.Info($"  availableParts keys: {string.Join(", ", availableParts.Keys.Select(k => $"(Type={k.Type}, Sym={k.Symmetry})"))}");
 
                     string actualOpId;
                     string actualDisplayName;
@@ -204,6 +235,12 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
         if (!TryComp<SiriusAutodocSurgeryComponent>(autodoc.SiriusSurgeryComponent.Value, out var surgeryComp))
             return result;
 
+        _sawmill.Info($"GetAvailablePartsInAutodoc: AvailableParts count={surgeryComp.AvailableParts.Count}");
+        foreach (var part in surgeryComp.AvailableParts)
+        {
+            _sawmill.Info($"  Available: Type={part.Key.Type}, Symmetry={part.Key.Symmetry} -> Entity={part.Value}");
+        }
+
         return surgeryComp.AvailableParts;
     }
 
@@ -213,10 +250,10 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             return false;
 
         var bodySystem = _bodySystem;
-        var parts = bodySystem.GetBodyChildrenOfType(patient, partType, symmetry: symmetry ?? BodyPartSymmetry.None);
+        var sym = symmetry ?? BodyPartSymmetry.None;
+        var parts = bodySystem.GetBodyChildrenOfType(patient, partType, symmetry: sym);
         return parts.Any();
     }
-
     public override bool HasAvailableOrganInAutodoc(string organType, EntityUid autodocUid)
     {
         var availableOrgans = GetAvailableOrgansInAutodoc(autodocUid);
@@ -227,7 +264,16 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
     {
         var availableParts = GetAvailablePartsInAutodoc(autodocUid);
         var key = (partType, symmetry);
-        return availableParts.ContainsKey(key);
+        var result = availableParts.ContainsKey(key);
+
+        _sawmill.Info($"HasAvailablePartInAutodoc: Type={partType}, Sym={symmetry}, result={result}");
+
+        if (!result)
+        {
+            _sawmill.Info($"  Available keys: {string.Join(", ", availableParts.Keys.Select(k => $"(Type={k.Type}, Sym={k.Symmetry})"))}");
+        }
+
+        return result;
     }
 
     public override EntityUid? GetAvailableOrganInAutodoc(string organType, EntityUid autodocUid)
@@ -241,7 +287,7 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
     public override EntityUid? GetAvailablePartInAutodoc(BodyPartType partType, BodyPartSymmetry? symmetry, EntityUid autodocUid)
     {
         var availableParts = GetAvailablePartsInAutodoc(autodocUid);
-        var key = (partType, symmetry);
+        var key = (partType, symmetry ?? BodyPartSymmetry.None);
         if (availableParts.TryGetValue(key, out var part))
             return part;
         return null;
@@ -475,7 +521,7 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
                 break;
         }
 
-        var parentParts = bodySystem.GetBodyChildrenOfType(patient, parentType, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
+        var parentParts = bodySystem.GetBodyChildrenOfType(patient, parentType, symmetry: BodyPartSymmetry.None);
         if (parentParts.Any())
         {
             parentPart = parentParts.First().Id;
@@ -484,6 +530,14 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
         bool success;
         var slotName = GetBodyPartSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
         _sawmill.Info($"ExecuteAttachPart: parentPart={parentPart}, slotName={slotName}");
+        if (parentPart != null && !string.IsNullOrEmpty(slotName) && TryComp<BodyPartComponent>(parentPart.Value, out var parentComp))
+        {
+            if (!parentComp.Children.ContainsKey(slotName))
+            {
+                _sawmill.Info($"Slot {slotName} not found, creating it...");
+                bodySystem.TryCreatePartSlot(parentPart.Value, slotName, partInfo.Type, out var _);
+            }
+        }
 
         if (parentPart != null && !string.IsNullOrEmpty(slotName))
         {
@@ -496,6 +550,26 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
 
         if (success)
         {
+            if (partInfo.Type == BodyPartType.Arm)
+            {
+                var handSlotName = GetBodyPartSlotForBodyPart(BodyPartType.Hand, partInfo.Symmetry ?? BodyPartSymmetry.None);
+                if (!string.IsNullOrEmpty(handSlotName))
+                {
+                    _sawmill.Info($"Creating slot for hand: {handSlotName}");
+                    bodySystem.TryCreatePartSlot(partEntity, handSlotName, BodyPartType.Hand, out var _);
+                }
+            }
+
+            if (partInfo.Type == BodyPartType.Leg)
+            {
+                var footSlotName = GetBodyPartSlotForBodyPart(BodyPartType.Foot, partInfo.Symmetry ?? BodyPartSymmetry.None);
+                if (!string.IsNullOrEmpty(footSlotName))
+                {
+                    _sawmill.Info($"Creating slot for foot: {footSlotName}");
+                    bodySystem.TryCreatePartSlot(partEntity, footSlotName, BodyPartType.Foot, out var _);
+                }
+            }
+
             var autodocSlotName = GetAutodocSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
             if (!string.IsNullOrEmpty(autodocSlotName))
             {
@@ -508,7 +582,6 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
         _sawmill.Warning($"ExecuteAttachPart: AttachPart returned false");
         return false;
     }
-
     private bool ExecuteAttachSpecificPart(EntityUid autodocUid, EntityUid patient, string partId)
     {
         _sawmill.Info($"=== ExecuteAttachSpecificPart START ===");
@@ -522,6 +595,27 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
         _sawmill.Info($"partInfo.Type={partInfo.Type}, partInfo.Symmetry={partInfo.Symmetry}");
 
         var bodySystem = _bodySystem;
+
+        if (partInfo.Type == BodyPartType.Leg || partInfo.Type == BodyPartType.Arm)
+        {
+            var torsoCheck = bodySystem.GetBodyChildrenOfType(patient, BodyPartType.Torso, symmetry: BodyPartSymmetry.None);
+            if (!torsoCheck.Any())
+            {
+                _sawmill.Warning($"Cannot attach {partId} because Torso is missing! Patient has no body.");
+                return false;
+            }
+        }
+
+        if (partInfo.Type == BodyPartType.Hand || partInfo.Type == BodyPartType.Foot)
+        {
+            BodyPartType parentType = partInfo.Type == BodyPartType.Hand ? BodyPartType.Arm : BodyPartType.Leg;
+            var parentCheck = bodySystem.GetBodyChildrenOfType(patient, parentType, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
+            if (!parentCheck.Any())
+            {
+                _sawmill.Warning($"Cannot attach {partId} because parent part {parentType} with symmetry {partInfo.Symmetry} is missing!");
+                return false;
+            }
+        }
 
         var existingParts = bodySystem.GetBodyChildrenOfType(patient, partInfo.Type, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
         _sawmill.Info($"existingParts count={existingParts.Count()}");
@@ -563,33 +657,41 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
         }
 
         EntityUid? parentPart = null;
-        BodyPartType parentType;
-
+        BodyPartType parentTypeForSearch;
         switch (partInfo.Type)
         {
             case BodyPartType.Head:
-                parentType = BodyPartType.Torso;
+                parentTypeForSearch = BodyPartType.Torso;
                 break;
             case BodyPartType.Torso:
-                parentType = BodyPartType.Torso;
+                parentTypeForSearch = BodyPartType.Torso;
                 break;
             case BodyPartType.Hand:
-                parentType = BodyPartType.Arm;
+                parentTypeForSearch = BodyPartType.Arm;
                 break;
             case BodyPartType.Foot:
-                parentType = BodyPartType.Leg;
+                parentTypeForSearch = BodyPartType.Leg;
                 break;
             case BodyPartType.Arm:
             case BodyPartType.Leg:
             default:
-                parentType = BodyPartType.Torso;
+                parentTypeForSearch = BodyPartType.Torso;
                 break;
         }
 
-        _sawmill.Info($"parentType={parentType}");
+        _sawmill.Info($"parentTypeForSearch={parentTypeForSearch}");
+        BodyPartSymmetry searchSymmetry;
+        if (partInfo.Type == BodyPartType.Hand || partInfo.Type == BodyPartType.Foot)
+        {
+            searchSymmetry = partInfo.Symmetry ?? BodyPartSymmetry.None;
+        }
+        else
+        {
+            searchSymmetry = BodyPartSymmetry.None;
+        }
 
-        var parentParts = bodySystem.GetBodyChildrenOfType(patient, parentType, symmetry: partInfo.Symmetry ?? BodyPartSymmetry.None);
-        _sawmill.Info($"parentParts count={parentParts.Count()}, parentType={parentType}");
+        var parentParts = bodySystem.GetBodyChildrenOfType(patient, parentTypeForSearch, symmetry: searchSymmetry);
+        _sawmill.Info($"parentParts count={parentParts.Count()}, parentTypeForSearch={parentTypeForSearch}, searchSymmetry={searchSymmetry}");
 
         if (parentParts.Any())
         {
@@ -617,8 +719,8 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             _sawmill.Info($"parentComp.Children keys: {string.Join(", ", parentComp.Children.Keys)}");
             if (!parentComp.Children.ContainsKey(bodySlotName))
             {
-                _sawmill.Error($"Slot {bodySlotName} not found in parent's Children! Available: {string.Join(", ", parentComp.Children.Keys)}");
-                return false;
+                _sawmill.Info($"Slot {bodySlotName} not found, creating it...");
+                bodySystem.TryCreatePartSlot(parentPart.Value, bodySlotName, partInfo.Type, out var _);
             }
         }
 
@@ -653,6 +755,26 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
             EnsureComp<BodyPartReattachedComponent>(partEntity);
             var attachedEvent = new BodyPartAttachedEvent((partEntity, partComp));
             RaiseLocalEvent(patient, ref attachedEvent);
+
+            if (partInfo.Type == BodyPartType.Arm)
+            {
+                var handSlotName = GetBodyPartSlotForBodyPart(BodyPartType.Hand, partInfo.Symmetry ?? BodyPartSymmetry.None);
+                if (!string.IsNullOrEmpty(handSlotName))
+                {
+                    _sawmill.Info($"Creating slot for hand: {handSlotName}");
+                    bodySystem.TryCreatePartSlot(partEntity, handSlotName, BodyPartType.Hand, out var _);
+                }
+            }
+
+            if (partInfo.Type == BodyPartType.Leg)
+            {
+                var footSlotName = GetBodyPartSlotForBodyPart(BodyPartType.Foot, partInfo.Symmetry ?? BodyPartSymmetry.None);
+                if (!string.IsNullOrEmpty(footSlotName))
+                {
+                    _sawmill.Info($"Creating slot for foot: {footSlotName}");
+                    bodySystem.TryCreatePartSlot(partEntity, footSlotName, BodyPartType.Foot, out var _);
+                }
+            }
 
             var autodocSlotName = GetAutodocSlotForBodyPart(partInfo.Type, partInfo.Symmetry ?? BodyPartSymmetry.None);
             if (!string.IsNullOrEmpty(autodocSlotName))

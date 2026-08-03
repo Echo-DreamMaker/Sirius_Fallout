@@ -33,6 +33,7 @@ public sealed partial class SiriusAutodocSystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
 
     private readonly Dictionary<EntityUid, TimeSpan> _treatmentStartTime = new();
     private readonly Dictionary<EntityUid, (string PartId, string OperationId, TimeSpan StartTime)> _surgeryOperations = new();
@@ -91,6 +92,7 @@ public sealed partial class SiriusAutodocSystem
         }
         else if (IsOrganOrPartSlot(slotId))
         {
+            _sawmill.Info($"OnContainerInserted: slot={slotId}, item={args.Entity}");
             EnableItemForSurgery(args.Entity);
 
             if (_surgerySystem != null &&
