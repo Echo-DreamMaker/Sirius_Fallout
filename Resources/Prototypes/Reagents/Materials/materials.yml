@@ -66,7 +66,7 @@
   stackEntity: MaterialWoodPlank1
   name: materials-wood
   unit: materials-unit-plank
-  icon: { sprite: Objects/Materials/materials.rsi, state: wood }
+  icon: { sprite: Objects/Materials/materials.rsi, state: firewood }
   color: "#966F33"
   price: 0.0033
 

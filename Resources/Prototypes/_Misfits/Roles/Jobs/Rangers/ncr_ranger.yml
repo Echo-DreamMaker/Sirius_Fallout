@@ -20,6 +20,7 @@
   icon: "JobIconNcrRanger" # Corvax-Change
   supervisors: job-supervisors-ncr-ranger
   requireAdminNotify: true
+  alwaysUseSpawner: true
   access:
   - NCR
   - NCRSGT

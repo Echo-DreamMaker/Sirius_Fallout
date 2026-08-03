@@ -9,7 +9,7 @@
   components:
   - type: Sprite
     sprite: Objects/Materials/materials.rsi
-    state: wood # #Misfits Fix - Natural/wood.rsi does not exist; wood state in materials.rsi used instead
+    state: firewood # #Misfits Fix - Natural/wood.rsi does not exist; wood state in materials.rsi used instead
   - type: Item
     size: Normal
   - type: CampfireFuel

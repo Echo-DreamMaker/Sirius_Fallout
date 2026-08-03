@@ -12,6 +12,7 @@
   description: job-description-enclave-recruit
   playTimeTracker: EnclaveRecruit
   supervisors: job-supervisors-none
+  alwaysUseSpawner: true
 
 - type: playTimeTracker
   id: EnclaveRecruit

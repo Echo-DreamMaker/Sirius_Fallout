@@ -236,9 +236,9 @@
     - firewood_3
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/materials.rsi
-    state: wood
+    state: firewood
     layers:
-    - state: wood
+    - state: firewood
       map: ["base"]
   - type: Appearance
   - type: Item
