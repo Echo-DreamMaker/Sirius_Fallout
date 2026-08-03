@@ -871,4 +871,22 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
 
         return true;
     }
+    public void CancelCurrentOperation(EntityUid autodocUid)
+    {
+        _sawmill.Info($"CancelCurrentOperation for {autodocUid}");
+        if (TryComp<SiriusAutodocSurgeryComponent>(autodocUid, out var surgeryComp))
+        {
+            surgeryComp.IsOperating = false;
+            surgeryComp.OperationProgress = 0f;
+            surgeryComp.CurrentOperationId = null;
+            surgeryComp.CurrentPartId = null;
+            surgeryComp.CurrentOperationName = null;
+            surgeryComp.SelectedPartId = null;
+        }
+        if (TryComp<SiriusAutodocComponent>(autodocUid, out var autodoc))
+        {
+            var system = EntityManager.System<SiriusAutodocSystem>();
+            system.UpdateUiState((autodocUid, autodoc));
+        }
+    }
 }

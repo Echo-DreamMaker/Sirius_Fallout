@@ -432,7 +432,7 @@ public sealed partial class SiriusAutodocSystem
             _damageable.TryChangeDamage(patient, healSpec, true);
     }
 
-    private void UpdateUiState(Entity<SiriusAutodocComponent> entity)
+    public void UpdateUiState(Entity<SiriusAutodocComponent> entity)
     {
         try
         {
@@ -574,8 +574,20 @@ public sealed partial class SiriusAutodocSystem
         if (_surgerySystem == null)
             return;
 
-        if (entity.Comp.CurrentPatient is not { } patient)
+        if (entity.Comp.CurrentPatient is not { } patient || entity.Comp.BodyContainer.ContainedEntity == null)
+        {
+            _sawmill.Info($"CompleteSurgeryOperation cancelled - patient was ejected");
+            if (TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComp))
+            {
+                surgeryComp.IsOperating = false;
+                surgeryComp.OperationProgress = 0f;
+                surgeryComp.CurrentOperationId = null;
+                surgeryComp.CurrentPartId = null;
+                surgeryComp.CurrentOperationName = null;
+            }
+            UpdateUiState(entity);
             return;
+        }
 
         var success = _surgerySystem.ExecuteSurgeryOperation(entity, patient, partId, operationId);
 
@@ -588,18 +600,18 @@ public sealed partial class SiriusAutodocSystem
             _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-failed"), entity);
         }
 
-        if (TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComponent))
+        if (TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComp2))
         {
-            surgeryComponent.IsOperating = false;
-            surgeryComponent.OperationProgress = 0f;
-            surgeryComponent.CurrentOperationId = null;
-            surgeryComponent.CurrentPartId = null;
-            surgeryComponent.CurrentOperationName = null;
+            surgeryComp2.IsOperating = false;
+            surgeryComp2.OperationProgress = 0f;
+            surgeryComp2.CurrentOperationId = null;
+            surgeryComp2.CurrentPartId = null;
+            surgeryComp2.CurrentOperationName = null;
         }
 
-        if (_surgerySystem != null && TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComponent2))
+        if (_surgerySystem != null && TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComp3))
         {
-            _surgerySystem.UpdateAvailableParts(entity, surgeryComponent2);
+            _surgerySystem.UpdateAvailableParts(entity, surgeryComp3);
         }
 
         UpdateUiState(entity);
@@ -648,6 +660,19 @@ public sealed partial class SiriusAutodocSystem
                 continue;
             }
 
+            if (comp.BodyContainer.ContainedEntity == null || comp.CurrentPatient == null)
+            {
+                _sawmill.Info($"Patient ejected during surgery, cancelling operation for {uid}");
+                if (_surgerySystem != null)
+                {
+                    _surgerySystem.CancelCurrentOperation(uid);
+                }
+                surgeriesToComplete.Add(uid);
+
+                UpdateUiState((uid, comp));
+                continue;
+            }
+
             var elapsed = (currentTime - surgeryData.StartTime).TotalSeconds;
             var progress = Math.Clamp((float) elapsed / SurgeryOperationDuration, 0f, 1f);
 
@@ -670,8 +695,15 @@ public sealed partial class SiriusAutodocSystem
 
                 if (TryComp<SiriusAutodocComponent>(uid, out var comp))
                 {
-                    var entity = new Entity<SiriusAutodocComponent>(uid, comp);
-                    CompleteSurgeryOperation(entity, data.PartId, data.OperationId);
+                    if (comp.BodyContainer.ContainedEntity != null && comp.CurrentPatient != null)
+                    {
+                        var entity = new Entity<SiriusAutodocComponent>(uid, comp);
+                        CompleteSurgeryOperation(entity, data.PartId, data.OperationId);
+                    }
+                    else
+                    {
+                        _sawmill.Info($"Skipping surgery completion - patient was ejected");
+                    }
                 }
             }
         }

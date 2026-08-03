@@ -32,6 +32,7 @@ public abstract partial class SharedSiriusAutodocSystem : EntitySystem
     [Dependency] protected readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] protected readonly IGameTiming _gameTiming = default!;
     [Dependency] protected readonly SharedDoAfterSystem _doAfterSystem = default!;
+    private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
 
     private readonly Dictionary<EntityUid, TimeSpan> _lastToggleTime = new();
 
@@ -223,6 +224,18 @@ public abstract partial class SharedSiriusAutodocSystem : EntitySystem
             return;
         }
 
+        if (component.SiriusSurgeryComponent != null &&
+            TryComp<SiriusAutodocSurgeryComponent>(component.SiriusSurgeryComponent.Value, out var surgeryComp) &&
+            surgeryComp.IsOperating)
+        {
+            _sawmill.Info($"Ejecting patient during surgery, cancelling operation");
+            surgeryComp.IsOperating = false;
+            surgeryComp.OperationProgress = 0f;
+            surgeryComp.CurrentOperationId = null;
+            surgeryComp.CurrentPartId = null;
+            surgeryComp.CurrentOperationName = null;
+        }
+
         if (!component.IsOpen)
         {
             component.IsOpen = true;
@@ -247,6 +260,17 @@ public abstract partial class SharedSiriusAutodocSystem : EntitySystem
 
         if (component.BodyContainer.ContainedEntity is not { Valid: true } contained)
             return null;
+
+        if (component.SiriusSurgeryComponent != null &&
+            TryComp<SiriusAutodocSurgeryComponent>(component.SiriusSurgeryComponent.Value, out var surgeryComp))
+        {
+            surgeryComp.IsOperating = false;
+            surgeryComp.OperationProgress = 0f;
+            surgeryComp.CurrentOperationId = null;
+            surgeryComp.CurrentPartId = null;
+            surgeryComp.CurrentOperationName = null;
+            surgeryComp.SelectedPartId = null;
+        }
 
         _containerSystem.Remove(contained, component.BodyContainer);
 
