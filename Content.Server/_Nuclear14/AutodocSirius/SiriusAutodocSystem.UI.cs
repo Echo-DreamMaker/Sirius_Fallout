@@ -4,19 +4,14 @@ using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Popups;
 using Content.Shared.Power;
-using Content.Shared.UserInterface;
-using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Linq;
 using static Content.Shared._Nuclear14.AutodocSirius.SharedSiriusAutodocSurgerySystem;
@@ -26,14 +21,12 @@ namespace Content.Server._Nuclear14.AutodocSirius;
 public sealed partial class SiriusAutodocSystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    private static readonly ISawmill _sawmill = Logger.GetSawmill("autodoc");
 
     private readonly Dictionary<EntityUid, TimeSpan> _treatmentStartTime = new();
     private readonly Dictionary<EntityUid, (string PartId, string OperationId, TimeSpan StartTime)> _surgeryOperations = new();
@@ -92,7 +85,6 @@ public sealed partial class SiriusAutodocSystem
         }
         else if (IsOrganOrPartSlot(slotId))
         {
-            _sawmill.Info($"OnContainerInserted: slot={slotId}, item={args.Entity}");
             EnableItemForSurgery(args.Entity);
 
             if (_surgerySystem != null &&
@@ -178,17 +170,11 @@ public sealed partial class SiriusAutodocSystem
     {
         if (entity.Comp.IsTreating)
         {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-cant-eject-beaker-treating"), entity, user);
             UpdateUiState(entity);
             return;
         }
 
         var result = _itemSlots.TryEject(entity.Owner, SiriusAutodocComponent.SiriusBeakerSlotId, user, out var ejected);
-        if (result)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-beaker-ejected"), entity, user);
-        }
-
         UpdateUiState(entity);
     }
 
@@ -237,7 +223,6 @@ public sealed partial class SiriusAutodocSystem
     {
         if (entity.Comp.IsTreating || entity.Comp.IsOpen)
         {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-cant-during-treatment"), entity, message.Actor);
             return;
         }
 
@@ -246,13 +231,11 @@ public sealed partial class SiriusAutodocSystem
 
         if (entity.Comp.CurrentPatient is not { } patient)
         {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-no-patient"), entity, message.Actor);
             return;
         }
 
         if (_surgeryOperations.ContainsKey(entity.Owner))
         {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-already-in-progress"), entity, message.Actor);
             return;
         }
 
@@ -264,7 +247,6 @@ public sealed partial class SiriusAutodocSystem
 
         if (operation == null || !operation.IsAvailable)
         {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-not-available"), entity, message.Actor);
             return;
         }
         var actualOperationId = operation.Id;
@@ -573,10 +555,8 @@ public sealed partial class SiriusAutodocSystem
     {
         if (_surgerySystem == null)
             return;
-
         if (entity.Comp.CurrentPatient is not { } patient || entity.Comp.BodyContainer.ContainedEntity == null)
         {
-            _sawmill.Info($"CompleteSurgeryOperation cancelled - patient was ejected");
             if (TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComp))
             {
                 surgeryComp.IsOperating = false;
@@ -590,16 +570,6 @@ public sealed partial class SiriusAutodocSystem
         }
 
         var success = _surgerySystem.ExecuteSurgeryOperation(entity, patient, partId, operationId);
-
-        if (success)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-complete", ("operation", GetOperationDisplayName(operationId))), entity);
-        }
-        else
-        {
-            _popupSystem.PopupEntity(Loc.GetString("autodoc-surgery-failed"), entity);
-        }
-
         if (TryComp<SiriusAutodocSurgeryComponent>(entity.Comp.SiriusSurgeryComponent, out var surgeryComp2))
         {
             surgeryComp2.IsOperating = false;
@@ -662,13 +632,11 @@ public sealed partial class SiriusAutodocSystem
 
             if (comp.BodyContainer.ContainedEntity == null || comp.CurrentPatient == null)
             {
-                _sawmill.Info($"Patient ejected during surgery, cancelling operation for {uid}");
                 if (_surgerySystem != null)
                 {
                     _surgerySystem.CancelCurrentOperation(uid);
                 }
                 surgeriesToComplete.Add(uid);
-
                 UpdateUiState((uid, comp));
                 continue;
             }
@@ -699,10 +667,6 @@ public sealed partial class SiriusAutodocSystem
                     {
                         var entity = new Entity<SiriusAutodocComponent>(uid, comp);
                         CompleteSurgeryOperation(entity, data.PartId, data.OperationId);
-                    }
-                    else
-                    {
-                        _sawmill.Info($"Skipping surgery completion - patient was ejected");
                     }
                 }
             }

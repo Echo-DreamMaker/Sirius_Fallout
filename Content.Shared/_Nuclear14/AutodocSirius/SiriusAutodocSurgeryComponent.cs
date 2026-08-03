@@ -1,10 +1,5 @@
-using Content.Shared._Shitmed.Body.Organ;
-using Content.Shared._Shitmed.Body.Part;
-using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
-using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Nuclear14.AutodocSirius;
 

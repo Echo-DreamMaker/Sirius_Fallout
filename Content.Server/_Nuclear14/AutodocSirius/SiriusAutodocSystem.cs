@@ -1,10 +1,5 @@
-using Content.Server.Power.Components;
 using Content.Shared._Nuclear14.AutodocSirius;
-using Content.Shared.DoAfter;
-using Content.Shared.DragDrop;
 using Content.Shared.Power;
-using Content.Shared.UserInterface;
-using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 
 namespace Content.Server._Nuclear14.AutodocSirius;
@@ -12,11 +7,9 @@ namespace Content.Server._Nuclear14.AutodocSirius;
 public sealed partial class SiriusAutodocSystem : SharedSiriusAutodocSystem
 {
     private SiriusAutodocSurgerySystem? _surgerySystem;
-
     public override void Initialize()
     {
         base.Initialize();
-
         _surgerySystem = EntityManager.System<SiriusAutodocSurgerySystem>();
         SubscribeLocalEvent<SiriusAutodocComponent, EntInsertedIntoContainerMessage>(OnContainerInserted);
         SubscribeLocalEvent<SiriusAutodocComponent, EntRemovedFromContainerMessage>(OnContainerRemoved);

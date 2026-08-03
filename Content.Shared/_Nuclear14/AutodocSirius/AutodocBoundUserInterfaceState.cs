@@ -1,4 +1,3 @@
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
 
@@ -29,7 +28,6 @@ public sealed class AutodocBoundUserInterfaceState : BoundUserInterfaceState
     public bool IsOperating;
     public float OperationProgress;
     public string? CurrentOperationName;
-
     public AutodocBoundUserInterfaceState(
         bool isOpen,
         bool powered,
@@ -78,7 +76,6 @@ public sealed class AutodocBoundUserInterfaceState : BoundUserInterfaceState
         CurrentOperationName = currentOperationName;
     }
 }
-
 [Serializable, NetSerializable]
 public sealed class AutodocBodyPartData
 {
@@ -86,7 +83,6 @@ public sealed class AutodocBodyPartData
     public string DisplayName;
     public bool IsPresent;
     public bool HasDamage;
-
     public AutodocBodyPartData(string id, string displayName, bool isPresent, bool hasDamage)
     {
         Id = id;
@@ -95,7 +91,6 @@ public sealed class AutodocBodyPartData
         HasDamage = hasDamage;
     }
 }
-
 [Serializable, NetSerializable]
 public sealed class AutodocOperationData
 {
@@ -103,7 +98,6 @@ public sealed class AutodocOperationData
     public string DisplayName;
     public bool IsAvailable;
     public string? Tooltip;
-
     public AutodocOperationData(string id, string displayName, bool isAvailable, string? tooltip = null)
     {
         Id = id;
@@ -112,7 +106,6 @@ public sealed class AutodocOperationData
         Tooltip = tooltip;
     }
 }
-
 [Serializable, NetSerializable]
 public enum OccupantStatus : byte
 {

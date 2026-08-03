@@ -9,7 +9,6 @@ public sealed partial class AutodocSurgeryOperationDoAfterEvent : SimpleDoAfterE
     public readonly string PartId;
     public readonly string OperationId;
     public readonly NetEntity AutodocUid;
-
     public AutodocSurgeryOperationDoAfterEvent(string partId, string operationId, NetEntity autodocUid)
     {
         PartId = partId;

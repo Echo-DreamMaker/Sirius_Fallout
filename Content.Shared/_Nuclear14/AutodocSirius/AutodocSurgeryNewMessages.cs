@@ -12,20 +12,17 @@ public sealed class AutodocSurgeryPartSelectedMessage : BoundUserInterfaceMessag
         PartId = partId;
     }
 }
-
 [Serializable, NetSerializable]
 public sealed class AutodocSurgeryOperationMessage : BoundUserInterfaceMessage
 {
     public readonly string PartId;
     public readonly string OperationId;
-
     public AutodocSurgeryOperationMessage(string partId, string operationId)
     {
         PartId = partId;
         OperationId = operationId;
     }
 }
-
 [Serializable, NetSerializable]
 public sealed class AutodocSurgeryBackMessage : BoundUserInterfaceMessage
 {

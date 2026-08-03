@@ -1,4 +1,3 @@
-using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -33,37 +32,27 @@ public sealed partial class SiriusAutodocComponent : Component
 
     [ViewVariables]
     public ContainerSlot BodyContainer = default!;
-
     [ViewVariables]
     public readonly string[] PartSlotIds = new string[MaxSlots];
-
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("entryDelay")]
     public float EntryDelay = 2f;
-
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("treatmentDuration")]
     public float TreatmentDuration = 10f;
-
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("isOpen")]
     public bool IsOpen = true;
-
     [ViewVariables]
     public bool Powered = false;
-
     [ViewVariables]
     public bool IsTreating = false;
-
     [ViewVariables]
     public bool IsEjecting = false;
-
     [ViewVariables]
     public EntityUid? CurrentPatient = null;
-
     [ViewVariables]
     public EntityUid? SiriusSurgeryComponent = null;
-
     [Serializable, NetSerializable]
     public enum AutodocVisuals : byte
     {

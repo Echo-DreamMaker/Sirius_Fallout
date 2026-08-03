@@ -1,8 +1,5 @@
-using Content.Client.UserInterface.Controls;
 using Content.Shared._Nuclear14.AutodocSirius;
 using Robust.Client.UserInterface;
-using Robust.Client.UserInterface.CustomControls;
-using Robust.Shared.Log;
 
 namespace Content.Client._Nuclear14.AutodocSirius;
 
@@ -13,7 +10,6 @@ public sealed class SiriusAutodocBoundUserInterface : BoundUserInterface
     public SiriusAutodocBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
-
     protected override void Open()
     {
         _window = this.CreateWindow<SiriusAutodocWindow>();
@@ -29,7 +25,6 @@ public sealed class SiriusAutodocBoundUserInterface : BoundUserInterface
         }
         base.Open();
     }
-
     protected override void UpdateState(BoundUserInterfaceState? state)
     {
         if (_window == null)
@@ -40,7 +35,6 @@ public sealed class SiriusAutodocBoundUserInterface : BoundUserInterface
             _window.UpdateState(castState);
         }
     }
-
     private void OnButtonPressed(AutodocUiButton button)
     {
         if (button == AutodocUiButton.Close)
@@ -51,7 +45,6 @@ public sealed class SiriusAutodocBoundUserInterface : BoundUserInterface
 
         SendMessage(new AutodocUiButtonPressedMessage(button));
     }
-
     private void OnPartSelected(string partId)
     {
         SendMessage(new AutodocSurgeryPartSelectedMessage(partId));
@@ -61,7 +54,6 @@ public sealed class SiriusAutodocBoundUserInterface : BoundUserInterface
     {
         SendMessage(new AutodocSurgeryOperationMessage(partId, operationId));
     }
-
     protected override void Dispose(bool disposing)
     {
         if (disposing && _window != null)

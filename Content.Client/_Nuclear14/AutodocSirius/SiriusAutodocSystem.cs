@@ -1,19 +1,16 @@
 using Content.Shared._Nuclear14.AutodocSirius;
-using Content.Shared.DrawDepth;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using System.Numerics;
 using DrawDepthShared = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Client._Nuclear14.AutodocSirius;
-
 public sealed class SiriusAutodocSystem : SharedSiriusAutodocSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SpriteSystem _spriteSystem = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -21,7 +18,6 @@ public sealed class SiriusAutodocSystem : SharedSiriusAutodocSystem
         SubscribeLocalEvent<InsideAutodocComponent, ComponentStartup>(OnInsideStartup);
         SubscribeLocalEvent<InsideAutodocComponent, ComponentRemove>(OnInsideRemove);
     }
-
     private void OnInsideStartup(EntityUid uid, InsideAutodocComponent component, ComponentStartup args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
@@ -35,7 +31,6 @@ public sealed class SiriusAutodocSystem : SharedSiriusAutodocSystem
             sprite.Visible = autodoc.IsOpen;
         }
     }
-
     private void OnInsideRemove(EntityUid uid, InsideAutodocComponent component, ComponentRemove args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
@@ -44,21 +39,16 @@ public sealed class SiriusAutodocSystem : SharedSiriusAutodocSystem
         _spriteSystem.SetOffset(uid, component.PreviousOffset);
         sprite.Visible = true;
     }
-
     private void OnAppearanceChange(EntityUid uid, SiriusAutodocComponent component, ref AppearanceChangeEvent args)
     {
         if (args.Sprite == null)
             return;
-
         if (!_appearance.TryGetData<bool>(uid, SiriusAutodocComponent.AutodocVisuals.IsOn, out var isOn, args.Component))
             isOn = false;
-
         if (!_appearance.TryGetData<bool>(uid, SiriusAutodocComponent.AutodocVisuals.IsOpen, out var isOpen, args.Component))
             isOpen = true;
-
         var baseLayer = args.Sprite.LayerMapReserveBlank(AutodocVisualLayers.Base);
         _spriteSystem.LayerSetRsiState(uid, baseLayer, isOn ? "autodoc_on" : "autodoc_off");
-
         var doorLayer = args.Sprite.LayerMapReserveBlank(AutodocVisualLayers.Door);
         if (isOpen)
         {
@@ -84,13 +74,11 @@ public sealed class SiriusAutodocSystem : SharedSiriusAutodocSystem
             }
         }
     }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
     }
 }
-
 public enum AutodocVisualLayers : byte
 {
     Base,
