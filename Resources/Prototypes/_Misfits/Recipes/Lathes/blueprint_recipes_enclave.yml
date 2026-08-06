@@ -66,7 +66,7 @@
 # PPK12 12-round magazine - 5 circuitry, 5 steel, 2 copper
 - type: latheRecipe
   id: N14BPEnclaveAmmoMag2mmECPistol
-  result: N14BaseMagazine2mmECPistol
+  result: N14MagazinePistol2mmEC
   category: N14enclaveheavyordnancet5
   completetime: 5
   requiresBlueprint: true
@@ -78,15 +78,15 @@
     N14Copper: 200
 
 # 2mmEC ammo box, 40 rounds - 20 circuitry, 15 steel, 10 copper
-# - type: latheRecipe
-#   id: N14BPEnclaveAmmoBox2mmEC
-#   result: N14AmmoBox2mmEC
-#   category: N14enclaveheavyordnancet5
-#   completetime: 8
-#   requiresBlueprint: true
-#   availableFaction:
-#   - Enclave
-#   materials:
-#     Circuitry: 1000
-#     Steel: 1500
-#     N14Copper: 1000
+- type: latheRecipe
+  id: N14BPEnclaveAmmoBox2mmEC
+  result: N14AmmoBox2mmEC
+  category: N14enclaveheavyordnancet5
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Circuitry: 1000
+    Steel: 1500
+    N14Copper: 1000
