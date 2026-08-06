@@ -2,7 +2,7 @@
   parent: BaseStructure
   id: N14WreckCoupe
   name: wrecked coupe
-  description: a wrecked pre-war car.
+  description: If you could just find the right parts and tools, you could fix this up and get out of here. Yeah right, like that'll ever happen!
   suffix: Mapping
   components:
   - type: Fixtures
@@ -151,7 +151,7 @@
   parent: N14WreckCoupe
   id: N14WreckMusclecar
   name: wrecked muscle car
-  description: a wrecked pre-war car.
+  description: Once a projection of great might, now its rusted shell haunts the road. Its ghost whispers to you, promises you will be a God of the Road.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Misc/wrecks.rsi
@@ -254,7 +254,7 @@
   parent: N14WreckCoupe
   id: N14WreckSportscar
   name: wrecked sports car
-  description: a wrecked pre-war car.
+  description: This speed demon has been exorcised. Could you imagine how fast it went? Not fast enough to escape its fate, apparently.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Misc/wrecks.rsi
@@ -357,7 +357,7 @@
   parent: N14WreckCoupe
   id: N14WreckVan
   name: wrecked van
-  description: a wrecked pre-war van.
+  description: The arteries of the United States pre-collapse were filled with these busy little transports. Now they are little more than shelters for the radroaches.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Misc/wrecks.rsi

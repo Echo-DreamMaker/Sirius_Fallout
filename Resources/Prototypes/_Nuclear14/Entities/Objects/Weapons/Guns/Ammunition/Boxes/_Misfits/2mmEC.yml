@@ -1,0 +1,33 @@
+# #Misfits Add - 2mmEC ammunition box for the Enclave gauss weapons (PPK12 / M72).
+# Reuses the .60 anti-materiel ammunition box sprite. Craftable via the
+# Enclave Heavy Ordnance blueprint (N14enclaveheavyordnancet5).
+- type: entity
+  parent: BaseItem
+  id: N14AmmoBox2mmEC
+  name: ammunition box (2mmEC)
+  description: A sealed box of 2mm electromagnetic cartridges for gauss weapons.
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14Cartridge2mmEC
+    proto: N14Cartridge2mmEC
+    capacity: 40
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance

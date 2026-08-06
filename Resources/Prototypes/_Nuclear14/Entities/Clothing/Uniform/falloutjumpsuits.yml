@@ -62,8 +62,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitRDFormal
-  name: research director's formal suit
-  description: Some formal attire for the research director.
+  name: formal brown suit
+  description: Formal attire for office workers and research personnel alike, in the safe neutral tones of beige and brown, it even has a clip-on tie included. This outfit has achieved true neutrality.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/rdformal.rsi
@@ -122,7 +122,6 @@
   id: N14ClothingUniformJumpsuitEnclave
   name: enclave uniform
   description: A uniform worn by members of the Enclave.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/enclaveuni.rsi
@@ -708,7 +707,7 @@
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitChinese
   name: chinese uniform
-  description: A green single piece jumpsuit with the chinese flag on it.
+  description: A green single piece jumpsuit with the Chinese flag on it.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/chineseuniform.rsi
@@ -785,15 +784,3 @@
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/townguarduniformlight.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/townguarduniformlight.rsi
-
-# Sirius add:
-- type: entity
-  parent: N14ClothingUniformBase
-  id: N14ClothingUniformJumpsuitBritish
-  name: British Frock coat
-  description: An old uniform of british army. Still dapper.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/british.rsi
-  - type: Clothing
-    sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/british.rsi

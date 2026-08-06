@@ -33,19 +33,19 @@ job-description-enclave-reformer = You are the Enclave's supreme authority on th
 job-name-enclave-commander = Enclave Commander
 job-description-enclave-commander = Lead the Enclave cell with absolute authority, coordinate military and science branches, and ensure operational security.
 job-name-enclave-senior-officer = Enclave Senior Officer
-job-description-enclave-senior-officer = Serve as the Commander's right hand, directing field operations and managing subordinate officers.
+job-description-enclave-senior-officer = Serve as the Commander's right hand, directing field operations and managing subordinate officers. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
 job-name-enclave-junior-officer = Enclave Junior Officer
-job-description-enclave-junior-officer = Lead squads in the field, execute mission objectives, and bridge the gap between NCOs and senior command.
+job-description-enclave-junior-officer = Lead squads in the field, execute mission objectives, and bridge the gap between NCOs and senior command. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
 job-name-enclave-nco = Enclave NCO
-job-description-enclave-nco = Maintain discipline, train enlisted personnel, and ensure tactical readiness on the ground.
+job-description-enclave-nco = Maintain discipline, train enlisted personnel, and ensure tactical readiness on the ground. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
 job-name-enclave-enlisted = Enclave Enlisted
-job-description-enclave-enlisted = Serve as the Enclave's frontline trooper, follow orders, and execute the mission.
+job-description-enclave-enlisted = Serve as the Enclave's frontline trooper, follow orders, and execute the mission. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
 job-name-enclave-head-scientist = Enclave Head Scientist
-job-description-enclave-head-scientist = Direct the Enclave's research programs, oversee junior scientists, and advise command on technical matters.
+job-description-enclave-head-scientist = Direct the Enclave's research programs, oversee junior scientists, and advise command on technical matters. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
 job-name-enclave-scientist = Enclave Scientist
-job-description-enclave-scientist = Conduct field research, maintain advanced equipment, and support the cell's scientific mission.
+job-description-enclave-scientist = Conduct field research, maintain advanced equipment, and support the cell's scientific mission. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
 job-name-enclave-junior-scientist = Enclave Junior Scientist
-job-description-enclave-junior-scientist = Assist senior scientists, learn Enclave protocols, and contribute to ongoing research.
+job-description-enclave-junior-scientist = Assist senior scientists, learn Enclave protocols, and contribute to ongoing research. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
 
 # #Misfits Add - EnclaveRecruit: hidden job for per-round recruitment tracking.
 job-name-enclave-recruit = Enclave Recruit
@@ -184,4 +184,7 @@ job-name-caesar-legion-Acolyte-of-mars = Acolyte of Mars
 job-description-caesar-legion-Acolyte-of-mars = You are a devoted Acolyte of Mars, you answer to the Priestess directly.
 
 job-name-bos-off-duty = Off Duty BOS
-job-description-bos-off-duty = You are an off-duty member of the Brotherhood of Steel. You are not expected to participate in combat operations, you are not to enter the bunker unless in danger either.
+job-description-bos-off-duty = You are an off-duty member of the Brotherhood of Steel. You are not to participate in combat operations as this week you are not on duty.
+
+job-name-ncr-provost = NCR Provost
+job-description-ncr-provost = You are An investigator sent on behalf of the Provost office.

@@ -18,9 +18,9 @@
       back: N14ClothingPowerSystemsBack
 
 - type: entity
-  parent: N14ClothingOuterPowerArmorT51
+  parent: N14ClothingOuterPowerArmorT45NCRSalvaged
   id: N14ClothingOuterPowerArmorT51NCR
-  name: t-51 NCR power armor
+  name: t-51 NCR salvaged power armor
   description: A modified T-51 power armor suit used by the NCR. The servo drives have been removed to simplify maintenance, making it slower but more reliable in the field.
   components:
   - type: Sprite
@@ -29,15 +29,28 @@
     sprite: Corvax/Clothing/OuterClothing/PowerArmor/t51NCR.rsi
     equipDelay: 3
     unequipDelay: 6
-  - type: ClothingSpeedModifier
-    walkModifier: 0.15
-    sprintModifier: 0.15
+  - type: N14PowerArmor
+    requiresProficiency: false
+  - type: PowerArmorIntegrity
+    maxIntegrity: 450          
+    brokenBleedthroughRatio: 1.0  
+    disableServosLock: true      
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
+        Heat: 0.60
+        Radiation: 0.60
+  - type: ClothingSpeedModifier # #Misfits Tweak - standalone 35% slowdown, no fusion core required
+    walkModifier: 0.70
+    sprintModifier: 0.70
   - type: ToggleableClothing
     clothingPrototypes:
       head: N14ClothingHeadHelmetPowerArmorT51NCR
       gloves: N14ClothingPAGauntlets
       shoes: N14ClothingPABoots
-      back: N14ClothingPowerSystemsBack
 
 
 - type: entity

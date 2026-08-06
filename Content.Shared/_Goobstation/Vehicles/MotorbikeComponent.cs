@@ -25,25 +25,25 @@ public sealed partial class MotorbikeComponent : Component
     public FixedPoint2 RefillAmount = FixedPoint2.New(200f);
 
     [DataField]
-    public FixedPoint2 MaxIntegrity = FixedPoint2.New(500f);
+    public FixedPoint2 MaxIntegrity = FixedPoint2.New(280f);
 
     [DataField]
     public TimeSpan RefillDelay = TimeSpan.FromSeconds(10);
 
     [DataField]
-    public TimeSpan ExplosionDelay = TimeSpan.FromSeconds(5);
+    public TimeSpan ExplosionDelay = TimeSpan.FromSeconds(10);
 
     [DataField]
     public string ExplosionType = "Default";
 
     [DataField]
-    public float ExplosionTotalIntensity = 30f;
+    public float ExplosionTotalIntensity = 10f;
 
     [DataField]
     public float ExplosionSlope = 10f;
 
     [DataField]
-    public float ExplosionMaxTileIntensity = 10f;
+    public float ExplosionMaxTileIntensity = 5f;
 
     [DataField]
     public SoundSpecifier RefillSound = new SoundPathSpecifier("/Audio/Effects/refill.ogg");

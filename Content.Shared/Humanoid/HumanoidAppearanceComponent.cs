@@ -117,6 +117,15 @@ public sealed partial class HumanoidAppearanceComponent : Component
     public HashSet<HumanoidVisualLayers> HideLayersOnEquip = [HumanoidVisualLayers.Hair];
 
     /// <summary>
+    ///     The undergarment markings used when nudity censorship is enabled.
+    /// </summary>
+    [DataField]
+    public ProtoId<MarkingPrototype>? UndergarmentTop = new("UndergarmentTopTanktop");
+
+    [DataField]
+    public ProtoId<MarkingPrototype>? UndergarmentBottom = new("UndergarmentBottomBoxers");
+
+    /// <summary>
     /// DeltaV - let paradox anomaly be cloned
     /// </summary>
     [ViewVariables]

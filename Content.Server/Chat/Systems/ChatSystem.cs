@@ -15,6 +15,8 @@ using Content.Shared.Administration;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
+using Content.Shared._Misfits.Common.Speech;
+using Content.Shared._Misfits.Genetics.Abilities;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Language;
@@ -43,7 +45,9 @@ using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Server.Shuttles.Components;
+using Content.Server._Misfits.Administration.MysteriousStranger; // #Misfits Add - stranger speech filtering
 using Content.Server._Misfits.Supporter; // #Misfits Add - Supporter chat integration
+using Content.Shared.Eye; // #Misfits Add - stranger speech filtering
 using Content.Shared._Misfits.Special;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics.Joints;
@@ -858,6 +862,10 @@ public sealed partial class ChatSystem : SharedChatSystem
                 continue;
             EntityUid listener = session.AttachedEntity.Value;
 
+            // Genetics: deaf entities cannot receive spoken local chat. Emotes and LOOC remain visible.
+            if (HasComp<DeafComponent>(listener) && channel != ChatChannel.Emotes && channel != ChatChannel.LOOC)
+                continue;
+
 
             // If the channel does not support languages, or the entity can understand the message, send the original message, otherwise send the obfuscated version
             if (channel == ChatChannel.LOOC || channel == ChatChannel.Emotes || _language.CanUnderstand(listener, language.ID))
@@ -1037,12 +1045,14 @@ public sealed partial class ChatSystem : SharedChatSystem
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
         var fontSize = _special.GetCharismaChatFontSize(source, language.SpeechOverride.FontSize ?? speech.FontSize);
+        var font = new SpeechFontOverrideEvent(source, language.SpeechOverride.FontId ?? speech.FontId);
+        RaiseLocalEvent(source, ref font);
 
         return Loc.GetString(wrapId,
             ("color", color),
             ("entityName", entityName),
             ("verb", Loc.GetString(verbId)),
-            ("fontType", language.SpeechOverride.FontId ?? speech.FontId),
+            ("fontType", font.Font),
             ("fontSize", fontSize),
             ("message", message),
             ("language", languageDisplay));
@@ -1085,6 +1095,19 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             if (observer)
                 recipients.Add(player, new ICChatRecipientData(-1, true));
+        }
+
+        // #Misfits Add - mysterious strangers are only heard by sessions whose eye can actually see them
+        // (their target and admin observers). Covers say, whisper and emotes, which all pass through here.
+        if (HasComp<MysteriousStrangerComponent>(source))
+        {
+            foreach (var session in recipients.Keys.ToArray())
+            {
+                if (session.AttachedEntity is not { } listener
+                    || !TryComp<EyeComponent>(listener, out var listenerEye)
+                    || (listenerEye.VisibilityMask & (int) VisibilityFlags.MysteriousStranger) == 0)
+                    recipients.Remove(session);
+            }
         }
 
         RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, voiceGetRange, recipients));

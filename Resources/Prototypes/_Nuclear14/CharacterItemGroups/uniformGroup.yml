@@ -161,3 +161,25 @@
       id: N14LoadoutClothingUniformJumpsuitEnclaveGrey
     - type: loadout
       id: N14LoadoutClothingUniformJumpsuitEnclaveBlue
+    - type: loadout # Misfits 80s
+      id: MisfitsLoadoutUniform80sPants
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformADPUniform
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformMarlowdudsUniform
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformIkedudsUniform
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformHelendudsUniform
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformMasondudsUniform
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformSchlimmUniform
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformKhansUniform
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformKhansUniformShorts
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformEnclaveUniformGrey
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformEnclaveUniformBlue

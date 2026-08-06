@@ -12,7 +12,7 @@
     whitelist:
       tags:
         - N14CartridgePistol10
-    capacity: 6
+    capacity: 8
   - type: Sprite
   - type: ContainerContainer
     containers:

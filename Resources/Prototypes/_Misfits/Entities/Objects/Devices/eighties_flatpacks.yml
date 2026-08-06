@@ -8,6 +8,7 @@
     entity: N14VehicleBikeGreen
     extraEntities:
     - TrainingManualEightiesRider
+    - VehicleKeyMotorbike
   - type: Sprite
     layers:
     - state: base
@@ -28,6 +29,7 @@
     entity: N14VehicleBikeFlamey
     extraEntities:
     - TrainingManualEightiesRider
+    - VehicleKeyMotorbike
   - type: Sprite
     layers:
     - state: base
@@ -48,6 +50,7 @@
     entity: N14VehicleBikeRustLight
     extraEntities:
     - TrainingManualEightiesRider
+    - VehicleKeyMotorbike
   - type: Sprite
     layers:
     - state: base
@@ -68,6 +71,7 @@
     entity: N14VehicleBikeScrambler
     extraEntities:
     - TrainingManualEightiesRider
+    - VehicleKeyMotorbike
   - type: Sprite
     layers:
     - state: base
@@ -88,6 +92,7 @@
     entity: N14VehicleBikeClassic
     extraEntities:
     - TrainingManualEightiesRider
+    - VehicleKeyMotorbike
   - type: Sprite
     layers:
     - state: base

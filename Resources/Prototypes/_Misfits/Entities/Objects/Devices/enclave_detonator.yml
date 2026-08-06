@@ -1,0 +1,56 @@
+# #Misfits Add - Enclave command microbomb and admin-spawnable remote detonator.
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: EnclaveMicroBombImplant
+  name: micro-bomb implant
+  description: This implant detonates the user on command or when its programmed failsafe word is spoken.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+    implantAction: ActionActivateMicroBomb
+  - type: EnclaveMicroBomb
+    keyword: Enclave
+    beepSound:
+      path: /Audio/Effects/beep1.ogg
+  - type: ExplodeOnTrigger
+  - type: GibOnTrigger
+    deleteItems: true
+  - type: Explosive
+    explosionType: MicroBomb
+    totalIntensity: 120
+    intensitySlope: 5
+    maxIntensity: 30
+    canCreateVacuum: false
+  - type: Tag
+    tags:
+    - SubdermalImplant
+    - HideContextMenu
+    - MicroBomb
+
+- type: entity
+  parent: BaseItem
+  id: EnclaveMicroBombDetonator
+  name: Enclave microbomb detonator
+  description: A prototype command remote that monitors and detonates Enclave personnel implants.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/door_remote.rsi
+    layers:
+    - state: door_remotebase
+    - state: door_remotelightscolour
+      color: "#365f9d"
+    - state: door_remotescreencolour
+      color: "#6ba4ff"
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: EnclaveDetonator
+  - type: ActivatableUI
+    key: enum.EnclaveDetonatorUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.EnclaveDetonatorUiKey.Key:
+        type: EnclaveDetonatorBoundUserInterface

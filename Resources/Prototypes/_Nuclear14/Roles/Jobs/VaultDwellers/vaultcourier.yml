@@ -1,0 +1,50 @@
+- type: job
+  id: VaultCourier
+  weight: 20
+  hideWithoutJobWhitelist: false # #Misfits Tweak - no whitelist gate
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - always visible
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change - open to all
+  name: job-name-vault-courier
+  description: job-description-vault-courier
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  setPreference: true
+  overrideConsoleVisibility: true
+  canBeAntag: false
+  overwatchCategory: OverwatchGeneral
+  playTimeTracker: VaultCourier
+  startingGear: VaultCourierGear
+  alwaysUseSpawner: true
+  icon: "JobIconVaulDweller"
+  supervisors: job-supervisors-vault
+  access:
+  - VaultDweller
+  - VaultCourier
+  - VaultEngineer # TODO: remove once VaultCourier doors are mapped — stopgap so this role isn't locked out
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - Vault
+
+- type: startingGear
+  id: VaultCourierGear
+  equipment:
+    head: ClothingHeadMailCarrier
+    jumpsuit: ClothingUniformMailCarrier
+    back: N14ClothingBackpackSatchelTrekker
+    shoes: N14ClothingBootsBlack
+    id: MisfitsVaultCourierPDA
+    ears: N14ClothingHeadsetVaultDweller
+  storage: # Forge-Change
+    back:
+    - N14Bandage
+    - N14CurrencyPrewarMoney100
+    - N14CurrencyPrewarMoney100
+    - VaultGuidePaper
+- type: playTimeTracker
+  id: VaultCourier

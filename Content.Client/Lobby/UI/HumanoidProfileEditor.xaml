@@ -217,7 +217,7 @@
             </BoxContainer>
             <BoxContainer Name="MarkingsTab" HorizontalExpand="True" Orientation="Vertical" Margin="10">
                 <ScrollContainer HorizontalExpand="True" HScrollEnabled="True" VerticalExpand="True" VScrollEnabled="True">
-                    <humanoid:MarkingPicker Name="Markings" IgnoreCategories="Hair,FacialHair,UndergarmentTop,UndergarmentBottom" />
+                    <humanoid:MarkingPicker Name="Markings" IgnoreCategories="Hair,FacialHair" />
                 </ScrollContainer>
             </BoxContainer>
         </ui:NeoTabContainer>

@@ -17,6 +17,7 @@ using Content.Shared.Tag;
 using Content.Shared._Misfits.WastelandMap;
 using Content.Shared._Misfits.TribalHunt;
 using Content.Shared.NPC.Components; // NpcFactionMemberComponent
+using Content.Shared.Roles.Jobs; // #Misfits Add - leadership job lookup for Tree TacMap access
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
@@ -41,6 +42,8 @@ public sealed class WastelandMapSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!; // #Misfits Add - Tree map leadership lookup
+    [Dependency] private readonly SharedJobSystem _jobs = default!; // #Misfits Add - Tree map leadership lookup
     [Dependency] private readonly GroupSystem _groupSystem = default!; // #Misfits Add - group member map blips
     // #Misfits Add - Followers dead body tracking & death alerts
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -80,6 +83,7 @@ public sealed class WastelandMapSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<WastelandMapComponent, AfterActivatableUIOpenEvent>(OnAfterOpen);
+        SubscribeLocalEvent<WastelandMapComponent, ActivatableUIOpenAttemptEvent>(OnOpenAttempt); // #Misfits Add - optional Tree map job gate
         SubscribeLocalEvent<WastelandMapComponent, WastelandMapAddAnnotationMessage>(OnAddAnnotationMessage);
         SubscribeLocalEvent<WastelandMapComponent, WastelandMapRemoveAnnotationMessage>(OnRemoveAnnotationMessage);
         SubscribeLocalEvent<WastelandMapComponent, WastelandMapClearAnnotationsMessage>(OnClearAnnotationsMessage);
@@ -219,6 +223,25 @@ public sealed class WastelandMapSystem : EntitySystem
         var userMap = Transform(args.User).MapID;
         // #Misfits Add - pass the user so group member blips are seeded correctly on open
         _uiSystem.SetUiState(uid, WastelandMapUiKey.Key, BuildState(uid, comp, userMap, actor: args.User));
+    }
+
+    // #Misfits Add - preserve unrestricted maps unless they define a leadership allowlist.
+    private void OnOpenAttempt(Entity<WastelandMapComponent> ent, ref ActivatableUIOpenAttemptEvent args)
+    {
+        if (args.Cancelled || CanOpenMap(args.User, ent.Comp))
+            return;
+
+        args.Cancel();
+    }
+
+    internal bool CanOpenMap(EntityUid user, WastelandMapComponent component)
+    {
+        if (component.ActivatorJobs is not { Count: > 0 })
+            return true;
+
+        return _mind.TryGetMind(user, out var mindId, out _)
+            && _jobs.MindTryGetJob(mindId, out _, out var job)
+            && component.ActivatorJobs.Contains(job.ID);
     }
 
     private void OnAddAnnotationMessage(EntityUid uid, WastelandMapComponent comp, WastelandMapAddAnnotationMessage args)
@@ -409,14 +432,15 @@ public sealed class WastelandMapSystem : EntitySystem
         {
             _blipScratch.Clear();
             AppendFactionBlips(_blipScratch, feed, mapId, bounds);
-            AppendTribalHuntTargetBlips(_blipScratch, mapId, bounds);
+            if (AllowsSharedOverlays(feed)) // #Misfits Change - Tribe maps are tagged-ID-only.
+                AppendTribalHuntTargetBlips(_blipScratch, mapId, bounds);
             nonActorBlips = _blipScratch.ToArray();
             if (_inUpdateSweep)
                 _nonActorCache[cacheKey] = nonActorBlips;
         }
 
         // Group blips are per-actor and therefore never cached across viewers.
-        if (actor.HasValue)
+        if (actor.HasValue && AllowsSharedOverlays(feed)) // #Misfits Change - Tribe maps exclude viewer-specific group overlays.
         {
             _groupScratch.Clear();
             AppendGroupMemberBlips(_groupScratch, actor.Value, mapId, bounds);
@@ -431,6 +455,12 @@ public sealed class WastelandMapSystem : EntitySystem
         }
 
         return nonActorBlips;
+    }
+
+    // #Misfits Add - keep the Tribe feed limited to its explicitly tagged identification items.
+    internal bool AllowsSharedOverlays(WastelandMapTacticalFeedKind feed)
+    {
+        return feed != WastelandMapTacticalFeedKind.Tribe;
     }
 
     // #Misfits Add - Append the faction blip set for this feed into the supplied buffer.
@@ -452,6 +482,9 @@ public sealed class WastelandMapSystem : EntitySystem
                 break;
             case WastelandMapTacticalFeedKind.Legion:
                 AppendIdCardBlips(buffer, mapId, bounds, "IdCardLegion");
+                break;
+            case WastelandMapTacticalFeedKind.Tribe:
+                AppendIdCardBlips(buffer, mapId, bounds, "IdCardTribe"); // #Misfits Add - Willower pendant feed
                 break;
             // #Misfits Add - Followers feed shows dead player humanoids
             case WastelandMapTacticalFeedKind.Followers:
@@ -691,6 +724,11 @@ public sealed class WastelandMapSystem : EntitySystem
 
     private static WastelandMapTrackedBlipKind GetHolotagKind(IdCardComponent idCard, PresetIdCardComponent presetId, MetaDataComponent meta)
     {
+        // #Misfits Add - shared Willower marker for every tagged pendant/navigation card.
+        var jobId = presetId.JobName?.Id;
+        if (jobId is "TribalElder" or "TribalShaman" or "TribalFarmer" or "Tribal" or "SyntheticProtectronTribal")
+            return WastelandMapTrackedBlipKind.Willower;
+
         var rank = idCard.LocalizedJobTitle?.Trim();
         if (string.IsNullOrWhiteSpace(rank))
             rank = presetId.JobName?.ToString()?.Trim();

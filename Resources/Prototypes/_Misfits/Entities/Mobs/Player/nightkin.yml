@@ -1,4 +1,5 @@
 # #Misfits Add - Player-controlled Nightkin entity.
+# perks go here and not on the base mob so NPC nightkin don't get them
 
 - type: entity
   save: false
@@ -9,3 +10,35 @@
     - type: NpcFactionMember
       factions:
       - Wastelander
+    # #Misfits Add - innate stealth boy implant. cooldown = recharge after decloak.
+    # still = fully invisible, slow walk = 0.1 whisper, running = normal 0.3 shimmer
+    - type: NightkinPassiveStealth
+      cooldown: 30
+      stillVisibility: -1
+      walkVisibility: 0.1
+    # #Misfits Add - the best shooters in the wasteland, big frame soaks the recoil.
+    # 0.02 = 98% tighter spread, near pinpoint even one-handed. 0 = perfect accuracy
+    - type: GunHandlingModifier
+      spreadMultiplier: 0.02
+      recoilMultiplier: 0.02
+    # #Misfits Add - barefoot nightkin make no footstep sounds
+    - type: NoShoesSilentFootsteps
+    # #Misfits Change - leaner metabolism than supermutants: 1.5x human hunger (SM is 3x)
+    - type: Hunger
+      baseDecayRate: 0.012
+    # #Misfits Change - faster than supermutants (2.0/3.5), still slower than humans (3.0/5.0)
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 4
+    # #Misfits Add - too big to limp early. no slowdown until 200 dmg (crit is 250)
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        200: 0.85
+    # #Misfits Add - no passive regen. instead they heal 0.5/sec in every damage
+    # type they're hurt in, but only while soaking rads. healFactor 0 turns off the
+    # inherited exposure-scaled heal so this flat rate is the only one.
+    - type: RadiationHealing
+      healFactor: 0
+      healCap: 360
+    - type: RadiationRegen
+      healPerSecond: 0.5

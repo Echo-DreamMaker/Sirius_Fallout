@@ -14,17 +14,15 @@
   - type: Icon
     sprite: _Misfits/Mobs/Species/Nightkin/parts.rsi
     state: full
-  # #Misfits Add - Innate Stealth Boy implant: toggle-able cloak with hallucination side effects.
-  - type: NightkinPassiveStealth
   # #Misfits Tweak - Nightkin are tougher than standard supermutants (200 crit / 400 dead).
   - type: MobThresholds
     thresholds:
       0: Alive
-      400: Critical
-      600: Dead
-  # Scale healCap to 90% of dead threshold (540 = 90% of 600).
+      250: Critical
+      400: Dead
+  # Scale healCap to 90% of dead threshold (360 = 90% of 400).
   - type: RadiationHealing
-    healCap: 540
+    healCap: 360
 
 # Character-creation preview dummy for Nightkin.
 # Parents MobHumanDummy (not the base mob) to match the supermutant dummy pattern.

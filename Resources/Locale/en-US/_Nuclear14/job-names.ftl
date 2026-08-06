@@ -113,6 +113,12 @@ job-name-vault-engineer = Vault Engineer
 job-description-vault-engineer = Maintain the Vault and all its vital systems to ensure a comfortable and safe life.
 job-name-vault-security = Vault Security
 job-description-vault-security = Keep order within the Vault and report to the Overseer. For the good of the Vault!
+job-name-vault-cargo-specialist = Cargo Specialist
+job-description-vault-cargo-specialist = Manage the Vault's stockpiles and requisition supplies.
+job-name-vault-courier = Courier
+job-description-vault-courier = Carry messages, mail, and small packages between the Vault and potentially wasteland beyond.
+job-name-vault-salvage-specialist = Salvage Specialist
+job-description-vault-salvage-specialist = Venture into the caves to extract resources & even the wasteland if times get desperate.
 
 # Wasteland
 # #Misfits Change - renamed for Town faction clarity

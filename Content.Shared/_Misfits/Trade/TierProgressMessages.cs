@@ -21,7 +21,7 @@ public sealed class MisfitsContractClaimedEvent : EntityEventArgs
 }
 
 // Raised on the user entity when they open a tier-enabled vendor for the first time this round.
-// Allows ContractTierSystem to award the Bronze entry badge.
+// Allows ContractTierSystem to award the Road Kill entry badge.
 public sealed class MisfitsContractFirstAccessEvent : EntityEventArgs
 {
     public readonly EntityUid Store;
@@ -40,7 +40,7 @@ public sealed class MisfitsContractFirstAccessEvent : EntityEventArgs
 public sealed class TierRosterEntry
 {
     public string PlayerName = string.Empty;
-    public string HighestTier = "Bronze";
+    public string HighestTier = "Road Kill";
     public int TotalCompleted;
 
     public TierRosterEntry() { }

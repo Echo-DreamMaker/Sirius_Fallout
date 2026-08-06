@@ -75,6 +75,30 @@
   - type: PresetIdCard
     job: Overseer
 
+- type: entity
+  parent: N14IDCardVault
+  id: MisfitsIDCardVaultCargo
+  name: vault cargo specialist ID card
+  components:
+  - type: PresetIdCard
+    job: VaultCargoSpecialist
+
+- type: entity
+  parent: N14IDCardVault
+  id: MisfitsIDCardVaultCourier
+  name: vault courier ID card
+  components:
+  - type: PresetIdCard
+    job: VaultCourier
+
+- type: entity
+  parent: N14IDCardVault
+  id: MisfitsIDCardVaultSalvage
+  name: vault salvage specialist ID card
+  components:
+  - type: PresetIdCard
+    job: VaultSalvageSpecialist
+
 #MARK: Passports
 - type: entity
   parent: N14IDCard
@@ -818,6 +842,11 @@
     state: sawbone
   - type: PresetIdCard
     job: TribalShaman # #Misfits Fix - updated job ID after TribalHealer was renamed to TribalShaman
+  # #Misfits Add - enables Tree TacMap tracking without dropping the inherited door tag.
+  - type: Tag
+    tags:
+    - IdCardTribe
+    - DoorBumpOpener
   - type: ClothingAddFaction
     faction: Tribal
 
@@ -832,6 +861,11 @@
     state: raider
   - type: PresetIdCard
     job: Tribal
+  # #Misfits Add - enables Tree TacMap tracking without dropping the inherited door tag.
+  - type: Tag
+    tags:
+    - IdCardTribe
+    - DoorBumpOpener
   - type: ClothingAddFaction
     faction: Tribal
 
@@ -846,6 +880,11 @@
     state: enforcer
   - type: PresetIdCard
     job: TribalFarmer
+  # #Misfits Add - enables Tree TacMap tracking without dropping the inherited door tag.
+  - type: Tag
+    tags:
+    - IdCardTribe
+    - DoorBumpOpener
   - type: ClothingAddFaction
     faction: Tribal
 
@@ -860,6 +899,11 @@
     state: boss
   - type: PresetIdCard
     job: TribalElder
+  # #Misfits Add - enables Tree TacMap tracking without dropping the inherited door tag.
+  - type: Tag
+    tags:
+    - IdCardTribe
+    - DoorBumpOpener
   - type: ClothingAddFaction
     faction: Tribal
 

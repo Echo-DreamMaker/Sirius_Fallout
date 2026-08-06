@@ -9,13 +9,13 @@
     sprite: Clothing/Multiple/towel.rsi
   - type: Clothing
     sprite: Clothing/Multiple/towel.rsi
-    slots: 
+    slots:
     - BELT
     - INNERCLOTHING
     - HEAD
     femaleMask: UniformTop
-    equipSound: 
-    unequipSound: 
+    equipSound:
+    unequipSound:
   - type: Spillable
     solution: absorbed
   - type: Absorbent
@@ -159,7 +159,7 @@
         color: "#0089EF"
   - type: Fiber
     fiberColor: fibers-blue
-    
+
 - type: entity
   id: TowelColorDarkBlue
   name: dark blue towel
@@ -664,7 +664,7 @@
 
 - type: entity
   id: TowelColorNT
-  name: NanoTrasen brand towel
+  name: old corporate branded towel
   parent: BaseTowel
   components:
   - type: Sprite
@@ -762,4 +762,3 @@
         color: "#535353"
   - type: Fiber
     fiberColor: fibers-black
-    

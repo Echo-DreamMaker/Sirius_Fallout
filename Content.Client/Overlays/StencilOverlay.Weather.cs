@@ -10,9 +10,6 @@ namespace Content.Client.Overlays;
 
 public sealed partial class StencilOverlay
 {
-    private const int RoofFadeSteps = 4;
-    private const float RoofFadeTiles = 1.5f;
-
     private List<Entity<MapGridComponent>> _grids = new();
 
     private void DrawWeather(in OverlayDrawArgs args, WeatherPrototype weatherProto, float alpha, Matrix3x2 invMatrix)
@@ -31,14 +28,13 @@ public sealed partial class StencilOverlay
         var eyePosition = viewport.Eye?.Position.Position ?? Vector2.Zero;
         var eyeZoom = viewport.Eye?.Zoom ?? Vector2.One;
 
-        // #Misfits Fix - Throttle stencil mask rebuild to 4 Hz. The roofed-tile mask
-        // only changes when tiles/roofs change or the camera moves significantly;
-        // per-frame rebuilds were the #1 weather rendering cost.
+        // #Misfits Fix - Throttle stencil mask rebuild to 4 Hz. The mask is baked in
+        // screen space, so it is only reusable while the view is completely static;
+        // invMatrix covers eye position, zoom and rotation. Otherwise the timer picks
+        // up tile/roof changes. Per-frame rebuilds were the #1 weather rendering cost.
         const float StencilInterval = 0.25f;
-        const float StencilMoveThreshold = 1.5f; // tiles
-        var eyeDist = Vector2.Distance(position, _lastStencilEyePos);
         _stencilAccum += (float) _timing.FrameTime.TotalSeconds;
-        var rebuildStencil = _stencilAccum >= StencilInterval || eyeDist >= StencilMoveThreshold;
+        var rebuildStencil = _stencilAccum >= StencilInterval || invMatrix != _lastStencilMatrix;
 
         // Cut out the irrelevant bits via stencil
         // This is why we don't just use parallax; we might want specific tiles to get drawn over
@@ -46,7 +42,7 @@ public sealed partial class StencilOverlay
         if (rebuildStencil)
         {
             _stencilAccum = 0f;
-            _lastStencilEyePos = position;
+            _lastStencilMatrix = invMatrix;
 
         worldHandle.RenderInRenderTarget(_blep!, () =>
         {
@@ -73,13 +69,6 @@ public sealed partial class StencilOverlay
 
                     var gridTile = new Box2(tile.GridIndices * grid.Comp.TileSize,
                         (tile.GridIndices + Vector2i.One) * grid.Comp.TileSize);
-
-                    for (var step = RoofFadeSteps; step > 0; step--)
-                    {
-                        var fadeDistance = RoofFadeTiles * step / RoofFadeSteps;
-                        var fadeAlpha = (RoofFadeSteps - step + 1f) / (RoofFadeSteps + 1f);
-                        worldHandle.DrawRect(gridTile.Enlarged(fadeDistance), Color.White.WithAlpha(fadeAlpha));
-                    }
 
                     worldHandle.DrawRect(gridTile, Color.White);
                 }

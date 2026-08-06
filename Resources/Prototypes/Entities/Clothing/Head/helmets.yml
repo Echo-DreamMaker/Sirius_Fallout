@@ -41,7 +41,7 @@
   parent: [ClothingHeadBase, ClothingHeadEVAHelmetBase]
   id: ClothingHeadHelmetSwat
   name: SWAT helmet
-  description: An extremely robust helmet, commonly used by paramilitary forces. This one has the Nanotrasen logo emblazoned on the top.
+  description: An extremely robust helmet, commonly used by paramilitary forces. This one has an old corporate logo emblazoned on the top.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/swat.rsi
@@ -293,7 +293,7 @@
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetERTLeader
   name: ERT leader helmet
-  description: An in-atmosphere helmet worn by the leader of a Nanotrasen Emergency Response Team. Has blue highlights.
+  description: An in-atmosphere helmet worn by the leader of a corporate Emergency Response Team. Has blue highlights.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ert_leader.rsi
@@ -305,7 +305,7 @@
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetERTSecurity
   name: ERT security helmet
-  description: An in-atmosphere helmet worn by security members of the Nanotrasen Emergency Response Team. Has red highlights.
+  description: An in-atmosphere helmet worn by security members of the corporate Emergency Response Team. Has red highlights.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ert_security.rsi
@@ -317,7 +317,7 @@
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetERTMedic
   name: ERT medic helmet
-  description: An in-atmosphere helmet worn by medical members of the Nanotrasen Emergency Response Team. Has white highlights.
+  description: An in-atmosphere helmet worn by medical members of the corporate Emergency Response Team. Has white highlights.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ert_medic.rsi
@@ -329,7 +329,7 @@
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetERTEngineer
   name: ERT engineer helmet
-  description: An in-atmosphere helmet worn by engineering members of the Nanotrasen Emergency Response Team. Has orange highlights.
+  description: An in-atmosphere helmet worn by engineering members of the corporate Emergency Response Team. Has orange highlights.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ert_engineer.rsi
@@ -341,7 +341,7 @@
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetERTJanitor
   name: ERT janitor helmet
-  description: An in-atmosphere helmet worn by janitorial members of the Nanotrasen Emergency Response Team. Has dark purple highlights.
+  description: An in-atmosphere helmet worn by janitorial members of the corporate Emergency Response Team. Has dark purple highlights.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ert_janitor.rsi

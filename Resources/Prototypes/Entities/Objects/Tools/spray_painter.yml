@@ -2,7 +2,7 @@
   parent: BaseItem
   id: SprayPainter
   name: spray painter
-  description: A spray painter for painting airlocks and pipes.
+  description: A spray painter for painting airlocks, pipes, and floor decals.
   components:
   - type: Tag
     tags:

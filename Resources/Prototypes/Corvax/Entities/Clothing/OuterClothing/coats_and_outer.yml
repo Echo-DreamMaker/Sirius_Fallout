@@ -20,8 +20,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: N14ClothingOuterRadSuitEnclave
-  name: radiation suit Enclave
-  description: Designed to protect its wearer from radiation.
+  name: Enclave Science Suit
+  description: A state-of-the-art hazardous enviornment and radiation suit utilized by Enclave Science personnel.
   components:
   - type: Sprite
     sprite: Corvax/Clothing/OuterClothing/Coats_and_outer/enclaverad.rsi

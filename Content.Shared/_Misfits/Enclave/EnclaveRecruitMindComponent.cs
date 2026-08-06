@@ -1,19 +1,24 @@
 // #Misfits Add - Marks a mind as being per-round recruited by the Enclave.
-// When present on a mind entity, it injects the EnclaveRecruit playtime
-// tracker via MindGetAllRolesEvent so the player accumulates Enclave
-// department time. Removed on death or round restart.
+// The mind receives the literal EnclaveRecruit job while this marker stores
+// the job that should be restored when recruitment ends.
 
 using Content.Shared.Roles;
-using Content.Shared.Players.PlayTimeTracking;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Misfits.Enclave;
 
 /// <summary>
 /// Added to a mind entity when a player is per-round recruited into the
 /// Enclave. The EnclaveRecruitSystem handles lifecycle (add on recruit
-/// verb, remove on death/round restart). While present, the mind reports
-/// an EnclaveRecruit playtime tracker so that all accumulated time counts
-/// toward the Enclave department's role timers.
+/// verb, remove on death/round restart) and assigns the actual EnclaveRecruit
+/// job so its normal playtime tracker is used.
 /// </summary>
 [RegisterComponent]
-public sealed partial class EnclaveRecruitMindComponent : Component;
+public sealed partial class EnclaveRecruitMindComponent : Component
+{
+    /// <summary>
+    /// Job held before recruitment, restored when recruitment ends on death.
+    /// </summary>
+    [DataField]
+    public ProtoId<JobPrototype>? PreviousJob;
+}

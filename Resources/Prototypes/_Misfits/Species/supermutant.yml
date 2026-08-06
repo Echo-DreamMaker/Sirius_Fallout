@@ -51,7 +51,7 @@
   markingLimits: MobSuperMutantMarkingLimits
   dollPrototype: N14MobSuperMutantDummy
   skinColoration: Hues
-#   defaultSkinTone: "#6b8e23"
+  defaultSkinTone: "#6b8e23"
   minHeight: 1.45 #sirius-change
   maxHeight: 1.72 #sirius-change
   minWidth: 1.45 #sirius-change
@@ -59,6 +59,10 @@
   minAge: 50 #sirius-change
   oldAge: 150 #sirius-change
   maxAge: 200 #sirius-change
+  defaultHeight: 1.5
+  defaultWidth: 1.5
+  averageHeight: 220
+  averageWidth: 70
   sexes:
   - Male
   - Female

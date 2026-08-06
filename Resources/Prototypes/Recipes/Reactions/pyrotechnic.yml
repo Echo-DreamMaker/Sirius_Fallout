@@ -68,7 +68,7 @@
   - Centrifuge
   reactants:
     WeldingFuel:
-      amount: 10
+      amount: 1
   products:
     Ethanol: 5
     Hydrogen: 3

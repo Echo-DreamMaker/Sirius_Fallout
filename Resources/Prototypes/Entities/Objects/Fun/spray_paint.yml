@@ -298,3 +298,26 @@
         enum.OpenableVisuals.Layer:
           True: {state: "spray_colors" , color: "#f2f2f2"}
           False: {state: "spray_cap_colors" , color: "#f2f2f2"}
+
+#DesertTan
+- type: entity
+  parent: PaintBase
+  id: SprayPaintDesertTan
+  suffix: DesertTan
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/spraycans.rsi
+    layers:
+      - state: spray
+        map: ["Base"]
+      - state: spray_cap_colors
+        map: ["enum.OpenableVisuals.Layer"]
+        color: "#ffd1a0"
+  - type: Paint
+    color: "#ffd1a0"
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "spray_colors" , color: "#ffd1a0"}
+          False: {state: "spray_cap_colors" , color: "#ffd1a0"}

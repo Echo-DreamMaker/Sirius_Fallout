@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Popups;
 using Content.Shared.UserInterface;
+using Content.Shared._Misfits.Paper;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -98,6 +99,13 @@ namespace Content.Server.Paper
 
         private void OnInteractUsing(EntityUid uid, PaperComponent paperComp, InteractUsingEvent args)
         {
+            if (_tagSystem.HasTag(args.Used, "Write") && TryComp<BlockWritingComponent>(args.User, out var blocked))
+            {
+                _popupSystem.PopupEntity(Loc.GetString(blocked.FailWriteMessage), args.User, args.User);
+                args.Handled = true;
+                return;
+            }
+
             // only allow editing if there are no stamps or when using a cyberpen
             var editable = paperComp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, "WriteIgnoreStamps");
             if (_tagSystem.HasTag(args.Used, "Write") && editable && paperComp.CanEdit)

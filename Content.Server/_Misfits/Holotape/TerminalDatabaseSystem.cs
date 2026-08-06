@@ -476,8 +476,8 @@ public sealed class TerminalDatabaseSystem : EntitySystem
         PushFullState(uid, msg.Actor, openDocumentId: msg.DocumentId);
     }
 
-    // #Misfits Add - Permanent delete handler. Authorized for original author OR
-    // Leadership (non-Admin entries) / Admin (Admin-protected entries).
+    // #Misfits Add - Permanent delete handler. Authorized for the original author OR
+    // Admin tier only (e.g. Elder Council). Leadership can still soft-delete/restore.
     private void OnPermanentDeleteEntry(EntityUid uid, HolotapeDataComponent comp, PermanentDeleteDatabaseEntryMessage msg)
     {
         var proto = ResolveDatabaseForViewer(msg.Actor);
@@ -496,8 +496,7 @@ public sealed class TerminalDatabaseSystem : EntitySystem
             var folder = folders.Find(f => f.FolderId == msg.FolderId.Value);
             if (folder == null)
                 return;
-            var authorized = IsAuthor(folder.CreatedByUserIdGuid)
-                || (folder.IsAdmin ? perms.admin : perms.leadership);
+            var authorized = IsAuthor(folder.CreatedByUserIdGuid) || perms.admin;
             if (!authorized)
                 return;
             _dataStore.HardDeleteFolder(proto.ID, msg.FolderId.Value);
@@ -512,8 +511,7 @@ public sealed class TerminalDatabaseSystem : EntitySystem
             var sub = parent.Subfolders.Find(s => s.SubfolderId == msg.SubfolderId.Value);
             if (sub == null)
                 return;
-            var authorized = IsAuthor(sub.CreatedByUserIdGuid)
-                || (parent.IsAdmin ? perms.admin : perms.leadership);
+            var authorized = IsAuthor(sub.CreatedByUserIdGuid) || perms.admin;
             if (!authorized)
                 return;
             _dataStore.HardDeleteSubfolder(proto.ID, msg.SubfolderParentFolderId.Value, msg.SubfolderId.Value);
@@ -521,12 +519,10 @@ public sealed class TerminalDatabaseSystem : EntitySystem
         else if (msg.DocumentId.HasValue)
         {
             // Document permanent delete
-            var requiresAdmin = IsDocumentInAdminFolder(proto.ID, msg.DocumentId.Value);
             var doc = _dataStore.FindDocument(proto.ID, msg.DocumentId.Value);
             if (doc == null)
                 return;
-            var authorized = IsAuthor(doc.CreatedByUserIdGuid)
-                || (requiresAdmin ? perms.admin : perms.leadership);
+            var authorized = IsAuthor(doc.CreatedByUserIdGuid) || perms.admin;
             if (!authorized)
                 return;
             _dataStore.HardDeleteDocument(proto.ID, msg.DocumentId.Value);

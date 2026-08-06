@@ -7,12 +7,15 @@ using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Mobs;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Projectiles;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Content.Shared.Containers.ItemSlots;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
@@ -45,6 +48,8 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         SubscribeLocalEvent<VehicleComponent, UnstrappedEvent>(OnUnstrapped);
         SubscribeLocalEvent<VehicleComponent, VirtualItemDeletedEvent>(OnDropped);
         SubscribeLocalEvent<VehicleComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<VehicleComponent, PreventCollideEvent>(OnPreventCollide);
+        SubscribeLocalEvent<BuckleComponent, MobStateChangedEvent>(OnRiderMobStateChanged);
 
         SubscribeLocalEvent<VehicleComponent, EntInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<VehicleComponent, EntRemovedFromContainerMessage>(OnEject);
@@ -65,6 +70,25 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     {
         if (args.User == ent.Comp.Driver) // Don't hit your own vehicle
             args.Handled = true;
+    }
+
+    private void OnPreventCollide(Entity<VehicleComponent> ent, ref PreventCollideEvent args)
+    {
+        // without projectile hits the vehicle fixture instead of the rider
+        if (ent.Comp.Driver != null && HasComp<ProjectileComponent>(args.OtherEntity))
+            args.Cancelled = true;
+    }
+
+    private void OnRiderMobStateChanged(Entity<BuckleComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Alive ||
+            ent.Comp.BuckledTo is not { } strap ||
+            !HasComp<VehicleComponent>(strap))
+        {
+            return;
+        }
+
+        _buckle.Unbuckle((ent.Owner, ent.Comp), null);
     }
 
     private void OnRemove(EntityUid uid, VehicleComponent component, ComponentRemove args)

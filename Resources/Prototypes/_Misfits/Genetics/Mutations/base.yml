@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  abstract: true
+  id: BaseMutation
+  components:
+  - type: Mutation
+
+- type: entity
+  abstract: true
+  parent: BaseMutation
+  id: BaseFreeMutation
+  components:
+  - type: Mutation
+    instability: 0
+
+# prevents a mutation from triggering if the mutated mob is dead
+- type: entity
+  abstract: true
+  parent: BaseMutation
+  id: BaseTriggerMutation
+
+- type: entity
+  abstract: true
+  id: BaseMutationAction
+  components:
+  - type: MutationActionRouting

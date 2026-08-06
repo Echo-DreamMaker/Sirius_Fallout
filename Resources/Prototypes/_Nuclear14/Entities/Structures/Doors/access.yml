@@ -603,6 +603,39 @@
   - type: Wires
     layoutId: HighSec
 
+- type: entity
+  parent: N14DoorBunkerVault
+  id: MisfitsDoorBunkerLockedVaultCargo
+  suffix: Vault Cargo Specialist, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsVaultCargo ]
+  - type: Wires
+    layoutId: HighSec
+
+- type: entity
+  parent: N14DoorBunkerVault
+  id: MisfitsDoorBunkerLockedVaultCourier
+  suffix: Vault Courier, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsVaultCourier ]
+  - type: Wires
+    layoutId: HighSec
+
+- type: entity
+  parent: N14DoorBunkerVault
+  id: MisfitsDoorBunkerLockedVaultSalvage
+  suffix: Vault Salvage Specialist, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsVaultSalvage ]
+  - type: Wires
+    layoutId: HighSec
+
 #MARK: Caravan Company
 #- type: entity
 #  parent: N14DoorWoodSecure

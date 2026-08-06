@@ -3,7 +3,7 @@
   suffix: Nanotrasen
   parent: BaseItem
   id: CaneBladeNanotrasen
-  description: A sharp blade with a cane shaped hilt, a Nanotrasen logo is engraved on the blade.
+  description: A sharp blade with a cane shaped hilt, an old corporate logo is engraved on the blade.
   components:
   - type: Sharp
   - type: Sprite

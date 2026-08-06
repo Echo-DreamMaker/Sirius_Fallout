@@ -13,8 +13,13 @@ smoke-signal-window-cancel = Cancel
 ## Cooldown feedback
 smoke-signal-cooldown = The fire is still smoldering... ({$seconds}s remaining)
 
-## Broadcast message (appears as a large popup for all tribe members)
-smoke-signal-broadcast = Smoke signals rise from the village: {$message}
+## Broadcast message (appears in private faction chat)
+smoke-signal-broadcast = {$sender} sends a smoke signal: {$message}
 
 ## Atmospheric notice for nearby non-tribe bystanders
 smoke-signal-nearby = Thick smoke rises nearby, carrying the smell of damp leaves and green wood.
+
+# #Misfits Add - Tree of Life faction announcement wording.
+willower-tree-announce-verb = Announce to the Willowers
+willower-tree-announcement = {$sender} speaks through the Tree of Life: {$message}
+willower-tree-announcement-cooldown = The Tree of Life is still gathering its voice... ({$seconds}s remaining)

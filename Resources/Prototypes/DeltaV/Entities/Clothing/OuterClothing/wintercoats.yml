@@ -19,14 +19,14 @@
 - type: entity
   parent: ClothingOuterWinterCoat
   id: ClothingOuterCorporateJacket
-  name: Nanotrasen Corporate Jacket
-  description: A cozy jacket with the Nanotrasen logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  name: Ancient Corporate Jacket
+  description: A cozy jacket with an old corporate logo printed on the back. Merchandise rewarded to workplaces with a safety factor of uhh... seven.
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/corpo_jacket.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/OuterClothing/WinterCoats/corpo_jacket.rsi
-    
+
 - type: entity
   parent: ClothingOuterWinterCoat
   id: ClothingOuterDenimJacket

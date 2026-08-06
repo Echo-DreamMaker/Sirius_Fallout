@@ -218,16 +218,26 @@
 
 # #Misfits Add — Followers of the Apocalypse headset; grants both faction and wasteland channels
 - type: entity
-  parent: N14ClothingHeadsetAlt
+  parent: N14ClothingHeadsetLightScribe
   id: N14ClothingHeadsetFollowers
-  name: Followers radio earpiece
+  name: Followers radio headset
   components:
+  - type: Item
+    heldPrefix: off
+    size: Small
   - type: ContainerFill
     containers:
       key_slots:
       - EncryptionKeyFollowers
       - EncryptionKeyWastelandGlobal
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Misfits/Clothing/Ears/Headsets/followerslight.rsi
+    layers:
+    - state: icon
+    - state: light-icon
+      shader: unshaded
+      visible: false
+      map: [ "light" ]
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Misfits/Clothing/Ears/Headsets/followerslight.rsi
+    equippedPrefix: off

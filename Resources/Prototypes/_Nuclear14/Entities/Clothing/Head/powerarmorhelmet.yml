@@ -28,7 +28,7 @@
       - state: on-equipped-HELMET
   - type: PointLight
     enabled: false
-    radius: 6
+    radius: 7
     energy: 1
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -51,13 +51,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.795
-        Slash: 0.795
-        Piercing: 0.845
-        Heat: 0.845
-        Radiation: 0.595
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.8
+        Heat: 0.75
+        Radiation: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.845
+    damageCoefficient: 0.8
   - type: BreathMask # Misfits Change
   - type: GasFilterMask # Misfits Change
   - type: IngestionBlocker # Misfits Change
@@ -96,11 +96,13 @@
       - state: on-equipped-HELMET
   - type: PointLight
     enabled: false
-    radius: 6
+    radius: 8
     energy: 1
+    offset: 0, .75
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
     netsync: false
+    color: "#ff0000" #Misfits Change: Your ride's over, mutie. Time to die.
   - type: Clothing
     equipSound: # Corvax-Change
       path: /Audio/_Nuclear14/Effects/PowerArmor/PowerArmor_Equip_Helmet_01.ogg
@@ -121,11 +123,11 @@
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.85
-        Radiation: 0.6
+        Piercing: 0.8
+        Heat: 0.7
+        Radiation: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.8
   - type: NightVision
     isEquipment: true
   - type: ThermalVision
@@ -209,7 +211,7 @@
       - state: on-equipped-HELMET
   - type: PointLight
     enabled: false
-    radius: 6
+    radius: 7
     energy: 1
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -234,11 +236,11 @@
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.85
-        Radiation: 0.6
+        Piercing: 0.8
+        Heat: 0.7
+        Radiation: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.8
   - type: BreathMask # Misfits Change
   - type: GasFilterMask # Misfits Change
   - type: IngestionBlocker # Misfits Change
@@ -277,7 +279,7 @@
       - state: on-equipped-HELMET
   - type: PointLight
     enabled: false
-    radius: 6
+    radius: 7
     energy: 1
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -302,11 +304,11 @@
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.85
-        Radiation: 0.6
+        Piercing: 0.8
+        Heat: 0.7
+        Radiation: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.8
   - type: BreathMask # Misfits Change
   - type: GasFilterMask # Misfits Change
   - type: IngestionBlocker # Misfits Change
@@ -367,7 +369,7 @@
       - state: on-equipped-HELMET
   - type: PointLight
     enabled: false
-    radius: 6
+    radius: 8
     energy: 1
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -390,13 +392,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.8
-        Radiation: 0.6
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.6
+        Radiation: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.8
   - type: NightVision
     isEquipment: true
   - type: ThermalVision
@@ -448,11 +450,11 @@
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.85
-        Radiation: 0.6
+        Piercing: 0.8
+        Heat: 0.7
+        Radiation: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.8
   # #Misfits Change - Enclave tactical HUD
   - type: WastelandMap
     mapTexturePath: _Misfits/Maps/wendover_map.png
@@ -489,13 +491,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.85
-        Radiation: 0.6
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.6
+        Radiation: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.8
   # #Misfits Change - Enclave tactical HUD
   - type: WastelandMap
     mapTexturePath: _Misfits/Maps/wendover_map.png
@@ -542,7 +544,7 @@
       - state: on-equipped-HELMET
   - type: PointLight
     enabled: false
-    radius: 6
+    radius: 7
     energy: 1
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -567,11 +569,11 @@
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.85
-        Radiation: 0.6
+        Piercing: 0.8
+        Heat: 0.7
+        Radiation: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.8
   - type: WastelandMap
     mapTexturePath: _Misfits/Maps/wendover_map.png
     mapTitle: Brotherhood Tactical HUD
@@ -619,7 +621,7 @@
       - state: on-equipped-HELMET
   - type: PointLight
     enabled: false
-    radius: 6
+    radius: 7
     energy: 1
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -644,8 +646,8 @@
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.85
+        Piercing: 0.8
+        Heat: 0.8
         Radiation: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -759,13 +761,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.85
-        Heat: 0.85
-        Radiation: 0.6
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.6
+        Radiation: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.8
   - type: ThermalVision
     isEquipment: true
     pulseTime: 2

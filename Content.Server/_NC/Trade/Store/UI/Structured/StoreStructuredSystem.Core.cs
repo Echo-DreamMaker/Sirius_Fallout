@@ -479,7 +479,7 @@ public sealed partial class StoreStructuredSystem : EntitySystem
 
         SendCatalog(uid, comp, user);
 
-        // #Misfits Add — notify tier system on vendor open (awards Bronze badge on first visit)
+        // #Misfits Add — notify tier system on vendor open (awards Road Kill badge on first visit)
         // broadcast: true is required so the broadcast-subscribed ContractTierSystem handler fires
         if (comp.ContractPresets.Count > 0)
             RaiseLocalEvent(user, new MisfitsContractFirstAccessEvent(uid, user), broadcast: true);

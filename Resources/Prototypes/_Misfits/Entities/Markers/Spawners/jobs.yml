@@ -152,6 +152,17 @@
       - state: green
       - state: serf
 
+- type: entity
+  parent: MisfitsSpawnPointBoSHeadKnight
+  id: MisfitsSpawnPointOffDuty
+  name: Off-Duty Brotherhood
+  components:
+  - type: SpawnPoint
+    job_id: BoSOffDuty
+  - type: Sprite
+    layers:
+      - state: green
+
 # Caesar's Legion
 - type: entity
   parent: SpawnPointJobBase
@@ -462,6 +473,17 @@
     layers:
       - state: green
       - state: lt
+
+- type: entity
+  parent: MisfitsSpawnPointNCRCadet
+  id: MisfitsSpawnPointNCRProvost
+  name: Provost Job Spawn
+  components:
+  - type: SpawnPoint
+    job_id: NCRProvost
+  - type: Sprite
+    layers:
+      - state: green
 
 - type: entity
   parent: MisfitsSpawnPointNCRCadet

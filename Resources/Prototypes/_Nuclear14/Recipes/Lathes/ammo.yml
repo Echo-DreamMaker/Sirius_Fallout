@@ -529,6 +529,16 @@
     N14Gunpowder: 24
 
 - type: latheRecipe
+  id: SpeedLoader308Tube
+  result: SpeedLoader308Tube
+  category: N14AmmoMagazine
+  completetime: 5
+  materials:
+    Lead: 24
+    Steel: 132
+    N14Gunpowder: 24
+
+- type: latheRecipe
   id: MagazineBox308
   result: MagazineBox308
   category: N14AmmoBox

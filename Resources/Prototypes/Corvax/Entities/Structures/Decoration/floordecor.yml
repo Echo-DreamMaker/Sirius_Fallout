@@ -581,8 +581,8 @@
 - type: entity
   parent: N14DecorationFlagFlammable
   id: N14DecorationFlagWesterBoS
-  name: Western Brotherhood of Steel Flag
-  description: A flag with a two Wester Brotherhood
+  name: Flag of the Brotherhood of Steel
+  description: The banner of the Brotherhood of Steel, descendents of the United States military who now attempt to confiscate and safeguard dangerous technology to prevent another apocalypse.
   components:
   - type: Sprite
     sprite: Corvax/Structures/Decoration/flag1.rsi
@@ -591,8 +591,8 @@
 - type: entity
   parent: N14DecorationFlagpoleNCR
   id: N14DecorationFlagpoleWesternBOS
-  name: Western Brotherhood of Steel Flag Pole
-  description: A Western Brotherhood flag on a wooden pole.
+  name: Brotherhood of Steel Flagpole
+  description: The banner of the Brotherhood of Steel, descendents of the United States military who now attempt to confiscate and safeguard dangerous technology to prevent another apocalypse. The flag stands proud and tall, a challenge to those around it.
   components:
   - type: Sprite
     sprite: Corvax/Structures/Decoration/flag2.rsi
@@ -602,8 +602,8 @@
 - type: entity
   parent: N14DecorationFlagpoleNCR
   id: N14DecorationFlagpoleUSA
-  name: USA flag pole
-  description: A USA flag on a wooden pole.
+  name: Small Enclave Flag
+  description: The banner of the Enclave, the descendents of America's elite who claim to be the true inheritors of the United States federal government. This one is a flag meant to be used as a desk paperweight.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/clutter.rsi
@@ -613,8 +613,8 @@
 - type: entity
   parent: N14DecorationFlagpoleNCR
   id: N14DecorationFlagpoleNCR2
-  name: NCR flag pole
-  description: A NCR flag on a wooden pole.
+  name: Small New California Republic Flag
+  description: The banner of the New California Republic, a nation that despite enemies within and without, has done its best to provide comfort and equality to its citizens. This one is a flag meant to be used as a desk paperweight.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/clutter.rsi
@@ -624,8 +624,8 @@
 - type: entity
   parent: N14DecorationFlagpoleNCR
   id: N14DecorationFlagpoleLegion
-  name: Legion flag pole
-  description: A Legion flag on a wooden pole.
+  name: Small Caesar's Legion Flag
+  description: The banner of Caesar's Legion, a slave army under the mighty warlord Caesar, whose monumental ego and sharp wit have seen the lawless east fall in line under his iron boot. This one is a flag meant to be used as a desk paperweight.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/clutter.rsi

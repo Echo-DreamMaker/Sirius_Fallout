@@ -26,6 +26,19 @@ public sealed partial class CCVars
             "Toggles displaying names with individual colors.");
 
     /// <summary>
+    /// Semicolon-separated words or phrases to emphasize in local chat. When empty, the
+    /// local character's first and last names are used.
+    /// </summary>
+    public static readonly CVarDef<string> ChatHighlightTerms =
+        CVarDef.Create("accessibility.chat_highlight_terms", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// The color used for locally highlighted chat terms.
+    /// </summary>
+    public static readonly CVarDef<string> ChatHighlightColor =
+        CVarDef.Create("accessibility.chat_highlight_color", "#FFD700", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
     ///     Screen shake intensity slider, controlling the intensity of the CameraRecoilSystem.
     ///     Goes from 0 (no recoil at all) to 1 (regular amounts of recoil)
     /// </summary>
@@ -44,4 +57,18 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> NoVisionFilters =
         CVarDef.Create("accessibility.no_vision_filters", false, CVar.CLIENTONLY | CVar.ARCHIVE); // Corvax-Change
+
+    /// <summary>
+    /// If enabled, censors character nudity by forcing undergarment markings on characters for this client.
+    /// Both this and <see cref="AccessibilityServerCensorNudity"/> must be false to display nudity.
+    /// </summary>
+    public static readonly CVarDef<bool> AccessibilityClientCensorNudity =
+        CVarDef.Create("accessibility.censor_nudity", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// If enabled, censors character nudity by forcing undergarment markings on characters for all clients.
+    /// Both this and <see cref="AccessibilityClientCensorNudity"/> must be false to display nudity.
+    /// </summary>
+    public static readonly CVarDef<bool> AccessibilityServerCensorNudity =
+        CVarDef.Create("accessibility.server_censor_nudity", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 }

@@ -41,6 +41,58 @@
   - type: ExplosionResistance
     damageCoefficient: 0.75
 
+# --- California Girl riot vest ---
+- type: entity
+  parent: N14ClothingOuterVetRangerRiotArmor
+  id: N14ClothingOuterCaliforniaGirlVetRangerRiotArmor
+  name: california girl riot armor
+  description: A refurbished suit of LAPD riot armor painted in olive drab green. A stencil of the state of California is painted on the front and scratches adorn the well worn vest.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/VeteranRangers/OuterClothing/Armor/ncrriotvestlee.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/VeteranRangers/OuterClothing/Armor/ncrriotvestlee.rsi
+  - type: Armor
+
+# --- Can Opener riot vest ---
+- type: entity
+  parent: N14ClothingOuterVetRangerRiotArmor
+  id: N14ClothingOuterCanOpenerVetRangerRiotArmor
+  name: can opener riot armor
+  description: A refurbished set of LAPD riot armor in full assault configuration.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/VeteranRangers/OuterClothing/Armor/ncrriotvestjowers.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/VeteranRangers/OuterClothing/Armor/ncrriotvestjowers.rsi
+  - type: Armor
+
+# --- Demo Expert riot vest ---
+- type: entity
+  parent: N14ClothingOuterVetRangerRiotArmor
+  id: N14ClothingOuterDemoExpertVetRangerRiotArmor
+  name: demo expert riot armor
+  description: A refurbished set of LAPD riot armor painted in desert tan, in full assault configuration. The left shoulder is missing.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/VeteranRangers/OuterClothing/Armor/ncrriotvestfox.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/VeteranRangers/OuterClothing/Armor/ncrriotvestfox.rsi
+  - type: Armor
+
+# --- The Devout riot vest ---
+- type: entity
+  parent: N14ClothingOuterVetRangerRiotArmor
+  id: N14ClothingOuterTheDevoutVetRangerRiotArmor
+  name: the devout riot armor
+  description: A refurbished set of LAPD riot armor with a white cross chalked in the middle.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/VeteranRangers/OuterClothing/Armor/ncrriotvesttalos.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/VeteranRangers/OuterClothing/Armor/ncrriotvesttalos.rsi
+  - type: Armor
+
 # --- Salt Runner Helmet ---
 - type: entity
   parent: N14ClothingHeadHatRangerHelmetModif
@@ -64,6 +116,21 @@
     sprite: _Misfits/Clothing/VeteranRangers/Mask/rangervetgasmaskroe.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/VeteranRangers/Mask/rangervetgasmaskroe.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+# --- The Devout Mask ---
+- type: entity
+  parent: ClothingMaskGasRiot
+  id: N14ClothingHatTheDevoutMask
+  name: the devout riot gas mask
+  description: A modified gas mask with yellow lenses.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/VeteranRangers/Mask/rangervetgasmasktalos.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/VeteranRangers/Mask/rangervetgasmasktalos.rsi
   - type: HideLayerClothing
     slots:
     - Hair
@@ -119,7 +186,7 @@
 # --- Highland Ranger helmet  ---
 - type: entity
   parent: N14ClothingHeadHatRangerHelmetModif
-  id: N14ClothingNeckHighlandRangerHelmet
+  id: N14ClothingHeadHighlandRangerHelmet
   name: highland ranger helmet
   description: An old ranger helmet with various tribal markings. The straps are worn, but well kept.
   components:
@@ -139,3 +206,51 @@
     sprite: _Misfits/Clothing/VeteranRangers/Head/FalloutHelmets/rangerhelmetwolfe.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/VeteranRangers/Head/FalloutHelmets/rangerhelmetwolfe.rsi
+
+# --- Can Opener Helmet ---
+- type: entity
+  parent: N14ClothingHeadHatRangerHelmetModif
+  id: N14ClothingHeadCanOpenerRangerHelmet
+  name: can opener ranger helmet
+  description: A polished olive drab helmet with tally marks and a red crosshair painted on the forehead.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/VeteranRangers/Head/FalloutHelmets/rangerhelmetjowers.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/VeteranRangers/Head/FalloutHelmets/rangerhelmetjowers.rsi
+
+# --- The Devout Helmet ---
+- type: entity
+  parent: N14ClothingHeadHatRangerHelmetModif
+  id: N14ClothingHeadTheDevoutRangerHelmet
+  name: the devout ranger helmet
+  description: A polished olive drab helmet with tally marks and a red crosshair painted on the forehead.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/VeteranRangers/Head/FalloutHelmets/rangerhelmettalos.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/VeteranRangers/Head/FalloutHelmets/rangerhelmettalos.rsi
+
+# --- Demo Expert Helmet ---
+- type: entity
+  parent: N14ClothingHeadHatRangerHelmetModif
+  id: N14ClothingHeadDemoExpertRangerHelmet
+  name: demo expert ranger helmet
+  description: A tan riot helmet with a bottle of insect repellent on the helmet band. A painted popped flower adorns the side of the helmet.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/VeteranRangers/Head/FalloutHelmets/rangerhelmetfox.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/VeteranRangers/Head/FalloutHelmets/rangerhelmetfox.rsi
+
+# --- Hard Case Helmet ---
+- type: entity
+  parent: N14ClothingHeadHatRangerHelmetModif
+  id: N14ClothingHeadHardCaseRangerHelmet
+  name: hard case ranger helmet
+  description: A helmet for a seasoned veteran ranger with ammo attached to the headband.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/VeteranRangers/Head/FalloutHelmets/rangerhelmetsloane.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/VeteranRangers/Head/FalloutHelmets/rangerhelmetsloane.rsi

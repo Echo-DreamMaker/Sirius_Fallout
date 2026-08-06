@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseBullet
+  id: BulletCoconut
+  name: coconut projectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 20
+  - type: StaminaDamageOnCollide
+    damage: 15
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: ball
+
+- type: entity
+  parent: BulletLaser
+  id: BulletTemperatureCryo
+  name: cryo beam
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Cold: 15 # buffed from 3: cold is weaker per-point than pyro's heat (which also ignites), so cryo needs more direct damage to compete
+    impactEffect: BulletImpactEffectDisabler
+  - type: TemperatureProjectile
+    heat: -50000
+
+- type: entity
+  parent: BulletLaser
+  id: BulletTemperaturePyro
+  name: hot beam
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Heat: 3
+    impactEffect: BulletImpactEffectRedDisabler
+  - type: TemperatureProjectile
+    heat: 50000
+  - type: IgniteOnCollide # pyrokinesis sets targets on fire
+    fireStacks: 3

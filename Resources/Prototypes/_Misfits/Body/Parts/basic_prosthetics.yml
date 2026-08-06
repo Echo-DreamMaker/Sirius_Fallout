@@ -1,0 +1,188 @@
+# Misfits - Cheap, human-compatible prosthetic hands and feet.
+
+- type: entity
+  id: MisfitsProstheticPart
+  parent: BasePart
+  name: prosthetic body part
+  description: A mechanical replacement for a missing human extremity.
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: StaticPrice
+    price: 2
+
+# Simple hands: cheapest construction and the largest melee penalty.
+- type: entity
+  id: MisfitsProstheticSimpleLeftHand
+  parent: [MisfitsProstheticPart, BaseLeftHand]
+  name: simple prosthetic left hand
+  description: A crude replacement hand. Its stiff grip reduces melee damage by 20 percent.
+  components:
+  - type: BodyPart
+    baseLayerId: MisfitsProstheticSimpleLeftHand
+  - type: ProstheticLimb
+    meleeDamageModifier: 0.8
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi
+    state: left_hand_simple
+  - type: Construction
+    graph: MisfitsProstheticGraph
+    node: simpleLeftHand
+
+- type: entity
+  id: MisfitsProstheticSimpleRightHand
+  parent: [MisfitsProstheticPart, BaseRightHand]
+  name: simple prosthetic right hand
+  description: A crude replacement hand. Its stiff grip reduces melee damage by 20 percent.
+  components:
+  - type: BodyPart
+    baseLayerId: MisfitsProstheticSimpleRightHand
+  - type: ProstheticLimb
+    meleeDamageModifier: 0.8
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi
+    state: right_hand_simple
+  - type: Construction
+    graph: MisfitsProstheticGraph
+    node: simpleRightHand
+
+# Vault-Tec hands: better fitted, but still inferior to an organic hand.
+- type: entity
+  id: MisfitsProstheticVaultTecLeftHand
+  parent: [MisfitsProstheticPart, BaseLeftHand]
+  name: Vault-Tec prosthetic left hand
+  description: A mass-produced replacement hand. Its grip reduces melee damage by 10 percent.
+  components:
+  - type: BodyPart
+    baseLayerId: MisfitsProstheticVaultTecLeftHand
+  - type: ProstheticLimb
+    meleeDamageModifier: 0.9
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi
+    state: left_hand_vaulttec
+  - type: Construction
+    graph: MisfitsProstheticGraph
+    node: vaultTecLeftHand
+
+- type: entity
+  id: MisfitsProstheticVaultTecRightHand
+  parent: [MisfitsProstheticPart, BaseRightHand]
+  name: Vault-Tec prosthetic right hand
+  description: A mass-produced replacement hand. Its grip reduces melee damage by 10 percent.
+  components:
+  - type: BodyPart
+    baseLayerId: MisfitsProstheticVaultTecRightHand
+  - type: ProstheticLimb
+    meleeDamageModifier: 0.9
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi
+    state: right_hand_vaulttec
+  - type: Construction
+    graph: MisfitsProstheticGraph
+    node: vaultTecRightHand
+
+# NCR hands: sturdy field prosthetics with a smaller grip penalty.
+- type: entity
+  id: MisfitsProstheticNCRLeftHand
+  parent: [MisfitsProstheticPart, BaseLeftHand]
+  name: NCR prosthetic left hand
+  description: A sturdy field replacement. Its grip reduces melee damage by 10 percent.
+  components:
+  - type: BodyPart
+    baseLayerId: MisfitsProstheticNCRLeftHand
+  - type: ProstheticLimb
+    meleeDamageModifier: 0.9
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi
+    state: left_hand_ncr
+  - type: Construction
+    graph: MisfitsProstheticGraph
+    node: ncrLeftHand
+
+- type: entity
+  id: MisfitsProstheticNCRRightHand
+  parent: [MisfitsProstheticPart, BaseRightHand]
+  name: NCR prosthetic right hand
+  description: A sturdy field replacement. Its grip reduces melee damage by 10 percent.
+  components:
+  - type: BodyPart
+    baseLayerId: MisfitsProstheticNCRRightHand
+  - type: ProstheticLimb
+    meleeDamageModifier: 0.9
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi
+    state: right_hand_ncr
+  - type: Construction
+    graph: MisfitsProstheticGraph
+    node: ncrRightHand
+
+# Simple feet reduce movement by 10 percent each.
+- type: entity
+  id: MisfitsProstheticSimpleLeftFoot
+  parent: [MisfitsProstheticPart, BaseLeftFoot]
+  name: simple prosthetic left foot
+  description: A crude replacement foot. Poor balance reduces movement speed by 10 percent.
+  components:
+  - type: BodyPart
+    baseLayerId: MisfitsProstheticSimpleLeftFoot
+  - type: ProstheticLimb
+    movementSpeedModifier: 0.9
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi
+    state: left_foot_simple
+  - type: Construction
+    graph: MisfitsProstheticGraph
+    node: simpleLeftFoot
+
+- type: entity
+  id: MisfitsProstheticSimpleRightFoot
+  parent: [MisfitsProstheticPart, BaseRightFoot]
+  name: simple prosthetic right foot
+  description: A crude replacement foot. Poor balance reduces movement speed by 10 percent.
+  components:
+  - type: BodyPart
+    baseLayerId: MisfitsProstheticSimpleRightFoot
+  - type: ProstheticLimb
+    movementSpeedModifier: 0.9
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi
+    state: right_foot_simple
+  - type: Construction
+    graph: MisfitsProstheticGraph
+    node: simpleRightFoot
+
+# Vault-Tec feet reduce movement by 5 percent each.
+- type: entity
+  id: MisfitsProstheticVaultTecLeftFoot
+  parent: [MisfitsProstheticPart, BaseLeftFoot]
+  name: Vault-Tec prosthetic left foot
+  description: A fitted replacement foot. Imperfect balance reduces movement speed by 5 percent.
+  components:
+  - type: BodyPart
+    baseLayerId: MisfitsProstheticVaultTecLeftFoot
+  - type: ProstheticLimb
+    movementSpeedModifier: 0.95
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi
+    state: left_foot_vaulttec
+  - type: Construction
+    graph: MisfitsProstheticGraph
+    node: vaultTecLeftFoot
+
+- type: entity
+  id: MisfitsProstheticVaultTecRightFoot
+  parent: [MisfitsProstheticPart, BaseRightFoot]
+  name: Vault-Tec prosthetic right foot
+  description: A fitted replacement foot. Imperfect balance reduces movement speed by 5 percent.
+  components:
+  - type: BodyPart
+    baseLayerId: MisfitsProstheticVaultTecRightFoot
+  - type: ProstheticLimb
+    movementSpeedModifier: 0.95
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi
+    state: right_foot_vaulttec
+  - type: Construction
+    graph: MisfitsProstheticGraph
+    node: vaultTecRightFoot

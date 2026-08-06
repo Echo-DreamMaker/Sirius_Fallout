@@ -16,7 +16,7 @@
   components:
   - type: AccessReader
     access: [["BOSSeniorPaladin"]]
-    
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsBOSMidwestKnight
@@ -39,6 +39,15 @@
   parent: DoorElectronics
   id: DoorElectronicsBOSMidwestGeneral
   suffix: BOSM General, Locked
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AccessReader
+    access: [["BOS"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsBOSMidwestOffDuty
+  suffix: BOSM, OffDuty, Locked
   categories: [ HideSpawnMenu ]
   components:
   - type: AccessReader
@@ -89,7 +98,7 @@
   components:
   - type: AccessReader
     access: [["BOSInitiate"]]
-    
+
 # Vault
 - type: entity
   parent: DoorElectronics
@@ -99,7 +108,7 @@
   components:
   - type: AccessReader
     access: [["VaultOverseer"]]
-    
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsVaultGatekeeper
@@ -147,6 +156,33 @@
 
 - type: entity
   parent: DoorElectronics
+  id: DoorElectronicsVaultCargo
+  suffix: Vault Cargo Locked
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AccessReader
+    access: [["VaultCargo"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsVaultCourier
+  suffix: Vault Courier Locked
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AccessReader
+    access: [["VaultCourier"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsVaultSalvage
+  suffix: Vault Salvage Locked
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AccessReader
+    access: [["VaultSalvage"]]
+
+- type: entity
+  parent: DoorElectronics
   id: DoorElectronicsAncientBunker
   suffix: Bunker Locked
   categories: [ HideSpawnMenu ]
@@ -172,7 +208,7 @@
   components:
   - type: AccessReader
     access: [["EnclaveOfficer"]]
-    
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsEnclaveScience

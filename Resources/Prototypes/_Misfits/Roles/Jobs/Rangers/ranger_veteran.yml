@@ -34,22 +34,26 @@
       species:
       - Human
       - Ghoul
+    - !type:CharacterAgeRequirement
+      min: 36
+      max: 350
 
 - type: startingGear
   id: NCRVeteranRangerGear
   equipment:
     head: N14ClothingHeadHatRangerHelmetDesert
     back: N14ClothingBackpackMilitary # Corvax-Change
-    jumpsuit: N14ClothingUniformRangerV3
+    jumpsuit: N14ClothingUniformRangerVeteran
     ears: N14ClothingHeadsetNCR
     shoes: N14ClothingBootsCombatFilled
     gloves: N14ClothingHandsGlovesCombat
     belt: ClothingBeltRevolvervetfilled
-    mask: ClothingMaskGasRangerElite
+    mask: ClothingMaskGasRiot
     pocket1: MagazineBox45-70
     eyes: ClothingEyesGlassesSunglasses
-    outerClothing: N14ClothingOuterRangerCombatDesert
+    outerClothing: N14ClothingOuterVetRangerRiotArmor
     id: N14NCRVeteranRangerPipboy
+    neck: N14ClothingNeckRangerDuster
   innerClothingSkirt: N14ClothingUniformRangerV3 #placeholder
   satchel: N14ClothingBackpackSatchelMilitaryFilled
   duffelbag: N14ClothingBackpackDuffelMilitaryFilled

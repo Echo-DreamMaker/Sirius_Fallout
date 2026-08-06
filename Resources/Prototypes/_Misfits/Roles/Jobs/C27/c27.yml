@@ -180,10 +180,9 @@
 - type: startingGear
   id: C27GearGeneric
   equipment:
-    head: ClothingC27HelmetLightGeneric    
+    head: ClothingC27HelmetLightGeneric
     jumpsuit: ClothingC27Chassis
     pocket1: N14Welder #they're C-27s they cant use bandages l0l -pierow
-    ears: MisfitsClothingHeadsetWastelandScrap
     id: N14ClothingNeckDogtags
     outerClothing: ClothingC27ArmorLightGeneric
 
@@ -192,7 +191,7 @@
   id: C27GearNCR
   equipment:
     jumpsuit: ClothingC27Chassis
-    ears: N14ClothingHeadsetNCR
+    pocket1: C27NCRLoadoutKit
     id: N14IDNCRDogtagSoldier
 
 # Brotherhood: chassis jumpsuit + Light BoS kit + BoS headset + BoS Initiate holotag.
@@ -200,7 +199,7 @@
   id: C27GearBoS
   equipment:
     jumpsuit: ClothingC27Chassis
-    ears: N14ClothingHeadsetBrotherhoodOfSteel
+    pocket1: C27BoSLoadoutKit
     id: N14IDBrotherhoodOfSteelHolotagInitiate
 
 # Z.A.X: rapid-response chassis with light generic plating only.
@@ -210,7 +209,6 @@
     head: ClothingC27HelmetLightGeneric
     jumpsuit: ClothingC27Chassis
     pocket1: N14Welder
-    ears: MisfitsClothingHeadsetWastelandScrap
     id: N14ClothingNeckDogtags
     outerClothing: ClothingC27ArmorLightGeneric
 

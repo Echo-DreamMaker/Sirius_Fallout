@@ -6,6 +6,7 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Movement.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Weapons.Ranged.Components;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
@@ -317,7 +318,6 @@ public sealed partial class GunSystem : SharedGunSystem
 
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     break;
-
                 case FlamerShot flamerShot:
                     if (flamerShot.ProjectileProto is { } projectileProto)
                     {
@@ -331,7 +331,6 @@ public sealed partial class GunSystem : SharedGunSystem
                     _flamerLine.ShootLine(user ?? gunUid, gunUid, flamerShot, fromEnt, gun.ShootCoordinates);
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     break;
-
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -419,8 +418,10 @@ public sealed partial class GunSystem : SharedGunSystem
 
         EntityUid? staticHit = null;
         EntityUid? currentLagCompHit = null;
+        EntityUid? strapHit = null;
         var staticDistance = hitscan.MaxLength;
         var currentLagCompDistance = hitscan.MaxLength;
+        var strapDistance = hitscan.MaxLength;
 
         foreach (var result in raycastEvent.RayCastResults)
         {
@@ -433,6 +434,16 @@ public sealed partial class GunSystem : SharedGunSystem
             {
                 currentLagCompHit ??= result.HitEntity;
                 currentLagCompDistance = MathF.Min(currentLagCompDistance, result.Distance);
+                continue;
+            }
+
+            // thing buckled to genrally has larger fixture, defer to rider, if not fallback to strap
+            if (strapHit == null &&
+                TryComp<StrapComponent>(result.HitEntity, out var strap) &&
+                strap.BuckledEntities.Count > 0)
+            {
+                strapHit = result.HitEntity;
+                strapDistance = result.Distance;
                 continue;
             }
 
@@ -471,6 +482,13 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             hit = currentLagCompHit.Value;
             distance = currentLagCompDistance;
+            return true;
+        }
+
+        if (strapHit != null)
+        {
+            hit = strapHit.Value;
+            distance = strapDistance;
             return true;
         }
 

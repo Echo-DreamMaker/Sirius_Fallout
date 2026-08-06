@@ -1,0 +1,25 @@
+# #Misfits Add - custom .45 Magnum load for the Glock 37M (N14Glock).
+# Parents BaseCartridgeMagnum, so it inherits the CartridgeMagnum tag and the magnum
+# casing sprite, meaning it drops into any .45 magnum magazine in the game.
+# Deliberately softer than the stock BulletMagnum (Piercing 35): 25 total, split
+# 15 Piercing / 10 Blunt.
+
+- type: entity
+  id: N14BulletGlock45
+  name: bullet (.45 custom)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+        Blunt: 10
+
+- type: entity
+  id: N14CartridgeGlock45
+  name: glock cartridge
+  parent: BaseCartridgeMagnum
+  components:
+  - type: CartridgeAmmo
+    proto: N14BulletGlock45

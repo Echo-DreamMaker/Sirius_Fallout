@@ -418,6 +418,36 @@
   - type: Wires
     layoutId: HighSec
 
+- type: entity
+  parent: N14DoorAirlockTall
+  id: MisfitsDoorBunkerLockedVaultCargoTall
+  suffix: Vault Cargo Specialist, Locked
+  components:
+  - type: AccessReader
+    access: [["VaultCargo"]]
+  - type: Wires
+    layoutId: HighSec
+
+- type: entity
+  parent: N14DoorAirlockTall
+  id: MisfitsDoorBunkerLockedVaultCourierTall
+  suffix: Vault Courier, Locked
+  components:
+  - type: AccessReader
+    access: [["VaultCourier"]]
+  - type: Wires
+    layoutId: HighSec
+
+- type: entity
+  parent: N14DoorAirlockTall
+  id: MisfitsDoorBunkerLockedVaultSalvageTall
+  suffix: Vault Salvage Specialist, Locked
+  components:
+  - type: AccessReader
+    access: [["VaultSalvage"]]
+  - type: Wires
+    layoutId: HighSec
+
 #MARK: Keylocked
 
 #IronKey

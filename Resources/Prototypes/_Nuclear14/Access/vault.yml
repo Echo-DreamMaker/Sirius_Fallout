@@ -26,6 +26,18 @@
   id: VaultDweller
   name: id-card-access-level-vault-dweller
 
+- type: accessLevel
+  id: VaultCargo
+  name: id-card-access-level-vault-cargo
+
+- type: accessLevel
+  id: VaultCourier
+  name: id-card-access-level-vault-courier
+
+- type: accessLevel
+  id: VaultSalvage
+  name: id-card-access-level-vault-salvage
+
 # Misfits Add - unique access level for the vault controls panel; kept out of AllAccess so only the Overseer card can use it
 - type: accessLevel
   id: VaultControlsPanel
@@ -41,4 +53,7 @@
   - VaultMedical
   - VaultChemistry
   - VaultDweller
+  - VaultCargo
+  - VaultCourier
+  - VaultSalvage
   - VaultControlsPanel # Misfits Add - exclusive to Overseer; NOT in AllAccess

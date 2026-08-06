@@ -12,8 +12,8 @@
 - type: entity
   parent: BaseFlag
   id: BlankFlag
-  name: blank flag
-  description: "Some piece of white cloth. Definitely not the flag of France."
+  name: Blank Flag
+  description: "A white cloth lacking the colors of a flag, putting this on your wall is a sign of cowardice."
   components:
   - type: Sprite
     state: blank_flag
@@ -21,8 +21,8 @@
 - type: entity
   parent: BaseFlag
   id: NTFlag
-  name: Nanotrasen flag
-  description: "Glory to NT! Wait, they really made a flag for a corporation?"
+  name: Corporate Flag
+  description: "The flag of a pre-war corporation lost to time. Consumed by competitors or intentionally wiped from history, how bad did they screw up?"
   components:
   - type: Sprite
     state: NT_flag
@@ -30,26 +30,26 @@
 - type: entity
   parent: BaseFlag
   id: SyndieFlag
-  name: syndicate flag
-  description: "Smells bloody. Death to NT!"
+  name: Troublemaker Flag
+  description: "This is the flag of a pre-war organization. Marked in unfriendly colors and stained in blood, they must've been up to no good."
   components:
   - type: Sprite
     state: syndie_flag
-    
+
 - type: entity
   parent: BaseFlag
   id: LGBTQFlag
-  name: LGBTQ flag
-  description: "Be gay do crime flag"
+  name: LGBTQ Flag
+  description: "Across what remains of the United States, whether the local authorities are friendly to it or not, people will be gay."
   components:
   - type: Sprite
     state: lgbtq_flag
-    
+
 - type: entity
   parent: BaseFlag
   id: PirateFlag
-  name: pirate flag
-  description: "Raise the jolly roger, scallywags!"
+  name: Pirate Flag
+  description: "When you want to steal from people but you aren't as fucked in the head as the average raiders tend to be."
   components:
   - type: Sprite
     state: pirate_flag

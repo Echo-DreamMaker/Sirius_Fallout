@@ -19,6 +19,8 @@
       types:
         Blunt: 40
         Structural: 60 #This is for utility and resource harvesting! -Bill
+  - type: GrantActionOnWield       # Misfits Add
+    actions: [MisfitsActionMeleeCharge]
   - type: Item
     size: Large
   - type: Clothing

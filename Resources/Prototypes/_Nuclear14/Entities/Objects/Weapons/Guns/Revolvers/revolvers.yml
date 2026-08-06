@@ -60,6 +60,9 @@
         - N14CartridgePistol10
         - SpeedLoader10
     proto: N14CartridgePistol10
+    chambers: [true, true, true, true, true, true, true, true]
+    ammoSlots: [null, null, null, null, null, null, null, null]
+    capacity: 8
   - type: Gun
     fireRate: 3
     soundGunshot:

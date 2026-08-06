@@ -1,10 +1,12 @@
 using System.Numerics;
 using Content.Client.DamageState; // #Misfits Add: tint robot base damage-state layer from skin color.
+using Content.Shared.CCVar;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Robust.Client.GameObjects;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -14,17 +16,29 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
+    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<HumanoidAppearanceComponent, AfterAutoHandleStateEvent>(OnHandleState);
+        Subs.CVar(_configurationManager, CCVars.AccessibilityClientCensorNudity, OnCvarChanged, true);
+        Subs.CVar(_configurationManager, CCVars.AccessibilityServerCensorNudity, OnCvarChanged, true);
     }
 
     private void OnHandleState(EntityUid uid, HumanoidAppearanceComponent component, ref AfterAutoHandleStateEvent args)
     {
         UpdateSprite(component, Comp<SpriteComponent>(uid));
+    }
+
+    private void OnCvarChanged(bool value)
+    {
+        var query = EntityManager.AllEntityQueryEnumerator<HumanoidAppearanceComponent, SpriteComponent>();
+        while (query.MoveNext(out _, out var humanoid, out var sprite))
+        {
+            UpdateSprite(humanoid, sprite);
+        }
     }
 
     private void UpdateSprite(HumanoidAppearanceComponent component, SpriteComponent sprite)
@@ -61,17 +75,28 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
     private static bool IsRobotTintSpecies(string speciesId)
     {
         return speciesId == "RobotMrHandy"
+            || speciesId == "RobotMrHandyZAX"
             || speciesId == "RobotProtectron"
             || speciesId == "RobotProtectronPolice"
             || speciesId == "RobotProtectronBuilder"
             || speciesId == "RobotProtectronFire"
+            || speciesId == "RobotProtectronPoliceZAX"
+            || speciesId == "RobotProtectronBuilderZAX"
+            || speciesId == "RobotProtectronFireZAX"
             || speciesId == "RobotMrGutsy"
+            || speciesId == "RobotMrGutsyZAX"
             || speciesId == "RobotAssaultron"
             || speciesId == "RobotAssaultronTesla"
+            || speciesId == "RobotAssaultronZAX"
+            || speciesId == "RobotAssaultronTeslaZAX"
             || speciesId == "RobotSentryBot"
             || speciesId == "RobotSentryBotLaser"
+            || speciesId == "RobotSentryBotZAX"
+            || speciesId == "RobotSentryBotLaserZAX"
             || speciesId == "RobotRobobrain"
-            || speciesId == "RobotRobobrainLaser";
+            || speciesId == "RobotRobobrainLaser"
+            || speciesId == "RobotRobobrainZAX"
+            || speciesId == "RobotRobobrainLaserZAX";
     }
 
     private static bool IsHidden(HumanoidAppearanceComponent humanoid, HumanoidVisualLayers layer)
@@ -118,7 +143,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         Color? color = null,
         bool overrideSkin = false) // Shitmed Change
     {
-        var layerIndex = sprite.LayerMapReserveBlank(key);
+        var layerIndex = ReserveBaseLayer(sprite, key);
         var layer = sprite[layerIndex];
         layer.Visible = !IsHidden(component, key);
 
@@ -139,6 +164,27 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
         if (proto.BaseSprite != null)
             sprite.LayerSetSprite(layerIndex, proto.BaseSprite);
+    }
+
+    private static int ReserveBaseLayer(SpriteComponent sprite, HumanoidVisualLayers key)
+    {
+        if (sprite.LayerMapTryGet(key, out var existingIndex))
+            return existingIndex;
+
+        if (key is HumanoidVisualLayers.UndergarmentTop or HumanoidVisualLayers.UndergarmentBottom)
+        {
+            // Some NPC prototypes replace the inherited sprite layer list and do not include the
+            // undergarment bookmarks. Reserving normally would append them above clothing and armor.
+            if (sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out var clothingIndex) ||
+                sprite.LayerMapTryGet("jumpsuit", out clothingIndex))
+            {
+                sprite.AddBlankLayer(clothingIndex);
+                sprite.LayerMapSet(key, clothingIndex);
+                return clothingIndex;
+            }
+        }
+
+        return sprite.LayerMapReserveBlank(key);
     }
 
     /// <summary>
@@ -255,16 +301,28 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         // Really, markings should probably be a separate component altogether.
         ClearAllMarkings(humanoid, sprite);
 
+        var censorNudity = _configurationManager.GetCVar(CCVars.AccessibilityClientCensorNudity) ||
+                           _configurationManager.GetCVar(CCVars.AccessibilityServerCensorNudity);
+        var applyUndergarmentTop = censorNudity;
+        var applyUndergarmentBottom = censorNudity;
+
         foreach (var markingList in humanoid.MarkingSet.Markings.Values)
         {
             foreach (var marking in markingList)
             {
                 if (_markingManager.TryGetMarking(marking, out var markingPrototype))
+                {
                     ApplyMarking(markingPrototype, marking.MarkingColors, marking.Visible, humanoid, sprite);
+                    if (markingPrototype.BodyPart == HumanoidVisualLayers.UndergarmentTop)
+                        applyUndergarmentTop = false;
+                    else if (markingPrototype.BodyPart == HumanoidVisualLayers.UndergarmentBottom)
+                        applyUndergarmentBottom = false;
+                }
             }
         }
 
         humanoid.ClientOldMarkings = new MarkingSet(humanoid.MarkingSet);
+        AddUndergarments(humanoid, sprite, applyUndergarmentTop, applyUndergarmentBottom);
     }
 
     private void ClearAllMarkings(HumanoidAppearanceComponent humanoid, SpriteComponent sprite)
@@ -312,6 +370,34 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             spriteComp.RemoveLayer(index);
         }
     }
+
+    private void AddUndergarments(
+        HumanoidAppearanceComponent humanoid,
+        SpriteComponent sprite,
+        bool undergarmentTop,
+        bool undergarmentBottom)
+    {
+        if (undergarmentTop && humanoid.UndergarmentTop != null)
+        {
+            var marking = new Marking(humanoid.UndergarmentTop, new List<Color> { Color.White });
+            if (_markingManager.TryGetMarking(marking, out var prototype))
+            {
+                humanoid.ClientOldMarkings.Markings.Add(MarkingCategories.UndergarmentTop, new List<Marking> { marking });
+                ApplyMarking(prototype, null, true, humanoid, sprite);
+            }
+        }
+
+        if (undergarmentBottom && humanoid.UndergarmentBottom != null)
+        {
+            var marking = new Marking(humanoid.UndergarmentBottom, new List<Color> { Color.White });
+            if (_markingManager.TryGetMarking(marking, out var prototype))
+            {
+                humanoid.ClientOldMarkings.Markings.Add(MarkingCategories.UndergarmentBottom, new List<Marking> { marking });
+                ApplyMarking(prototype, null, true, humanoid, sprite);
+            }
+        }
+    }
+
     private void ApplyMarking(MarkingPrototype markingPrototype,
         IReadOnlyList<Color>? colors,
         bool visible,

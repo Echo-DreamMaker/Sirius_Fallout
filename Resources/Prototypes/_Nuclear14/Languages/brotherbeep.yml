@@ -1,5 +1,5 @@
 - type: language
-  id: N14BrotherBeep #Just a copy-paste of RobotTalk
+  id: N14BrotherBeep #Originally a copy of Binary, now using hexadecimal instead.
   isVisibleLanguage: false
   speech:
     color: "#AF1D1D"
@@ -8,5 +8,34 @@
     minSyllables: 1
     maxSyllables: 10
     replacement:
-    - 0
-    - 1
+    - 486f
+    - 6c6c
+    - 7974
+    - 49e2
+    - 6c64
+    - 6e79
+    - 2053
+    - 9f6e
+    - 2c20
+    - 722c
+    - 204d
+    - 4761
+    - 6e20
+    - 534f
+    - 4144
+    - 4e65
+    - 6e21
+    - 4c2e
+    - 4f20
+    - 6c5b
+    - 2048
+    - 5468
+    - 6f6d
+    - 7273
+    - 6f75
+    - 4b69
+    - 2424
+    - 6672
+    - 2031
+    - 7561
+    - 2b20

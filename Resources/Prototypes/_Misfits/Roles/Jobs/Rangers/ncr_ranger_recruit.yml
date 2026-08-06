@@ -25,7 +25,8 @@
         factions:
           - Rangers
   requirements:
-    - !type:CharacterOverallTimeRequirement # #Misfits Fix - entry-level ranger uses overall playtime, not Rangers dept time
+    - !type:CharacterDepartmentTimeRequirement # Misfit Change - 12 hours of total NCR playtime is required to know the basics of the faction.
+      department: NCR
       min: 43200 # 12 hours
     - !type:CharacterSpeciesRequirement # #Misfits Change - robots, super mutants, and glowing ghouls cannot be Rangers
       species:

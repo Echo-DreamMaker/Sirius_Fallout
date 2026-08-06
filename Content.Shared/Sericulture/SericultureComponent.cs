@@ -41,6 +41,13 @@ public sealed partial class SericultureComponent : Component
     public EntityUid? ActionEntity;
 
     /// <summary>
+    /// Whether producing silk requires passing the normal interaction check.
+    /// Innate genetics powers can disable this so restraints do not block it.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool CheckCanInteract = true;
+
+    /// <summary>
     /// How long will it take to make.
     /// </summary>
     [DataField("productionLength")]

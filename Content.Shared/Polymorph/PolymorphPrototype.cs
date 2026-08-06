@@ -1,4 +1,5 @@
 using Content.Shared.Storage; // Corvax-Change
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
@@ -42,7 +43,7 @@ public sealed partial record PolymorphConfiguration
 
     // Corvax-Change-Start
     [DataField("random", serverOnly: true)]
-    public List<EntitySpawnEntry> RandomEnt;
+    public List<EntitySpawnEntry>? RandomEnt;
     // Corvax-Change-End
 
     /// <summary>
@@ -113,6 +114,31 @@ public sealed partial record PolymorphConfiguration
     /// </summary>
     [DataField(serverOnly: true)]
     public bool AllowRepeatedMorphs;
+
+    /// <summary>
+    /// Trauma compatibility: non-mob mutation polymorphs, such as tongue
+    /// spikes, must not receive sentience components.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public bool MakeSentient = true;
+
+    /// <summary>
+    /// Optional sounds played when entering and leaving this polymorph.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public SoundSpecifier? PolymorphSound;
+
+    [DataField(serverOnly: true)]
+    public SoundSpecifier? ExitPolymorphSound;
+
+    /// <summary>
+    /// Optional localized messages. Null suppresses the corresponding popup.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public LocId? PolymorphPopup = "polymorph-popup-generic";
+
+    [DataField(serverOnly: true)]
+    public LocId? ExitPolymorphPopup = "polymorph-revert-popup-generic";
 
     /// <summary>
     /// The amount of time that should pass after this polymorph has ended, before a new one

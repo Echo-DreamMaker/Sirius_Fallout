@@ -6,8 +6,8 @@
 - type: entity
   parent: UnsensoredClothingUniformBase
   id: ClothingSuperMutantJumpsuit
-  name: super mutant garb
-  description: A crude set of garments cobbled together from scavenged materials, sized for a super mutant's massive frame.
+  name: super mutant rags
+  description: A tattered jumpsuit made from scavenged cloth, sized for a super mutant's massive frame.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/SuperMutant/jumpsuit.rsi
@@ -205,6 +205,20 @@
         Piercing: 0.85
 
 - type: entity
+  parent: ClothingSuperMutantRangerArmor
+  id: ClothingSuperMutantYazovRangerArmor
+  name: customized combat armor
+  description: A set of salvaged Knight armor along with a leg guard of what seems to be power armor.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/yazov_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/yazov_armor.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+- type: entity
   parent: ClothingHeadBase
   id: ClothingSuperMutantRangerHat
   name: supermutant ranger hat
@@ -223,6 +237,62 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
+
+- type: entity
+  parent: ClothingSuperMutantRangerHat
+  id: ClothingSuperMutantYazovHat
+  name: supermutant ranger cowboy hat
+  description: An XXXXL ranger hat made to fit even the biggest of people.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/yazov_hat.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/yazov_hat.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+- type: entity
+  parent: ClothingSuperMutantNeckTrinket
+  id: ClothingSuperMutantYazovDuster
+  name: supermutant customized duster.
+  description: An XXXL ranger duster with customized pieces of armor on it.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/yazov_duster.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/yazov_duster.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingSuperMutantLeatherBoots
+  name: super mutant leather boots
+  description: Oversized boots fashioned from thick hides, sized for a super mutant's feet.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/leatherboots.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/leatherboots.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+- type: entity
+  parent: SupermutantFollowerGloves
+  id: SupermutantBlackGloves
+  name: Supermutant Black Gloves
+  description: Gigantic gloves intended for supermutants to use in the field.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/yazov_gloves.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/yazov_gloves.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
 
 - type: entity
   parent: ClothingHeadBase
@@ -259,6 +329,17 @@
     - SuperMutantWearable
   - type: NightVision
     isEquipment: True
+
+- type: entity
+  parent: ClothingSuperRangerGasmask
+  id: ClothingSuperMutantYazovGasmask
+  name: Super Mutant Ranger Gasmask
+  description: A larger Ranger gasmask fitted for a supermutant, this one has yellow lenses.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/SuperMutant/yazov_gasmask.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/SuperMutant/yazov_gasmask.rsi
 
 # #Misfits Add - Ranger armor for the playable Supermutant Ranger job variant.
 # Tagged SuperMutantWearable so only supermutants can equip it in outerClothing slot.
@@ -475,6 +556,26 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingSuperMutantDoctorBeret
+  name: oversized doctor's beret
+  description: A physician's beret stretched over a supermutant's massive skull. The colours of medical and chemistry, in XXXXL.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_physician.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_physician.rsi
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+  - type: Armor # Same protection as ClothingSuperMutantTrooperHelmet
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.80
 
   # Fancy suits for fancy people
 

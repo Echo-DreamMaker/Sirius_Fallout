@@ -74,7 +74,7 @@
     - id: N14IDFollowerGuard
       amount: 2
     - id: N14IDFollowerDoctor
-      amount: 4
+      amount: 2
   - type: Sprite
     layers:
     - state: box
