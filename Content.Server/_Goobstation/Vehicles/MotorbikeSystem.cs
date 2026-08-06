@@ -1,14 +1,15 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Repairable;
 using Content.Shared.Audio;
 using Content.Shared.Buckle;
-using Content.Shared.Buckle.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Components;
@@ -27,7 +28,6 @@ public sealed class MotorbikeSystem : EntitySystem
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -43,11 +43,11 @@ public sealed class MotorbikeSystem : EntitySystem
 
         SubscribeLocalEvent<MotorbikeComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<MotorbikeComponent, EntInsertedIntoContainerMessage>(OnKeyInserted, after: [typeof(VehicleSystem)]);
-        SubscribeLocalEvent<MotorbikeComponent, InteractUsingEvent>(OnInteractUsing, before: [typeof(FlammableSystem)]);
+        SubscribeLocalEvent<MotorbikeComponent, InteractUsingEvent>(OnInteractUsing, before: [typeof(FlammableSystem), typeof(RepairableSystem)]);
         SubscribeLocalEvent<MotorbikeComponent, SolutionTransferAttemptEvent>(OnSolutionTransferAttempt);
         SubscribeLocalEvent<MotorbikeComponent, MotorbikeRefuelDoAfterEvent>(OnRefuelDoAfter);
         SubscribeLocalEvent<MotorbikeComponent, DamageChangedEvent>(OnDamageChanged);
-        SubscribeLocalEvent<BuckleComponent, BeforeDamageChangedEvent>(OnRiderBeforeDamage);
+        SubscribeLocalEvent<MotorbikeComponent, ExaminedEvent>(OnExamined);
     }
 
     public override void Update(float frameTime)
@@ -111,6 +111,13 @@ public sealed class MotorbikeSystem : EntitySystem
 
         if (IsWeldingTool(args.Used))
         {
+            if (TryComp<VehicleComponent>(ent, out var vehicle) && vehicle.Driver == args.User)
+            {
+                _popup.PopupEntity("You can't repair the motorbike while riding it.", ent, args.User);
+                args.Handled = true;
+                return;
+            }
+
             if (TryComp<DamageableComponent>(ent, out var damageable) &&
                 damageable.TotalDamage == 0)
             {
@@ -159,28 +166,16 @@ public sealed class MotorbikeSystem : EntitySystem
         StartBurning(ent);
     }
 
-    private void OnRiderBeforeDamage(Entity<BuckleComponent> ent, ref BeforeDamageChangedEvent args)
+    private void OnExamined(Entity<MotorbikeComponent> ent, ref ExaminedEvent args)
     {
-        if (args.Cancelled ||
-            !args.Damage.AnyPositive() ||
-            ent.Comp.BuckledTo is not { } vehicle ||
-            !TryComp<MotorbikeComponent>(vehicle, out var motorbike) ||
-            motorbike.Burning ||
-            !TryComp<VehicleComponent>(vehicle, out var vehicleComp) ||
-            vehicleComp.Driver != ent.Owner)
+        if (!args.IsInDetailsRange ||
+            !_solution.TryGetSolution(ent.Owner, ent.Comp.FuelSolution, out _, out var fuelSolution))
         {
             return;
         }
 
-        if (!TryComp<DamageableComponent>(vehicle, out var damageable) ||
-            damageable.TotalDamage >= motorbike.MaxIntegrity)
-        {
-            return;
-        }
-
-        var damageDelta = _damageable.TryChangeDamage(vehicle, new DamageSpecifier(args.Damage), origin: args.Origin, doPartDamage: false);
-        if (damageDelta != null && damageDelta.AnyPositive())
-            args.Cancelled = true;
+        var current = fuelSolution.GetTotalPrototypeQuantity(ent.Comp.FuelReagent);
+        args.PushMarkup(Loc.GetString("motorbike-examine-fuel", ("current", current), ("max", fuelSolution.MaxVolume)));
     }
 
     private bool TryRefuel(Entity<MotorbikeComponent> motorbike, EntityUid source, EntityUid user, FixedPoint2 maxAmount)

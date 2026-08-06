@@ -39,7 +39,8 @@ public abstract partial class SharedSericultureSystem : EntitySystem
     /// </summary>
     private void OnMapInit(EntityUid uid, SericultureComponent comp, MapInitEvent args)
     {
-        _actionsSystem.AddAction(uid, ref comp.ActionEntity, comp.Action);
+        if (_actionsSystem.AddAction(uid, ref comp.ActionEntity, comp.Action))
+            _actionsSystem.SetCheckCanInteract(comp.ActionEntity, comp.CheckCanInteract);
     }
 
     /// <summary>

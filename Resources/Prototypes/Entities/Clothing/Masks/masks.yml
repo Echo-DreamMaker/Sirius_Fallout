@@ -92,7 +92,7 @@
   parent: ClothingMaskGasAtmos
   id: ClothingMaskGasCaptain
   name: captain's gas mask
-  description: Nanotrasen cut corners and repainted a spare atmospheric gas mask, but don't tell anyone.
+  description: It looks like whoever made this cut corners and repainted a spare atmospheric gas mask, but don't tell anyone.
   components:
   - type: Sprite
     sprite: Clothing/Mask/gascaptain.rsi
@@ -607,7 +607,7 @@
     sprite: Clothing/Mask/neckgaiter.rsi
   - type: Mask
   - type: IdentityBlocker
-  - type: IngestionBlocker  
+  - type: IngestionBlocker
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -619,7 +619,7 @@
   name: neck gaiter
   components:
   - type: IdentityBlocker
-  - type: IngestionBlocker  
+  - type: IngestionBlocker
   - type: Sprite
     sprite: Clothing/Mask/neckgaiterwhite.rsi
   - type: Clothing
@@ -628,7 +628,7 @@
     tags:
     - WhitelistChameleon
     - IPCMaskWearable
-    
+
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -636,7 +636,7 @@
   name: red neck gaiter
   components:
   - type: IdentityBlocker
-  - type: IngestionBlocker  
+  - type: IngestionBlocker
   - type: Sprite
     sprite: Clothing/Mask/neckgaiterred.rsi
   - type: Clothing

@@ -16,8 +16,11 @@ job-supervisors-synthetic = your programming and your own best judgement
 
 # #Misfits Add - Rangers admin-only leadership role.
 job-supervisors-chief-ranger = the Ranger code and your own judgment
-job-supervisors-ncr-ranger-recruit = the Patrol Rangers and Field Rangers above you # #Misfits Add
+job-supervisors-ncr-ranger-recruit = The major, the Patrol Rangers, and Field Rangers above you
 job-supervisors-supermutant = your instincts and the strongest among you
+
+# Provost
+job-supervisors-ncr-provost = The Law and the orders of the provost office
 
 # #Misfits Add (Phase G) - C-27 Humanoid Robot supervisor string.
 job-supervisors-c27 = your factory directives and your own emergent judgement
@@ -28,7 +31,7 @@ job-supervisors-bos-west-elder = no one, but your duty to the Brotherhood
 job-supervisors-bos-west = the Elder
 job-supervisors-bos-headknight = the Elder
 job-supervisors-bos-paladin = the Head Paladin and Elder
-job-supervisors-bos-knight = the Head Knight, Head Paladin, and Elder
+job-supervisors-bos-knight = the Head Knight, and Elder
 job-supervisors-bos-scribe = the Head Scribe and Elder
 job-supervisors-bos-initiate = the Brotherhood chain of command
 

@@ -1,6 +1,7 @@
 // #Misfits Add - Innate Nightkin Stealth Boy implant state.
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Misfits.Nightkin;
 
@@ -20,6 +21,22 @@ public sealed partial class NightkinPassiveStealthComponent : Component
     [DataField, AutoNetworkedField]
     public float Visibility = 0.3f;
 
+    // how visible while cloaked but not moving. -1 = completely gone
+    [DataField, AutoNetworkedField]
+    public float StillVisibility = 0f;
+
+    // how visible while slow walking, between still and the running shimmer
+    [DataField, AutoNetworkedField]
+    public float WalkVisibility = 0.1f;
+
+    // hunger drains this much faster while the cloak is active - staying hidden burns calories
+    [DataField, AutoNetworkedField]
+    public float CloakHungerMultiplier = 2.5f;
+
+    // set while the cloak is up so we only restore the hunger rate once
+    [DataField, AutoNetworkedField]
+    public bool HungerBumped;
+
     [DataField, AutoNetworkedField]
     public TimeSpan FadeInTime = TimeSpan.FromSeconds(1.5);
 
@@ -31,9 +48,47 @@ public sealed partial class NightkinPassiveStealthComponent : Component
 
     [DataField, AutoNetworkedField]
     public string DeactivateMessage = "Your Stealth Boy implant powers down.";
+
+    // recharge time after the cloak drops
+    [DataField, AutoNetworkedField]
+    public TimeSpan Cooldown = TimeSpan.FromSeconds(30);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    public TimeSpan CooldownEndTime;
 }
 
 /// <summary>
 /// Fired by the Nightkin innate stealth action.
 /// </summary>
 public sealed partial class ToggleNightkinStealthActionEvent : InstantActionEvent;
+
+/// <summary>
+/// Heals every damage type the mob is hurt in, but only while it's soaking
+/// radiation. Reads exposure off RadiationHealingComponent.
+/// </summary>
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class RadiationRegenComponent : Component
+{
+    // healed per second in every damage type the mob currently has
+    [DataField, AutoNetworkedField]
+    public float HealPerSecond = 0.5f;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    public TimeSpan NextHeal;
+}
+
+/// <summary>
+/// Makes the holder steadier with guns. Below 1 = tighter spread / less recoil.
+/// </summary>
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class GunHandlingModifierComponent : Component
+{
+    [DataField, AutoNetworkedField]
+    public float SpreadMultiplier = 1f;
+
+    [DataField, AutoNetworkedField]
+    public float RecoilMultiplier = 1f;
+
+    [DataField, AutoNetworkedField]
+    public float FireRateMultiplier = 1f;
+}

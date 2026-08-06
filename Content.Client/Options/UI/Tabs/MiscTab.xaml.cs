@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client.Lobby;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Screens;
 using Content.Shared._Misfits.UI; // #Misfits Add - UI theme palette prototype
@@ -11,6 +12,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared;
 using Robust.Shared.Configuration;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -24,13 +26,16 @@ namespace Content.Client.Options.UI.Tabs
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
 
         private readonly Dictionary<string, int> _hudThemeIdToIndex = new();
+        private readonly string _defaultChatHighlightTerms;
 
         public MiscTab()
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
+            _defaultChatHighlightTerms = GetDefaultChatHighlightTerms();
 
             // #Misfits Add - UI color theme dropdown, populated from server-definable misfitsUiTheme prototypes.
             var currentTheme = _cfg.GetCVar(CCVars.UiThemePalette);
@@ -107,6 +112,8 @@ namespace Content.Client.Options.UI.Tabs
             FancySpeechBubblesCheckBox.OnToggled += OnCheckBoxToggled;
             FancyNameBackgroundsCheckBox.OnToggled += OnCheckBoxToggled;
             EnableColorNameCheckBox.OnToggled += OnCheckBoxToggled;
+            ChatHighlightTermsEdit.OnTextChanged += _ => UpdateApplyButton();
+            ChatHighlightColorEdit.OnTextChanged += _ => UpdateApplyButton();
             ColorblindFriendlyCheckBox.OnToggled += OnCheckBoxToggled;
             ReducedMotionCheckBox.OnToggled += OnCheckBoxToggled;
             ChatWindowOpacitySlider.OnValueChanged += OnChatWindowOpacitySliderChanged;
@@ -115,6 +122,7 @@ namespace Content.Client.Options.UI.Tabs
             StaticStorageUI.OnToggled += OnCheckBoxToggled;
             ModernProgressBar.OnToggled += OnCheckBoxToggled;
             DisableFiltersCheckBox.OnToggled += OnCheckBoxToggled;
+            CensorNudityCheckBox.OnToggled += OnCheckBoxToggled;
 
             HudThemeOption.SelectId(_hudThemeIdToIndex.GetValueOrDefault(_cfg.GetCVar(CVars.InterfaceTheme), 0));
             DiscordRich.Pressed = _cfg.GetCVar(CVars.DiscordEnabled);
@@ -127,6 +135,11 @@ namespace Content.Client.Options.UI.Tabs
             FancySpeechBubblesCheckBox.Pressed = _cfg.GetCVar(CCVars.ChatEnableFancyBubbles);
             FancyNameBackgroundsCheckBox.Pressed = _cfg.GetCVar(CCVars.ChatFancyNameBackground);
             EnableColorNameCheckBox.Pressed = _cfg.GetCVar(CCVars.ChatEnableColorName);
+            var configuredHighlightTerms = _cfg.GetCVar(CCVars.ChatHighlightTerms);
+            ChatHighlightTermsEdit.Text = string.IsNullOrWhiteSpace(configuredHighlightTerms)
+                ? _defaultChatHighlightTerms
+                : configuredHighlightTerms;
+            ChatHighlightColorEdit.Text = _cfg.GetCVar(CCVars.ChatHighlightColor);
             ColorblindFriendlyCheckBox.Pressed = _cfg.GetCVar(CCVars.AccessibilityColorblindFriendly);
             ReducedMotionCheckBox.Pressed = _cfg.GetCVar(CCVars.ReducedMotion);
             ChatWindowOpacitySlider.Value = _cfg.GetCVar(CCVars.ChatWindowOpacity);
@@ -135,6 +148,7 @@ namespace Content.Client.Options.UI.Tabs
             StaticStorageUI.Pressed = _cfg.GetCVar(CCVars.StaticStorageUI);
             ModernProgressBar.Pressed = _cfg.GetCVar(CCVars.ModernProgressBar);
             DisableFiltersCheckBox.Pressed = _cfg.GetCVar(CCVars.NoVisionFilters);
+            CensorNudityCheckBox.Pressed = _cfg.GetCVar(CCVars.AccessibilityClientCensorNudity);
 
 
             ApplyButton.OnPressed += OnApplyButtonPressed;
@@ -185,6 +199,10 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.ChatEnableFancyBubbles, FancySpeechBubblesCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatFancyNameBackground, FancyNameBackgroundsCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatEnableColorName, EnableColorNameCheckBox.Pressed);
+            var highlightTerms = ChatHighlightTermsEdit.Text.Trim();
+            _cfg.SetCVar(CCVars.ChatHighlightTerms,
+                highlightTerms == _defaultChatHighlightTerms ? "" : highlightTerms);
+            _cfg.SetCVar(CCVars.ChatHighlightColor, ChatHighlightColorEdit.Text.Trim());
             _cfg.SetCVar(CCVars.AccessibilityColorblindFriendly, ColorblindFriendlyCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ReducedMotion, ReducedMotionCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatWindowOpacity, ChatWindowOpacitySlider.Value);
@@ -193,6 +211,7 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.StaticStorageUI, StaticStorageUI.Pressed);
             _cfg.SetCVar(CCVars.ModernProgressBar, ModernProgressBar.Pressed);
             _cfg.SetCVar(CCVars.NoVisionFilters, DisableFiltersCheckBox.Pressed);
+            _cfg.SetCVar(CCVars.AccessibilityClientCensorNudity, CensorNudityCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatStackLastLines, ChatStackOption.SelectedId);
 
             if (HudLayoutOption.SelectedMetadata is string opt)
@@ -227,6 +246,12 @@ namespace Content.Client.Options.UI.Tabs
             var isFancyChatSame = FancySpeechBubblesCheckBox.Pressed == _cfg.GetCVar(CCVars.ChatEnableFancyBubbles);
             var isFancyBackgroundSame = FancyNameBackgroundsCheckBox.Pressed == _cfg.GetCVar(CCVars.ChatFancyNameBackground);
             var isEnableColorNameSame = EnableColorNameCheckBox.Pressed == _cfg.GetCVar(CCVars.ChatEnableColorName);
+            var savedHighlightTerms = _cfg.GetCVar(CCVars.ChatHighlightTerms);
+            var displayedHighlightTerms = string.IsNullOrWhiteSpace(savedHighlightTerms)
+                ? _defaultChatHighlightTerms
+                : savedHighlightTerms;
+            var areChatHighlightTermsSame = ChatHighlightTermsEdit.Text.Trim() == displayedHighlightTerms;
+            var isChatHighlightColorSame = ChatHighlightColorEdit.Text.Trim() == _cfg.GetCVar(CCVars.ChatHighlightColor);
             var isColorblindFriendly = ColorblindFriendlyCheckBox.Pressed == _cfg.GetCVar(CCVars.AccessibilityColorblindFriendly);
             var isReducedMotionSame = ReducedMotionCheckBox.Pressed == _cfg.GetCVar(CCVars.ReducedMotion);
             var isChatWindowOpacitySame = Math.Abs(ChatWindowOpacitySlider.Value - _cfg.GetCVar(CCVars.ChatWindowOpacity)) < 0.01f;
@@ -235,6 +260,7 @@ namespace Content.Client.Options.UI.Tabs
             var isStaticStorageUISame = StaticStorageUI.Pressed == _cfg.GetCVar(CCVars.StaticStorageUI);
             var isModernProgressBarSame = ModernProgressBar.Pressed == _cfg.GetCVar(CCVars.ModernProgressBar);
             var isNoVisionFiltersSame = DisableFiltersCheckBox.Pressed == _cfg.GetCVar(CCVars.NoVisionFilters);
+            var isCensorNuditySame = CensorNudityCheckBox.Pressed == _cfg.GetCVar(CCVars.AccessibilityClientCensorNudity);
             var isChatStackTheSame = ChatStackOption.SelectedId == _cfg.GetCVar(CCVars.ChatStackLastLines);
 
             ApplyButton.Disabled = isHudThemeSame &&
@@ -250,6 +276,8 @@ namespace Content.Client.Options.UI.Tabs
                                    isFancyChatSame &&
                                    isFancyBackgroundSame &&
                                    isEnableColorNameSame &&
+                                   areChatHighlightTermsSame &&
+                                   isChatHighlightColorSame &&
                                    isColorblindFriendly &&
                                    isReducedMotionSame &&
                                    isChatWindowOpacitySame &&
@@ -258,7 +286,21 @@ namespace Content.Client.Options.UI.Tabs
                                    isStaticStorageUISame &&
                                    isModernProgressBarSame &&
                                    isNoVisionFiltersSame &&
+                                   isCensorNuditySame &&
                                    isChatStackTheSame;
+        }
+
+        private string GetDefaultChatHighlightTerms()
+        {
+            var name = _playerManager.LocalSession?.AttachedEntity is { } attached
+                ? IoCManager.Resolve<IEntityManager>().GetComponent<MetaDataComponent>(attached).EntityName
+                : _preferencesManager.Preferences?.SelectedCharacter?.Name;
+
+            if (string.IsNullOrWhiteSpace(name))
+                return "";
+
+            var parts = name.Split(' ', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+            return parts.Length > 1 ? $"{parts[0]}; {parts[^1]}" : parts[0];
         }
 
     }

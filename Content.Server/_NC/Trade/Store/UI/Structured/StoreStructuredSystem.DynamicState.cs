@@ -159,7 +159,7 @@ public sealed partial class StoreStructuredSystem : EntitySystem
                 hasSellTab,
                 hasContractsTab,
                 // #Misfits Add — tier progression data for the client
-                unlockedTiers ?? new HashSet<string> { "Bronze" },
+                unlockedTiers ?? new HashSet<string> { "Road Kill" },
                 roster
             )
         );

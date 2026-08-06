@@ -1,0 +1,176 @@
+- type: entity
+  parent: N14ClothingOuterBase
+  id: M14ClothingOuterHighwayPatrolJacket
+  name: highway patrol jacket
+  description: An old police motorcycle jacket with internal padding and a gold badge with the logo of the Utah State Troopers
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ahp_suit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ahp_suit.rsi
+  - type: Armor
+    modifiers:
+     coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+    priceMultiplier: 0.5
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: N14MaterialLeather1
+      amount: 1
+    - id: MaterialCloth1
+      amount: 1
+
+- type: entity
+  parent: N14ClothingOuterBase
+  id: M14ClothingOuterMarlowGangOvercoat
+  name: marlow gang overcoat
+  description: A heavy raw buckskin overcoat littered with aged bullet holes and frays from regular wear-and-tear.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/marlowsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/marlowsuit.rsi
+  - type: Armor
+    modifiers:
+     coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+    priceMultiplier: 0.5
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: N14MaterialLeather1
+      amount: 1
+    - id: MaterialCloth1
+      amount: 1
+
+- type: entity
+  parent: N14ClothingOuterBase
+  id: M14ClothingOuterGunfightersOvercoat
+  name: gunfighters overcoat
+  description: A thick double-breasted red leather overcoat worn through with scattered tears and bullet holes.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ikesuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ikesuit.rsi
+  - type: Armor
+    modifiers:
+     coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+    priceMultiplier: 0.5
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: N14MaterialLeather1
+      amount: 1
+    - id: MaterialCloth1
+      amount: 1
+
+- type: entity
+  parent: N14ClothingOuterBase
+  id: M14ClothingOuterVegabondsVest
+  name: vegabonds vest
+  description: A padded thick red leather vest, coated in stitched pockets and other mends.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/masonsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/masonsuit.rsi
+  - type: Armor
+    modifiers:
+     coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+    priceMultiplier: 0.5
+  - type: Butcherable
+    butcheringType: Knife
+    spawned:
+    - id: N14MaterialLeather1
+      amount: 1
+    - id: MaterialCloth1
+      amount: 1
+
+- type: entity
+  parent: N14ClothingOuterBase
+  id: M14ClothingOuterArmorKit
+  name: armor kit
+  description: Separate armor parts you can wear over your clothing, giving basic protection against bullets entering some of your organs. Very well ventilated.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/armorkit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/armorkit.rsi
+  - type: Armor
+    modifiers:
+     coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: N14ClothingOuterBase
+  id: M14ClothingOuterArmorKitPunk
+  name: punk armor kit
+  description: A couple of armor parts that can be worn over the clothing for moderate protection against the dangers of wasteland. Do you feel lucky now? Well, do ya, punk?
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/armorkitpunk.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/armorkitpunk.rsi
+  - type: Armor
+    modifiers:
+     coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: N14ClothingOuterBase
+  id: M14ClothingOuterArmorKitShoulder
+  name: shoulder armor kit
+  description: A single big metal shoulderplate for the right side, keeping it turned towards the enemy is advisable.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/armorkitshoulder.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/armorkitshoulder.rsi
+  - type: Armor
+    modifiers:
+     coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+#If return to Khan bring to Khans_armor.yml and adjust armor values to bring in line to armored jacket
+- type: entity
+  parent: N14ClothingOuterBase
+  id: M14ClothingOuterKhanLeather
+  name: great khan leather vest
+  description: A black leather jacket. There is an illustration on the back - an aggressive, red-eyed skull wearing a fur hat with horns. The skull has a mongoloid moustache - it's obviously a Great Khans emblem.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansaltarmoredjacket.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansaltarmoredjacket.rsi
+  - type: Armor
+    modifiers:
+     coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9

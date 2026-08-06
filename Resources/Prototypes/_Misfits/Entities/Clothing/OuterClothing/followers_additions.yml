@@ -1,0 +1,25 @@
+# Additional gear for Followers of the Apocalypse
+
+# 40 Hr. Loadout option - Followers Duster
+- type: entity
+  parent: N14ClothingOuterCoatFollowersArmored
+  id: MisfitsClothingOuterFollowersResponderDuster
+  name: Followers Responder Duster
+  description: A modified combat duster bleached white and stitched with the Follower's insignia. Issued to Followers of the Apocalypse that have proven their dedication to helping their fellow man - no matter the risk.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/followerduster.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/followerduster.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.80
+  - type: ClothingSpeedModifier
+    walkModifier: 1.05
+    sprintModifier: 1.05

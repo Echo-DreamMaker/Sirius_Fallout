@@ -250,6 +250,7 @@
   id: FollowerVolunteerGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitFollowers
+    back: ClothingBackpackSatchelMedical
     shoes: N14ClothingBootsLeather
     neck: ClothingNeckStethoscope
     id: N14IDFollowerVolunteer

@@ -38,6 +38,7 @@
   equipment:
     back: N14ClothingBackpackSatchelMilitary
     jumpsuit: N14ClothingUniformJumpsuitEnclave
+    outerClothing: N14ClothingOuterRadSuitEnclave
     shoes: N14ClothingBootsLeatherFilled
     neck: ClothingNeckPinEnclaveJuniorScientist
     belt: ClothingBeltMilitary

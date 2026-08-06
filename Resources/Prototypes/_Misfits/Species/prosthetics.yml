@@ -1,0 +1,41 @@
+# Misfits - Humanoid base layers used when prosthetic hands or feet are attached.
+
+- type: humanoidBaseSprite
+  id: MisfitsProstheticSimpleLeftHand
+  baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_hand_simple }
+
+- type: humanoidBaseSprite
+  id: MisfitsProstheticSimpleRightHand
+  baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_hand_simple }
+
+- type: humanoidBaseSprite
+  id: MisfitsProstheticVaultTecLeftHand
+  baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_hand_vaulttec }
+
+- type: humanoidBaseSprite
+  id: MisfitsProstheticVaultTecRightHand
+  baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_hand_vaulttec }
+
+- type: humanoidBaseSprite
+  id: MisfitsProstheticNCRLeftHand
+  baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_hand_ncr }
+
+- type: humanoidBaseSprite
+  id: MisfitsProstheticNCRRightHand
+  baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_hand_ncr }
+
+- type: humanoidBaseSprite
+  id: MisfitsProstheticSimpleLeftFoot
+  baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_foot_simple }
+
+- type: humanoidBaseSprite
+  id: MisfitsProstheticSimpleRightFoot
+  baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_foot_simple }
+
+- type: humanoidBaseSprite
+  id: MisfitsProstheticVaultTecLeftFoot
+  baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_foot_vaulttec }
+
+- type: humanoidBaseSprite
+  id: MisfitsProstheticVaultTecRightFoot
+  baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_foot_vaulttec }

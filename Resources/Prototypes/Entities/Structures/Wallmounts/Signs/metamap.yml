@@ -1,8 +1,8 @@
 - type: entity
   parent: PosterBase
   id: PosterMapMetaRight
-  name: "Meta Station Map"
-  description: "A map of Meta Station. This looks really old."
+  name: "Meta Facility Blueprint"
+  description: "A map of an isolated military outpost, it looks more like a massive city-state than an army base! If this place survived the bombs dropping and is still operational, its an extremely well kept secret."
   components:
   - type: Sprite
     state: metamap64x

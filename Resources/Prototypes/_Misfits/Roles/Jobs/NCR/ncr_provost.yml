@@ -1,0 +1,59 @@
+- type: job
+  id: NCRProvost
+  setPreference: true
+  hideWithoutJobWhitelist: true   # Whitelist-only; only visible to whitelisted players
+  hideIfPlaytimeRequirementsNotMet: false
+  jobWhitelistBypassesRoleTimers: true
+  weight: 10
+  name: job-name-ncr-provost
+  overwatchCategory: OverwatchNcrMp
+  description: job-description-ncr-provost
+  playTimeTracker: NCRProvost
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Human
+        - Ghoul
+  startingGear: NCRProvostGear
+  icon: "JobIconNcrLeader"
+  supervisors: job-supervisors-ncr-provost
+  requireAdminNotify: true
+  alwaysUseSpawner: true
+  canBeAntag: false
+  access:
+    - NCR
+    - NCRSGT
+    - NCRMedic
+    - NCRLT
+    - NCRCaptain
+    - NCRMajor
+  special:
+    - !type:AddComponentSpecial
+      components:
+        - type: NpcFactionMember
+          factions:
+            - Wastelander
+            - NCR
+
+
+- type: startingGear
+  id: NCRProvostGear
+  equipment:
+    head: N14ClothingHeadHatNCRSlouch
+    back: N14ClothingBackpackNCR
+    jumpsuit: N14ClothingUniformNCRCFUniform
+    outerClothing: N14ClothingOuterNCRVestCoatBlackArmored
+    shoes: N14ClothingBootsCombatFilled
+    belt: ClothingBeltNCR
+    eyes: ClothingEyesGlassesSunglasses
+    ears: N14ClothingHeadsetNCR
+    pocket2: NCRMPKit_Set
+    id: N14IDNCRDogtagProvost
+  innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+      - N14BoxPlasticFilledMilitaryNCR
+
+- type: playTimeTracker
+  id: NCRProvost

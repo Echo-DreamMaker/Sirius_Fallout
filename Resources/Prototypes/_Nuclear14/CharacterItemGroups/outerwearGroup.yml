@@ -154,3 +154,19 @@
 
 
 
+    - type: loadout
+      id: MisfitsLoadoutOuterHighwayPatrolJacket
+    - type: loadout
+      id: MisfitsLoadoutOuterMarlowGangOvercoat
+    - type: loadout
+      id: MisfitsLoadoutOuterGunfightersOvercoat
+    - type: loadout
+      id: MisfitsLoadoutOuterVegabondsVest
+    - type: loadout
+      id: MisfitsLoadoutOuterArmorKit
+    - type: loadout
+      id: MisfitsLoadoutOuterArmorKitPunk
+    - type: loadout
+      id: MisfitsLoadoutOuterArmorKitShoulder
+    - type: loadout
+      id: MisfitsLoadoutOuterKhanLeather

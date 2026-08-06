@@ -1,0 +1,55 @@
+# #Misfits Add - Glock chambered in .45 Magnum. Sprites by wassuythefourth_47721.
+# Feeds from N14MagGlock (15 rounds). The magazine slot whitelists the
+# MagazineMagnum tag, so vanilla 7-round magnum magazines work in it as well.
+# Clothing sprite is overridden here because N14BaseWeaponPistol inherits viper.rsi,
+# which would otherwise show the wrong art when holstered.
+- type: entity
+  name: Glock 37M
+  parent: N14BaseWeaponPistol
+  id: N14Glock
+  description: An exceedingly rare Glock chambered in .45 Magnum. Its unusual caliber and limited production make it a true collector's piece if you are pro.
+  components:
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Pistols/glock.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _Misfits/Objects/Weapons/Guns/Pistols/glock.rsi
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Guns/Pistols/glock.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Gun
+    fireRate: 4
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MagGlock
+        insertSound: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
+        ejectSound: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineMagnum
+      gun_chamber:
+        name: Chamber
+        startingItem: N14CartridgeGlock45
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMagnum
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 45

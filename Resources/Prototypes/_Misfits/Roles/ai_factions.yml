@@ -8,6 +8,12 @@
   hostile:
   - Raider
 
+# #Misfits Add - Classification faction for the Eighties biker gang. Members retain
+# PlayerRaider for their existing NPC relationships; this marker lets war and raid
+# systems distinguish them from unrelated player raiders.
+- type: npcFaction
+  id: Eighties
+
 # #Misfits Add - Player Robot faction for Synthetic job prototypes (Mr. Handy, Protectron, etc.).
 # Kept separate from HostileRobot so NPC robots don't auto-aggro player bots.
 # #Misfits Fix - Added hostile list so player robots are enemies to all NPC factions

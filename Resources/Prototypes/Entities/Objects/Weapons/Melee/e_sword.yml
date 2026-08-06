@@ -291,7 +291,7 @@
   name: double-bladed energy sword
   parent: EnergySword
   id: EnergySwordDouble
-  description: Syndicate Command's intern thought that having only one blade on energy swords was not cool enough. This can be stored in pockets.
+  description: The energy sword has now been made twice as dangerous, and twice as difficult to handle properly without cutting off your own fingers. This can be stored in pockets.
   components:
   - type: ItemToggle
     onUse: false # wielding events control it instead

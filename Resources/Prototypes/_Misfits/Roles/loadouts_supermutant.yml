@@ -122,6 +122,26 @@
     - ClothingSuperMutantZootBoot
 
 - type: loadout
+  id: ClothingSuperMutantLeatherBoot
+  category: Shoes
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - SuperMutant
+        - Nightkin
+        - SuperMutantGladiator
+        - SuperMutantRanger
+        - SuperMutantTrooper
+        - SuperMutantNCRRanger
+        - SuperMutantNCRTrooper
+        - SuperMutantTribal
+        - SuperMutantFollowerDoctor
+  items:
+    - ClothingSuperMutantLeatherBoots
+
+- type: loadout
   id: MisfitsLoadoutSuperMutantVaultSuit
   category: Uniform
   cost: 1
@@ -194,6 +214,58 @@
         - SuperMutantNCRRanger
   items:
     - ClothingSuperMutantRangerArmor
+
+- type: loadout
+  id: MisfitsLoadoutSuperMutantYazovRangerArmor
+  category: Outer
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - SuperMutantRanger
+        - SuperMutantNCRRanger
+  items:
+    - ClothingSuperMutantYazovRangerArmor
+
+- type: loadout
+  id: MisfitsLoadoutSuperMutantYazovDuster
+  category: Neck
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - SuperMutantRanger
+        - SuperMutantNCRRanger
+  items:
+    - ClothingSuperMutantYazovDuster
+
+- type: loadout
+  id: MisfitsLoadoutSuperMutantYazovMask
+  category: Neck
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - SuperMutantRanger
+        - SuperMutantNCRRanger
+  items:
+    - ClothingSuperMutantYazovGasmask
+
+- type: loadout
+  id: MisfitsLoadoutSuperMutantYazovHat
+  category: Head
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - SuperMutantRanger
+        - SuperMutantNCRRanger
+  items:
+    - ClothingSuperMutantYazovHat
 
 - type: loadout
   id: MisfitsLoadoutSuperMutantTrooperArmor
@@ -347,6 +419,26 @@
         - SuperMutantFollowerDoctor
   items:
     - ClothingSuperMutantScavengedGloves
+
+- type: loadout
+  id: MisfitsLoadoutSuperMutantBlackGloves
+  category: Hands
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - SuperMutant
+        - Nightkin
+        - SuperMutantGladiator
+        - SuperMutantRanger
+        - SuperMutantTrooper
+        - SuperMutantNCRRanger
+        - SuperMutantNCRTrooper
+        - SuperMutantTribal
+        - SuperMutantFollowerDoctor
+  items:
+    - SupermutantBlackGloves
 
 - type: loadout
   id: MisfitsLoadoutSuperMutantScavengedArmor

@@ -940,8 +940,8 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRvestcoatblack.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 1.10
-    sprintModifier: 1.10
+    walkModifier: 1.05
+    sprintModifier: 1.05
   - type: Armor
     modifiers:
       coefficients:
@@ -956,7 +956,31 @@
         Heat: 1
     priceMultiplier: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.85
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterNCRVestCoatBlackArmored
+  name: NCR Provost Armored Coat
+  description: A light ballistic plate inside a leather vest over a long coat. This one is covered in black camo for night operations.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRvestcoatblack.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRvestcoatblack.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.00
+    sprintModifier: 1.00
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.55
+        Heat: 0.60
+    priceMultiplier: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -1203,7 +1227,7 @@
 - type: entity
   parent: N14ClothingOuterBase
   id: N14ClothingOuterRangerVest
-  name: ranger custom leather vest
+  name: NCR tactical vest
   description: A custom NCR leather vest modified to become more versatile and protective.
   components:
   - type: Sprite
@@ -1352,8 +1376,8 @@
 - type: entity
   parent: N14ClothingOuterRangerCoat
   id: N14ClothingOuterRangerFieldArmor
-  name: NCR field ranger armor
-  description: A set of combat armor refurbished from old national guard stock, issued to Field Rangers.
+  name: NCR field armor
+  description: A set of combat armor refurbished from old national guard stock, issued to Field Rangers and senior Army personnel.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerfieldarmor.rsi
@@ -1591,13 +1615,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.60
-        Heat: 0.65
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.55
+        Heat: 0.55
     priceMultiplier: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.75
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -1853,8 +1877,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier # Forge-Change
-    walkModifier: 1.1 # consistency and yes I know we don't have bluprints of these
-    sprintModifier: 1.1
+    walkModifier: 1.05 # consistency and yes I know we don't have bluprints of these
+    sprintModifier: 1.05
 
 # New Midwest BoS stuff after rework
 
@@ -2271,7 +2295,7 @@
   parent: N14FalloutArmorBase
   id: N14ClothingOuterVestChinese
   name: chinese armored vest
-  description: A light bulletproof vest, mostly used by regular chinese infantry.
+  description: A light bulletproof vest, mostly used by regular Chinese infantry.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutchinesevest.rsi
@@ -2401,5 +2425,5 @@
         Heat: 1
         Caustic: 1
   - type: ClothingSpeedModifier
-    walkModifier: 0.975
-    sprintModifier: 0.975
+    walkModifier: 1.0
+    sprintModifier: 1.0

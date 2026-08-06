@@ -19,6 +19,8 @@
     damage:
       types:
         Blunt: 15
+  - type: GrantActionOnWield       # Misfits Add
+    actions: [ MisfitsActionMeleeCharge ]
   - type: Item
     size: Large
   - type: Tool
@@ -80,6 +82,8 @@
     damage:
       types:
         Blunt: 15
+  - type: GrantActionOnWield       # Misfits Add
+    actions: [ MisfitsActionMeleeCharge ]
   - type: Item
     size: Large
   - type: Clothing
@@ -111,6 +115,8 @@
     damage:
       types:
         Blunt: 25
+  - type: GrantActionOnWield       # Misfits Add
+    actions: [ MisfitsActionMeleeCharge ]
   - type: Item
     size: Large
   - type: Clothing

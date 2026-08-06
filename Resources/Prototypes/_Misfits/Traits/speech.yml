@@ -12,13 +12,8 @@
     - !type:CharacterDepartmentRequirement
       departments:
       - Tribe
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - N14FrontalLisp
-    - N14Liar
-    - N14ScottishAccent
-    - N14FrenchieAccent
+  - !type:CharacterItemGroupRequirement # Misfits Change - one-accent-max group replaces exclusion lists
+    group: N14SpeechAccents
   functions:
   - !type:TraitAddComponent
     components:
@@ -47,3 +42,168 @@
     - Tribal
     languagesUnderstood:
     - Tribal
+
+- type: trait
+  id: N14CowboyAccent
+  category: Speech
+  points: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14SpeechAccents
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: ReplacementAccent
+      accent: cowboy
+
+- type: trait
+  id: N14SouthernAccent
+  category: Speech
+  points: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14SpeechAccents
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: SouthernAccent
+
+- type: trait
+  id: N14MobsterAccent
+  category: Speech
+  points: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14SpeechAccents
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: MobsterAccent
+      isBoss: false
+
+# Misfits - disabled for now, uncomment here and in CharacterItemGroups/speech.yml to re-enable.
+#- type: trait
+#  id: N14RussianAccent
+#  category: Speech
+#  points: 1
+#  requirements:
+#  - !type:CharacterItemGroupRequirement
+#    group: N14SpeechAccents
+#  functions:
+#  - !type:TraitAddComponent
+#    components:
+#    - type: RussianAccent
+
+- type: trait
+  id: N14ItalianAccent
+  category: Speech
+  points: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14SpeechAccents
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: ReplacementAccent
+      accent: italian
+
+- type: trait
+  id: N14VaultDwellerAccent
+  category: Speech
+  points: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14SpeechAccents
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: ReplacementAccent
+      accent: n14VaultDweller
+
+- type: trait
+  id: N14RadioAnnouncerAccent
+  category: Speech
+  points: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14SpeechAccents
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: ReplacementAccent
+      accent: n14RadioAnnouncer
+
+# Misfits - disabled for now, uncomment here and in CharacterItemGroups/speech.yml to re-enable.
+#- type: trait
+#  id: N14LegionLatinAccent
+#  category: Speech
+#  points: 1
+#  requirements:
+#  - !type:CharacterItemGroupRequirement
+#    group: N14SpeechAccents
+#  - !type:CharacterDepartmentRequirement
+#    departments:
+#    - CaesarLegion
+#  functions:
+#  - !type:TraitAddComponent
+#    components:
+#    - type: ReplacementAccent
+#      accent: n14LegionLatin
+
+- type: trait
+  id: N14GhoulRaspAccent
+  category: Speech
+  points: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14SpeechAccents
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Ghoul
+    - GhoulGlowing
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: ReplacementAccent
+      accent: n14GhoulRasp
+
+- type: trait
+  id: N14OldTimerAccent
+  category: Speech
+  points: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14SpeechAccents
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: ReplacementAccent
+      accent: n14OldTimer
+
+- type: trait
+  id: N14MisterHandyAccent
+  category: Speech
+  points: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14SpeechAccents
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Robots
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: ReplacementAccent
+      accent: n14MisterHandy
+
+- type: trait
+  id: N14GermanAccent
+  category: Speech
+  points: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14SpeechAccents
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: GermanAccent

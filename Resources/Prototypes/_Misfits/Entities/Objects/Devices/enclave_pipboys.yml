@@ -1,0 +1,25 @@
+# #Misfits Add - Enclave Pip-Boy 3000 variants with role-appropriate identification.
+
+- type: entity
+  parent: N14BasePipboy
+  id: N14EnclaveTrooperPipboy
+  suffix: Enclave, Trooper
+  components:
+  - type: Pda
+    id: N14IDEnclaveTrooper
+
+- type: entity
+  parent: N14BasePipboy
+  id: N14EnclaveOfficerPipboy
+  suffix: Enclave, Officer
+  components:
+  - type: Pda
+    id: N14IDEnclaveOfficer
+
+- type: entity
+  parent: N14BasePipboy
+  id: N14EnclaveNoncombatPipboy
+  suffix: Enclave, Noncombat
+  components:
+  - type: Pda
+    id: N14IDEnclaveNoncombat

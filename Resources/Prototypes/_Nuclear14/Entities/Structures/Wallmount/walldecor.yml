@@ -22,9 +22,9 @@
 - type: entity
   parent: N14SignBase
   id: N14FlagWallUS
-  name: flag
+  name: Flag of the United States
   suffix: US
-  description: A US flag.
+  description: The banner of the United States, an empire that fell over two centuries ago. Even with its dissolution in the Great War, many still believe the nation stands so long as its people believe in it.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
@@ -37,8 +37,9 @@
 - type: entity
   parent: N14FlagWallUS
   id: N14FlagWallChina
+  name: Flag of the People's Republic of China
   suffix: China
-  description: A Chinese flag.
+  description: The banner of the People's Republic of China, it existed over a century, inheritor of an empire of 3500 years, but its ultimate fate is a mystery in this wasteland.
   components:
   - type: Sprite
     state: flag_china
@@ -49,8 +50,9 @@
 - type: entity
   parent: N14FlagWallUS
   id: N14FlagWallCalifornia
+  name: Flag of the State of California
   suffix: California
-  description: A flag of California.
+  description: The banner of the State of California, home of both the Brotherhood of Steel and New California Republic's foundation. It is regarded by many as the state where America began to truly rebuild.
   components:
   - type: Sprite
     state: flag_cali
@@ -61,8 +63,9 @@
 - type: entity
   parent: N14FlagWallUS
   id: N14FlagWallArizona
+  name: Flag of the State of Arizona
   suffix: Arizona
-  description: A flag of Arizona.
+  description: The banner of the State of Arizona, which is now the home of Caesar's Legion. Once a hive of lawless violence, the Legion's structured violence has now made it a safe place for civilians to live.
   components:
   - type: Sprite
     state: flag_arizona
@@ -73,8 +76,9 @@
 - type: entity
   parent: N14FlagWallUS
   id: N14FlagWallEnclave
+  name: Flag of the Enclave
   suffix: Enclave
-  description: An Enclave flag.
+  description: The banner of the Enclave, the descendents of America's elite who claim to be the true inheritors of the United States federal government.
   components:
   - type: Sprite
     state: flag_enclave
@@ -85,8 +89,9 @@
 - type: entity
   parent: N14FlagWallUS
   id: N14FlagWallNCR
+  name: Flag of the New California Republic
   suffix: NCR
-  description: An NCR flag.
+  description: The banner of the New California Republic, a nation that despite enemies within and without, has done its best to provide comfort and equality to its citizens.
   components:
   - type: Sprite
     state: flag_ncr
@@ -97,8 +102,9 @@
 - type: entity
   parent: N14FlagWallUS
   id: N14FlagWallLegion
+  name: Flag of Caesar's Legion
   suffix: Legion
-  description: A Legion flag.
+  description: The banner of Caesar's Legion, a slave army under the mighty warlord Caesar, whose monumental ego and sharp wit have seen the lawless east fall in line under his iron boot.
   components:
   - type: Sprite
     state: flag_legion
@@ -109,8 +115,9 @@
 - type: entity
   parent: N14FlagWallUS
   id: N14FlagWallRangers
+  name: Flag of the NCR Rangers
   suffix: Rangers
-  description: A Rangers flag.
+  description: The banner of the New California Republic Rangers, an elite military division in the New California Republic Army. Founded by the legendary Seth of Shady Sands, if you need a problem handled, call the Rangers.
   components:
   - type: Sprite
     state: flag_rangers
@@ -121,8 +128,9 @@
 - type: entity
   parent: N14FlagWallUS
   id: N14FlagWallWesternBrotherhood
+  name: Flag of the Brotherhood of Steel
   suffix: BOS
-  description: A Brotherhood of Steel flag.
+  description: The banner of the Brotherhood of Steel, descendents of the United States military who now attempt to confiscate and safeguard dangerous technology to prevent another apocalypse.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Wallmounts/walldecor2.rsi
@@ -134,8 +142,9 @@
 - type: entity
   parent: N14FlagWallUS
   id: N14FlagWallWashingtonBrotherhood
+  name: Flag of the Washington Brotherhood of Steel
   suffix: Washington BOS
-  description: A Washington Brotherhood of Steel flag.
+  description: The banner of the Washington Brotherhood of Steel, a chapter that split off from the Midwest Brotherhood and settled into Seattle, turning to conscription, slavery, and violent oppression of the locals under the rule of the Elder Immortal.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Wallmounts/walldecor3.rsi
@@ -147,8 +156,9 @@
 - type: entity
   parent: N14FlagWallUS
   id: N14FlagWallColorado
+  name: Flag of the State of Colorado
   suffix: colorado
-  description: A flag for the state of Colorado.
+  description: The banner of the State of Colorado. It served as a testing ground before the Great War for cyberdog police units, which saw heavy use when the Food Riots began in earnest.
   components:
   - type: Sprite
     state: flag_colorado
@@ -159,8 +169,9 @@
 - type: entity
   parent: N14FlagWallUS
   id: N14FlagWallDenver
+  name: Flag of the City of Denver
   suffix: denver
-  description: A flag for the state of Denver.
+  description: The banner of the city of Denver, Colorado. Home of the Hangdogs tribe, its stiff resistance nearly caused Caesar's Legion to break, until Legate Lanius forced the tribe's surrender by burning their dogs alive.
   components:
   - type: Sprite
     state: flag_denver
@@ -172,8 +183,8 @@
 - type: entity
   parent: N14SignBase
   id: N14WallDecorClock
-  name: clock
-  description: A clock. Don't think it works.
+  name: broken clock
+  description: A clock. Looks like your time is up.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Wallmounts/walldecor.rsi
@@ -183,8 +194,8 @@
 - type: entity
   parent: N14WallDecorClock
   id: N14WallDecorCalendar
-  name: calendar
-  description: A calendar for some forgotten year.
+  name: old calendar
+  description: A calendar printed centuries ago, it has no purpose now.
   components:
   - type: Sprite
     snapCardinals: true
@@ -193,8 +204,8 @@
 - type: entity
   parent: N14WallDecorClock
   id: N14WallDecorCalendar1
-  name: calendar
-  description: A blank calendar for some forgotten year.
+  name: dusty calendar
+  description: A calendar that never saw use, its opportunity has passed.
   components:
   - type: Sprite
     snapCardinals: true
@@ -204,7 +215,7 @@
   parent: N14WallDecorClock
   id: N14WallDecorCross
   name: cross
-  description: A symbol from another time.
+  description: Nations may rise and fall, but belief can be even harder to kill.
   components:
   - type: Sprite
     snapCardinals: true

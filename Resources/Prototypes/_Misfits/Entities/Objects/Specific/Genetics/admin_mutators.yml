@@ -1,0 +1,899 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Admin-spawn mutator injectors: one per mutation.
+# Parented to GeneticsMutator via GeneticsMutatorAdmin, so on injection it calls AddMutations
+# and grants the mutation immediately (not the dormant/activator path). Works on ANY living
+# mob (ensureMutatable adds MutatableComponent if the target lacks it) with a fast 0.5s
+# self-inject (1s on others). Reuses the default injector (medipen) sprite. Admin-spawn only.
+# Each injector's description states what its mutation does.
+# injectTime and ensureMutatable live on the abstract parent below; prototype inheritance
+# merges components per field, so the children only need to name their mutation.
+# Auto-generated from the mutation entity list; keep in sync when mutations are added/removed.
+
+- type: entity
+  abstract: true
+  parent: GeneticsMutator
+  id: GeneticsMutatorAdmin
+  components:
+  - type: Mutator
+    injectTime: 0.5
+    ensureMutatable: true
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorAcidicFlesh
+  name: 'acidic flesh mutator'
+  suffix: 'AcidicFlesh, Admin'
+  description: 'Subject has acidic chemicals building up underneath the skin. This is often lethal.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationAcidicFlesh
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorAcromegaly
+  name: 'acromegaly mutator'
+  suffix: 'Acromegaly, Admin'
+  description: 'A mutation believed to be the cause of acromegaly, or ''being unusually tall''.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationAcromegaly
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorAdrenalineRush
+  name: 'adrenaline rush mutator'
+  suffix: 'AdrenalineRush, Admin'
+  description: 'Allows the host to trigger their body''s adrenaline response at will.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationAdrenalineRush
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorAntenna
+  name: 'antenna mutator'
+  suffix: 'Antenna, Admin'
+  description: 'The affected person sprouts an antenna. This is known to allow them to access common radio channel passively.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationAntenna
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorAntiGlow
+  name: 'anti-glow mutator'
+  suffix: 'AntiGlow, Admin'
+  description: 'Your skin seems to attract and absorb nearby light, snuffing out any glow you had.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationAntiGlow
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorAutotomy
+  name: 'autotomy mutator'
+  suffix: 'Autotomy, Admin'
+  description: 'Allows a creature to voluntary discard a random appendage.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationAutotomy
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorBlindness
+  name: 'blindness mutator'
+  suffix: 'Blindness, Admin'
+  description: 'Renders the subject completely blind.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationBlindness
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorChameleon
+  name: 'chameleon mutator'
+  suffix: 'Chameleon, Admin'
+  description: 'A genome that lets the holder turn their skin transparent at will, though keeping it up strains the body.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationChameleon
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorChav
+  name: 'chav mutator'
+  suffix: 'Chav, Admin'
+  description: 'Unknown'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationChav
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorChemSpike
+  name: 'chem spike mutator'
+  suffix: 'ChemSpike, Admin'
+  description: 'Allows a creature to voluntarily shoot their tongue out as biomass, allowing a long range transfer of chemicals.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationChemSpike
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorCindikinesis
+  name: 'cindikinesis mutator'
+  suffix: 'Cindikinesis, Admin'
+  description: 'Allows the user to concentrate nearby heat into a pile of ash. Wow. Very interesting.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationCindikinesis
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorClever
+  name: 'clever mutator'
+  suffix: 'Clever, Admin'
+  description: 'Causes the subject to feel just a little bit smarter. Most effective in specimens with low levels of intelligence.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationClever
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorClumsiness
+  name: 'clumsiness mutator'
+  suffix: 'Clumsiness, Admin'
+  description: 'A genome that inhibits certain brain functions, causing the holder to appear clumsy. Honk!'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationClumsiness
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorColdAdaptation
+  name: 'cold adaptation mutator'
+  suffix: 'ColdAdaptation, Admin'
+  description: 'A strange mutation that renders the host immune to damage from low temperature environments.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationColdAdaptation
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorColdWeakness
+  name: 'cold weakness mutator'
+  suffix: 'ColdWeakness, Admin'
+  description: 'A strange mutation that cripples the host''s ability to raise its body temperature. Cold is far more dangerous.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationColdWeakness
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorCough
+  name: 'cough mutator'
+  suffix: 'Cough, Admin'
+  description: 'A chronic cough.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationCough
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorCryokinesis
+  name: 'cryokinesis mutator'
+  suffix: 'Cryokinesis, Admin'
+  description: 'Draws negative energy from the sub-zero void to freeze surrounding temperatures at subject''s will.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationCryokinesis
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorDeafness
+  name: 'deafness mutator'
+  suffix: 'Deafness, Admin'
+  description: 'The holder of this genome is completely deaf.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationDeafness
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorDogNose
+  name: 'transcendent olfaction mutator'
+  suffix: 'DogNose, Admin'
+  description: 'Your sense of smell is comparable to that of a canine.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationDogNose
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorDwarfism
+  name: 'dwarfism mutator'
+  suffix: 'Dwarfism, Admin'
+  description: 'A mutation believed to be the cause of dwarfism.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationDwarfism
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorElasticArms
+  name: 'elastic arms mutator'
+  suffix: 'ElasticArms, Admin'
+  description: 'Subject''s arms have become elastic, allowing them to stretch up to a meter away. However, this elasticity makes it difficult to wear gloves, handle complex tasks, or grab large objects.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationElasticArms
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorElvis
+  name: 'elvis mutator'
+  suffix: 'Elvis, Admin'
+  description: 'A terrifying mutation named after its ''patient-zero''.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationElvis
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorEnhancedPerception
+  name: 'enhanced perception mutator'
+  suffix: 'EnhancedPerception, Admin'
+  description: 'Improves the subject''s peripheral vision, letting them see things in the corner of their eyes better.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationEnhancedPerception
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorEpilepsy
+  name: 'epilepsy mutator'
+  suffix: 'Epilepsy, Admin'
+  description: 'A genetic defect that sporadically causes seizures.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationEpilepsy
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorFarsight
+  name: 'farsight mutator'
+  suffix: 'Farsight, Admin'
+  description: 'The subject''s eyes are able to see further than normal.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationFarsight
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorFelinized
+  name: 'felinized mutator'
+  suffix: 'Felinized, Admin'
+  description: 'Unknown'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationFelinized
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorFierySweat
+  name: 'fiery sweat mutator'
+  suffix: 'FierySweat, Admin'
+  description: 'The user''s skin will randomly combust, but is generally a lot more resilient to burning.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationFierySweat
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorFireBreath
+  name: 'fire breath mutator'
+  suffix: 'FireBreath, Admin'
+  description: 'An ancient mutation that gives lizards breath of fire.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationFireBreath
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorGeladikinesis
+  name: 'geladikinesis mutator'
+  suffix: 'Geladikinesis, Admin'
+  description: 'Allows the user to concentrate moisture and sub-zero forces into snow.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationGeladikinesis
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorGigantism
+  name: 'gigantism mutator'
+  suffix: 'Gigantism, Admin'
+  description: 'The cells within the subject spread out to cover more area, making the subject appear larger.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationGigantism
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorGlowy
+  name: 'glowy mutator'
+  suffix: 'Glowy, Admin'
+  description: 'You permanently emit a light with a random color and intensity.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationGlowy
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorHeadless
+  name: 'h.a.r.s. mutator'
+  suffix: 'Headless, Admin'
+  description: 'A mutation that makes the body reject the head, the brain receding into the chest. Stands for Head Allergic Rejection Syndrome. Warning: Removing this mutation is very dangerous, though it will regenerate non-vital head organs.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationHeadless
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorHeatAdaptation
+  name: 'heat adaptation mutator'
+  suffix: 'HeatAdaptation, Admin'
+  description: 'A strange mutation that renders the host immune to damage from high temperature, including being set alight, though the flame itself still burns clothing. It also seems to make the host resist ash storms.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationHeatAdaptation
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorHeatWeakness
+  name: 'heat weakness mutator'
+  suffix: 'HeatWeakness, Admin'
+  description: 'A strange mutation that cripples the host''s ability to lower its body temperature. Heat is far more dangerous.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationHeatWeakness
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorHeckaciousLarincks
+  name: 'heckacious larincks mutator'
+  suffix: 'HeckaciousLarincks, Admin'
+  description: 'duge what is WISH your words man...........'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationHeckaciousLarincks
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorHulk
+  name: 'hulk mutator'
+  suffix: 'Hulk, Admin'
+  description: 'A poorly understood genome that causes the holder''s muscles to expand, inhibit speech and gives the person a bad skin condition.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationHulk
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorHypermetabolicBlood
+  name: 'hypermetabolic blood mutator'
+  suffix: 'HypermetabolicBlood, Admin'
+  description: 'The subject''s blood is hypermetabolic, causing it to be produced at a much faster rate.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationHypermetabolicBlood
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorIlliterate
+  name: 'illiterate mutator'
+  suffix: 'Illiterate, Admin'
+  description: 'Causes a severe case of Aphasia that prevents reading or writing.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationIlliterate
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorInexorable
+  name: 'inexorable mutator'
+  suffix: 'Inexorable, Admin'
+  description: 'Your body can push on beyond the limits of normal human endurance. However, pushing it too far can cause severe damage to your body.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationInexorable
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorInsulated
+  name: 'insulated mutator'
+  suffix: 'Insulated, Admin'
+  description: 'The affected person does not conduct electricity.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationInsulated
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorInternalMartyrdom
+  name: 'internal martyrdom mutator'
+  suffix: 'InternalMartyrdom, Admin'
+  description: 'A mutation that makes the body destruct when near death. Not damaging, but very, VERY disorienting.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationInternalMartyrdom
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorLaserEyes
+  name: 'laser eyes mutator'
+  suffix: 'LaserEyes, Admin'
+  description: 'The subject''s eyes have become focusing lenses for coherent light. Try not to blink.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationLaserEyes
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorMedieval
+  name: 'medieval mutator'
+  suffix: 'Medieval, Admin'
+  description: 'A horrible mutation originating from the distant past, thought to have once been a common gene in all of old world Europe.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationMedieval
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorMendingTouch
+  name: 'mending touch mutator'
+  suffix: 'MendingTouch, Admin'
+  description: 'The affected can lay their hands on other people to transfer a small amount of their injuries to themselves.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationMendingTouch
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorMindReader
+  name: 'mind reader mutator'
+  suffix: 'MindReader, Admin'
+  description: 'The affected person can look into the recent memories of others.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationMindReader
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorMonkified
+  name: 'monkified mutator'
+  suffix: 'Monkified, Admin'
+  description: 'A strange genome, believed to be what differentiates monkeys from humans.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationMonkified
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorMouse
+  name: 'mouse mutator'
+  suffix: 'Mouse, Admin'
+  description: 'Piep!'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationMouse
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorMute
+  name: 'mute mutator'
+  suffix: 'Mute, Admin'
+  description: 'Completely inhibits the vocal section of the brain.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationMute
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorNearSightedness
+  name: 'near sightedness mutator'
+  suffix: 'NearSightedness, Admin'
+  description: 'The holder of this mutation has poor eyesight.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationNearSightedness
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorNervousness
+  name: 'nervousness mutator'
+  suffix: 'Nervousness, Admin'
+  description: 'Causes the holder to stutter.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationNervousness
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorOrk
+  name: 'ork mutator'
+  suffix: 'Ork, Admin'
+  description: 'A mutation caused by a mixup of hulk genes which severely impacts speech centers in owners'' brains.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationOrk
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorParanoia
+  name: 'paranoia mutator'
+  suffix: 'Paranoia, Admin'
+  description: 'Subject is easily terrified, and may suffer from hallucinations.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationParanoia
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorPigLatin
+  name: 'pig latin mutator'
+  suffix: 'PigLatin, Admin'
+  description: 'Historians say back in the 2020''s humanity spoke entirely in this mystical language.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationPigLatin
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorPressureAdaptation
+  name: 'pressure adaptation mutator'
+  suffix: 'PressureAdaptation, Admin'
+  description: 'A strange mutation that renders the host immune to damage from both low and high pressure environments. Does not protect from temperature, including the cold of space.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationPressureAdaptation
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorPyrokinesis
+  name: 'pyrokinesis mutator'
+  suffix: 'Pyrokinesis, Admin'
+  description: 'Draws positive energy from the surroundings to heat surrounding temperatures at subject''s will.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationPyrokinesis
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorRadioactivity
+  name: 'radioactivity mutator'
+  suffix: 'Radioactivity, Admin'
+  description: 'A volatile mutation that causes the host to sent out deadly beta radiation. This affects both the host and their surroundings.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationRadioactivity
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorRockAbsorber
+  name: 'rock absorber mutator'
+  suffix: 'RockAbsorber, Admin'
+  description: 'The subject''s body is able to digest anything at all, taking on the properties of whatever it swallows.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationRockAbsorber
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorRockEater
+  name: 'rock eater mutator'
+  suffix: 'RockEater, Admin'
+  description: 'The subject''s body is able to digest anything at all - rocks, ore, scrap, whatever fits in a hand.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationRockEater
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorShockTouch
+  name: 'shock touch mutator'
+  suffix: 'ShockTouch, Admin'
+  description: 'The affected can channel excess electricity through their hands without shocking themselves, allowing them to shock others. Mostly harmless! Mostly...'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationShockTouch
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorSpastic
+  name: 'spastic mutator'
+  suffix: 'Spastic, Admin'
+  description: 'Subject suffers from muscle spasms.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationSpastic
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorSpatialInstability
+  name: 'spatial instability mutator'
+  suffix: 'SpatialInstability, Admin'
+  description: 'The victim of the mutation has a very weak link to spatial reality, and may be displaced. Often causes extreme nausea.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationSpatialInstability
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorStimmed
+  name: 'stimmed mutator'
+  suffix: 'Stimmed, Admin'
+  description: 'The user''s chemical balance is more robust. This mutation is known to speed up metabolism of chemicals.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationStimmed
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorStoner
+  name: 'stoner mutator'
+  suffix: 'Stoner, Admin'
+  description: 'A common mutation that severely decreases intelligence.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationStoner
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorStrength
+  name: 'strength mutator'
+  suffix: 'Strength, Admin'
+  description: 'The user''s muscles slightly expand. Commonly seen in top-ranking boxers.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationStrength
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorSwedish
+  name: 'swedish mutator'
+  suffix: 'Swedish, Admin'
+  description: 'A horrible mutation originating from the distant past. Thought to be eradicated after the incident in 2037.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationSwedish
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorTelekinesis
+  name: 'telekinesis mutator'
+  suffix: 'Telekinesis, Admin'
+  description: 'A strange mutation that allows the holder to interact with objects through thought.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationTelekinesis
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorTelepathy
+  name: 'telepathy mutator'
+  suffix: 'Telepathy, Admin'
+  description: 'A rare mutation that allows the user to telepathically communicate to others.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationTelepathy
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorThermalAdaptation
+  name: 'thermal adaptation mutator'
+  suffix: 'ThermalAdaptation, Admin'
+  description: 'A strange mutation that renders the host immune to damage from both low and high temperature environments. Does not protect from high or low pressure environments.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationThermalAdaptation
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorThermalVision
+  name: 'thermal vision mutator'
+  suffix: 'ThermalVision, Admin'
+  description: 'The user of this genome can visually perceive the unique human thermal signature.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationThermalVision
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorThermalWeakness
+  name: 'homeostatic shutdown mutator'
+  suffix: 'ThermalWeakness, Admin'
+  description: 'A life-threatening mutation that almost shuts down the host''s ability to control its body temperature.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationThermalWeakness
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorTongueSpike
+  name: 'tongue spike mutator'
+  suffix: 'TongueSpike, Admin'
+  description: 'Allows a creature to voluntarily shoot their tongue out as a deadly weapon.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationTongueSpike
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorTourettes
+  name: 'tourette''s syndrome mutator'
+  suffix: 'Tourettes, Admin'
+  description: 'A chronic twitch that forces the user to scream bad words.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationTourettes
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorTwoLeftFeet
+  name: 'two left feet mutator'
+  suffix: 'TwoLeftFeet, Admin'
+  description: 'A mutation that replaces the right foot with another left foot. Symptoms include kissing the floor when taking a step.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationTwoLeftFeet
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorUnintelligible
+  name: 'unintelligible mutator'
+  suffix: 'Unintelligible, Admin'
+  description: 'Partially inhibits the vocal center of the brain, severely distorting speech.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationUnintelligible
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorUnstableDna
+  name: 'unstable dna mutator'
+  suffix: 'UnstableDna, Admin'
+  description: '???'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationUnstableDna
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorVoidMagnet
+  name: 'void magnet mutator'
+  suffix: 'VoidMagnet, Admin'
+  description: 'A rare genome that attracts odd forces not usually observed.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationVoidMagnet
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorWacky
+  name: 'wacky mutator'
+  suffix: 'Wacky, Admin'
+  description: 'You are not a clown. You are the entire circus.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationWacky
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorWeakPerception
+  name: 'weak perception mutator'
+  suffix: 'WeakPerception, Admin'
+  description: 'The subject has almost no peripheral vision, only able to see almost directly infront of themselves.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationWeakPerception
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorWebbingProduction
+  name: 'webbing production mutator'
+  suffix: 'WebbingProduction, Admin'
+  description: 'Allows the user to lay webbing, and travel through it.'
+  components:
+  - type: Mutator
+    mutations:
+    - MutationWebbingProduction
+
+- type: entity
+  parent: GeneticsMutatorAdmin
+  id: GeneticsMutatorPurge
+  name: 'purge mutator'
+  suffix: 'Clear All, Admin'
+  description: 'A single-use injector flooded with genetic stabilizers that strip every mutation from the body, active or dormant.'
+  components:
+  - type: Mutator
+    clearAll: true

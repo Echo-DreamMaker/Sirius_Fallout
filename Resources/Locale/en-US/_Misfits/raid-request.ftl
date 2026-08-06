@@ -45,6 +45,13 @@ raid-request-popup-approved = Raid APPROVED: { $from } → { $to }
 raid-request-popup-denied = Raid DENIED: { $from } → { $to }
 raid-request-popup-target-warning = Incoming raid threat APPROVED against { $faction }!
 
+# #Misfits Add - Mandatory acknowledgement shown when a raid concludes.
+raid-concluded-window-title = Raid Over
+raid-concluded-header = RAID #{ $id } HAS ENDED
+raid-concluded-parties = { $from } vs { $to }
+raid-concluded-warning = Combat authorization has ended. Stop all raid-related hostilities immediately.
+raid-concluded-acknowledge = I acknowledge
+
 # #Misfits Add - Peer-faction approval popup (target faction leader bypass).
 raid-request-peer-window-title = Raid Threat — Decide
 raid-request-peer-header = Incoming raid request from { $faction } against { $target }.

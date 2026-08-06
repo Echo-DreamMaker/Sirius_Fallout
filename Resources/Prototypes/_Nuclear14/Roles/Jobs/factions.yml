@@ -120,6 +120,7 @@
   color: "#662727"
   uiCategory: MajorFaction
   roles:
+  - NCRProvost #_Misfits/Roles/Jobs/NCR/ncr_provost.yml
   - NCRMilitaryPoliceRecruit
   - NCRMilitaryPoliceSergeant
   - NCRMilitaryPoliceCaptain
@@ -142,13 +143,16 @@
   id: Vault
   description: department-Vault-description
   color: "#0d47a1"
-  uiCategory: MajorFaction
+  uiCategory: MinorFaction
   roles:
   - VaultManagement
   - Overseer
   - VaultSecurity
   - VaultDoctor
   - VaultEngineer
+  - VaultSalvageSpecialist
+  - VaultCargoSpecialist
+  - VaultCourier
   - VaultDweller
   # #Misfits Add - vault-assigned robots (showBorder on MrHandy creates the visual separator; hidden without Robots whitelist)
   - SyntheticMrHandy

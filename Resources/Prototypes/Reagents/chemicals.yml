@@ -95,7 +95,7 @@
       - !type:HealthChange
         damage:
           types:
-            Cellular: 1 #it's a carcinogen, reckon this is fine
+            Poison: 1
 
 - type: reagent
   id: Hydroxide

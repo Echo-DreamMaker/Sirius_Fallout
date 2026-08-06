@@ -10,6 +10,7 @@ using Content.Shared.Maps;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
+using Content.Shared._Misfits.Common.Movement;
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.Tag;
 using Content.Shared.Traits.Assorted.Components;
@@ -292,6 +293,9 @@ namespace Content.Shared.Movement.Systems
                     {
                         _audio.PlayPredicted(sound, uid, uid, audioParams);
                     }
+
+                    var footStep = new FootStepEvent(uid, worldTotal.ToWorldAngle());
+                    RaiseLocalEvent(uid, ref footStep);
                 }
             }
 

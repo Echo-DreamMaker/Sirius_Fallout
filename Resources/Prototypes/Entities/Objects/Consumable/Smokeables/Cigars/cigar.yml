@@ -89,8 +89,8 @@
 - type: entity
   id: CigarRobust
   parent: Cigar
-  name: Cohiba Robusto cigar
-  description: There's little more you could want from a cigar.
+  name: Cohiba Cigar
+  description: There's little more you could want from a cigar. The fact these were illegal before the bombs dropped just adds to the experience.
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigars/cigar-gold.rsi

@@ -36,6 +36,10 @@
 - type: Tag
   id: IdCardFollowers
 
+# #Misfits Add - identifies pendants and tribal Protectron cards for the Tree TacMap.
+- type: Tag
+  id: IdCardTribe
+
 # #Misfits Add - Tag for wastelander dogtags to allow insertion into Pip-Boy idSlot.
 # Without a faction-specific tag, wastelander dogtags would be rejected by the PDA whitelist.
 - type: Tag

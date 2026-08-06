@@ -1,0 +1,13 @@
+- type: entity
+  id: StatueBino
+  parent: BaseStructure
+  name: statue of a Ranger
+  suffix: Red
+  description: A marble statue of Ranger Bino, along with a plaque of olive oil, a brahmin skull and a baguette. The first winner of the arena.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Misfits\Structures\Decoration\statues.rsi
+    state: bino_statue
+    drawdepth: Mobs
+    offset: "0.0,0.5"

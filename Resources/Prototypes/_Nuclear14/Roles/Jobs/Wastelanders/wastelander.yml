@@ -16,8 +16,6 @@
       - Human
       - Ghoul
       - GhoulGlowing
-    - !type:CharacterOverallTimeRequirement
-      min: 28800 # #Misfits Add - 8 hours total playtime
   special:
   - !type:AddComponentSpecial
     components:

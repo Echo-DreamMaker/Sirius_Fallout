@@ -1,4 +1,4 @@
-﻿# Blueprint crafting recipes for Brotherhood of Steel and Townsfolk factions.
+# Blueprint crafting recipes for Brotherhood of Steel and Townsfolk factions.
 # All recipes require a blueprint item in workbench storage.
 
 # =====================================================================
@@ -207,24 +207,6 @@
     ScrapElectronic: 400
 
     Plastic: 1200
-
-- type: latheRecipe
-  id: N14BPBoSWeaponRipperSword
-  result: N14rippersword
-  category: N14BlueprintBoSWeaponsT3
-  completetime: 15
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 4500
-
-    Circuitry: 100
-
-    ScrapElectronic: 300
-
-    Plastic: 500
-
 
 - type: latheRecipe
   id: N14BPBoSWeaponPlasmaRifleUrban
@@ -1144,7 +1126,7 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 6000
+    Steel: 2000
 
     N14Iron: 120
 
@@ -1160,29 +1142,11 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 6000
+    Steel: 4000
 
     N14Iron: 120
 
-    N14Brass: 300
-
-
-- type: latheRecipe
-  id: N14BPTownWeaponRifle762Marksman
-  result: N14WeaponRifle762Marksman
-  category: N14BlueprintTownWeaponsT3
-  completetime: 11
-  requiresBlueprint: true
-  availableFaction:
-  - Townsfolk
-  materials:
-    Steel: 5000
-
-    Wood: 1500
-
-    Glass: 150
-
-    N14Iron: 700
+    N14Brass: 150
 
 
 - type: latheRecipe
@@ -1226,11 +1190,11 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 6000
+    Steel: 4500
 
-    N14Iron: 1200
+    N14Iron: 600
 
-    N14Brass: 150
+    N14Brass: 100
 
 
 - type: latheRecipe
@@ -1242,7 +1206,7 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 5500
+    Steel: 4500
 
     Wood: 1500
 
@@ -1274,28 +1238,27 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 3000
+    Steel: 2500
 
     Wood: 4500
 
     N14Iron: 1500
 
 
-# --- Town Tier 4 Weapons (best civilian can get - NOT top-tier from any faction) ---
 - type: latheRecipe
   id: N14BPTownWeaponRifle556Carbine
   result: N14WeaponRifle556Carbine
-  category: N14BlueprintTownWeaponsT4
+  category: N14BlueprintTownWeaponsT3
   completetime: 14
   requiresBlueprint: true
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 9500
+    Steel: 5500
 
-    N14Iron: 200
+    N14Iron: 1000
 
-    Plastic: 2000
+    Plastic: 1500
 
     N14Brass: 150
 
@@ -1303,13 +1266,13 @@
 - type: latheRecipe
   id: N14BPTownWeaponSMG12mm
   result: N14WeaponSMG12mm
-  category: N14BlueprintTownWeaponsT4
+  category: N14BlueprintTownWeaponsT3
   completetime: 13
   requiresBlueprint: true
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 9500
+    Steel: 4500
 
     N14Iron: 200
 
@@ -1319,29 +1282,31 @@
 - type: latheRecipe
   id: N14BPTownWeaponSniper45-70BrushGun
   result: N14WeaponSniper45-70BrushGun
-  category: N14BlueprintTownWeaponsT4
+  category: N14BlueprintTownWeaponsT3
   completetime: 12
   requiresBlueprint: true
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 9000
+    Steel: 5500
 
     Wood: 450
 
     N14Iron: 12
 
+    N14Brass: 200
+
 
 - type: latheRecipe
   id: N14BPTownWeaponRevolver45-70Hunter
   result: N14WeaponRevolver45-70Hunter
-  category: N14BlueprintTownWeaponsT4
+  category: N14BlueprintTownWeaponsT3
   completetime: 12
   requiresBlueprint: true
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 9000
+    Steel: 3500
 
     N14Iron: 200
 
@@ -1351,18 +1316,86 @@
 - type: latheRecipe
   id: N14BPTownWeaponSniper308LeverRifle
   result: N14WeaponSniper308LeverRifle
+  category: N14BlueprintTownWeaponsT3
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 2000
+
+    Wood: 400
+
+    N14Iron: 170
+
+
+- type: latheRecipe
+  id: N14BPTownWeaponWeaponSMG9mmCanadian
+  result: N14WeaponSMG9mmCanadian
+  category: N14BlueprintTownWeaponsT3
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 4500
+
+    Wood: 1000
+
+    N14Iron: 150
+
+# --- Town Tier 4 Weapons (best civilian can get - NOT top-tier from any faction) ---
+
+- type: latheRecipe
+  id: N14BPTownWeaponRifle762Canadian
+  result: N14WeaponRifle762Canadian
   category: N14BlueprintTownWeaponsT4
   completetime: 12
   requiresBlueprint: true
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 9000
+    Steel: 6000
 
-    Wood: 400
+    Wood: 1000
 
-    N14Iron: 170
+    N14Iron: 1500
 
+    N14Brass: 200
+
+- type: latheRecipe
+  id: N14BPTownWeaponSMG12mmAdvancedCanadian
+  result: N14WeaponSMG12mmAdvancedCanadian
+  category: N14BlueprintTownWeaponsT4
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 8000
+
+    Wood: 1000
+
+    N14Iron: 1500
+
+    N14Brass: 300
+
+- type: latheRecipe
+  id: N14BPTownWeaponShotgunCanadian
+  result: N14WeaponShotgunCanadian
+  category: N14BlueprintTownWeaponsT4
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 7500
+
+    Wood: 1500
+
+    N14Iron: 1500
+
+    N14Brass: 500
 
 # =====================================================================
 # TOWNSFOLK ARMOR RECIPES
@@ -1534,7 +1567,7 @@
   availableFaction:
   - Townsfolk
   materials:
-    Leather: 2500
+    Leather: 1000
 
     Steel: 4000
 
@@ -1552,7 +1585,7 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 6000
+    Steel: 5000
 
     N14Iron: 1200
 
@@ -1632,11 +1665,11 @@
   availableFaction:
   - Townsfolk
   materials:
-    Lead: 10
+    Lead: 100
 
-    N14Brass: 5
+    N14Brass: 50
 
-    N14Gunpowder: 5
+    N14Gunpowder: 50
 
 
 - type: latheRecipe
@@ -1648,11 +1681,11 @@
   availableFaction:
   - Townsfolk
   materials:
-    Lead: 10
+    Lead: 100
 
-    N14Brass: 5
+    N14Brass: 50
 
-    N14Gunpowder: 5
+    N14Gunpowder: 50
 
 
 - type: latheRecipe
@@ -1664,11 +1697,11 @@
   availableFaction:
   - Townsfolk
   materials:
-    Lead: 10
+    Lead: 100
 
-    N14Brass: 5
+    N14Brass: 50
 
-    N14Gunpowder: 5
+    N14Gunpowder: 50
 
 
 - type: latheRecipe
@@ -1680,11 +1713,11 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 1000
+    Steel: 100
 
-    Lead: 5
+    Lead: 50
 
-    N14Gunpowder: 5
+    N14Gunpowder: 50
 
 
 - type: latheRecipe
@@ -1696,11 +1729,11 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 1000
+    Steel: 100
 
-    Lead: 5
+    Lead: 50
 
-    N14Gunpowder: 5
+    N14Gunpowder: 50
 
 
 # --- Town Tier 2 Ammo ---
@@ -1713,11 +1746,11 @@
   availableFaction:
   - Townsfolk
   materials:
-    Lead: 30
+    Lead: 50
 
-    N14Brass: 20
+    N14Brass: 50
 
-    N14Gunpowder: 20
+    N14Gunpowder: 50
 
 
 - type: latheRecipe
@@ -1729,11 +1762,11 @@
   availableFaction:
   - Townsfolk
   materials:
-    Lead: 25
+    Lead: 100
 
-    N14Brass: 20
+    N14Brass: 40
 
-    N14Gunpowder: 20
+    N14Gunpowder: 40
 
 
 - type: latheRecipe
@@ -1745,7 +1778,7 @@
   availableFaction:
   - Townsfolk
   materials:
-    Lead: 30
+    Lead: 100
 
     Plastic: 10
 
@@ -1761,11 +1794,11 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 2500
+    Steel: 250
 
-    Lead: 20
+    Lead: 50
 
-    N14Gunpowder: 10
+    N14Gunpowder: 50
 
 
 - type: latheRecipe
@@ -1777,11 +1810,11 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 2500
+    Steel: 250
 
-    Lead: 20
+    Lead: 50
 
-    N14Gunpowder: 10
+    N14Gunpowder: 50
 
 
 # --- Town Tier 3 Ammo ---
@@ -1826,11 +1859,11 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 2000
+    Steel: 200
 
-    Lead: 20
+    Lead: 50
 
-    N14Gunpowder: 15
+    N14Gunpowder: 50
 
 
 - type: latheRecipe
@@ -1858,7 +1891,7 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 4000
+    Steel: 100
 
     Lead: 35
 
@@ -1874,7 +1907,7 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 4000
+    Steel: 50
 
     Lead: 35
 
@@ -1923,7 +1956,7 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 7500
+    Steel: 50
 
     Lead: 70
 
@@ -1939,7 +1972,7 @@
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 2500
+    Steel: 50
 
     Lead: 65
 

@@ -1,0 +1,34 @@
+# #Misfits Add - ammunition box for the Glock 37M's custom .45 Magnum load.
+# Reuses the .45 auto ammo box sprite, which only defines base + mag-1 -> steps: 2.
+# Dispenses N14CartridgeGlock45, but whitelists the shared CartridgeMagnum tag so any
+# .45 magnum cartridge can be loaded back into it.
+- type: entity
+  parent: BaseItem
+  id: N14AmmoBoxGlock45
+  name: ammo box (.45M)
+  description: A box of custom .45 Magnum rounds, hand-loaded for the Glock 37M.
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeMagnum
+    proto: N14CartridgeGlock45
+    capacity: 30
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    netsync: false
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Boxes/45-auto.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+  - type: FoldableAmmoBox

@@ -18,7 +18,7 @@
       - Human
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T2 faction timelock (4h Enclave)
       department: Enclave
-      min: 14400 # 4 hours
+      min: 36000 # 10 hours
   startingGear: EnclaveEnlistedGear
   icon: "JobIconEnclaveEnlisted"
   supervisors: job-supervisors-enclave
@@ -39,7 +39,7 @@
     head: N14ClothingHeadHatEnclavePeacekeeperCap
     back: N14ClothingBackpackMilitary
     jumpsuit: N14ClothingUniformJumpsuitEnclave
-    outerClothing: N14ClothingOuterEnclavePeacekeeper
+    outerClothing: N14ClothingOuterPowerArmorAdvanced1
     shoes: N14ClothingBootsCombatFilled
     gloves: N14ClothingHandsGlovesCombat
     belt: ClothingBeltMilitary

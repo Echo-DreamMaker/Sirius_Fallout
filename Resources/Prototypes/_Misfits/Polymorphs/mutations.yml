@@ -1,0 +1,177 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: polymorph
+  id: MutationFelinid
+  configuration:
+    entity: MobFelinid
+    transferName: true
+    transferHumanoidAppearance: true
+    inventory: Transfer
+    forced: true
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: MutationMonkey
+  configuration:
+    entity: MobMonkey
+    transferName: true
+    copiedComponents: [] # no language chud
+    forced: true
+    revertOnCrit: false
+    revertOnDeath: false
+    inventory: Transfer
+    polymorphSound: /Audio/Animals/monkey_scream.ogg
+
+- type: polymorph
+  id: MutationHuman
+  configuration:
+    entity: MobHuman
+    transferName: true # human named monkey (MK-28) kino
+    # yes language so monkey is still forced to speak monkey
+    forced: true
+    revertOnCrit: false
+    revertOnDeath: false
+    inventory: Transfer
+    polymorphSound: /Audio/Voice/Human/malescream_1.ogg
+
+- type: polymorph
+  id: MutationKobold
+  configuration:
+    entity: MobKobold
+    transferName: true
+    copiedComponents: [] # no language chud
+    forced: true
+    revertOnCrit: false
+    revertOnDeath: false
+    inventory: Transfer
+    polymorphSound: /Audio/Animals/monkey_scream.ogg
+
+- type: polymorph
+  id: MutationReptilian
+  configuration:
+    entity: MobReptilian
+    transferName: true # human named monkey (MK-28) kino
+    # yes language so monkey is still forced to speak monkey
+    forced: true
+    revertOnCrit: false
+    revertOnDeath: false
+    inventory: Transfer
+    polymorphSound: /Audio/Voice/Reptilian/reptilian_scream.ogg
+
+- type: polymorph
+  id: MutationMouse
+  configuration:
+    entity: MobMouse
+    transferName: true
+    copiedComponents: [] # no language chud
+    forced: true
+    revertOnCrit: false
+    revertOnDeath: false
+    inventory: Drop
+    polymorphSound: /Audio/Animals/mouse_squeak.ogg
+
+- type: polymorph
+  id: TongueSpike
+  configuration:
+    entity: TongueSpike
+    forced: true
+    makeSentient: false
+    polymorphPopup: null
+    exitPolymorphPopup: MutationTongueSpike-popup-revert
+
+- type: polymorph
+  id: TongueSpikeChem
+  configuration:
+    entity: TongueSpikeChem
+    forced: true
+    makeSentient: false
+    polymorphPopup: null
+    exitPolymorphPopup: MutationTongueSpike-popup-revert
+
+# Something Horrible polymorphs
+
+- type: polymorph
+  id: Corgi
+  configuration:
+    entity: MobCorgi
+    forced: false
+    inventory: Drop
+    transferName: true
+    copiedComponents: []
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: Slime
+  configuration:
+    entity: MobAdultSlimes
+    forced: false
+    inventory: Drop
+    transferName: true
+    copiedComponents: []
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: Snail
+  configuration:
+    entity: MobSnail
+    forced: false
+    inventory: Drop
+    transferName: true
+    copiedComponents: []
+    revertOnCrit: false
+    revertOnDeath: false
+    allowRepeatedMorphs: false
+
+- type: polymorph
+  id: Crab
+  configuration:
+    entity: MobCrab
+    forced: false
+    inventory: Drop
+    transferName: true
+    copiedComponents: []
+    revertOnCrit: false
+    revertOnDeath: false
+    allowRepeatedMorphs: false
+
+- type: polymorph
+  id: Skeleton
+  configuration:
+    entity: MobSkeletonPerson
+    forced: false
+    inventory: Drop # your skin melts off so your clothes drop
+    transferName: false # fibula time
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: VoidMagnet
+  configuration:
+    entity: VoidMagnetPocket
+    transferName: false
+    inventory: None
+    forced: true # have to wait it out chud
+    revertOnDeath: true
+    allowRepeatedMorphs: false
+    polymorphSound: /Audio/Effects/teleport_departure.ogg
+    exitPolymorphSound: /Audio/Effects/teleport_arrival.ogg
+    duration: 10
+
+- type: entity
+  parent: MobMouse
+  id: VoidMagnetPocket
+  name: hole in reality
+  description: It's shaped an awful lot like a person.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Effects/void_pocket.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: void_pocket
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 0
+    baseWalkSpeed: 0

@@ -267,6 +267,11 @@
     backStrength: 3
   - type: StaticPrice
     price: 90
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - SpeedLoaderInternal
+      - N14Cartridge308Rifle
 
 - type: entity
   name: brush gun

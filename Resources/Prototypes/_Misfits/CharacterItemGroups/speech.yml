@@ -1,0 +1,43 @@
+# Misfits Add - one accent/speech quirk per character.
+- type: characterItemGroup
+  id: N14SpeechAccents
+  maxItems: 1
+  items:
+    - type: trait
+      id: N14Stutter
+    - type: trait
+      id: N14FrontalLisp
+    - type: trait
+      id: N14ScottishAccent
+    - type: trait
+      id: N14FrenchieAccent
+    - type: trait
+      id: N14TribalAccent
+    - type: trait
+      id: N14Liar
+    - type: trait
+      id: N14CowboyAccent
+    - type: trait
+      id: N14SouthernAccent
+    - type: trait
+      id: N14MobsterAccent
+    # Misfits - Russian accent disabled for now, uncomment here and in Traits/speech.yml to re-enable.
+    #- type: trait
+    #  id: N14RussianAccent
+    - type: trait
+      id: N14ItalianAccent
+    - type: trait
+      id: N14VaultDwellerAccent
+    - type: trait
+      id: N14RadioAnnouncerAccent
+    # Misfits - Legion latin accent disabled for now, uncomment here and in Traits/speech.yml to re-enable.
+    #- type: trait
+    #  id: N14LegionLatinAccent
+    - type: trait
+      id: N14GhoulRaspAccent
+    - type: trait
+      id: N14OldTimerAccent
+    - type: trait
+      id: N14MisterHandyAccent
+    - type: trait
+      id: N14GermanAccent

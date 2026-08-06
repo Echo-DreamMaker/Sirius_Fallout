@@ -19,6 +19,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - shader: StencilClear
       sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
       # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
@@ -269,6 +271,8 @@
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
+  # Misfits: Trauma genetics integration.
+  - type: Mutatable
   - type: Flashable
   - type: Barotrauma
     damage:
@@ -291,6 +295,7 @@
     - SlowedDown
     - Stutter
     - SeeingRainbows
+    - DnaMelting
     - HealingPowderHaze
     - HydraTint
     - Electrocution
@@ -400,6 +405,8 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - shader: StencilClear
       sprite: Mobs/Species/Human/parts.rsi
       state: l_leg

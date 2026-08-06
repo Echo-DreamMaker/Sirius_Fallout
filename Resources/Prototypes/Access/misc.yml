@@ -66,6 +66,9 @@
   - VaultMedical
   - VaultSecurity
   - VaultOverseer
+  - VaultCargo
+  - VaultCourier
+  - VaultSalvage
   - TribeMember
   - TribeChief
   #  - CaravanCompanyGuard

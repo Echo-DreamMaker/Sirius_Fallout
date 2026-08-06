@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseMutation
+  id: MutationDogNose
+  name: Transcendent Olfaction
+  description: Your sense of smell is comparable to that of a canine.
+  components:
+  - type: Mutation
+    instability: 25
+    difficulty: 12
+    rarity: Rare
+  - type: ComponentMutation
+    added:
+    - type: ScentTracker
+      sniffDelay: 1.5 # canine noses work fast (default 5s felt useless)
+  - type: ActionMutation
+    action: ActionMutationScentSense
+
+- type: entity
+  parent: BaseMutationAction
+  id: ActionMutationScentSense
+  name: Sniff the Air
+  description: Catch the scent you're tracking on the air, and know which way it came from.
+  components:
+  - type: InstantAction
+    useDelay: 8
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    # placeholder art: reuses the scent-tracking verb icon until a nose sprite exists
+    icon: /Textures/Interface/VerbIcons/psionic_invisibility.png
+    event: !type:ScentSenseActionEvent
+  - type: ScentSenseAction

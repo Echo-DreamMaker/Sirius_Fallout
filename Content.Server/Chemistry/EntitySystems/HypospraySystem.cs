@@ -4,6 +4,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Hypospray.Events;
 using Content.Shared.Chemistry;
 using Content.Shared.Database;
+using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Forensics;
 using Content.Shared.IdentityManagement;
@@ -29,6 +30,7 @@ public sealed class HypospraySystem : SharedHypospraySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!; // #Misfits Change Add: broadcast successful injections as emotes.
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // #Misfits Add - delay configured hypospray injections.
     [Dependency] private readonly InteractionSystem _interaction = default!;
 
     public override void Initialize()
@@ -36,6 +38,7 @@ public sealed class HypospraySystem : SharedHypospraySystem
         base.Initialize();
 
         SubscribeLocalEvent<HyposprayComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<HyposprayComponent, HyposprayDoAfterEvent>(OnHyposprayDoAfter); // #Misfits Add
         SubscribeLocalEvent<HyposprayComponent, MeleeHitEvent>(OnAttack);
         SubscribeLocalEvent<HyposprayComponent, UseInHandEvent>(OnUseInHand);
     }
@@ -43,13 +46,15 @@ public sealed class HypospraySystem : SharedHypospraySystem
     private void UseHypospray(Entity<HyposprayComponent> entity, EntityUid target, EntityUid user)
     {
         // if target is ineligible but is a container, try to draw from the container
-        if (!EligibleEntity(target, EntityManager, entity)
-            && _solutionContainers.TryGetDrawableSolution(target, out var drawableSolution, out _))
+        if (!EligibleEntity(target, EntityManager, entity))
         {
-            TryDraw(entity, target, drawableSolution.Value, user);
+            if (_solutionContainers.TryGetDrawableSolution(target, out var drawableSolution, out _))
+                TryDraw(entity, target, drawableSolution.Value, user);
+
+            return;
         }
 
-        TryDoInject(entity, target, user);
+        StartInjection(entity, target, user);
     }
 
     private void OnUseInHand(Entity<HyposprayComponent> entity, ref UseInHandEvent args)
@@ -57,7 +62,7 @@ public sealed class HypospraySystem : SharedHypospraySystem
         if (args.Handled)
             return;
 
-        TryDoInject(entity, args.User, args.User);
+        StartInjection(entity, args.User, args.User);
         args.Handled = true;
     }
 
@@ -75,7 +80,58 @@ public sealed class HypospraySystem : SharedHypospraySystem
         if (!args.HitEntities.Any())
             return;
 
-        TryDoInject(entity, args.HitEntities.First(), args.User);
+        StartInjection(entity, args.HitEntities.First(), args.User);
+    }
+
+    // #Misfits Add - Apply configured injection times through one path for self-use, interactions, and attacks.
+    private void StartInjection(Entity<HyposprayComponent> entity, EntityUid target, EntityUid user)
+    {
+        if (!EligibleEntity(target, EntityManager, entity.Comp))
+            return;
+
+        if (TryComp(entity.Owner, out UseDelayComponent? delayComp) &&
+            _useDelay.IsDelayed((entity.Owner, delayComp)))
+        {
+            return;
+        }
+
+        var delay = target == user
+            ? entity.Comp.SelfInjectionDelay
+            : entity.Comp.OtherInjectionDelay;
+
+        if (delay <= TimeSpan.Zero)
+        {
+            TryDoInject(entity, target, user);
+            return;
+        }
+
+        _doAfter.TryStartDoAfter(new DoAfterArgs(
+            EntityManager,
+            user,
+            delay,
+            new HyposprayDoAfterEvent(),
+            entity.Owner,
+            target: target,
+            used: entity.Owner)
+        {
+            BreakOnMove = true,
+            BreakOnWeightlessMove = false,
+            BreakOnDamage = true,
+            NeedHand = true,
+            BreakOnHandChange = true,
+            MovementThreshold = 0.1f,
+            DuplicateCondition = DuplicateConditions.SameTool | DuplicateConditions.SameEvent,
+            CancelDuplicate = false,
+        });
+    }
+
+    private void OnHyposprayDoAfter(Entity<HyposprayComponent> entity, ref HyposprayDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled || args.Args.Target == null)
+            return;
+
+        TryDoInject(entity, args.Args.Target.Value, args.Args.User);
+        args.Handled = true;
     }
 
     public bool TryDoInject(Entity<HyposprayComponent> entity, EntityUid target, EntityUid user)

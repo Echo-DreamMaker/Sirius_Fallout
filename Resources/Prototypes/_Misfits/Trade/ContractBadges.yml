@@ -1,12 +1,12 @@
 # Contract tier badges awarded by ContractTierSystem when a player unlocks or advances a tier.
 # Each badge is a wearable neck item (medal) appropriate to its tier.
-# All 6 tiers: Bronze → Iron → Silver → Gold → Mithril → Diamond
+# All 6 tiers: Road Kill → Lazy Lizard → Junktown Rat → Hub Mercenary → Bunker Buster → Wasteland Legend
 
 - type: entity
   parent: ClothingNeckMedalBase
-  id: N14ContractBadgeBronze
-  name: Bronze Caravan Badge
-  description: Awarded to travellers who first register with the caravan network. Bronze tier — the beginning of something greater.
+  id: N14ContractBadgeRoadKill
+  name: Road Kill Caravan Badge
+  description: Awarded to contractors who have just joined the caravan network. For now you're Road Kill, but you can improve.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
@@ -18,9 +18,9 @@
 
 - type: entity
   parent: ClothingNeckMedalBase
-  id: N14ContractBadgeIron
-  name: Iron Caravan Badge
-  description: Awarded for completing the Iron tier of caravan contracts. A badge worn by dependable hunters.
+  id: N14ContractBadgeLazyLizard
+  name: Lazy Lizard Caravan Badge
+  description: Awarded to contractors who have risen to the rank of Lazy Lizard with the caravan network. You're dependable now, at least for the easy jobs.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Medals/cargomedal.rsi
@@ -32,9 +32,9 @@
 
 - type: entity
   parent: ClothingNeckMedalBase
-  id: N14ContractBadgeSilver
-  name: Silver Caravan Badge
-  description: Awarded for completing the Silver tier. Raiders and ghoul packs hold no fear for this contractor.
+  id: N14ContractBadgeJunktownRat
+  name: Junktown Rat Caravan Badge
+  description: Awarded to contractors who have risen to the rank of a Junktown Rat. The caravan network trusts you now, merchants are likely to give you a good deal.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Medals/engineermedal.rsi
@@ -46,9 +46,9 @@
 
 - type: entity
   parent: ClothingNeckMedalBase
-  id: N14ContractBadgeGold
-  name: Gold Caravan Badge
-  description: Awarded for completing the Gold tier. This contractor has faced raider bosses and cazadors and walked away.
+  id: N14ContractBadgeHubMercenary
+  name: Hub Mercenary Caravan Badge
+  description: Awarded to contractors who have risen to the rank of a Hub Mercenary. You are a friend to the caravan network now, and you've been awarded a tiny apartment in The Hub for your services.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Medals/gold.rsi
@@ -60,9 +60,9 @@
 
 - type: entity
   parent: ClothingNeckMedalBase
-  id: N14ContractBadgeMithril
-  name: Mithril Caravan Badge
-  description: Awarded for completing the Mithril tier. Deathclaw country is just another Tuesday for this hunter.
+  id: N14ContractBadgeBunkerBuster
+  name: Bunker Buster Caravan Badge
+  description: Awarded to contractors near the very top of the caravan network's operatives. Bunker Buster is a rank that bestows great bragging rights. Very few are above your achievements.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
@@ -74,9 +74,9 @@
 
 - type: entity
   parent: ClothingNeckMedalBase
-  id: N14ContractBadgeDiamond
-  name: Diamond Caravan Badge
-  description: The highest honour awarded by the caravan network. This contractor hunts metal-armored deathclaws for sport.
+  id: N14ContractBadgeWastelandLegend
+  name: Wasteland Legend Caravan Badge
+  description: The greatest recognition the caravan network can bestow on its contractors. You are a Wasteland Legend, few if any can truly compare to you.
   components:
   - type: Sprite
     sprite: DeltaV/Clothing/Neck/Medals/securitymedal.rsi

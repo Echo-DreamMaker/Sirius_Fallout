@@ -1,0 +1,25 @@
+# Misfits Add - Help Up Surrender interaction
+# Fully clears the surrender stun (15min TryStun) instead of reducing it by 2.5s.
+# Higher priority than the base HelpUp so it shows first on stunned targets.
+- type: Interaction
+  id: MisfitsHelpUpSurrender
+  parent: [BaseHelp, BaseGlobal]
+  priority: -4  # Higher than base HelpUp (-5)
+  delay: 2.0
+  cooldown: 0.5
+  hideByRequirement: true
+  hideWhenInvalid: true
+  requirement:
+    !type:StandingStateRequirement
+    allowKnockedDown: true
+    allowLaying: true
+  action:
+    !type:ComplexAction
+    requireAll: false
+    actions:
+    - !type:ClearStatusEffectAction
+      effect: Stun
+    - !type:ToggleSleepingAction
+      wakeUp: true
+    - !type:ChangeStandingStateAction
+      makeStanding: true

@@ -7,6 +7,7 @@ using Content.Client.Animations;
 using Content.Client.Gameplay;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Camera;
 using Content.Shared.CombatMode;
 using Content.Shared._Misfits.CCVar;
@@ -630,8 +631,10 @@ public sealed partial class GunSystem : SharedGunSystem
 
         EntityUid? staticHit = null;
         EntityUid? currentDynamicHit = null;
+        EntityUid? strapHit = null;
         var staticDistance = hitscan.MaxLength;
         var currentDynamicDistance = hitscan.MaxLength;
+        var strapDistance = hitscan.MaxLength;
 
         foreach (var result in rayCastResults)
         {
@@ -639,6 +642,16 @@ public sealed partial class GunSystem : SharedGunSystem
                 result.HitEntity == ignoredEntity ||
                 !IsValidHitscanTarget(result.HitEntity, target, firedFromContainer))
                 continue;
+
+            // thing buckled to genrally has larger fixture, defer to rider, if not fallback to strap
+            if (strapHit == null &&
+                TryComp<StrapComponent>(result.HitEntity, out var strap) &&
+                strap.BuckledEntities.Count > 0)
+            {
+                strapHit = result.HitEntity;
+                strapDistance = result.Distance;
+                continue;
+            }
 
             if (TryComp<PhysicsComponent>(result.HitEntity, out var resultPhysics) &&
                 resultPhysics.BodyType != BodyType.Static)
@@ -686,6 +699,13 @@ public sealed partial class GunSystem : SharedGunSystem
             return true;
         }
 
+        if (strapHit != null)
+        {
+            hit = strapHit.Value;
+            distance = strapDistance;
+            return true;
+        }
+
         return false;
     }
 
@@ -720,6 +740,9 @@ public sealed partial class GunSystem : SharedGunSystem
             {
                 continue;
             }
+
+            if (TryComp<StrapComponent>(candidate, out var strap) && strap.BuckledEntities.Count > 0)
+                continue;
 
             if (!IsValidHitscanTarget(candidate, target, firedFromContainer) ||
                 !TryGetHistoricalHitscanBounds(candidate, historicalTick, collisionMask, fixtures, xform, out var bounds) ||

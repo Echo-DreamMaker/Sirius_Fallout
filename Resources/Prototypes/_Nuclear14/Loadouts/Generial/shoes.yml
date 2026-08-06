@@ -1,7 +1,7 @@
 - type: loadout
   id: N14LoadoutShoesBlack
   category: Shoes
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutShoes
@@ -17,7 +17,7 @@
 - type: loadout
   id: N14LoadoutShoesBrown
   category: Shoes
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutShoes
@@ -30,30 +30,30 @@
   items:
     - N14ClothingShoesBrown
 
-# - type: loadout
-#   id: N14LoadoutShoesRags
-#   category: Shoes
-#   cost: 1
-#   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: N14LoadoutShoes
-#     - !type:CharacterJobRequirement # Forge-Change
-#       inverted: true
-#       jobs:
-#       - BoSMidSerf
-#       - CaesarLegionSlave
-#       - NCRPrisoner
-#     - !type:CharacterDepartmentRequirement
-#        inverted: true
-#        departments:
-#        - Vault
-#   items:
-#     - N14ClothingShoesRags
+- type: loadout
+  id: N14LoadoutShoesRags
+  category: Shoes
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutShoes
+    - !type:CharacterJobRequirement # Forge-Change
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
+  items:
+    - N14ClothingShoesRags
 
 - type: loadout
   id: N14LoadoutBootsCowboy
   category: Shoes
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutShoes
@@ -69,7 +69,7 @@
 - type: loadout
   id: N14LoadoutBootsBlack
   category: Shoes
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutShoes

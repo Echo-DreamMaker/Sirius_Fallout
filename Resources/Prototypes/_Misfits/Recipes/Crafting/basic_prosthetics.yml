@@ -1,0 +1,121 @@
+# Misfits - Prosthetic hands and feet in the Medical hand-crafting category.
+
+- type: construction
+  name: simple prosthetic left hand
+  id: MisfitsProstheticSimpleLeftHand
+  graph: MisfitsProstheticGraph
+  startNode: start
+  targetNode: simpleLeftHand
+  category: construction-category-medical
+  description: A cheap replacement for a human left hand.
+  hide: false
+  icon: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_hand_simple }
+  objectType: Item
+
+- type: construction
+  name: simple prosthetic right hand
+  id: MisfitsProstheticSimpleRightHand
+  graph: MisfitsProstheticGraph
+  startNode: start
+  targetNode: simpleRightHand
+  category: construction-category-medical
+  description: A cheap replacement for a human right hand.
+  hide: false
+  icon: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_hand_simple }
+  objectType: Item
+
+- type: construction
+  name: Vault-Tec prosthetic left hand
+  id: MisfitsProstheticVaultTecLeftHand
+  graph: MisfitsProstheticGraph
+  startNode: start
+  targetNode: vaultTecLeftHand
+  category: construction-category-medical
+  description: A cheap replacement for a human left hand.
+  hide: false
+  icon: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_hand_vaulttec }
+  objectType: Item
+
+- type: construction
+  name: Vault-Tec prosthetic right hand
+  id: MisfitsProstheticVaultTecRightHand
+  graph: MisfitsProstheticGraph
+  startNode: start
+  targetNode: vaultTecRightHand
+  category: construction-category-medical
+  description: A cheap replacement for a human right hand.
+  hide: false
+  icon: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_hand_vaulttec }
+  objectType: Item
+
+- type: construction
+  name: NCR prosthetic left hand
+  id: MisfitsProstheticNCRLeftHand
+  graph: MisfitsProstheticGraph
+  startNode: start
+  targetNode: ncrLeftHand
+  category: construction-category-medical
+  description: A cheap replacement for a human left hand.
+  hide: false
+  icon: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_hand_ncr }
+  objectType: Item
+
+- type: construction
+  name: NCR prosthetic right hand
+  id: MisfitsProstheticNCRRightHand
+  graph: MisfitsProstheticGraph
+  startNode: start
+  targetNode: ncrRightHand
+  category: construction-category-medical
+  description: A cheap replacement for a human right hand.
+  hide: false
+  icon: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_hand_ncr }
+  objectType: Item
+
+- type: construction
+  name: simple prosthetic left foot
+  id: MisfitsProstheticSimpleLeftFoot
+  graph: MisfitsProstheticGraph
+  startNode: start
+  targetNode: simpleLeftFoot
+  category: construction-category-medical
+  description: A cheap replacement for a human left foot.
+  hide: false
+  icon: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_foot_simple }
+  objectType: Item
+
+- type: construction
+  name: simple prosthetic right foot
+  id: MisfitsProstheticSimpleRightFoot
+  graph: MisfitsProstheticGraph
+  startNode: start
+  targetNode: simpleRightFoot
+  category: construction-category-medical
+  description: A cheap replacement for a human right foot.
+  hide: false
+  icon: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_foot_simple }
+  objectType: Item
+
+- type: construction
+  name: Vault-Tec prosthetic left foot
+  id: MisfitsProstheticVaultTecLeftFoot
+  graph: MisfitsProstheticGraph
+  startNode: start
+  targetNode: vaultTecLeftFoot
+  category: construction-category-medical
+  description: A cheap replacement for a human left foot.
+  hide: false
+  icon: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_foot_vaulttec }
+  objectType: Item
+
+- type: construction
+  name: Vault-Tec prosthetic right foot
+  id: MisfitsProstheticVaultTecRightFoot
+  graph: MisfitsProstheticGraph
+  startNode: start
+  targetNode: vaultTecRightFoot
+  category: construction-category-medical
+  description: A cheap replacement for a human right foot.
+  hide: false
+  icon: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_foot_vaulttec }
+  objectType: Item

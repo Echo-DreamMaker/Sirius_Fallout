@@ -510,6 +510,42 @@
       - state: green
       - state: security
 
+- type: entity
+  id: MisfitsSpawnPointVaultCargoSpecialist
+  parent: N14SpawnPointOverseer
+  name: vault cargo specialist
+  components:
+  - type: SpawnPoint
+    job_id: VaultCargoSpecialist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: engineer
+
+- type: entity
+  id: MisfitsSpawnPointVaultCourier
+  parent: N14SpawnPointOverseer
+  name: vault courier
+  components:
+  - type: SpawnPoint
+    job_id: VaultCourier
+  - type: Sprite
+    layers:
+      - state: green
+      - state: dweller
+
+- type: entity
+  id: MisfitsSpawnPointVaultSalvageSpecialist
+  parent: N14SpawnPointOverseer
+  name: vault salvage specialist
+  components:
+  - type: SpawnPoint
+    job_id: VaultSalvageSpecialist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: engineer
+
 # Wastelanders
 - type: entity
   id: N14SpawnPointWastelandBartender

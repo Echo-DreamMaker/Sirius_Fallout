@@ -104,12 +104,20 @@ namespace Content.Client.Lobby.UI
         // #Misfits Add: robot model families — each base species maps to its selectable variants.
         private static readonly Dictionary<string, (string SpeciesId, string NameLocKey)[]> RobotModelFamilies = new()
         {
+            ["RobotMrHandy"] = new[]
+            {
+                ("RobotMrHandy", "humanoid-profile-editor-robot-model-mr-handy-standard"),
+                ("RobotMrHandyZAX", "humanoid-profile-editor-robot-model-mr-handy-zax"),
+            },
             ["RobotProtectron"] = new[]
             {
                 ("RobotProtectron", "humanoid-profile-editor-robot-model-protectron-standard"),
                 ("RobotProtectronPolice", "humanoid-profile-editor-robot-model-protectron-police"),
                 ("RobotProtectronBuilder", "humanoid-profile-editor-robot-model-protectron-builder"),
                 ("RobotProtectronFire", "humanoid-profile-editor-robot-model-protectron-fire"),
+                ("RobotProtectronPoliceZAX", "humanoid-profile-editor-robot-model-protectron-police-zax"),
+                ("RobotProtectronBuilderZAX", "humanoid-profile-editor-robot-model-protectron-builder-zax"),
+                ("RobotProtectronFireZAX", "humanoid-profile-editor-robot-model-protectron-fire-zax"),
                 ("RobotProtectronTribal", "humanoid-profile-editor-robot-model-protectron-tribal"),
             },
             ["RobotSecuritron"] = new[]
@@ -120,20 +128,31 @@ namespace Content.Client.Lobby.UI
                 ("RobotSecuritronRed", "humanoid-profile-editor-robot-model-securitron-red"),
                 ("RobotSecuritronYellow", "humanoid-profile-editor-robot-model-securitron-yellow"),
             },
+            ["RobotMrGutsy"] = new[]
+            {
+                ("RobotMrGutsy", "humanoid-profile-editor-robot-model-mr-gutsy-standard"),
+                ("RobotMrGutsyZAX", "humanoid-profile-editor-robot-model-mr-gutsy-zax"),
+            },
             ["RobotAssaultron"] = new[]
             {
                 ("RobotAssaultron", "humanoid-profile-editor-robot-model-assaultron-beam"),
                 ("RobotAssaultronTesla", "humanoid-profile-editor-robot-model-assaultron-tesla"),
+                ("RobotAssaultronZAX", "humanoid-profile-editor-robot-model-assaultron-zax"),
+                ("RobotAssaultronTeslaZAX", "humanoid-profile-editor-robot-model-assaultron-tesla-zax"),
             },
             ["RobotSentryBot"] = new[]
             {
                 ("RobotSentryBot", "humanoid-profile-editor-robot-model-sentrybot-minigun"),
                 ("RobotSentryBotLaser", "humanoid-profile-editor-robot-model-sentrybot-laser"),
+                ("RobotSentryBotZAX", "humanoid-profile-editor-robot-model-sentrybot-zax"),
+                ("RobotSentryBotLaserZAX", "humanoid-profile-editor-robot-model-sentrybot-laser-zax"),
             },
             ["RobotRobobrain"] = new[]
             {
                 ("RobotRobobrain", "humanoid-profile-editor-robot-model-robobrain-standard"),
                 ("RobotRobobrainLaser", "humanoid-profile-editor-robot-model-robobrain-laser"),
+                ("RobotRobobrainZAX", "humanoid-profile-editor-robot-model-robobrain-zax"),
+                ("RobotRobobrainLaserZAX", "humanoid-profile-editor-robot-model-robobrain-laser-zax"),
             },
             // #Misfits Add - C-27 Humanoid Robot family. Generic chassis is the visible base species;
             // NCR and Brotherhood variants are hidden in the main species dropdown and selected via
@@ -387,8 +406,6 @@ namespace Content.Client.Lobby.UI
 
             #region Height and Width
 
-            var prototype = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
-
             UpdateHeightWidthSliders();
 
             HeightSlider.OnValueChanged += _ => UpdateDimensions(SliderUpdate.Height);
@@ -396,13 +413,15 @@ namespace Content.Client.Lobby.UI
 
             HeightReset.OnPressed += _ =>
             {
-                HeightSlider.Value = prototype.DefaultHeight;
+                var species = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
+                HeightSlider.Value = species.DefaultHeight;
                 UpdateDimensions(SliderUpdate.Height);
             };
 
             WidthReset.OnPressed += _ =>
             {
-                WidthSlider.Value = prototype.DefaultWidth;
+                var species = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
+                WidthSlider.Value = species.DefaultWidth;
                 UpdateDimensions(SliderUpdate.Width);
             };
 
@@ -1807,38 +1826,60 @@ namespace Content.Client.Lobby.UI
         private static bool IsRobotSpecies(string speciesId)
         {
             return speciesId == "RobotMrHandy"
+                || speciesId == "RobotMrHandyZAX"
                 || speciesId == "RobotProtectron"
                 || speciesId == "RobotProtectronPolice"
                 || speciesId == "RobotProtectronBuilder"
                 || speciesId == "RobotProtectronFire"
+                || speciesId == "RobotProtectronPoliceZAX"
+                || speciesId == "RobotProtectronBuilderZAX"
+                || speciesId == "RobotProtectronFireZAX"
                 || speciesId == "RobotSecuritron"
                 || speciesId == "RobotSecuritronBlue"
                 || speciesId == "RobotSecuritronBrown"
                 || speciesId == "RobotSecuritronRed"
                 || speciesId == "RobotSecuritronYellow"
                 || speciesId == "RobotMrGutsy"
+                || speciesId == "RobotMrGutsyZAX"
                 || speciesId == "RobotAssaultron"
                 || speciesId == "RobotAssaultronTesla"
+                || speciesId == "RobotAssaultronZAX"
+                || speciesId == "RobotAssaultronTeslaZAX"
                 || speciesId == "RobotSentryBot"
                 || speciesId == "RobotSentryBotLaser"
+                || speciesId == "RobotSentryBotZAX"
+                || speciesId == "RobotSentryBotLaserZAX"
                 || speciesId == "RobotRobobrain"
                 || speciesId == "RobotRobobrainLaser"
+                || speciesId == "RobotRobobrainZAX"
+                || speciesId == "RobotRobobrainLaserZAX"
                 || speciesId == "RobotProtectronTribal";
         }
 
         // #Misfits Add: variant species are hidden from the main Species dropdown and driven by Robot Model selector.
         private static bool IsHiddenProtectronVariantSpecies(string speciesId)
         {
-            return speciesId == "RobotProtectronPolice"
+            return speciesId == "RobotMrHandyZAX"
+                || speciesId == "RobotProtectronPolice"
                 || speciesId == "RobotProtectronBuilder"
                 || speciesId == "RobotProtectronFire"
+                || speciesId == "RobotProtectronPoliceZAX"
+                || speciesId == "RobotProtectronBuilderZAX"
+                || speciesId == "RobotProtectronFireZAX"
                 || speciesId == "RobotSecuritronBlue"
                 || speciesId == "RobotSecuritronBrown"
                 || speciesId == "RobotSecuritronRed"
                 || speciesId == "RobotSecuritronYellow"
+                || speciesId == "RobotMrGutsyZAX"
                 || speciesId == "RobotAssaultronTesla"
+                || speciesId == "RobotAssaultronZAX"
+                || speciesId == "RobotAssaultronTeslaZAX"
                 || speciesId == "RobotSentryBotLaser"
+                || speciesId == "RobotSentryBotZAX"
+                || speciesId == "RobotSentryBotLaserZAX"
                 || speciesId == "RobotRobobrainLaser"
+                || speciesId == "RobotRobobrainZAX"
+                || speciesId == "RobotRobobrainLaserZAX"
                 || speciesId == "C27NCR" // #Misfits Add - C-27 NCR variant picked via Robot Model dropdown
                 || speciesId == "C27BoS" // #Misfits Add - C-27 Brotherhood variant picked via Robot Model dropdown
                 || speciesId == "C27ZAX" // #Misfits Add - C-27 Z.A.X variant picked via Robot Model dropdown
@@ -2770,7 +2811,7 @@ namespace Content.Client.Lobby.UI
                 <= 1 => ", low-intelligence accent",
                 >= 10 => ", solution examine on all containers, medical HUD",
                 >= 8 => ", solution scan verb",
-                >= 7 => ", hand caft workbench recipes",
+                >= 7 => ", hand craft workbench recipes",
                 _ => string.Empty,
             };
 

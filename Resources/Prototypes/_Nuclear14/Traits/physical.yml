@@ -390,6 +390,8 @@
         - FollowerDoctor
         - FollowerGuard
         - FollowerVolunteer
+        - CaesarLegionSlave # Restricted from Slaves & Prisoners - if they had these traits, they wouldn't be stuck in the first place!
+        - NCRPrisoner
     # Forge-Change-End
     # Misfits Fix: CharacterTraitRequirement block removed — all referenced N14ExtremeAug* traits are commented out
     #- !type:CharacterTraitRequirement
@@ -424,12 +426,12 @@
   category: Physical
   points: -5
   # Misfits Fix: CharacterTraitRequirement block removed — all referenced N14ExtremeAug* traits are commented out
-  #requirements:
-  #  - !type:CharacterTraitRequirement
-  #    inverted: true
-  #    traits:
-  #      - N14ExtremeAugKnight
-  #      - N14ExtremeAugScribe
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - CaesarLegionSlave # Restricted from Slaves & Prisoners - if they had these traits, they wouldn't be stuck in the first place!
+    - NCRPrisoner
   functions:
     - !type:TraitAddComponent
       components:

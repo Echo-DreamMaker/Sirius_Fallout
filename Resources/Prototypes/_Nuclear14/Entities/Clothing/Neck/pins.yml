@@ -83,11 +83,26 @@
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
-  id: ClothingNeckPinNCRSergeant1st
+  id: ClothingNeckPinNCRStaffSergeant
   name: staff sergeant pin
   components:
   - type: RankTitle
     rankTitle: Штаб-сержант НКР
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+    layers:
+    - state: mastersergeant
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+- type: entity
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRSergeant1st
+  name: sergeant first class pin
+  components:
+  - type: RankTitle
+    rankTitle: Sergeant First Class
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -116,6 +131,36 @@
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: sergeantmajor
+
+- type: entity
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRCommandSergeantMajor
+  name: command sergeant major pin
+  components:
+  - type: RankTitle
+    rankTitle: Command Sergeant Major
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+    layers:
+    - state: sergeantmajor
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+- type: entity
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRWarrantOfficer
+  name: warrant officer pin
+  components:
+  - type: RankTitle
+    rankTitle: Warrant Officer
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+    layers:
+    - state: secondlieutenant
+  - type: Tag
+    tags:
+    - SuperMutantWearable
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate

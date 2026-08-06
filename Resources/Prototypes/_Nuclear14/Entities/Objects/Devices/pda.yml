@@ -3,7 +3,7 @@
   parent: BasePDA
   id: N14BasePipboy
   name: Pip-Boy 3000 MKIV
-  description: a RobCo Industries Pip-Boy 3000 Mark IV Personal Information Processor.
+  description: A RobCo Industries Pip-Boy 3000 Mark IV Personal Information Processor.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/pipboy.rsi
@@ -74,6 +74,9 @@
       maxDistance: 10
       rolloffFactor: 4
   - type: RadiationReceiver
+  - type: Tag
+    tags:
+    - MisfitsPipBoy
   - type: CartridgeLoader
     preinstalled:
       - CrewManifestCartridge
@@ -97,6 +100,14 @@
   components:
   - type: Pda
     id: N14IDBadgeNCRDesertRangerElite
+
+- type: entity
+  parent: N14BasePipboy
+  id: N14NCRCommanderPipboy
+  suffix: NCR Captain
+  components:
+  - type: Pda
+    id: N14IDNCRDogtagCaptain
 
 # #Misfits Add - Wastelander Pip-Boy with pre-inserted dogtags for PipBoy Hub networking.
 - type: entity
@@ -143,6 +154,30 @@
   components:
   - type: Pda
     id: N14IDCardVaultSecurity
+
+- type: entity
+  parent: N14BasePipboy
+  id: MisfitsVaultCargoPDA
+  suffix: Vault, Cargo Specialist
+  components:
+  - type: Pda
+    id: MisfitsIDCardVaultCargo
+
+- type: entity
+  parent: N14BasePipboy
+  id: MisfitsVaultCourierPDA
+  suffix: Vault, Courier
+  components:
+  - type: Pda
+    id: MisfitsIDCardVaultCourier
+
+- type: entity
+  parent: N14BasePipboy
+  id: MisfitsVaultSalvagePDA
+  suffix: Vault, Salvage Specialist
+  components:
+  - type: Pda
+    id: MisfitsIDCardVaultSalvage
 
 - type: entity
   parent: N14BasePipboy

@@ -1,0 +1,52 @@
+- type: job
+  id: VaultCargoSpecialist
+  weight: 30
+  hideWithoutJobWhitelist: false # #Misfits Tweak - no whitelist gate
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - always visible
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change - open to all
+  name: job-name-vault-cargo-specialist
+  description: job-description-vault-cargo-specialist
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  setPreference: true
+  overrideConsoleVisibility: true
+  canBeAntag: false
+  overwatchCategory: OverwatchGeneral
+  playTimeTracker: VaultCargoSpecialist
+  startingGear: VaultCargoSpecialistGear
+  alwaysUseSpawner: true
+  icon: "JobIconVaultEngineer"
+  supervisors: job-supervisors-vault
+  access:
+  - VaultDweller
+  - VaultCargo
+  - VaultEngineer # TODO: remove once VaultCargo doors are mapped — stopgap so this role isn't locked out
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - Vault
+
+- type: startingGear
+  id: VaultCargoSpecialistGear
+  equipment:
+    head: ClothingHeadHatBeretLogi
+    jumpsuit: ClothingUniformJumpsuitQMTurtleneck
+    back: N14ClothingBackpackVaultBlue # Forge-Change
+    shoes: N14ClothingBootsBlack
+    id: MisfitsVaultCargoPDA
+    belt: N14ClothingBeltUtilityFilled
+    ears: N14ClothingHeadsetVaultDweller
+  innerClothingSkirt: ClothingUniformJumpskirtQMTurtleneck
+  storage: # Forge-Change
+    back:
+    - N14Bandage
+    - N14CurrencyPrewarMoney100
+    - Crowbar
+    - VaultGuidePaper
+- type: playTimeTracker
+  id: VaultCargoSpecialist

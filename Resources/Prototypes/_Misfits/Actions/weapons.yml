@@ -1,0 +1,17 @@
+- type: entity
+  id: MisfitsActionMeleeCharge
+  name: action-name-MisfitsActionMeleeCharge
+  description: action-description-MisfitsActionMeleeCharge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ActionStaminaCost
+    staminaPercent: 35
+  - type: WorldTargetAction
+    icon:
+      sprite: _Misfits/Interface/Actions/melee_charge.rsi
+      state: charge
+    checkCanAccess: false
+    range: 10 #not the dash range, just a long clickable direction range
+    event: !type:MeleeChargeEvent
+      speed: 10
+      range: 3.5

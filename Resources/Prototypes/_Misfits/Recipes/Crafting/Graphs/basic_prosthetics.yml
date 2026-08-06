@@ -1,0 +1,54 @@
+# Misfits - Every basic prosthetic costs one steel and one cloth.
+
+- type: constructionGraph
+  id: MisfitsProstheticGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: simpleLeftHand
+      steps: &prostheticSteps
+      - material: Steel
+        amount: 1
+      - material: Cloth
+        amount: 1
+        doAfter: 3
+    - to: simpleRightHand
+      steps: *prostheticSteps
+    - to: vaultTecLeftHand
+      steps: *prostheticSteps
+    - to: vaultTecRightHand
+      steps: *prostheticSteps
+    - to: ncrLeftHand
+      steps: *prostheticSteps
+    - to: ncrRightHand
+      steps: *prostheticSteps
+    - to: simpleLeftFoot
+      steps: *prostheticSteps
+    - to: simpleRightFoot
+      steps: *prostheticSteps
+    - to: vaultTecLeftFoot
+      steps: *prostheticSteps
+    - to: vaultTecRightFoot
+      steps: *prostheticSteps
+
+  - node: simpleLeftHand
+    entity: MisfitsProstheticSimpleLeftHand
+  - node: simpleRightHand
+    entity: MisfitsProstheticSimpleRightHand
+  - node: vaultTecLeftHand
+    entity: MisfitsProstheticVaultTecLeftHand
+  - node: vaultTecRightHand
+    entity: MisfitsProstheticVaultTecRightHand
+  - node: ncrLeftHand
+    entity: MisfitsProstheticNCRLeftHand
+  - node: ncrRightHand
+    entity: MisfitsProstheticNCRRightHand
+  - node: simpleLeftFoot
+    entity: MisfitsProstheticSimpleLeftFoot
+  - node: simpleRightFoot
+    entity: MisfitsProstheticSimpleRightFoot
+  - node: vaultTecLeftFoot
+    entity: MisfitsProstheticVaultTecLeftFoot
+  - node: vaultTecRightFoot
+    entity: MisfitsProstheticVaultTecRightFoot

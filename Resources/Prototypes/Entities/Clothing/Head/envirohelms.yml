@@ -1253,8 +1253,8 @@
 - type: entity
   parent: ClothingHeadEnvirohelmCustomBase
   id: ClothingHeadEnvirohelmNanotrasenRepresentative
-  name: nanotrasen representative envirosuit helmet
-  description: A black envirosuit helmet worn by the NanoTrasen Representative, with black and gold accents.
+  name: corporate representative envirosuit helmet
+  description: A black envirosuit helmet worn by a corporate Representative, with black and gold accents.
   components:
   - type: Sprite
     layers:

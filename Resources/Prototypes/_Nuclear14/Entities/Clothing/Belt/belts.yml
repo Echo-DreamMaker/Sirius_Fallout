@@ -85,6 +85,30 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/Belt/ncrbelt.rsi
   - type: Appearance
+  - type: Storage
+    whitelist:
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - CigPack
+        - N14AmmoCell
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+        - BallisticAmmoProvider
+        - CartridgeAmmo
 
 - type: entity
   parent: ClothingBeltNCR
@@ -120,6 +144,30 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/Belt/ncrharness.rsi
   - type: Appearance
+  - type: Storage
+    whitelist:
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - CigPack
+        - N14AmmoCell
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+        - BallisticAmmoProvider
+        - CartridgeAmmo
 
 - type: entity
   parent: N14ClothingBeltStorageBase

@@ -8,6 +8,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
+using Content.Shared._Misfits.Genetics.Mutations;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
@@ -218,6 +219,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
                 fingerprint.Fingerprint = _forensicsSystem.GenerateFingerprint();
             }
             _popup.PopupEntity(Loc.GetString("scramble-implant-activated-popup"), ent, ent);
+            RaiseLocalEvent(ent, new DnaScrambledEvent());
         }
 
         args.Handled = true;

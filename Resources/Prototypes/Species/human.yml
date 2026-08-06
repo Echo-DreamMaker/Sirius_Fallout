@@ -27,6 +27,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobHumanTorso
     Eyes: MobHumanoidEyes
     LArm: MobHumanLArm
@@ -61,6 +63,12 @@
       required: false
     HeadSide:
       points: 4
+      required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
       required: false
     Chest:
       points: 2 #misfits change: increased from 1 to 2 to allow for more chest markings, so you can select a front and back marking if you want

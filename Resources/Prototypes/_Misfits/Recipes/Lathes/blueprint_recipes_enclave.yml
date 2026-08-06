@@ -1,0 +1,92 @@
+# #Misfits Add - Enclave Heavy Ordnance blueprint recipes.
+# Tier-5 gauss weapons (PPK12 pistol, M72 rifle), their 2mmEC magazines, and the
+# 2mmEC ammo box. All recipes require the N14enclaveheavyordnancet5 blueprint item
+# placed in a workbench, plus Enclave faction access.
+#
+# Material amounts are in the lathe's internal units where 100 units = 1 physical
+# sheet / bar / ingot / piece. The design spec was given in physical counts, so
+# every amount below is that count x100.
+
+- type: latheCategory
+  id: N14enclaveheavyordnancet5
+  name: lathe-category-blueprint-enclave-heavy-ordnance-t5
+
+# =====================================================================
+# ENCLAVE WEAPON RECIPES
+# =====================================================================
+
+# M72 gauss rifle - 150 steel, 10 copper, 20 circuitry, 10 plastic
+- type: latheRecipe
+  id: N14BPEnclaveWeaponGaussRifle
+  result: N14WeaponGaussRifle
+  category: N14enclaveheavyordnancet5
+  completetime: 30
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 15000
+    N14Copper: 1000
+    Circuitry: 2000
+    Plastic: 1000
+
+# PPK12 gauss pistol - 135 steel, 7 copper, 20 circuitry, 10 plastic
+- type: latheRecipe
+  id: N14BPEnclaveWeaponGaussPistol
+  result: N14WeaponGaussPistol
+  category: N14enclaveheavyordnancet5
+  completetime: 25
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 13500
+    N14Copper: 700
+    Circuitry: 2000
+    Plastic: 1000
+
+# =====================================================================
+# ENCLAVE AMMO RECIPES
+# =====================================================================
+
+# M72 20-round magazine - 5 circuitry, 5 steel, 2 copper
+- type: latheRecipe
+  id: N14BPEnclaveAmmoMag2mmECRifle
+  result: N14Magazine2mmECRifle
+  category: N14enclaveheavyordnancet5
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Circuitry: 500
+    Steel: 500
+    N14Copper: 200
+
+# PPK12 12-round magazine - 5 circuitry, 5 steel, 2 copper
+- type: latheRecipe
+  id: N14BPEnclaveAmmoMag2mmECPistol
+  result: N14Magazine2mmECPistol
+  category: N14enclaveheavyordnancet5
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Circuitry: 500
+    Steel: 500
+    N14Copper: 200
+
+# 2mmEC ammo box, 40 rounds - 20 circuitry, 15 steel, 10 copper
+- type: latheRecipe
+  id: N14BPEnclaveAmmoBox2mmEC
+  result: N14AmmoBox2mmEC
+  category: N14enclaveheavyordnancet5
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Circuitry: 1000
+    Steel: 1500
+    N14Copper: 1000

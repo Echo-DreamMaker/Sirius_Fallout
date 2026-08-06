@@ -11,6 +11,22 @@ namespace Content.Shared._Misfits.SmokeSignal;
 [RegisterComponent]
 public sealed partial class SmokeSignalComponent : Component
 {
+    // #Misfits Add - Optional leadership gating and themed Tree presentation.
+    [DataField]
+    public HashSet<string>? ActivatorJobs;
+
+    [DataField]
+    public bool OpenOnActivate = true;
+
+    [DataField]
+    public string Verb = "smoke-signal-verb";
+
+    [DataField]
+    public string BroadcastMessage = "smoke-signal-broadcast";
+
+    [DataField]
+    public string CooldownMessage = "smoke-signal-cooldown";
+
     /// <summary>
     /// How long the cooldown is between signals.
     /// </summary>

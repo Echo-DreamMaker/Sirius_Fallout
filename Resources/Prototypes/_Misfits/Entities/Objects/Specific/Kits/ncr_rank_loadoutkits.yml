@@ -34,7 +34,7 @@
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_SGTMSLSet
   name: undecided-loadout-category-misfits-ncra-sgt-msl-name
-#  description: undecided-loadout-category-misfits-ncra-sgt-msl-description
+  description: undecided-loadout-category-misfits-ncra-sgt-msl-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: pointman
@@ -162,10 +162,10 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: squad leader msl kit
+  name: Morale Trooper Squad Lead kit
   parent: KitBase
   id: KitNCR_SGTMSL
-##  description: A crate containing an NCR squad leader's MSL package: custom mantle, trench shotgun, close-range ammunition, and a combat-stim field dose.
+  description: "A crate containing an NCR squad leader's MSL package: custom mantle, trench shotgun, close-range ammunition, and a combat-stim field dose."
   components:
   - type: Sprite
     state: pointman
@@ -239,7 +239,6 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: MisfitsNCROfficerArmor
       - id: ClothingBeltRevolverCaptainfilled
       - id: N14WeaponRifle308Battle
       - id: ClipMagazine308Rifle
@@ -271,7 +270,6 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: MisfitsClothingOuterNCRTrenchCoat
       - id: ClothingBeltRevolverCaptainfilled
       - id: N14WeaponRifleM1GarandRepublicsPride # #Misfits Change: Republic's Pride scoped M1C replaces .50 rifle
       - id: ClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308
@@ -310,7 +308,6 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: MisfitsNCROfficerArmor
       - id: ClothingBeltNCR
       - id: N14WeaponRifle556ServiceScoped
       - id: Magazine556Rifle
@@ -332,3 +329,127 @@
       - id: N14Flare
     sound:
       path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: Heavy Trooper Veteran Kit
+  parent: KitBase
+  id: KitNCR_HeavyTrooperVeteran
+  description: A crate containing campaign-proven Heavy Trooper gear for warmongering.
+  components:
+  - type: Sprite
+    state: rifleman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponRifle556Carbine
+      - id: LongMagazine556Rifle
+        amount: 4
+      - id: SmokeGrenade
+        amount: 2
+      - id: N14Dynamite # #Misfits Fix - GrenadeFrag is a GL-only round (no matching launcher in kit); replaced with throwable dynamite
+      - id: N14BoxCardboardMREBoxCFilled
+      - id: N14Stimpak
+      - id: N14SuperStimpak
+      - id: N14RadAwayBloodbag
+      - id: N14CleanGauze10
+        amount: 2
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: Heavy Trooper Linebreaker Kit
+  parent: KitBase
+  id: KitNCR_HeavyTrooperLinebreaker
+  description: A crate containing a heavy-hitting weapon, built to contend with enemy heavy infantry.
+  components:
+  - type: Sprite
+    state: pointman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponLMGAutoRifle
+      - id: Magazine308Rifle
+        amount: 2
+      - id: SmokeGrenade
+        amount: 2
+      - id: N14Dynamite # #Misfits Fix - GrenadeFrag is a GL-only round (no matching launcher in kit); replaced with throwable dynamite
+        amount: 2
+      - id: N14BoxCardboardMREBoxCFilled
+      - id: N14Stimpak
+      - id: N14SuperStimpak
+      - id: N14RadAwayBloodbag
+      - id: N14CleanGauze10
+        amount: 2
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: Heavy Trooper Defender Kit
+  parent: KitBase
+  id: KitNCR_HeavyTrooperDefender
+  description: A crate containing everything a Heavy Trooper needs to hold the line against the tide.
+  components:
+  - type: Sprite
+    state: pointman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+    - id: N14WeaponLMG
+    - id: LMGMagazine556Rifle
+    - id: N14Dynamite # #Misfits Fix - GrenadeFrag is a GL-only round (no matching launcher in kit); replaced with throwable dynamite
+      amount: 3
+    - id: N14BoxCardboardMREBoxCFilled
+    - id: N14Stimpak
+    - id: N14SuperStimpak
+    - id: N14RadAwayBloodbag
+    - id: N14CleanGauze10
+      amount: 2
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: UndecidedLoadoutBackpackSet
+  id: NCR_HeavyTrooperVeteranSet
+  name: undecided-loadout-category-misfits-ncr-ht-veteran-name
+  description: undecided-loadout-category-misfits-ncr-ht-veteran-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: rifleman
+  content:
+  - KitNCR_HeavyTrooperVeteran
+
+- type: UndecidedLoadoutBackpackSet
+  id: NCR_HeavyTrooperLinebreakerSet
+  name: undecided-loadout-category-misfits-ncr-ht-linebreaker-name
+  description: undecided-loadout-category-misfits-ncr-ht-linebreaker-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: pointman
+  content:
+  - KitNCR_HeavyTrooperLinebreaker
+
+- type: UndecidedLoadoutBackpackSet
+  id: NCR_HeavyTrooperDefenderSet
+  name: undecided-loadout-category-misfits-ncr-ht-defender-name
+  description: undecided-loadout-category-misfits-ncr-ht-defender-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: pointman
+  content:
+  - KitNCR_HeavyTrooperDefender
+
+- type: entity
+  id: NCRHeavyTrooperLoadoutKits
+  name: Undecided NCR Heavy Trooper Kit
+  parent: BaseLoadoutKit
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: rifleman
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - NCR_HeavyTrooperVeteranSet
+    - NCR_HeavyTrooperLinebreakerSet
+    - NCR_HeavyTrooperDefenderSet

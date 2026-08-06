@@ -7,10 +7,13 @@
 using Content.Shared.Actions;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Misfits.StealthBoy;
@@ -41,6 +44,7 @@ public abstract class SharedStealthBoySystem : EntitySystem
         SubscribeLocalEvent<StealthBoyComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<StealthBoyComponent, ActivateStealthBoyActionEvent>(OnActivateAction);
         SubscribeLocalEvent<StealthBoyActiveComponent, ComponentShutdown>(OnActiveShutdown);
+        SubscribeLocalEvent<StealthBoyActiveComponent, MeleeAttackEvent>(OnMeleeAttack);
     }
 
     private void OnUseInHand(Entity<StealthBoyComponent> ent, ref UseInHandEvent args)
@@ -100,7 +104,9 @@ public abstract class SharedStealthBoySystem : EntitySystem
         TimeSpan fadeInTime,
         TimeSpan fadeOutTime,
         string activateMessage,
-        string reappearMessage)
+        string reappearMessage,
+        float? stillVisibility = null,
+        float? walkVisibility = null)
     {
         var now = _timing.CurTime;
         var active = EnsureComp<StealthBoyActiveComponent>(user);
@@ -113,6 +119,8 @@ public abstract class SharedStealthBoySystem : EntitySystem
         active.FadingOut = false;
         active.FadeOutStart = TimeSpan.Zero;
         active.FadeInComplete = false;
+        active.StillVisibility = stillVisibility ?? visibility;
+        active.WalkVisibility = walkVisibility ?? visibility;
         Dirty(user, active);
 
         // Spawn the stealth shader. Clamp MinVisibility to the prototype's target so
@@ -151,10 +159,63 @@ public abstract class SharedStealthBoySystem : EntitySystem
         return true;
     }
 
+    // how fast visibility glides between the still/walk/run levels, per second
+    private const float ConcealRate = 0.8f;
+
+    // Once faded in, visibility depends on how fast the user is moving:
+    // standing still sinks to StillVisibility, slow walking holds WalkVisibility,
+    // anything faster shows the normal cloak shimmer.
+    private void UpdateConcealment(EntityUid uid, StealthBoyActiveComponent active, float frameTime)
+    {
+        if (!TryComp<StealthComponent>(uid, out var stealth) ||
+            !TryComp<PhysicsComponent>(uid, out var physics))
+            return;
+
+        var speed = physics.LinearVelocity.Length();
+
+        float target;
+        if (speed < 0.15f)
+            target = active.StillVisibility;
+        else if (TryComp<MovementSpeedModifierComponent>(uid, out var move) &&
+                 speed <= move.CurrentWalkSpeed + 0.2f)
+            target = active.WalkVisibility;
+        else
+            target = active.TargetVisibility;
+
+        var current = _stealth.GetVisibility(uid, stealth);
+        var step = ConcealRate * frameTime;
+        var next = current > target
+            ? Math.Max(target, current - step)
+            : Math.Min(target, current + step);
+
+        if (Math.Abs(next - current) > 0.0001f)
+            _stealth.SetVisibility(uid, next, stealth);
+    }
+
+    // Swinging a weapon lights the user up on NPC senses for a few seconds.
+    private void OnMeleeAttack(Entity<StealthBoyActiveComponent> ent, ref MeleeAttackEvent args)
+    {
+        ent.Comp.RevealedUntil = _timing.CurTime + ent.Comp.AttackRevealTime;
+        Dirty(ent, ent.Comp);
+    }
+
+    /// <summary>
+    /// True while a recent attack should keep the user visible to NPCs.
+    /// </summary>
+    public bool IsRevealedToNpcs(EntityUid uid, StealthBoyActiveComponent? active = null)
+    {
+        return Resolve(uid, ref active, false) && _timing.CurTime < active.RevealedUntil;
+    }
+
     private void OnActiveShutdown(Entity<StealthBoyActiveComponent> ent, ref ComponentShutdown args)
     {
         if (Terminating(ent))
             return;
+
+        // let others (nightkin implant cooldown) know the cloak fully ended.
+        // can't subscribe to this shutdown twice so we relay it as our own event
+        var ended = new StealthBoyCloakEndedEvent();
+        RaiseLocalEvent(ent, ref ended);
 
         RemCompDeferred<StealthComponent>(ent);
         // Hallucination intensity is reasserted by the server-side OnTierChanged path;
@@ -206,6 +267,10 @@ public abstract class SharedStealthBoySystem : EntitySystem
                         active.FadeInComplete = true;
                         Dirty(uid, active);
                     }
+                }
+                else if (active.StillVisibility < active.TargetVisibility)
+                {
+                    UpdateConcealment(uid, active, frameTime);
                 }
 
                 if (now >= active.EndTime || _mobState.IsIncapacitated(uid))
@@ -313,3 +378,9 @@ public abstract class SharedStealthBoySystem : EntitySystem
 /// Fired when the Stealth Boy hotkey button is pressed so the item can activate from hand or worn slots.
 /// </summary>
 public sealed partial class ActivateStealthBoyActionEvent : InstantActionEvent;
+
+/// <summary>
+/// Raised on the user when their cloak fully ends.
+/// </summary>
+[ByRefEvent]
+public readonly record struct StealthBoyCloakEndedEvent;

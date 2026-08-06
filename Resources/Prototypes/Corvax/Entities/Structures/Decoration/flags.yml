@@ -1,8 +1,8 @@
 - type: entity
   parent: N14DecorationFlagFlammable
   id: N14DecorationFlagLegion
-  name: Legion flag
-  description: Placeholder.
+  name: Flag of Caesar's Legion
+  description: The banner of Caesar's Legion, a slave army under the mighty warlord Caesar, whose monumental ego and sharp wit have seen the lawless east fall in line under his iron boot.
   components:
   - type: Sprite
     state: legionflag

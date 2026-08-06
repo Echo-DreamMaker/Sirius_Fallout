@@ -93,7 +93,7 @@
     weight: 50
   - id: caravan_contract_N14VaultPDA #5 new contracts -pierow  N14CurrencyPrewar
     weight: 50
-  - id: caravan_contract_N14ChineseSword 
+  - id: caravan_contract_N14ChineseSword
     weight: 50
   - id: caravan_contract_N14HolotapeQuestGECK
     weight: 50
@@ -107,21 +107,21 @@
   id: PresetBazar
   # #Misfits Change — retier system: 6 tiers replace Easy/Medium/Hard -TWEAKED, lower tiers more abundent, higher tiers more scarce
   limits:
-    Bronze: 5
-    Iron: 3
-    Silver: 2
-    Gold: 2
-    Mithril: 1
-    Diamond: 1
+    Road Kill: 5
+    Lazy Lizard: 3
+    Junktown Rat: 2
+    Hub Mercenary: 2
+    Bunker Buster: 1
+    Wasteland Legend: 1
   packs:
   - id: PackBazar
     weight: 1
 
 - type: storeContract
   id: caravan_contract_N14MaterialThread
-  name: "Threads Required"
-  description: "Threads are required to create new clothing."
-  difficulty: Bronze
+  name: "Open Wide Your Hand"
+  description: "Refugees from conflict zones have arrived with rags on their backs. The Followers of the Apocalypse need thread to mend their attire."
+  difficulty: Road Kill
   targets:
   - id: N14MaterialThread1
     required: { min: 10, max: 15 }
@@ -137,9 +137,9 @@
 
 - type: storeContract
   id: caravan_contract_N14FloraProduceWildBrocFlower
-  name: "Broc Flower"
-  description: "A medic needs broc flower."
-  difficulty: Bronze
+  name: "Flowers for the Needy"
+  description: "The Followers of the Apocalypse meed to restock their medical supplies, provide broc flowers for the overworked volunteers."
+  difficulty: Road Kill
   targets:
   - id: N14FloraProduceWildBrocFlower
     required: { min: 5, max: 10 }
@@ -155,9 +155,9 @@
 
 - type: storeContract
   id: caravan_contract_MaterialCloth
-  name: "Cloth Needed"
-  description: "Cloth is needed to make new clothing."
-  difficulty: Bronze
+  name: "Tinker, Tailor, Soldier, Spy"
+  description: "The State of Dayglow has a new wave of recruits ready to enter training, but they're short on material. Supply some cloth for new NCR uniforms, quickly."
+  difficulty: Road Kill
   targets:
   - id: MaterialCloth1
     required: { min: 10, max: 20 }
@@ -173,9 +173,9 @@
 
 - type: storeContract
   id: caravan_contract_N14FloraLogTimber
-  name: "Firewood for Heating"
-  description: "Firewood is needed for heating and construction."
-  difficulty: Bronze
+  name: "The Unfriendly North"
+  description: "The City of Arroyo needs firewood to help keep all its citizens warm in the approaching cold season. Provide it and help the NCR care for its people."
+  difficulty: Road Kill
   targets:
   - id: N14FloraLogTimber
     required: { min: 6, max: 10 }
@@ -190,46 +190,10 @@
       id: caravan_bronze
 
 - type: storeContract
-  id: caravan_contract_MaterialWoodPlank1
-  name: "Lumber for the Carpenter"
-  description: "Lumber is needed for the carpenter's work."
-  difficulty: Bronze
-  targets:
-  - id: MaterialWoodPlank1
-    required: { min: 15, max: 30 }
-  rewards:
-  - type: Currency
-    id: Caps
-    amount: { min: 50, max: 80 }
-  - type: Pool
-    amount: { min: 1, max: 3 }
-    options:
-    - type: Pool
-      id: caravan_bronze
-
-- type: storeContract
-  id: caravan_contract_N14FloraProduceWildCoyoteTobacco
-  name: "Tobacco for Mercenaries"
-  description: "Tobacco is needed for mercenaries' cigarettes."
-  difficulty: Bronze
-  targets:
-  - id: N14FloraProduceWildCoyoteTobacco
-    required: { min: 5, max: 10 }
-  rewards:
-  - type: Currency
-    id: Caps
-    amount: { min: 50, max: 75 }
-  - type: Pool
-    amount: { min: 1, max: 3 }
-    options:
-    - type: Pool
-      id: caravan_bronze
-
-- type: storeContract
   id: caravan_contract_N14FoodDogfood
-  name: "Dog Food"
-  description: "My dog needs more food."
-  difficulty: Bronze
+  name: "Let Loose the Dogs of War"
+  description: "The major settlement of Junktown is training dogs for the New California Republic Army, but they're running low on dog food."
+  difficulty: Road Kill
   repeatable: false
   targets:
   - id: N14FoodDogfood
@@ -245,53 +209,17 @@
       id: caravan_bronze
 
 - type: storeContract
-  id: caravan_contract_N14WeaponSniper556VarmintRifle
-  name: "Weapon for Guard Duty"
-  description: "A weapon is needed for guard duty."
-  difficulty: Iron
+  id: caravan_contract_MaterialWoodPlank1
+  name: "Always Look on the Bright Side of Life"
+  description: "Caesar's Legion needs wood to construct new crucifixes for their enemies, and they have plenty of enemies. This will likely be a repeat job."
+  difficulty: Road Kill
   targets:
-  - id: N14WeaponSniper556VarmintRifle
-    required: { min: 3, max: 5 }
-  rewards:
-  - type: Currency
-    id: Caps
-    amount: { min: 100, max: 120 }
-  - type: Pool
-    amount: { min: 1, max: 3 }
-    options:
-    - type: Pool
-      id: caravan_iron_nonweapons
-
-- type: storeContract
-  id: caravan_contract_N14FoodMeatRadRaw
-  name: "Meat Collection"
-  description: "Meat is needed for processing."
-  difficulty: Iron
-  targets:
-  - id: N14FoodMeatRadRaw
-    required: { min: 5, max: 10 }
-  rewards:
-  - type: Currency
-    id: Caps
-    amount: { min: 100, max: 120 }
-  - type: Pool
-    amount: { min: 1, max: 3 }
-    options:
-    - type: Pool
-      id: caravan_iron
-
-- type: storeContract
-  id: caravan_contract_N14Scrap1
-  name: "Scrap Metal Collection"
-  description: "Scrap metal is needed for smelting."
-  difficulty: Bronze
-  targets:
-  - id: N14Scrap1
+  - id: MaterialWoodPlank1
     required: { min: 15, max: 30 }
   rewards:
   - type: Currency
     id: Caps
-    amount: { min: 100, max: 150 }
+    amount: { min: 50, max: 80 }
   - type: Pool
     amount: { min: 1, max: 3 }
     options:
@@ -300,9 +228,9 @@
 
 - type: storeContract
   id: caravan_contract_N14Scraps
-  name: "Non-ferrous Metal Collection"
-  description: "Scrap metal is needed for smelting."
-  difficulty: Bronze
+  name: "Military Industrial Complex? No, Its Quite Simple!"
+  description: "The Brotherhood of Steel intends to ramp up its efforts on confiscating dangerous technology from everyone else. They need material to feed ever-depleting ammo stockpiles."
+  difficulty: Road Kill
   targetCount: 1
   targets:
   - id: N14ScrapCopper1
@@ -325,10 +253,101 @@
       id: caravan_bronze
 
 - type: storeContract
+  id: caravan_contract_N14Scrap1
+  name: "Recycling for Victory"
+  description: "One of the remaining vaults from Vault-Tec needs more scrap metal to help repair damage to their water purifier tank, and will pay generously for the material."
+  difficulty: Road Kill
+  targets:
+  - id: N14Scrap1
+    required: { min: 15, max: 30 }
+  rewards:
+  - type: Currency
+    id: Caps
+    amount: { min: 100, max: 150 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: caravan_contract_N14FloraProduceWildCoyoteTobacco
+  name: "Smoking out the Hive"
+  description: "While they normally attack on sight, the local Locust raiders are willing to deal. Provide them some coyote tobacco, and they'll let a few of our caravans pass by."
+  difficulty: Road Kill
+  targets:
+  - id: N14FloraProduceWildCoyoteTobacco
+    required: { min: 5, max: 10 }
+  rewards:
+  - type: Currency
+    id: Caps
+    amount: { min: 50, max: 75 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: caravan_contract_N14FloraProduceWildCarrot
+  name: "What's Up Doc?"
+  description: "The Followers of the Apocalypse need to feed hungry refugees from nearby conflict zones, and they are requesting wild carrots en masse."
+  difficulty: Lazy Lizard
+  targets:
+  - id: N14FloraProduceWildCarrot
+    required: { min: 5, max: 10 }
+    weight: 60
+  rewards:
+  - type: Currency
+    id: Caps
+    amount: { min: 100, max: 150 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron
+
+- type: storeContract
+  id: caravan_contract_N14WeaponSniper556VarmintRifle
+  name: "To Arms, Countrymen!"
+  description: "The little settlement of Sac-Town in the NCR is expanding its molerat ranches, but that means more troopers are needed to guard the herd. Send over some rifles!"
+  difficulty: Lazy Lizard
+  targets:
+  - id: N14WeaponSniper556VarmintRifle
+    required: { min: 3, max: 5 }
+  rewards:
+  - type: Currency
+    id: Caps
+    amount: { min: 100, max: 120 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron_nonweapons
+
+- type: storeContract
+  id: caravan_contract_N14FoodMeatRadRaw
+  name: "You Call This Food?"
+  description: "The New California Republic Correctional Facility needs to feed their prisoners. Don't worry, they'll cook the meat first. Its a slight improvement."
+  difficulty: Lazy Lizard
+  targets:
+  - id: N14FoodMeatRadRaw
+    required: { min: 5, max: 10 }
+  rewards:
+  - type: Currency
+    id: Caps
+    amount: { min: 100, max: 120 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron
+
+- type: storeContract
   id: caravan_contract_N14Weapon9mm
-  name: "Need a Gun"
-  description: "A gun for the bar guard."
-  difficulty: Iron
+  name: "Shit Out of Luck"
+  description: "A bouncer for one of the casinos in New Reno dropped his gun in the toilet. He's not about to reach in to get it, so he needs a replacement before his boss finds out."
+  difficulty: Lazy Lizard
   targetCount: 1
   targets:
   - id: N14WeaponPistol9mm
@@ -348,10 +367,46 @@
       id: caravan_iron_nonweapons
 
 - type: storeContract
+  id: caravan_contract_N14BrassKnife
+  name: "Knife to Meat You!"
+  description: "A professional chef in New Vegas requires new knives for his kitchen staff. Pre-war tools won't do, chipped, dulled and rusted; he wants a fresh brass knife."
+  difficulty: Lazy Lizard
+  targets:
+  - id: N14BrassKnife
+    required: { min: 1, max: 3 }
+  rewards:
+  - type: Currency
+    id: Caps
+    amount: { min: 100, max: 175 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron_nonweapons
+
+- type: storeContract
+  id: caravan_contract_N14FloraProduceWildCaveFungusRad
+  name: "Rad-Ical Science"
+  description: "A rogue Vault-Tec scientist believes that research into irradiated fungus could lead to a future where America is radiation free. They are willing to pay handsomely for samples."
+  difficulty: Lazy Lizard
+  targets:
+  - id: N14FloraProduceWildCaveFungusRad
+    required: { min: 3, max: 6 }
+  rewards:
+  - type: Currency
+    id: Caps
+    amount: { min: 120, max: 150 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron
+
+- type: storeContract
   id: caravan_contract_N14MaterialLeather1
-  name: "Leather Collection"
-  description: "Leather is needed for the tanner."
-  difficulty: Iron
+  name: "Doing Your Patriotic Duty"
+  description: "One of the vaults requires material to produce new dweller jumpsuits. Normally the caravan network doesn't deal with these fanatics, but they have caps instead of pre-war dollars this time."
+  difficulty: Lazy Lizard
   targets:
   - id: N14MaterialLeather1
     required: { min: 5, max: 15 }
@@ -367,9 +422,9 @@
 
 - type: storeContract
   id: caravan_contract_N14MobGhoulFeral
-  name: "Ghouls"
-  description: "Dead ghoul bodies are needed for experiments."
-  difficulty: Silver
+  name: "The Long, Violent Goodbye"
+  description: "The Followers of the Apocalypse want to properly understand why ghouls go feral, and how to possibly stop or reverse it. Send them some fresh research material."
+  difficulty: Junktown Rat
   targets:
   - id: N14MobGhoulFeral
     required: { min: 2, max: 3 }
@@ -385,9 +440,9 @@
 
 - type: storeContract
   id: caravan_contract_N14MobRaiderPsycho
-  name: "Raiders"
-  description: "I'm sick of them. Kill a couple and bring the bodies."
-  difficulty: Silver
+  name: "Headhunting for Profit"
+  description: "Raiders continue to be a problem, and their attacks on NCR tourists has reached a tipping point. There is now a bounty on local outlaws, until the voters are satisfied."
+  difficulty: Junktown Rat
   targets:
   - id: N14BaseMobRaider # Misfits Fix — accept any raider variant (abstract = auto-Descendants)
     required: { min: 2, max: 5 }
@@ -403,9 +458,9 @@
 
 - type: storeContract
   id: caravan_contract_N14DrinkNukaCola
-  name: "Nuka-Cola"
-  description: "I'm missing one Nuka-Cola for my collection."
-  difficulty: Silver
+  name: "Water, Water Everywhere, Not a Drop to Drink!"
+  description: "Even with a lack of new branded merchandise for over two centuries, Nuka Cola still has die-hard loyalists. These fanatics will pay absurd amounts to the caravan network for just a bottle."
+  difficulty: Junktown Rat
   targetCount: 1
   targets:
   - id: N14DrinkNukaColaCherry
@@ -437,83 +492,10 @@
       id: caravan_silver
 
 - type: storeContract
-  id: caravan_contract_N14FloraProduceWildCarrot
-  name: "Carrots!!!"
-  description: "I love carrots! I need lots of carrots!"
-  difficulty: Iron
-  targets:
-  - id: N14FloraProduceWildCarrot
-    required: { min: 5, max: 10 }
-    weight: 60
-  rewards:
-  - type: Currency
-    id: Caps
-    amount: { min: 100, max: 150 }
-  - type: Pool
-    amount: { min: 1, max: 3 }
-    options:
-    - type: Pool
-      id: caravan_iron
-
-- type: storeContract
-  id: caravan_contract_N14BrassKnife
-  name: "Knife"
-  description: "I'm looking for new knives for my collection."
-  difficulty: Iron
-  targets:
-  - id: N14BrassKnife
-    required: { min: 1, max: 3 }
-  rewards:
-  - type: Currency
-    id: Caps
-    amount: { min: 100, max: 175 }
-  - type: Pool
-    amount: { min: 1, max: 3 }
-    options:
-    - type: Pool
-      id: caravan_iron_nonweapons
-
-- type: storeContract
-  id: caravan_contract_N14FloraProduceWildCaveFungusRad
-  name: "Mushrooms!"
-  description: "I need mushrooms. Yes, purely for scientific purposes."
-  difficulty: Iron
-  targets:
-  - id: N14FloraProduceWildCaveFungusRad
-    required: { min: 3, max: 6 }
-  rewards:
-  - type: Currency
-    id: Caps
-    amount: { min: 120, max: 150 }
-  - type: Pool
-    amount: { min: 1, max: 3 }
-    options:
-    - type: Pool
-      id: caravan_iron
-
-- type: storeContract
-  id: caravan_contract_N14MobDeathclaw
-  name: "Deathclaw!"
-  description: "Find and kill the beast. Bring it to me."
-  difficulty: Mithril
-  targets:
-  - id: N14MobDeathclaw
-    required: 1
-  rewards:
-  - type: Currency
-    id: Caps
-    amount: { min: 600, max: 1000 }
-  - type: Pool
-    amount: { min: 1, max: 3 }
-    options:
-    - type: Pool
-      id: caravan_mithril
-
-- type: storeContract
   id: caravan_contract_N14MobRaiderBoss
-  name: "Raider Boss"
-  description: "He has annoyed everyone. He roams too much. Kill him."
-  difficulty: Gold
+  name: "California Blues"
+  description: "The local raider bosses have expanded from attacking drifters and NCR settlers, and begun ambushing their rangers and soldiers. The NCR is paying a bounty on local outlaw leaders now."
+  difficulty: Hub Mercenary
   targets:
   - id: N14MobEnforcerWarden
     required: 1
@@ -529,9 +511,9 @@
 
 - type: storeContract
   id: caravan_contract_N14MobCazador
-  name: "Cazador"
-  description: "Bring back the cazador bodies."
-  difficulty: Gold
+  name: "Pest Control"
+  description: "Cazador nests continue to spread and kill the native wildlife, thin out their population and bring the caravan network proof the job was done. Pack some antidote, as well."
+  difficulty: Hub Mercenary
   targets:
   - id: N14MobCazador
     required: 3
@@ -547,9 +529,9 @@
 
 - type: storeContract
   id: caravan_contract_N14SuperSledgeHammer
-  name: "Hammer"
-  description: "A hammer for a connoisseur."
-  difficulty: Gold
+  name: "Hammer Time"
+  description: "The Brotherhood of Steel tend to love these hammers. When you have a hammer in your hands, everything looks like a nail. And really big nails need really big hammers. The paladins naturally, want a few more."
+  difficulty: Hub Mercenary
   targets:
   - id: N14SuperSledgeHammer
     required: 1
@@ -565,10 +547,28 @@
 # Misfits Add — new contracts: tier Diamond+
 
 - type: storeContract
+  id: caravan_contract_N14MobDeathclaw
+  name: "Payback, With Interest"
+  description: "Deathclaws have begun predating on NCR caravaneers and settlers in the region. The Rangers are now paying a generous bounty for proof of any deathclaws killed by our contractors."
+  difficulty: Bunker Buster
+  targets:
+  - id: N14MobDeathclaw
+    required: 1
+  rewards:
+  - type: Currency
+    id: Caps
+    amount: { min: 600, max: 1000 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_mithril
+
+- type: storeContract
   id: caravan_contract_N14MobDeathclawMetal
-  name: "The Armored One"
-  description: "I heard one lives with armor. Very old and dangerous. Only the best hunters need apply."
-  difficulty: Diamond
+  name: "Didn't Stop to Think if They Should"
+  description: "The caravan network has heard reports of armored deathclaws in the region, which would be a serious threat to our expansion efforts. Send us proof you've eliminated the issue for payment."
+  difficulty: Wasteland Legend
   targets:
   - id: N14MobDeathclawMetal
     required: 1
@@ -586,7 +586,7 @@
   # id: caravan_contract_N14CookedFoodEggDeathclawBoiled
   # name: "Deathclaw Delicacy"
   # description: "A gourmet with peculiar taste urgently needs a boiled deathclaw egg. Good luck sourcing one."
-  # difficulty: Mithril
+  # difficulty: Bunker Buster
   # targets:
   # - id: N14CookedFoodEggDeathclawBoiled
     # required: 1
@@ -603,9 +603,9 @@
 # Misfits Add — new Easy contracts
 - type: storeContract
   id: caravan_contract_N14FoodCannedFish
-  name: "Canned Fish"
-  description: "Tinned goods keep well on long journeys. Bring a few cans."
-  difficulty: Bronze
+  name: "Prepare for the Future"
+  description: "Some people suspect the world might end again soon, that some maniac might get their hands on a surviving nuclear warhead and bury us all. These wastelanders want to stock up for disaster, and quickly."
+  difficulty: Road Kill
   targets:
   - id: N14FoodCannedFish
     required: { min: 5, max: 10 }
@@ -621,9 +621,9 @@
 
 - type: storeContract
   id: caravan_contract_N14FoodEggChicken
-  name: "Fresh Eggs"
-  description: "Hard to find these days. Bring what you can."
-  difficulty: Bronze
+  name: "Eggs, Over Easy"
+  description: "In large industrial cities such as The Hub, things like fresh eggs can be hard to get. Citizens of the New California Republic will pay generously for clean, fresh food from the frontiers."
+  difficulty: Road Kill
   targets:
   - id: N14FoodEggChicken
     required: { min: 5, max: 8 }
@@ -657,9 +657,9 @@
 
 - type: storeContract
   id: caravan_contract_N14Whip
-  name: "A Proper Whip"
-  description: "A collector is looking for a well-made whip."
-  difficulty: Iron
+  name: "Where There's A Whip, There's A Way!"
+  description: "Legion slavemasters have broken their whips from overuse on unarmed women and children; send them replacements to continue their brave beatings of those who can't fight back."
+  difficulty: Lazy Lizard
   targets:
   - id: N14Whip
     required: { min: 1, max: 2 }
@@ -676,9 +676,9 @@
 # Misfits Add — new Medium contracts
 - type: storeContract
   id: caravan_contract_N14MobRadscorpion
-  name: "Radscorpion Culling"
-  description: "These things are nesting too close to the settlement. Clear a few out."
-  difficulty: Silver
+  name: "Sting of the Scorpion"
+  description: "Radscorpions have begun getting bold and now attack the explorers of Caesar's Legion, even far afield from their nests. Remove these invasive pests and you'll be generously compensated."
+  difficulty: Junktown Rat
   targets:
   - id: N14MobRadscorpion
     required: { min: 2, max: 4 }
@@ -694,9 +694,9 @@
 
 - type: storeContract
   id: caravan_contract_N14MobMirelurk
-  name: "Mirelurk Hunt"
-  description: "Mirelurks near the water source need to go. Bring back the bodies."
-  difficulty: Silver
+  name: "Operation Fish-in-a-Barrel"
+  description: "Mirelurks in the region have proven to be a consistent bother to the local Brotherhood of Steel. Allied chapters with an interest in their success are paying a bounty on local mirelurks as a result."
+  difficulty: Junktown Rat
   targets:
   - id: N14MobMirelurk
     required: { min: 1, max: 3 }
@@ -712,9 +712,9 @@
 
 - type: storeContract
   id: caravan_contract_N14WeaponRifleAk112
-  name: "AK-112 Rifles"
-  description: "The militia needs reliable service rifles. Pre-war AK-112s preferred."
-  difficulty: Silver
+  name: "Remember Helios One"
+  description: "A group of rogue Brotherhood of Steel knights are looking to go against orders, and honor their lost brothers of the Mojave Chapter by baptising some NCR recruits in heavy machine gun fire."
+  difficulty: Junktown Rat
   targets:
   - id: N14WeaponRifleAk112
     required: { min: 1, max: 2 }
@@ -730,9 +730,9 @@
 
 - type: storeContract
   id: caravan_contract_N14ClothingLegionReconArmor
-  name: "Legion Recon Armor"
-  description: "A trader wants Legion equipment. Don't ask why."
-  difficulty: Silver
+  name: "Revenge, for Charity"
+  description: "Escaped slaves of Caesar's Legion have pooled together their savings to see at least a few of their tormentors dead. Instead of taking ears, the refugees will be satisfied with this as proof instead."
+  difficulty: Junktown Rat
   targets:
   - id: N14ClothingLegionReconArmor
     required: { min: 1, max: 2 }
@@ -748,9 +748,9 @@
 
 - type: storeContract
   id: caravan_contract_N14PilumSpear
-  name: "Pilum Spears"
-  description: "A collector of Legion artifacts is paying well for these."
-  difficulty: Silver
+  name: "Spears of Destiny"
+  description: "A collector of authentic Legion weaponry back in The Hub is looking to complete his display with a few more pilum spears. Satisfy his request and this eccentric will compensate the caravan network handsomely."
+  difficulty: Junktown Rat
   targets:
   - id: N14PilumSpear
     required: { min: 1, max: 3 }
@@ -769,7 +769,7 @@
   # id: caravan_contract_N14MobDeathclawicy
   # name: "Icy Deathclaw"
   # description: "A pale terror has been spotted north. Kill it and bring proof."
-  # difficulty: Mithril
+  # difficulty: Bunker Buster
   # targets:
   # - id: N14MobDeathclawicy
     # required: 1
@@ -785,9 +785,9 @@
 
 - type: storeContract
   id: caravan_contract_N14MobRadMirelurk
-  name: "Irradiated Mirelurks"
-  description: "These glowing variants hit harder and take more to put down. Two should do."
-  difficulty: Gold
+  name: "Gone Fishing"
+  description: "Glowing mirelurks have proven to be a nuisance to Caesar's Legion, with their shells deflecting bullets like power armor. Remove this obstacle to their explorers, and be richly rewarded."
+  difficulty: Hub Mercenary
   targets:
   - id: N14MobRadMirelurk
     required: { min: 2, max: 3 }
@@ -805,9 +805,9 @@
 
 - type: storeContract
   id: caravan_contract_N14Gladius
-  name: "Legion Blades"
-  description: "A collector of pre-war and Legion weapons wants gladii. Bring two or three."
-  difficulty: Gold
+  name: "Cut to the Marrow"
+  description: "There are disagreements among those of Caesar's Legion, and some Old Guard elements are paying quite well for proof you've eliminated 'false legion' in their eyes. Send the trophies to get paid."
+  difficulty: Hub Mercenary
   targets:
   - id: N14Gladius
     required: { min: 2, max: 3 }
@@ -841,9 +841,9 @@
 
 - type: storeContract
   id: caravan_contract_N14VeteranLegionArmor
-  name: "Veteran Legion Armor"
-  description: "High-quality Legion craftsmanship. Strip it off a veteran and bring it here."
-  difficulty: Gold
+  name: "Blood and Sand"
+  description: "The New California Republic is paying well for proof of dead Legion scum. Strip a set of veteran armor off a fresh corpse as evidence you finished the job, and send it in for your payment."
+  difficulty: Hub Mercenary
   targets:
   - id: N14ClothingOuterDeanLegionnaireVeteranArmor
     required: 1
@@ -863,7 +863,7 @@
   # id: caravan_contract_N14MobCazador
   # name: "Cazador Nest"
   # description: "A full cazador nest has been spotted. We need five dead to clear it properly."
-  # difficulty: Mithril
+  # difficulty: Bunker Buster
   # targets:
   # - id: N14MobCazador
     # required: 5
@@ -881,9 +881,9 @@
 
 - type: storeContract
   id: caravan_contract_N14MobDeathclawGrandHunt
-  name: "The Grand Hunt"
-  description: "Kill two full-grown deathclaws and bring the bodies. Only the most hardened hunters survive this."
-  difficulty: Diamond
+  name: "The Bottom Line"
+  description: "Deathclaws have attacked local merchants, leading to signficant losses of trusted caravaneers. The caravan network is offering a generous reward for those who will thin out their nests."
+  difficulty: Wasteland Legend
   targets:
   - id: N14MobDeathclaw
     required: 2
@@ -899,9 +899,9 @@
 
 - type: storeContract
   id: caravan_contract_N14WeaponPlasmaRifleDelivery
-  name: "Pre-War Science"
-  description: "A researcher is paying a fortune for a functional plasma rifle in working condition. Don't ask what they need it for."
-  difficulty: Diamond
+  name: "Ad Victorium"
+  description: "The Brotherhood of Steel is paying a fortune for a functional plasma rifle in working condition. They don't care how you get it, and the caravan network agrees with the sentiment."
+  difficulty: Wasteland Legend
   targets:
   - id: N14WeaponPlasmaRifleUrban
     required: 1
@@ -918,9 +918,9 @@
 #Misfits Add - more contracts to compensate for the ones removes and then some ---pierow
 - type: storeContract
   id: caravan_contract_N14VaultPDA
-  name: "Vault Science"
-  description: "A researcher is paying a fortune for a couple of functional pipboys. Specifically, from Vault 14; no others will suffice. Don't ask what they need it for."
-  difficulty: Diamond
+  name: "Corporate Espionage"
+  description: "The pip-boys from the local vault have valuable data and the demand among the caravan network's clientelle is significant. We don't care if you have to saw it off their wrists, get it done."
+  difficulty: Wasteland Legend
   targets:
   - id: N14VaultPDA
     required: 2
@@ -936,9 +936,9 @@
 
 - type: storeContract
   id: caravan_contract_N14ChineseSword
-  name: "Black Maarket Dealings"
-  description: "The Ghoul Liberation Army is looking to restock their arsenal. Think you can turn a blind eye?"
-  difficulty: Gold
+  name: "People's Liberation Army"
+  description: "While most ghoulified remnants of the PLA or their descendents have moved on from the past or died out, some take up the banner still. A new group needs a symbol of the past to fight drifters with."
+  difficulty: Hub Mercenary
   targets:
   - id: N14ChineseSword
     required: 3
@@ -954,9 +954,9 @@
 
 - type: storeContract
   id: caravan_contract_N14HolotapeQuestGECK
-  name: "REDACTED"
-  description: "A client named J████ F██████ is requesting a copy of the GECK on a holotape. What in tarnation is a GECK...?"
-  difficulty: Mithril
+  name: "Grow Me A Paradise"
+  description: "OSI scientists in the City of Dayglow are interested in GECK holotape data, and are willing to pay a generous sum. They assure us the government can be trusted not to mishandle this information."
+  difficulty: Bunker Buster
   targets:
   - id: N14HolotapeQuestGECK
     required: 1
@@ -972,9 +972,9 @@
 
 - type: storeContract
   id: caravan_contract_N14HolotapeEnclave
-  name: "REDACTED"
-  description: "Someone claiming they're from the United States Secret Service asked for this holotape. No questions asked."
-  difficulty: Diamond
+  name: "America the Not-So Beautiful"
+  description: "Information pulled from the cold dead hands of the Enclave is always valuable to the Brotherhood of Steel, and their representatives are interested in more data stolen from the remnants of America's elite."
+  difficulty: Wasteland Legend
   targets:
   - id: N14HolotapeEnclave
     required: 1
@@ -990,9 +990,9 @@
 
 - type: storeContract
   id: caravan_contract_N14CurrencyPrewar
-  name: "Currency Exchange"
-  description: "These vaulties keep boasting it has value. Perhaps we should invest?"
-  difficulty: Mithril
+  name: "Cash is Still King"
+  description: "A delusional Vault-Tec Overseer believes that pre-war currency is still valuable, and wishes to stockpile it. As long as they have caps to trade for it with the caravan network, we'll feed this fantasy."
+  difficulty: Bunker Buster
   targets:
   - id: N14CurrencyPrewar
     required: 1000

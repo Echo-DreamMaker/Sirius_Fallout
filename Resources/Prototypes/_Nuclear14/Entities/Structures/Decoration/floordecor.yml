@@ -253,7 +253,7 @@
   parent: N14DecorFloorBase
   id: N14DecorStalagmite1
   name: stalagmite
-  description: Pointy rocks! Mites go up, tites come...
+  description: Pointy rocks, don't trip near them if you want to keep your guts intact.
   components:
   - type: Sprite
     state: stalagmite
@@ -308,7 +308,7 @@
   parent: N14DecorStalagmite1
   id: N14DecorMinecart
   name: minecrart
-  description: It seems to have fallen over...
+  description: It collapsed under its burdens, as will you.
   components:
   - type: Sprite
     state: minecart_fallen
@@ -317,7 +317,7 @@
   parent: N14DecorFloorBase
   id: N14DecorSignLeftMine
   name: sign
-  description: A sign, for a mine, pointing li...left
+  description: It seems you should head this way.
   components:
   - type: Sprite
     state: sign_left
@@ -326,7 +326,7 @@
   parent: N14DecorFloorBase
   id: N14DecorSignRightMine
   name: sign
-  description: A sign, pointing right.
+  description: It seems you should head this way.
   components:
   - type: Sprite
     state: sign_right
@@ -345,7 +345,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorPaper
   name: scattered paper
-  description: A mess of papers
+  description: Once this was information men would fight and die for, now its so much rubbish on the ground.
   suffix: 8 states
   components:
   - type: Sprite
@@ -358,7 +358,7 @@
   id: N14DecorFloorPaper1
   suffix: 4 states
   name: scattered paper
-  description: A mess of papers
+  description: Important men schemed for this information in the past, killed other men for it. Its utterly useless now.
   components:
   - type: Sprite
     state: papers_1
@@ -381,7 +381,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorScrapwood
   name: wood scraps
-  description: wood scraps
+  description: The best laid schemes of pigrats and men go oft awry.
   suffix: 6 states
   components:
   - type: Sprite
@@ -392,7 +392,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorBrickrubble
   name: brick rubble
-  description: brick rubble
+  description: The great nations huffed, and puffed, and blew down the world.
   suffix: "6 states"
   components:
   - type: Sprite
@@ -402,7 +402,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorCardboard
   name: cardboard boxes
-  description: cardboard scrap boxes
+  description: Just enough space to hold the last hope you had.
   suffix: "6 states"
   components:
   - type: Sprite
@@ -413,7 +413,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorPallet
   name: pallet
-  description: a wooden pallet.
+  description: An old wooden pallet, riddled with termites. Its beyond useless now.
   suffix: "2 states"
   components:
   - type: Sprite
@@ -424,7 +424,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorPalletStack
   name: pallet stack
-  description: a stack of wooden pallets
+  description: A stack of old wooden pallets, damp and moldy. Not even good enough to use as fuel.
   suffix: "2 states"
   components:
   - type: Sprite
@@ -446,7 +446,7 @@
   parent: N14DecorFloorPalletStack
   id: N14DecorFloorBrickStack
   name: brick stack
-  description: a neat stack of bricks
+  description: With enough of these, you could rebuild your life.
   components:
   - type: Sprite
     state: brickpile
@@ -455,7 +455,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorBookstack1
   name: book stack
-  description: a stack of books
+  description: So much knowledge, lost to time.
   components:
   - type: Sprite
     state: bookstack_1
@@ -479,7 +479,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorBookPile1
   name: book pile
-  description: a pile of books
+  description: Once valuable, they now fall apart at the touch.
   components:
   - type: Sprite
     state: bookpile_1
@@ -568,7 +568,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorTrashbags1
   name: trash bags
-  description: some old trash bags
+  description: A good place to put your hopes and dreams if you had any left, and the future home of your corpse.
   components:
   - type: Sprite
     state: trashbags_1
@@ -623,7 +623,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorGlass1
   name: glass bottles
-  description: some old glass scraps
+  description: Maybe the answer to your problems can be found at the bottom of a bottle?
   components:
   - type: Sprite
     state: glass_1
@@ -668,7 +668,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorSignMines
   name: mines
-  description: danger of mines and death...
+  description: Watch your step, as if that'll help.
   components:
   - type: Sprite
     state: mine_sign
@@ -677,7 +677,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorSkeleton
   name: skeleton
-  description: looks a little worse for wear
+  description: Not even the carrion eaters are interested in this irradiated corpse.
   components:
   - type: Sprite
     state: skeleton
@@ -686,7 +686,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorBarrels
   name: barrels
-  description: a bunch of old rusty barrels.
+  description: Broken and empty, just like you.
   components:
   - type: Sprite
     layers:

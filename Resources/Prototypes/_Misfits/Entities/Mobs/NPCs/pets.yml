@@ -57,11 +57,6 @@
     - BrotherhoodOfSteel
   - type: MobPrice
     price: 200
-  - type: GhostRole
-    name: ghost-role-information-misfitpet-lizard1-bos-name
-    description: ghost-role-information-misfit-faction-description
-    rules: ghost-role-component-default-rules
-  - type: GhostTakeoverAvailable
 
 
 - type: entity
@@ -84,8 +79,3 @@
     - BrotherhoodOfSteel
   - type: MobPrice
     price: 200
-  - type: GhostRole
-    name: ghost-role-information-misfitpet-lizard2-bos-name
-    description: ghost-role-information-misfit-faction-description
-    rules: ghost-role-component-default-rules
-  - type: GhostTakeoverAvailable

@@ -2,7 +2,7 @@
   parent: BaseStructure
   id: N14NukeSilo
   name:  Nuclear Missile Silo
-  description: "a prewar missile silo. wonder whats inside"
+  description: "A pre-war missile silo, you'll only find disappointment or worse within its depths."
   suffix: Mapping
   components:
   - type: Sprite

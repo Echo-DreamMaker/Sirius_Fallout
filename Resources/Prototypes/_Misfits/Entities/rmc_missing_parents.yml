@@ -34,13 +34,6 @@
   parent: BaseFoldable
   id: BaseDeployFoldable
 
-# DecalSpawnerBase - marker entity for spawning random decals
-# Referenced by: _RMC/Entities/Markers/Spawners/Random/Decals/gibs.yml, splatters.yml
-- type: entity
-  abstract: true
-  parent: MarkerBase
-  id: DecalSpawnerBase
-
 # Mannequin - display mannequin base for clothing display
 # Referenced by: _RMC/Entities/Structures/mannequin.yml
 - type: entity

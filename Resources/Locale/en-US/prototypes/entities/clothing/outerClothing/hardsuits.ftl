@@ -114,28 +114,28 @@ ent-ClothingOuterHardsuitPirateCap = pirate captain's tacsuit
     .desc = An ancient armored tactical combat hardsuit of unknown origin, provides basic protections from the cold harsh realities of deep space and physical trauma.
     It doesn't seem to have any weight either. Perfect for defending against space scurvy and toolbox-wielding scallywags.
 ent-ClothingOuterHardsuitERTCentcomm = NT-444c - "Ophanim" tacsuit
-    .desc = A highly advanced, tactical combat hardsuit used by Central Command Officers, it seems to be branded with the Nanotrasen logo and a strange looking series number.
+    .desc = A highly advanced, tactical combat hardsuit used by Central Command Officers, it seems to be branded with an old corporate logo and a strange looking series number.
     The armor appears to be lined with a very sturdy alloy, it doesn't seem to have any weight either.
 ent-ClothingOuterHardsuitERTLeader = NT-444l - "Michael" tacsuit
-    .desc = A highly advanced, tactical combat hardsuit used by Leaders of the Emergency Response Team, it seems to be branded with the Nanotrasen logo and a strange looking series number.
+    .desc = A highly advanced, tactical combat hardsuit used by Leaders of the Emergency Response Team, it seems to be branded with an old corporate logo and a strange looking series number.
     The armor appears to be lined with a very sturdy alloy, it doesn't seem to have any weight either.
 ent-ClothingOuterHardsuitERTEngineer = NT-444e - "Uriel" hardsuit
-    .desc = A highly advanced hardsuit used by Engineers of the Emergency Response Team, it seems to be branded with the Nanotrasen logo and a strange looking series number.
+    .desc = A highly advanced hardsuit used by Engineers of the Emergency Response Team, it seems to be branded with an old corporate logo and a strange looking series number.
     The armor appears to be lined with a very sturdy alloy, it doesn't seem to have any weight either.
 ent-ClothingOuterHardsuitERTMedical = NT-444m - "Raphael" hardsuit
-    .desc = A highly advanced hardsuit used by Doctors of the Emergency Response Team, it seems to be branded with the Nanotrasen logo and a strange looking series number.
+    .desc = A highly advanced hardsuit used by Doctors of the Emergency Response Team, it seems to be branded with an old corporate logo and a strange looking series number.
     The armor appears to be lined with a very sturdy alloy, it doesn't seem to have any weight either.
 ent-ClothingOuterHardsuitERTSecurity = NT-444s - "Gabriel" tacsuit
-    .desc = A highly advanced, tactical combat hardsuit used by Security Officers of the Emergency Response Team, it seems to be branded with the Nanotrasen logo and a strange looking series number.
+    .desc = A highly advanced, tactical combat hardsuit used by Security Officers of the Emergency Response Team, it seems to be branded with an old corporate logo and a strange looking series number.
     The armor appears to be lined with a very sturdy alloy, it doesn't seem to have any weight either.
 ent-ClothingOuterHardsuitERTJanitor = NT-444j - "Sandalphon" hardsuit
-    .desc = A highly advanced hardsuit used by Janitors of the Emergency Response Team, it seems to be branded with the Nanotrasen logo and a strange looking series number.
+    .desc = A highly advanced hardsuit used by Janitors of the Emergency Response Team, it seems to be branded with an old corporate logo and a strange looking series number.
     The armor appears to be lined with a very sturdy alloy, it doesn't seem to have any weight either.
 ent-ClothingOuterHardsuitDeathsquad = NT-662ua "Samael" tacsuit
-    .desc = A highly advanced, top of the line tactical combat hardsuit, it seems to be branded with the Nanotrasen logo and a strange looking series number.
+    .desc = A highly advanced, top of the line tactical combat hardsuit, it seems to be branded with an old corporate logo and a strange looking series number.
     You can barely make out the letters "NTIA-DAP" written on it. The armor appears to be lined with a very sturdy alloy, and doesn't seem to have any weight either.
 ent-ClothingOuterHardsuitCBURN = NT-444-CBRN -"Jophiel" tacsuit
-    .desc = A tactical combat hardsuit used by the CBURN subdivision of the Emergency Response Team, it seems to be branded with the Nanotrasen logo and a strange looking series number.
+    .desc = A tactical combat hardsuit used by the CBURN subdivision of the Emergency Response Team, it seems to be branded with an old corporate logo and a strange looking series number.
     The armor appears to be lined with a rather plain, but sturdy alloy, it doesn't seem to have any weight either.
 ent-ClothingOuterHardsuitClown = clown vacsuit
     .desc = A custom-made clown vacsuit. On closer inspection, it appears to be a normal vacsuit with paint applied on top.

@@ -42,6 +42,8 @@ public sealed class FactionWarClientSystem : EntitySystem
     private FactionWarWindow?  _window;
     private WarJoinWindow?     _warJoinWindow;
     private ForceWarWindow?    _forceWarWindow;
+    private WarSideReviewWindow? _warSideReviewWindow;
+    private WarInviteWindow? _warInviteWindow;
     private CeasefireProposalEvent? _pendingCeasefireProposal;
 
     public override void Initialize()
@@ -56,6 +58,10 @@ public sealed class FactionWarClientSystem : EntitySystem
         SubscribeNetworkEvent<FactionWarParticipantsUpdatedEvent>(OnParticipantsUpdated);
         SubscribeNetworkEvent<FactionWarForceResultEvent>(OnForceWarResult);
         SubscribeNetworkEvent<CeasefireProposalEvent>(OnCeasefireProposal);
+        SubscribeNetworkEvent<WarSideReviewPromptEvent>(OnSideReviewPrompt);
+        SubscribeNetworkEvent<WarSideReviewResultEvent>(OnSideReviewResult);
+        SubscribeNetworkEvent<WarInvitePromptEvent>(OnWarInvitePrompt);
+        SubscribeNetworkEvent<WarInviteResultEvent>(OnWarInviteResult);
         SubscribeNetworkEvent<FactionWarForceObserveResultEvent>(OnForceObserveResult); // #Misfits Add
 
         _conHost.RegisterCommand(
@@ -92,6 +98,10 @@ public sealed class FactionWarClientSystem : EntitySystem
         _warJoinWindow = null;
         _forceWarWindow?.Close();
         _forceWarWindow = null;
+        _warSideReviewWindow?.Close();
+        _warSideReviewWindow = null;
+        _warInviteWindow?.Close();
+        _warInviteWindow = null;
         RemoveOverlay();
     }
 
@@ -183,6 +193,30 @@ public sealed class FactionWarClientSystem : EntitySystem
             _forceWarWindow?.ShowCeasefireResult(msg.Success, msg.Message);
         else
             _forceWarWindow?.ShowResult(msg.Success, msg.Message);
+    }
+
+    private void OnSideReviewPrompt(WarSideReviewPromptEvent msg)
+    {
+        EnsureWarSideReviewWindow();
+        _warSideReviewWindow!.UpdatePrompt(msg);
+        _warSideReviewWindow.OpenCentered();
+    }
+
+    private void OnSideReviewResult(WarSideReviewResultEvent msg)
+    {
+        _warSideReviewWindow?.ShowResult(msg.Success, msg.Message);
+    }
+
+    private void OnWarInvitePrompt(WarInvitePromptEvent msg)
+    {
+        EnsureWarInviteWindow();
+        _warInviteWindow!.UpdatePrompt(msg);
+        _warInviteWindow.OpenCentered();
+    }
+
+    private void OnWarInviteResult(WarInviteResultEvent msg)
+    {
+        _warInviteWindow?.ShowResult(msg.Success, msg.Message);
     }
 
     // #Misfits Add - Handle observe result from server.
@@ -333,6 +367,42 @@ public sealed class FactionWarClientSystem : EntitySystem
 
         // Populate the ceasefire dropdown with current wars.
         _forceWarWindow.UpdateActiveWars(_activeWars);
+    }
+
+    private void EnsureWarSideReviewWindow()
+    {
+        if (_warSideReviewWindow != null)
+            return;
+
+        _warSideReviewWindow = new WarSideReviewWindow();
+        _warSideReviewWindow.OnClose += () => _warSideReviewWindow = null;
+
+        _warSideReviewWindow.OnSubmit += (warKey, removedParticipants) =>
+        {
+            RaiseNetworkEvent(new WarSideReviewSubmitEvent
+            {
+                WarKey = warKey,
+                RemovedParticipants = removedParticipants.ToList(),
+            });
+        };
+    }
+
+    private void EnsureWarInviteWindow()
+    {
+        if (_warInviteWindow != null)
+            return;
+
+        _warInviteWindow = new WarInviteWindow();
+        _warInviteWindow.OnClose += () => _warInviteWindow = null;
+
+        _warInviteWindow.OnRespond += (warKey, accept) =>
+        {
+            RaiseNetworkEvent(new WarInviteResponseEvent
+            {
+                WarKey = warKey,
+                Accept = accept,
+            });
+        };
     }
 
     // ── Overlay lifecycle ──────────────────────────────────────────────────

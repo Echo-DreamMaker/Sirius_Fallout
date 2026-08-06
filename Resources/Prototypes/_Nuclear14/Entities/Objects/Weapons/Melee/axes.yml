@@ -130,6 +130,8 @@
       types:
         Blunt: 8
         Slash: 40
+  - type: GrantActionOnWield       # Misfits Add
+    actions: [ MisfitsActionMeleeCharge ]
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Melee/axe.rsi
     quickEquip: false

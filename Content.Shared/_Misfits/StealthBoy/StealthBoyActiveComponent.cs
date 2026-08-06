@@ -65,4 +65,31 @@ public sealed partial class StealthBoyActiveComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public string ReappearMessage = "You reappear as the Stealth Boy power fades.";
+
+    /// <summary>
+    /// Visibility the user sinks to while standing still. Only does anything
+    /// when set below TargetVisibility (nightkin implant uses this).
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float StillVisibility = 1f;
+
+    /// <summary>
+    /// Visibility while moving at walk speed or slower. Sits between
+    /// StillVisibility and TargetVisibility.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float WalkVisibility = 1f;
+
+    /// <summary>
+    /// How long attacking gives the user away to NPCs for.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan AttackRevealTime = TimeSpan.FromSeconds(10);
+
+    /// <summary>
+    /// NPCs can see the user until this time no matter how cloaked they are.
+    /// Set by swinging a weapon.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    public TimeSpan RevealedUntil;
 }

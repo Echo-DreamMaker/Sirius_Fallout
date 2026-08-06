@@ -1,0 +1,74 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: GrenadeBase
+  id: LemonGrenade
+  name: combustible lemon
+  description: When life gives you lemons, commit arson.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Specific/Hydroponics/lemonade.rsi
+    layers:
+    - state: produce
+      map: ["enum.TriggerVisualLayers.Base"]
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 5
+    intensitySlope: 3
+    totalIntensity: 5
+    canCreateVacuum: false
+
+- type: entity
+  parent: BaseItem
+  id: TongueSpike
+  name: biomass spike
+  description: Hardened biomass, shaped into a spike. Very pointy!
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Throwable/tonguespike.rsi
+    state: icon
+  - type: Tool
+    qualities:
+    - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  # fixture setup mirrored from ThrowingStar, which reliably embeds into people when thrown
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: EmbeddableProjectile
+    offset: -0.2,0
+    sound: /Audio/Weapons/star_hit.ogg
+  - type: LandAtCursor
+  - type: ThrowingAngle
+    angle: -45
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Ballistic: 30 # bit stronger than a spear considering the reload process
+  - type: StaminaDamageOnEmbed
+    damage: 10
+  - type: TongueSpikeRevertOnLand
+
+- type: entity
+  parent: TongueSpike
+  id: TongueSpikeChem
+  name: chem spike
+  description: Hardened biomass, shaped into... something.
+  components:
+  - type: Sprite
+    state: chemspike
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Ballistic: 5 # it's more of a utility
+  - type: ChemTransferProjectile

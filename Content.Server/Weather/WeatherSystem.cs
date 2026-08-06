@@ -5,6 +5,7 @@ using Content.Server.Maps;
 using Content.Server.Radiation.Components;
 using Content.Server.Radiation.Systems;
 using Content.Shared.Administration;
+using Content.Shared._Misfits.Genetics.Abilities;
 using Content.Shared.CCVar;
 using Content.Shared.Ghost;
 using Content.Shared.Light.Components;
@@ -203,7 +204,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
         var query = EntityQueryEnumerator<RadiationReceiverComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var receiver, out var xform))
         {
-            if (HasComp<GhostComponent>(uid))
+            if (HasComp<GhostComponent>(uid) || HasComp<WeatherImmuneComponent>(uid))
                 continue;
 
             if (!IsWeatherExposed(mapUid, xform))
