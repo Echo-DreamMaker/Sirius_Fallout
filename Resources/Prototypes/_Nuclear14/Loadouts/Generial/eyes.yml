@@ -16,7 +16,7 @@
 
 - type: loadout
   id: N14ClothingEyesSunGlasses
-  category: Accessories
+  category: Eyes
   cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -64,7 +64,7 @@
 
 - type: loadout # Corvax-Change
   id: ClothingEyesGlassesChemist
-  category: Accessories
+  category: Eyes
   cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement

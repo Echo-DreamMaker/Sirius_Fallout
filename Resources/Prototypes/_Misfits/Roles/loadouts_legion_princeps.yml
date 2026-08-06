@@ -12,6 +12,6 @@
       min: 90000 # 25 hours
   items:
     - MisfitsLegionPrincepsArmor
-    - MisfitsLegionPrincipesHelmet
-    - MisfitsLegionPrincipesGloves
-    - MisfitsLegionPrincipesBoots
+    - MisfitsLegionPrincepsHelmet
+    - MisfitsLegionPrincepsGloves
+    - MisfitsLegionPrincepsBoots

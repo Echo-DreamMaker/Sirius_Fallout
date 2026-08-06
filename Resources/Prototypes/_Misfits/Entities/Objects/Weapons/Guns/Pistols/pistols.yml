@@ -41,11 +41,11 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: N14Magazine2mmECPistol
+        startingItem: N14BaseMagazine2mmECPistol
         priority: 2
         whitelist:
           tags:
-          - N14Magazine2mmECPistol
+          - N14BaseMagazine2mmECPistol
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
   - type: ContainerContainer

@@ -44,15 +44,6 @@
   - type: AccessReader
     access: [["BOS"]]
 
-- type: entity
-  parent: DoorElectronics
-  id: DoorElectronicsBOSMidwestOffDuty
-  suffix: BOSM, OffDuty, Locked
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: AccessReader
-    access: [["BOS"], ["BOSOffDuty"]]
-
 # BoS Washington
 - type: entity
   parent: DoorElectronics
@@ -208,7 +199,7 @@
   components:
   - type: AccessReader
     access: [["EnclaveOfficer"]]
-    
+
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsEnclaveScience
