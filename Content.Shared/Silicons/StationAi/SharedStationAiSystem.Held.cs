@@ -19,7 +19,7 @@ public abstract partial class SharedStationAiSystem
 
     //TODO: Fix this, please
     private const string JobNameLocId = "job-name-station-ai";
-    private static readonly ProtoId<AccessGroupPrototype> StationAiAccessGroup = "AllAccessMisfits";
+    private static readonly ProtoId<AccessGroupPrototype> StationAiAccessGroup = "AllAccessN14";
 
     private void InitializeHeld()
     {
