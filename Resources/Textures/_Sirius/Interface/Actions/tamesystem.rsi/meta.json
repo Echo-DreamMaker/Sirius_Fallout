@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "Created by RabbitBat (Sprites by Rozy_Cosmic)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "petLeft"
+    },
+    {
+      "name": "petFollow"
+    },
+    {
+      "name": "petHold"
+    },
+    {
+      "name": "petAttack"
+    },
+    {
+      "name": "petPassive"
+    }
+  ]
+}

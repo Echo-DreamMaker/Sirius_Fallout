@@ -1,0 +1,47 @@
+- type: entity
+  id: ActionPetFollowStay
+  name: Follow
+  description: Toggle between following and wandering.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 0.5
+    priority: 1
+    icon:
+      sprite: _Sirius/Interface/Actions/tamesystem.rsi
+      state: petFollow
+    iconOn:
+      sprite: _Sirius/Interface/Actions/tamesystem.rsi
+      state: petHold
+    event: !type:PetFollowStayActionEvent
+
+- type: entity
+  id: ActionPetAttackCancel
+  name: Attack
+  description: Toggle attack mode on/off. Click a target while in attack mode to attack.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 0.5
+    priority: 2 
+    icon:
+      sprite: _Sirius/Interface/Actions/tamesystem.rsi
+      state: petAttack
+    iconOn:
+      sprite: _Sirius/Interface/Actions/tamesystem.rsi
+      state: petPassive
+    event: !type:PetAttackCancelActionEvent
+
+- type: entity
+  id: ActionPetRelease
+  name: Release
+  description: Release your pet back into the wild.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 0.5
+    priority: 3
+    icon:
+      sprite: _Sirius/Interface/Actions/tamesystem.rsi
+      state: petLeft
+    event: !type:PetReleaseActionEvent

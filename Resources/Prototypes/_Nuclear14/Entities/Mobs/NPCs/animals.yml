@@ -44,15 +44,15 @@
     altDisarm: false
     hidden: true
     soundHit:
-      collection: N14MoleratAttack #Misfits Change
+      collection: N14MoleratAttack
     angle: 60
     animation: WeaponArcBite
     wideAnimation: WeaponArcBite
     damage:
       groups:
         Brute: 3
-  - type: IdleSound #Misfits Change
-  - type: SpamEmitSound #Misfits Change
+  - type: IdleSound
+  - type: SpamEmitSound
     minInterval: 10
     maxInterval: 60
     sound:
@@ -60,36 +60,12 @@
       params:
         volume: -10
         maxDistance: 5
-  - type: AggroSound #Misfits Change
+  - type: AggroSound
     sound:
       collection: N14MoleratAttack
       params:
         volume: -3
         maxDistance: 10
- #- type: Reproductive
-   #breedChance: 0.05
-   #birthPopup: reproductive-birth-popup
-   #makeOffspringInfant: false
-   #partnerWhitelist:
-     # tags:
-    #  - Molerat
-   #offspring:
-   #- id: N14MobMolerat
-     #maxAmount: 1
- #- type: ReproductivePartner
- # - type: Tag
- #   tags:
-#    - Molerat
-  # - type: NPCTamingOnTouchBehaviour
-    # follow: true
-    # persistent: true
-    # tameChance: 0.5
-    # oneTry: false
-    # successPopup: This pet is your friend now!
-    # deniedPopup: This pet refused to be your friend.
-    # whitelist:
-      # components:
-      # - HumanoidAppearance
 
 - type: entity
   name: pigrat
@@ -133,15 +109,15 @@
     altDisarm: false
     hidden: true
     soundHit:
-      collection: N14MoleratAttack #Misfits Change - pigrats share molerat sounds
+      collection: N14MoleratAttack
     angle: 60
     animation: WeaponArcBite
     wideAnimation: WeaponArcBite
     damage:
       groups:
         Brute: 3
-  - type: IdleSound #Misfits Change
-  - type: SpamEmitSound #Misfits Change
+  - type: IdleSound
+  - type: SpamEmitSound
     minInterval: 10
     maxInterval: 60
     sound:
@@ -149,7 +125,7 @@
       params:
         volume: -10
         maxDistance: 5
-  - type: AggroSound #Misfits Change
+  - type: AggroSound
     sound:
       collection: N14MoleratAttack
       params:
@@ -159,20 +135,6 @@
     spawned:
     - id: N14FoodMeatPigrat
       amount: 3
- #- type: Reproductive
-   #breedChance: 0.05
-   #birthPopup: reproductive-birth-popup
-   #makeOffspringInfant: false
-   #partnerWhitelist:
-    #  tags:
-    #  - Pigrat
-   #offspring:
-  #- id: N14MobPigrat
-     #maxAmount: 1
- #- type: ReproductivePartner
- #- type: Tag
- #   tags:
- #   - Pigrat
 
 #MARK: Feral Dog
 - type: entity
@@ -217,15 +179,15 @@
     altDisarm: false
     hidden: true
     soundHit:
-      collection: N14DogAttack #Misfits Change
+      collection: N14DogAttack
     angle: 60
     animation: WeaponArcBite
     wideAnimation: WeaponArcBite
     damage:
       groups:
         Brute: 5
-  - type: IdleSound #Misfits Change
-  - type: SpamEmitSound #Misfits Change
+  - type: IdleSound
+  - type: SpamEmitSound
     minInterval: 10
     maxInterval: 60
     sound:
@@ -233,26 +195,12 @@
       params:
         volume: -8
         maxDistance: 5
-  - type: AggroSound #Misfits Change
+  - type: AggroSound
     sound:
       collection: N14DogBark
       params:
         volume: -3
         maxDistance: 10
- #- type: Reproductive
-   #breedChance: 0.05
-   #birthPopup: reproductive-birth-popup
-   #makeOffspringInfant: false
-   #partnerWhitelist:
-     # tags:
-    # - DogFeral
-   #offspring:
-   #- id: N14MobDogFeral
-     #maxAmount: 1
- #- type: ReproductivePartner
- #- type: Tag
- #   tags:
-   # - DogFeral
 
 # Yao Guai
 - type: entity
@@ -310,7 +258,7 @@
     altDisarm: false
     hidden: true
     soundHit:
-      collection: N14DeathclawAttack #Misfits Change - Yao Guai reuses deathclaw roars
+      collection: N14DeathclawAttack
     angle: 60
     animation: WeaponArcBite
     wideAnimation: WeaponArcBite
@@ -322,8 +270,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
     baseSprintSpeed : 4.75
-  - type: IdleSound #Misfits Change
-  - type: SpamEmitSound #Misfits Change
+  - type: IdleSound
+  - type: SpamEmitSound
     minInterval: 10
     maxInterval: 60
     sound:
@@ -331,27 +279,13 @@
       params:
         volume: -7
         maxDistance: 5
-  - type: AggroSound #Misfits Change
+  - type: AggroSound
     sound:
       collection: N14DeathclawAttack
       params:
         volume: -3
         maxDistance: 10
   - type: NoSlip
- #- type: Reproductive
-   #breedChance: 0.05
-   #birthPopup: reproductive-birth-popup
-   #makeOffspringInfant: false
-   #partnerWhitelist:
-  #    tags:
-  #    - Yaoguai
-   #offspring:
-   #- id: N14MobYaoguai
-     #maxAmount: 1
- #- type: ReproductivePartner
- #- type: Tag
- #   tags:
-  #  - Yaoguai
 
 #MARK: Brahmin
 - type: entity
@@ -376,13 +310,11 @@
   - type: Stamina
     critThreshold: 200
   - type: Strap
-    # #Misfits Add - brahmin riding is perk-gated through the shared riding marker component.
     whitelist:
       requireAll: true
       components:
       - HumanoidAppearance
       - RidingPerk
-    # #Misfits Fix - Super Mutants and Power Armor wearers are too heavy to ride brahmin
     blacklist:
       tags:
       - CannotRide
@@ -396,7 +328,7 @@
       path: /Audio/_NC/Effects/dismount-saddle.ogg
       params:
         volume: 20
-  - type: NPCRetaliation # Aggro on the attacker when damaged from any range
+  - type: NPCRetaliation
     attackMemoryLength: 30
   - type: ProximityNPC # Misfits fix — Didn't have comp to reduce tick load and activate ai
                         #TODO: make every NPC inherit from same base to avoid issues in future
@@ -457,7 +389,7 @@
     intervalSeconds: 300
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 1
-    ignoreSpawnBlock: true # Forge-Change
+    ignoreSpawnBlock: true
   - type: Reproductive
     breedChance: 0.05
     birthPopup: reproductive-birth-popup
@@ -470,12 +402,12 @@
       maxAmount: 1
   - type: ReproductivePartner
   - type: MobPrice
-    price: 250 # Corvax-Change
+    price: 250
   - type: Advertise
     pack: N14BrahminSays
     minimumWait: 120
     maximumWait: 300
-  - type: LanguageKnowledge # #Misfits Add - understands common wasteland languages; speaks Cow (native moo sounds)
+  - type: LanguageKnowledge
     speaks:
     - Cow
     understands:
@@ -488,7 +420,6 @@
     - N14Robot
     - N14BrotherBeep
     - Sign
-  # #Misfits Add - pack animal inventory: 4 backpack slots via brahmin template; Strippable lets players equip/remove packs
   - type: Inventory
     templateId: brahmin
   - type: InventorySlots
@@ -497,6 +428,9 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableBrahmin
 
 #MARK: Bighorner
 - type: entity
@@ -520,7 +454,6 @@
   - type: Stamina
     critThreshold: 200
   - type: Strap
-    # #Misfits Change - bighorners inherit brahmin straps, so blacklist humanoid riders to keep them non-mountable.
     blacklist:
       components:
       - HumanoidAppearance
@@ -537,7 +470,7 @@
       amount: 1
       prob: 0.75
   - type: MeleeWeapon
-    range: 1 # Cythfix - Bighorner had range 3 (too long, could attack from ~4 tiles). Normal melee range, so set to 1
+    range: 1
     altDisarm: false
     hidden: true
     soundHit:
@@ -549,7 +482,7 @@
       types:
         Blunt: 10
         Slash: 8
-  - type: NPCRetaliation # Aggro on the attacker when damaged from any range
+  - type: NPCRetaliation
   - type: HTN
     rootTask:
      task: RuminantHostileCompound
@@ -572,7 +505,7 @@
     prototypes:
       - N14Dung
     chance: 0.5
-    ignoreSpawnBlock: true # Forge-Change
+    ignoreSpawnBlock: true
   - type: Reproductive
     breedChance: 0.05
     birthPopup: reproductive-birth-popup
@@ -584,6 +517,9 @@
     - id: N14MobBighorner
       maxAmount: 1
   - type: ReproductivePartner
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableBighorner
 
 #MARK: Radstag
 - type: entity
@@ -607,7 +543,6 @@
   - type: Stamina
     critThreshold: 200
   - type: Strap
-    # #Misfits Change - radstags keep the shared mount setup but restrict riders to tribal hunt participants.
     whitelist:
       requireAll: true
       components:
@@ -653,7 +588,7 @@
     prototypes:
       - N14Dung
     chance: 0.5
-    ignoreSpawnBlock: true # Forge-Change
+    ignoreSpawnBlock: true
   - type: Reproductive
     breedChance: 0.05
     birthPopup: reproductive-birth-popup
@@ -665,8 +600,10 @@
     - id: N14MobRadstag
       maxAmount: 1
   - type: ReproductivePartner
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableRadstag
 
-#MARK: Radhog
 - type: entity
   name: radhog
   parent: N14MobBrahmin
@@ -686,7 +623,6 @@
       Dead:
         Base: dead
   - type: Strap
-    # #Misfits Change - radhogs inherit brahmin straps, so blacklist humanoid riders to keep them non-mountable.
     blacklist:
       components:
       - HumanoidAppearance
@@ -710,7 +646,7 @@
       types:
         Blunt: 10
         Piercing: 1
-  - type: NPCRetaliation # Aggro on the attacker when damaged from any range
+  - type: NPCRetaliation
     attackMemoryLength: 30
   - type: HTN
     rootTask:
@@ -718,19 +654,10 @@
     blackboard:
      NavSmash: !type:Bool
        false
- #- type: Reproductive
-   #breedChance: 0.05
-   #birthPopup: reproductive-birth-popup
-   #makeOffspringInfant: false
-   #partnerWhitelist:
-     # tags:
-     # - Radhog
-   #offspring:
-   #- id: N14MobRadhog
-     #maxAmount: 1
- #- type: ReproductivePartner
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableRadhog
 
-#MARK: Chicken
 - type: entity
   parent: MobChicken
   id: N14MobChicken
@@ -746,7 +673,7 @@
   - type: SpriteMovement
     movementLayers:
       movement:
-        state: chicken #TODO: Add movement animations
+        state: chicken
     noMovementLayers:
       movement:
         state: chicken
@@ -780,7 +707,7 @@
     - id: N14FoodEggChicken
   - type: MobPrice
     price: 200
-  - type: LanguageKnowledge # #Misfits Add - understands common wasteland languages; speaks Chicken (native cluck sounds)
+  - type: LanguageKnowledge
     speaks:
     - Chicken
     understands:
@@ -791,6 +718,9 @@
     - Latin
     - N14Robot
     - N14BrotherBeep
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableChicken
 
 #MARK: Iguana
 - type: entity
@@ -813,33 +743,17 @@
         Base: dead
   - type: Stamina
     critThreshold: 20
-  # - type: Butcherable
-    # spawned:
-    # - id: N14FoodMeatRadchicken
-      # amount: 1
-      # prob: 0.95
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: WastelandAnimal
-  # - type: Reproductive
-    # breedChance: 0.05
-    # birthPopup: reproductive-laid-egg-popup
-    # makeOffspringInfant: false
-    # partnerWhitelist:
-      # tags:
-      # - Chicken
-    # offspring:
-    # - id: N14FoodEggChickenFertilized
-      # maxAmount: 3
-  # - type: ReproductivePartner
-  # - type: EggLayer
-    # eggSpawn:
-    # - id: N14FoodEggChicken
   - type: Item
     size: Small
   - type: HTN
     rootTask:
       task: MouseCompound
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableIguana
 
 #MARK: Beaver
 - type: entity
@@ -917,12 +831,15 @@
         Base: dead
   - type: Butcherable
     spawned:
-    - id: N14FoodMeatRadRaw #At some point need their own meat
+    - id: N14FoodMeatRadRaw
       amount: 1
       prob: 0.95
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: WastelandAnimal
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableOpossum
 
 #MARK: Rabbit
 - type: entity
@@ -951,6 +868,9 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: WastelandAnimal
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableRabbit
 
 - type: entity
   parent: N14MobBaseSimple
@@ -972,9 +892,12 @@
         Base: dead
   - type: Butcherable
     spawned:
-    - id: N14FoodMeatRadRaw #At some point need their own meat
+    - id: N14FoodMeatRadRaw
       amount: 1
       prob: 0.95
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: WastelandAnimal
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableRabbit

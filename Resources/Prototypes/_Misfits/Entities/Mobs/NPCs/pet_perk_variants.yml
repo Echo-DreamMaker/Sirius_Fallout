@@ -38,6 +38,9 @@
         Burn: -0.5
         Toxin: -0.5
         Airloss: -3
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableBrahmin
 
 # Pet Rad Chicken — irradiated chicken ghost role for the N14PetRadChicken trait
 - type: entity
@@ -71,6 +74,9 @@
         Burn: -0.5
         Toxin: -0.5
         Airloss: -3
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableChicken
 
 # Pet Cat — feline companion ghost role for the N14PetCat trait
 - type: entity
@@ -125,6 +131,9 @@
         Burn: -0.5
         Toxin: -0.5
         Airloss: -3
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableCat
 
 - type: entity
   name: black cat

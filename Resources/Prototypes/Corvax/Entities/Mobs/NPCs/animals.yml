@@ -99,6 +99,9 @@
     prototype: AnimalRuminant
   - type: MobPrice
     price: 300
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableBrahdo
 
 - type: entity
   parent: N14MobBrahdo

@@ -107,6 +107,9 @@
       Parched: 50
       Dead: 0
     baseDecayRate: 0.0
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameablePetBasic
 
 - type: entity
   name: Basic Mutt
@@ -171,6 +174,9 @@
       components:
       - Gun
       - MeleeWeapon
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameablePetDog 
 
 - type: entity
   name: BoS Mutt
@@ -471,6 +477,9 @@
     - N14Robot
     - N14BrotherBeep
     - Sign
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameablePetRoach
 
 - type: entity
   name: Pet Ant
@@ -545,6 +554,9 @@
         Blunt: 6
         Slash: 6
         Radiation: 2
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameablePetAnt
 
 - type: entity
   name: Pet Rat
@@ -635,3 +647,6 @@
     makeSentient: false
     allowMovement: true
   - type: GhostTakeoverAvailable
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameablePetRat

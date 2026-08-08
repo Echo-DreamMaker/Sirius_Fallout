@@ -1,5 +1,4 @@
-﻿
-- type: entity
+﻿- type: entity
   name: Dr. Thumper
   id: MisfitsMobRabbitFollowersPet
   parent: N14MobRabbit
@@ -27,7 +26,7 @@
       types:
         Blunt: 2.5
   - type: MobPrice
-    price: 3000 # it is a truly valuable creature
+    price: 3000
   - type: NpcFactionMember
     factions:
     - Followers
@@ -36,6 +35,9 @@
     description: ghost-role-information-misfit-faction-description
     rules: ghost-role-component-default-rules
   - type: GhostTakeoverAvailable
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableRabbit
 
 - type: entity
   name: Timmy
@@ -57,7 +59,14 @@
     - BrotherhoodOfSteel
   - type: MobPrice
     price: 200
-
+  - type: GhostRole
+    name: ghost-role-information-misfitpet-lizard1-bos-name
+    description: ghost-role-information-misfit-faction-description
+    rules: ghost-role-component-default-rules
+  - type: GhostTakeoverAvailable
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableLizard
 
 - type: entity
   name: Jimmy
@@ -79,3 +88,11 @@
     - BrotherhoodOfSteel
   - type: MobPrice
     price: 200
+  - type: GhostRole
+    name: ghost-role-information-misfitpet-lizard2-bos-name
+    description: ghost-role-information-misfit-faction-description
+    rules: ghost-role-component-default-rules
+  - type: GhostTakeoverAvailable
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableLizard
