@@ -40,6 +40,13 @@ public sealed class TamingSystem : EntitySystem
     private const string FollowCompoundId = "RuminantFollowCompound";
     private const string HoldPositionCompoundId = "HoldPositionCompound";
 
+    private static readonly string[] ActionPrototypes = new string[]
+    {
+        "ActionPetFollowStay",
+        "ActionPetAttackCancel",
+        "ActionPetRelease"
+    };
+
     public override void Initialize()
     {
         base.Initialize();
@@ -58,10 +65,12 @@ public sealed class TamingSystem : EntitySystem
         UpdateFollowerNoPathTimeout(frameTime);
         UpdateAutoHeldFollowers();
     }
+
     private void OnTameableMapInit(Entity<TameableComponent> ent, ref MapInitEvent args)
     {
         LoadTameablePreset(ent.Comp);
     }
+
     private void LoadTameablePreset(TameableComponent component)
     {
         if (string.IsNullOrEmpty(component.Preset))
@@ -69,7 +78,6 @@ public sealed class TamingSystem : EntitySystem
 
         if (!_prototypeManager.TryIndex<TameablePresetPrototype>(component.Preset, out var preset))
         {
-            Log.Error($"Tameable preset '{component.Preset}' not found!");
             return;
         }
 
@@ -93,6 +101,29 @@ public sealed class TamingSystem : EntitySystem
         if (component.TamingTime == 3.0f && preset.TamingTime != 3.0f)
             component.TamingTime = preset.TamingTime;
     }
+
+    private int GetPetLimit(EntityUid user)
+    {
+        var charisma = _special.GetEffective(user, SpecialStat.Charisma);
+        if (charisma >= 10)
+            return 3;
+        if (charisma >= 7)
+            return 2;
+        return 1;
+    }
+
+    private int GetCurrentPetCount(EntityUid owner)
+    {
+        var count = 0;
+        var query = EntityQueryEnumerator<SiriusFollowerComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.IsTamed && comp.Tamer == owner)
+                count++;
+        }
+        return count;
+    }
+
     private void UpdateFollowerNoPathTimeout(float frameTime)
     {
         var query = EntityQueryEnumerator<SiriusFollowerComponent, HTNComponent>();
@@ -129,6 +160,7 @@ public sealed class TamingSystem : EntitySystem
             }
         }
     }
+
     private void UpdateAutoHeldFollowers()
     {
         var query = EntityQueryEnumerator<SiriusFollowerComponent, HTNComponent>();
@@ -151,6 +183,7 @@ public sealed class TamingSystem : EntitySystem
             }
         }
     }
+
     private void OnFollowerShutdown(Entity<SiriusFollowerComponent> ent, ref ComponentShutdown args)
     {
         var follower = ent.Comp;
@@ -159,9 +192,11 @@ public sealed class TamingSystem : EntitySystem
             CleanupFollower(follower.Commander.Value, ent);
         }
     }
+
     private void OnFollowerUnpaused(Entity<SiriusFollowerComponent> ent, ref EntityUnpausedEvent args)
     {
     }
+
     private void OnFollowerAttackAttempt(Entity<SiriusFollowerComponent> ent, ref AttackAttemptEvent args)
     {
         if (args.Target != null && ent.Comp.Commander != null)
@@ -179,6 +214,7 @@ public sealed class TamingSystem : EntitySystem
             }
         }
     }
+
     private void OnTameableGetVerbs(Entity<TameableComponent> ent, ref GetVerbsEvent<Verb> args)
     {
         if (!args.CanAccess || !args.CanInteract || args.User == args.Target)
@@ -218,6 +254,22 @@ public sealed class TamingSystem : EntitySystem
                 Category = SiriusVerbCategory.Tame
             };
             args.Verbs.Add(deadVerb);
+            return;
+        }
+
+        var petLimit = GetPetLimit(args.User);
+        var currentPets = GetCurrentPetCount(args.User);
+        if (currentPets >= petLimit)
+        {
+            var limitVerb = new Verb
+            {
+                Text = Loc.GetString("taming-verb-pet-limit", ("limit", petLimit)),
+                Priority = 0,
+                Disabled = true,
+                Category = SiriusVerbCategory.Tame,
+                Message = Loc.GetString("taming-verb-pet-limit-message", ("limit", petLimit))
+            };
+            args.Verbs.Add(limitVerb);
             return;
         }
 
@@ -308,6 +360,7 @@ public sealed class TamingSystem : EntitySystem
         };
         args.Verbs.Add(verb);
     }
+
     private void OnTamingDoAfter(Entity<TameableComponent> ent, ref TamingDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled)
@@ -328,6 +381,15 @@ public sealed class TamingSystem : EntitySystem
             return;
         }
 
+        var petLimit = GetPetLimit(args.User);
+        var currentPets = GetCurrentPetCount(args.User);
+        if (currentPets >= petLimit)
+        {
+            _popup.PopupEntity(Loc.GetString("taming-verb-pet-limit", ("limit", petLimit)), ent, args.User, PopupType.Small);
+            Del(foodEntity);
+            return;
+        }
+
         var tameable = ent.Comp;
         var charisma = _special.GetEffective(args.User, SpecialStat.Charisma);
         var foodPref = GetFoodPreference(tameable, args.FoodId);
@@ -345,34 +407,37 @@ public sealed class TamingSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("taming-failed"), ent, args.User, PopupType.Small);
         }
     }
+
     private void GrantPetActions(EntityUid tamer, EntityUid pet, SiriusFollowerComponent follower)
     {
         RemovePetActions(tamer, follower);
+        var actionIds = new List<EntityUid>();
 
-        string[] actionPrototypes = new string[]
-    {
-        "ActionPetFollowStay",
-        "ActionPetAttackCancel",
-        "ActionPetRelease"
-    };
-        foreach (var proto in actionPrototypes)
+        foreach (var proto in ActionPrototypes)
         {
             EntityUid? actionId = null;
             if (_actions.AddAction(tamer, ref actionId, proto))
             {
-                follower.PetActionEntities.Add(actionId.Value);
+                actionIds.Add(actionId.Value);
             }
         }
+        follower.PetActionEntities = actionIds;
+
         Dirty(pet, follower);
     }
+
     private void RemovePetActions(EntityUid tamer, SiriusFollowerComponent follower)
     {
         foreach (var actionId in follower.PetActionEntities)
         {
-            _actions.RemoveAction(tamer, actionId);
+            if (Exists(actionId))
+            {
+                _actions.RemoveAction(tamer, actionId);
+            }
         }
         follower.PetActionEntities.Clear();
     }
+
     private void TameAnimal(EntityUid animal, EntityUid tamer)
     {
         if (!TryComp<SiriusFollowerComponent>(animal, out var follower))
@@ -660,6 +725,14 @@ public sealed class TamingSystem : EntitySystem
         if (TryComp<SiriusFollowerComponent>(ent, out var follower) && follower.IsTamed)
         {
             _popup.PopupEntity(Loc.GetString("taming-already-tamed"), ent, user, PopupType.Small);
+            return;
+        }
+
+        var petLimit = GetPetLimit(user);
+        var currentPets = GetCurrentPetCount(user);
+        if (currentPets >= petLimit)
+        {
+            _popup.PopupEntity(Loc.GetString("taming-verb-pet-limit", ("limit", petLimit)), ent, user, PopupType.Small);
             return;
         }
 

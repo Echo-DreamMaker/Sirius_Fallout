@@ -30,7 +30,7 @@ public sealed partial class SiriusFollowerComponent : Component
     public EntityUid? Tamer;
 
     [DataField]
-    public List<EntityUid> PetActionEntities = new();
+    public List<EntityUid> PetActionEntities = new()!;
 
     [DataField]
     public bool IsStaying = false;

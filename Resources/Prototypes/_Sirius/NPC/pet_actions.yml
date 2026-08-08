@@ -6,6 +6,7 @@
   components:
   - type: InstantAction
     useDelay: 0.5
+    priority: 1
     icon:
       sprite: _Sirius/Interface/Actions/tamesystem.rsi
       state: petFollow
@@ -22,6 +23,7 @@
   components:
   - type: InstantAction
     useDelay: 0.5
+    priority: 2 
     icon:
       sprite: _Sirius/Interface/Actions/tamesystem.rsi
       state: petAttack
@@ -38,6 +40,7 @@
   components:
   - type: InstantAction
     useDelay: 0.5
+    priority: 3
     icon:
       sprite: _Sirius/Interface/Actions/tamesystem.rsi
       state: petLeft

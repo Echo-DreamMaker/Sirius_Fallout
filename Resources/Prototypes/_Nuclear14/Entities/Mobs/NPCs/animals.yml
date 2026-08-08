@@ -746,6 +746,9 @@
   - type: HTN
     rootTask:
       task: MouseCompound
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableIguana
 
 #MARK: Beaver
 - type: entity
@@ -829,6 +832,9 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: WastelandAnimal
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableOpossum
 
 #MARK: Rabbit
 - type: entity
@@ -857,6 +863,9 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: WastelandAnimal
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableRabbit
 
 - type: entity
   parent: N14MobBaseSimple
@@ -884,3 +893,6 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: WastelandAnimal
+  - type: SiriusFollower
+  - type: Tameable
+    preset: TameableRabbit
