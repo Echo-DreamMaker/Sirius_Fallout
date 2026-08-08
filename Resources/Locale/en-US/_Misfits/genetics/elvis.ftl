@@ -1,0 +1,17 @@
+accent-elvis-words-1 = I'm not
+accent-elvis-words-replace-1 = I ain't
+accent-elvis-words-2 = girl
+accent-elvis-words-replace-2 = honey
+accent-elvis-words-3 = man
+accent-elvis-words-replace-3 = friendo
+accent-elvis-words-4 = out of
+accent-elvis-words-replace-4 = outta
+accent-elvis-words-5-a = thank you
+accent-elvis-words-5-b = thanks
+accent-elvis-words-replace-5 = thank you, thank you very much
+accent-elvis-words-6 = what are you
+accent-elvis-words-replace-6 = whatcha
+accent-elvis-words-7 = yes
+accent-elvis-words-replace-7 = yea
+accent-elvis-words-8 = muh valids
+accent-elvis-words-replace-8 = my kicks

@@ -405,7 +405,7 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatRangerHelmet
-  name: ranger combat helmet
+  name: desert combat helmet
   description: A helmet offering advanced protection, this one is commonly used by Rangers.
   components:
   - type: Sprite
@@ -419,7 +419,7 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatRangerHelmetOld
-  name: old ranger combat helmet
+  name: old riot helmet
   description: An old combat helmet, out of use around the time of the war.
   components:
   - type: Sprite
@@ -433,7 +433,7 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatRangerHelmetDesert
-  name: desert ranger combat helmet
+  name: desert riot combat helmet
   description: An U.S Marine Corps helmet, used by the legendary Desert Rangers.
   components:
   - type: Sprite
@@ -447,7 +447,7 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatRangerHelmetPrice
-  name: spider ranger combat helmet
+  name: spider riot combat helmet
   description: A customised riot helmet reminiscient of the more advanced riot helmets found in the Divide, sporting purple lenses over the traditional red or green and a pair of red fangs painted over the respirator. The back of the helmet has a the face of an albino spider painted over it.
   components:
   - type: Sprite
@@ -461,21 +461,34 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatRangerHelmetElite
-  name: elite ranger combat helmet
+  name: elite riot combat helmet
   description: An old combat helmet seen in the Divide, repurposed for higher-ranking Rangers.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetelite.rsi
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangervetv3h.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetelite.rsi
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangervetv3h.rsi
   - type: Tag
     tags:
     - HidesHair
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+    priceMultiplier: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+  - type: HideLayerClothing # Corvax-Change
+    slots:
+    - Hair
 
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatRangerHelmetEliteOld
-  name: worn elite ranger combat helmet
+  name: worn elite riot combat helmet
   description: Worn riot helmet from before the war. Faded by time and use, this helmet still sees use as a form of protection for the law bringers of the New California Republic.
   components:
   - type: Sprite
@@ -485,11 +498,24 @@
   - type: Tag
     tags:
     - HidesHair
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+    priceMultiplier: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+  - type: HideLayerClothing # Corvax-Change
+    slots:
+    - Hair
 
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatRangerHelmetFox
-  name: fox ranger combat helmet
+  name: fox riot combat helmet
   description: A customized and well-worn helmet of riot gear with parts of the suit reinforced with leather armor and slain Centurion armor pieces by the wearer. A sniper's veil is wrapped around the neck.
   components:
   - type: Sprite
@@ -503,13 +529,27 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatRangerHelmetModif
-  name: modified ranger combat helmet
+  name: modified riot combat helmet
   description: A thicker than average helmet worn by rangers out in the field.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetmodif.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/rangerhelmetmodif.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: N14ClothingHeadHatCombatHelmet
+  id: N14ClothingHeadHatNCRCombatHelmet
+  name: NCR combat helmet
+  description: A combat helmet painted in New California Republic standard tan.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/ncrcombathelmet.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/ncrcombathelmet.rsi
   - type: Tag
     tags:
     - HidesHair

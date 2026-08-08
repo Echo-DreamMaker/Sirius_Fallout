@@ -17,6 +17,12 @@
   id: N14Pickpocket
   category: Mental
   points: -6
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - CaesarLegionSlave # Restricted from Slaves & Prisoners - if they had these traits, they wouldn't be stuck in the first place!
+    - NCRPrisoner
   functions:
     - !type:TraitReplaceComponent
       components:
@@ -92,7 +98,7 @@
 - type: trait
   id: N14Narcolepsy
   category: Mental
-  points: 2
+  points: 4 # raised from 2, falling asleep in battle with the "cure" being now unobtainable is pretty bad
   functions:
     - !type:TraitAddComponent
       components:
@@ -103,7 +109,7 @@
 - type: trait
   id: N14CPRTraining
   category: Mental
-  points: -8 # #Misfits Tweak - raised from -4; CPR is a strong revival tool, cost should reflect that
+  points: -6 # #Misfits Tweak - raised from -4; CPR is a strong revival tool, cost should reflect that
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -157,12 +163,8 @@
   category: Mental
   points: 1
   requirements:
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - N14FrontalLisp
-        - N14ScottishAccent
-        - N14Stutter
+    - !type:CharacterItemGroupRequirement # Misfits Change - one-accent-max group replaces exclusion lists
+      group: N14SpeechAccents
   functions:
     - !type:TraitAddComponent
       components:

@@ -2,8 +2,8 @@
 - type: entity
   parent: BaseItem
   id: N14DecorationFlagpoleNCR
-  name: NCR flag pole
-  description: An NCR flag on a wooden pole.
+  name: New California Republic Flagpole
+  description: The banner of the New California Republic, a nation that despite enemies within and without, has done its best to provide comfort and equality to its citizens. The flag stands proud and tall, a challenge to those around it.
   suffix: Mapping
   components:
   - type: Sprite
@@ -46,8 +46,8 @@
 - type: entity
   parent: N14DecorationFlagpoleNCR
   id: N14DecorationFlagpoleMBOS
-  name: BoS Flag Pole
-  description: A Brotherhood of Steel flag on a wooden pole.
+  name: Brotherhood of Steel Flagpole
+  description: The banner of the Brotherhood of Steel, descendents of the United States military who now attempt to confiscate and safeguard dangerous technology to prevent another apocalypse. The flag stands proud and tall, a challenge to those around it.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Decoration/Flags/mbos_flagpole.rsi
@@ -58,8 +58,8 @@
 - type: entity
   parent: N14DecorationFlagpoleNCR
   id: N14DecorationFlagpoleWBOS
-  name: Washington BoS Flag Pole
-  description: A Washinton Brotherhood flag on a wooden pole.
+  name: Washington Brotherhood of Steel Flagpole
+  description: The banner of the Washington Brotherhood of Steel, a chapter that split off from the Midwest Brotherhood and settled into Seattle, turning to conscription, slavery, and violent oppression of the locals under the rule of the Elder Immortal. The flag stands proud and tall, a challenge to those around it.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Decoration/Flags/wbos_flagpole.rsi

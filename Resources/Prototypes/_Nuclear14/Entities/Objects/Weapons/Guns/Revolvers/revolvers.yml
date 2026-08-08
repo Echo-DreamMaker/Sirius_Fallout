@@ -60,6 +60,9 @@
         - N14CartridgePistol10
         - SpeedLoader10
     proto: N14CartridgePistol10
+    chambers: [true, true, true, true, true, true, true, true]
+    ammoSlots: [null, null, null, null, null, null, null, null]
+    capacity: 8
   - type: Gun
     fireRate: 3
     soundGunshot:
@@ -202,6 +205,10 @@
     proto: N14Cartridge45-70
   - type: StaticPrice
     price: 90
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 2
 
 - type: entity
   name: ranger sequoia
@@ -226,6 +233,10 @@
     proto: N14Cartridge45-70
   - type: StaticPrice
     price: 90
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 3
 
 - type: entity
   name: tribal handgun
@@ -252,6 +263,10 @@
     fireRate: 2
   - type: StaticPrice
     price: 40
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: -2
 
 - type: entity
   name: tribal revolver
@@ -302,6 +317,10 @@
     fireRate: 4
   - type: StaticPrice
     price: 60
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 3
 
 - type: entity
   name: handcannon
@@ -354,6 +373,10 @@
     capacity: 6
   - type: StaticPrice
     price: 80
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 5
 
 # #Misfits Add — Detective Special, Lucky 37, Peacekeeper
 # Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
@@ -414,6 +437,10 @@
       collection: N14RevolverMagnunGunshot
   - type: StaticPrice
     price: 600
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 7
 
 - type: entity
   name: Peacekeeper
@@ -450,6 +477,10 @@
       collection: N14RevolverMagnunGunshot
   - type: StaticPrice
     price: 500
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 3
 
 - type: entity
   name: calico revolver
@@ -476,3 +507,7 @@
       collection: N14RevolverMagnunGunshot
   - type: StaticPrice
     price: 75
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 1

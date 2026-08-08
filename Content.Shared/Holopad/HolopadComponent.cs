@@ -72,6 +72,30 @@ public sealed class HolopadBoundInterfaceState : BoundUserInterfaceState
     {
         Holopads = holopads;
     }
+
+    // #Misfits Fix - Value equality so HolopadSystem.Update's per-second SetUiState is a
+    // no-op when the contact list hasn't changed. Without this, every push dirties the
+    // entity's UserInterfaceComponent, forcing clients to re-apply the states of EVERY
+    // other UI on the entity (e.g. the N14 terminal screen, whose database editor gets
+    // wiped and loses keyboard focus on each re-apply).
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(this, obj))
+            return true;
+
+        if (obj is not HolopadBoundInterfaceState other || Holopads.Count != other.Holopads.Count)
+            return false;
+
+        foreach (var (uid, name) in Holopads)
+        {
+            if (!other.Holopads.TryGetValue(uid, out var otherName) || name != otherName)
+                return false;
+        }
+
+        return true;
+    }
+
+    public override int GetHashCode() => Holopads.Count;
 }
 
 /// <summary>

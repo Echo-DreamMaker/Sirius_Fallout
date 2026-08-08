@@ -98,7 +98,7 @@
   #- NCRFirstSergeant    # Superseded — SFC is now a loadout pin for NCRNCO
   #- NCRStaffSergeant    # Superseded — SSG is now a loadout pin for NCRNCO
   #- NCRPrivateFirstClass # Superseded — PFC is now a loadout pin for specialists
-  #- NCRSoldier          # Retired — replaced by specialist roles + NCRCadet
+  - NCRSoldier          # Retired — replaced by specialist roles + NCRCadet
 
 - type: department # #Misfits Add - Rangers department ladder moved into _Nuclear14 job definitions.
   id: Rangers
@@ -120,6 +120,7 @@
   color: "#662727"
   uiCategory: MajorFaction
   roles:
+  - NCRProvost #_Misfits/Roles/Jobs/NCR/ncr_provost.yml
   - NCRMilitaryPoliceRecruit
   - NCRMilitaryPoliceSergeant
   - NCRMilitaryPoliceCaptain
@@ -142,13 +143,16 @@
   id: Vault
   description: department-Vault-description
   color: "#0d47a1"
-  uiCategory: MajorFaction
+  uiCategory: MinorFaction
   roles:
   - VaultManagement
   - Overseer
   - VaultSecurity
   - VaultDoctor
   - VaultEngineer
+  - VaultSalvageSpecialist
+  - VaultCargoSpecialist
+  - VaultCourier
   - VaultDweller
   # #Misfits Add - vault-assigned robots (showBorder on MrHandy creates the visual separator; hidden without Robots whitelist)
   - SyntheticMrHandy
@@ -236,4 +240,4 @@
   - CaesarLegionSlave           # Slave               | _Misfits/Roles/Jobs/CaesarLegion/legion_slave.yml # #Misfits Add
   #- CaesarLegionCitizen         # Civilian            | _Misfits/Roles/Jobs/CaesarLegion/legion_civilian.yml # #Misfits Add
   #- CaesarLegionTrader          # Trader              | _Misfits/Roles/Jobs/CaesarLegion/legion_trader.yml # #Misfits Add
-  #- CaesarLegionAcolyteOfMars      # Acolyte of Mars     | _Misfits/Roles/Jobs/CaesarLegion/legion_Acolyte.yml # #Misfits Add
+  - CaesarLegionAcolyteOfMars      # Acolyte of Mars     | _Misfits/Roles/Jobs/CaesarLegion/legion_Acolyte.yml # #Misfits Add

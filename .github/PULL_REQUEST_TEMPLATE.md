@@ -2,12 +2,13 @@
 This is a semi-strict format, you can add/remove sections as needed but the order/format should be kept the same
 Remove these comments before submitting
 -->
+<!-- By Contributing to the Misfit-Sanctuary Codebase, you are acknowledging we are under no legal obligation to remove your code if requested. -->
 
 ## About the PR
 <!-- What did you change? -->
 
 ## Why / Balance
-<!-- Discuss how this would affect game balance or explain why it was changed. Link any relevant discussions or issues. -->
+<!-- Discuss how this would affect game balance or explain why it was changed. Link any relevant discussions or issues for a higher chance to get the PR merged. -->
 
 ## Technical details
 <!-- Summary of code changes for easier review. -->
@@ -23,6 +24,8 @@ You can add an author after the `:cl:` to change the name that appears in the ch
 Leaving it blank will default to your GitHub display name
 This includes all available types for the changelog
 -->
+
+<!-- If the part below is not added then nothing will show up in the changelogs. -->
 
 :cl:
 - add: Added fun :D

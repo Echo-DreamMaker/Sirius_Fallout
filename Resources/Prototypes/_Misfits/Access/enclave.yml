@@ -16,23 +16,57 @@
   id: EnclaveScience
   name: id-card-access-level-enclave-science
 
+- type: accessLevel
+  id: EnclaveRoleAll
+  name: id-card-access-level-enclave-role-all
+
+- type: accessLevel
+  id: EnclaveRoleScientist
+  name: id-card-access-level-enclave-role-scientist
+
+- type: accessLevel
+  id: EnclaveRoleHeadScientist
+  name: id-card-access-level-enclave-role-head-scientist
+
+- type: accessLevel
+  id: EnclaveRoleNCO
+  name: id-card-access-level-enclave-role-nco
+
+- type: accessLevel
+  id: EnclaveRoleJuniorOfficer
+  name: id-card-access-level-enclave-role-junior-officer
+
+- type: accessLevel
+  id: EnclaveRoleSeniorOfficer
+  name: id-card-access-level-enclave-role-senior-officer
+
+- type: accessLevel
+  id: EnclaveRoleCommander
+  name: id-card-access-level-enclave-role-commander
+
 # Access groups — cumulative, higher ranks inherit lower access.
 
 - type: accessGroup
   id: EnclaveEnlisted
   tags:
   - Enclave
+  - EnclaveRoleAll
 
 - type: accessGroup
   id: EnclaveNCO
   tags:
   - Enclave
+  - EnclaveRoleAll
+  - EnclaveRoleNCO
   - EnclaveNCO
 
 - type: accessGroup
   id: EnclaveJuniorOfficer
   tags:
   - Enclave
+  - EnclaveRoleAll
+  - EnclaveRoleNCO
+  - EnclaveRoleJuniorOfficer
   - EnclaveNCO
   - EnclaveOfficer
 
@@ -40,6 +74,10 @@
   id: EnclaveSeniorOfficer
   tags:
   - Enclave
+  - EnclaveRoleAll
+  - EnclaveRoleNCO
+  - EnclaveRoleJuniorOfficer
+  - EnclaveRoleSeniorOfficer
   - EnclaveNCO
   - EnclaveOfficer
   - EnclaveScience
@@ -48,6 +86,13 @@
   id: EnclaveCommand
   tags:
   - Enclave
+  - EnclaveRoleAll
+  - EnclaveRoleScientist
+  - EnclaveRoleHeadScientist
+  - EnclaveRoleNCO
+  - EnclaveRoleJuniorOfficer
+  - EnclaveRoleSeniorOfficer
+  - EnclaveRoleCommander
   - EnclaveNCO
   - EnclaveOfficer
   - EnclaveScience
@@ -57,18 +102,25 @@
   id: EnclaveJuniorScientist
   tags:
   - Enclave
+  - EnclaveRoleAll
+  - EnclaveRoleScientist
   - EnclaveScience
 
 - type: accessGroup
   id: EnclaveScientist
   tags:
   - Enclave
+  - EnclaveRoleAll
+  - EnclaveRoleScientist
   - EnclaveScience
 
 - type: accessGroup
   id: EnclaveHeadScientist
   tags:
   - Enclave
+  - EnclaveRoleAll
+  - EnclaveRoleScientist
+  - EnclaveRoleHeadScientist
   - EnclaveNCO
   - EnclaveOfficer
   - EnclaveScience

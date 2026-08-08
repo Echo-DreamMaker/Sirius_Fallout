@@ -63,7 +63,7 @@
   components:
   - type: Gun
     cameraRecoilScalar: 0 #no recoil
-    fireRate: 20
+    fireRate: 1
     selectedMode: FullAuto
     availableModes:
     - FullAuto

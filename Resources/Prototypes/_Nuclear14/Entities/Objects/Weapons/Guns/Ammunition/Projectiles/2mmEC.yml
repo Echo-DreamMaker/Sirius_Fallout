@@ -10,7 +10,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 42
+        Piercing: 32
   # sirius Add - 2mmEC gauss round; extreme range caliber — minimal falloff
   - type: BallisticDamageFalloff
     falloffStartTiles: 12.0

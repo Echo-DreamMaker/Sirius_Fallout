@@ -659,17 +659,17 @@ public sealed class NcContractCard : PanelContainer
     // Difficulty
     // =====================
 
-    // #Misfits Change — updated from 3-tier (Easy/Medium/Hard) to 6-tier (Bronze/Iron/Silver/Gold/Mithril/Diamond)
+    // #Misfits Change — updated from 3-tier (Easy/Medium/Hard) to 6-tier (Road Kill/Lazy Lizard/Junktown Rat/Hub Mercenary/Bunker Buster/Wasteland Legend)
     private Color DifficultyColor(string diff, bool completed)
     {
         var baseColor = diff switch
         {
-            "Bronze"  => Color.FromHex("#CD7F32"),
-            "Iron"    => Color.FromHex("#8C8C8C"),
-            "Silver"  => Color.FromHex("#C0C0C0"),
-            "Gold"    => Color.FromHex("#FFD700"),
-            "Mithril" => Color.FromHex("#4FC3E8"),
-            "Diamond" => Color.FromHex("#B9F2FF"),
+            "Road Kill"  => Color.FromHex("#CD7F32"),
+            "Lazy Lizard"    => Color.FromHex("#8C8C8C"),
+            "Junktown Rat"  => Color.FromHex("#C0C0C0"),
+            "Hub Mercenary"    => Color.FromHex("#FFD700"),
+            "Bunker Buster" => Color.FromHex("#4FC3E8"),
+            "Wasteland Legend" => Color.FromHex("#B9F2FF"),
             // Legacy fallbacks so old data doesn't break
             "Easy"   => Color.FromHex("#4CAF50"),
             "Medium" => Color.FromHex("#FFC107"),
@@ -684,12 +684,12 @@ public sealed class NcContractCard : PanelContainer
     private string DifficultyName(string diff) =>
         diff switch
         {
-            "Bronze"  => Loc.GetString("nc-store-difficulty-bronze"),
-            "Iron"    => Loc.GetString("nc-store-difficulty-iron"),
-            "Silver"  => Loc.GetString("nc-store-difficulty-silver"),
-            "Gold"    => Loc.GetString("nc-store-difficulty-gold"),
-            "Mithril" => Loc.GetString("nc-store-difficulty-mithril"),
-            "Diamond" => Loc.GetString("nc-store-difficulty-diamond"),
+            "Road Kill"  => Loc.GetString("nc-store-difficulty-road-kill"),
+            "Lazy Lizard"    => Loc.GetString("nc-store-difficulty-lazy-lizard"),
+            "Junktown Rat"  => Loc.GetString("nc-store-difficulty-junktown-rat"),
+            "Hub Mercenary"    => Loc.GetString("nc-store-difficulty-hub-mercenary"),
+            "Bunker Buster" => Loc.GetString("nc-store-difficulty-bunker-buster"),
+            "Wasteland Legend" => Loc.GetString("nc-store-difficulty-wasteland-legend"),
             // Legacy fallbacks
             "Easy"   => Loc.GetString("nc-store-difficulty-easy"),
             "Medium" => Loc.GetString("nc-store-difficulty-medium"),

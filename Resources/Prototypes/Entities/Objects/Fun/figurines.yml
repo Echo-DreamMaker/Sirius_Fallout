@@ -435,7 +435,7 @@
   parent: BaseFigurine
   id: ToyGriffin
   name: griffin figure
-  description: An action figure modeled after 'The Griffin', criminal mastermind.
+  description: An action figure modeled after 'The Griffin', criminal mastermind. The bombs dropped before the first comics could release.
   components:
   - type: Sprite
     state: griffinprize
@@ -444,7 +444,7 @@
   parent: BaseFigurine
   id: ToyOwlman
   name: owl figure
-  description: An action figure modeled after 'The Owl', defender of justice.
+  description: An action figure modeled after 'The Owl', defender of justice. The bombs dropped before the first comics could release.
   components:
   - type: Sprite
     state: owlprize

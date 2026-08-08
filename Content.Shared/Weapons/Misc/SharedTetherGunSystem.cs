@@ -243,7 +243,8 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
         Dirty(gunUid, component);
     }
 
-    protected virtual void StopTether(EntityUid gunUid, BaseForceGunComponent component, bool land = true, bool transfer = false)
+    // Misfits: public so genetics telekinesis can release its invisible tether.
+    public virtual void StopTether(EntityUid gunUid, BaseForceGunComponent component, bool land = true, bool transfer = false)
     {
         if (component.Tethered == null)
             return;

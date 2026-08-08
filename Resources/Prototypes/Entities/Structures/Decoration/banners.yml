@@ -30,8 +30,8 @@
 - type: entity
   id: BannerNanotrasen
   parent: BannerBase
-  name: nanotrasen banner
-  description: A banner displaying the Nanotrasen logo. It looks rather cheap.
+  name: forgotten corporate banner
+  description: A banner displaying an old corporate logo. It looks rather cheap.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

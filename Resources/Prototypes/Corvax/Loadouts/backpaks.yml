@@ -242,3 +242,53 @@
     - N14ClothingBackpackRadioNCR
   functions:
   - !type:LoadoutFiledStorage
+
+- type: loadout
+  id: MisfitsLoadoutLegionBackpackCapeRed
+  category: Backpacks
+  cost: 0
+  exclusive: true
+  customName: false
+  customDescription: false
+  requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - CaesarLegion
+    - !type:CharacterItemGroupRequirement
+      group: N14LodaoutBags
+    - !type:CharacterJobRequirement
+      jobs:
+      - CaesarLegionLegate
+      - CaesarLegionCenturion
+      - CaesarLegionVeteranDecanus
+      - CaesarLegionPrimeDecanus
+      - CaesarLegionVexillarius
+  items:
+    - M14LegionBackpackCapeRed
+  functions:
+  - !type:LoadoutFiledStorage
+
+- type: loadout
+  id: MisfitsLoadoutLegionBackpackCapeBlack
+  category: Backpacks
+  cost: 0
+  exclusive: true
+  customName: false
+  customDescription: false
+  requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+      - CaesarLegion
+    - !type:CharacterItemGroupRequirement
+      group: N14LodaoutBags
+    - !type:CharacterJobRequirement
+      jobs:
+      - CaesarLegionLegate
+      - CaesarLegionCenturion
+      - CaesarLegionVeteranDecanus
+      - CaesarLegionPrimeDecanus
+      - CaesarLegionVexillarius
+  items:
+    - M14LegionBackpackCapeBlack
+  functions:
+  - !type:LoadoutFiledStorage

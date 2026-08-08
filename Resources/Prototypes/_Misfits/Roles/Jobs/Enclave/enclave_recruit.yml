@@ -1,7 +1,6 @@
-# #Misfits Add - EnclaveRecruit: hidden job/playtime tracker for per-round recruitment.
-# Players recruited by an Enclave member gain this tracker so their playtime
-# counts toward Enclave department time requirements. The tracker resets on
-# death or round restart.
+# #Misfits Add - EnclaveRecruit: hidden job assigned by per-round recruitment.
+# Accepted players receive this literal job, so its normal playtime tracker
+# counts toward Enclave department time requirements.
 
 - type: job
   id: EnclaveRecruit
@@ -12,6 +11,7 @@
   description: job-description-enclave-recruit
   playTimeTracker: EnclaveRecruit
   supervisors: job-supervisors-none
+  alwaysUseSpawner: true
 
 - type: playTimeTracker
   id: EnclaveRecruit

@@ -1318,7 +1318,7 @@
   id: N14LoadoutWeaponSniperM72GaussRifleSirius
   category: Energy
   exclusive: true
-  cost: 5
+  cost: 10
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns

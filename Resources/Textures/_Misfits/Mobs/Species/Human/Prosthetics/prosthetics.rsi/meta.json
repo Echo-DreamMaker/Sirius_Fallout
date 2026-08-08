@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites created by beepbopbopedy",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    { "name": "left_foot_simple", "directions": 4 },
+    { "name": "left_foot_vaulttec", "directions": 4 },
+    { "name": "left_hand_ncr", "directions": 4 },
+    { "name": "left_hand_simple", "directions": 4 },
+    { "name": "left_hand_vaulttec", "directions": 4 },
+    { "name": "right_foot_simple", "directions": 4 },
+    { "name": "right_foot_vaulttec", "directions": 4 },
+    { "name": "right_hand_ncr", "directions": 4 },
+    { "name": "right_hand_simple", "directions": 4 },
+    { "name": "right_hand_vaulttec", "directions": 4 }
+  ]
+}

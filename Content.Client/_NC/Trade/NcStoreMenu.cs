@@ -36,7 +36,7 @@ public sealed partial class NcStoreMenu : FancyWindow
     private bool _hasContractsTab;
     private bool _hasSellTab;
     // #Misfits Add — tier progression state, updated via SetTierState before PopulateContracts
-    private HashSet<string> _playerUnlockedTiers = new() { "Bronze" };
+    private HashSet<string> _playerUnlockedTiers = new() { "Road Kill" };
     private List<TierRosterEntry> _roster = new();
     private List<ContractClientData>? _lastContracts;
     private string _search = string.Empty;
@@ -385,18 +385,18 @@ public sealed partial class NcStoreMenu : FancyWindow
 
         tierTabs.RemoveAllChildren();
 
-        // Ordered tier definitions (Bronze is always granted on first visit)
-        var tierOrder = new[] { "Bronze", "Iron", "Silver", "Gold", "Mithril", "Diamond" };
+        // Ordered tier definitions (Road Kill is always granted on first visit)
+        var tierOrder = new[] { "Road Kill", "Lazy Lizard", "Junktown Rat", "Hub Mercenary", "Bunker Buster", "Wasteland Legend" };
 
         // Tier accent colours
         static Color TierColor(string tier) => tier switch
         {
-            "Bronze"  => Color.FromHex("#CD7F32"),
-            "Iron"    => Color.FromHex("#8C8C8C"),
-            "Silver"  => Color.FromHex("#C0C0C0"),
-            "Gold"    => Color.FromHex("#FFD700"),
-            "Mithril" => Color.FromHex("#4FC3E8"),
-            "Diamond" => Color.FromHex("#B9F2FF"),
+            "Road Kill"  => Color.FromHex("#CD7F32"),
+            "Lazy Lizard"    => Color.FromHex("#8C8C8C"),
+            "Junktown Rat"  => Color.FromHex("#C0C0C0"),
+            "Hub Mercenary"    => Color.FromHex("#FFD700"),
+            "Bunker Buster" => Color.FromHex("#4FC3E8"),
+            "Wasteland Legend" => Color.FromHex("#B9F2FF"),
             _         => Color.FromHex("#9E9E9E")
         };
 
@@ -491,8 +491,8 @@ public sealed partial class NcStoreMenu : FancyWindow
             // Sort by tier rank descending, then by name
             var tierRank = new Dictionary<string, int>
             {
-                { "Bronze", 0 }, { "Iron", 1 }, { "Silver", 2 },
-                { "Gold", 3 }, { "Mithril", 4 }, { "Diamond", 5 }
+                { "Road Kill", 0 }, { "Lazy Lizard", 1 }, { "Junktown Rat", 2 },
+                { "Hub Mercenary", 3 }, { "Bunker Buster", 4 }, { "Wasteland Legend", 5 }
             };
 
             foreach (var entry in _roster

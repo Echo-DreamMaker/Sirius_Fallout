@@ -277,7 +277,7 @@
     id: N14ClothingOuterPainspike
     weight: 2
 
-# Misfits Add — 6-tier reward pools (Bronze/Iron/Silver/Gold/Mithril/Diamond)
+# Misfits Add — 6-tier reward pools (Road Kill/Lazy Lizard/Junktown Rat/Hub Mercenary/Bunker Buster/Wasteland Legend)
 # The four original pools above are preserved for history; these replace them functionally.
 
 - type: ncContractRewardPool

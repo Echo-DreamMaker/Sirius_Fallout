@@ -1,0 +1,77 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseMutation
+  id: MutationTongueSpike
+  name: Tongue Spike
+  description: Allows a creature to voluntarily shoot their tongue out as a deadly weapon.
+  components:
+  - type: Mutation
+    instability: 5
+    conflicts:
+    - MutationChemSpike
+  - type: ActionMutation
+    action: ActionMutationTongueSpike
+
+- type: entity
+  parent: BaseMutationAction
+  id: ActionMutationTongueSpike
+  name: Launch spike
+  description: Shoot your tongue out in the direction you click, embedding it and dealing damage until they remove it.
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: _Misfits/Actions/mutations.rsi
+      state: spike
+    useDelay: 60 # matches the tongue regrow time - no spawn-shooting spikes
+    range: 10
+    event: !type:ShootOrganActionEvent
+  - type: ShootOrganAction
+    organ: Tongue
+    polymorph: TongueSpike
+    fallback: TongueSpike # bodies without tongue organs grow a fresh spike instead
+
+- type: entity
+  parent: MutationTongueSpike
+  id: MutationChemSpike
+  name: Chem Spike
+  description: Allows a creature to voluntarily shoot their tongue out as biomass, allowing a long range transfer of chemicals.
+  components:
+  - type: Mutation
+    instability: 10
+    conflicts: [] # uninherit
+  - type: RemovesMutation
+    removes:
+    - MutationTongueSpike
+  - type: ActionMutation
+    action: ActionMutationChemSpike
+  - type: ChemSpikeMutation
+    action: ActionMutationChemSpikeSend
+
+- type: entity
+  parent: ActionMutationTongueSpike
+  id: ActionMutationChemSpike
+  name: Launch chem spike
+  description: Shoot your tongue out in the direction you click, embedding it and dealing damage until they remove it. While the other person has the spike embedded, you can transfer your chemicals to them.
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: _Misfits/Actions/mutations.rsi
+      state: chemspike
+  - type: ShootOrganAction
+    polymorph: TongueSpikeChem
+    fallback: TongueSpikeChem # bodies without tongue organs grow a fresh spike instead
+
+# only added if the spike embeds in a mob
+- type: entity
+  parent: BaseMutationAction
+  id: ActionMutationChemSpikeSend
+  name: Transfer Chemicals
+  description: Send all of your reagents into whomever the chem spike is embedded in. One use.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Misfits/Actions/mutations.rsi
+      state: chemspike_swap
+    event: !type:ChemTransferActionEvent
+  - type: ChemTransferAction

@@ -133,6 +133,10 @@
     sprintModifier: 0.8
   - type: StaticPrice
     price: 850
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 4
 
 - type: entity
   name: MEC Gauss minigun
@@ -221,3 +225,7 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7.5
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 38

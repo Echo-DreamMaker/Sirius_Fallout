@@ -3,13 +3,13 @@
 
 # Flags
 - type: construction
-  name: US flag
+  name: Flag of the United States
   id: N14FlagWallUS
   graph: MisfitsFlagUS
   startNode: start
   targetNode: flagus
 # category: construction-category-decorations
-  description: A flag of the United States.
+  description: The banner of the United States, an empire that fell over two centuries ago. Even with its dissolution in the Great War, many still believe the nation stands so long as its people believe in it.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor_flags.rsi
@@ -18,13 +18,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Chinese flag
+  name: Flag of the People's Republic of China
   id: N14FlagWallChina
   graph: MisfitsFlagCH
   startNode: start
   targetNode: flagch
 # category: construction-category-decorations
-  description: A Chinese flag.
+  description: The banner of the People's Republic of China, it existed over a century, inheritor of an empire of 3500 years, but its ultimate fate is a mystery in this wasteland.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor_flags.rsi
@@ -33,13 +33,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: California flag
+  name: Flag of the State of California
   id: N14FlagWallCalifornia
   graph: MisfitsFlagCI
   startNode: start
   targetNode: flagci
 # category: construction-category-decorations
-  description: A flag of California.
+  description: The banner of the State of California, home of both the Brotherhood of Steel and New California Republic's foundation. It is regarded by many as the state where America began to truly rebuild.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor_flags.rsi
@@ -48,13 +48,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Arizona flag
+  name: Flag of the State of Arizona
   id: N14FlagWallArizona
   graph: MisfitsFlagAZ
   startNode: start
   targetNode: flagaz
 # category: construction-category-decorations
-  description: A flag of Arizona.
+  description: The banner of the State of Arizona, which is now the home of Caesar's Legion. Once a hive of lawless violence, the Legion's structured violence has now made it a safe place for civilians to live.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor_flags.rsi
@@ -63,13 +63,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Enclave flag
+  name: Flag of the Enclave
   id: N14FlagWallEnclave
   graph: MisfitsFlagEN
   startNode: start
   targetNode: flagen
 # category: construction-category-decorations
-  description: An Enclave flag.
+  description: The banner of the Enclave, the descendents of America's elite who claim to be the true inheritors of the United States federal government.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor_flags.rsi
@@ -78,13 +78,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: NCR flag
+  name: Flag of the New California Republic
   id: N14FlagWallNCR
   graph: MisfitsFlagNCR
   startNode: start
   targetNode: flagncr
 # category: construction-category-decorations
-  description: An NCR flag.
+  description: The banner of the New California Republic, a nation that despite enemies within and without, has done its best to provide comfort and equality to its citizens.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor_flags.rsi
@@ -93,13 +93,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Legion flag
+  name: Flag of Caesar's Legion
   id: N14FlagWallLegion
   graph: MisfitsFlagLE
   startNode: start
   targetNode: flagle
 # category: construction-category-decorations
-  description: A Legion flag.
+  description: The banner of Caesar's Legion, a slave army under the mighty warlord Caesar, whose monumental ego and sharp wit have seen the lawless east fall in line under his iron boot.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor_flags.rsi
@@ -108,13 +108,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Rangers flag
+  name: Flag of the NCR Rangers
   id: N14FlagWallRangers
   graph: MisfitsFlagRG
   startNode: start
   targetNode: flagrg
 # category: construction-category-decorations
-  description: A Rangers flag.
+  description: The banner of the New California Republic Rangers, an elite military division in the New California Republic Army. Founded by the legendary Seth of Shady Sands, if you need a problem handled, call the Rangers.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor_flags.rsi
@@ -123,13 +123,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Brotherhood of Steel flag
+  name: Flag of the Brotherhood of Steel
   id: N14FlagWallWesternBrotherhood
   graph: MisfitsFlagBOSW
   startNode: start
   targetNode: flagbosw
 # category: construction-category-decorations
-  description: A Brotherhood of Steel flag.
+  description: The banner of the Brotherhood of Steel, descendents of the United States military who now attempt to confiscate and safeguard dangerous technology to prevent another apocalypse.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor2.rsi
@@ -153,13 +153,13 @@
 #  placementMode: SnapgridCenter
 
 - type: construction
-  name: Colorado flag
+  name: Flag of the State of Colorado
   id: N14FlagWallColorado
   graph: MisfitsFlagCL
   startNode: start
   targetNode: flagcl
 # category: construction-category-decorations
-  description: A flag for the state of Colorado.
+  description: The banner of the State of Colorado. It served as a testing ground before the Great War for cyberdog police units, which saw heavy use when the Food Riots began in earnest.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor_flags.rsi
@@ -168,13 +168,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Denver flag
+  name: Flag of the City of Denver
   id: N14FlagWallDenver
   graph: MisfitsFlagDE
   startNode: start
   targetNode: flagde
 # category: construction-category-decorations
-  description: A flag for the capital of Colorado.
+  description: The banner of the city of Denver, Colorado. Home of the Hangdogs tribe, its stiff resistance nearly caused Caesar's Legion to break, until Legate Lanius forced the tribe's surrender by burning their dogs alive.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor_flags.rsi
@@ -183,13 +183,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Children of Atom flag
+  name: Flag of the Children of Atom
   id: MisfitsBannerChildrenOfAtom
   graph: MisfitsFlagSmallCoA
   startNode: start
   targetNode: flagbcoas
 # category: construction-category-decorations
-  description: A banner bearing the sacred symbol of the Children of Atom. It radiates faint warmth to true believers.
+  description: The banner of the Children of Atom cult. They believe that radiation is a gift that will help its followers ascend, as it transforms the land and the life within it.
   hide: false
   icon:
     sprite: _Misfits/Structures/Decoration/coa_banner_small.rsi
@@ -198,12 +198,12 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Bazaar flag
+  name: Flag of the Town of Bazaar
   id: NCFlagWallBazaar
   graph: DecorationFlagBazaar
   startNode: start
   targetNode: FlagBazaar
-  description: You notice something interesting with this bird...
+  description: The banner of the Town of Bazaar, based in the southern remains of Wendover, Utah. When the bombs first dropped, Wendover split into three survivor communities, the Locusts, Vultures and Willowers. At first a camp of scavengers, the Vulture Tribe eventually civilized into a fully fledged trading outpost of towners. They built the Bazaar out of salvage they gathered and repaired over the first twenty years.
 #  category: construction-category-furniture
   objectType: Structure
   placementMode: SnapgridCenter
@@ -214,12 +214,12 @@
     state: flag_bazar
 
 - type: construction
-  name: Brahmin flag
+  name: Flag of the Caravan Network
   id: NCFlagWallTown
   graph: DecorationFlagTown
   startNode: start
   targetNode: FlagTown
-  description: The brahmin on this flag doesn't look very alive...
+  description: The banner of the Caravan Network, an organization of contractors, suppliers, merchants and their bodyguards that stretch from the West Coast to the Midwest. They maintain neutrality and will gladly take anyone's money.
 #  category: construction-category-furniture
   objectType: Structure
   placementMode: SnapgridCenter
@@ -230,12 +230,12 @@
     state: flag_town
 
 - type: construction
-  name: Mexico flag
+  name: Flag of Mexico
   id: NCFlagWallMexico
   graph: DecorationFlagMexico
   startNode: start
   targetNode: FlagMexico
-  description: Avocados from Mexico!
+  description: The banner of Mexico, it was invaded and occupied by the United States military during the Resource Wars, and fell into total anarchy after the Great War began and ended.
 #  category: construction-category-furniture
   objectType: Structure
   placementMode: SnapgridCenter
@@ -248,13 +248,13 @@
 # Banners aka big flags
 
 - type: construction
-  name: Children of Atom flag
+  name: Flag of the Children of Atom
   id: MisfitsDecorationFlagChildrenOfAtom
   graph: MisfitsFlagCoA
   startNode: start
   targetNode: flagcoa
 # category: construction-category-decorations
-  description: A tall flag bearing the symbol of the Children of Atom. It flutters solemnly in glow-tainted breezes.
+  description: The banner of the Children of Atom, it proudly stands against a world that would refuse the teachings of its acolytes. Where this flag is planted, so too will come the gift of Atom's radiant glow.
   hide: false
   icon:
     sprite: _Misfits/Structures/Decoration/coa_banner_big.rsi
@@ -263,13 +263,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Oasis flag
+  name: Flag of the Oasis Tribe
   id: N14DecorationFlagOasis
   graph: DecorationFlagOasis
   startNode: start
   targetNode: FlagOasis
 # category: construction-category-decorations
-  description: A flag depicting a stylised pink flower on a green background. It's the symbol of the town of Oasis.  
+  description: The banner of the Oasis Tribe, originating in the remains of Pahrump, Nevada. The tribe was incorporated into the New California Republic, yet its members still remember their roots as they settle new lands.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Decoration/flags.rsi
@@ -293,13 +293,13 @@
 #  placementMode: SnapgridCenter
 
 - type: construction
-  name: Enclave flag
+  name: Flag of the Enclave
   id: N14DecorationFlagEnclave
   graph: DecorationFlagEnclave
   startNode: start
   targetNode: FlagEnclave
 # category: construction-category-decorations
-  description: An Enclave flag atop a bearer.
+  description: The banner of the Enclave, the descendents of the business and government elite of the United States, who believe it is their manifest destiny to rebuild and rule the wasteland as their birthright.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Decoration/flags.rsi
@@ -308,13 +308,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: High Valley Hills flag
+  name: Flag of High Valley Hills
   id: N14DecorationFlagHighvalleyhills
   graph: DecorationFlagHighvalleyhills
   startNode: start
   targetNode: FlagHighvalleyhills
 # category: construction-category-decorations
-  description: A flag with two white stripes, blue border and a red centre with a white Vault-Tec logo, turned on its side and stretched out.
+  description: The banner of High Valley Hills, a settlement that cropped up around Vault City in the New California Republic from those who were not permitted entry; it is a mix of a slum and work camp for the desperate.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Decoration/flags.rsi
@@ -323,13 +323,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Vault-Tec City Coalition flag
+  name: Flag of Vault City
   id: N14DecorationFlagVaultTecCityCoalition
   graph: DecorationFlagVaultTecCityCoalition
   startNode: start
   targetNode: FlagVaultTecCityCoalition
 # category: construction-category-decorations
-  description: A Vault-Tec City Coalition flag atop a bearer.
+  description: The banner of Vault City, a major settlement that evolved from Vault 8 in what remains of the west coast of the United States. They are a notable exporter of medical technology.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Decoration/flags.rsi
@@ -338,13 +338,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Khans flag
+  name: Flag of the Great Khans Tribe
   id: N14DecorationFlagKhans
   graph: DecorationFlagKhans
   startNode: start
   targetNode: FlagKhans
 # category: construction-category-decorations
-  description: A flag worn and weathered from a long cherished history. A decorated smiling skull smiles mockingly upon those who challenge it.
+  description: The banner of the Great Khans Tribe, weathered and worn from a long cherished history of raiding the helpless. The decorated skull smiles with mockery at those who would challenge it.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Decoration/flags.rsi
@@ -353,13 +353,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Church flag
+  name: Flag of the Church of Renewal
   id: N14DecorationFlagChurch
   graph: DecorationFlagChurch
   startNode: start
   targetNode: FlagChurch
 # category: construction-category-decorations
-  description: A blood red flag featuring a symbol associated with nuclear radiation.
+  description: The banner of the Church of Renewal, a cult that believes the nuclear apocalypse was a gift of creation, and that forced evolution of humanity is not only our one path to survival, but our sacred destiny.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Decoration/flags.rsi
@@ -368,13 +368,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Willowers banner
+  name: Flag of the Willowers Tribe
   id: MisfitsDecorationFlagTribe
   graph: MisfitsFlagTribe
   startNode: start
   targetNode: FlagTribe
   # category: construction-category-decorations
-  description: A banner depicting the tree of life.
+  description: The banner of the Willowers Tribe, a local settlement who worship the 'tree of life' illustrated on this flag. When the bombs first dropped, Wendover split into three survivor communities, the Locusts, Vultures and Willowers. The Willowers harvests and hunts were responsible for keeping all three fed in the first few years.
   hide: false
   icon:
     sprite: _Misfits/Structures/Decoration/tribal_banner.rsi
@@ -390,7 +390,7 @@
   graph: WoodenSign
   startNode: start
   targetNode: sign_left
-  description: He's pointing somewhere. 
+  description: He's pointing somewhere.
   hide: false
   icon:
     sprite: Objects/Decoration/mines.rsi
@@ -403,7 +403,7 @@
   graph: WoodenSign
   startNode: start
   targetNode: sign_right
-  description: He's pointing somewhere, but this time on the right. 
+  description: He's pointing somewhere, but this time on the right.
   hide: false
   icon:
     sprite: Objects/Decoration/mines.rsi
@@ -432,7 +432,7 @@
   graph: WoodenSupports
   startNode: start
   targetNode: support_beams
-  description: Two sturdy wooden support beams. 
+  description: Two sturdy wooden support beams.
   hide: false
   icon:
     sprite: Objects/Decoration/mines.rsi

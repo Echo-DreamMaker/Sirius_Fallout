@@ -268,3 +268,103 @@
     sprite: _Nuclear14/Objects/Weapons/Melee/tribal_sword.rsi
   - type: StaticPrice
     price: 50
+
+#Sirius add:
+- type: entity
+  name: scrap katana
+  parent: N14Machete
+  id: N14ScrapKatanaSirius
+  description: Katana from scrap
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Melee/scrapkatana.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/scrapkatana.rsi
+    state: icon
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 35
+        Piercing: 10
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 34
+        Piercing: 6
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Melee/scrapkatana.rsi
+  - type: StaticPrice
+    price: 30
+
+- type: entity
+  name: Bumper Sword
+  parent: Claymore
+  id: N14BumperSwordSirius
+  description: A bigger, heavier, and more destructive sword.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/bumper_sword.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 15
+        Slash: 15
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 25
+        Slash: 75
+        Structural: 35
+  - type: MeleeThrowOnHit
+    speed: 10
+    lifetime: 0.025
+  - type: Item
+    size: Large
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Melee/bumper_sword.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  name: scrap sword
+  parent: N14Machete
+  id: N14ScrapSwordSirius
+  description: A tribal machete, made from the materials given by nature, this long blade has the perfect balance between tool and weapon.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Melee/scrap_sword.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/scrap_sword.rsi
+    state: icon
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 35
+        Piercing: 10
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 35
+        Piercing: 7
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Melee/scrap_sword.rsi
+  - type: StaticPrice
+    price: 30

@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 40
+        Piercing: 30
         Blunt: 20
   # Misfits Add - .50 BMG anti-materiel; extreme range caliber — minimal falloff
   - type: BallisticDamageFalloff
@@ -26,7 +26,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 60 #sirius change
+        Piercing: 50 #sirius change
   # Misfits Add - .50 HEIAP; same caliber as AP, same minimal falloff on direct hit damage
   - type: BallisticDamageFalloff
     falloffStartTiles: 12.0

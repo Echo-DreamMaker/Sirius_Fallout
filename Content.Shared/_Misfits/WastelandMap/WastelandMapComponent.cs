@@ -25,6 +25,7 @@ public enum WastelandMapTrackedBlipKind : byte
     Knight,
     Scribe,
     Squire,
+    Willower, // #Misfits Add - Willower identification item marker
     // #Misfits Add - Legion rank blip kinds for the Centurion tactical computer
     LegionCenturion,  // Centurion & Legate — gold star marker
     LegionDecanus,    // Decanus ranks — red diamond
@@ -57,6 +58,7 @@ public enum WastelandMapTacticalFeedKind : byte
     Legion, // #Misfits Add - Legion faction tactical feed for Centurion's terminal
     // #Misfits Add - Followers of the Apocalypse feed: shows all dead player bodies
     Followers,
+    Tribe, // #Misfits Add - Willower pendant tactical feed
 }
 
 [Serializable, NetSerializable]
@@ -200,6 +202,10 @@ public sealed partial class WastelandMapComponent : Component
     /// </summary>
     [DataField]
     public WastelandMapTacticalFeedKind TacticalFeed;
+
+    // #Misfits Add - optional leadership-only Tree map activation.
+    [DataField]
+    public HashSet<string>? ActivatorJobs;
 
     /// <summary>
     /// If true, the UI hides the annotation toolbar and uses a smaller HUD-style layout.

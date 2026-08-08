@@ -1,0 +1,57 @@
+- type: job
+  id: VaultSalvageSpecialist
+  weight: 40
+  hideWithoutJobWhitelist: false # #Misfits Tweak - no whitelist gate
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - always visible
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change - open to all
+  name: job-name-vault-salvage-specialist
+  description: job-description-vault-salvage-specialist
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  setPreference: true
+  overrideConsoleVisibility: true
+  canBeAntag: false
+  overwatchCategory: OverwatchGeneral
+  playTimeTracker: VaultSalvageSpecialist
+  startingGear: VaultSalvageSpecialistGear
+  alwaysUseSpawner: true
+  icon: "JobIconVaultEngineer"
+  supervisors: job-supervisors-vault
+  access:
+  - VaultDweller
+  - VaultSalvage
+  - VaultEngineer # TODO: remove once VaultSalvage doors are mapped — stopgap so this role isn't locked out
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - Vault
+
+- type: startingGear
+  id: VaultSalvageSpecialistGear
+  equipment:
+    head: ClothingHeadHatHardhatYellow
+    jumpsuit: ClothingUniformMNKBlackOveralls
+    back: ClothingBackpackSatchelSalvage
+    shoes: N14ClothingBootsBlack
+    mask: ClothingMaskGasMiner
+    id: MisfitsVaultSalvagePDA
+    belt: N14ClothingBeltLeatherPouches
+    ears: N14ClothingHeadsetVaultDweller
+    gloves: ClothingHandsGlovesColorYellow
+  storage: # Forge-Change
+    back:
+    - N14Bandage
+    - N14Bandage
+    - N14Stimpak
+    - N14CurrencyPrewarMoney100
+    - Pickaxe
+    - GeigerCounter
+    - N14Machete
+    - VaultGuidePaper
+- type: playTimeTracker
+  id: VaultSalvageSpecialist

@@ -147,11 +147,13 @@
     - plastic_2
     - plastic_3
   - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/materials_new/plastic.rsi
     state: plastic_3
     layers:
     - state: plastic_3
       map: ["base"]
   - type: Item
+    sprite: _Nuclear14/Objects/Misc/materials_new/plastic.rsi
     heldPrefix: plastic
   - type: Appearance
   - type: Extractable

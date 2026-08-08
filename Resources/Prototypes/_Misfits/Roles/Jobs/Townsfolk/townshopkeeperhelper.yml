@@ -20,6 +20,7 @@
   startingGear: TownShopkeeperHelperGear
   icon: "JobIconTownShopKeeper"
   supervisors: job-supervisors-townsfolk
+  alwaysUseSpawner: true
   access:
   - TownieShopkeeper
   - TownsPerson

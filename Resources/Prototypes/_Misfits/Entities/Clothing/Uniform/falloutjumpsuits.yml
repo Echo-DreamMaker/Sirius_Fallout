@@ -1,0 +1,88 @@
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformADPUniform
+  name: highway patrol uniform
+  description: An old tan police uniform with tight-fitting breeches and a gold badge with the logo of the 'Utah State Troopers'.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/ahpuniform.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/ahpuniform.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformMarlowdudsUniform
+  name: marlow gang attire
+  description: A washed out crimson overshirt with blue neckerchief and suspended black slacks. The attire is synonymous with the colors of the criminal Marlow gang.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/marlowduds.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/marlowduds.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformIkedudsUniform
+  name: gunfighter's gang attire
+  description: A washed out crimson overshirt with blue neckerchief and raw buckskin trousers. The attire is synonymous with the colors of the criminal Marlow gang.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/ikeduds.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/ikeduds.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformHelendudsUniform
+  name: gambler's gang attire
+  description: A worn black dress shirt under a deep crimson vest with blue neckerchief and suspended black slacks. The attire is synonymous with the colors of the criminal Marlow gang.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/helenduds.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/helenduds.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformMasondudsUniform
+  name: vagabond's gang attire
+  description: A pair of worn buckskin trousers held up by a heavy pistol belt. The attire is synonymous with the colors of the criminal Marlow gang.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/masonduds.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/masonduds.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformSchlimmUniform
+  name: foreign gentleman's attire
+  description: A red paisley vest and silk cravat paired with beige slacks. These clothes are strangely antiquated for their time place.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/schlimmsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/schlimmsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformKhansUniform
+  name: great khan uniform
+  description: Clothing marking the wearer as one of the the Great Khans. Most common are denim pants.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/khanpants.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/khanpants.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformKhansUniformShorts
+  name: great khan jorts
+  description: Clothing marking the wearer as one of the the Great Khans. Most common are denim pants, but jorts is a acceptable alternative.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/khanshorts.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/khanshorts.rsi
+

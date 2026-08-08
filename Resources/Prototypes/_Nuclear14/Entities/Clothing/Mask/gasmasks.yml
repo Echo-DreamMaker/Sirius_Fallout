@@ -145,6 +145,13 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
 
 - type: entity
   parent: ClothingMaskGasCombat
@@ -244,7 +251,7 @@
 - type: entity
   parent: ClothingMaskGas
   id: ClothingMaskGasRangerBroken
-  name: broken riot gas mask
+  name: old riot gas mask
   description: An old riot gas mask, out of use around the time of the war.
   components:
   - type: Item
@@ -268,7 +275,7 @@
 
 - type: entity
   parent: ClothingMaskGasCombat
-  id: ClothingMaskGasRangerElite
+  id: ClothingMaskGasRangerEliteold
   name: elite riot gas mask
   description: An old gas mask seen in the Divide, repurposed for higher-ranking Rangers.
   components:
@@ -287,6 +294,28 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+
+- type: entity
+  parent: ClothingMaskGasCombat
+  id: ClothingMaskGasRangerElite
+  name: elite riot gas mask
+  description: An old gas mask seen in the Divide, repurposed for higher-ranking Rangers.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/rangervetv3m.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Mask/Gasmask/rangervetv3m.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9
 
 - type: entity
   parent: ClothingMaskGasCombat

@@ -16,12 +16,12 @@ public sealed class ContractTierSystem : EntitySystem
     // Defined in Resources/Prototypes/_Misfits/Trade/ContractBadges.yml.
     private static readonly Dictionary<string, string> TierBadgeProtos = new()
     {
-        { "Bronze", "N14ContractBadgeBronze" },
-        { "Iron",   "N14ContractBadgeIron"   },
-        { "Silver", "N14ContractBadgeSilver"  },
-        { "Gold",   "N14ContractBadgeGold"    },
-        { "Mithril","N14ContractBadgeMithril" },
-        { "Diamond","N14ContractBadgeDiamond" },
+        { "Road Kill", "N14ContractBadgeRoadKill" },
+        { "Lazy Lizard",   "N14ContractBadgeLazyLizard"   },
+        { "Junktown Rat", "N14ContractBadgeJunktownRat"  },
+        { "Hub Mercenary",   "N14ContractBadgeHubMercenary"    },
+        { "Bunker Buster","N14ContractBadgeBunkerBuster" },
+        { "Wasteland Legend","N14ContractBadgeWastelandLegend" },
     };
 
     public override void Initialize()
@@ -32,7 +32,7 @@ public sealed class ContractTierSystem : EntitySystem
     }
 
     // Fired when a player first opens a tier-enabled vendor this round.
-    // Initialises their NcTierProgressComponent, unlocks Bronze, and awards the entry badge.
+    // Initialises their NcTierProgressComponent, unlocks Road Kill, and awards the entry badge.
     private void OnFirstAccess(MisfitsContractFirstAccessEvent ev)
     {
         var user = ev.User;
@@ -43,9 +43,9 @@ public sealed class ContractTierSystem : EntitySystem
 
         if (!alreadyHad)
         {
-            // Very first access — unlock Bronze and hand them their entry badge.
-            prog.UnlockedTiers.Add("Bronze");
-            SpawnBadge("Bronze", user);
+            // Very first access — unlock Road Kill and hand them their entry badge.
+            prog.UnlockedTiers.Add("Road Kill");
+            SpawnBadge("Road Kill", user);
             _popups.PopupEntity(Loc.GetString("nc-contract-tier-first-access"), user, user);
         }
 
@@ -113,7 +113,7 @@ public sealed class ContractTierSystem : EntitySystem
         var name = MetaData(user).EntityName;
 
         // Determine the highest unlocked tier.
-        var highestTier = "Bronze";
+        var highestTier = "Road Kill";
         foreach (var tier in NcTierProgressComponent.AllTiers)
         {
             if (prog.UnlockedTiers.Contains(tier))

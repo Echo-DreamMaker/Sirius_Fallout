@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseMutation
+  id: MutationChameleon
+  name: Chameleon
+  description: A genome that lets the holder turn their skin transparent at will, though keeping it up strains the body.
+  components:
+  - type: Mutation
+    instability: 35
+    difficulty: 16
+    rarity: Rare
+  - type: ActionMutation
+    action: ActionMutationChameleon
+
+- type: entity
+  parent: BaseMutationAction
+  id: ActionMutationChameleon
+  name: Chameleon Skin
+  description: Toggle your transparent skin. Staying invisible slowly poisons your body, and the skin needs time to recover after use.
+  components:
+  - type: InstantAction
+    # 2s so it can't be spammed mid-fade. the real recharge cooldown gets set
+    # by the system when the invisibility is turned off
+    useDelay: 2
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Devices/chameleon_projector.rsi
+      state: icon
+    event: !type:ChameleonInvisibilityActionEvent
+  - type: ChameleonInvisibilityAction

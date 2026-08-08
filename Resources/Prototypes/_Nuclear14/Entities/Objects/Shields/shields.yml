@@ -1,3 +1,4 @@
+# Various Sirius changes and additionals
 - type: entity
   name: base shield
   parent: BaseItem
@@ -105,31 +106,31 @@
     - type: Blocking
       passiveBlockModifier:
         coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.9 # Forge-Change
-          Heat: 0.85
-      activeBlockModifier:
-        coefficients:
           Blunt: 0.8
           Slash: 0.8
-          Piercing: 0.85 # Forge-Change
+          Piercing: 0.85
           Heat: 0.8
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.75
+          Slash: 0.75
+          Piercing: 0.8
+          Heat: 0.70
         flatReductions:
-          Blunt: 0.5 # Forge-Change
-          Slash: 0.5 # Forge-Change
-          Piercing: 0.5 # Forge-Change
-          Heat: 1 # Forge-Change
+          Blunt: 1
+          Slash: 1
+          Piercing: 1
+          Heat: 2
     - type: Reflect # # Made reflect to 20 because the shield is insane
       reflectProb: 0.20
       spread: 150
     - type: ClothingSpeedModifier
-      walkModifier: 0.85 # Forge-Change
-      sprintModifier: 0.85 # Forge-Change
+      walkModifier: 0.95
+      sprintModifier: 0.95
     - type: HeldSpeedModifier
       mirrorClothingModifier: false
-      walkModifier: 0.875 # Forge-Change
-      sprintModifier: 0.875 # Forge-Change
+      walkModifier: 0.85
+      sprintModifier: 0.85
     - type: Construction
       graph: N14HeavyShield
       node: start
@@ -149,21 +150,20 @@
     - type: Blocking
       passiveBlockModifier:
         coefficients:
-          Blunt: 0.9
-          Slash: 0.9
-          Piercing: 0.9
-          Heat: 0.9
-      activeBlockModifier:
-        coefficients:
           Blunt: 0.8
           Slash: 0.8
+          Piercing: 0.9
+          Heat: 0.95
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.7
+          Slash: 0.7
           Piercing: 0.8
-          Heat: 0.8
+          Heat: 0.85
         flatReductions:
-          Blunt: 1
-          Slash: 1
+          Blunt: 2
+          Slash: 2
           Piercing: 1
-          Heat: 1
     - type: Damageable
       damageContainer: Shield
     - type: Destructible
@@ -174,9 +174,92 @@
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+    - type: StaticPrice
+      price: 50
+
+- type: entity
+  parent: BaseItem
+  id: N14MirelurkShieldSirius
+  name: Mirelurk shield
+  description: A shield made from various pieces of mirelurks. Tastes like crabs.
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Shields/bolotnik.rsi
+      state: icon
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Shields/bolotnik.rsi
+      size: Large
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.75
+          Slash: 0.75
+          Piercing: 0.85
+          Heat: 0.90
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.5
+          Slash: 0.5
+          Piercing: 0.75
+          Heat: 0.8
+        flatReductions:
+          Blunt: 2
+          Slash: 2
+          Piercing: 2
+          Heat: 2
+    - type: Damageable
+      damageContainer: Shield
+    - type: Destructible
+      thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 40 #This is probably enough damage before it breaks
+            damage: 120
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: StaticPrice
+      price: 50
+
+- type: entity
+  parent: BaseItem
+  id: N14BOSShieldSirius
+  name: Brotherhood shield
+  description: A shield made from various pieces of Brotherhood. What?
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Shields/bos.rsi
+      state: icon
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Shields/bos.rsi
+      size: Large
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.85
+          Slash: 0.8
+          Piercing: 0.9
+          Heat: 0.8
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.7
+          Slash: 0.7
+          Piercing: 0.75
+          Heat: 0.6
+        flatReductions:
+          Blunt: 1
+          Slash: 2
+          Piercing: 1
+          Heat: 2
+    - type: Damageable
+      damageContainer: Shield
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 180
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
@@ -191,5 +274,271 @@
                 SheetGlass:
                   min: 2
                   max: 2
+    - type: StaticPrice
+      price: 100
+
+- type: entity
+  parent: N14BaseShield
+  id: N14doorShieldSirius
+  name: Heavy door shield
+  description: It's a door of "P" form?
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Shields/door.rsi
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Shields/door.rsi
+    - type: Clothing
+      sprite: _Nuclear14/Objects/Weapons/Shields/door.rsi
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 300
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                N14Scrap:
+                  min: 6
+                  max: 7
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.6
+          Slash: 0.6
+          Piercing: 0.75
+          Heat: 0.6
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.5
+          Slash: 0.5
+          Piercing: 0.7
+          Heat: 0.5
+        flatReductions:
+          Blunt: 4
+          Slash: 4
+          Piercing: 4
+          Heat: 8
+    - type: Reflect # # Made reflect to 40 because it's fuckin' steel door
+      reflectProb: 0.40
+      spread: 150
+    - type: ClothingSpeedModifier
+      walkModifier: 0.9
+      sprintModifier: 0.8
+    - type: HeldSpeedModifier
+      mirrorClothingModifier: false
+      walkModifier: 0.7
+      sprintModifier: 0.7
+
+- type: entity
+  parent: N14BaseShield
+  id: N14ShitShieldSirius
+  name: Shit shield
+  description: Shield made from shit.
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Shields/govno.rsi
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Shields/govno.rsi
+    - type: Clothing
+      sprite: _Nuclear14/Objects/Weapons/Shields/govno.rsi
+
+- type: entity
+  parent: N14BaseShield
+  id: N14ForgedShieldSirius
+  name: Forged shield
+  description: Heavy iron shield from medievil times
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Shields/kovanniy.rsi
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Shields/kovanniy.rsi
+    - type: Clothing
+      sprite: _Nuclear14/Objects/Weapons/Shields/kovanniy.rsi
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 210
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                N14Scrap:
+                  min: 5
+                  max: 5
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.7
+          Piercing: 0.8
+          Heat: 0.7
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.6
+          Slash: 0.6
+          Piercing: 0.7
+          Heat: 0.6
+        flatReductions:
+          Blunt: 2
+          Slash: 2
+          Piercing: 2
+          Heat: 4
+    - type: Reflect # # Made reflect to 30 because it's norman shield
+      reflectProb: 0.30
+      spread: 150
+    - type: ClothingSpeedModifier
+      walkModifier: 0.9
+      sprintModifier: 0.9
+    - type: HeldSpeedModifier
+      mirrorClothingModifier: false
+      walkModifier: 0.8
+      sprintModifier: 0.8
+
+- type: entity
+  parent: N14BaseShield
+  id: N14LegionHeavyShieldSirius
+  name: Legion Heavy Shield
+  description: Heavy steel shield with legion vibes.
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Shields/legion.rsi
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Shields/legion.rsi
+    - type: Clothing
+      sprite: _Nuclear14/Objects/Weapons/Shields/legion.rsi
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 250
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                N14Scrap:
+                  min: 5
+                  max: 5
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.7
+          Piercing: 0.8
+          Heat: 0.7
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.5
+          Slash: 0.5
+          Piercing: 0.7
+          Heat: 0.6
+        flatReductions:
+          Blunt: 3
+          Slash: 3
+          Piercing: 2
+          Heat: 3
+    - type: Reflect # # Made reflect to 30 because it's norman shield
+      reflectProb: 0.30
+      spread: 150
+    - type: ClothingSpeedModifier
+      walkModifier: 0.9
+      sprintModifier: 0.9
+    - type: HeldSpeedModifier
+      mirrorClothingModifier: false
+      walkModifier: 0.8
+      sprintModifier: 0.8
+
+- type: entity
+  parent: N14BaseShield
+  id: N14PoliceHeavyShieldSirius
+  name: Police Heavy Shield
+  description: Old riot shield.
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Shields/police.rsi
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Shields/police.rsi
+    - type: Clothing
+      sprite: _Nuclear14/Objects/Weapons/Shields/police.rsi
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                N14Scrap:
+                  min: 5
+                  max: 5
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 0.8
+          Heat: 0.75
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.65
+          Slash: 0.65
+          Piercing: 0.7
+          Heat: 0.65
+        flatReductions:
+          Blunt: 2
+          Slash: 2
+          Piercing: 2
+          Heat: 3
+    - type: Reflect # # Made reflect to 30 because it's norman shield
+      reflectProb: 0.30
+      spread: 150
+    - type: ClothingSpeedModifier
+      walkModifier: 0.9
+      sprintModifier: 0.9
+    - type: HeldSpeedModifier
+      mirrorClothingModifier: false
+      walkModifier: 0.8
+      sprintModifier: 0.85
+
+- type: entity
+  parent: N14BaseShield
+  id: N14ScrapShieldSirius
+  name: Scrap shield
+  description: A shield made from road signs.
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Shields/scrap.rsi
+      state: icon
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Shields/scrap.rsi
+      size: Large
+    - type: Blocking
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 8
+          Heat: 0.7
+        flatReductions:
+          Blunt: 1
+          Slash: 2
+          Piercing: 1
+          Heat: 2
+    - type: Damageable
+      damageContainer: Shield
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 80
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
     - type: StaticPrice
       price: 50

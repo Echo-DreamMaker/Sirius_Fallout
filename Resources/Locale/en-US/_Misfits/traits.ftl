@@ -121,3 +121,53 @@ trait-description-LanguageTribalGeneral = You can understand and speak the local
 
 trait-name-N14TribalAccent = Tribal Accent
 trait-description-N14TribalAccent = Ya be, or musta been membaa de tribe. Bird tribe be not gawnta ondastan ya tong.
+
+character-item-group-N14SpeechAccents = Accents
+
+trait-name-N14CowboyAccent = Cowboy Accent
+trait-description-N14CowboyAccent =
+    Howdy, pardner. Whether you rode in off the range or just grew up on old western holotapes, you talk like the frontier never ended.
+
+trait-name-N14SouthernAccent = Southern Drawl
+trait-description-N14SouthernAccent =
+    Y'all ain't gonna believe this, but folks 'round here have been talkin' like this since long before the bombs fell.
+
+trait-name-N14MobsterAccent = Mobster Accent
+trait-description-N14MobsterAccent =
+    Youse got a real nice mouth on ya, see? Perfect for a life of rackets, roulette and "protection".
+
+trait-name-N14RussianAccent = Russian Accent
+trait-description-N14RussianAccent =
+    Your family kept the old country's tongue alive through two centuries and one apocalypse. Ironically hard to understand.
+
+trait-name-N14ItalianAccent = Italian Accent
+trait-description-N14ItalianAccent =
+    Mamma mia! Somewhere between the old country and the wasteland, your family never lost the flavor.
+
+trait-name-N14VaultDwellerAccent = Vault Dweller Vernacular
+trait-description-N14VaultDwellerAccent =
+    Gosh, golly, gee whiz! Two hundred years of sheltered vault life kept your vocabulary as squeaky clean as a Vault-Tec brochure.
+
+trait-name-N14RadioAnnouncerAccent = Radio Announcer
+trait-description-N14RadioAnnouncerAccent =
+    You've got a voice made for radio, and you know it. Every sentence sounds like it's going out live to the whole wasteland, folks.
+
+trait-name-N14LegionLatinAccent = Legion Latin
+trait-description-N14LegionLatinAccent =
+    True to Caesar! Your speech is peppered with the Legion's classical Latin. Ave, amice.
+
+trait-name-N14GhoulRaspAccent = Ghoul Rasp
+trait-description-N14GhoulRaspAccent =
+    Two centuries of radiation did your vocal cords no favors, smoothskin. Speech comes out rasping, hissing and wheezing.
+
+trait-name-N14OldTimerAccent = Old-Timer
+trait-description-N14OldTimerAccent =
+    Consarn it, you've been wanderin' this wasteland since before these whippersnappers were born, and you talk like it.
+
+trait-name-N14MisterHandyAccent = Mister Handy Etiquette
+trait-description-N14MisterHandyAccent =
+    Your etiquette protocols survived the apocalypse fully intact. Ever so polite, impeccably British, and always ready with a spot of tea, mum.
+
+trait-name-N14GermanAccent = German Accent
+trait-description-N14GermanAccent =
+    Ze old country lives on in your family, ja? Somehow zey kept ze accent alive for two hundred years after ze bombs fell.

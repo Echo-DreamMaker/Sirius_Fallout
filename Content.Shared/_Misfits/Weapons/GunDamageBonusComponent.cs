@@ -17,6 +17,9 @@ public sealed partial class GunDamageBonusComponent : Component
     /// </summary>
     [DataField("hitscanProtoOverride"), AutoNetworkedField]
     public string? HitscanProtoOverride;
+    // #Sirius Add:
+    [DataField("projectileProtoOverride"), AutoNetworkedField]
+    public string? ProjectileProtoOverride;
 
     /// <summary>
     /// Flat bonus damage added on top of the hitscan's base damage.

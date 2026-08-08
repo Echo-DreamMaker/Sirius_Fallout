@@ -37,9 +37,9 @@
   id: NCRCitizenGear
   equipment:
     ears: MisfitsClothingHeadsetWastelandScrap
-    jumpsuit: N14ClothingUniformJumpsuitRags
+    jumpsuit: N14ClothingUniformJumpsuitCaravan
     back: N14ClothingBackpackHiking
-    shoes: N14ClothingShoesBlack
+    shoes: N14ClothingBootsLeather
     id: N14IDNCRPassportCitizen
   innerClothingSkirt: N14ClothingUniformJumpskirtFalloutBlack
   satchel: N14ClothingBackpackSatchelWastelanderFilled

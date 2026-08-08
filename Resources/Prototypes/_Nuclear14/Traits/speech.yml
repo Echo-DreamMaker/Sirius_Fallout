@@ -69,11 +69,10 @@
     - BoSScribe
     - BoSMidScribe
     - BoSWestScribe
-    - BoSMidPaladinCommander
-    - BoSHeadKnight
   functions:
   - !type:TraitModifyLanguages
     languagesSpoken:
+    - N14BrotherBeep
     languagesUnderstood:
     - N14BrotherBeep
 
@@ -147,13 +146,8 @@
   id: N14Stutter
   category: Speech
   requirements:
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - N14FrontalLisp
-    - N14ScottishAccent
-    - N14Liar
-    - N14FrenchieAccent
+  - !type:CharacterItemGroupRequirement # Misfits Change - one-accent-max group replaces exclusion lists
+    group: N14SpeechAccents
   functions:
   - !type:TraitAddComponent
     components:
@@ -167,14 +161,8 @@
   id: N14FrontalLisp
   category: Speech
   requirements:
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - N14Stutter
-    - N14ScottishAccent
-    - N14Liar
-    - N14TribalAccent # Misfits
-    - N14FrenchieAccent
+  - !type:CharacterItemGroupRequirement # Misfits Change - one-accent-max group replaces exclusion lists
+    group: N14SpeechAccents
   functions:
   - !type:TraitAddComponent
     components:
@@ -185,14 +173,8 @@
   category: Speech
   points: 1 # By Bill: THIS SHIT MAKES YOU IMPOSSIBLE TO UNDERSTAND MAN. THIS IS A PENALTY.
   requirements:
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - N14Stutter
-    - N14FrontalLisp
-    - N14Liar
-    - N14TribalAccent # Misfits
-    - N14FrenchieAccent
+  - !type:CharacterItemGroupRequirement # Misfits Change - one-accent-max group replaces exclusion lists
+    group: N14SpeechAccents
   functions:
   - !type:TraitAddComponent
     components:
@@ -203,13 +185,8 @@
   category: Speech
   points: 1 # By pierow
   requirements:
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - N14Stutter
-    - N14FrontalLisp
-    - N14Liar
-    - N14TribalAccent # Misfits
+  - !type:CharacterItemGroupRequirement # Misfits Change - one-accent-max group replaces exclusion lists
+    group: N14SpeechAccents
   functions:
   - !type:TraitAddComponent
     components:

@@ -367,3 +367,16 @@
     rules: ghost-role-component-default-rules
   - type: GhostRoleMobSpawner
     prototype: N14MobPetDogNCRMedicK9
+
+# Sirius
+- type: entity
+  parent: MisfitsPetSpawnerBase
+  id: SiriusPetSpawnerMoff
+  name: companion poodle moth spawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-siriuspet-moff-name
+    description: ghost-role-information-n14pet-generic-description
+    rules: ghost-role-component-default-rules
+  - type: GhostRoleMobSpawner
+    prototype: MobMoff

@@ -1,12 +1,17 @@
 using Content.Shared.DoAfter;
+using Content.Shared.Decals;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.SprayPainter.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class SprayPainterComponent : Component
 {
+    public static readonly ProtoId<DecalPrototype> DefaultDecal = "StencilNumber0";
+
     [DataField]
     public SoundSpecifier SpraySound = new SoundPathSpecifier("/Audio/Effects/spray2.ogg");
 
@@ -41,4 +46,41 @@ public sealed partial class SprayPainterComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public int Index;
+
+    /// <summary>
+    /// Whether floor interaction adds decals, removes decals, or does nothing.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public DecalPaintMode DecalMode = DecalPaintMode.Off;
+
+    [DataField, AutoNetworkedField]
+    public ProtoId<DecalPrototype> SelectedDecal = DefaultDecal;
+
+    [DataField, AutoNetworkedField]
+    public Color? SelectedDecalColor;
+
+    [DataField, AutoNetworkedField]
+    public int SelectedDecalAngle;
+
+    [DataField, AutoNetworkedField]
+    public bool SnapDecals = true;
+
+    [DataField]
+    public SoundSpecifier SoundSwitchDecalMode = new SoundPathSpecifier(
+        "/Audio/Machines/quickbeep.ogg",
+        AudioParams.Default.WithVolume(1.5f));
+
+    /// <summary>
+    /// Whether the decal colour picker from upstream PR #41943 is active.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ColorPickerEnabled;
+}
+
+[Serializable, NetSerializable]
+public enum DecalPaintMode : byte
+{
+    Off,
+    Add,
+    Remove,
 }

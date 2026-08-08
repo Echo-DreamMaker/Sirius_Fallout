@@ -14,7 +14,7 @@ id-card-access-level-vault-overseer = Офис Смотрителя
 id-card-access-level-vault-security = Бриг Убежища
 id-card-access-level-vault-medical = Медблок Убежища
 id-card-access-level-vault-chemistry = Химлаборатория Убежища
-id-card-access-level-vault-engineer = Обслуживание Убежища											  
+id-card-access-level-vault-engineer = Обслуживание Убежища
 id-card-access-level-vault-dweller = Основной Убежища
 
 id-card-access-level-tribe-member = Врата племени
@@ -68,9 +68,9 @@ id-card-access-level-legion-veteran-decanus = Декан-ветеран Леги
 id-card-access-level-legion-centurion = Центурион Легиона
 id-card-access-level-legion-legate = Легат Легиона
 
-#Misfits Change /Comment-out/: Washington BoS access levels removed — will create new prototypes.
-#id-card-access-level-washington-commander = WBoS Office
-#id-card-access-level-washington-paladin = WBoS Suits
-#id-card-access-level-washington-knight = WBoS Armory
-#id-card-access-level-washington-scribe = WBoS Labs
-#id-card-access-level-washington-initiate = WBoS Gates
+# Misfits Change /Comment-out/: Washington BoS access levels removed — will create new prototypes.
+# id-card-access-level-washington-commander = WBoS Office
+# id-card-access-level-washington-paladin = WBoS Suits
+# id-card-access-level-washington-knight = WBoS Armory
+# id-card-access-level-washington-scribe = WBoS Labs
+# id-card-access-level-washington-initiate = WBoS Gates

@@ -1,0 +1,12 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               MinSize="380 140"
+               Resizable="False">
+    <BoxContainer Orientation="Vertical" SeparationOverride="6" Margin="4">
+        <Label Name="TargetLabel" />
+        <OptionButton Name="PlayerSelect" HorizontalExpand="True" />
+        <Label Name="MessageLabel" />
+        <LineEdit Name="MessageInput" HorizontalExpand="True" />
+        <Button Name="SendButton" HorizontalExpand="True" />
+    </BoxContainer>
+</DefaultWindow>

@@ -157,3 +157,15 @@
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSkirts/asylumdress.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSkirts/asylumdress.rsi
+
+# Sirius add:
+- type: entity
+  parent: N14ClothingUniformSkirtBase
+  id: N14ClothingUniformJumpskirtFalloutBunkaSirius
+  name: Bunka skirt
+  description: It's a skirt. I don' know how to describe it.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSkirts/bunskirt.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Uniforms/FalloutSkirts/bunskirt.rsi

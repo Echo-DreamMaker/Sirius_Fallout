@@ -272,6 +272,26 @@ undecided-loadout-category-mbos-kni-las-description =
     2 12.7mm pistol magazines, 1 roll of gauze, 1 stimpak,
     and 1 K ration MRE.
 
+undecided-loadout-category-mbos-skni-bal-name = Senior Ballistic Kit
+undecided-loadout-category-mbos-skni-bal-description =
+    A cache containing belongings of a Brotherhood chapter member.
+    Includes 1 assault carbine, 3 5.56 magazines, 1 12.7mm pistol,
+    2 12.7mm pistol magazines, 1 roll of gauze, 1 stimpak,
+    and 1 K ration MRE.
+
+undecided-loadout-category-mbos-skni-las-name = Senior Laser Kit
+undecided-loadout-category-mbos-skni-las-description =
+    A cache containing belongings of a Brotherhood chapter member.
+    Includes 1 AER-9, 1 microfusion cell, 1 12.7mm pistol,
+    2 12.7mm pistol magazines, 1 roll of gauze, 1 stimpak,
+    and 1 K ration MRE.
+
+undecided-loadout-category-mbos-skni-recon-name = Recon Kit
+undecided-loadout-category-mbos-skni-recon-description =
+    A cache containing belongings of a Brotherhood chapter member.
+    1 .44 revolver, 2 .44 speed loaders, 1 roll of gauze, 1 stimpak,
+    and 1 K ration MRE.
+
 # Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
 undecided-loadout-category-mbos-kni-bal-name = Carbine Kit
 undecided-loadout-category-mbos-kni-bal-description =
@@ -305,12 +325,18 @@ undecided-loadout-category-mbos-scribe-engineer-description =
 
 # Misfits Change /Tweak/: Paladin laser kit replaced with auto shotgun + laser pistol sidearm.
 # Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
-undecided-loadout-category-mbos-pal-las-name = Ripper Kit
+undecided-loadout-category-mbos-pal-las-name = Close Range Kit
 undecided-loadout-category-mbos-pal-las-description =
     A cache containing belongings of a Brotherhood chapter member.
-    Includes a Ripper sword, 1 AEP-7,
-    4 energy cells, 1 roll of gauze, 2 stimpaks,
+    Includes 1 combat shotgun, 1 laser pistol,
+    4 energy cells, 3 shotgun magazines, 1 roll of gauze, 2 stimpaks,
     and 1 K ration MRE.
+
+undecided-loadout-category-mbos-pal-slay-name = Enclave Slayer Kit
+undecided-loadout-category-mbos-pal-slay-description =
+    A cache containing belongings of a Brotherhood chapter member.
+    Includes 1 plasma cutter, 1 laser pistol, 4 energy cells, 1 roll of gauze,
+    2 stimpaks, and 1 K ration MRE.
 
 # Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
 undecided-loadout-category-mbos-pal-bal-name = Ballistic Kit
@@ -455,18 +481,18 @@ undecided-loadout-category-Tribal-pain-bringer-description =
 
 # Town Guard Kits
 
-undecided-loadout-category-town-cere-name = Ceremonial Kit
+undecided-loadout-category-town-cere-name = Rifle Kit
 undecided-loadout-category-town-cere-description =
     Sometimes you have to look fancy and not worry about protection.
-    Includes 1 guard hat, 1 guard greatcoat, 1 .308 battle rifle,
-    3 .308 clips, 1 .44 magnum, 2 .44 speedloaders,
+    Includes 1 guard hat, 1 guard greatcoat, 1 .45-70 rifle,
+    3 .45-70 boxes, 1 .44 magnum, 2 .44 speedloaders,
     1 stack of gauze and basic ration supplies.
 
 undecided-loadout-category-town-patr-name = Patrolman Kit
 undecided-loadout-category-town-patr-description =
     You don't ask much from life, all you want is vanilla.
-    Includes 1 brodie helmet, 1 light armour, 1 12.7mm SMG,
-    3 12.7mm SMG mags, 1 Webley pistol, 2 9mm pistol mags,
+    Includes 1 brodie helmet, 1 light armour, 1 9mm sten SMG,
+    4 9mm SMG mags, 1 Webley pistol, 2 9mm pistol mags,
     1 rain mantle, 1 stack of gauze and basic ration supplies.
 
 undecided-loadout-category-town-lawb-name = Lawbringer Kit
@@ -484,10 +510,10 @@ undecided-loadout-category-town-brea-description =
     1 Webley pistol, 2 9mm pistol mags,
     1 stack of gauze and basic ration supplies.
 
-undecided-loadout-category-town-riot-name = Riot Control Kit
+undecided-loadout-category-town-riot-name = Rifleman Kit
 undecided-loadout-category-town-riot-description =
     Let me solo them! I mean send them home, peacefully!
     Includes 1 visor brodie helmet, 1 riot armor,
-    1 spear, 1 heavy metal shield, 1 hunting revolver,
+    1 Fn FAL, 3 7.62 short magazines, 1 hunting revolver,
     2 .45-70 speedloaders, 1 town guard cloak, 1 stack of gauze,
     and basic ration supplies.

@@ -35,7 +35,7 @@
             <PanelContainer Name="TabContracts"
                             VerticalExpand="True"
                             StyleClasses="PanelBackgroundBaseDark">
-                <!-- #Misfits Change — replaced flat ContractList with tier TabContainer for Bronze/Iron/Silver/Gold/Mithril/Diamond tiers + Hall of Fame -->
+                <!-- #Misfits Change — replaced flat ContractList with tier TabContainer for Road Kill/Lazy Lizard/Junktown Rat/Hub Mercenary/Bunker Buster/Wasteland Legend tiers + Hall of Fame -->
                 <TabContainer Name="TierTabs"
                               VerticalExpand="True"
                               HorizontalExpand="True"

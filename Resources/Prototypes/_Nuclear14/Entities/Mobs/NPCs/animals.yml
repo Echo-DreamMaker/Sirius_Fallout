@@ -330,6 +330,8 @@
         volume: 20
   - type: NPCRetaliation
     attackMemoryLength: 30
+  - type: ProximityNPC # Misfits fix — Didn't have comp to reduce tick load and activate ai
+                        #TODO: make every NPC inherit from same base to avoid issues in future
   - type: HTN
     rootTask:
      task: RuminantHostileCompound
@@ -365,15 +367,18 @@
   - type: SolutionContainerManager
     solutions:
       udder:
-        maxVol: 250
+        maxVol: 100
         reagents:
         - ReagentId: N14MilkBrahmin
           Quantity: 30
+  - type: Bloodstream
+    bloodMaxVolume: 1800 # lore accurate
+    bloodReagent: WastelandBlood
   - type: Udder
     reagentId: N14MilkBrahmin
     quantityPerUpdate: 25
     growthDelay: 60
-    hungerUsage: 10
+    hungerUsage: 0
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: WastelandAnimal

@@ -4,3 +4,16 @@ id-card-access-level-fota-head = FotA Head
 id-card-access-level-80s = 80s
 id-card-access-level-80s-head = 80s Leader
 id-card-access-level-80s-slave = 80s Slave
+
+id-card-access-level-enclave = Enclave Access
+id-card-access-level-enclave-nco = Enclave NCO Access
+id-card-access-level-enclave-officer = Enclave Officer Access
+id-card-access-level-enclave-command = Enclave Command Access
+id-card-access-level-enclave-science = Enclave Science Access
+id-card-access-level-enclave-role-all = Enclave Role All Access
+id-card-access-level-enclave-role-scientist = Enclave Scientist Access
+id-card-access-level-enclave-role-head-scientist = Enclave Head Scientist Access
+id-card-access-level-enclave-role-nco = Enclave Role NCO Access
+id-card-access-level-enclave-role-junior-officer = Enclave Junior Officer Access
+id-card-access-level-enclave-role-senior-officer = Enclave Senior Officer Access
+id-card-access-level-enclave-role-commander = Enclave Commander Access

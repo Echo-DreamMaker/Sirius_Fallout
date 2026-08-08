@@ -129,3 +129,47 @@
     sprite: Clothing/Neck/Scarfs/zebra.rsi
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/zebra.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfStripedgray
+  name: gray scarf
+  description: A striped scarf, a mandatory accessory for artists.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Scarfs/gray.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/Scarfs/gray.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfStripedpink
+  name: pink scarf
+  description: A striped scarf, a mandatory accessory for artists.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Scarfs/pink.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/Scarfs/pink.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfStripedwhite
+  name: white scarf
+  description: A striped scarf, a mandatory accessory for artists.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Scarfs/white.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/Scarfs/white.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckScarfStripedyellow
+  name: yellow scarf
+  description: A striped scarf, a mandatory accessory for artists.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Scarfs/yellow.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/Scarfs/yellow.rsi

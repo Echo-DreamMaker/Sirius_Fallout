@@ -24,6 +24,11 @@ public sealed class RaidRequestClientSystem : EntitySystem
     // a second prompt before the first is decided, we replace the contents in place.
     private RaidRequestPeerDecisionWindow? _peerWindow;
 
+    // #Misfits Add - Mandatory raid-over notices are shown one at a time so simultaneous
+    // conclusions cannot stack windows on top of each other.
+    private RaidConcludedWindow? _concludedWindow;
+    private readonly Queue<RaidRequestEntry> _conclusionQueue = new();
+
     /// <summary>Latest admin snapshot. Mirrored into <see cref="RaidRequestAdminControl"/> when present.</summary>
     public IReadOnlyList<RaidRequestEntry> AdminRequests => _adminRequests;
     private List<RaidRequestEntry> _adminRequests = new();
@@ -50,6 +55,7 @@ public sealed class RaidRequestClientSystem : EntitySystem
         // #Misfits Add - End-raid result reuses the existing decision-result UI lane.
         SubscribeNetworkEvent<RaidRequestEndResultMsg>(OnEndResult);
         SubscribeNetworkEvent<RaidRequestDecisionAnnouncementMsg>(OnDecisionAnnouncement);
+        SubscribeNetworkEvent<RaidRequestConcludedAnnouncementMsg>(OnConcludedAnnouncement);
         // #Misfits Add - Overlay participants stream (drives AllyTagOverlay).
         SubscribeNetworkEvent<RaidRequestParticipantsUpdatedMsg>(OnParticipantsUpdated);
         // #Misfits Add - Peer-approval popup for target faction leader.
@@ -70,6 +76,9 @@ public sealed class RaidRequestClientSystem : EntitySystem
         _window = null;
         _peerWindow?.Close();
         _peerWindow = null;
+        _concludedWindow?.ForceClose();
+        _concludedWindow = null;
+        _conclusionQueue.Clear();
     }
 
     // ── /raid console command ─────────────────────────────────────────────
@@ -235,6 +244,27 @@ public sealed class RaidRequestClientSystem : EntitySystem
     // #Misfits Add - Replace the cached raid-participants dict whenever the server
     // re-broadcasts. After swapping, prod the war system to (re)evaluate overlay
     // lifecycle since the war system owns the AllyTagOverlay.
+    private void OnConcludedAnnouncement(RaidRequestConcludedAnnouncementMsg msg)
+    {
+        _conclusionQueue.Enqueue(msg.Entry);
+        ShowNextConclusion();
+    }
+
+    private void ShowNextConclusion()
+    {
+        if (_concludedWindow != null || _conclusionQueue.Count == 0)
+            return;
+
+        _concludedWindow = new RaidConcludedWindow();
+        _concludedWindow.Populate(_conclusionQueue.Dequeue());
+        _concludedWindow.OnAcknowledged += () =>
+        {
+            _concludedWindow = null;
+            ShowNextConclusion();
+        };
+        _concludedWindow.OpenCentered();
+    }
+
     private void OnParticipantsUpdated(RaidRequestParticipantsUpdatedMsg msg)
     {
         _raidParticipants = msg.Participants;

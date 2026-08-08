@@ -1,0 +1,16 @@
+- type: loadout
+  id: MisfitsLoadoutFollowerResponderDuster
+  category: Roles
+  cost: 3
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - FollowerHead
+        - FollowerDoctor
+        - FollowerGuard
+    - !type:CharacterDepartmentTimeRequirement
+      department: FollowersOfTheApocalypse
+      min: 180000 # 50 hours. Only the most seasoned Followers.
+  items:
+    - MisfitsClothingOuterFollowersResponderDuster

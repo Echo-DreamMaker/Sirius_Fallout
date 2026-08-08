@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: reagent
+  id: CoconutFlesh
+  parent: Nutriment
+  name: reagent-name-coconut-flesh
+  desc: reagent-desc-coconut-flesh
+  flavor: nutty
+  color: "#f4eadb"
+
+- type: reagent
+  parent: BaseJuice
+  id: JuiceLemonade
+  name: reagent-name-juice-lemonade
+  desc: reagent-desc-juice-lemonade
+  physicalDesc: reagent-physical-desc-citric
+  flavor: sour
+  color: "#fff690"
+
+- type: reagent
+  id: CocaSlurry
+  name: reagent-name-cocaslurry
+  group: Narcotics
+  desc: reagent-desc-cocaslurry
+  physicalDesc: reagent-physical-desc-murky
+  flavor: bitter
+  color: "#728559"

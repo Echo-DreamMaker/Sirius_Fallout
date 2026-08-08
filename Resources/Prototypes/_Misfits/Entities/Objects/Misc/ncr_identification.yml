@@ -81,6 +81,16 @@
     job: NCRMajor
 
 - type: entity
+  parent: N14IDNCRDogtagCaptain
+  id: N14IDNCRDogtagProvost
+  name: Provost Badge
+  description: An ID dogtag worn by Provosts
+  suffix: Investigator
+  components:
+  - type: PresetIdCard
+    job: NCRProvost
+
+- type: entity
   parent: N14IDNCRDogtagNCO
   id: N14IDNCRDogtagMPRecruit
   name: military police recruit's dogtags

@@ -177,3 +177,13 @@
       id: N14LoadoutClothingHeadHatEnclaveIntel
     - type: loadout
       id: N14LoadoutClothingHeadHatEnclaveScientist
+    - type: loadout
+      id: MisfitsClothingHeadRedBandana
+    - type: loadout
+      id: MisfitsLoadoutHeadHeadMarlowHat
+    - type: loadout
+      id: MisfitsLoadoutHeadHeadSchlimmHat
+    - type: loadout
+      id: MisfitsLoadoutHeadHeadAHPhelmet
+    - type: loadout
+      id: MisfitsLoadoutHeadKhanHelmet

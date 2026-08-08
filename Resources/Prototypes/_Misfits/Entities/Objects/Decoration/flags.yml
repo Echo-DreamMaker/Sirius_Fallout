@@ -1,21 +1,21 @@
-- type: entity 
+- type: entity
   parent: N14DecorationFlagFlammable
   id: MisfitsDecorationFlagTribe
-  name: Willowers banner
-  description: A banner depicting the tree of life.
+  name: Banner of the Willowers Tribe
+  description: The banner of the Willowers Tribe, a local settlement who worship the 'tree of life' illustrated on this flag. When the bombs first dropped, Wendover split into three survivor communities, the Locusts, Vultures and Willowers. The Willowers harvests and hunts were responsible for keeping all three fed in the first few years.
   components:
   - type: Sprite
     sprite: _Misfits/Structures/Decoration/tribal_banner.rsi
-    state: banner1 
-  - type: Construction 
+    state: banner1
+  - type: Construction
     graph: MisfitsFlagTribe
     node: FlagTribe
-      
+
 - type: entity
   parent: N14DecorationFlagFlammable
   id: MisfitsDecorationFlagTribeSkull
-  name: Willowers flag
-  description: A banner depicting the tree of life. A skull is planted on top.
+  name: Flag of the Willowers Tribe
+  description: The banner of the Willowers Tribe, a local settlement who worship the 'tree of life' illustrated on this flag. When the bombs first dropped, Wendover split into three survivor communities, the Locusts, Vultures and Willowers. The Willowers harvests and hunts were responsible for keeping all three fed in the first few years. This one is decorated with a skull trophy.
   components:
   - type: Sprite
     sprite: _Misfits/Structures/Decoration/tribal_banner.rsi

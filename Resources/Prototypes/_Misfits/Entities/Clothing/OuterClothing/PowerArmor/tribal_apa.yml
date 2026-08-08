@@ -22,3 +22,6 @@
       gloves: N14ClothingPAGauntletsDark
       shoes: N14ClothingPABootsDark
       back: N14ClothingPowerSystemsBack
+  - type: ClothingSpeedModifier #sirius change
+    walkModifier: 0.8
+    sprintModifier: 0.8

@@ -53,6 +53,9 @@
       params:
         volume: 20 # It's normal
   - type: Mountable
+  - type: BrahdoSpooked
+    spookDuration: 5
+    buckChance: 0.15
   - type: Tag
     tags:
     - FootstepSound

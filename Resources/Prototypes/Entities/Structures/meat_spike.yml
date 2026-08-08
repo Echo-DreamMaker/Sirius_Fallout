@@ -51,9 +51,9 @@
         base:
           Empty: { state: spike }
           Bloody: { state: spikebloody }
-  - type: Construction
-    graph: MeatSpike
-    node: MeatSpike
+  # - type: Construction
+    # graph: MeatSpike
+    # node: MeatSpike
   # - type: GuideHelp
     # guides:
     # - Chef

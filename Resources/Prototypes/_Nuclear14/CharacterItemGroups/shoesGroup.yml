@@ -29,3 +29,7 @@
       id: N14LoadoutUniversalBootsFire
     - type: loadout
       id: N14LoadoutUniversalBootsMountie
+    - type: loadout #Misfits Add - general wasteland footwear
+      id: MisfitsLoadoutMilitaryCowboyBoots
+    - type: loadout #Misfits Add - general wasteland footwear
+      id: MisfitsLoadoutMilitarySteelTippedBoots

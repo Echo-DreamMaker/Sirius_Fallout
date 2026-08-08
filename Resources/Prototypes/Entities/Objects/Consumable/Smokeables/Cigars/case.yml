@@ -73,11 +73,11 @@
     - id: CigarGold
       amount: 8
 
-- type: entity 
+- type: entity
   id: CigarRobustCase
   parent: CigarCase
-  name: Cohiba Robusto cigar case
-  description: "A case of imported Cohiba cigars, renowned for their strong flavor."
+  name: Cohiba Cigar Case
+  description: "A case of imported Cohiba cigars, renowned for their strong flavor. They were banned from the country, so naturally most pre-war executives and politicians had some stowed away."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigars/case_robust.rsi

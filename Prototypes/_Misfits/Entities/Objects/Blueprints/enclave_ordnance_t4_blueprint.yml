@@ -1,0 +1,18 @@
+# #Misfits Add - Enclave Ordnance blueprint item (Tier 4). Placed in a
+# workbench to unlock the Enclave energy-weapon set: AER-15 laser rifle,
+# plasma caster, laser gatling, and the self-charging recharger rifle and
+# pistol. Recipes live in
+# _Misfits/Recipes/Lathes/blueprint_recipes_enclave_ordnance_t4.yml.
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEnclaveOrdnanceT4
+  name: Enclave Ordnance Plans
+  description: Enclave field-manufacturing schematics for advanced energy weapons — the AER-15 laser rifle, plasma caster, laser gatling, and the self-charging recharger rifle and pistol. Tier 4 ordnance.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPEnclaveWeaponLaserRifleAER15
+    - N14BPEnclaveWeaponPlasmaCaster
+    - N14BPEnclaveWeaponLaserGatling
+    - N14BPEnclaveWeaponLaserRifleRecharger
+    - N14BPEnclaveWeaponLaserPistolRecharger

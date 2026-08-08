@@ -1,0 +1,104 @@
+# #Misfits Add - Enclave Ordnance blueprint recipes (Tier 4).
+# A curated energy-weapon set the Enclave can manufacture: the AER-15 laser
+# rifle, plasma caster, and laser gatling (shared with the BoS T5 arsenal,
+# same costs), plus the two self-charging "recharger" laser weapons that are
+# otherwise excluded from blueprint crafting. All recipes require the
+# N14BlueprintEnclaveOrdnanceT4 blueprint item in a workbench, plus Enclave
+# faction access.
+#
+# Material amounts are in the lathe's internal units where 100 units = 1
+# physical sheet / bar / ingot / piece.
+
+- type: latheCategory
+  id: N14BlueprintEnclaveOrdnanceT4
+  name: lathe-category-blueprint-enclave-ordnance-t4
+
+# =====================================================================
+# SHARED HIGH-TIER ENERGY WEAPONS (normal costs, matching BoS T5)
+# =====================================================================
+
+# AER-15 laser rifle - highest-damage blue-beam laser rifle
+- type: latheRecipe
+  id: N14BPEnclaveWeaponLaserRifleAER15
+  result: N14WeaponLaserRifleAER15
+  category: N14BlueprintEnclaveOrdnanceT4
+  completetime: 30
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 12000
+    Glass: 2300
+    Circuitry: 500
+    ScrapElectronic: 450
+    N14Gold: 1000
+
+# Plasma Caster
+- type: latheRecipe
+  id: N14BPEnclaveWeaponPlasmaCaster
+  result: N14WeaponPlasmaCaster
+  category: N14BlueprintEnclaveOrdnanceT4
+  completetime: 25
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 11000
+    Glass: 65
+    Circuitry: 60
+    ScrapElectronic: 40
+    Plastic: 15
+
+# Laser Gatling
+- type: latheRecipe
+  id: N14BPEnclaveWeaponLaserGatling
+  result: N14WeaponLaserGatling
+  category: N14BlueprintEnclaveOrdnanceT4
+  completetime: 30
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 12000
+    Glass: 75
+    Circuitry: 60
+    ScrapElectronic: 45
+    N14Iron: 15
+
+# =====================================================================
+# ENCLAVE-EXCLUSIVE SELF-CHARGING RECHARGER WEAPONS
+# Infinite-ammo laser weapons; cost is mid-T4, weighted toward the
+# self-charging electronics (circuitry) and premium energy tech (gold).
+# =====================================================================
+
+# Recharger rifle - self-charging, never needs cells
+- type: latheRecipe
+  id: N14BPEnclaveWeaponLaserRifleRecharger
+  result: N14WeaponLaserRifleRecharger
+  category: N14BlueprintEnclaveOrdnanceT4
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 6500
+    Glass: 1000
+    Circuitry: 1100
+    ScrapElectronic: 650
+    N14Gold: 300
+
+# Recharger pistol - compact self-charging sidearm
+- type: latheRecipe
+  id: N14BPEnclaveWeaponLaserPistolRecharger
+  result: N14WeaponLaserPistolRecharger
+  category: N14BlueprintEnclaveOrdnanceT4
+  completetime: 18
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 5500
+    Glass: 800
+    Circuitry: 1250
+    ScrapElectronic: 700
+    N14Gold: 350

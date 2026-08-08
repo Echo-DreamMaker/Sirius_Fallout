@@ -23,6 +23,12 @@
         Slash: 0.60
         Piercing: 0.68
         Heat: 0.7  #sirius change
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 3
+        Piercing: 2
+        Heat: 4
+        Caustic: 1
   - type: ExplosionResistance
     damageCoefficient: 0.78
 
@@ -42,6 +48,10 @@
         Blunt: 0.82
         Slash: 0.82
         Piercing: 0.82
+      flatReductions:  #sirius change
+        Piercing: 1
+        Heat: 1
+        Caustic: 1
 
 - type: entity
   parent: [N14FalloutArmorBase, N14ClothingOuterBase]
@@ -73,6 +83,11 @@
         Slash: 0.75
         Piercing: 0.75
         Heat: 0.75
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 2
+        Heat: 1
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.80
@@ -90,6 +105,12 @@
         Slash: 0.70
         Piercing: 0.65
         Heat: 0.65
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Caustic: 1
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.75
@@ -107,6 +128,12 @@
         Slash: 0.65
         Piercing: 0.60
         Heat: 0.65
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Caustic: 1
     priceMultiplier: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.70

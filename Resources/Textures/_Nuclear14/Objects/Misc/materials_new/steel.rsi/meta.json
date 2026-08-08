@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Fallout-stylezied resprite for RU Sirius Fallout, by Rozy_Cosmic(Ckey)|rozycosmic(Discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "steel"
+    },
+    {
+      "name": "steel_2"
+    },
+    {
+      "name": "steel_3"
+    },
+    {
+      "name": "steel-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "steel-inhand-right",
+      "directions": 4
+    }
+  ]
+}

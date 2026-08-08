@@ -3,6 +3,7 @@ using Content.Shared.Explosion.Components;
 using Content.Shared.Implants;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
+using Content.Shared._Misfits.Genetics.Abilities;
 
 namespace Content.Server.Explosion.EntitySystems;
 
@@ -21,6 +22,10 @@ public sealed partial class TriggerSystem
     {
         if (!component.MobState.Contains(args.NewMobState))
             return;
+
+        // Misfits: genetics uses the legacy mob-state trigger with its own entity effects.
+        if (HasComp<EffectOnTriggerMutationComponent>(uid))
+            EntitySystem.Get<MutationTriggerSystem>().Apply(uid);
 
         //This chains Mobstate Changed triggers with OnUseTimerTrigger if they have it
         //Very useful for things that require a mobstate change and a timer

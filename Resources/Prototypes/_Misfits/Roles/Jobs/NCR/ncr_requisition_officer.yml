@@ -55,6 +55,8 @@
   storage:
     back:
     - N14BoxPlasticFilledMilitaryNCR
+    - SprayPaintDesertTan
+    - SprayPaintDesertTan
 
 - type: playTimeTracker
   id: NCRRO

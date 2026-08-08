@@ -39,3 +39,75 @@
     heldPrefix: med
   - type: Clothing
     equippedPrefix: med
+
+- type: entity
+  parent: N14ClothingBackpackDuffel
+  id: N14ClothingBackpackDuffelBosSirius
+  name: Brotherhood duffel bag
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Duffels/bos.rsi
+
+- type: entity
+  parent: N14ClothingBackpackDuffel
+  id: N14ClothingBackpackDuffelengineerSirius
+  name: Engineering duffel bag
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Duffels/engi.rsi
+
+- type: entity
+  parent: N14ClothingBackpackDuffel
+  id: N14ClothingBackpackDuffelFemboySirius
+  name: Pink duffel bag
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Duffels/femboy.rsi
+
+- type: entity
+  parent: N14ClothingBackpackDuffel
+  id: N14ClothingBackpackDuffelMedicalSirius
+  name: Medical duffel bag
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Duffels/med.rsi
+
+- type: entity
+  parent: N14ClothingBackpackDuffel
+  id: N14ClothingBackpackDuffelMilitarySirius
+  name: military duffel bag
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Duffels/military.rsi
+
+- type: entity
+  parent: N14ClothingBackpackDuffel
+  id: N14ClothingBackpackDuffelNcrSirius
+  name: NCR duffel bag
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Duffels/ncr.rsi
+
+- type: entity
+  parent: N14ClothingBackpackDuffel
+  id: N14ClothingBackpackDuffelNikeSirius
+  name: Sport duffel bag
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Duffels/nike.rsi
+
+- type: entity
+  parent: N14ClothingBackpackDuffel
+  id: N14ClothingBackpackDuffelVaultSirius
+  name: Vault duffel bag
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Duffels/vault.rsi

@@ -181,6 +181,8 @@
       entity: ClothingNeckPinNCRCorporal
     - min: 216000  # 60 hours
       entity: ClothingNeckPinNCRSpecialist
+    - min: 216000  # 60 hours
+      entity: ClothingNeckPinNCRCorporal
 
 # Troopers: Recruit (E-1) → PV2 at 20h NCR dept → PFC at 40h NCR dept → SPC at 60h NCR dept
 - type: ncrRankPinProgression

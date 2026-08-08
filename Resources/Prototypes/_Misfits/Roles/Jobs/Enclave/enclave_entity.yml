@@ -1,0 +1,138 @@
+# Prototypes for spawning in Enclave urists
+# Enlisted & Officers
+
+- type: entity
+  parent: MobHuman
+  id: MisfitsMobHumanEnclaveEnlisted
+  name: Enclave Enlisted
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+    - type: Loadout
+      prototypes: [EnclaveEnlistedGear]
+    - type: NpcFactionMember
+      factions:
+      - Enclave
+
+- type: entity
+  parent: MobHuman
+  id: MisfitsMobHumanEnclaveNCO
+  name: Enclave NCO
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [EnclaveNCOGear]
+  - type: NpcFactionMember
+    factions:
+    - Enclave
+
+- type: entity
+  parent: MobHuman
+  id: MisfitsMobHumanEnclaveJuniorOfficer
+  name: Enclave Junior Officer
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [EnclaveJuniorOfficerGear]
+  - type: NpcFactionMember
+    factions:
+    - Enclave
+
+- type: entity
+  parent: MobHuman
+  id: MisfitsMobHumanEnclaveSeniorOfficer
+  name: Enclave Senior Officer
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [EnclaveSeniorOfficerGear]
+  - type: NpcFactionMember
+    factions:
+    - Enclave
+
+# Commander & Reformer
+
+- type: entity
+  parent: MobHuman
+  id: MisfitsMobHumanEnclaveCommander
+  name: Enclave Commander
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [EnclaveCommanderGear]
+  - type: NpcFactionMember
+    factions:
+    - Enclave
+
+- type: entity
+  parent: MobHuman
+  id: MisfitsMobHumanEnclaveReformer
+  name: Enclave Reformer
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [EnclaveCommanderGear]
+  - type: NpcFactionMember
+    factions:
+    - Enclave
+
+# Science Team
+
+- type: entity
+  parent: MobHuman
+  id: MisfitsMobHumanEnclaveJuniorScientist
+  name: Enclave Junior Scientist
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [EnclaveJuniorScientistGear]
+  - type: NpcFactionMember
+    factions:
+    - Enclave
+
+- type: entity
+  parent: MobHuman
+  id: MisfitsMobHumanEnclaveScientist
+  name: Enclave Scientist
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [EnclaveScientistGear]
+  - type: NpcFactionMember
+    factions:
+    - Enclave
+
+- type: entity
+  parent: MobHuman
+  id: MisfitsMobHumanEnclaveHeadScientist
+  name: Enclave Head Scientist
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [EnclaveHeadScientistGear]
+  - type: NpcFactionMember
+    factions:
+    - Enclave
+
+# Super Mutant
+
+- type: entity
+  parent: N14MobSuperMutant
+  id: MisfitsMobSupermutantEnclave
+  name: Enclave Supermutant
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [SuperMutantEnclaveGear]
+  - type: NpcFactionMember
+    factions:
+    - Enclave

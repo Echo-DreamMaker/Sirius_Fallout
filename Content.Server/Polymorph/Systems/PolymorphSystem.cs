@@ -16,6 +16,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Polymorph;
+using Content.Shared._Misfits.Genetics.Mutations;
 using Content.Shared.Popups;
 using Content.Shared.Storage; // Corvax-Change
 using Robust.Server.Audio;
@@ -205,6 +206,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         _buckle.TryUnbuckle(uid, uid, true);
 
         var targetTransformComp = Transform(uid);
+        _audio.PlayPvs(configuration.PolymorphSound, targetTransformComp.Coordinates);
         // Corvax-Change-Start
         EntityUid child;
         if (configuration.RandomEnt != null)
@@ -232,8 +234,10 @@ public sealed partial class PolymorphSystem : EntitySystem
             AddComp(child, copy, true);
         }
 
-        // Ensure the resulting entity is sentient (why? this sucks)
-        MakeSentientCommand.MakeSentient(child, EntityManager);
+        // Item polymorphs (for example the genetics tongue spike) must not be
+        // given mob/sentience components.
+        if (configuration.MakeSentient)
+            MakeSentientCommand.MakeSentient(child, EntityManager);
 
         var polymorphedComp = _compFact.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;
@@ -300,10 +304,20 @@ public sealed partial class PolymorphSystem : EntitySystem
         }
         // Corvax-Change-End
 
+        if (configuration.PolymorphPopup is { } polymorphPopup)
+        {
+            _popup.PopupEntity(Loc.GetString(polymorphPopup,
+                    ("parent", Identity.Entity(uid, EntityManager)),
+                    ("child", Identity.Entity(child, EntityManager))),
+                child);
+        }
+
         //Ensures a map to banish the entity to
         EnsurePausedMap();
         if (PausedMap != null)
             _transform.SetParent(uid, targetTransformComp, PausedMap.Value);
+
+        RaiseLocalEvent(uid, new PolymorphedEvent(uid, child));
 
         return child;
     }
@@ -328,6 +342,8 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         var uidXform = Transform(uid);
         var parentXform = Transform(parent);
+
+        _audio.PlayPvs(component.Configuration.ExitPolymorphSound, uidXform.Coordinates);
 
         _transform.SetParent(parent, parentXform, uidXform.ParentUid);
         _transform.SetCoordinates(parent, parentXform, uidXform.Coordinates, uidXform.LocalRotation);
@@ -374,10 +390,14 @@ public sealed partial class PolymorphSystem : EntitySystem
         // if an item polymorph was picked up, put it back down after reverting
         _transform.AttachToGridOrMap(parent, parentXform);
 
-        _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
-                ("parent", Identity.Entity(uid, EntityManager)),
-                ("child", Identity.Entity(parent, EntityManager))),
-            parent);
+        if (component.Configuration.ExitPolymorphPopup is { } exitPopup)
+        {
+            _popup.PopupEntity(Loc.GetString(exitPopup,
+                    ("parent", Identity.Entity(uid, EntityManager)),
+                    ("child", Identity.Entity(parent, EntityManager))),
+                parent);
+        }
+        RaiseLocalEvent(uid, new PolymorphedEvent(uid, parent));
         QueueDel(uid);
 
         return parent;

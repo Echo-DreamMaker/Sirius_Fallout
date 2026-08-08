@@ -9,12 +9,12 @@ public sealed partial class NcTierProgressComponent : Component
 {
     // Ordered list of all six tiers from lowest to highest.
     public static readonly string[] AllTiers =
-        { "Bronze", "Iron", "Silver", "Gold", "Mithril", "Diamond" };
+        { "Road Kill", "Lazy Lizard", "Junktown Rat", "Hub Mercenary", "Bunker Buster", "Wasteland Legend" };
 
     // Number of contracts a player must complete in a tier before the next tier unlocks.
     public const int ContractsToAdvance = 3;
 
-    // Tiers this player currently has access to (starting empty; Bronze is granted on first vendor access).
+    // Tiers this player currently has access to (starting empty; Road Kill is granted on first vendor access).
     [ViewVariables]
     public HashSet<string> UnlockedTiers { get; } = new();
 

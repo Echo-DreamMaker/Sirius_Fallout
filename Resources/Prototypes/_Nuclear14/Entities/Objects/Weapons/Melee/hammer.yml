@@ -17,8 +17,10 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 45
+        Blunt: 40
         Structural: 60 #This is for utility and resource harvesting! -Bill
+  - type: GrantActionOnWield       # Misfits Add
+    actions: [MisfitsActionMeleeCharge]
   - type: Item
     size: Large
   - type: Clothing
@@ -52,7 +54,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 75
+        Blunt: 50
         Structural: 35
   - type: MeleeThrowOnHit
     speed: 10

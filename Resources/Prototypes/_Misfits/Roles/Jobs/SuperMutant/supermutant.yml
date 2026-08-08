@@ -16,7 +16,7 @@
   whitelisted: true # #Misfits Fix — allow job-whitelist fallback in lobby visibility filter
   hideWithoutWhitelist: true # #Misfits Change
   spawnLoadout: true
-  startingGear: SuperMutantVaultSuitGear # #Misfits Add - prevents naked spawns
+  startingGear: SuperMutantRagsGear # #Misfits Add - prevents naked spawns
   applyTraits: true # #Misfits Change - enable perks tab for Supermutants
   requirements:
     - !type:CharacterSpeciesRequirement
@@ -36,9 +36,9 @@
 
 # #Misfits Add - startingGear for the base Supermutant: a vault suit so they don't spawn naked.
 - type: startingGear
-  id: SuperMutantVaultSuitGear
+  id: SuperMutantRagsGear
   equipment:
-    jumpsuit: ClothingSuperMutantVaultSuit
+    jumpsuit: ClothingSuperMutantJumpsuit
     id: N14ClothingNeckDogtags # #Misfits Change - wastelander supermutants get dogtag IDs
     ears: MisfitsClothingHeadsetWastelandScrap
 
@@ -52,7 +52,7 @@
   icon: JobIconBorg
   supervisors: job-supervisors-supermutant
   canBeAntag: false
-  setPreference: false
+  setPreference: true # #Misfits Change - re-enabled, gated by the nightkin whitelist
   overrideConsoleVisibility: true
   whitelisted: true
   hideWithoutWhitelist: true
@@ -77,8 +77,7 @@
   equipment:
     jumpsuit: ClothingSuperMutantVaultSuit
     ears: MisfitsClothingHeadsetWastelandScrap
-  inhand:
-    -  MisfitsStealthBoy # # Misfits: Add - stealthboy for nightkin role on spawn
+  # #Misfits Change - removed spawn stealthboy, the implant is innate now
 - type: playTimeTracker
   id: Nightkin
 
@@ -429,12 +428,16 @@
             - Followers
         - type: CPRTraining
         - type: Sanitized
+    - !type:AddTraitSpecial
+      traits:
+      - FiremanCarry
 - type: startingGear
   id: SuperMutantFollowerDoctorGear
   equipment:
     jumpsuit: ClothingSuperMutantLabcoat
     outerClothing: MisfitsFOTASuperMutantArmoredLabcoat
     mask: ClothingSuperMutantSterileMask
+    head: ClothingSuperMutantDoctorBeret
     back: ClothingBackpackDuffelSurgeryFilled
     belt: N14ClothingBeltMedicalFilled
     shoes: ClothingSuperMutantGladiatorBoots
@@ -485,7 +488,7 @@
     outerClothing: MisfitsEnclavePowerArmor
     jumpsuit: ClothingSuperMutantLabcoat
     ears: N14ClothingHeadsetEnclave
-    id: N14IDEnclaveTrooper
+    id: N14EnclaveTrooperPipboy
     belt: ClothingBeltMilitary
     pocket1: EnclaveSoldierloadoutkits
 - type: playTimeTracker

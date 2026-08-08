@@ -1,0 +1,36 @@
+# #Misfits Add - 15-round .45 Magnum magazine for the Glock (N14Glock).
+# Whitelists the shared CartridgeMagnum tag, so it feeds every .45 magnum variant in the
+# game: standard, practice, rubber, incendiary, armor-piercing and uranium.
+# Carries the existing MagazineMagnum tag so it drops into any magnum-fed pistol.
+# Reuses the .44 pistol magazine sprite, which only defines base + mag-1 -> steps: 2.
+- type: entity
+  id: N14MagGlock
+  name: glock magazine
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+      - MagazineMagnum
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeMagnum
+    proto: N14CartridgeGlock45
+    capacity: 15
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    netsync: false
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/44/pistolmag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance

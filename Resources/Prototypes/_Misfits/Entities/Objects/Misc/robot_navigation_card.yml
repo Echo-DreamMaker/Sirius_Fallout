@@ -41,3 +41,15 @@
     mapTitle: RobCo Industries Navigation
     # #Misfits Fix - Match the corrected Wendover AABB so robot map markers line up with the rendered image.
     worldBounds: "-517,-308,484,311"
+
+# #Misfits Add - tribal Protectron identification tracked by the Tree of Life.
+- type: entity
+  parent: MisfitsRobotNavCardRobCo
+  id: MisfitsRobotNavCardTribal
+  components:
+  - type: PresetIdCard
+    job: SyntheticProtectronTribal
+  - type: Tag
+    tags:
+    - IdCardTribe
+    - DoorBumpOpener

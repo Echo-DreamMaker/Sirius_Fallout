@@ -94,6 +94,10 @@ public sealed partial class HolotapeWindow : DefaultWindow
     private Guid? _dbCurrentSubfolder;    // selected subfolder (null = browsing folder root)
     private Guid? _dbEditingDocumentId;   // when editing an existing doc
     private Guid? _dbEditorParentFolder;  // for create-folder (null parent = top-level)
+    // #Misfits Fix - Cache of the last explicitly-opened document. Periodic server
+    // refreshes (overwatch tick, notes pushes) rebuild the state with OpenDocument=null;
+    // without this cache every such push kicked the reader out of the document viewer.
+    private DatabaseDocumentView? _dbOpenDoc;
 
     public Content.Client.Viewport.ScalingViewport OverwatchFeedViewport => OverwatchCameraView;
 
@@ -215,8 +219,11 @@ public sealed partial class HolotapeWindow : DefaultWindow
 
         if (notes == null)
         {
-            // No notebook — make sure we're on the data tab
-            SwitchToDataTab();
+            // No notebook — make sure we aren't stuck on the notes tab.
+            // #Misfits Fix - Only switch when actually on the notes tab; unconditionally
+            // switching kicked viewers off other tabs on every state push.
+            if (NotesPanel.Visible)
+                SwitchToDataTab();
             return;
         }
 
@@ -340,6 +347,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
         _dbCurrentFolder = null;
         _dbCurrentSubfolder = null;
         _dbEditingDocumentId = null;
+        _dbOpenDoc = null;
         OnRequestDatabase?.Invoke();
         RefreshDatabaseView();
     }
@@ -791,6 +799,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
         if (state == null)
         {
             // No DB component on this terminal — make sure we aren't stuck on the tab.
+            _dbOpenDoc = null;
             if (DatabasePanel.Visible)
                 SwitchToDataTab();
             return;
@@ -800,6 +809,19 @@ public sealed partial class HolotapeWindow : DefaultWindow
         DatabaseHeaderLabel.Text = state.DisplayName;
         if (TryParseColor(state.AccentColor, out var accent))
             DatabaseHeaderLabel.FontColorOverride = accent;
+
+        // #Misfits Fix - Remember the last opened document; refreshes that omit it
+        // (overwatch tick, note pushes) must not blank the viewer.
+        if (state.OpenDocument != null)
+            _dbOpenDoc = state.OpenDocument;
+
+        // #Misfits Fix - Never re-render while the user is typing in the editor. State
+        // pushes can arrive at any time (periodic refreshes, other players on the same
+        // terminal); re-rendering wiped the inputs and dropped keyboard focus, so further
+        // keystrokes fired game keybinds instead of typing. The cached state is picked up
+        // when the user saves or cancels.
+        if (_dbView is DbView.EditorCreateFolder or DbView.EditorCreateDoc or DbView.EditorEditDoc)
+            return;
 
         // If the server included an open document, jump straight to the viewer
         if (state.OpenDocument != null)
@@ -901,8 +923,8 @@ public sealed partial class HolotapeWindow : DefaultWindow
             if (sub != null)
                 msg.AddMarkupPermissive($" / [bold]{FormattedMessage.EscapeText(sub.Name)}[/bold]");
         }
-        if (_dbView == DbView.DocumentViewer && _databaseState.OpenDocument != null)
-            msg.AddMarkupPermissive($" / [bold]{FormattedMessage.EscapeText(_databaseState.OpenDocument.Title)}[/bold]");
+        if (_dbView == DbView.DocumentViewer && _dbOpenDoc != null)
+            msg.AddMarkupPermissive($" / [bold]{FormattedMessage.EscapeText(_dbOpenDoc.Title)}[/bold]");
 
         msg.Pop();
         return msg;
@@ -970,7 +992,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
                 del.OnPressed += _ => OnDeleteDatabaseFolder?.Invoke(capId, null);
                 row.AddChild(del);
             }
-            if (!deleted && (canModify || isAuthor))
+            if (!deleted && (_databaseState!.CanAdmin || isAuthor))
             {
                 var permDel = new Button { Text = "[ PERM DELETE ]", MinWidth = 110 };
                 permDel.OnPressed += _ => OnPermanentDeleteDatabaseEntry?.Invoke(capId, null, null, null);
@@ -982,7 +1004,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
                 rest.OnPressed += _ => OnRestoreDatabaseEntry?.Invoke(capId, null, null, null);
                 row.AddChild(rest);
             }
-            if (deleted && (canModify || isAuthor))
+            if (deleted && (_databaseState!.CanAdmin || isAuthor))
             {
                 var permDel = new Button { Text = "[ PERM DELETE ]", MinWidth = 110 };
                 permDel.OnPressed += _ => OnPermanentDeleteDatabaseEntry?.Invoke(capId, null, null, null);
@@ -1066,7 +1088,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
                 del.OnPressed += _ => OnDeleteDatabaseFolder?.Invoke(folder.FolderId, capSub);
                 row.AddChild(del);
             }
-            if (!deleted && (canModify || isAuthor))
+            if (!deleted && (_databaseState!.CanAdmin || isAuthor))
             {
                 var permDel = new Button { Text = "[ PERM DELETE ]", MinWidth = 110 };
                 permDel.OnPressed += _ => OnPermanentDeleteDatabaseEntry?.Invoke(null, folder.FolderId, capSub, null);
@@ -1078,7 +1100,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
                 rest.OnPressed += _ => OnRestoreDatabaseEntry?.Invoke(null, folder.FolderId, capSub, null);
                 row.AddChild(rest);
             }
-            if (deleted && (canModify || isAuthor))
+            if (deleted && (_databaseState!.CanAdmin || isAuthor))
             {
                 var permDel = new Button { Text = "[ PERM DELETE ]", MinWidth = 110 };
                 permDel.OnPressed += _ => OnPermanentDeleteDatabaseEntry?.Invoke(null, folder.FolderId, capSub, null);
@@ -1177,7 +1199,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
             del.OnPressed += _ => OnDeleteDatabaseDocument?.Invoke(capId);
             row.AddChild(del);
         }
-        if (!deleted && (canModify || isAuthor))
+        if (!deleted && (_databaseState!.CanAdmin || isAuthor))
         {
             var permDel = new Button { Text = "[ PERM DELETE ]", MinWidth = 110 };
             permDel.OnPressed += _ => OnPermanentDeleteDatabaseEntry?.Invoke(null, null, null, capId);
@@ -1189,7 +1211,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
             rest.OnPressed += _ => OnRestoreDatabaseEntry?.Invoke(null, null, null, capId);
             row.AddChild(rest);
         }
-        if (deleted && (canModify || isAuthor))
+        if (deleted && (_databaseState!.CanAdmin || isAuthor))
         {
             var permDel = new Button { Text = "[ PERM DELETE ]", MinWidth = 110 };
             permDel.OnPressed += _ => OnPermanentDeleteDatabaseEntry?.Invoke(null, null, null, capId);
@@ -1201,7 +1223,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
 
     private void RenderDocumentViewer()
     {
-        if (_databaseState?.OpenDocument == null)
+        if (_databaseState == null || _dbOpenDoc == null)
         {
             // No doc loaded; bail to last known view.
             _dbView = _dbCurrentSubfolder != null ? DbView.DocumentList
@@ -1211,7 +1233,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
             return;
         }
 
-        var doc = _databaseState.OpenDocument;
+        var doc = _dbOpenDoc;
 
         var title = new FormattedMessage();
         title.PushColor(Color.FromHex(TermGreen));
@@ -1245,12 +1267,11 @@ public sealed partial class HolotapeWindow : DefaultWindow
         };
         DatabaseActionsBar.AddChild(back);
 
-        // #Misfits Add - Permanent delete button in document viewer. Available to
-        // original author OR Leadership/Admin (same logic as MakeDocRow).
-        var docCanModify = doc.IsAdmin ? _databaseState.CanAdmin : _databaseState.CanLeadership;
+        // #Misfits Add - Permanent delete button in document viewer. Available to the
+        // original author OR Admin tier only (server enforces the same).
         var docIsAuthor = _viewerUserId != null && doc.CreatedByUserId.HasValue
             && _viewerUserId.Value.UserId == doc.CreatedByUserId.Value;
-        if (docCanModify || docIsAuthor)
+        if (_databaseState.CanAdmin || docIsAuthor)
         {
             var capDocId = doc.DocumentId;
             var permDel = new Button
@@ -1362,7 +1383,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
                 break;
             case DbView.EditorEditDoc:
                 DatabaseEditorPrompt.Text = "EDIT DOCUMENT (creates new revision)";
-                var doc = _databaseState?.OpenDocument;
+                var doc = _dbOpenDoc;
                 DatabaseEditorBodyInput.TextRope = new Rope.Leaf(doc?.Body ?? string.Empty);
                 DatabaseEditorAdminToggle.Visible = false;
                 break;

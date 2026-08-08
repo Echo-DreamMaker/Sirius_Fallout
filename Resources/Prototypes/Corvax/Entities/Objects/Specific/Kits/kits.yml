@@ -520,9 +520,9 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: veteran-decanus-command kit
+  name: recruit-decanus-command kit
   parent: KitBase
-  id: KitVeteranDecanusCommand
+  id: KitRecruitDecanusCommand
   description: "A set of Legion equipment."
   components:
   - type: Sprite
@@ -553,9 +553,9 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: veteran-decanus-hunter kit
+  name: recruit-decanus-hunter kit
   parent: KitBase
-  id: KitVeteranDecanusHunter
+  id: KitRecruitDecanusHunter
   description: "A set of Legion equipment."
   components:
   - type: Sprite
@@ -582,9 +582,9 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: veteran-decanus-crusher kit
+  name: recruit-decanus-crusher kit
   parent: KitBase
-  id: KitVeteranDecanusCrusher
+  id: KitRecruitDecanusCrusher
   description: "A set of Legion equipment."
   components:
   - type: Sprite
@@ -595,8 +595,8 @@
   - type: SpawnItemsOnUse
     items:
       - id: N14TribalBigClubDecorated
-      - id: N14WeaponRifleSKS # #Misfits Change by BILL CLINTON!: Small number role made to be paired with the NCR sarge or basic ranger kits.
-      - id: SKSEnbloc308 # #Misfits Change - replaced GarandEnbloc308
+      - id: N14WeaponRifleGrenade # #Misfits Change by BILL CLINTON!: 40mm parity with NCR specialists. Billions must slaughter.
+      - id: 40mmGrenadeFrag # #Misfits Change - ammo for 40mm
         amount: 4
       - id: N14WeaponPistol45Colt # #Misfits Change: .45 pistol Legion sidearm (replaces tribal .44)
       - id: N14MagazinePistol45
@@ -624,16 +624,14 @@
   - type: SpawnItemsOnUse
     items:
       - id: N14LegionnaireShield
-      - id: N14WeaponRifleSKS # #Misfits Change by BILL CLINTON!: Small number role made to be paired with the NCR sarge or basic ranger kits.
-      - id: SKSEnbloc308 # #Misfits Change - replaced GarandEnbloc308
-        amount: 4
+      - id: N14WeaponUSHMG # #Misfits Change by BILL CLINTON!: Alternative choice to M60, gives variety.
+      - id: Magazine762AmmoBelt # #Misfits Change - replaced GarandEnbloc308
+        amount: 1
       - id: ClothingBeltRope
       - id: N14WeaponPistol45Colt # #Misfits Change: .45 pistol Legion sidearm
       - id: N14MagazinePistol45
         amount: 2
-      - id: N14TrenchClub
-      - id: Bola
-        amount: 2
+      - id: SmokeGrenade
       - id: BoxHandcuff
       - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
         amount: 2
@@ -658,7 +656,7 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14WeaponM60GPMG # #Misfits Change by BILL CLINTON!: HMG gunner swap from vet decanus down to the lesser decani.
+      - id: N14WeaponM60GPMG # #Misfits Change by BILL CLINTON!: HMG gunners are vet dec and prime dec.
       - id: Magazine308M60Box # #Misfits Change - replaced GarandEnbloc308
         amount: 1
       - id: ClothingBeltRope
@@ -689,15 +687,14 @@
   - type: SpawnItemsOnUse
     items:
       - id: N14ClothingHandsPowerFistGoliath
-      - id: N14WeaponSMG12mm # #Misfits Change by BILL CLINTON!: Small number role made to be paired with the NCR sarge or basic ranger kits.
-      - id: N14MagazineSMG12mm #Misfits Change - replaced GarandEnbloc308
-        amount: 4
+      - id: N14WeaponLMGBren # #Misfits Change by BILL CLINTON!: Alternative choice to M60, gives variety.
+      - id: Magazine308RifleLong #Misfits Change - replaced GarandEnbloc308
+        amount: 1
       - id: N14WeaponPistol45Colt # #Misfits Change: .45 pistol Legion sidearm
       - id: N14MagazinePistol45
         amount: 2
       - id: ClothingBeltRope
-      - id: ThrowingKnife
-        amount: 3
+      - id: SmokeGrenade
       - id: N14HealingPoultice #Misfits Change /Tweak/: Legion uses tribal medicine, not stimpaks
         amount: 2
       #- id: N14MedkitFilled #Misfits Change /Remove/: Legion does not use stimpak medkits

@@ -1,9 +1,9 @@
 - type: entity
   parent: N14SignBase
   id: NCFlagWallBazaar
-  name: Bazaar flag
+  name: Flag of the Town of Bazaar
   suffix: bazaar
-  description: You notice something interesting with this bird...
+  description: The banner of the Town of Bazaar, based in the southern remains of Wendover, Utah. When the bombs first dropped, Wendover split into three survivor communities, the Locusts, Vultures and Willowers. At first a camp of scavengers, the Vulture Tribe eventually civilized into a fully fledged trading outpost of towners. They built the Bazaar out of salvage they gathered and repaired over the first twenty years.
   components:
   - type: Sprite
     sprite: Corvax/Structures/Wallmount/flag.rsi
@@ -15,23 +15,23 @@
 - type: entity
   parent: NCFlagWallBazaar
   id: NCFlagMexico
-  name: Mexico flag
+  name: Flag of Mexico
   suffix: mexico
-  description: Avocados from Mexico!
+  description: The banner of Mexico, it was invaded and occupied by the United States military during the Resource Wars, and fell into total anarchy after the Great War began and ended.
   components:
   - type: Sprite
     sprite: Corvax/Structures/Wallmount/flag.rsi
     state: flag_mex
   - type: Construction
     graph: DecorationFlagMexico
-    node: FlagMexico 
+    node: FlagMexico
 
 - type: entity
   parent: NCFlagWallBazaar
   id: NCFlagWallTown
-  name: Brahmin flag
+  name: Flag of the Caravan Network
   suffix: town
-  description: The brahmin on this flag doesn't look very alive...
+  description: The banner of the Caravan Network, an organization of contractors, suppliers, merchants and their bodyguards that stretch from the West Coast to the Midwest. They maintain neutrality and will gladly take anyone's money.
   components:
   - type: Sprite
     sprite: Corvax/Structures/Wallmount/flag.rsi

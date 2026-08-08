@@ -3,32 +3,33 @@
   id: BasePrayerTree
   abstract: true
   components:
-    - type: Prayable
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 2000
-          behaviors:
-            - !type:PlaySoundBehavior
-              sound:
-                path: /Audio/Effects/tree_fell.ogg
-                params:
-                  volume: 5
-                  variation: 0.05
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                N14FloraLogTimber:
-                  min: 2
-                  max: 8
-                HeadSkeleton:
-                  min: 1
-                  max: 1
-                MaterialBones1:
-                  min: 3
-                  max: 10
+  - type: Prayable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          N14FloraLogTimber:
+            min: 2
+            max: 8
+          HeadSkeleton:
+            min: 1
+            max: 1
+          MaterialBones1:
+            min: 3
+            max: 10
+
 
 - type: entity
   parent: BasePrayerTree
@@ -75,3 +76,29 @@
       color: "#c0faef"
       radius: 5
       power: 4
+    # #Misfits Add - Willower leadership-only Tree announcement.
+    - type: SmokeSignal
+      cooldown: 0 # #Misfits Change - the Tree of Life can announce without a cooldown.
+      maxMessageLength: 128
+      targetDepartment: Tribe
+      nearbyRange: 0
+      openOnActivate: false
+      activatorJobs: [ TribalShaman, TribalElder ]
+      verb: willower-tree-announce-verb
+      broadcastMessage: willower-tree-announcement
+      cooldownMessage: willower-tree-announcement-cooldown
+    - type: UserInterface
+      interfaces:
+        enum.SmokeSignalUiKey.Key:
+          type: SmokeSignalBoundUserInterface
+        enum.WastelandMapUiKey.Key:
+          type: WastelandMapBoundUserInterface
+    # #Misfits Add - Willower leadership pendant-tracking TacMap.
+    - type: WastelandMap
+      mapTitle: Willowers Tree of Life
+      tacticalFeed: Tribe
+      activatorJobs: [ TribalShaman, TribalElder ]
+    - type: ActivatableUI
+      inHandsOnly: false
+      singleUser: true
+      key: enum.WastelandMapUiKey.Key

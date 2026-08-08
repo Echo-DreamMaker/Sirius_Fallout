@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: M14ClothingNeckCloakWesternPoncho
+  name: thick decorated poncho
+  description: Dark brown with white patterns, thick enough to provide some protection.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Neck/WesternPoncho.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Neck/WesternPoncho.rsi
+  - type: StaticPrice
+    price: 50

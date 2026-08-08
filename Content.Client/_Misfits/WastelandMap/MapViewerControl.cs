@@ -325,6 +325,12 @@ public sealed class MapViewerControl : Control
                 handle.DrawCircle(markerPos, 3.5f, Color.White);
                 break;
 
+            // #Misfits Add - Willower pendant/navigation marker.
+            case WastelandMapTrackedBlipKind.Willower:
+                handle.DrawCircle(markerPos, 11f, color);
+                handle.DrawCircle(markerPos, 4f, Color.White);
+                break;
+
             // #Misfits Add - Legion rank blip shapes
             case WastelandMapTrackedBlipKind.LegionCenturion:
                 // Gold star: cross + circle, like Elder but gold-tinted
@@ -550,6 +556,7 @@ public sealed class MapViewerControl : Control
             WastelandMapTrackedBlipKind.Knight => new Color(0.15f, 0.85f, 0.35f, 1f),
             WastelandMapTrackedBlipKind.Scribe => new Color(0.35f, 0.95f, 0.95f, 1f),
             WastelandMapTrackedBlipKind.Squire => new Color(1f, 0.6f, 0.15f, 1f),
+            WastelandMapTrackedBlipKind.Willower => new Color(0.84f, 0.61f, 0.24f, 1f), // #Misfits Add - Tribe department gold
             // #Misfits Add - Legion rank colours (red/gold Caesar's Legion palette)
             WastelandMapTrackedBlipKind.LegionCenturion => new Color(0.95f, 0.72f, 0.08f, 1f), // gold
             WastelandMapTrackedBlipKind.LegionDecanus => new Color(0.92f, 0.18f, 0.12f, 1f),   // bright red

@@ -62,3 +62,47 @@
     slots:
     - Hair
     - Snout
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsClothingHeadMarlowHat
+  name: boss of the plains hat
+  description: A thick undyed felt cowboy hat, bleached from excessive sun exposure and creased from heavy usage.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/marlowhat.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/marlowhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsClothingHeadSchlimmHat
+  name: foreign florentine hat
+  description: A thick undyed felt cowboy hat, bleached from excessive sun exposure and creased from heavy usage.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/schlimmhat.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/schlimmhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsClothingHeadAHPhelmet
+  name: highway patrol helmet
+  description: An old police motorcycle helmet with the logo of the 'Utah Department of Public Safety' emblazoned on the front.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/ahphelmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/ahphelmet.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsClothingHeadKhanHelmet
+  name: great khan helmet
+  description: A piece of headwear commonly worn by the Great Khans that appears to resemble stereotypical traditional Mongolian helmets - likely adapted from a pre-War motorcycle helmet. It is black with two horns on either side and a small spike jutting from the top, much like a pickelhaube. A leather covering protects the wearer's neck and ears from sunburn.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/khanhorned.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/khanhorned.rsi

@@ -7,6 +7,9 @@
   suffix: slanted
   description: An old blue metal door.
   components:
+  - type: Tag
+    tags:
+    - ForceNoFixRotations
   - type: Sprite
     sprite: _Nuclear14/Structures/Doors/SlantedDoors/metalblue.rsi
     layers:
@@ -56,6 +59,9 @@
   suffix: Slanted
   description: An old red metal door.
   components:
+  - type: Tag
+    tags:
+    - ForceNoFixRotations
   - type: Sprite
     sprite: _Nuclear14/Structures/Doors/SlantedDoors/metalred.rsi
     layers:
@@ -89,6 +95,9 @@
   suffix: Slanted, windowed
   description: An old blue metal door with a window.
   components:
+  - type: Tag
+    tags:
+    - ForceNoFixRotations
   - type: Sprite
     sprite: _Nuclear14/Structures/Doors/SlantedDoors/metalbluewindow.rsi
     layers:
@@ -111,6 +120,9 @@
   suffix: Slanted, grate
   description: A metal mesh door.
   components:
+  - type: Tag
+    tags:
+    - ForceNoFixRotations
   - type: Sprite
     sprite: _Nuclear14/Structures/Doors/SlantedDoors/metal_grate.rsi
     layers:
@@ -124,6 +136,9 @@
   suffix: Slanted, bar
   description: A metal bar door.
   components:
+  - type: Tag
+    tags:
+    - ForceNoFixRotations
   - type: Sprite
     sprite: _Nuclear14/Structures/Doors/SlantedDoors/metal_bar.rsi
     layers:
@@ -142,6 +157,9 @@
   suffix: Slanted, fence
   description: A metal fence gate.
   components:
+  - type: Tag
+    tags:
+    - ForceNoFixRotations
   - type: Sprite
     sprite: _Nuclear14/Structures/Doors/SlantedDoors/fence.rsi
     layers:
@@ -155,6 +173,9 @@
   suffix: Slanted, fence barbed
   description: A metal barbed fence gate.
   components:
+  - type: Tag
+    tags:
+    - ForceNoFixRotations
   - type: Sprite
     sprite: _Nuclear14/Structures/Doors/SlantedDoors/fence_barbed.rsi
     layers:
@@ -214,6 +235,9 @@
   id: N14DoorWoodBlueSlanted
   name: blue wooden door
   components:
+  - type: Tag
+    tags:
+    - ForceNoFixRotations
   - type: Sprite
     sprite: _Nuclear14/Structures/Doors/SlantedDoors/woodblue.rsi
     layers:
@@ -236,6 +260,9 @@
   id: N14DoorWoodRedSlanted
   name: red wooden door
   components:
+  - type: Tag
+    tags:
+    - ForceNoFixRotations
   - type: Sprite
     sprite: _Nuclear14/Structures/Doors/SlantedDoors/woodred.rsi
     layers:
@@ -247,6 +274,9 @@
   id: N14DoorWoodWhiteSlanted
   name: white wooden door
   components:
+  - type: Tag
+    tags:
+    - ForceNoFixRotations
   - type: Sprite
     sprite: _Nuclear14/Structures/Doors/SlantedDoors/woodwhite.rsi
     layers:
@@ -262,6 +292,9 @@
   suffix: slanted
   description: An old bunker airlock.
   components:
+  - type: Tag
+    tags:
+    - ForceNoFixRotations
   - type: Sprite
     sprite: _Nuclear14/Structures/Doors/SlantedDoors/airlock.rsi
     drawdepth: Mobs # #Misfits Tweak - Match tall wall drawdepth layer

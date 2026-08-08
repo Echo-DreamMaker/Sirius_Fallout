@@ -10,3 +10,7 @@
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/mysterious44.rsi
   - type: StaticPrice
     price: 120
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 5

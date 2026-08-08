@@ -29,6 +29,13 @@
         Slash: 0.75
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+        Caustic: 1
+        Radiation: 1
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -52,6 +59,12 @@
         Slash: 0.7
         Piercing: 0.80 #sirius change
         Heat: 0.75
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+        Caustic: 1
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -113,6 +126,11 @@
         Slash: 0.85
         Piercing: 0.85
         Heat: 0.90 #sirius change
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 1
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -160,6 +178,12 @@
         Slash: 0.6
         Piercing: 0.70
         Heat: 0.6
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 3
+        Caustic: 1
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Reflect
@@ -188,6 +212,13 @@
         Slash: 0.75
         Piercing: 0.7
         Heat: 0.7
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Caustic: 2
+        Radiation: 1
     priceMultiplier: 0.3
   - type: ExplosionResistance
     damageCoefficient: 0.8
@@ -205,6 +236,12 @@
         Slash: 0.75
         Piercing: 0.75 #sirius change
         Heat: 0.75
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Caustic: 2
     priceMultiplier: 0
 
 - type: entity
@@ -224,6 +261,12 @@
         Slash: 0.7
         Piercing: 0.60
         Heat: 0.65
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Caustic: 2
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.75
@@ -241,6 +284,12 @@
         Slash: 0.7
         Piercing: 0.7 #sirius change
         Heat: 0.7
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Caustic: 2
     priceMultiplier: 0
 
 - type: entity
@@ -260,6 +309,12 @@
         Slash: 0.6
         Piercing: 0.55
         Heat: 0.55
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Caustic: 2
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.75
@@ -295,7 +350,12 @@
         Slash: 0.75
         Piercing: 0.8
         Heat: 0.8
-    priceMultiplier: 0.08 # Forge-Change
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+    priceMultiplier: 0.8 # Forge-Change
   - type: ExplosionResistance
     damageCoefficient: 0.8
 
@@ -316,6 +376,9 @@
         Slash: 0.85 # Forge-Change
         Piercing: 0.6 # Forge-Change
         Heat: 0.65 # Forge-Change
+      flatReductions:  #sirius change
+        Piercing: 2
+        Heat: 2
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.75 # Forge-Change
@@ -338,6 +401,10 @@
         Slash: 0.8
         Piercing: 0.85
         Heat: 0.85
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
     priceMultiplier: 0.4
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -362,12 +429,17 @@
         Slash: 0.7
         Piercing: 0.75
         Heat: 0.75
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0.4
   - type: ExplosionResistance
     damageCoefficient: 0.8
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: N14ClothingOuterCombatArmor
   id: N14ClothingOuterCombatTribal
   name: tribal combat armor
   description: A salvaged combat armor to fit the tribe's needs.
@@ -389,9 +461,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 1.1 #sirius change
     sprintModifier: 1.1
-  # - type: ClothingSpecialModifier
-    # charismaModifier: 1
-    # luckModifier: 1
+ #  - type: ClothingSpecialModifier
+ #    charismaModifier: 1
+ #    luckModifier: 1
 
 - type: entity
   parent: N14ClothingOuterTribalArmor
@@ -490,8 +562,8 @@
         Heat: 0.95
   - type: ExplosionResistance
     damageCoefficient: 0.9
- # - type: ClothingSpecialModifier
-  #  strengthModifier: 1
+ #  - type: ClothingSpecialModifier
+ #    strengthModifier: 1
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -546,13 +618,20 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombatraider2.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombatraider2.rsi
-  - type: Armor
+  - type: Armor #sirius change
     modifiers:
       coefficients:
-        Blunt: 0.725 #sirius change
-        Slash: 0.725 #sirius change
-        Piercing: 0.725 #sirius change
-        Heat: 0.725 #sirius change
+        Blunt: 0.725
+        Slash: 0.725
+        Piercing: 0.725
+        Heat: 0.725
+      flatReductions:
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Caustic: 2
+        Radiation: 1
     priceMultiplier: 0.4
   - type: ExplosionResistance
     damageCoefficient: 0.8
@@ -574,6 +653,9 @@
         Slash: 0.8
         Piercing: 0.75
         Heat: 0.75
+      flatReductions:  #sirius change
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0.4
   - type: ExplosionResistance
     damageCoefficient: 0.8
@@ -595,6 +677,12 @@
         Slash: 0.85
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 1
+        Heat: 2
+        Caustic: 1
     priceMultiplier: 0.4
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -627,6 +715,13 @@
         Slash: 0.725
         Piercing: 0.825
         Heat: 0.825
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 3
+        Piercing: 1
+        Heat: 1
+        Caustic: 1
+        Radiation: 1
     priceMultiplier: 0.4
   - type: ExplosionResistance
     damageCoefficient: 0.95
@@ -669,6 +764,8 @@
         Slash: 1.1
         Piercing: 1.2
         Heat: 1.2
+      flatReductions:  #sirius change
+        Radiation: 1
     priceMultiplier: 0
   - type: ClothingSpeedModifier
     walkModifier: 1.2
@@ -694,6 +791,11 @@
         Slash: 0.8
         Piercing: 0.75
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 1
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -714,6 +816,11 @@
         Slash: 0.8
         Piercing: 0.75
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 1
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0
 
 - type: entity
@@ -733,6 +840,11 @@
         Slash: 0.75 # Forge-Change
         Piercing: 0.7 # Forge-Change
         Heat: 0.8 # Forge-Change
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.8 # Forge-Change
@@ -756,6 +868,11 @@
         Slash: 0.85
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -777,6 +894,11 @@
         Slash: 0.85
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -798,6 +920,11 @@
         Slash: 0.85
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -813,8 +940,8 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRvestcoatblack.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 1.10
-    sprintModifier: 1.10
+    walkModifier: 1.05
+    sprintModifier: 1.05
   - type: Armor
     modifiers:
       coefficients:
@@ -822,9 +949,38 @@
         Slash: 0.85
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.9
+    damageCoefficient: 0.85
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterNCRVestCoatBlackArmored
+  name: NCR Provost Armored Coat
+  description: A light ballistic plate inside a leather vest over a long coat. This one is covered in black camo for night operations.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRvestcoatblack.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRvestcoatblack.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.00
+    sprintModifier: 1.00
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.55
+        Heat: 0.60
+    priceMultiplier: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -843,6 +999,11 @@
         Slash: 0.7
         Piercing: 0.75
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 3
+        Piercing: 3
+        Heat: 3
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.75
@@ -850,8 +1011,8 @@
     reflectProb: 0.05
     spread: 150
   - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
+    walkModifier: 0.90
+    sprintModifier: 0.90
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -870,6 +1031,11 @@
         Slash: 0.7
         Piercing: 0.75
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 3
+        Piercing: 3
+        Heat: 3
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.75
@@ -877,8 +1043,8 @@
     reflectProb: 0.05
     spread: 150
   - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
+    walkModifier: 0.90
+    sprintModifier: 0.90
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -897,6 +1063,11 @@
         Slash: 0.85
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 2
+        Piercing: 2
+        Heat: 2
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -921,6 +1092,11 @@
         Slash: 0.85
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 2
+        Piercing: 2
+        Heat: 2
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -945,6 +1121,11 @@
         Slash: 0.85
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 2
+        Piercing: 2
+        Heat: 2
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ClothingSpeedModifier
@@ -968,6 +1149,11 @@
         Slash: 0.85
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 2
+        Piercing: 2
+        Heat: 2
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -1000,6 +1186,12 @@
         Slash: 0.75
         Piercing: 0.675
         Heat: 0.75
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 3
+        Heat: 2
+        Caustic: 2
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.75
@@ -1021,6 +1213,12 @@
         Slash: 0.75
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 2
+        Heat: 1
+        Caustic: 1
   - type: ExplosionResistance
     damageCoefficient: 0.9
 
@@ -1029,7 +1227,7 @@
 - type: entity
   parent: N14ClothingOuterBase
   id: N14ClothingOuterRangerVest
-  name: ranger custom leather vest
+  name: NCR tactical vest
   description: A custom NCR leather vest modified to become more versatile and protective.
   components:
   - type: Sprite
@@ -1043,6 +1241,12 @@
         Slash: 0.8
         Piercing: 0.75
         Heat: 0.75
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 2
+        Heat: 1
+        Caustic: 1
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.8 #sirius change
@@ -1064,6 +1268,12 @@
         Slash: 0.8
         Piercing: 0.775
         Heat: 0.775
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 2
+        Heat: 1
+        Caustic: 1
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -1088,6 +1298,12 @@
         Slash: 0.70
         Piercing: 0.70
         Heat: 0.70
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 3
+        Heat: 2
+        Caustic: 2
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.80
@@ -1112,6 +1328,12 @@
         Slash: 0.75
         Piercing: 0.75
         Heat: 0.75
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 2
+        Heat: 1
+        Caustic: 1
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.7
@@ -1138,6 +1360,12 @@
         Slash: 0.75
         Piercing: 0.75
         Heat: 0.7
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 2
+        Heat: 1
+        Caustic: 1
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -1148,8 +1376,8 @@
 - type: entity
   parent: N14ClothingOuterRangerCoat
   id: N14ClothingOuterRangerFieldArmor
-  name: NCR field ranger armor
-  description: A set of combat armor refurbished from old national guard stock, issued to Field Rangers.
+  name: NCR field armor
+  description: A set of combat armor refurbished from old national guard stock, issued to Field Rangers and senior Army personnel.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerfieldarmor.rsi
@@ -1173,6 +1401,12 @@
         Slash: 0.65
         Piercing: 0.6
         Heat: 0.6
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 2
+        Heat: 1
+        Caustic: 1
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.7
@@ -1251,14 +1485,14 @@
 
 - type: entity
   parent: N14ClothingOuterRangerCombat
-  id: N14ClothingOuterRangerElite # Admin event gear (OP)
+  id: N14ClothingOuterRangerElite
   name: elite ranger combat armor
   description: A customized and well-worn suit of riot gear with parts of the suit reinforced with leather armor and slain Centurion armor pieces by the wearer. A sniper's veil is wrapped around the neck.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerelite.rsi
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/rangervetv3c.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutrangerelite.rsi
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/rangervetv3c.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -1381,13 +1615,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.60
-        Heat: 0.65
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.55
+        Heat: 0.55
     priceMultiplier: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.75
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -1451,6 +1685,9 @@
         Piercing: 0.775
         Heat: 0.775
         Caustic: 0.95
+      flatReductions:  #sirius change
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.1
@@ -1475,6 +1712,12 @@
         Piercing: 0.725
         Heat: 0.725
         Caustic: 0.95
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+        Caustic: 1
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.1
@@ -1499,6 +1742,12 @@
         Piercing: 0.7
         Heat: 0.7
         Caustic: 0.9
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 2
+        Caustic: 1
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2
@@ -1523,6 +1772,12 @@
         Piercing: 0.675
         Heat: 0.675
         Caustic: 0.9
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 2
+        Heat: 2
+        Caustic: 2
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2
@@ -1547,6 +1802,12 @@
         Piercing: 0.60 # mk2 parity
         Heat: 0.60
         Caustic: 0.85
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 3
+        Caustic: 2
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2
@@ -1616,8 +1877,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier # Forge-Change
-    walkModifier: 1.1 # consistency and yes I know we don't have bluprints of these
-    sprintModifier: 1.1
+    walkModifier: 1.05 # consistency and yes I know we don't have bluprints of these
+    sprintModifier: 1.05
 
 # New Midwest BoS stuff after rework
 
@@ -1639,6 +1900,9 @@
         Piercing: 0.80 #sirius change
         Heat: 0.775
         Caustic: 0.95
+      flatReductions:  #sirius change
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.1
@@ -1663,6 +1927,11 @@
         Piercing: 0.725
         Heat: 0.725
         Caustic: 0.95
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.1
@@ -1687,6 +1956,12 @@
         Piercing: 0.80
         Heat: 0.75
         Caustic: 0.9
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 2
+        Caustic: 1
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2
@@ -1711,6 +1986,12 @@
         Piercing: 0.675
         Heat: 0.675
         Caustic: 0.9
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 2
+        Heat: 2
+        Caustic: 2
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2
@@ -1735,6 +2016,12 @@
         Piercing: 0.7 #sirius change
         Heat: 0.65
         Caustic: 0.85
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 3
+        Heat: 2
+        Caustic: 2
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2
@@ -1771,6 +2058,12 @@
         Slash: 0.75
         Piercing: 0.75 #sirius change
         Heat: 0.9 #sirius change
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 3
+        Piercing: 1
+        Heat: 1
+        Caustic: 7
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -1795,6 +2088,11 @@
         Slash: 0.55
         Piercing: 0.8
         Heat: 0.95
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 1
+        Caustic: 5
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.80
@@ -1816,6 +2114,11 @@
         Slash: 0.6
         Piercing: 0.7
         Heat: 0.7
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 1
+        Caustic: 5
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -1840,6 +2143,12 @@
         Slash: 0.70
         Piercing: 0.8
         Heat: 0.75
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 1
+        Heat: 3
+        Caustic: 2
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: Reflect
@@ -1888,6 +2197,12 @@
         Slash: 0.75
         Piercing: 0.75
         Heat: 0.75
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+        Caustic: 1
   - type: ExplosionResistance
     damageCoefficient: 0.75
 
@@ -1910,6 +2225,12 @@
         Slash: 0.8
         Piercing: 0.775
         Heat: 0.725
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+        Caustic: 1
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -1931,6 +2252,12 @@
         Slash: 0.75
         Piercing: 0.7
         Heat: 0.7
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Caustic: 2
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.8
@@ -1954,6 +2281,12 @@
         Slash: 0.75
         Piercing: 0.7
         Heat: 0.7
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Caustic: 2
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.8
@@ -1962,7 +2295,7 @@
   parent: N14FalloutArmorBase
   id: N14ClothingOuterVestChinese
   name: chinese armored vest
-  description: A light bulletproof vest, mostly used by regular chinese infantry.
+  description: A light bulletproof vest, mostly used by regular Chinese infantry.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutchinesevest.rsi
@@ -1975,6 +2308,11 @@
         Slash: 0.85
         Piercing: 0.8
         Heat: 0.75
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -2025,6 +2363,10 @@
         Piercing: 0.85
         Heat: 0.6
         Radiation: 0.6
+      flatReductions:  #sirius change
+        Slash: 1
+        Piercing: 1
+        Heat: 1
   - type: TemperatureProtection
     coefficient: 0.5
   - type: ExplosionResistance
@@ -2048,6 +2390,12 @@
         Slash: 0.725
         Piercing: 0.825
         Heat: 0.875
+      flatReductions:  #sirius change
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+        Caustic: 1
   - type: ExplosionResistance
     damageCoefficient: 0.85
   - type: StaticPrice
@@ -2070,6 +2418,12 @@
         Slash: 0.675
         Piercing: 0.775
         Heat: 0.825
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 1
+        Heat: 1
+        Caustic: 1
   - type: ClothingSpeedModifier
-    walkModifier: 0.975
-    sprintModifier: 0.975
+    walkModifier: 1.0
+    sprintModifier: 1.0

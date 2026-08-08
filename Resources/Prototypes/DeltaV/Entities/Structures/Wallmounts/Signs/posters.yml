@@ -1,8 +1,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitFuckAround
-  name: Fuck Around...
-  description: ...and find out. Sponsored by the Intergalactic Bartenders' Federation, Delta branch.
+  name: Bunker Bug Movie Ad
+  description: An advertisement for a movie about the Four States Commonwealth safety-mascot, Bunker Bug™ that appears to be about the normally jovial mascot defending their home from burglars. It was apparently due to release in Fall 2078. The advert seems unusually gritty compared to most of the mascot's posters.
   components:
   - type: Sprite
     sprite: DeltaV/Structures/Wallmounts/Posters/TJohnson.rsi
@@ -12,7 +12,7 @@
   parent: PosterBase
   id: PosterContrabandGotWood
   name: "Got Wood?"
-  description: "A grimy old advert for a seedy lumber company. \"You got a friend in me.\" is scrawled in the corner."
+  description: "A grimy old advert for a seedy lumber company, the West Virginia Lumber Company. You have no idea how many drugs their marketing department had to be on to approve this kind of advertisement."
   components:
   - type: Sprite
     sprite: DeltaV/Structures/Wallmounts/Posters/misc.rsi

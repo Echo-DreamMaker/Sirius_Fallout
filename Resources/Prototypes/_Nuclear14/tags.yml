@@ -286,7 +286,7 @@
 
 - type: Tag
   id: N14Cartridge2mmEC
-  
+
 - type: Tag
   id: N14CartridgeOver308Rifle
 
@@ -520,3 +520,6 @@
 
 - type: Tag
   id: MechKey
+
+- type: Tag
+  id: MisfitsPipBoy

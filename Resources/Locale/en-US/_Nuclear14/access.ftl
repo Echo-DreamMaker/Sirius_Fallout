@@ -16,6 +16,9 @@ id-card-access-level-vault-medical = Vault Medbay
 id-card-access-level-vault-chemistry = Vault Chemistry
 id-card-access-level-vault-engineer = Vault Maint.
 id-card-access-level-vault-dweller = Vault Basic
+id-card-access-level-vault-cargo = Vault Cargo Bay
+id-card-access-level-vault-courier = Vault Loading Dock
+id-card-access-level-vault-salvage = Vault Salvage Bay
 
 id-card-access-level-tribe-member = Tribe's Gate
 id-card-access-level-tribe-chief = Chief's Lock

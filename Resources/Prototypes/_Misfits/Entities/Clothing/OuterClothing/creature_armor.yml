@@ -23,6 +23,13 @@
         Heat: 0.62
         Radiation: 0.82
         Caustic: 0.82
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Caustic: 1
+        Radiation: 4
   - type: ExplosionResistance
     damageCoefficient: 0.62
 
@@ -47,6 +54,13 @@
         Piercing: 0.67
         Heat: 0.52
         Caustic: 0.72
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 2
+        Caustic: 1
+        Radiation: 4
   - type: ExplosionResistance
     damageCoefficient: 0.52
 
