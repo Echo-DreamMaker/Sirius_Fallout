@@ -1,17 +1,11 @@
 verb-categories-tame = Приручить
 follower-verb-follow-charisma-needed = У вас слишком низкая харизма, чтобы командовать животными!
 follower-already-following = Это животное уже следует за кем-то!
-follower-now-following = Теперь следует за вами!
-follower-stopped-following = Больше не следует за вами.
 follower-cant-follow-dead = Животное мертво и не может следовать.
 follower-cant-follow-low-charisma = У вас слишком низкая харизма, чтобы командовать животными!
-follower-attacking-target = Атакует вашу цель!
-follower-attack-mode = Режим атаки включён! Нажмите на цель для атаки.
 follower-released = Питомец отпущен на свободу.
 follower-cant-attack-owner = Вы не можете приказать питомцу атаковать вас!
 follower-cant-attack-pet = Вы не можете приказать питомцу атаковать другого питомца!
-follower-attack-mode-on = Режим атаки включён! Нажмите на цель для атаки.
-follower-attack-mode-off = Режим атаки выключен.
 taming-verb-tame = Приручить
 taming-verb-already-tamed = Уже приручено
 taming-verb-dead = Мертво - нельзя приручить

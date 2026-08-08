@@ -1,4 +1,3 @@
-using Content.Server.DoAfter;
 using Content.Server.NPC;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
@@ -19,7 +18,6 @@ using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -45,7 +43,6 @@ public sealed class TamingSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<TameableComponent, GetVerbsEvent<Verb>>(OnTameableGetVerbs);
         SubscribeLocalEvent<TameableComponent, TamingDoAfterEvent>(OnTamingDoAfter);
         SubscribeLocalEvent<SiriusFollowerComponent, ComponentShutdown>(OnFollowerShutdown);
@@ -132,7 +129,6 @@ public sealed class TamingSystem : EntitySystem
             }
         }
     }
-
     private void UpdateAutoHeldFollowers()
     {
         var query = EntityQueryEnumerator<SiriusFollowerComponent, HTNComponent>();
@@ -155,7 +151,6 @@ public sealed class TamingSystem : EntitySystem
             }
         }
     }
-
     private void OnFollowerShutdown(Entity<SiriusFollowerComponent> ent, ref ComponentShutdown args)
     {
         var follower = ent.Comp;
@@ -164,11 +159,9 @@ public sealed class TamingSystem : EntitySystem
             CleanupFollower(follower.Commander.Value, ent);
         }
     }
-
     private void OnFollowerUnpaused(Entity<SiriusFollowerComponent> ent, ref EntityUnpausedEvent args)
     {
     }
-
     private void OnFollowerAttackAttempt(Entity<SiriusFollowerComponent> ent, ref AttackAttemptEvent args)
     {
         if (args.Target != null && ent.Comp.Commander != null)
@@ -186,7 +179,6 @@ public sealed class TamingSystem : EntitySystem
             }
         }
     }
-
     private void OnTameableGetVerbs(Entity<TameableComponent> ent, ref GetVerbsEvent<Verb> args)
     {
         if (!args.CanAccess || !args.CanInteract || args.User == args.Target)
@@ -302,12 +294,10 @@ public sealed class TamingSystem : EntitySystem
             args.Verbs.Add(wrongFoodVerb);
             return;
         }
-
         var user = args.User;
         var target = ent;
         var food = heldEntity.Value;
         var foodIdLocal = foodId;
-
         var verb = new Verb
         {
             Text = Loc.GetString("taming-verb-tame"),
@@ -318,7 +308,6 @@ public sealed class TamingSystem : EntitySystem
         };
         args.Verbs.Add(verb);
     }
-
     private void OnTamingDoAfter(Entity<TameableComponent> ent, ref TamingDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled)
@@ -345,9 +334,7 @@ public sealed class TamingSystem : EntitySystem
         var baseChance = tameable.BaseTameChance;
         var multiplier = GetFoodMultiplier(tameable, foodPref);
         var finalChance = Math.Min(baseChance * multiplier + (charisma - tameable.MinCharisma) * 0.05f, 0.95f);
-
         Del(foodEntity);
-
         if (Random.Shared.NextDouble() <= finalChance)
         {
             TameAnimal(ent, args.User);
@@ -358,7 +345,6 @@ public sealed class TamingSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("taming-failed"), ent, args.User, PopupType.Small);
         }
     }
-
     private void GrantPetActions(EntityUid tamer, EntityUid pet, SiriusFollowerComponent follower)
     {
         RemovePetActions(tamer, follower);
@@ -369,7 +355,6 @@ public sealed class TamingSystem : EntitySystem
         "ActionPetAttackCancel",
         "ActionPetRelease"
     };
-
         foreach (var proto in actionPrototypes)
         {
             EntityUid? actionId = null;
@@ -378,10 +363,8 @@ public sealed class TamingSystem : EntitySystem
                 follower.PetActionEntities.Add(actionId.Value);
             }
         }
-
         Dirty(pet, follower);
     }
-
     private void RemovePetActions(EntityUid tamer, SiriusFollowerComponent follower)
     {
         foreach (var actionId in follower.PetActionEntities)
@@ -390,12 +373,10 @@ public sealed class TamingSystem : EntitySystem
         }
         follower.PetActionEntities.Clear();
     }
-
     private void TameAnimal(EntityUid animal, EntityUid tamer)
     {
         if (!TryComp<SiriusFollowerComponent>(animal, out var follower))
             return;
-
         follower.IsTamed = true;
         follower.Tamer = tamer;
         follower.Commander = tamer;
@@ -403,14 +384,12 @@ public sealed class TamingSystem : EntitySystem
         follower.IsStaying = false;
         follower.WasAutoHeld = false;
         follower.NoPathAccumulator = 0f;
-
         if (TryComp<HTNComponent>(animal, out var htn))
         {
             if (string.IsNullOrEmpty(follower.OriginalRootTask))
             {
                 follower.OriginalRootTask = htn.RootTask.Task;
             }
-
             htn.Blackboard.Remove<EntityCoordinates>(NPCBlackboard.FollowTarget);
             htn.Blackboard.Remove<EntityUid>("Target");
             htn.Blackboard.Remove<EntityCoordinates>("TargetCoordinates");
@@ -418,7 +397,6 @@ public sealed class TamingSystem : EntitySystem
             htn.Blackboard.Remove<bool>("AttackMode");
             htn.Blackboard.Remove<EntityCoordinates>(NPCBlackboard.MovementTarget);
             htn.Blackboard.Remove<PathResultEvent>(NPCBlackboard.PathfindKey);
-
             htn.Blackboard.SetValue(NPCBlackboard.FollowTarget,
                 new EntityCoordinates(tamer, System.Numerics.Vector2.Zero));
             htn.RootTask.Task = FollowCompoundId;
@@ -428,21 +406,16 @@ public sealed class TamingSystem : EntitySystem
 
         if (!TryComp<FactionExceptionComponent>(animal, out var factionException))
             factionException = EnsureComp<FactionExceptionComponent>(animal);
-
         _npcFaction.IgnoreEntity((animal, factionException), tamer);
         _npcFaction.AddFriendlyEntity(animal, tamer);
-
         EnsureComp<InputMoverComponent>(animal);
-
         GrantPetActions(tamer, animal, follower);
-
         Dirty(animal, follower);
     }
 
     public void StartFollowing(Entity<SiriusFollowerComponent> ent, EntityUid commander)
     {
         var follower = ent.Comp;
-
         if (follower.Commander != null && follower.Commander != commander)
         {
             _popup.PopupEntity(Loc.GetString("follower-already-following"), ent, commander, PopupType.Small);
@@ -472,7 +445,6 @@ public sealed class TamingSystem : EntitySystem
             factionException = EnsureComp<FactionExceptionComponent>(ent);
 
         _npcFaction.IgnoreEntity((ent, factionException), commander);
-
         ApplyFollowerOrder(ent, follower, SiriusFollowerOrderType.Follow);
         _popup.PopupEntity(Loc.GetString("follower-now-following"), ent, commander, PopupType.Small);
     }
@@ -502,9 +474,7 @@ public sealed class TamingSystem : EntitySystem
         follower.IsFollowing = false;
         follower.WasAutoHeld = false;
         follower.NoPathAccumulator = 0f;
-
         CleanupFollower(commander, ent);
-
         _popup.PopupEntity(Loc.GetString("follower-stopped-following"), ent, commander, PopupType.Small);
     }
 
@@ -531,9 +501,7 @@ public sealed class TamingSystem : EntitySystem
         follower.IsFollowing = false;
         follower.WasAutoHeld = false;
         follower.NoPathAccumulator = 0f;
-
         CleanupFollower(commander, uid);
-
         _popup.PopupEntity(Loc.GetString("follower-stopped-following"), uid, commander, PopupType.Small);
     }
 
@@ -578,7 +546,6 @@ public sealed class TamingSystem : EntitySystem
         follower.IsStaying = false;
         follower.WasAutoHeld = false;
         follower.NoPathAccumulator = 0f;
-
         Dirty(ent, follower);
         _popup.PopupEntity(Loc.GetString("follower-released"), ent, owner, PopupType.Small);
     }
@@ -619,7 +586,6 @@ public sealed class TamingSystem : EntitySystem
             return;
 
         _npcSystem.SleepNPC(ent, htn);
-
         htn.Blackboard.Remove<EntityCoordinates>(NPCBlackboard.FollowTarget);
         htn.Blackboard.Remove<EntityUid>("Target");
         htn.Blackboard.Remove<EntityCoordinates>("TargetCoordinates");
@@ -647,7 +613,6 @@ public sealed class TamingSystem : EntitySystem
 
         htn.RootTask.Task = newRoot;
         _htn.Replan(htn);
-
         EnsureComp<InputMoverComponent>(ent);
         _npcSystem.WakeNPC(ent, htn);
     }
@@ -686,7 +651,6 @@ public sealed class TamingSystem : EntitySystem
 
         htn.RootTask.Task = newRoot;
         _htn.Replan(htn);
-
         EnsureComp<InputMoverComponent>(uid);
         _npcSystem.WakeNPC(uid, htn);
     }
@@ -719,7 +683,6 @@ public sealed class TamingSystem : EntitySystem
             AttemptFrequency = AttemptFrequency.StartAndEnd,
             DistanceThreshold = 2.0f
         };
-
         _doAfter.TryStartDoAfter(doAfterArgs);
     }
 

@@ -1,12 +1,10 @@
 using Content.Server.NPC;
-using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Pathfinding;
 using Content.Server.NPC.Systems;
 using Content.Shared._Sirius.NPC.Actions;
 using Content.Shared._Sirius.NPC.Components;
 using Content.Shared.Actions;
-using Content.Shared.NPC;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Pointing;
@@ -37,7 +35,6 @@ public sealed class PetActionsSystem : EntitySystem
         SubscribeLocalEvent<PetFollowStayActionEvent>(OnPetFollowStay);
         SubscribeLocalEvent<PetAttackCancelActionEvent>(OnPetAttackCancel);
         SubscribeLocalEvent<PetReleaseActionEvent>(OnPetRelease);
-
         SubscribeLocalEvent<ActorComponent, AfterPointedAtEvent>(OnPlayerPointedAt);
     }
 
@@ -74,9 +71,7 @@ public sealed class PetActionsSystem : EntitySystem
 
         _npcFaction.AggroEntity((pet, factionException), pointed);
         _htn.Replan(htn);
-        _popup.PopupEntity(Loc.GetString("follower-attacking-target"), pet, player, PopupType.Small);
     }
-
     private void OnPetFollowStay(PetFollowStayActionEvent ev)
     {
         if (!TryGetPet(ev.Performer, out var pet, out var follower))
@@ -92,9 +87,7 @@ public sealed class PetActionsSystem : EntitySystem
             follower.WasAutoHeld = false;
             follower.NoPathAccumulator = 0f;
             follower.Commander = ev.Performer;
-
             ApplyFollowOrder(pet, follower);
-            _popup.PopupEntity(Loc.GetString("follower-now-following"), pet, ev.Performer, PopupType.Small);
             _actions.SetToggled(ev.Action, false);
         }
         else
@@ -103,13 +96,10 @@ public sealed class PetActionsSystem : EntitySystem
             follower.IsFollowing = false;
             follower.WasAutoHeld = true;
             follower.Commander = null;
-
             ApplyWanderOrder(pet, follower);
-            _popup.PopupEntity(Loc.GetString("follower-stopped-following"), pet, ev.Performer, PopupType.Small);
             _actions.SetToggled(ev.Action, true);
         }
     }
-
     private void OnPetAttackCancel(PetAttackCancelActionEvent ev)
     {
         if (!TryGetPet(ev.Performer, out var pet, out var follower))
@@ -138,7 +128,6 @@ public sealed class PetActionsSystem : EntitySystem
             follower.AttackMode = false;
             _actions.SetToggled(ev.Action, false);
             _htn.Replan(htn);
-            _popup.PopupEntity(Loc.GetString("follower-attack-mode-off"), pet, ev.Performer, PopupType.Small);
         }
         else
         {
@@ -146,10 +135,8 @@ public sealed class PetActionsSystem : EntitySystem
             htn.Blackboard.SetValue("AttackMode", true);
             _actions.SetToggled(ev.Action, true);
             _htn.Replan(htn);
-            _popup.PopupEntity(Loc.GetString("follower-attack-mode-on"), pet, ev.Performer, PopupType.Small);
         }
     }
-
     private void OnPetRelease(PetReleaseActionEvent ev)
     {
         if (!TryGetPet(ev.Performer, out var pet, out var follower))
@@ -161,7 +148,6 @@ public sealed class PetActionsSystem : EntitySystem
         ReleasePet(pet, follower, ev.Performer);
         _popup.PopupEntity(Loc.GetString("follower-released"), pet, ev.Performer, PopupType.Small);
     }
-
     private bool TryGetPet(EntityUid owner, out EntityUid pet, out SiriusFollowerComponent follower)
     {
         pet = EntityUid.Invalid;
@@ -180,7 +166,6 @@ public sealed class PetActionsSystem : EntitySystem
 
         return false;
     }
-
     private void ReleasePet(EntityUid pet, SiriusFollowerComponent follower, EntityUid owner)
     {
         if (follower.Tamer != owner)
@@ -237,14 +222,12 @@ public sealed class PetActionsSystem : EntitySystem
         }
         follower.PetActionEntities.Clear();
     }
-
     private void ApplyFollowOrder(EntityUid uid, SiriusFollowerComponent follower)
     {
         if (!TryComp<HTNComponent>(uid, out var htn))
             return;
 
         _npcSystem.SleepNPC(uid, htn);
-
         htn.Blackboard.Remove<EntityCoordinates>(NPCBlackboard.FollowTarget);
         htn.Blackboard.Remove<EntityUid>("Target");
         htn.Blackboard.Remove<EntityCoordinates>("TargetCoordinates");
@@ -258,7 +241,6 @@ public sealed class PetActionsSystem : EntitySystem
             htn.Blackboard.SetValue(NPCBlackboard.FollowTarget,
                 new EntityCoordinates(follower.Commander.Value, System.Numerics.Vector2.Zero));
         }
-
         htn.RootTask.Task = FollowCompoundId;
         _htn.Replan(htn);
         _npcSystem.WakeNPC(uid, htn);
@@ -270,7 +252,6 @@ public sealed class PetActionsSystem : EntitySystem
             return;
 
         _npcSystem.SleepNPC(uid, htn);
-
         htn.Blackboard.Remove<EntityCoordinates>(NPCBlackboard.FollowTarget);
         htn.Blackboard.Remove<EntityUid>("Target");
         htn.Blackboard.Remove<EntityCoordinates>("TargetCoordinates");
@@ -287,7 +268,6 @@ public sealed class PetActionsSystem : EntitySystem
         {
             htn.RootTask.Task = FollowCompoundId;
         }
-
         _htn.Replan(htn);
         _npcSystem.WakeNPC(uid, htn);
     }

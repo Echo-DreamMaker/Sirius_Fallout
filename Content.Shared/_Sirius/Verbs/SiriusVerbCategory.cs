@@ -5,5 +5,6 @@ namespace Content.Shared._Sirius.Verbs;
 
 public static class SiriusVerbCategory
 {
-    public static readonly VerbCategory Tame = new("verb-categories-tame", "/Textures/Interface/VerbIcons/open.svg.192dpi.png");
+    public static readonly VerbCategory Tame = new("verb-categories-tame", "/Textures/_Sirius/Interface/Actions/petFriendship.svg.192dpi.png"
+);
 }

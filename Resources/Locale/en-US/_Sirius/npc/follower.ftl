@@ -1,17 +1,11 @@
 verb-categories-tame = Tame
 follower-verb-follow-charisma-needed = You're too uncharismatic to command animals!
 follower-already-following = This animal is already following someone!
-follower-now-following = Now following you!
-follower-stopped-following = No longer following you.
 follower-cant-follow-dead = The animal is dead and cannot follow.
 follower-cant-follow-low-charisma = You're too uncharismatic to command animals!
-follower-attacking-target = Attacking your target!
-follower-attack-mode = Attack mode enabled! Click on a target to attack.
 follower-released = Pet has been released.
 follower-cant-attack-owner = You can't command your pet to attack you!
 follower-cant-attack-pet = You can't command your pet to attack another pet!
-follower-attack-mode-on = Attack mode enabled! Click on a target to attack.
-follower-attack-mode-off = Attack mode disabled.
 taming-verb-tame = Tame
 taming-verb-already-tamed = Already tamed
 taming-verb-dead = Dead - cannot tame

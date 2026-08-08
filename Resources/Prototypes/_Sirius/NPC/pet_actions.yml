@@ -7,11 +7,11 @@
   - type: InstantAction
     useDelay: 0.5
     icon:
-      sprite: Interface/Actions/actions_rat_king.rsi
-      state: follow
+      sprite: _Sirius/Interface/Actions/tamesystem.rsi
+      state: petFollow
     iconOn:
-      sprite: Interface/Actions/actions_rat_king.rsi
-      state: stay
+      sprite: _Sirius/Interface/Actions/tamesystem.rsi
+      state: petHold
     event: !type:PetFollowStayActionEvent
 
 - type: entity
@@ -23,11 +23,11 @@
   - type: InstantAction
     useDelay: 0.5
     icon:
-      sprite: Interface/Actions/actions_rat_king.rsi
-      state: attack
+      sprite: _Sirius/Interface/Actions/tamesystem.rsi
+      state: petAttack
     iconOn:
-      sprite: Interface/Actions/actions_rat_king.rsi
-      state: loose
+      sprite: _Sirius/Interface/Actions/tamesystem.rsi
+      state: petPassive
     event: !type:PetAttackCancelActionEvent
 
 - type: entity
@@ -39,6 +39,6 @@
   - type: InstantAction
     useDelay: 0.5
     icon:
-      sprite: Interface/Actions/actions_rat_king.rsi
-      state: loose
+      sprite: _Sirius/Interface/Actions/tamesystem.rsi
+      state: petLeft
     event: !type:PetReleaseActionEvent
