@@ -170,3 +170,7 @@
       id: MisfitsLoadoutOuterArmorKitShoulder
     - type: loadout
       id: MisfitsLoadoutOuterKhanLeather
+
+#Sirius
+    - type: loadout
+      id: ClothingOuterMothFluffy #Sirius Add

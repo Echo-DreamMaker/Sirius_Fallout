@@ -271,3 +271,167 @@
     - Tribe
    items:
      - ClothingNeckCrucifixColor
+
+    # Sirius Loadouts
+
+ - type: loadout
+   id: ClothingLoadoutNeckScarfStripedZebra
+   category: Neck
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type:CharacterItemGroupRequirement
+       group: N14LoadoutNeck
+     - !type:CharacterJobRequirement 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+   items:
+     - ClothingNeckScarfStripedZebra
+
+ - type: loadout
+   id: ClothingLoadoutNeckScarfStripedOrange
+   category: Neck
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type:CharacterItemGroupRequirement
+       group: N14LoadoutNeck
+     - !type:CharacterJobRequirement 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+   items:
+     - ClothingNeckScarfStripedOrange
+
+ - type: loadout
+   id: ClothingLoadoutNeckScarfStripedPurple
+   category: Neck
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type:CharacterItemGroupRequirement
+       group: N14LoadoutNeck
+     - !type:CharacterJobRequirement 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+   items:
+     - ClothingNeckScarfStripedPurple
+     
+ - type: loadout
+   id: ClothingLoadoutNeckScarfStripedyellow
+   category: Neck
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type:CharacterItemGroupRequirement
+       group: N14LoadoutNeck
+     - !type:CharacterJobRequirement 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+   items:
+     - ClothingNeckScarfStripedyellow
+
+ - type: loadout
+   id: ClothingLoadoutNeckScarfStripedwhite
+   category: Neck
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type:CharacterItemGroupRequirement
+       group: N14LoadoutNeck
+     - !type:CharacterJobRequirement 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+   items:
+     - ClothingNeckScarfStripedwhite
+
+ - type: loadout
+   id: ClothingLoadoutNeckScarfStripedpink
+   category: Neck
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type:CharacterItemGroupRequirement
+       group: N14LoadoutNeck
+     - !type:CharacterJobRequirement 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+   items:
+     - ClothingNeckScarfStripedpink
+
+ - type: loadout
+   id: ClothingLoadoutNeckScarfStripedgray
+   category: Neck
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type:CharacterItemGroupRequirement
+       group: N14LoadoutNeck
+     - !type:CharacterJobRequirement 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+   items:
+     - ClothingNeckScarfStripedgray
+
+ - type: loadout
+   id: ClothingLoadoutNeckScarfChaplainStole
+   category: Neck
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type:CharacterItemGroupRequirement
+       group: N14LoadoutNeck
+     - !type:CharacterJobRequirement 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+   items:
+     - ClothingNeckScarfChaplainStole
+
+ - type: loadout
+   id: ClothingLoadoutNeckMothFluffyWings
+   category: Neck
+   cost: 1
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type:CharacterItemGroupRequirement
+       group: N14LoadoutNeck
+     - !type:CharacterJobRequirement 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+   items:
+     - ClothingNeckMothFluffyWings

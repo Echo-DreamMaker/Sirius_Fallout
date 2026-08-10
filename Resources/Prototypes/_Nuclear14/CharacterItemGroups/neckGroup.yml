@@ -54,6 +54,24 @@
     - type: loadout
       id: ClothingNeckScarfStripedBlue
     - type: loadout
+      id: ClothingLoadoutNeckScarfChaplainStole #Sirius Add
+    - type: loadout
+      id: ClothingLoadoutNeckScarfStripedgray #Sirius Add
+    - type: loadout
+      id: ClothingLoadoutNeckScarfStripedpink #Sirius Add
+    - type: loadout
+      id: ClothingLoadoutNeckScarfStripedwhite #Sirius Add
+    - type: loadout
+      id: ClothingLoadoutNeckScarfStripedyellow #Sirius Add
+    - type: loadout
+      id: ClothingLoadoutNeckScarfStripedPurple #Sirius Add
+    - type: loadout
+      id: ClothingLoadoutNeckScarfStripedOrange #Sirius Add
+    - type: loadout
+      id: ClothingLoadoutNeckScarfStripedZebra #Sirius Add
+    - type: loadout
+      id: ClothingLoadoutNeckMothFluffyWings #Sirius Add
+    - type: loadout
       id: N14LoadoutUniversalNeckCloakBrotherhoodWashington
     - type: loadout
       id: N14LoadoutUniversalNeckCloakDarkCloak

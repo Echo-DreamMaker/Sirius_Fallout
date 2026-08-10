@@ -187,3 +187,7 @@
       id: MisfitsLoadoutHeadHeadAHPhelmet
     - type: loadout
       id: MisfitsLoadoutHeadKhanHelmet
+
+   # Sirius
+    - type: loadout
+      id: ClothingLoadoutHeadHatHoodMothFluffy
