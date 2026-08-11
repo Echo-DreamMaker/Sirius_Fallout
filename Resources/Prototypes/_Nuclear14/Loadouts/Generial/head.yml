@@ -348,3 +348,20 @@
         - Wastelander
   items:
     - N14ClothingHeadHatTownGuard
+
+  # Sirius Add
+- type: loadout
+  id: ClothingLoadoutHeadHatHoodMothFluffy
+  category: Head
+  cost: 1
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement # Forge-Change
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+  items:
+    - ClothingHeadHatHoodMothFluffy

@@ -342,3 +342,20 @@
         - Townsfolk
   items:
     - N14ClothingOuterGhostEchoes
+
+ # Sirius Add
+- type: loadout
+  id: N14LoadoutOuterMothFluffy
+  category: Outer
+  cost: 3
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement # Forge-Change
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+  items:
+    - ClothingOuterMothFluffy
