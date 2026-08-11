@@ -6,14 +6,11 @@
   components:
   - type: N14PowerArmor # #Misfits Change Add: Marks this and all child power armor variants. Used by CarryingSystem to block non-PA users from picking up PA wearers.
   - type: N14BosBackpackSlot # #Misfits Add: All power armor gets an extra backpack slot — fusion core occupies the normal back slot
-  # #Misfits Add: Power armor integrity — separate HP pool. While intact, 98.5% of incoming
+  # #Misfits Add: Power armor rityinteg — separate HP pool. While intact, 98.5% of incoming
   # damage is absorbed by the armor and only 1.5% bleeds through to the wearer.
   # At 0 integrity the ArmorComponent is stripped and the wearer takes full damage.
   # Repair with a welder to restore the pool and re-enable absorption.
   - type: Damageable
-  - type: PowerArmorIntegrity
-    maxIntegrity: 300 # #Misfits Tweak: By Bill, 500 durability for a little more standing power.
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
   - type: Repairable
     fuelCost: 5
     doAfterDelay: 8 # #Misfits Tweak - Increased weld repair time from 5s to 30s to 18s; 5s was too fast for combat balance, 30 is too slow, current proposal is 18.
@@ -36,18 +33,18 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.65
-        Heat: 0.4
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.5
+        Heat: 0.3
         Caustic: 0.65
         Radiation: 0.4
       flatReductions:  #sirius change
-        Blunt: 4
-        Slash: 4
-        Piercing: 4
-        Heat: 8
-        Caustic: 4
+        Blunt: 8
+        Slash: 8
+        Piercing: 8
+        Heat: 10
+        Caustic: 5
         Radiation: 4
   - type: ClothingSpeedModifier
     walkModifier: 0.2
@@ -89,9 +86,9 @@
   - type: PowerArmorBrace # #Misfits Change Add: Grants wearer a hotkey to brace (anchor in place, immobile but can fire, slight damage resistance). 5-second cooldown between stance changes.
     activeModifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
   - type: EmitsSoundOnMove # Corvax-Change
     soundCollection:
       collection: N14FootstepPowerArmor
@@ -107,9 +104,6 @@
   name: t-51 power armor
   description: An old suit of T-51 Power Armor. It looks more advanced than your common everyday T-45.
   components:
-  - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 380 # #Misfits
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t51.rsi
   - type: Clothing
@@ -117,12 +111,19 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.60
-        Heat: 0.60
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.5
+        Heat: 0.3
         Caustic: 0.65
-        Radiation: 0.6
+        Radiation: 0.4
+      flatReductions:  #sirius change
+        Blunt: 8
+        Slash: 8
+        Piercing: 8
+        Heat: 10
+        Caustic: 5
+        Radiation: 4
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -142,9 +143,6 @@
   name: Experimental X-01 Power Armor
   description: A set of X-01 Power Armor made to fit a Supermutant, In exchange its less durable then a normal X-01
   components:
-  - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 300 # #Misfits Tweak: By Bill, 500 durability.
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/PowerArmor/Mutant_PA.rsi
   - type: Clothing
@@ -154,13 +152,18 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.70
-        Caustic: 0.75
-        Radiation: 0.6
-  - type: Unremoveable # This is your casket. Service guarantees citizenship.
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.6
+        Heat: 0.3
+        Caustic: 0.5
+        Radiation: 0.5
+      flatReductions:  #sirius change
+        Blunt: 5
+        Slash: 5
+        Piercing: 4
+        Heat: 8
+        Caustic: 4
   - type: Tag
     tags:
     - SuperMutantWearable
@@ -183,9 +186,6 @@
   name: t-45 power armor [Bos]
   description: An old suit of T-45 Power Armor. It's amazing these still exist.
   components:
-  - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 400
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t45.rsi
   - type: Clothing
@@ -193,12 +193,19 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.7
-        Caustic: 0.7
-        Radiation: 0.6
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.45
+        Heat: 0.3
+        Caustic: 0.6
+        Radiation: 0.4
+      flatReductions:  #sirius change
+        Blunt: 8
+        Slash: 8
+        Piercing: 8
+        Heat: 10
+        Caustic: 5
+        Radiation: 4
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -216,9 +223,6 @@
   name: t-60 power armor
   description: A suit of T-60 Power Armor. The T-60 series of power armor was designed to eventually replace the T-51 as the pinnacle of powered armor technology. It however suffered from a minor drawback in its armor placement, making it somewhat less armored.
   components:
-  - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 345 # #Misfits Tweak: By Bill, 545 durability.
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t60.rsi
   - type: Clothing
@@ -226,18 +230,18 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.65
-        Caustic: 0.65
-        Radiation: 0.6
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.25
+        Caustic: 0.6
+        Radiation: 0.4
       flatReductions:  #sirius change
-        Blunt: 6
-        Slash: 6
-        Piercing: 6
-        Heat: 10
-        Caustic: 5
+        Blunt: 9
+        Slash: 9
+        Piercing: 9
+        Heat: 12
+        Caustic: 6
         Radiation: 4
   - type: UserInterface
     interfaces:
@@ -276,11 +280,28 @@
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t60tesla.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t60tesla.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.2
+        Shock: 0.1
+        Caustic: 0.6
+        Radiation: 0.4
+      flatReductions:  #sirius change
+        Blunt: 9
+        Slash: 9
+        Piercing: 9
+        Heat: 12
+        Caustic: 6
+        Radiation: 4
   - type: Reflect # #Misfits Change Tweak: Tesla coils deflect energy and small-caliber rounds at 30% (innate). Heavy rounds still penetrate.
     reflects:
       - SmallCaliber
       - Energy
-    reflectProb: 0.40
+    reflectProb: 0.5
     innate: true
     spread: 90
   - type: UserInterface
@@ -300,9 +321,6 @@
   name: X-01 power armor
   description: The standard issue Power Armor model for Enclave troopers. It offers an advanced sensors suite and improved defensive capabilities compared to standard pre-war models.
   components:
-  - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 360 # #Misfits Tweak: By Bill, 460 a little better than T60 but not T51.
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/advanced1.rsi
   - type: Clothing
@@ -310,12 +328,19 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.65
-        Caustic: 0.6
-        Radiation: 0.6
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.2
+        Caustic: 0.4
+        Radiation: 0.4
+      flatReductions:  #sirius change
+        Blunt: 10
+        Slash: 10
+        Piercing: 10
+        Heat: 14
+        Caustic: 8
+        Radiation: 6
   - type: ExplosionResistance
     damageCoefficient: 0.10 # #Misfits Tweak: X-01 blast resistance — ~12 HP at ground zero
   - type: UserInterface
@@ -344,9 +369,6 @@
   name: X-02 power armor
   description: The next generation in Power Armor technology. X-02 is a more lightweight, sleek design than the X-01, offering the wearer unparalleled mobility.
   components:
-  - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 385 # #Misfits Tweak: X-02 durability.
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/advanced2.rsi
   - type: Clothing
@@ -357,19 +379,19 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.65
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.25
         Caustic: 0.6
-        Radiation: 0.6
+        Radiation: 0.4
       flatReductions:  #sirius change
-        Blunt: 8
-        Slash: 8
-        Piercing: 8
+        Blunt: 10
+        Slash: 10
+        Piercing: 10
         Heat: 12
-        Caustic: 6
-        Radiation: 4
+        Caustic: 8
+        Radiation: 6
   - type: ExplosionResistance
     damageCoefficient: 0.10 # #Misfits Tweak: X-02 blast resistance — ~12 HP at ground zero
   - type: UserInterface
@@ -409,8 +431,6 @@
   name: hellfire power armor
   description: A deep black suit of Enclave-manufactured heavy power armor based on pre-war designs such as the T-51 and improving off of data gathered by post-war designs such as the X-01. Most commonly fielded on the East Coast, no suit rivals its strength.
   components:
-  - type: PowerArmorIntegrity
-    maxIntegrity: 400 # #Misfits Tweak: Hellfire durability.
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/hellfire.rsi
   - type: Clothing
@@ -418,12 +438,19 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.60
-        Heat: 0.50
-        Caustic: 0.50
-        Radiation: 0.50
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.2
+        Caustic: 0.4
+        Radiation: 0.4
+      flatReductions:  #sirius change
+        Blunt: 12
+        Slash: 12
+        Piercing: 10
+        Heat: 18
+        Caustic: 10
+        Radiation: 6
   - type: ExplosionResistance
     damageCoefficient: 0.06 # #Misfits Tweak: Hellfire designed for combat — best blast resistance, ~7 HP at ground zero
   - type: UserInterface
@@ -452,9 +479,6 @@
   name: raider power armor
   description: Terrifying, robust, spiky. Everything a Raider needs in a power armor suit.
   components:
-  - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 200 # #Misfits Tweak: +150 flat integrity buff
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/raider.rsi
   - type: Clothing
@@ -462,14 +486,21 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
-        Caustic: 0.75
-        Radiation: 0.65
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.55
+        Heat: 0.4
+        Caustic: 0.7
+        Radiation: 0.3
+      flatReductions:  #sirius change
+        Blunt: 4
+        Slash: 4
+        Piercing: 4
+        Heat: 6
+        Caustic: 4
+        Radiation: 4
   - type: ExplosionResistance
-    damageCoefficient: 0.20 # #Misfits Tweak: Raider PA cobbled together — weakest blast protection, ~24 HP at ground zero
+    damageCoefficient: 0.40 # #Misfits Tweak: Raider PA cobbled together — weakest blast protection, ~24 HP at ground zero
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -496,9 +527,6 @@
   name: Midwest Power Armor
   description: A unknown model of power armor manufactured by the Brotherhood of Steel. It supports a lighter plating than the normal but is more ergonomic, allowing easier movement.
   components:
-  - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 300 # #Misfits Tweak: +150 flat integrity buff
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/midwest.rsi
   - type: Clothing
@@ -537,9 +565,6 @@
   name: Midwest Commander Power Armor
   description: A unknown model of power armor manufactured by the Brotherhood of Steel. This modified version is commonly used by high-ranking Brotherhood of Steel Paladins.
   components:
-  - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 385 # #Misfits
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/midwestcommander.rsi
   - type: Clothing
@@ -557,9 +582,6 @@
   name: t-51bc paladin commander
   description: The pinnacle of pre-war technology appropriated by the Brotherhood of Steel. Commonly worn by Paladin Commanders.
   components:
-  - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 390 # #Misfits
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t51bc.rsi
   - type: Clothing
@@ -567,12 +589,19 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.575
-        Slash: 0.575
-        Piercing: 0.575
-        Heat: 0.575
-        Caustic: 0.675
-        Radiation: 0.6
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.45
+        Heat: 0.25
+        Caustic: 0.6
+        Radiation: 0.4
+      flatReductions:  #sirius change
+        Blunt: 9
+        Slash: 9
+        Piercing: 9
+        Heat: 12
+        Caustic: 6
+        Radiation: 4
   - type: TemperatureProtection
     coefficient: 0.5
   - type: ExplosionResistance
@@ -612,9 +641,6 @@
   name: t-45 salvaged NCR power armor
   description: Originally existing as T-45d power armor, it was recovered by and repurposed for use within the NCR.
   components:
-  - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 225 # #Misfits
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t45ncr.rsi
   - type: Clothing
@@ -622,16 +648,22 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.80
-        Heat: 0.80
-        Caustic: 0.75
-        Radiation: 0.65
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.5
+        Heat: 0.3
+        Caustic: 0.65
+        Radiation: 0.8
+      flatReductions:  #sirius change
+        Blunt: 4
+        Slash: 4
+        Piercing: 4
+        Heat: 6
+        Caustic: 2
   - type: TemperatureProtection
     coefficient: 0.55
   - type: ExplosionResistance
-    damageCoefficient: 0.20 # #Misfits Tweak: NCR salvaged PA — weakest blast protection after raider, ~24 HP at ground zero
+    damageCoefficient: 0.40 # #Misfits Tweak: NCR salvaged PA — weakest blast protection after raider, ~24 HP at ground zero
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -645,12 +677,12 @@
   - type: Reflect # #Misfits Change Tweak: Salvaged NCR T-45 ricochets small-caliber rounds at 30% (innate).
     reflects:
       - SmallCaliber
-    reflectProb: 0.4
+    reflectProb: 0.35
     innate: true
     spread: 90
   - type: ClothingSpeedModifier #sirius change
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.75
+    sprintModifier: 0.75
 
 - type: entity
   parent: N14ClothingOuterPowerArmorT51
@@ -665,12 +697,19 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.675
-        Slash: 0.675
-        Piercing: 0.675
-        Heat: 0.675
-        Caustic: 0.75
-        Radiation: 0.6
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.45
+        Heat: 0.25
+        Caustic: 0.6
+        Radiation: 0.4
+      flatReductions:  #sirius change
+        Blunt: 9
+        Slash: 9
+        Piercing: 9
+        Heat: 12
+        Caustic: 6
+        Radiation: 4
   - type: ExplosionResistance
     damageCoefficient: 0.12 # #Misfits Tweak: Canadian Shield blast resistance — ~14 HP at ground zero
   - type: Reflect # #Misfits Change Tweak: T-51bc "Canadian Shield" ricochets small-caliber rounds at 30% (innate).
@@ -686,9 +725,6 @@
   name: modified T-51 power armor
   description: A modified set of T-51 power armor, it seems to have some slight upgrades over the pre-war model and is in the colours of the Washington Brotherhood.
   components:
-  - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 250 # #Misfits Tweak: +150 flat integrity buff
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t51wash.rsi
   - type: Clothing
@@ -696,12 +732,19 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.70
-        Caustic: 0.75
-        Radiation: 0.6
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.5
+        Heat: 0.3
+        Caustic: 0.65
+        Radiation: 0.4
+      flatReductions:  #sirius change
+        Blunt: 8
+        Slash: 8
+        Piercing: 8
+        Heat: 10
+        Caustic: 5
+        Radiation: 4
   - type: ExplosionResistance
     damageCoefficient: 0.12 # #Misfits Tweak: Washington BoS T-51 blast resistance — ~14 HP at ground zero
   - type: UserInterface
@@ -740,8 +783,7 @@
   description: A pinnacle of pre-war military engineering, the T-51b was standard issue for front-line infantry units during the Sino-American conflict. This suit's fusion-powered servos and composite plating have withstood the test of time.
   components:
   - type: PowerArmorIntegrity
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
-    maxIntegrity: 385 # #Misfits Tweak: By Bill, a little better than T51 but not as good as T51BC
+    disableServosLock: true
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t51washelite.rsi
   - type: Clothing
@@ -749,12 +791,19 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.575
-        Slash: 0.575
-        Piercing: 0.575
-        Heat: 0.575
-        Caustic: 0.575
-        Radiation: 0.6
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.45
+        Heat: 0.25
+        Caustic: 0.6
+        Radiation: 0.4
+      flatReductions:  #sirius change
+        Blunt: 9
+        Slash: 9
+        Piercing: 9
+        Heat: 12
+        Caustic: 6
+        Radiation: 4
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:

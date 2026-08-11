@@ -46,14 +46,10 @@
     shoes: N14ClothingBootsCombatFilled
     ears: N14ClothingHeadsetNCR               # NCR radio earpiece
     belt: ClothingBeltNCR
-    pocket1: N14WeaponMinigun                 # #Misfits Tweak - downgraded to minigun again -bill
     pocket2: RadioHandheld
     id: N14IDNCRDogtagWS                      # Specialist-tier dogtag
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
   satchel: N14ClothingBackpackSatchelNCRFilled
-  storage:
-    back:
-    - N14MagazineMinigun5mm                   # extra 5mm box -bill
 
 - type: playTimeTracker
   id: NCRHeavyTrooper

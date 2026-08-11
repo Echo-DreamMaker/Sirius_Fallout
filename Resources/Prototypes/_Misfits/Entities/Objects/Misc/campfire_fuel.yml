@@ -8,7 +8,7 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: Objects/Materials/materials.rsi
+    sprite: _Nuclear14/Objects/Misc/materials.rsi
     state: firewood # #Misfits Fix - Natural/wood.rsi does not exist; wood state in materials.rsi used instead
   - type: Item
     size: Normal

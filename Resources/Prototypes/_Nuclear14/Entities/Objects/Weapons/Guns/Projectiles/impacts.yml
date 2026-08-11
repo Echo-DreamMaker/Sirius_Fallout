@@ -53,3 +53,21 @@
     tags:
       - HideContextMenu
   - type: AnimationPlayer
+
+- type: entity
+  id: BulletGaussImpactEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Projectiles/plasma.rsi
+      state: impact_plasma
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu

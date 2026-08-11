@@ -24,7 +24,7 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    scale: 0.4, 0.42
+    scale: 0.45, 0.42
   - type: MagazineVisuals
     magState: mag
     steps: 2
@@ -40,7 +40,7 @@
     proto: N14Cartridge2mmEC
 
 - type: entity
-  id: N14MagazineRifle2mmEC
+  id: N14MagazineRifle2mmECOld
   name: Rifle magazine (2mmEC)
   parent: N14BaseMagazine2mmECPistol
   components:
@@ -82,3 +82,60 @@
     magState: mag
     steps: 2
     zeroVisible: false
+
+- type: entity
+  id: N14MagazineRifle2mmEC
+  name: magazine (2mmEC)
+  description: A high-density energy cell for gauss weapons, providing both electrical charge and electromagnetic pulse to propel projectiles.
+  parent: BaseItem   # или BaseMagazineRifle
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/2mmEC/2mmriflemag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    scale: 0.60, 0.60
+  - type: Tag
+    tags:
+      - N14MagazineRifle2mmEC
+      - N14AmmoCell
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  # УДАЛЯЕМ ProjectileBatteryAmmoProvider
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14Cartridge2mmEC
+    capacity: 20
+    unspawnedCount: 20
+    soundInsert:
+      path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
+  - type: Ammo
+    muzzleFlash: GaussMuzzleFlashEffect
+  - type: Explosive
+    explosionType: N14DefaultStructural
+    maxIntensity: 200
+    intensitySlope: 1.5
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 5
+  - type: InjectableSolution
+    solution: battery
+  - type: DrawableSolution
+    solution: battery
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: Zinc
+          Quantity: 5
+  - type: Appearance
+  - type: PowerCellVisuals
+    unshadedLayer: enum.PowerCellVisualLayers.Unshaded
+    baseLayer: enum.PowerCellVisualLayers.Base
+  - type: Riggable
