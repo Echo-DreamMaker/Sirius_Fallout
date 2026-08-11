@@ -8,6 +8,7 @@
     reflective:
       - NonEnergy
   - type: Projectile
+    impactEffect: BulletGaussImpactEffect
     damage:
       types:
         Piercing: 32
@@ -16,3 +17,8 @@
     falloffStartTiles: 12.0
     maxFalloffTiles: 35.0
     minDamageMultiplier: 0.82
+  - type: Sprite #Misfits Fix — was using stretched ballistic bullet sprite (projectiles2.rsi 'bullet' scale 1.2,0.5). Now uses the proper plasma bolt from plasma.rsi.
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Ammo
+    muzzleFlash: GaussMuzzleFlashEffect

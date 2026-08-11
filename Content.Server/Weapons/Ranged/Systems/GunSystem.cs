@@ -65,6 +65,7 @@ public sealed partial class GunSystem : SharedGunSystem
         SubscribeLocalEvent<BallisticAmmoProviderComponent, PriceCalculationEvent>(OnBallisticPrice);
         Subs.CVar(_config, PerformanceCVars.GunPredictionAabbEnlargement, v => _lagCompAabbEnlargement = v, true);
         Subs.CVar(_config, PerformanceCVars.GunPredictionHitscanSearchPadding, v => _lagCompHitscanSearchPadding = v, true);
+        InitializeHybrid();
     }
 
     private void OnBallisticPrice(EntityUid uid, BallisticAmmoProviderComponent component, ref PriceCalculationEvent args)
@@ -170,11 +171,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     if (!cartridge.Spent)
                     {
                         var uid = Spawn(cartridge.Prototype, fromEnt);
-                        // #Misfits Add: применяем бонус к снаряду
-                        ApplyBonusDamageToProjectile(uid, gunUid);
-                        base.ShootOrThrow(uid, mapDirection, gunVelocity, gun, gunUid, user);
-                        shotProjectiles.Add(uid);
-                        MarkPredicted(uid);
+                        CreateAndFireProjectiles(uid, cartridge);
 
                         RaiseLocalEvent(ent!.Value, new AmmoShotEvent()
                         {
@@ -192,24 +189,26 @@ public sealed partial class GunSystem : SharedGunSystem
                         Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
                     }
 
+                    // Something like ballistic might want to leave it in the container still
                     if (!cartridge.DeleteOnSpawn && !Containers.IsEntityInContainer(ent!.Value))
                         EjectCartridge(ent.Value, angle);
 
                     Dirty(ent!.Value, cartridge);
                     break;
-
+                // Ammo shoots itself
                 case AmmoComponent newAmmo:
                     if (ent == null)
                         break;
                     // #Sirius Change: используем обновлённую функцию с бонусом
                     CreateAndFireProjectiles(ent.Value, newAmmo);
-                    break;
 
+                    break;
                 case HitscanPrototype hitscan:
                     if (TryResolveGunHitscan(gunUid, out var resolvedHitscan))
                         hitscan = resolvedHitscan;
 
                     EntityUid? lastHit = null;
+
                     var from = fromMap;
                     var fromEffect = GetShotEffectCoordinates(fromMap);
                     var dir = mapDirection.Normalized();
@@ -236,6 +235,7 @@ public sealed partial class GunSystem : SharedGunSystem
                             }
 
                             lastHit = hit;
+
                             FireEffects(fromEffect, distance, dir.Normalized().ToAngle(), hitscan, hit, userSession);
 
                             var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false);
@@ -381,7 +381,6 @@ public sealed partial class GunSystem : SharedGunSystem
 
         return shotProjectiles;
     }
-
 
     private bool TryGetHitscanResult(
         MapCoordinates from,

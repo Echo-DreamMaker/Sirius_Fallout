@@ -689,6 +689,10 @@
     backStrength: 4
   - type: StaticPrice
     price: 90
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 3
 
 - type: entity
   name: Neostead 2000
@@ -731,3 +735,7 @@
     backStrength: 4
   - type: StaticPrice
     price: 350
+  - type: GunDamageBonus
+    bonusDamage:
+      types:
+        Piercing: 3

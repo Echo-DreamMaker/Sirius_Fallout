@@ -826,7 +826,7 @@
 - type: entity
   name: M72 Gauss rifle
   parent: N14WeaponRifleBase
-  id: N14WeaponSniperM72GaussRifleSirius
+  id: N14WeaponSniperM72GaussRifleSirius67
   description: "An anti-materiel rifle with an ergonomic, sleek, skeletonized design. Simply looking at it can you tell it'll rip some limbs apart. Uses .50 anti-material ammo."
   components:
   - type: Clothing
@@ -898,4 +898,69 @@
       types:
         Piercing: 38
 
+- type: entity
+  name: M72 Gauss rifle
+  parent: BaseItem
+  id: N14WeaponSniperM72GaussRifleSirius
+  description: An advanced gauss rifle that consumes both energy and 2mmEC ammunition.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/gaussrifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/gaussrifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Huge
+  - type: Wieldable
+    wieldedSpeedModifier: 0.75
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -104
+  - type: HybridAmmoProvider
+    proto: N14Bullet2mmEC
+    fireCost: 50
+    magazineSlot: gun_magazine
+  - type: Gun
+    minAngle: 24
+    maxAngle: 60
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 1.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/GaussRifle_SingleShot_1.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MagazineRifle2mmEC
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14MagazineRifle2mmEC
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: AmmoCounter
+  - type: StaticPrice
+    price: 200
+  # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
 #sirius change end

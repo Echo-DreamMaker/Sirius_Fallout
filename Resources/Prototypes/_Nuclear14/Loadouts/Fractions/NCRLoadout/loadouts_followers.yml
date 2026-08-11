@@ -1,6 +1,6 @@
 - type: loadout
   id: MisfitsLoadoutFollowerResponderDuster
-  category: Roles
+  category: Outer
   cost: 3
   exclusive: true
   requirements:

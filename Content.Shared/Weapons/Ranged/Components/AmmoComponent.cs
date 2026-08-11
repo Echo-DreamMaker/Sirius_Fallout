@@ -13,7 +13,7 @@ public partial class AmmoComponent : Component, IShootable
 {
     // Muzzle flash stored on ammo because if we swap a gun to whatever we may want to override it.
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("muzzleFlash", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [ViewVariables(VVAccess.ReadWrite), DataField("muzzleFlash", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string? MuzzleFlash = "MuzzleFlashEffect";
 }
 
