@@ -1136,3 +1136,64 @@
       types:
         Piercing: 2
 #sirius change end
+
+type: entity
+  name: pipe .45 SMG
+  parent: SiriusWeaponSMGBase
+  id: SiriusWeaponPipeSMG45
+  description: A handmade Machinegun, visual inspired from classical weapons, but maked from shit and sticks
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/PipeMachinePistol45.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Item 
+    size: Medium
+    shape:
+    - 0,0,2,1
+    - 0,1,0,1
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/PipeMachinePistol45.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    fireRate: 5
+    soundGunshot:
+      collection: N1445SMGGunshot
+    selectedMode: Fullauto
+    availableModes:
+    - Fullauto
+    minAngle: 13
+    maxAngle: 35
+    angleIncrease: 5
+    angleDecay: 16
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_cock.ogg
+  - type: GunWieldBonus
+    minAngle: -6
+    maxAngle: -14
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine45SubMachineGun
+        insertSound: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magin.ogg
+        ejectSound: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magout.ogg
+        whitelist:
+          tags:
+            - Magazine45SubMachineGun
+      gun_chamber:
+        name: Chamber
+        startingItem: N14CartridgePistol45
+        priority: 1
+        whitelist:
+          tags:
+            - N14CartridgePistol45
+  - type: StaticPrice
+    price: 50
