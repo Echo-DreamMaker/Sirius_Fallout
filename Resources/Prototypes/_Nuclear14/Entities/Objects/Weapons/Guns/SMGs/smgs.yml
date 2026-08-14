@@ -1136,10 +1136,9 @@
       types:
         Piercing: 2
 #sirius change end
-
 type: entity
   name: pipe .45 SMG
-  parent: SiriusWeaponSMGBase
+  parent: N14WeaponSMGBase
   id: SiriusWeaponPipeSMG45
   description: A handmade Machinegun, visual inspired from classical weapons, but maked from shit and sticks
   components:
