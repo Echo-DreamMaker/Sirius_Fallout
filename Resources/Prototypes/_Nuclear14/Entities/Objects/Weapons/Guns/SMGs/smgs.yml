@@ -1149,7 +1149,7 @@
     - Back
     - suitStorage
   - type: Item 
-    size: Medium
+    size: Normal
     shape:
     - 0,0,2,1
     - 0,1,0,1
