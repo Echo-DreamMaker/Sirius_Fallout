@@ -1136,7 +1136,7 @@
       types:
         Piercing: 2
 #sirius change end
-type: entity
+- type: entity
   name: pipe .45 SMG
   parent: N14WeaponSMGBase
   id: SiriusWeaponPipeSMG45
