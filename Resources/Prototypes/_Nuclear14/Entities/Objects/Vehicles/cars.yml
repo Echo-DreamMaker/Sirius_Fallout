@@ -264,3 +264,30 @@
       params:
         volume: -15
         maxDistance: 30
+
+- type: entity
+  parent: [ BaseCars, SpecialMech ]
+  id: N14RedneckPickup
+  name: Pickup
+  description: Грязный и тысячи раз поломанный пикап
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: _Nuclear14/Objects/Vehicles/pickup.rsi
+    layers:
+    - map: [ "enum.MechVisualLayers.Base" ]
+      state: pickup3
+  - type: Mech
+    baseState: pickup3
+    openState: pickup1
+    brokenState: pickup_open
+    engineOnState: pickup_open
+    mechToPilotDamageMultiplier: 0.5
+    airtight: false
+    pilotWhitelist:
+      components:
+      - HumanoidAppearance
+    hornSound:
+      path: /Audio/Items/airhorn.ogg
+    mechHornAction: ActionMechHorn
