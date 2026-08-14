@@ -152,3 +152,24 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingMaskPullableBase
+  id: SiriusClothingSkullMask
+  name: Skull Mask
+  description: A mask, maded by face part of sucker skull, this look terrifying...
+  components:
+  - type: Sprite
+    sprite: _Sirius/Clothing/Mask/skullmask.rsi
+  - type: Clothing
+    sprite: _Sirius/Clothing/Mask/skullmask.rsi
+  - type: Mask
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+    priceMultiplier: 0.5
