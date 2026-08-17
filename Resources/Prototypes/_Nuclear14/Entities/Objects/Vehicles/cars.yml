@@ -268,7 +268,7 @@
 - type: entity
   parent: [ BaseCars, SpecialMech ]
   id: N14RedneckPickup
-  name: Pickup
+  name: Пикап
   description: Грязный и тысячи раз поломанный пикап
   components:
   - type: Sprite
