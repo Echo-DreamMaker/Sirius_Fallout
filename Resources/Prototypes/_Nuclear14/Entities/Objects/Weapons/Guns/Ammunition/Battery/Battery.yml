@@ -37,7 +37,7 @@
   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
   - type: HitscanBatteryAmmoProvider
     proto: N14MFLaserRed
-    fireCost: 50
+    fireCost: 100
 
 #MARK: Microfusion Cell — single consolidated type
 # #Misfits Change - Consolidated from 4 colored variants into one generic MFC.
@@ -60,11 +60,11 @@
         state: o2
         shader: unshaded
   - type: Battery
-    maxCharge: 2300
-    startingCharge: 2300
+    maxCharge: 2400
+    startingCharge: 2400
   - type: HitscanBatteryAmmoProvider
     proto: N14MFLaserRed
-    fireCost: 50
+    fireCost: 100
 
 # Backward-compatible aliases — colored variants redirect to the single generic MFC.
 # Kept so existing map files, kits, crates, and trade references continue to work.
@@ -119,7 +119,7 @@
     startingCharge: 5000
   - type: HitscanBatteryAmmoProvider
     proto: N14MFLaserRed
-    fireCost: 50
+    fireCost: 100
 
 # Backward-compatible aliases for colored fusion cores.
 - type: entity
@@ -269,7 +269,7 @@
     startingCharge: 600
   - type: HitscanBatteryAmmoProvider
     proto: N14MFLaserRed
-    fireCost: 50
+    fireCost: 100
 
 # - type: entity
 #   name: electron charge pack

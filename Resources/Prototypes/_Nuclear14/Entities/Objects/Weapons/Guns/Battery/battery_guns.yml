@@ -290,7 +290,7 @@
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
-    fireCost: 50
+    fireCost: 100
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice
@@ -317,7 +317,7 @@
       collection: N14RechargerPistolGunshot
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
-    fireCost: 50
+    fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 20

@@ -70,7 +70,7 @@
 - type: loadout
   id: N14LoadoutWeaponPistol10mm
   category: Firearms
-  cost: 2
+  cost: 3
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -134,7 +134,7 @@
 - type: loadout
   id: N14LoadoutWeaponPistolWebley
   category: Firearms
-  cost: 3
+  cost: 4
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -252,7 +252,7 @@
 - type: loadout
   id: N14LoadoutWeaponRevolver44Magnun
   category: Firearms
-  cost: 3
+  cost: 4
   requirements:
     - !type:OverallTimeRequirement
       min: 6800
@@ -289,7 +289,7 @@
 - type: loadout
   id: N14LoadoutWeaponRevolver45-70Handcannon
   category: Firearms
-  cost: 4
+  cost: 5
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -319,7 +319,7 @@
 - type: loadout
   id: N14LoadoutWeaponRevolver45-70HandcannonUpgraded
   category: Firearms
-  cost: 8
+  cost: 9
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -413,7 +413,7 @@
 - type: loadout
   id: N14LoadoutWeaponShotgun
   category: Firearms
-  cost: 4
+  cost: 5
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -426,7 +426,7 @@
 - type: loadout
   id: N14LoadoutWeaponShotgunShort
   category: Firearms
-  cost: 4
+  cost: 5
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -473,6 +473,8 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+      jobs:
+        - CaesarLegionDean
   items:
     - N14WeaponBlowback
 
@@ -482,7 +484,7 @@
 - type: loadout
   id: N14LoadoutWeaponSMG9mm
   category: Firearms
-  cost: 4
+  cost: 7
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -496,7 +498,7 @@
 - type: loadout
   id: N14LoadoutWeaponSMG9mminfiltrator
   category: Firearms
-  cost: 6
+  cost: 7
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -509,7 +511,7 @@
 - type: loadout
   id: N14LoadoutWeaponSMGGreaseGun
   category: Firearms
-  cost: 4
+  cost: 7
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -535,7 +537,7 @@
 - type: loadout
   id: N14LoadoutWeaponSMG10mm
   category: Firearms
-  cost: 4
+  cost: 8
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -548,7 +550,7 @@
 - type: loadout
   id: N14LoadoutWeaponSMG45
   category: Firearms
-  cost: 5
+  cost: 10
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -562,7 +564,7 @@
 - type: loadout
   id: N14LoadoutWeaponSniper556VarmintRifle
   category: Firearms
-  cost: 2
+  cost: 3
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -584,7 +586,6 @@
       departments:
         - Wastelander
         - Tribe
-        - CaesarLegion
   items:
     - N14WeaponSniper556Tribal
 
@@ -598,9 +599,7 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Wastelander
-        - Townsfolk
         - Tribe
-        - CaesarLegion
   items:
     - N14WeaponSniper556TribalUpgraded
 
@@ -623,7 +622,7 @@
 - type: loadout
   id: N14LoadoutWeaponRifle556CarbineOld
   category: Firearms
-  cost: 3
+  cost: 6
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -640,7 +639,7 @@
 - type: loadout
   id: N14LoadoutWeaponRifle556Carbine
   category: Firearms
-  cost: 4
+  cost: 8
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -683,7 +682,7 @@
 - type: loadout
   id: N14LoadoutWeaponRifle556ServiceScoped
   category: Firearms
-  cost: 3
+  cost: 4
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -713,7 +712,7 @@
 - type: loadout
   id: N14LoadoutWeaponRifle762Chinese
   category: Firearms
-  cost: 5
+  cost: 12
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -726,7 +725,7 @@
 - type: loadout
   id: N14LoadoutWeaponRifle762Marksman
   category: Firearms
-  cost: 6
+  cost: 7
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -812,13 +811,12 @@
 - type: loadout
   id: N14LoadoutWeaponRifle762ClassicrifleSirius
   category: Firearms
-  cost: 3
+  cost: 5
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
     - !type:CharacterDepartmentRequirement
       departments:
-        - Wastelander
         - Townsfolk
   items:
     - N14WeaponRifle762ClassicrifleSirius
@@ -826,20 +824,20 @@
 - type: loadout
   id: N14LoadoutWeaponRifle762M14
   category: Firearms
-  cost: 4
+  cost: 8
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
     - !type:CharacterDepartmentRequirement
       departments:
-        - CaesarLegion
+        - Townsfolk
   items:
     - N14WeaponRifle762M14
 
 - type: loadout
   id: N14LoadoutWeaponRifle556M16A1Sirius
   category: Firearms
-  cost: 3
+  cost: 4
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -853,7 +851,7 @@
 - type: loadout
   id: N14LoadoutWeaponRifle556R91
   category: Firearms
-  cost: 5
+  cost: 7
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -866,7 +864,7 @@
 - type: loadout
   id: N14LoadoutWeaponRifle556R82Sirius
   category: Firearms
-  cost: 6
+  cost: 8
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -922,22 +920,20 @@
 - type: loadout
   id: N14LoadoutWeaponSniper308Tribal
   category: Firearms
-  cost: 5
+  cost: 4
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
     - !type:CharacterDepartmentRequirement
       departments:
-        - Wastelander
         - Tribe
-        - CaesarLegion
   items:
     - N14WeaponSniper308Tribal
 
 - type: loadout
   id: N14LoadoutWeaponSniper308TribalUpgraded
   category: Firearms
-  cost: 8
+  cost: 7
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -950,7 +946,7 @@
 - type: loadout
   id: N14LoadoutWeaponRifleSKS
   category: Firearms
-  cost: 5
+  cost: 8
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -1722,7 +1718,7 @@
 - type: loadout
   id: N14LoadoutWeaponThermospear
   category: Melee
-  cost: 4
+  cost: 10
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutMelee
