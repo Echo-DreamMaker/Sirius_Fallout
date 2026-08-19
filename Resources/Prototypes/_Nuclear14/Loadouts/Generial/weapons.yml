@@ -473,6 +473,7 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement
       jobs:
         - CaesarLegionPrimeDecanus
   items:
