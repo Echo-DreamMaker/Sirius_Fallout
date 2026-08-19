@@ -1,4 +1,4 @@
-﻿job-supervisors-bos-mid-initiate = командование Братства
+job-supervisors-bos-mid-initiate = командование Братства
 job-supervisors-bos-mid-knight = Главный рыцарь, Главный паладин и Старейшина
 job-supervisors-bos-mid = Старейшина и главы орденов
 job-supervisors-bos-mid-commander = Старейшина

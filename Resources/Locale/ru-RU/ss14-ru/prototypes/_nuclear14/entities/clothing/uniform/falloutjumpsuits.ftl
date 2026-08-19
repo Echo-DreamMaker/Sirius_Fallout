@@ -1,0 +1,146 @@
+# Обитатели пустоши -->
+ent-N14ClothingUniformJumpsuitRDFormal = торжественный костюм научного руководителя
+    .desc = Этот костюм говорит о том, что наука и этикет важны даже после конца света.
+ent-N14ClothingUniformJumpsuitSettlerRags = лохмотья поселенца пустошей
+    .desc = Судя по запаху, этот наряд не стирали со времен Великой войны.
+ent-N14ClothingUniformJumpsuitCheckered = клетчатый костюм
+    .desc = Клетка - новый черный? В Пустоши и не такое увидишь.
+ent-N14ClothingUniformJumpsuitWastelandDoc = униформа врача пустошей
+    .desc = На этой униформе пятна крови - привычное дело. Главное, чтобы руки были чистыми.
+ent-N14ClothingUniformJumpsuitPreWarRelaxed = довоенная домашняя одежда
+    .desc = Напоминание о том, что когда-то люди могли позволить себе расслабиться.
+ent-N14ClothingUniformJumpsuitPreWarCasual = довоенная повседневная одежда
+    .desc = Старая одежда, которая все еще может согреть и защитить от непогоды.
+ent-N14ClothingUniformJumpsuitManagerSuit = довоенный костюм бизнесмена
+    .desc = Этот костюм помнит те времена, когда деньги еще что-то значили.
+ent-N14ClothingUniformJumpsuitPreWarManager = чёрный костюм
+    .desc = Чёрный костюм - символ власти и стиля. Даже в Пустоши.
+ent-N14ClothingUniformJumpsuitBlueSuit = синий костюм
+    .desc = Необычный выбор для Пустоши. Наверное, у его владельца был хороший вкус.
+ent-N14ClothingUniformJumpsuitPreWarLumberjack = одеяние лесоруба
+    .desc = Крепкая одежда, созданная для тяжелой работы.
+ent-N14ClothingUniformJumpsuitBrahminFarmer = фермерская одежда
+    .desc = Эта одежда помнит вкус свежих овощей и тепло солнечного света.
+ent-N14ClothingUniformJumpsuitCowboyBrown = ковбойское одеяние
+    .desc = В этом наряде и на брамине лихо прокатиться, и в салуне покрасоваться.
+ent-N14ClothingUniformJumpsuitCowboyGrey = ковбойское одеяние
+    .desc = Одежда настоящего ковбоя - свободного и независимого.
+ent-N14ClothingUniformJumpsuitFudd = старая одежда
+    .desc = Потертые и частично рваные джинсы, а также выцветшая куртка BDU с рисунком M81. «Если ты не можешь убить его за шесть выстрелов, то ты плохой стрелок», — гласит надпись на куртке.
+ent-N14ClothingUniformJumpsuitMilUniform = довоенная военная форма
+    .desc = Поношенный комплект довоенного образца М81.
+ent-N14ClothingUniformJumpskirtAsylumDress = красное платье медсестры психиатрической больницы
+    .desc = Красное платье медсестры психиатрической лечебницы.
+
+# Жители убежища -->
+ent-N14ClothingUniformJumpsuitVault = комбинезон Убежища
+    .desc = Чей-то комбинезон Убежища... Чья-то нерассказанная история.
+ent-N14ClothingUniformJumpsuitVault14 = комбинезон Убежища 14
+    .desc = Комбинезон, напоминающий о том, что не все Убежища были созданы равными.
+
+# Горожане -->
+# Мэр -->
+
+# Шериф -->
+ent-N14ClothingUniformJumpsuitTownGuard = { ent-N14ClothingUniformJumpsuitTownGuardLight }
+    .desc = { ent-N14ClothingUniformJumpsuitTownGuardLight.desc }
+# Помощник шерифа (депьюти) -->
+ent-N14ClothingUniformJumpsuitTownGuardLight = Униформа стражи
+    .desc = Довоенная военная форма (или её реплика), ставшая фирменным стилем городской стражи в этом регионе. Закон и порядок!
+# Репортер -->
+ent-N14ClothingUniformJumpsuitDetectiveAlt = костюм детектива
+    .desc = В этом костюме и улики искать сподручнее, и в баре не стыдно показаться.
+# Бармен -->
+ent-N14ClothingUniformJumpsuitBartenderAlt = униформа бармена
+    .desc = Чистая униформа - редкость в Пустоши. Жаль, что бар давно не видал такой чистоты.
+# Лавочник -->
+ent-N14ClothingUniformJumpsuitMerchant = одеяние торговца
+    .desc = Этот наряд говорит: "У меня есть то, что тебе нужно. За нужную цену, конечно".
+# Инженер -->
+ent-N14ClothingUniformJumpsuitMechanic = комбинезон механика
+    .desc = В этом комбинезоне когда-то чинили машины, а теперь он сам по себе раритет.
+
+# Анклав -->
+ent-N14ClothingUniformJumpsuitEnclave = униформа Анклава
+    .desc = Униформа тех, кто считает себя хозяевами Пустоши.
+
+# Рейдеры -->
+ent-N14ClothingUniformJumpsuitMerc = форма наёмника
+    .desc = Практичная и неприметная - эта форма идеальна для тех, кто предпочитает оставаться в тени.
+
+# Караван -->
+ent-N14ClothingUniformJumpsuitTrader = одеяние торговца
+    .desc = Одежда, пропитанная запахом пыли, пороха и приключений.
+ent-N14ClothingUniformJumpsuitCaravan = одежда караванщика
+    .desc = Одежда бывалого путешественника, прошедшего тысячи миль по дорогам Пустоши.
+ent-N14ClothingUniformJumpsuitCaravanShirt = униформа Каравана "Синяя Линия"
+    .desc = Белая рубашка и пара синих брюк, желтая повязка на обеих рукавах, обозначающая членство в Караване "Синяя Линия".
+ent-N14ClothingUniformJumpsuitCaravanOveralls = комбинезон Каравана "Синяя Линия"
+    .desc = Белая рубашка и пара рабочих комбинезонов, желтая повязка на обеих рукавах, обозначающая членство в Караване "Синяя Линия".
+ent-N14ClothingUniformJumpsuitCaravanSuit = костюм Каравана "Синяя Линия"
+    .desc = Изящный костюм с золотой булавкой на груди. Носится только теми, кто заслужил доверие и благосклонность Босса, чтобы управлять филиалами Каравана "Синяя Линия".
+
+# Племя -->
+ent-N14ClothingUniformJumpsuitTribal = племенное одеяние
+    .desc = Простая одежда из натуральных материалов - напоминание о том, что жизнь продолжается.
+ent-N14ClothingUniformJumpsuitWarriorTribal = одеяние воина племени
+    .desc = Кто сказал, что цивилизация умерла? Эти лохмотья и боевая раскраска - высокая мода среди тех, кто предпочитает копья винтовкам. Плевать на радиацию, когда духи предков хранят тебя!
+ent-N14ClothingUniformJumpsuittribalpantsm = племенная одежда
+    .desc = Простые штаны для простых людей.
+ent-N14ClothingUniformJumpsuittribalpantsnecklace = { ent-N14ClothingUniformJumpsuittribalpantsm }
+    .desc = { ent-N14ClothingUniformJumpsuittribalpantsm.desc }
+ent-N14ClothingUniformJumpsuittribalpantsf = { ent-N14ClothingUniformJumpsuittribalpantsm }
+    .desc = { ent-N14ClothingUniformJumpsuittribalpantsm.desc }
+ent-N14ClothingUniformJumpsuitdrylanderTribal = племенная одежда сухопутников
+    .desc = Одежда, используемая племенем сухопутников.
+
+# Последователи Апокалипсиса -->
+ent-N14ClothingUniformJumpsuitFollowers = униформа Последователей Апокалипсиса
+    .desc = Эта униформа - знак тех, кто верит в лучшее будущее.
+
+# Новая Калифорнийская Республика (НКР) -->
+ent-N14ClothingUniformNCR = униформа солдата НКР
+    .desc = Эта униформа - символ борьбы за свободу и демократию.
+ent-N14ClothingOfficerUniformNCR = полевая форма офицера НКР
+    .desc = Форма офицера НКР - знак ответственности за судьбу Республики.
+ent-N14ClothingMPUniformNCR = униформа военной полиции НКР
+    .desc = Простая униформа, используемая военной полицией НКР. На страже закона и порядка, даже посреди хаоса Пустоши.
+ent-N14ClothingUniformRangerV1 = парадная форма рейнджера
+    .desc = В этой форме рейнджеры НКР чувствуют себя уверенно и готовыми к любым испытаниям.
+ent-N14ClothingUniformRangerV2 = повседневная форма рейнджера
+    .desc = Практичная и неприметная - идеальная форма для патрулирования пустошей.
+ent-N14ClothingUniformRangerV3 = форма республиканского рейнджера
+    .desc = Эта форма - символ лучших качеств рейнджеров НКР: чести, отваги и преданности Республике.
+ent-N14ClothingUniformRangerPatrol = униформа патрульного рейнджера
+    .desc = Коричневые брюки и дышащая рубашка, предназначенные для ношения под броней патрульного рейнджера НКР.
+ent-N14ClothingUniformRangerModif = зеленая униформа рейнджера
+    .desc = Костюм рейнджера с зеленой хлопковой рубашкой с длинными рукавами и темно-серыми джинсами, а также черной банданой на шее. Практичный и неброский наряд для тех, кто не ищет славы.
+ent-N14ClothingUniformRangerBlue = синяя униформа рейнджера
+    .desc = Простая деревенская одежда для блюстителя закона с большой пушкой. Синяя рубашка с воротником и светло-коричневые брюки. Классика, которая никогда не выйдет из моды. Даже после Конца Света.
+ent-N14ClothingUniformRangerVeteran = деревенская одежда
+    .desc = Простая деревенская одежда для повседневной жизни в пустошах. Неброская и удобная - то, что нужно для выживания.
+ent-N14ClothingUniformJumpsuitBOSGreen = форма Среднезападного Братства Стали
+    .desc = Униформа Среднезападного Братства Стали - знак тех, кто превыше всего ценит знания и технологии.
+ent-N14ClothingUniformBosRecon = форма паладинов Среднезападного Братства Стали
+    .desc = Эта униформа создана для тех, кто несет груз ответственности за судьбу Братства.
+ent-N14ClothingUniformJumpsuitBOSRed = комбинезон Вашингтонского Братства Стали
+    .desc = Специально адаптированный комбинезон, обеспечивающий максимальную свободу движений.
+ent-N14ClothingUniformJumpsuitBOSBlack = чёрная униформа Вашингтонского Братства Стали
+    .desc = Эта униформа - символ Вашингтонского Братства Стали, защитников столицы от невежества и хаоса.
+ent-N14ClothingUniformJumpsuitBOSSilver = униформа Вашингтонского Братства Стали
+    .desc = Серебряная нашивка на этой униформе - знак высокого ранга в иерархии Братства.
+    .suffix = серебрянный ранг
+ent-N14ClothingUniformNCRDesert = униформа солдата НКР
+    .desc = Эта униформа - символ борьбы за свободу и демократию.
+ent-N14ClothingUniformNCRSnow = { ent-N14ClothingUniformNCRDesert }
+    .desc = { ent-N14ClothingUniformNCRDesert.desc }
+ent-N14ClothingOfficerUniformNCRDesert = полевая форма офицера НКР
+    .desc = Форма, которую с гордостью носят офицеры НКР.
+ent-N14ClothingMPUniformNCRDesert = униформа военной полиции НКР
+    .desc = Простая униформа, используемая военной полицией НКР. На страже закона и порядка, даже посреди хаоса Пустоши.
+ent-N14ClothingOfficerUniformNCRSnow = { ent-N14ClothingOfficerUniformNCRDesert }
+    .desc = { ent-N14ClothingOfficerUniformNCRDesert.desc }
+ent-N14ClothingMPUniformNCRSnow = { ent-N14ClothingMPUniformNCRDesert }
+    .desc = { ent-N14ClothingMPUniformNCRDesert.desc }
+ent-N14ClothingUniformJumpsuitRCMP = униформа КККП
+   .desc = Элегантная красная куртка в сочетании с чёрными брюками — это не самый удачный вариант для маскировки, но её эффект более чем очевиден: она заставляет любого, кто её носит, чувствовать себя уверенно.
