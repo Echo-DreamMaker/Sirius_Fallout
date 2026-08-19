@@ -474,7 +474,7 @@
       departments:
         - CaesarLegion
       jobs:
-        - CaesarLegionDean
+        - CaesarLegionPrimeDecanus
   items:
     - N14WeaponBlowback
 
