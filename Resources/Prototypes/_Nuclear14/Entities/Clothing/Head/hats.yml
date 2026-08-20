@@ -756,9 +756,9 @@
   description: A piece of shit, made by brahmin skull and jet addiction 
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHats/FiendHelmet.rsi
+    sprite: _Sirius/Clothing/Head/FiendHelmet.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHats/FiendHelmet.rsi
+    sprite: _Sirius/Clothing/Head/FiendHelmet.rsi
   - type: IngestionBlocker
   - type: Armor
     modifiers:
