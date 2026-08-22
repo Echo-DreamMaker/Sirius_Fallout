@@ -138,3 +138,35 @@
     pocket2: Brutepack1 # Corvax-Change
   inhand:
   - N14KitchenKnife
+
+- type: startingGear
+  id: GlowingPsihGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuittribalpantsm
+    shoes: N14ClothingShoesRaider
+    head: N14ClothingHeadHatHoodPonchoCloak
+    outerClothing: M14ClothingOuterArmorKit
+    pocket1: N14RaiderStash
+  inhand:
+  - N14HuntingKnifeSirius
+
+  - type: startingGear
+  id: ratcannibalgear
+  equipment:
+    jumpsuit: N14ClothingUniformDesertPants
+    shoes: N14ClothingShoesTribal
+    outerClothing: N14ClothingOuterRaiderBadlands
+    pocket1: N14RaiderStash
+    pocket2: FoodMeatHuman
+  inhand:
+  - N14TribalKnife
+
+  - type: startingGear
+  id: VaultRaiderRangedGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitMechanic
+    shoes: N14ClothingBootsBlack
+    head: SiriusClothingHeadHatRaiderVaultRiot
+    mask: N14ClothingMaskBlackBalaclava
+    outerClothing: SiriusClothingOuterVaultRaiderSecVest
+    pocket1: N14RaiderStash
