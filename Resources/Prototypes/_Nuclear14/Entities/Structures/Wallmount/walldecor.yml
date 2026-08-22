@@ -229,3 +229,17 @@
   components:
   - type: Sprite
     state: wallscreen
+
+- type: entity
+  parent: N14FlagWallUS
+  id: SiriusFlagWallOutcastsBrotherhood
+  name: Флаг Изгоев Братства Стали
+  suffix: Outcast BOS
+  description: Знамя Изгоев из Средне Западного Братства Стали, которые не пошли к Вашингтонцам из за их жестокости, в итоге владельцы этого флага оказались между молотом и наковальней, между Хунтой и Рейдерами
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/flag_izgoi.rsi
+    state: flag_izgoi
+  - type: Construction
+    graph: MisfitsFlagBOSE
+    node: flagbose
