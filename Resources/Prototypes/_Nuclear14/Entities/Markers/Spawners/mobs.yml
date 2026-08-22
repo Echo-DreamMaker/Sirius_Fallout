@@ -649,6 +649,51 @@
     prototypes:
       - N14MobRaiderEnforcerMelee
 
+- type: entity
+  name: Спавнер Крысолюда Людоеда
+  id: SiriusRaiderMobSpawnerRatCannibal
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusRatCannibalMobRaider
+
+- type: entity
+  name: Спавнер Светящегося Психа
+  id: SiriusRaiderMobSpawnerGlowingPsycho
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusGlowingPsychoMobRaider
+
+- type: entity
+  name: Спавнер Рейдера Убежища
+  id: SiriusRaiderMobSpawnerVaultRaider
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusVaultRaider
+
 #MARK: Ghoul
 - type: entity
   name: Feral Ghoul Spawner
