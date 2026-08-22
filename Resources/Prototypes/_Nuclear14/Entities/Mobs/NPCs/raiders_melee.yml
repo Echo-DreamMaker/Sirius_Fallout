@@ -27,3 +27,27 @@
     - type: Loadout
       prototypes:
       - EnforcerBeatcopGear
+
+- type: entity
+  name: Светящийся Псих
+  parent: N14BaseMobRaider
+  id: SiriusGlowingPsychoMobRaider
+  description: Светящийся гуль сошедший с ума от долгих лет адской жизни в гнилом теле
+  components:
+    - type: Loadout
+      prototypes:
+      - GlowingPsihGear
+    - type: HumanoidAppearance
+      species: GhoulGlowing
+
+- type: entity
+  name: Крысолюд Людоед
+  parent: N14BaseMobRaider
+  id: SiriusRatCannibalMobRaider
+  description: Сошедший с ума мутант, смесь человека и крысы, принявшийся жрать людей
+  components:
+    - type: Loadout
+      prototypes:
+      - ratcannibalgear
+    - type: HumanoidAppearance
+      species: RatFolk
