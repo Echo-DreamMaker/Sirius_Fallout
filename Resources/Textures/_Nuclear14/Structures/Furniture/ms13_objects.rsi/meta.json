@@ -12,12 +12,6 @@
 			"directions": 4
         },
         {
-            "name": "coffee"
-        },
-        {
-            "name": "coffee_cup"
-        },
-        {
             "name": "deadplant",
 			"directions": 4
         },
@@ -43,10 +37,10 @@
             "name": "dripfill_100"
         },
         {
-            "name": "jukebox_off"
+            "name": "off"
         },
         {
-            "name": "jukebox_on"
+            "name": "on"
         },
         {
             "name": "medicalbedred"
