@@ -1,0 +1,60 @@
+{
+    "version": 1,
+    "size": {"x": 32,"y": 32},
+    "copyright": "Fallout-stylezied sprite for RU Sirius Fallout, by Rozy_Cosmic(Ckey)|rozycosmic(Discord)",
+    "license": "CC-BY-SA-3.0",
+    "states": [
+        {
+            "name": "hair_civil_1",
+            "directions": 4
+        },
+		{
+            "name": "hair_kazachok",
+            "directions": 4
+        },
+		{
+            "name": "hair_lishay",
+            "directions": 4
+        },
+		{
+            "name": "hair_modnaya_left_short",
+            "directions": 4
+        },
+		{
+            "name": "hair_modnaya_long_left",
+            "directions": 4
+        },
+		{
+            "name": "hair_modnaya_right_long",
+            "directions": 4
+        },
+		{
+            "name": "hair_modnaya_right_short",
+            "directions": 4
+        },
+		{
+            "name": "hair_raider_1",
+            "directions": 4
+        },
+		{
+            "name": "hair_rude_kare_1",
+            "directions": 4
+        },
+		{
+            "name": "hair_rude_kare_2",
+            "directions": 4
+        },
+		{
+            "name": "hair_side_left",
+            "directions": 4
+        },
+		{
+            "name": "hair_side_right",
+            "directions": 4
+        },
+		{
+            "name": "hair_triokez",
+            "directions": 4
+        }
+    ]
+}

@@ -562,3 +562,25 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
+
+- type: seed
+  id: N14Punica
+  name: punica
+  noun: clipping-wild-punica-noun
+  displayName: clipping-wild-punica-display-name
+  plantRsi: _Nuclear14/Objects/Specific/Hydroponics/punica.rsi
+  packetPrototype: N14FloraPunicaClippingSeed
+  productPrototypes:
+    - N14FoodPunica
+  lifespan: 25
+  maturation: 20
+  production: 1
+  yield: 5
+  potency: 10
+  growthStages: 4
+  waterConsumption: 2
+  chemicals:
+    ExtractBananaYucca:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 25

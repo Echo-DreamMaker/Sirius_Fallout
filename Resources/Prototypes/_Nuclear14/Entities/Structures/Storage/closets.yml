@@ -363,3 +363,26 @@
   parent: [ N14ClosetWallMedicabinet, N14StorageFillMedical ]
   id: N14LootClosetWallMedicabinet
   suffix: Loot,Medical,Random
+
+- type: entity
+  parent: ClosetBase
+  id: N14LockersSirius
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/32x48_furniture.rsi
+    layers:
+    - state: lockers_closed
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: lockers_closed
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Physics
+    bodyType: Static
+  - type: EntityStorageVisuals
+    stateBaseClosed: lockers_closed
+    stateDoorOpen: lockers_open
+    stateDoorClosed: lockers_closed
+  - type: Transform
+    anchored: true
+  - type: Anchorable # Makes the anchoring near impossible due to high time requirement
+    delay: 3600

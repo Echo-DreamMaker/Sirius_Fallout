@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-3.0",
-  "copyright": "Made by Patogrone for N14",
+  "copyright": "Fallout-stylezied sprite for RU Sirius Fallout, by Rozy_Cosmic(Ckey)|rozycosmic(Discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -12,6 +12,9 @@
     },
     {
       "name": "mag-1"
+    },
+    {
+      "name": "mag-2"
     }
   ]
 }
