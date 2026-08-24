@@ -1,0 +1,44 @@
+{
+    "version": 1,
+    "size": {"x": 32,"y": 32},
+    "copyright": "Fallout-stylezied sprite for RU Sirius Fallout, by Rozy_Cosmic(Ckey)|rozycosmic(Discord)",
+    "license": "CC-BY-SA-3.0",
+    "states": [
+        {
+            "name": "armatura_blood_flipped",
+            "directions": 4
+        },
+		{
+            "name": "armatura_blood",
+            "directions": 4
+        },
+		{
+            "name": "armatura_clear_flipped",
+            "directions": 4
+        },
+		{
+            "name": "armatura_clear",
+            "directions": 4
+        },
+		{
+            "name": "cyber_head",
+            "directions": 4
+        },
+		{
+            "name": "knife_left_blood",
+            "directions": 4
+        },
+		{
+            "name": "knife_left",
+            "directions": 4
+        },
+		{
+            "name": "knife_right_blood",
+            "directions": 4
+        },
+		{
+            "name": "knife_right",
+            "directions": 4
+        }
+    ]
+}

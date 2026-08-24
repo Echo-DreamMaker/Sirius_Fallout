@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Fallout sprites for RU Sirius Fallout, by Ray",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "flag_bloodraiders"
+    },
+    {
+      "name": "flag_fishmancity"
+    },
+    {
+      "name": "flag_raiderslayers"
+    },
+    {
+      "name": "flag_raidersslayersblood"
+    },
+    {
+      "name": "flag_raidersslayersclean"
+    }
+  ]
+}

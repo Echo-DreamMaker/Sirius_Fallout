@@ -253,7 +253,7 @@
     flavors:
       - banana
   - type: Food
-    trash: 
+    trash:
     - TrashBananaPeel
   - type: SolutionContainerManager
     solutions:
@@ -289,7 +289,7 @@
       - banana
       - nothing
   - type: Food
-    trash: 
+    trash:
     - TrashMimanaPeel
   - type: SolutionContainerManager
     solutions:
@@ -792,7 +792,7 @@
     flavors:
       - corn
   - type: Food
-    trash: 
+    trash:
     - FoodCornTrash
   - type: SolutionContainerManager
     solutions:
@@ -1549,7 +1549,7 @@
     flavors:
       - bungo
   - type: Food
-    trash: 
+    trash:
     - FoodBungoPit
   - type: SolutionContainerManager
     solutions:
@@ -1699,3 +1699,32 @@
     tags:
     - ClothMade
     - CottonBoll
+
+- type: entity
+  name: punica
+  parent: N14FoodProduceBase
+  id: N14FoodPunica
+  description: Grand punica.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - medicine
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 17
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: HealingPoultice
+          Quantity: 10
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Hydroponics/punica.rsi
+  - type: Produce
+    seedId: punica
+  - type: Tag
+    tags:
+    - Fruit
+    - Vegetable

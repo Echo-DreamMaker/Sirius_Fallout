@@ -1,0 +1,150 @@
+# For directional 64x64 sprites below there is an entity for each main direction (south, east, west).
+# If bounding boxes improve in future these can be simplified. For now this is required as rotating the sprite ruins the bounding box. - Peptide
+
+# Bookshelf bookshelves
+- type: entity
+  id: N14Shelf
+  parent: BaseStructure
+  name: "testshelf"
+  description: A dusty old shelf.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/32x64_furniture.rsi
+    snapCardinals: true
+    netsync: false
+    layers:
+      - state: bookshelf_2
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialSteel:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Tag
+    tags:
+    - Wooden
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Pullable
+  - type: Storage
+    grid:
+    - 0,0,9,3
+    maxItemSize: Huge
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: InteractionOutline
+
+- type: entity
+  id: N14ShelfMetalNew
+  parent: N14Shelf
+  name: "metalshelf"
+  description: Dusty old books.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/32x64_furniture.rsi
+    layers:
+      - state: metalshelf
+  - type: RandomSprite
+    available:
+      - 0:
+          metalshelf: ""
+          metalshelf_cases: ""
+          metalshelf_filled1: ""
+          metalshelf_filled2: ""
+          metalshelf_metal: ""
+
+- type: entity
+  id: N14ShelfMetalShelfaltNew
+  parent: N14Shelf
+  name: "metalshelfalt"
+  description: Dusty old books.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/32x64_furniture.rsi
+    layers:
+      - state: metalshelfalt
+  - type: RandomSprite
+    available:
+      - 0:
+          metalshelfalt: ""
+          metalshelfalt_cases: ""
+          metalshelfalt_boxes: ""
+          metalshelfalt_mixed: ""
+          metalshelfalt_metal: ""
+
+- type: entity
+  id: N14ShelfWoodenShelfNew1
+  parent: N14BookshelfDirty
+  name: "woodenshelf1"
+  description: Dusty old books.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/32x64_furniture.rsi
+    layers:
+    - state: woodenshelf_cases
+  - type: RandomSprite
+    available:
+      - 0:
+          woodenshelf_cases: ""
+          woodenshelf_boxes: ""
+          woodenshelf_mix: ""
+          woodenshelf_metal: ""
+
+- type: entity
+  id: N14ShelfWoodenShelfNew2
+  parent: N14BookshelfDirty
+  name: "woodenshelf2"
+  description: Dusty old books.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/32x64_furniture.rsi
+    layers:
+      - state: woodenshelf_small
+  - type: RandomSprite
+    available:
+      - 0:
+          woodenshelf_small_boxes: ""
+          woodenshelf_small_cases: ""
+          woodenshelf_small_metal: ""
+          woodenshelf_small: ""
+
+- type: entity
+  id: N14ShelfWoodenShelfNew3
+  parent: N14BookshelfDirty
+  name: "woodenshelf3"
+  description: Dusty old books.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/32x64_furniture.rsi
+    layers:
+      - state: woodenshelf
+  - type: RandomSprite
+    available:
+      - 0:
+          woodenshelf_smallalt_boxes: ""
+          woodenshelf_smallalt_cases: ""
+          woodenshelf_smallalt_metal: ""
+          woodenshelf_smallalt: ""
+          woodenshelf: ""

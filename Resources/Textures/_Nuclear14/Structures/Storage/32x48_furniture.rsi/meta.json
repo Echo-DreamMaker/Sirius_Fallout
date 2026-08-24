@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from MS13",
+  "size": {
+    "x": 32,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "toolcloset"
+    },
+    {
+      "name": "lockers_closed"
+    },
+    {
+      "name": "lockers_open"
+    },
+    {
+      "name": "lockers_loot"
+    }
+  ]
+}

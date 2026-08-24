@@ -54,6 +54,10 @@
   - type: GrillHeaterSound
     startSound:
       path: /Audio/_Misfits/Machines/grill.ogg
+  - type: PointLight
+    radius: 5
+    energy: 3
+    color: "#FFC90C"
 
 - type: entity
   id: N14CookingStoveWide
@@ -142,3 +146,49 @@
           Low: { visible: true, state: propane_wide }
           Medium: { visible: true, state: propane_wide }
           High: { visible: true, state: propane_wide }
+
+- type: entity
+  parent: N14KitchenGrill
+  id: N14BarrelGrill
+  suffix: grill
+  name: Barrel Grill
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/cooking.rsi
+    layers:
+    - state: barrel_grill # need to get this to require fuel not power
+    - map: ["enum.EntityHeaterVisuals.Setting"]
+      color: "#b7aca0" # Keep the active grill readable without washing it out to flat white.
+      shader: unshaded
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.EntityHeaterVisuals.Setting:
+        enum.EntityHeaterVisuals.Setting:
+          Off: { visible: false }
+          Low: { visible: true, state: barrel_fire1 }
+          Medium: { visible: true, state: barrel_fire2 }
+          High: { visible: true, state: barrel_fire3 }
+
+- type: entity
+  parent: N14KitchenGrill
+  id: N14MetallStove
+  suffix: stove
+  name: Metall Stove
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/cooking.rsi
+    layers:
+    - state: stove_cooking # need to get this to require fuel not power
+    - map: ["enum.EntityHeaterVisuals.Setting"]
+      color: "#b7aca0" # Keep the active grill readable without washing it out to flat white.
+      shader: unshaded
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.EntityHeaterVisuals.Setting:
+        enum.EntityHeaterVisuals.Setting:
+          Off: { visible: false }
+          Low: { visible: true, state: stove_fire2 }
+          Medium: { visible: true, state: stove_fire3 }
+          High: { visible: true, state: stove_fire5 }
