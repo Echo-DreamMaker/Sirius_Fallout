@@ -28,7 +28,7 @@
           collection: WoodDestroy
       - !type:SpawnEntitiesBehavior
         spawn:
-          MaterialSteel:
+          SheetSteel1:
             min: 2
             max: 2
       - !type:DoActsBehavior

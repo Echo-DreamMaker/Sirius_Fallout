@@ -1723,7 +1723,7 @@
   - type: Sprite
     sprite: _Nuclear14/Objects/Specific/Hydroponics/punica.rsi
   - type: Produce
-    seedId: punica
+    seedId: N14Punica
   - type: Tag
     tags:
     - Fruit
