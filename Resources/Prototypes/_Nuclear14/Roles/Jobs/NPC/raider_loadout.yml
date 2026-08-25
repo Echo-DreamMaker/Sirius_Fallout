@@ -150,7 +150,7 @@
   inhand:
   - N14HuntingKnifeSirius
 
-  - type: startingGear
+- type: startingGear
   id: ratcannibalgear
   equipment:
     jumpsuit: N14ClothingUniformDesertPants
