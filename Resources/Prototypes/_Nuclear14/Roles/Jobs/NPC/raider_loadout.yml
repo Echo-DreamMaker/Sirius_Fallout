@@ -34,7 +34,7 @@
   id: RaiderBossGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitSettlerRags
-    shoes: N14ClothingShoesBootsCowboyBrown
+    shoes: N14ClothingBootsLeather
     head: N14ClothingHeadHatBeanie
     mask: SiriusClothingSkullMask
     outerClothing: N14ClothingOuterRaiderCombat1
@@ -130,7 +130,7 @@
   id: FernConscriptGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitCombat
-    mask: N14ClothingMaskBandRed
+    mask: N14ClothingMaskRedMask
     eyes: N14ClothingEyesSunGlasses
     shoes: N14ClothingBootsLeather
     hands: N14ClothingHandsGlovesBlackBiker
