@@ -4,6 +4,8 @@
     jumpsuit: N14ClothingUniformJumpsuitRags
     shoes: N14ClothingShoesRaider
     mask: N14ClothingMaskBrownMask
+    head: N14ClothingHeadHatTribalOutcastHood
+    hands: ClothingHandsGlovesFingerless
     outerClothing: N14ClothingOuterLightMetalArmor
     pocket1: N14RaiderStash
 
@@ -11,10 +13,11 @@
   id: RaiderHunterGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
-    shoes: N14ClothingBootsCowboy
-    head: N14ClothingHeadHatCowboyBrown
-    mask: N14ClothingMaskRedMask
-    outerClothing: N14ClothingOuterRaiderBadlands
+    shoes: N14ClothingBootsLeather
+    head: N14ClothingHeadHatArmyCap
+    mask: N14ClothingMaskBlackMask
+    hands: N14ClothingHandsGlovesCloth
+    outerClothing: N14ClothingOuterCoatLeatherDuster
     pocket1: N14RaiderStash
 
 - type: startingGear
@@ -23,17 +26,17 @@
     jumpsuit: N14ClothingUniformJumpsuitRags
     shoes: N14ClothingBootsLeather
     head: ClothingHeadHelmetBone
+    hands: N14ClothingHandsGlovesCloth
     outerClothing: N14ClothingOuterRaiderBlastmaster
     pocket1: N14RaiderStash
 
 - type: startingGear
   id: RaiderBossGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpsuitWastelandDoc
-    shoes: N14ClothingBootsLeather
+    jumpsuit: N14ClothingUniformJumpsuitSettlerRags
+    shoes: N14ClothingShoesBootsCowboyBrown
     head: N14ClothingHeadHatBeanie
-    mask: N14ClothingMaskBrownMask
-    eyes: N14ClothingEyesGlassesWelding
+    mask: SiriusClothingSkullMask
     outerClothing: N14ClothingOuterRaiderCombat1
     pocket1: N14RaiderStash
 
@@ -44,7 +47,7 @@
     shoes: N14ClothingBootsLeather
     head: N14ClothingHeadHatArmyCap
     mask: N14ClothingMaskBrownMask
-    outerClothing: N14ClothingOuterRaiderBadlands
+    outerClothing: N14ClothingOuterVestLeather
     pocket1: N14RaiderStash
 
 - type: startingGear
@@ -53,7 +56,8 @@
     jumpsuit: N14ClothingUniformJumpsuitCombat
     shoes: N14ClothingBootsBlack
     head: N14ClothingHeadHatCombatHelmet
-    mask: N14ClothingMaskBrownBalaclava
+    mask: ClothingMaskBandSkull
+    hands: ClothingHandsGlovesMercFingerless
     eyes: N14ClothingEyesGlassesWelding
     outerClothing: N14ClothingOuterCombatArmor
     belt: ClothingBeltMilitary
@@ -65,7 +69,8 @@
     jumpsuit: N14ClothingUniformJumpsuitCombat
     shoes: N14ClothingBootsCombat
     head: N14ClothingHeadHatArmyBeret
-    mask: N14ClothingMaskBrownBalaclava
+    neck: N14ClothingNeckCloakGhillie
+    hands: ClothingHandsGlovesMercFingerless
     eyes: N14ClothingEyesSunGlasses
     outerClothing: N14ClothingOuterCombatArmorMK2
     pocket1: N14RaiderStash
@@ -73,18 +78,23 @@
 - type: startingGear
   id: EnforcerTrooperGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpsuitMerc
-    shoes: N14ClothingBootsLeather
-    head: N14ClothingHeadHatBaseball
-    mask: N14ClothingMaskBlueMask
+    jumpsuit: N14ClothingUniformRangerVeteranBlack
+    shoes: N14ClothingBootsFire
+    head: ClothingHeadHelmetBasic
+    mask: ClothingMaskNeckGaiter
+    outerClothing: N14ClothingOuterPoliceVest
+    eyes: ClothingEyesGlassesSunglassesAviator
+    hands: N14ClothingHandsGlovesBlackBiker
     pocket1: N14RaiderStash
 
 - type: startingGear
   id: EnforcerWardenGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpsuitManagerSuit
+    jumpsuit: N14ClothingUniformRangerVeteranBlack
     shoes: N14ClothingBootsCombat
-    mask: N14ClothingMaskGrill
+    mask: ClothingMaskBandSkull
+    head: N14ClothingHeadHatCombatHelmetMK2
+    hands: N14ClothingHandsGlovesBlackBiker
     outerClothing: N14ClothingOuterPoliceVest
     pocket1: N14RaiderStash
 
@@ -93,7 +103,7 @@
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitPreWarManager
     shoes: N14ClothingBootsCombatMK2
-    head: ClothingHeadHatCowboyBountyHunter
+    head: ClothingHeadHatCapcap
     eyes: N14ClothingEyesSunGlasses
     outerClothing: N14ClothingOuterPoliceChief
     pocket1: N14RaiderStash
@@ -103,20 +113,24 @@
 - type: startingGear
   id: EnforcerBeatcopGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpsuitManagerSuit
+    jumpsuit: N14ClothingUniformRangerVeteranBlack
     shoes: N14ClothingBootsFire
-    hands: N14ClothingHandsGlovesBlackLeather
+    hands: N14ClothingHandsGlovesBlackBiker
+    mask: ClothingMaskNeckGaiter
+    eyes: ClothingEyesGlassesSunglassesAviator
     head: N14ClothingHeadHatVaultRiot
-    outerClothing: N14ClothingOuterVaultSecVest
+    outerClothing: N14ClothingOuterPoliceVest
     pocket1: N14RaiderStash
+    pocket2: Handcuffs
   inhand:
   - N14PoliceBaton
+  - N14ShieldMetalLight
 
 - type: startingGear
   id: FernConscriptGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitCombat
-    mask: ClothingMaskBandRed
+    mask: N14ClothingMaskBandRed
     eyes: N14ClothingEyesSunGlasses
     shoes: N14ClothingBootsLeather
     hands: N14ClothingHandsGlovesBlackBiker
@@ -131,13 +145,23 @@
     jumpsuit: N14ClothingUniformJumpsuitRags
     eyes: N14ClothingEyesGlassesWelding
     shoes: N14ClothingShoesRaider
+    head: ClothingHeadHatBeanieGreen
     hands: N14ClothingHandsGlovesCloth
     mask: N14ClothingMaskBrownBalaclava
-    outerClothing: N14ClothingOuterRaiderBadlands
+    outerClothing: M14ClothingOuterArmorKitPunk
     pocket1: N14RaiderStash
-    pocket2: Brutepack1 # Corvax-Change
   inhand:
   - N14KitchenKnife
+
+- type: startingGear
+  id: VaultRaiderRangedGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitMechanic
+    shoes: N14ClothingBootsBlack
+    head: SiriusClothingHeadHatRaiderVaultRiot
+    mask: N14ClothingMaskBlackBalaclava
+    outerClothing: SiriusClothingOuterVaultRaiderSecVest
+    pocket1: N14RaiderStash
 
 - type: startingGear
   id: GlowingPsihGear
@@ -161,12 +185,67 @@
   inhand:
   - N14TribalKnife
 
-  - type: startingGear
-  id: VaultRaiderRangedGear
+- type: startingGear
+  id: C-27MinigunGear
+  equipment:
+    head: ClothingC27HelmetHeavyGeneric
+    outerClothing: ClothingC27ArmorHeavyGeneric
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: ZavodchaninTagilaGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOliveSweater
+    mask: N14ClothingMaskBrownBalaclava
+    shoes: MisfitsMilitarySteelTippedBoots
+    hands: N14ClothingHandsGlovesBlackLeather
+    outerClothing: N14ClothingScavengerHeavyArmor
+    head: ClothingHeadHatWelding
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: ZavodchaninElectricGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineeringHazard
+    shoes: ClothingShoesBootsWork
+    hands: ClothingHandsGlovesColorYellowBudget
+    outerClothing: N14ClothingOuterMetalArmor
+    head: ClothingHeadHatHardhatYellowDark
+    eyes: N14ClothingEyesGlassesWelding
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: ZavodchaninSlesarGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFlannelOveralls
+    shoes: N14ClothingBootsFire
+    outerClothing: M14ClothingOuterArmorKit
+    head: N14ClothingHeadHatBaseball
+    mask: N14ClothingMaskBrownBalaclava
+    hands: N14ClothingHandsGlovesBlackBiker
+    pocket1: N14RaiderStash
+  inhand:
+  - N14Wrench
+
+- type: startingGear
+  id: ZavodchaninDirectorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLibrarianZav
+    shoes: ClothingShoesBootsLaceup
+    outerClothing: N14ClothingOuterVaultSecVest
+    head: ClothingHeadHatHardhatArmored
+    pocket1: N14RaiderStash
+    pocket2: DrinkMugOne
+  inhand:
+  - N14Whip
+  - BoxFolderClipboard
+
+- type: startingGear
+  id: ZavodchaninMechanGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitMechanic
     shoes: N14ClothingBootsBlack
+    outerClothing: N14ClothingOuterWinterRaider
     head: SiriusClothingHeadHatRaiderVaultRiot
-    mask: N14ClothingMaskBlackBalaclava
-    outerClothing: SiriusClothingOuterVaultRaiderSecVest
+    belt: N14ScrapMachete
     pocket1: N14RaiderStash
