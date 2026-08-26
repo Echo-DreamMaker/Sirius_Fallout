@@ -51,3 +51,23 @@
       - ratcannibalgear
     - type: HumanoidAppearance
       species: RatFolk
+
+- type: entity
+  name: Рейдер-Слесарь
+  parent: N14BaseMobRaider
+  id: SiriusSlesarZavodMobRaider
+  description: Член банды рейдеров завода, одет в спецодежду, вооружён гаечным ключом и отвагой
+  components:
+    - type: Loadout
+      prototypes:
+      - ZavodchaninSlesarGear
+
+- type: entity
+  name: 'Бригадир'
+  parent: N14BaseMobRaider
+  id: SiriusDirectorZavodMobRaider
+  description: Фактический руководитель банды рейдеров завода, вооружён плёткой для стимуляции работоспособности остальных членов банды
+  components:
+    - type: Loadout
+      prototypes:
+      - ZavodchaninDirectorGear
