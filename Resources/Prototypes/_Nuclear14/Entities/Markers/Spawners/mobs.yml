@@ -1287,3 +1287,153 @@
     prototypes:
       - N14MobCentaur
       - N14MobSuperMutantArmored
+
+- type: entity
+  name: Спавнер Крысолюда Людоеда
+  id: SiriusRaiderMobSpawnerRatCannibal
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusRatCannibalMobRaider
+
+- type: entity
+  name: Спавнер Светящегося Психа
+  id: SiriusRaiderMobSpawnerGlowingPsycho
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusGlowingPsychoMobRaider
+
+- type: entity
+  name: Спавнер Рейдера Убежища
+  id: SiriusRaiderMobSpawnerVaultRaider
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusVaultRaider
+
+- type: entity
+  name: Спавнер Заводской Сварщик (дробаш)
+  id: SiriusSpawnMobZavodTagillaRaiderRanged
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/Raiders.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusTagillaZavodRaiderMob
+
+- type: entity
+  name: Спавнер Заводской Бригадир (ближник)
+  id: SiriusSpawnMobZavodDirectorRaider
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/Raiders.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusDirectorZavodMobRaider
+
+- type: entity
+  name: Спавнер Заводской Слесарь (ближник)
+  id: SiriusSpawnMobZavodSlesarRaider
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/Raiders.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusSlesarZavodMobRaider
+
+- type: entity
+  name: Спавнер Заводской Электрик (гаусс пистолет)
+  id: SiriusSpawnMobZavodElectricRaider
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/Raiders.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusElectricZavodRaiderMob
+
+- type: entity
+  name: Спавнер Заводской Механик (Автомат)
+  id: SiriusSpawnMobZavodMechanicRaider
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/Raiders.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusMechanZavodRaiderMob
+
+- type: entity
+  name: Спавнер Кочевника ближка
+  id: SiriusRaiderMobSpawnerGlowingPsycho
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusGlowingCochevnikMobRaider
+
+- type: entity
+  name: Спавнер Кочевника дробаш
+  id: SiriusRaiderMobSpawnerGlowingPsycho
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - SiriusGlowingCochevnikDrobashMobRaider
