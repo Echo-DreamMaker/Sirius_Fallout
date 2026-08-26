@@ -186,13 +186,6 @@
   - N14TribalKnife
 
 - type: startingGear
-  id: C-27MinigunGear
-  equipment:
-    head: ClothingC27HelmetHeavyGeneric
-    outerClothing: ClothingC27ArmorHeavyGeneric
-    pocket1: N14RaiderStash
-
-- type: startingGear
   id: ZavodchaninTagilaGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitOliveSweater
@@ -248,4 +241,27 @@
     outerClothing: N14ClothingOuterWinterRaider
     head: SiriusClothingHeadHatRaiderVaultRiot
     belt: N14ScrapMachete
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: KochGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitSettlerRags
+    shoes: N14ClothingShoesRags
+    mask: N14ClothingMaskSheriff
+    eyes: ClothingEyesGlassesChemist
+    head: N14ClothingHeadHatVaultBlueprintHelmetMetal
+    outerClothing: M14ClothingOuterArmorKitPunk
+    pocket1: N14RaiderStash
+  inhand:
+  - N14HuntingKnifeSirius
+
+- type: startingGear
+  id: KochGearShot
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitSettlerRags
+    shoes: N14ClothingShoesRags
+    head: ClothingHeadHatStrawHat
+    hands: N14ClothingHandsGlovesTribal
+    outerClothing: M14ClothingOuterArmorKitShoulder
     pocket1: N14RaiderStash
