@@ -1365,7 +1365,7 @@
 
 - type: entity
   name: Спавнер Кочевника ближка
-  id: SiriusRaiderMobSpawnerGlowingPsycho
+  id: SiriusRaiderMobSpawnerKoch
   parent: MarkerBase
   components:
   - type: Sprite
@@ -1380,7 +1380,7 @@
 
 - type: entity
   name: Спавнер Кочевника дробаш
-  id: SiriusRaiderMobSpawnerGlowingPsycho
+  id: SiriusRaiderMobSpawnerKochDrobash
   parent: MarkerBase
   components:
   - type: Sprite
