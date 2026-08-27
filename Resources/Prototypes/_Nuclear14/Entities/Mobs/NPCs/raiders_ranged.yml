@@ -890,6 +890,100 @@
         state: inhand-right # Only part we change, the gun sprite.
 
 - type: entity
+  name: Гуль-Кочевник
+  parent: N14BaseMobRaider
+  id: SiriusGlowingCochevnikMobRaider
+  description: Светящийся гуль странствующий по миру в поисках хоть какой то жизни
+  components:
+    - type: Loadout
+      prototypes:
+      - KochGear
+    - type: HumanoidAppearance
+      species: GhoulGlowing
+
+
+- type: entity
+  name: Гуль-Кочевник с дробовиком
+  parent: N14BaseMobRaider
+  id: SiriusGlowingCochevnikDrobashMobRaider
+  description: Светящийся гуль странствующий по миру в поисках хоть какой то жизни с верным дробовиком в руках.
+  components:
+    - type: Gun
+      minAngle: 34.5
+      maxAngle: 104
+      angleIncrease: 8
+      angleDecay: 16
+      fireRate: 1
+      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Shotguns/N14WeaponDoubleBarrelShotgun/shot1.ogg
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: N14ShellShotgun20
+      capacity: 8
+      count: 8
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 1.5
+      rechargeSound:
+        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
+    - type: Loadout
+      prototypes:
+        - KochGearShot
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/trench.rsi
+        state: inhand-right # Only part we change, the gun sprite.
+
+- type: entity
   name: Рейдер-Электрик
   parent: N14BaseMobRaider
   id: SiriusElectricZavodRaiderMob
