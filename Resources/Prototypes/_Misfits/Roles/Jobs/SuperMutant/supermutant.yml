@@ -10,6 +10,7 @@
   playTimeTracker: SuperMutant
   icon: JobIconBorg
   supervisors: job-supervisors-supermutant
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -51,6 +52,7 @@
   playTimeTracker: Nightkin
   icon: JobIconBorg
   supervisors: job-supervisors-supermutant
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true # #Misfits Change - re-enabled, gated by the nightkin whitelist
   overrideConsoleVisibility: true
@@ -91,6 +93,7 @@
   playTimeTracker: SuperMutantGladiator
   icon: JobIconLegionSlave
   supervisors: job-supervisor-caesar-legion-slaves
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -139,6 +142,7 @@
   playTimeTracker: SuperMutantRanger
   icon: JobIconBorg
   supervisors: job-supervisors-supermutant
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -181,6 +185,7 @@
   playTimeTracker: SuperMutantTrooper
   icon: JobIconBorg
   supervisors: job-supervisors-supermutant
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -224,6 +229,7 @@
   playTimeTracker: SuperMutantNCRRanger
   icon: JobIconSecurityOfficer
   supervisors: job-supervisors-ncr-ranger
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -276,6 +282,7 @@
   playTimeTracker: SuperMutantNCRTrooper
   icon: JobIconNcrSerg
   supervisors: job-supervisors-ncr
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -325,6 +332,7 @@
   playTimeTracker: SuperMutantTribal
   icon: JobIconTribal
   supervisors: job-supervisors-tribal
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   access:
@@ -401,6 +409,7 @@
   playTimeTracker: SuperMutantFollowerDoctor
   icon: JobIconPassenger
   supervisors: job-supervisors-follower-doctor
+  alwaysUseSpawner: true
   accessGroups:
   - FollowersApocalypse
   - FotADoctor
@@ -460,6 +469,7 @@
   playTimeTracker: SuperMutantEnclave
   icon: "JobIconEnclaveEnlisted"
   supervisors: job-supervisors-enclave
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true

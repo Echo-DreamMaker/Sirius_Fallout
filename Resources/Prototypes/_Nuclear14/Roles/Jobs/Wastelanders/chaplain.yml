@@ -16,6 +16,7 @@
   startingGear: WastelandChaplainGear
   icon: "JobIconWastelandChaplain" # Forge-Change
   supervisors: job-supervisors-townsfolk
+  alwaysUseSpawner: true
   access:
   - WastelandChaplain
   - TownsPerson # Forge-Change

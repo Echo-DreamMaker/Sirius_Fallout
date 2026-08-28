@@ -16,6 +16,7 @@
   startingGear: WastelandReporterGear
   icon: "JobIconTownReporter" # Corvax-Change
   supervisors: job-supervisors-townsfolk
+  alwaysUseSpawner: true
   access:
   - WastelandReporter
   - TownsPerson # Corvax-Change

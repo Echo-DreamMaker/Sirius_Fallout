@@ -115,7 +115,7 @@
       inverted: true
       jobs:
         - TribalShaman # #Misfits Change - renamed from TribalHealer
-        #- TownDoctor # Misfits Change - Removed Town Doctor
+        - TownDoctor # Misfits Change - Removed Town Doctor
         - NCRDoctor
         - NCRMedic
         #- BoSWashingtonScribe #Misfits Change /Comment-out/: Washington BoS removed
