@@ -21,6 +21,7 @@
   startingGear: TownSheriffGear
   icon: "JobIconTownSheriff" # Corvax-Change
   supervisors: job-supervisors-townsfolk
+  alwaysUseSpawner: true
   access:
   - TownieLaw
   - TownieMechanic

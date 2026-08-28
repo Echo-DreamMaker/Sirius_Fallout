@@ -110,7 +110,7 @@
   - NCRVeteranRanger # Veteran Ranger            | _Misfits/Roles/Jobs/Rangers/ranger_veteran.yml
   - NCRFieldRanger   # Field Ranger              | _Misfits/Roles/Jobs/Rangers/ranger.yml
   - SuperMutantNCRRanger # Mutant Ranger         | _Misfits/Roles/Jobs/SuperMutant/supermutant.yml # Misfits Add
-  - NCRPatrolRanger  # Patrol Ranger             | _Misfits/Roles/Jobs/Rangers/ranger_recruit.yml
+#  - NCRPatrolRanger  # Patrol Ranger             | _Misfits/Roles/Jobs/Rangers/ranger_recruit.yml
   - NCRRangerRecruit # Ranger Recruit            | _Misfits/Roles/Jobs/Rangers/ncr_ranger_recruit.yml
   #- NCRRanger       # NCR Desert Ranger (whitelist-only, outside the ladder) | _Misfits/Roles/Jobs/Rangers/ncr_ranger.yml  # #Misfits Removed - separate whitelist role, not part of station ladder
 
@@ -180,7 +180,7 @@
   - TownMayor
   - TownSheriff
   - TownDeputy
-  # - TownDoctor # #Misfits Tweak - disabled; Followers of the Apocalypse replaces town medical coverage.
+  - TownDoctor
   - TownShopkeeper
   - TownShopkeeperHelper # Forge-Add
   - WastelandChaplain # Forge-Change

@@ -1,14 +1,12 @@
 - type: gameMap
   id: NewIsland
   mapName: 'New Island'
-  mapPath: /Maps/N14/IslandV112b.yml
+  mapPath: /Maps/N14/IslandV170.yml
   minPlayers: 0
   stations:
     NewIsland:
       stationProto: FalloutStation
       components:
-        - type: StationNameSetup
-          mapNameTemplate: 'New Island'
         - type: StationJobs
           overflowJobs:
             - Wastelander
@@ -36,7 +34,7 @@
             TownSheriff: [ 1, 1 ]
             TownDeputy: [ 3, 3 ]
             TownDoctor: [ 1, 1 ] # #Misfits Tweak - disabled; FoTA FollowerDoctor slots replace town medical coverage.
-            TownMechanic: [ 2, 2 ]
+            TownMechanic: [ 1, 1 ]
             TownShopkeeper: [ 2, 2 ]
             #TownShopkeeperHelper: [ 0, 0 ] # Forge-Town
             Townsperson: [ 4, 5 ]

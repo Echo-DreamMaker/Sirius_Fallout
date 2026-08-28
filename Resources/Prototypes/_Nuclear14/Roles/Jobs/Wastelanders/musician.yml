@@ -12,6 +12,7 @@
   startingGear: WastelandMusicianGear
   icon: "JobIconMusician"
   supervisors: job-supervisors-hire
+  alwaysUseSpawner: true
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: MikuDay

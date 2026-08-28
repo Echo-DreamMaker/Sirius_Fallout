@@ -10,6 +10,7 @@
   startingGear: WastelanderGear
   icon: "JobIconWastelander" # Corvax-Change
   supervisors: job-supervisors-wastelander
+  alwaysUseSpawner: true
   requirements: # #Misfits Change: 8h playtime lock, block non-human species
     - !type:CharacterSpeciesRequirement
       species:

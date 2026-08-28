@@ -22,6 +22,7 @@
   startingGear: TownMayorGear
   icon: "JobIconTownMayor" # Corvax-Change
   supervisors: job-supervisors-townsfolk
+  alwaysUseSpawner: true
   accessGroups:
   - Townie
   special:

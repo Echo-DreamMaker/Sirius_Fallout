@@ -19,6 +19,7 @@
   startingGear: TownMechanicGear
   icon: "JobIconTownMechanic" # Forge-Change
   supervisors: job-supervisors-townsfolk
+  alwaysUseSpawner: true
   access:
   - TownieMechanic
   - TownsPerson # Forge-Change
