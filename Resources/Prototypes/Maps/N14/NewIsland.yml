@@ -1,7 +1,7 @@
 - type: gameMap
   id: NewIsland
   mapName: 'New Island'
-  mapPath: /Maps/N14/IslandV170b.yml
+  mapPath: /Maps/N14/IslandV174.yml
   minPlayers: 0
   stations:
     NewIsland:
