@@ -623,3 +623,21 @@
           types:
             Asphyxiation: 5
             Cold: 3
+
+# Blue reagent, heals 10 HP per unit
+- type: reagent
+  id: BlueStim
+  name: reagent-name-blue-stim
+  group: Medicine
+  desc: reagent-desc-blue-stim
+  physicalDesc: reagent-physical-desc-gleaming
+  color: "#1e90ff"
+  metabolisms:
+    Medicine:
+      metabolismRate: 1.0 # 1 unit per second
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -5 # 5 HP
+            Burn: -5 # 5 HP
