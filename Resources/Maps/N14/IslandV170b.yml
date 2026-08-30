@@ -68586,22 +68586,6 @@ entities:
       parent: 676
     - type: HandheldLight
       toggleActionEntity: 678
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 678
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ActionsContainer
     - type: InsideEntityStorage
   - uid: 703
     components:
@@ -68609,22 +68593,6 @@ entities:
       parent: 702
     - type: HandheldLight
       toggleActionEntity: 704
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 704
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: ActionsContainer
 - proto: ClothingHeadHatHardhatWhite
   entities:
   - uid: 691
@@ -82892,31 +82860,6 @@ entities:
       rot: -0.3490658503988659 rad
       pos: 99.57656,131.57275
       parent: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - drink
-    - type: Tag
-      tags:
-      - DrinkBottle
-      - Trash
-    - type: Openable
-      opened: True
-    - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.3486147
-    - type: MeleeWeapon
-      nextAttack: -9.666656
-    - type: EmitSoundOnCollide
-      nextSound: -87370.0792965
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-    - type: NameModifier
-      baseName: кувшин кофе
-    - type: ContainerContainer
-      containers:
-        solution@drink: !type:ContainerSlot
-          ent: 537
 - proto: DrinkColaCan
   entities:
   - uid: 1133
