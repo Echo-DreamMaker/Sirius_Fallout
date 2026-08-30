@@ -244,6 +244,9 @@ reagent-desc-robust-healing-mixture = Смесь реагентов, котор�
 reagent-name-ultra-robust-healing-mixture = ультра стимулятор
 reagent-desc-ultra-robust-healing-mixture = Смесь реагентов, которые заставляют вас исцеляться быстрее, чем вы можете это почувствовать, однако она имеет серьезные побочные эффекты.
 
+reagent-name-blue-stim = синий стимулятор
+reagent-desc-blue-stim = Странный синий реагент, который лечит 10 здоровья за единицу.
+
 reagent-name-hydra = гидра
 reagent-desc-hydra = Смесь грибов, хвоста скорпиона и крови ночного охотника, действующая как пустынный Мед-Х, притупляющая входящий урон за счет привыкания.
 
