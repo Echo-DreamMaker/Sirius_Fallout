@@ -2,7 +2,7 @@
     "version": 1,
     "size": {"x": 32,"y": 32},
     "copyright": "Fallout-stylezied sprite for RU Sirius Fallout, by Rozy_Cosmic(Ckey)|rozycosmic(Discord)",
-    "license": "Proprietary / Запрещено к копированию",
+    "license": "CC-BY-NC-4.0",
     "states": [
         {
             "name": "hair_civil_1",

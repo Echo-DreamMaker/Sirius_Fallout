@@ -802,8 +802,6 @@
   name: T-51b power armor #Misfits Tweak: Renamed from "elite T-51" to lore-accurate T-51b designation
   description: A pinnacle of pre-war military engineering, the T-51b was standard issue for front-line infantry units during the Sino-American conflict. This suit's fusion-powered servos and composite plating have withstood the test of time.
   components:
-  - type: PowerArmorIntegrity
-    disableServosLock: true
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t51washelite.rsi
   - type: Clothing

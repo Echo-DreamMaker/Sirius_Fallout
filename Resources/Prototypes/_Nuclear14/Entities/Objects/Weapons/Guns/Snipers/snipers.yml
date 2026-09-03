@@ -89,9 +89,10 @@
   parent: BaseWeaponRifle
   id: N14WeaponSniper50AntiMateriel
   description: "An anti-materiel rifle with an ergonomic, sleek, skeletonized design. Simply looking at it can you tell it'll rip some limbs apart. Uses .50 anti-material ammo."
-  tags:
-  - Sniper
   components:
+  - type: Tag
+    tags:
+    - Sniper
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/antimateriel.rsi
     quickEquip: false
@@ -556,9 +557,10 @@
   parent: N14WeaponRifleBase
   id: N14WeaponRifle308SniperRifle
   description:  sniper rifle chambered in .308, its chamber can handle overpressured .308 ammo.
-  tags:
-  - Sniper
   components:
+  - type: Tag
+    tags:
+    - Sniper
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/308SniperRifle.rsi
     quickEquip: false
@@ -907,9 +909,10 @@
   parent: BaseItem
   id: N14WeaponSniperM72GaussRifleSirius
   description: An advanced gauss rifle that consumes both energy and 2mmEC ammunition.
-  tags:
-  - Sniper
   components:
+  - type: Tag
+    tags:
+    - Sniper
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/gaussrifle.rsi
     quickEquip: false

@@ -13,6 +13,7 @@
   # At 0 integrity the ArmorComponent is stripped and the wearer takes full damage.
   # Repair with a welder to restore the pool and re-enable absorption.
   - type: Damageable
+  - type: Repairable
     fuelCost: 10
     doAfterDelay: 10 # #Misfits Tweak - Legion salvaged PA is modified with leather and stripped. lower surface to weld makes it slightly faster to fix
     qualityNeeded: Welding

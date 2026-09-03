@@ -4,9 +4,10 @@
   id: BaseWeaponSniper
   description: A rooty tooty point and shooty.
   abstract: true
-  tags:
-  - Sniper
   components:
+  - type: Tag
+    tags:
+    - Sniper
   - type: Sprite
     layers:
     - state: base
