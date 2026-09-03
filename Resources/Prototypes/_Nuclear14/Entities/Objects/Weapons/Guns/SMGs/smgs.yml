@@ -5,6 +5,8 @@
   components:
   - type: Wieldable
     wieldedSpeedModifier: 0.9
+  - type: StrengthRequirement
+    requiredStrength: 4
   - type: MagazineVisuals
     magState: mag
     steps: 1

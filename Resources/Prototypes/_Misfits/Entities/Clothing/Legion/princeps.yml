@@ -8,9 +8,6 @@
   - type: Item
     size: Ginormous
   - type: Damageable
-  - type: PowerArmorIntegrity
-    maxIntegrity: 375
-    brokenBleedthroughRatio: 1.0
   - type: Repairable
     fuelCost: 8
     doAfterDelay: 14
@@ -43,6 +40,8 @@
       MediumCaliber: 0.15
     innate: true
     spread: 90
+  - type: ClothingSpecialModifier
+    strengthModifier: -2
 
 - type: entity
   parent: N14ClothingHeadHatCenturionHelmet

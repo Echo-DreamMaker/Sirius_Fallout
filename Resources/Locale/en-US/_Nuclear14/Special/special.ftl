@@ -17,3 +17,13 @@ clothing-luck-increase-equal-examine = [color=green]increases[/color] [color=yel
 clothing-luck-decrease-equal-examine = [color=red]decreases[/color] [color=yellow]Luck[/color] by [color=red]{ $luck }[/color]
 player-component-not-enough-strength-weild = You need to have { $number } [color=yellow]Strength[/color] to wear this.
 special-lucky-evasion = dodges the bullet
+strength-requirement-too-weak = You need { $required } Strength to wield { $item }.
+strength-requirement-unwield = You are too weak to keep { $item } wielded (requires { $required } Strength).
+strength-requirement-examine = Requires [color=yellow]{ $required } Strength[/color] to use.
+strength-requirement-cannot-apply = You are too weak to use { $item } (requires { $required } Strength).
+action-toggle-special-aim-name = Aim
+action-toggle-special-aim-description = Enter aim mode, zooming your view and improving accuracy with Perception.
+intelligence-requirement-examine = Requires [color=yellow]{ $required } Intelligence[/color] to use reliably. Energy weapons can misfire or slip from your hands otherwise.
+intelligence-requirement-drop = { $item } slips from your hands!
+intelligence-requirement-misfire = { $item } misfires!
+supermutant-cannot-fire-onehanded = { $item } is too small for you to fire – super mutants can't use one-handed firearms.

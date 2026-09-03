@@ -3,9 +3,11 @@ using System.Threading.Tasks;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Hands.Components;
+using Content.Shared._Misfits.Special;
 using Content.Shared.Mobs;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
+using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -18,6 +20,8 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedSpecialSystem _special = default!;
 
     /// <summary>
     ///     We'll use an excess time so stuff like finishing effects can show.
@@ -246,6 +250,13 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
 
         if (args.AttemptFrequency == AttemptFrequency.StartAndEnd && !TryAttemptEvent(doAfter))
             return false;
+
+        // #Misfits Change /Add/: Agility scales the duration of every timed do-after.
+        // Fast characters (AGI > 5) finish quicker, clumsy ones (AGI < 5) take longer.
+        // Only the server is authoritative for the actual delay, so gate it there to keep
+        // client prediction of the resulting event serializable and stable.
+        if (_net.IsServer && args.Delay > TimeSpan.Zero && _special.UsesSpecialStats(args.User))
+            args.Delay = TimeSpan.FromSeconds(args.Delay.TotalSeconds / _special.GetAgilityActionSpeedMultiplier(args.User));
 
         // TODO DO AFTER
         // Why does this tag exist? Just make this a bool on the component?

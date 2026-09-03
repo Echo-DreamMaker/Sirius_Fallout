@@ -52,6 +52,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly Content.Shared._Misfits.Special.SharedSpecialSystem _special = default!;
 
     private readonly HashSet<EntityUid> _heavyAttackCandidates = [];
 
@@ -431,6 +432,13 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         if (TryComp<ShovingComponent>(disarmer, out var shoving))
             chance += shoving.DisarmBonus;
+
+        // #Misfits Change /Add/: strong characters resist being disarmed.
+        if (_special.UsesSpecialStats(disarmed))
+        {
+            var protection = _special.GetStrengthDisarmProtection(disarmed);
+            chance *= 1f - protection;
+        }
 
         return Math.Clamp(chance
                         * _contests.MassContest(disarmer, disarmed, false, 2f)

@@ -1,0 +1,11 @@
+- type: entity
+  parent: ActionBase
+  id: ActionToggleSpecialAim
+  name: action-toggle-special-aim-name
+  description: action-toggle-special-aim-description
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: _Nuclear14/Interface/Actions/aim_mode/aimmode.png
+    iconOn: _Nuclear14/Interface/Actions/aim_mode/aimmode.png
+    event: !type:SpecialAimToggleActionEvent

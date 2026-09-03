@@ -3,6 +3,7 @@
   id: N14WeaponRifleBase
   abstract: true
   components:
+  - type: StrengthRequirement
   - type: Item
     size: Large
   - type: Clothing

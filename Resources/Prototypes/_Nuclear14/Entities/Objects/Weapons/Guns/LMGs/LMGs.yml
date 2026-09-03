@@ -18,6 +18,8 @@
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/autorifle.rsi
   - type: Wieldable
     wieldedSpeedModifier: 0.8
+  - type: StrengthRequirement
+    requiredStrength: 6
   - type: GunRequiresWield
   - type: GunWieldBonus
     minAngle: -18 # Corvax-Change
@@ -84,6 +86,8 @@
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/canadianhmg.rsi
   - type: Wieldable
     wieldedSpeedModifier: 0.8
+  - type: StrengthRequirement
+    requiredStrength: 6
   - type: GunRequiresWield
   - type: GunWieldBonus
     minAngle: -19 # Corvax-Change
@@ -150,6 +154,8 @@
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/chineselmg.rsi
   - type: Wieldable
     wieldedSpeedModifier: 0.8
+  - type: StrengthRequirement
+    requiredStrength: 6
   - type: GunRequiresWield
   - type: GunWieldBonus
     minAngle: -22 # Corvax-Change
@@ -216,6 +222,8 @@
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/lmg.rsi
   - type: Wieldable
     wieldedSpeedModifier: 0.8
+  - type: StrengthRequirement
+    requiredStrength: 6
   - type: GunRequiresWield
   - type: GunWieldBonus
     minAngle: -20
@@ -282,6 +290,8 @@
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/bren.rsi
   - type: Wieldable
     wieldedSpeedModifier: 0.8
+  - type: StrengthRequirement
+    requiredStrength: 6
   - type: ClothingSpeedModifier # Corvax-Add
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -348,6 +358,8 @@
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/m60.rsi
   - type: Wieldable
     wieldedSpeedModifier: 0.8
+  - type: StrengthRequirement
+    requiredStrength: 6
   - type: GunRequiresWield
   - type: GunWieldBonus
     minAngle: -21

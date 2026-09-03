@@ -31,8 +31,6 @@
     unequipDelay: 6
   - type: N14PowerArmor
     requiresProficiency: false
-  - type: PowerArmorIntegrity
-    disableServosLock: true
   - type: Armor
     modifiers:
       coefficients:

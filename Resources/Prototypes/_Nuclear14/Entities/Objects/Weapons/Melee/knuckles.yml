@@ -5,6 +5,7 @@
   name: molerat gauntlet
   description: Big blag heavy gauntlet.
   components:
+  - type: StrengthRequirement
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Melee/moleratgauntlet.rsi
     state: icon

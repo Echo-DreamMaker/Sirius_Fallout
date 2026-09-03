@@ -4,8 +4,11 @@
   id: N14WeaponLauncherGrenade
   description: A pump-action heavy grenade launcher with a 4-grenade capacity, 4-times more fun! It uses 40mm grenades.
   components:
+  - type: SuperMutantFitting
   - type: Wieldable
     wieldedSpeedModifier: 0.75
+  - type: StrengthRequirement
+    requiredStrength: 7
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -104
@@ -52,6 +55,8 @@
   components:
   - type: Wieldable
     wieldedSpeedModifier: 0.8
+  - type: StrengthRequirement
+    requiredStrength: 7
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -104

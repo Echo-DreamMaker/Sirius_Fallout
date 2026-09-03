@@ -97,6 +97,9 @@
     requiresWorn: true
     distanceWalking: 2
     distanceSprinting: 3
+  - type: ClothingSpecialModifier
+    strengthModifier: 2
+    enduranceModifier: 1
 
 - type: entity
   parent: N14ClothingOuterPowerArmorT45
@@ -136,6 +139,9 @@
       back: N14ClothingPowerSystemsBack
   - type: ExplosionResistance
     damageCoefficient: 0.12 # #Misfits Tweak: T-51 blast resistance — ~14 HP at ground zero
+  - type: ClothingSpecialModifier
+    strengthModifier: 3
+    enduranceModifier: 1
 
 - type: entity
   parent: N14ClothingOuterPowerArmorT45
@@ -179,6 +185,9 @@
       back: N14ClothingPowerSystemsBack
   - type: ExplosionResistance
     damageCoefficient: 0.12 # #Misfits Tweak: T-51 blast resistance — ~14 HP at ground zero
+  - type: ClothingSpecialModifier
+    strengthModifier: 4
+    enduranceModifier: 1
 
 - type: entity
   parent: N14ClothingOuterPowerArmorT45
@@ -253,6 +262,9 @@
       gloves: N14ClothingPAGauntlets
       shoes: N14ClothingPABoots
       back: N14ClothingPowerSystemsBack
+  - type: ClothingSpecialModifier
+    strengthModifier: 3
+    enduranceModifier: 2
 
 # #Misfits Add - BOS-variant T60 that equips the Brotherhood tactical-HUD helmet.
 # Senior Paladins wear this so they can access the shared BOS map feed.
@@ -424,6 +436,9 @@
     reflectProb: 0.3
     reflectProbByType:
       MediumCaliber: 0.1
+  - type: ClothingSpecialModifier
+    strengthModifier: 3
+    enduranceModifier: 2
 
 - type: entity
   parent: N14ClothingOuterPowerArmorAdvanced2
@@ -472,6 +487,9 @@
       MediumCaliber: 0.20
     innate: true
     spread: 90
+  - type: ClothingSpecialModifier
+    strengthModifier: 4
+    enduranceModifier: 2
 
 - type: entity
   parent: N14ClothingOuterPowerArmorT45
@@ -683,6 +701,8 @@
   - type: ClothingSpeedModifier #sirius change
     walkModifier: 0.75
     sprintModifier: 0.75
+  - type: ClothingSpecialModifier
+    strengthModifier: -2
 
 - type: entity
   parent: N14ClothingOuterPowerArmorT51
@@ -782,8 +802,6 @@
   name: T-51b power armor #Misfits Tweak: Renamed from "elite T-51" to lore-accurate T-51b designation
   description: A pinnacle of pre-war military engineering, the T-51b was standard issue for front-line infantry units during the Sino-American conflict. This suit's fusion-powered servos and composite plating have withstood the test of time.
   components:
-  - type: PowerArmorIntegrity
-    disableServosLock: true
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t51washelite.rsi
   - type: Clothing
@@ -826,3 +844,6 @@
       gloves: N14ClothingPAGauntlets
       shoes: N14ClothingPABoots
       back: N14ClothingPowerSystemsBack
+  - type: ClothingSpecialModifier
+    strengthModifier: 3
+    enduranceModifier: 2

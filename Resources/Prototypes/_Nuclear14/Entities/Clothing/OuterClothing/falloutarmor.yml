@@ -39,8 +39,8 @@
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.85
- # - type: ClothingSpecialModifier
-  #  luckModifier: 1
+  - type: ClothingSpecialModifier
+    luckModifier: 1
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -106,8 +106,8 @@
   - type: Construction
     graph: CoatFollowersArmoredGraph
     node: followercoat
- # - type: ClothingSpecialModifier
-  #  intelligenceModifier: 1
+  - type: ClothingSpecialModifier
+    intelligenceModifier: 1
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -461,9 +461,9 @@
   - type: ClothingSpeedModifier
     walkModifier: 1.1 #sirius change
     sprintModifier: 1.1
- #  - type: ClothingSpecialModifier
- #    charismaModifier: 1
- #    luckModifier: 1
+  - type: ClothingSpecialModifier
+    charismaModifier: 1
+    luckModifier: 1
 
 - type: entity
   parent: N14ClothingOuterTribalArmor
@@ -562,8 +562,8 @@
         Heat: 0.95
   - type: ExplosionResistance
     damageCoefficient: 0.9
- #  - type: ClothingSpecialModifier
- #    strengthModifier: 1
+  - type: ClothingSpecialModifier
+    strengthModifier: 1
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -584,8 +584,8 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.85
- # - type: ClothingSpecialModifier
-  #  agilityModifier: 1
+  - type: ClothingSpecialModifier
+    agilityModifier: 1
 
 - type: entity
   parent: N14ClothingOuterCombatArmor
