@@ -3,6 +3,7 @@
   id: N14WeaponRevolverBase
   abstract: true
   components:
+  - type: StrengthRequirement
   - type: FollowDistance
     backStrength: 6
   - type: StaticPrice

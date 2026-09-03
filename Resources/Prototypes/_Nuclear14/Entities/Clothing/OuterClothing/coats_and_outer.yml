@@ -33,8 +33,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/falloutghostechoes.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/falloutghostechoes.rsi
- #  - type: ClothingSpecialModifier
- #    luckModifier: 1
+  - type: ClothingSpecialModifier
+    luckModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -46,8 +46,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/falloutharpercoat.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/falloutharpercoat.rsi
- #  - type: ClothingSpecialModifier
- #    charismaModifier: 1
+  - type: ClothingSpecialModifier
+    charismaModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -59,8 +59,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/letterman_red.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/letterman_red.rsi
- #  - type: ClothingSpecialModifier
- #    charismaModifier: 1
+  - type: ClothingSpecialModifier
+    charismaModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -71,8 +71,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/letterman_brown.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/letterman_brown.rsi
- #  - type: ClothingSpecialModifier
- #    charismaModifier: 1
+  - type: ClothingSpecialModifier
+    charismaModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -112,8 +112,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/hubologist.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/hubologist.rsi
- #  - type: ClothingSpecialModifier
- #    intelligenceModifier: 1
+  - type: ClothingSpecialModifier
+    intelligenceModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -125,8 +125,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/flannel_red.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/flannel_red.rsi
- #  - type: ClothingSpecialModifier
- #    charismaModifier: 1
+  - type: ClothingSpecialModifier
+    charismaModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -138,8 +138,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/flannel_aqua.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/flannel_aqua.rsi
- #  - type: ClothingSpecialModifier
- #    charismaModifier: 1
+  - type: ClothingSpecialModifier
+    charismaModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -151,8 +151,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/flannel_brown.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/flannel_brown.rsi
- #  - type: ClothingSpecialModifier
- #    charismaModifier: 1
+  - type: ClothingSpecialModifier
+    charismaModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -167,8 +167,8 @@
   - type: Tag # For crafting
     tags:
       - FollowerLabcoat
- #  - type: ClothingSpecialModifier
- #    intelligenceModifier: 1
+  - type: ClothingSpecialModifier
+    intelligenceModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -180,8 +180,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/jacket_bomber.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/jacket_bomber.rsi
- #  - type: ClothingSpecialModifier
- #   strengthModifier: 1
+  - type: ClothingSpecialModifier
+    strengthModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -545,8 +545,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/ncr_cf.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/ncr_cf.rsi
- #  - type: ClothingSpecialModifier
- #    strengthModifier: 1
+  - type: ClothingSpecialModifier
+    strengthModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBattlecoatCoat
@@ -577,8 +577,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/ncr_dressjacket.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/ncr_dressjacket.rsi
- #  - type: ClothingSpecialModifier
- #    charismaModifier: 1
+  - type: ClothingSpecialModifier
+    charismaModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -590,8 +590,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/ncr_codressjacket.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/ncr_codressjacket.rsi
- #  - type: ClothingSpecialModifier
- #    charismaModifier: 1
+  - type: ClothingSpecialModifier
+    charismaModifier: 1
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -603,8 +603,8 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/ncr_qm.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/ncr_qm.rsi
- #  - type: ClothingSpecialModifier
- #    charismaModifier: 1
+  - type: ClothingSpecialModifier
+    charismaModifier: 1
 
 #MARK: Vault
 - type: entity

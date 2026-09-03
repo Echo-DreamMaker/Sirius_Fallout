@@ -4,6 +4,8 @@
   id: BaseWeaponMinigun
   abstract: true
   components:
+  - type: SuperMutantFitting
+  - type: StrengthRequirement
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/minigun.rsi
     layers:

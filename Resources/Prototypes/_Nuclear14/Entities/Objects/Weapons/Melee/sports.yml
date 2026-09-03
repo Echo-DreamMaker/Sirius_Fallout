@@ -15,6 +15,8 @@
     soundHit:
       collection: MetalThud
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 4
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -78,6 +80,8 @@
     angle: 0
     animation: WeaponArcThrust
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 4
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -111,6 +115,8 @@
       types:
         Blunt: 5
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 4
   - type: IncreaseDamageOnWield
     damage:
       types:

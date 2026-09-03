@@ -38,6 +38,8 @@
     backStrength: 5
   - type: Wieldable
     wieldedSpeedModifier: 0.82
+  - type: StrengthRequirement
+    requiredStrength: 5
   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
 
 - type: entity

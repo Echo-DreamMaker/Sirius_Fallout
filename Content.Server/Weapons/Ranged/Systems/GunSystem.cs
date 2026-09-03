@@ -238,8 +238,15 @@ public sealed partial class GunSystem : SharedGunSystem
 
                             FireEffects(fromEffect, distance, dir.Normalized().ToAngle(), hitscan, hit, userSession);
 
-                            var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false);
+                            var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false, false);
                             RaiseLocalEvent(hit, ref ev);
+
+                            // #N14 Add - a handler may cancel the shot entirely (e.g. a Luck dodge), turning it into a miss.
+                            if (ev.Cancelled)
+                            {
+                                lastHit = null;
+                                break;
+                            }
 
                             if (!ev.Reflected)
                                 break;

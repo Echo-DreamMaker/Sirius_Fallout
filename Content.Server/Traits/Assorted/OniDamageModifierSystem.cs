@@ -1,4 +1,4 @@
-using Content.Server.Abilities.Oni;
+using Content.Shared._N14.SuperMutant;
 using Content.Shared.Damage;
 
 namespace Content.Server.Traits.Assorted;
@@ -13,18 +13,18 @@ public sealed class OniDamageModifierSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, OniDamageModifierComponent component, ComponentStartup args)
     {
-        if (!TryComp<OniComponent>(uid, out var oni))
+        if (!TryComp<SuperMutantComponent>(uid, out var sm))
             return;
 
         foreach (var (key, value) in component.MeleeModifierReplacers.Coefficients)
         {
-            oni.MeleeModifiers.Coefficients[key] = value;
+            sm.MeleeModifiers.Coefficients[key] = value;
 
         }
 
         foreach (var (key, value) in component.MeleeModifierReplacers.FlatReduction)
         {
-            oni.MeleeModifiers.FlatReduction[key] = value;
+            sm.MeleeModifiers.FlatReduction[key] = value;
 
         }
     }

@@ -20,8 +20,8 @@
     sprite: _Nuclear14/Clothing/Eyes/pilotgoggles.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Eyes/pilotgoggles.rsi
-  # - type: ClothingSpecialModifier
-    # charismaModifier: 1 
+  - type: ClothingSpecialModifier
+    charismaModifier: 1
 
 - type: entity
   parent: ClothingEyesBase
@@ -60,8 +60,8 @@
   - type: FlashImmunity # For some reason they don't have flash protection
   - type: EyeProtection
     protectionTime: 5
-  # - type: ClothingSpecialModifier
-    # charismaModifier: 1 
+  - type: ClothingSpecialModifier
+    charismaModifier: 1
 
 - type: entity
   parent: ClothingEyesBase

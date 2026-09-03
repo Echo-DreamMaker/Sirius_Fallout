@@ -26,3 +26,22 @@
   luckCriticalDamageMultiplier: 1.5
   luckUnluckyDamageMultiplier: 0.5
   luckLootChancePerPoint: 0.025
+  luckDodgeChancePerPoint: 0.0075
+  endurancePoisonResistancePerPoint: 0.1
+  enduranceRadiationResistancePerPoint: 0.1
+  strengthDisarmProtectionPerPoint: 0.08
+  intelligenceWeaponMisfireChancePerPoint: 0.1
+  intelligenceWeaponDropChancePerPoint: 0.05
+  intelligenceVowelReplaceBaseChance: 0.2
+  intelligenceVowelReplaceChancePerPoint: 0.22
+  intelligenceMumbleMinWordsBase: 6
+  intelligenceMumbleChanceBase: 0.1
+  intelligenceMumbleChancePerPoint: 0.2
+  perceptionAimZoomMultiplierPerPoint: 0.08
+  perceptionAimSpreadMultiplierPerPoint: 0.02
+  perceptionAimSpreadSniperMultiplierPerPoint: 0.05
+  perceptionTraceMinPerception: 8
+  perceptionTraceRange: 13
+  perceptionTracePersistenceTime: 3
+  perceptionTraceMinAlpha: 0.3
+  perceptionTraceAlphaPerPoint: 0.25

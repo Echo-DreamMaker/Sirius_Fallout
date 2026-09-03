@@ -15,7 +15,9 @@ public sealed class SpecialPenaltySystem : EntitySystem
     [Dependency] private readonly SharedSpecialSystem _special = default!;
 
     private const int LowCharismaThreshold = 5;
-    private const int LowIntelligenceThreshold = 2;
+    // Core baseline for "below-average Intelligence". The accent system (N14) then
+    // scales corruption severity per-point, so INT 1 is far rougher than INT 3.
+    private const int LowIntelligenceThreshold = 4;
     private const float ClumsyLuckOneChance = 0.10f;
 
     public override void Initialize()

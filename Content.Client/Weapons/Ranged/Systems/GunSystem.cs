@@ -584,7 +584,7 @@ public sealed partial class GunSystem : SharedGunSystem
             if (hitscan.Reflective == ReflectType.None)
                 break;
 
-            var reflectEv = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, normalizedDirection, false);
+            var reflectEv = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, normalizedDirection, false, false);
             RaiseLocalEvent(hit, ref reflectEv);
 
             if (!reflectEv.Reflected || reflectEv.Direction.LengthSquared() <= 0.0001f)
