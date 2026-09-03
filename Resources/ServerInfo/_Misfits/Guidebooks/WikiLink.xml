@@ -22,7 +22,7 @@
         [color=#c8f0c8]Click the link below to open the wiki in your browser:[/color]
       </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-        [bold][color=#ffb000]▶ [/color][/bold][textlink="OPEN THE MISFITS WIKI" link="https://wiki.misfitsystems.net"]
+        [bold][color=#ffb000]▶ [/color][/bold][textlink="OPEN THE WIKI" link="https://siriusfallout.miraheze.org/wiki/Заглавная_страница"]
       </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
         [textlink="▶ SERVER RULES — READ BEFORE PLAYING" link="https://discord.gg/YdwBK7NqzG"]
