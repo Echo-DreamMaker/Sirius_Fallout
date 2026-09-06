@@ -10,12 +10,10 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Projectiles;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Content.Shared.Containers.ItemSlots;
-using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
@@ -48,7 +46,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         SubscribeLocalEvent<VehicleComponent, UnstrappedEvent>(OnUnstrapped);
         SubscribeLocalEvent<VehicleComponent, VirtualItemDeletedEvent>(OnDropped);
         SubscribeLocalEvent<VehicleComponent, MeleeHitEvent>(OnMeleeHit);
-        SubscribeLocalEvent<VehicleComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<BuckleComponent, MobStateChangedEvent>(OnRiderMobStateChanged);
 
         SubscribeLocalEvent<VehicleComponent, EntInsertedIntoContainerMessage>(OnInsert);
@@ -72,13 +69,8 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             args.Handled = true;
     }
 
-    private void OnPreventCollide(Entity<VehicleComponent> ent, ref PreventCollideEvent args)
-    {
-        // without projectile hits the vehicle fixture instead of the rider
-        if (ent.Comp.Driver != null && HasComp<ProjectileComponent>(args.OtherEntity))
-            args.Cancelled = true;
-    }
-
+    // #Cythisiax Fixed - Revert PR #1103: projectiles no longer pass through a ridden vehicle's fixture,
+    // so the bike blocks shots and takes full damage again.
     private void OnRiderMobStateChanged(Entity<BuckleComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Alive ||

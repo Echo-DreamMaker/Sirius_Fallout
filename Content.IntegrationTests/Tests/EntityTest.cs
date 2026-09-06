@@ -28,7 +28,7 @@ namespace Content.IntegrationTests.Tests
             var server = pair.Server;
 
             var entityMan = server.ResolveDependency<IEntityManager>();
-            var mapManager = server.ResolveDependency<IMapManager>();
+            var mapManager = server.ResolveDependency<SharedMapSystem>();
             var prototypeMan = server.ResolveDependency<IPrototypeManager>();
             var mapSystem = entityMan.System<SharedMapSystem>();
 
@@ -150,7 +150,7 @@ namespace Content.IntegrationTests.Tests
 
             var cfg = server.ResolveDependency<IConfigurationManager>();
             var prototypeMan = server.ResolveDependency<IPrototypeManager>();
-            var mapManager = server.ResolveDependency<IMapManager>();
+            var mapManager = server.ResolveDependency<SharedMapSystem>();
             var sEntMan = server.ResolveDependency<IEntityManager>();
             var mapSys = server.System<SharedMapSystem>();
 
@@ -224,7 +224,7 @@ namespace Content.IntegrationTests.Tests
         {
             var settings = new PoolSettings { Connected = true, Dirty = true };
             await using var pair = await PoolManager.GetServerClient(settings);
-            var mapManager = pair.Server.ResolveDependency<IMapManager>();
+            var mapManager = pair.Server.ResolveDependency<SharedMapSystem>();
             var mapSys = pair.Server.System<SharedMapSystem>();
             var server = pair.Server;
             var client = pair.Client;

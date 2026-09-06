@@ -25,7 +25,8 @@
 - type: entity
   parent: N14ClothingPowerSystemsBack
   id: N14ClothingPowerSystemsBackX02
-  name: X-02 armor power systems
+  # #Misfits Change - Renamed X-02 -> APA MK II
+  name: APA MK II armor power systems
   description: The refined power management system of X-02 Power Armor.
   categories: [ HideSpawnMenu ]
   components:

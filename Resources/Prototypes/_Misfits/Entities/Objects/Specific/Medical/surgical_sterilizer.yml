@@ -23,6 +23,9 @@
     dirtAmount: 30
     dnaAmount: 3
     cleanDelay: 2.0
+  - type: Tag
+    tags:
+    - Spray # #Cythisiax Added - lets the medical belt store the sterile spray
 
 # ------------------------------------------------------------------
 # Sterile wipe — single-use antiseptic pad; ghetto / field medicine
@@ -44,3 +47,6 @@
     dirtAmount: 8
     dnaAmount: 1
     cleanDelay: 2.5
+  - type: Tag
+    tags:
+    - Gauze # #Cythisiax Added - lets the medical belt store the sterile wipe

@@ -4,9 +4,11 @@
   suffix: Legion, Locked, Legion
   components:
   - type: AccessReader
-    access: [["CaesarLegion"]]
+    access: [["CaesarLegionRecruit"]] # #Misfits Fix: Base non-slave Legion access (slaves are excluded).
   - type: Wires
     layoutId: AirlockService
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
 
 - type: entity
   parent: N14DoorMetalBarTall
@@ -14,9 +16,11 @@
   suffix: Legion, Locked
   components:
   - type: AccessReader
-    access: [["CaesarLegionRecruit"]] # #Misfits Change: All Legion IDs except Slave carry the CaesarLegionRecruit access level tag.
+    access: [["CaesarLegionRecruit"]] # #Misfits Fix: Base non-slave Legion access (slaves are excluded).
   - type: Wires
     layoutId: AirlockService
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
 
 - type: entity
   parent: N14DoorMetalRedTall
@@ -24,9 +28,11 @@
   suffix: Legion, Locked
   components:
   - type: AccessReader
-    access: [["CaesarLegion"]]
+    access: [["CaesarLegionRecruit"]] # #Misfits Fix: Base non-slave Legion access (slaves are excluded).
   - type: Wires
     layoutId: HighSec
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
 
 - type: entity
   parent: N14DoorWoodWhiteTall
@@ -34,9 +40,11 @@
   suffix: Legion, Locked, Legion Dean
   components:
   - type: AccessReader
-    access: [["CaesarLegion"]]
+    access: [["CaesarLegionDean"]] # #Misfits Fix: Requires Decanus (Dean) rank or higher.
   - type: Wires
     layoutId: AirlockService
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
 
 - type: entity
   parent: N14DoorMetalBarTall
@@ -44,9 +52,11 @@
   suffix: Legion, Locked, Legion Dean
   components:
   - type: AccessReader
-    access: [["CaesarLegion"]]
+    access: [["CaesarLegionDean"]] # #Misfits Fix: Requires Decanus (Dean) rank or higher.
   - type: Wires
     layoutId: AirlockService
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
 
 - type: entity
   parent: N14DoorMetalRedTall
@@ -54,9 +64,11 @@
   suffix: Legion, Locked, Legion Dean
   components:
   - type: AccessReader
-    access: [["CaesarLegion"]]
+    access: [["CaesarLegionDean"]] # #Misfits Fix: Requires Decanus (Dean) rank or higher.
   - type: Wires
     layoutId: HighSec
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
 
 - type: entity
   parent: N14DoorWoodWhiteTall
@@ -64,9 +76,11 @@
   suffix: Legion, Locked, Legion Centurion
   components:
   - type: AccessReader
-    access: [["CaesarLegion"]]
+    access: [["CaesarLegionCenturion"]] # #Misfits Fix: Requires Centurion rank or higher.
   - type: Wires
     layoutId: AirlockService
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
 
 - type: entity
   parent: N14DoorMetalBarTall
@@ -74,9 +88,47 @@
   suffix: Legion, Locked, Legion Centurion
   components:
   - type: AccessReader
-    access: [["CaesarLegion"]]
+    access: [["CaesarLegionCenturion"]] # #Misfits Fix: Requires Centurion rank or higher.
   - type: Wires
     layoutId: AirlockService
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
+
+- type: entity
+  parent: N14DoorMetalRedTall
+  id: N14DoorMetalSecureLockedRedLegionFrumentarii
+  suffix: Legion, Locked, Legion Frumentarii
+  components:
+  - type: AccessReader
+    access: [["CaesarLegionFrumentarii"]] # evil ass frum door, frum shit happening inside.
+  - type: Wires
+    layoutId: HighSec
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
+
+- type: entity
+  parent: N14DoorMetalRedTall
+  id: N14DoorMetalSecureLockedRedLegionPriestessOfMars
+  suffix: Legion, Locked, Legion Priestess of Mars
+  components:
+  - type: AccessReader
+    access: [["CaesarLegionPriestessOfMars"]] # #Misfits Fix: Requires Priestess of Mars rank or higher.
+  - type: Wires
+    layoutId: HighSec
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
+
+- type: entity
+  parent: N14DoorMetalRedTall
+  id: N14DoorMetalSecureLockedRedLegionOptio
+  suffix: Legion, Locked, Legion Optio
+  components:
+  - type: AccessReader
+    access: [["CaesarLegionOptio"]] # #Misfits Fix: Requires Optio rank or higher.
+  - type: Wires
+    layoutId: HighSec
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
 
 - type: entity
   parent: N14DoorMetalRedTall
@@ -84,9 +136,11 @@
   suffix: Legion, Locked, Legion Centurion
   components:
   - type: AccessReader
-    access: [["CaesarLegionCenturion"]]
+    access: [["CaesarLegionCenturion"]] # #Misfits Fix: Requires Centurion rank or higher.
   - type: Wires
     layoutId: HighSec
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
 
 - type: entity
   parent: N14DoorWoodWhiteTall
@@ -117,3 +171,5 @@
     access: [["TownsPerson"]]
   - type: Wires
     layoutId: HighSec
+
+

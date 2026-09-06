@@ -1,0 +1,65 @@
+# #Misfits Add - NCR Vertibird Pilot. Army aviation warrant officer track (WO1 -> CW2 -> CW3).
+# Rank pins are spawned by NCRRankPinSpawnSystem, see _Misfits/NCR/ncr_rank_pin_progressions.yml.
+
+- type: job
+  id: NCRVertibirdPilot
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false
+  jobWhitelistBypassesRoleTimers: true
+  weight: 104 # #Misfits Tweak - aviation remains above platoon leadership
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-ncr-vertibird-pilot
+  overwatchCategory: OverwatchNcrOfficers
+  description: job-description-ncr-vertibird-pilot
+  playTimeTracker: NCRVertibirdPilot
+  showBorder: true # #Misfits Add - separate aviation from the command ladder
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+    - !type:CharacterDepartmentTimeRequirement # T6 faction timelock (20h NCR)
+      department: NCR
+      min: 72000 # 20 hours
+  startingGear: NCRVertibirdPilotGear
+  icon: "JobIconNcrLeader"
+  supervisors: job-supervisors-ncr-vertibird-pilot
+  alwaysUseSpawner: true
+  access:
+  - NCR
+  - NCRSGT
+  - NCRLT
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - NCR
+      - type: VertibirdPilotPerk # #Misfits Add - pilot perk granted free with the role
+      - type: VertibirdCrew # #Misfits Add - trained crew repair the airframe faster
+
+- type: startingGear
+  id: NCRVertibirdPilotGear
+  equipment:
+    head: N14ClothingHeadHatNCRBeretOfficer
+    back: N14ClothingBackpackNCR
+    jumpsuit: N14ClothingOfficerUniformNCRDesert
+    outerClothing: MisfitsNCROfficerArmor
+    shoes: N14ClothingBootsCombatFilled
+    hands: N14ClothingHandsGlovesCombat
+    belt: ClothingBeltNCR
+    eyes: N14ClothingEyesGlassesPilot
+    ears: N14ClothingHeadsetNCR
+    pocket1: NCRLTloadoutkits
+    pocket2: RadioHandheld
+    id: N14IDNCRDogtagOfficer
+  innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
+
+- type: playTimeTracker
+  id: NCRVertibirdPilot

@@ -25,7 +25,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
 {
     [Dependency] private readonly IChatManager _chats = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;

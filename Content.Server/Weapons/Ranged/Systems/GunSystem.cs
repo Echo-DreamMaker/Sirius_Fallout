@@ -1,12 +1,9 @@
-using System.Linq;
 using System.Numerics;
 using Content.Server._Misfits.Movement;
 using Content.Server._Misfits.Weapons.Ranged.Flamer;
 using Content.Server.Cargo.Systems;
 using Content.Server.Movement.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Weapons.Ranged.Components;
-using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
@@ -14,26 +11,20 @@ using Content.Shared.Effects;
 using Content.Shared.Projectiles;
 using Content.Shared._Misfits.CCVar;
 using Content.Shared._Misfits.Special;
-using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Reflect;
-using Content.Shared.Damage.Components;
 using Content.Shared._Misfits.Weapons; // #Misfits Add - GunDamageBonusComponent support
 using Content.Server._Misfits.Weapons.Ranged.Prediction;
 using Content.Shared._Misfits.Weapons.Ranged.Flamer;
 using Content.Shared._Misfits.Weapons.Ranged.Prediction;
 using Content.Server.Weapons.Ranged.Events;
-using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
 
@@ -124,15 +115,15 @@ public sealed partial class GunSystem : SharedGunSystem
             }
         }
 
-        var fromMap = fromCoordinates.ToMap(EntityManager, TransformSystem);
-        var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);
+        var fromMap = fromCoordinates.ToMap(EntityManager, _xform);
+        var toMap = toCoordinates.ToMapPos(EntityManager, _xform);
         var mapDirection = toMap - fromMap.Position;
         var mapAngle = mapDirection.ToAngle();
         var angle = base.GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle(), user);
 
         var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out var grid)
             ? fromCoordinates.WithEntityId(gridUid, EntityManager)
-            : new EntityCoordinates(MapManager.GetMapEntityId(fromMap.MapId), fromMap.Position);
+            : new EntityCoordinates(MapManager.GetMap(fromMap.MapId), fromMap.Position);
 
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
         mapDirection = toMap - fromMap.Position;
@@ -164,7 +155,7 @@ public sealed partial class GunSystem : SharedGunSystem
                 base.ShootOrThrow(ent.Value, mapDirection, gunVelocity, gun, gunUid, user);
                 continue;
             }
-
+            // TODO: use ishootable like an actual interface
             switch (shootable)
             {
                 case CartridgeAmmoComponent cartridge:
@@ -191,7 +182,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
                     // Something like ballistic might want to leave it in the container still
                     if (!cartridge.DeleteOnSpawn && !Containers.IsEntityInContainer(ent!.Value))
-                        EjectCartridge(ent.Value, angle);
+                        EjectCartridge(ent.Value, baseCoords: Transform(gunUid).Coordinates, angle, userSession: userSession);
 
                     Dirty(ent!.Value, cartridge);
                     break;
@@ -422,12 +413,12 @@ public sealed partial class GunSystem : SharedGunSystem
         if (session == null)
             return TryGetFirstValidHitscanResult(raycastEvent.RayCastResults, target, firedFromContainer, out hit, out distance);
 
+        // #Cythisiax Fixed - Revert PR #1103 rider hitscan deferral: shots at a ridden bike hit the
+        // bike fixture again (bike takes full damage) instead of being deferred to the rider/passing through.
         EntityUid? staticHit = null;
         EntityUid? currentLagCompHit = null;
-        EntityUid? strapHit = null;
         var staticDistance = hitscan.MaxLength;
         var currentLagCompDistance = hitscan.MaxLength;
-        var strapDistance = hitscan.MaxLength;
 
         foreach (var result in raycastEvent.RayCastResults)
         {
@@ -440,16 +431,6 @@ public sealed partial class GunSystem : SharedGunSystem
             {
                 currentLagCompHit ??= result.HitEntity;
                 currentLagCompDistance = MathF.Min(currentLagCompDistance, result.Distance);
-                continue;
-            }
-
-            // thing buckled to genrally has larger fixture, defer to rider, if not fallback to strap
-            if (strapHit == null &&
-                TryComp<StrapComponent>(result.HitEntity, out var strap) &&
-                strap.BuckledEntities.Count > 0)
-            {
-                strapHit = result.HitEntity;
-                strapDistance = result.Distance;
                 continue;
             }
 
@@ -488,13 +469,6 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             hit = currentLagCompHit.Value;
             distance = currentLagCompDistance;
-            return true;
-        }
-
-        if (strapHit != null)
-        {
-            hit = strapHit.Value;
-            distance = strapDistance;
             return true;
         }
 
@@ -635,10 +609,10 @@ public sealed partial class GunSystem : SharedGunSystem
 
         if (xformQuery.TryGetComponent(gridUid, out var gridXform))
         {
-            var (_, gridRot, gridInvMatrix) = TransformSystem.GetWorldPositionRotationInvMatrix(gridXform, xformQuery);
+            var (_, gridRot, gridInvMatrix) = _xform.GetWorldPositionRotationInvMatrix(gridXform, xformQuery);
 
             fromCoordinates = new EntityCoordinates(gridUid.Value,
-                Vector2.Transform(fromCoordinates.ToMapPos(EntityManager, TransformSystem), gridInvMatrix));
+                Vector2.Transform(fromCoordinates.ToMapPos(EntityManager, _xform), gridInvMatrix));
 
             // Use the fallback angle I guess?
             angle -= gridRot;

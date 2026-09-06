@@ -18,6 +18,10 @@ public sealed partial class NPCJukeComponent : Component
     [AutoPausedField]
     public TimeSpan NextJuke;
 
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField]
+    public TimeSpan JukeEnd;
+
     [DataField]
     public Vector2i? TargetTile;
 

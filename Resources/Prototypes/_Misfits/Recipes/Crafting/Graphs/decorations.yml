@@ -705,6 +705,67 @@
               prototype: MaterialCloth1
               amount: 5
             - !type:DeleteEntity
+
+# #Misfits Add - 509th Brotherhood of Steel standing flag construction graph
+- type: constructionGraph
+  id: MisfitsFlagBOS509
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: FlagBOS509
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 3
+            - material: Cloth
+              amount: 5
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+
+    - node: FlagBOS509
+      entity: MisfitsDecorationFlagBoSBonneville509
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 5
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 5
+            - !type:DeleteEntity
+
+# #Misfits Add - 509th Brotherhood of Steel wall flag construction graph
+- type: constructionGraph
+  id: MisfitsFlagBOS509W
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: flagbos509w
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 3
+
+    - node: flagbos509w
+      entity: MisfitsFlagWallBrotherhoodBonneville509
+      edges:
+        - to: start
+          steps:
+            - tool: Cutting
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
               
               # Signs (like left and right wooden signs)
 
@@ -825,3 +886,1158 @@
               prototype: MaterialWoodPlank1
               amount: 4
             - !type:DeleteEntity 
+
+# #Cythisiax Added - Crafting menu expansion: wasteland floor decor graphs
+- type: constructionGraph
+  id: DecorFloorBrickrubble
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: brickrubble
+          steps:
+            - material: N14Brick
+              amount: 1
+              doAfter: 3
+          completed: []
+
+    - node: brickrubble
+      entity: N14DecorFloorBrickrubble
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: N14MaterialBrick1
+              amount: 1
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: DecorFloorPallets
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: pallet
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 3
+          completed: []
+        - to: pallet_stack
+          steps:
+            - material: WoodPlank
+              amount: 3
+              doAfter: 4
+          completed: []
+
+    - node: pallet
+      entity: N14DecorFloorPallet
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: pallet_stack
+      entity: N14DecorFloorPalletStack
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 4
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 3
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: DecorFloorBoards
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: floorboard1
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard2
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard3
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard4
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard5
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard6
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard7
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard8
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard9
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard10
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard11
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard12
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard13
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard14
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard15
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard16
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard17
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard18
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard19
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard20
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard21
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard22
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard23
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+        - to: floorboard24
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+          completed: []
+
+    - node: floorboard1
+      entity: N14DecorFloorBoard1
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard2
+      entity: N14DecorFloorBoard2
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard3
+      entity: N14DecorFloorBoard3
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard4
+      entity: N14DecorFloorBoard4
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard5
+      entity: N14DecorFloorBoard5
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard6
+      entity: N14DecorFloorBoard6
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard7
+      entity: N14DecorFloorBoard7
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard8
+      entity: N14DecorFloorBoard8
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard9
+      entity: N14DecorFloorBoard9
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard10
+      entity: N14DecorFloorBoard10
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard11
+      entity: N14DecorFloorBoard11
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard12
+      entity: N14DecorFloorBoard12
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard13
+      entity: N14DecorFloorBoard13
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard14
+      entity: N14DecorFloorBoard14
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard15
+      entity: N14DecorFloorBoard15
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard16
+      entity: N14DecorFloorBoard16
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard17
+      entity: N14DecorFloorBoard17
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard18
+      entity: N14DecorFloorBoard18
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard19
+      entity: N14DecorFloorBoard19
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard20
+      entity: N14DecorFloorBoard20
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard21
+      entity: N14DecorFloorBoard21
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard22
+      entity: N14DecorFloorBoard22
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard23
+      entity: N14DecorFloorBoard23
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: floorboard24
+      entity: N14DecorFloorBoard24
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:DeleteEntity
+
+# #Cythisiax Added - Crafting menu expansion: rebar structure graph
+- type: constructionGraph
+  id: WallRebar
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: rebarwall
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed:
+            - !type:SnapToGrid
+
+    - node: rebarwall
+      entity: N14WallRebar
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity
+
+# #Cythisiax Added - Crafting menu expansion: floor torch graph
+- type: constructionGraph
+  id: TorchFloor
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: torchfloor
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 2
+          completed: []
+
+    - node: torchfloor
+      entity: N14Torch
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 1
+            - !type:DeleteEntity
+
+# #Cythisiax Added - Crafting menu expansion: rugs and mats graphs
+- type: constructionGraph
+  id: N14Rugs
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: rugmat
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+          completed:
+            - !type:SnapToGrid
+        - to: rugwelcome
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+          completed:
+            - !type:SnapToGrid
+        - to: rugvulgar1
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+          completed:
+            - !type:SnapToGrid
+        - to: rugvulgar2
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+          completed:
+            - !type:SnapToGrid
+        - to: rugtown
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+          completed:
+            - !type:SnapToGrid
+        - to: rugncr
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+          completed:
+            - !type:SnapToGrid
+        - to: rugbos
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+          completed:
+            - !type:SnapToGrid
+        - to: rubbersingle
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+          completed:
+            - !type:SnapToGrid
+        - to: rubber1
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+          completed:
+            - !type:SnapToGrid
+        - to: rubber2
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+          completed:
+            - !type:SnapToGrid
+        - to: rubber3
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+          completed:
+            - !type:SnapToGrid
+        - to: rubberlarge
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+        - to: rugblue
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+        - to: rugblueshag
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+        - to: rugfancy
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+        - to: rugred
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+        - to: rugyellow
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+
+    - node: rugmat
+      entity: N14RugMat
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: rugwelcome
+      entity: N14RugMatWelcome
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: rugvulgar1
+      entity: N14RugMatVulgar1
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: rugvulgar2
+      entity: N14RugMatVulgar2
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: rugtown
+      entity: N14RugMatTown
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: rugncr
+      entity: N14RugMatNCR
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: rugbos
+      entity: N14RugMatBOS
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: rubbersingle
+      entity: N14RugMatRubberSingle
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: rubber1
+      entity: N14RugMatRubber1
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: rubber2
+      entity: N14RugMatRubber2
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: rubber3
+      entity: N14RugMatRubber3
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 2
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 2
+            - !type:DeleteEntity
+
+    - node: rubberlarge
+      entity: N14RugMatRubberLarge
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 3
+            - !type:DeleteEntity
+
+    - node: rugblue
+      entity: N14RugBlue
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 3
+            - !type:DeleteEntity
+
+    - node: rugblueshag
+      entity: N14RugBlueShag
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 3
+            - !type:DeleteEntity
+
+    - node: rugfancy
+      entity: N14RugBrownFancy
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 3
+            - !type:DeleteEntity
+
+    - node: rugred
+      entity: N14RugRed
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 3
+            - !type:DeleteEntity
+
+    - node: rugyellow
+      entity: N14RugYellow
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 3
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 3
+            - !type:DeleteEntity
+
+# #Cythisiax Added - Crafting menu expansion: barrels graph
+- type: constructionGraph
+  id: N14Barrels
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: barrelblack
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed: []
+        - to: barrelblue
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed: []
+        - to: barrelred
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed: []
+        - to: barrelyellow
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed: []
+        - to: barrelblackopen
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed: []
+        - to: barrelblueopen
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed: []
+        - to: barrelredopen
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed: []
+        - to: barrelyellowopen
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed: []
+        - to: barrelblackfull
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed: []
+        - to: barrelredfull
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed: []
+        - to: barrelyellowfull
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed: []
+
+    - node: barrelblack
+      entity: N14BlackBarrel
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: barrelblue
+      entity: N14BlueBarrel
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: barrelred
+      entity: N14RedBarrel
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: barrelyellow
+      entity: N14YellowBarrel
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: barrelblackopen
+      entity: N14BlackBarrelOpen
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: barrelblueopen
+      entity: N14BlueBarrelOpen
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: barrelredopen
+      entity: N14RedBarrelOpen
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: barrelyellowopen
+      entity: N14YellowBarrelOpen
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: barrelblackfull
+      entity: N14BlackBarrelFull
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: barrelredfull
+      entity: N14RedBarrelFull
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: barrelyellowfull
+      entity: N14YellowBarrelFull
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity

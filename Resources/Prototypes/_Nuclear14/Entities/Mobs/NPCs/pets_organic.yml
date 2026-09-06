@@ -176,7 +176,21 @@
       - MeleeWeapon
   - type: SiriusFollower
   - type: Tameable
-    preset: TameablePetDog 
+    preset: TameablePetDog
+  - type: ActionGrant # #Cythisiax Added - give pet dogs the deathclaw-style melee charge ability (inherited by all N14MobPetDog variants)
+    actions:
+    - MisfitsActionMeleeCharge
+  - type: MeleeChargeAudio # #Cythisiax Added - dog charge bark on activation, heavy stomp on impact
+    activationSound:
+      collection: N14DogAttack
+      params:
+        volume: -2
+        maxDistance: 15
+    impactSound:
+      path: /Audio/Effects/Footsteps/largethud.ogg
+      params:
+        volume: 3
+        maxDistance: 15
 
 - type: entity
   name: BoS Mutt

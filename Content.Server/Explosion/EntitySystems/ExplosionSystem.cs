@@ -31,7 +31,7 @@ namespace Content.Server.Explosion.EntitySystems;
 
 public sealed partial class ExplosionSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -354,7 +354,7 @@ public sealed partial class ExplosionSystem : EntitySystem
         CameraShake(iterationIntensity.Count * 4f, pos, queued.TotalIntensity);
 
         //For whatever bloody reason, sound system requires ENTITY coordinates.
-        var mapEntityCoords = EntityCoordinates.FromMap(_mapManager.GetMapEntityId(pos.MapId), pos, _transformSystem, EntityManager);
+        var mapEntityCoords = EntityCoordinates.FromMap(_mapManager.GetMap(pos.MapId), pos, _transformSystem, EntityManager);
 
         // play sound.
         // for the normal audio, we want everyone in pvs range

@@ -74,6 +74,14 @@ public static class RaidRequestConfig
     public const int MinReasonWords = 5;
 }
 
+/// <summary>Target type for a raid request.</summary>
+[Serializable, NetSerializable]
+public enum RaidRequestTargetKind : byte
+{
+    Faction,
+    Group,
+}
+
 // ── Lifecycle types ───────────────────────────────────────────────────────
 
 [Serializable, NetSerializable]
@@ -113,8 +121,14 @@ public sealed class RaidRequestEntry
     /// <summary>True if this is an individual-tier request (Wastelander) — only the requester is notified, not the whole faction.</summary>
     public bool IsIndividual;
 
-    /// <summary>Canonical faction id of the raid target.</summary>
-    public string TargetFaction = string.Empty;
+    /// <summary>Target kind selected by the requester.</summary>
+    public RaidRequestTargetKind TargetKind;
+
+    /// <summary>Canonical faction id or group id of the raid target, depending on <see cref="TargetKind"/>.</summary>
+    public string TargetId = string.Empty;
+
+    /// <summary>Display name of the raid target at submission time.</summary>
+    public string TargetDisplayName = string.Empty;
 
     /// <summary>Optional free-text location description.</summary>
     public string LocationNotes = string.Empty;
@@ -159,8 +173,8 @@ public sealed class RaidRequestPanelDataMsg : EntityEventArgs
     /// <summary>If <see cref="CanSubmit"/> is false this explains why for the UI.</summary>
     public string? IneligibleReason;
 
-    /// <summary>Selectable target factions (faction-tier set, minus self).</summary>
-    public List<RaidRequestTargetInfo> TargetFactions = new();
+    /// <summary>Selectable targets (factions and formed groups).</summary>
+    public List<RaidRequestTargetInfo> TargetOptions = new();
 
     /// <summary>This player's own raid requests this round (lets them see their pending submissions).</summary>
     public List<RaidRequestEntry> MyRequests = new();
@@ -169,6 +183,7 @@ public sealed class RaidRequestPanelDataMsg : EntityEventArgs
 [Serializable, NetSerializable]
 public sealed class RaidRequestTargetInfo
 {
+    public RaidRequestTargetKind Kind;
     public string Id          = string.Empty;
     public string DisplayName = string.Empty;
 }
@@ -177,7 +192,8 @@ public sealed class RaidRequestTargetInfo
 [Serializable, NetSerializable]
 public sealed class RaidRequestSubmitMsg : EntityEventArgs
 {
-    public string TargetFaction = string.Empty;
+    public RaidRequestTargetKind TargetKind;
+    public string TargetId = string.Empty;
     public string LocationNotes = string.Empty;
     public string Reason        = string.Empty;
 }

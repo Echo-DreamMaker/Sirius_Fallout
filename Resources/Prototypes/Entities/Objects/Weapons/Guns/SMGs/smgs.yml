@@ -6,6 +6,7 @@
   abstract: true
   components:
   - type: Sprite
+  - type: GunSMGInteract
   - type: Item
     size: Large
   - type: Clothing

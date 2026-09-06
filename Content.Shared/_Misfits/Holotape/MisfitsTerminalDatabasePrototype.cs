@@ -49,21 +49,20 @@ public sealed partial class MisfitsTerminalDatabasePrototype : IPrototype
     /// #Misfits Add - Tier 7 "Leadership" gate, by JOB PROTOTYPE ID (not access tags) so
     /// admin-spawned ID cards cannot grant it. Leaders may:
     ///  • Create root folders / root documents.
-    ///  • Delete or restore any non-Admin-marked entry.
     ///  • Roll back document revisions.
-    /// Leaders cannot mark new entries as Admin and cannot delete Admin-marked entries.
+    ///  • #Misfits Add - Move (relocate) any non-Admin-protected folder/subfolder/document
+    ///    into another container (tidying, e.g. into a "TRASH" folder).
+    /// Leaders cannot delete or restore entries; those actions are reserved for AdminJobs.
     /// Empty list = no one can create root entries (DB becomes read-only effectively).
     /// </summary>
     [DataField("leadershipJobs")]
     public List<string> LeadershipJobs { get; private set; } = new();
 
     /// <summary>
-    /// #Misfits Add - Tier 8 "Admin" gate, by JOB PROTOTYPE ID. Admins are the only
-    /// ones who can:
-    ///  • Tick the Admin checkbox when creating a root entry.
-    ///  • Delete or restore an Admin-marked root entry (and everything inside it).
+    /// #Misfits Add - Tier 8/highest-rank gate, by JOB PROTOTYPE ID. Admins are the only
+    /// ones who can delete or restore entries and manage Admin-protected content.
     /// Admins also have all Leadership powers. Empty list = no Admin tier; the Admin
-    /// checkbox is hidden and Admin-marked content cannot be created or removed.
+    /// checkbox is hidden and no faction job can perform structural deletion.
     /// </summary>
     [DataField("adminJobs")]
     public List<string> AdminJobs { get; private set; } = new();

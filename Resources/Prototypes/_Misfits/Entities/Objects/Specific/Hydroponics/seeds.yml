@@ -42,3 +42,13 @@
       seedId: CherryBomb
     - type: Sprite
       sprite: _Misfits/Objects/Specific/Hydroponics/cherry.rsi # doesnt need to look special
+
+- type: entity
+  parent: SeedBase
+  name: wild zoybean clipping
+  id: ZoybeanSeeds
+  components:
+  - type: Seed
+    seedId: zoybean
+  - type: Sprite
+    sprite: _Misfits/Objects/Specific/Hydroponics/zoybeans.rsi

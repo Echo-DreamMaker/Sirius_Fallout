@@ -49,40 +49,46 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using System.IO.Compression;
+using MathNet.Numerics.Distributions;
+using System.Diagnostics;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly IMapManager MapManager = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] protected readonly IPrototypeManager ProtoManager = default!;
-    [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] protected readonly ISharedAdminLogManager Logs = default!;
-    [Dependency] protected readonly ContestsSystem Contests = default!;
-    [Dependency] protected readonly DamageableSystem Damageable = default!;
-    [Dependency] protected readonly ExamineSystemShared Examine = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly RechargeBasicEntityAmmoSystem _recharge = default!;
-    [Dependency] protected readonly SharedActionsSystem Actions = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-    [Dependency] protected readonly SharedContainerSystem Containers = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
-    [Dependency] protected readonly SharedPointLightSystem Lights = default!;
-    [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
-    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
-    [Dependency] protected readonly SharedProjectileSystem Projectiles = default!;
-    [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
-    [Dependency] protected readonly TagSystem TagSystem = default!;
-    [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected SharedMapSystem MapManager = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] protected IPrototypeManager ProtoManager = default!;
+    [Dependency] protected IRobustRandom Random = default!;
+    [Dependency] protected ISharedAdminLogManager Logs = default!;
+    [Dependency] protected ContestsSystem Contests = default!;
+    [Dependency] protected DamageableSystem Damageable = default!;
+    [Dependency] protected ExamineSystemShared Examine = default!;
+    [Dependency] private ItemSlotsSystem _slots = default!;
+    [Dependency] private RechargeBasicEntityAmmoSystem _recharge = default!;
+    [Dependency] protected SharedActionsSystem Actions = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
+    [Dependency] protected SharedContainerSystem Containers = default!;
+    [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] protected SharedPointLightSystem Lights = default!;
+    [Dependency] protected SharedPopupSystem _popup = default!;
+    [Dependency] protected SharedPhysicsSystem Physics = default!;
+    [Dependency] protected SharedProjectileSystem Projectiles = default!;
+    [Dependency] protected SharedTransformSystem _xform = default!;
+    [Dependency] protected ThrowingSystem ThrowingSystem = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedPhysicsSystem _sharedPhysics = default!;
+    [Dependency] private ISharedPlayerManager _sharedPlayer = default!;
+
 
     private const float InteractNextFire = 0.3f;
     private const double SafetyNextFire = 0.5;
@@ -110,6 +116,10 @@ public abstract partial class SharedGunSystem : EntitySystem
         InitializeClothing();
         InitializeContainer();
         InitializeSolution();
+
+        // Misfit Additions:
+        InitializeSMGInteractions(); // no concrete comp to distguinish smg from other weapon types
+        Misfit_InitializeRevolver(); // has RevolverAmmoProviderComponent listen for added event
 
         // Interactions
         SubscribeLocalEvent<GunComponent, GetVerbsEvent<AlternativeVerb>>(OnAltVerb);
@@ -154,11 +164,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (user == null)
             return;
 
-        if (TryComp<MechPilotComponent>(user.Value, out var mechPilot) &&
-            TryComp<MechComponent>(mechPilot.Mech, out var mech) &&
-            mech.CurrentSelectedEquipment.HasValue)
-            user = mechPilot.Mech;
-
         if (!TryGetGun(user.Value, out var ent, out var gun))
             return;
 
@@ -180,6 +185,15 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         gunEntity = default;
         gunComp = null;
+
+        // A mech pilot may fire either a selected mech weapon or a gun held in
+        // the pilot's modified hands. Keep the pilot as the lookup entity so
+        // the latter is not lost when the shot is relayed through the mech.
+        if (TryComp<MechPilotComponent>(entity, out var pilot) &&
+            TryGetGun(pilot.Mech, out gunEntity, out gunComp))
+        {
+            return true;
+        }
 
         if (TryComp<MechComponent>(entity, out var mech) &&
             mech.CurrentSelectedEquipment.HasValue &&
@@ -256,10 +270,11 @@ public abstract partial class SharedGunSystem : EntitySystem
             return null;
         }
 
-        if (TryComp<MechPilotComponent>(user.Value, out var mechPilot))
+        var pilot = user;
+        if (TryComp<MechPilotComponent>(pilot.Value, out var mechPilot))
             user = mechPilot.Mech;
 
-        if (!TryGetGun(user.Value, out var ent, out var gun) ||
+        if (!TryGetGun(pilot.Value, out var ent, out var gun) ||
             HasComp<ItemComponent>(user) ||
             ent != GetEntity(netGun))
         {
@@ -357,7 +372,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (attemptEv.Cancelled)
         {
             if (attemptEv.Message != null)
-                PopupSystem.PopupClient(attemptEv.Message, gunUid, user);
+                _popup.PopupClient(attemptEv.Message, gunUid, user);
 
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
@@ -405,7 +420,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             {
                 if (ev.Reason != null && Timing.IsFirstTimePredicted)
                 {
-                    PopupSystem.PopupCursor(ev.Reason);
+                    _popup.PopupCursor(ev.Reason);
                 }
 
                 // Don't spam safety sounds at gun fire rate, play it at a reduced rate.
@@ -511,8 +526,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         //
         // Fix: reparent the projectile to the map and set map-level velocity directly,
         // so parent physics cannot influence the projectile's trajectory.
-        var mapCoords = TransformSystem.GetMapCoordinates(uid);
-        TransformSystem.SetCoordinates(uid, TransformSystem.ToCoordinates(mapCoords));
+        var mapCoords = _xform.GetMapCoordinates(uid);
+        _xform.SetCoordinates(uid, _xform.ToCoordinates(mapCoords));
         Physics.SetLinearVelocity(uid, gunVelocity + direction.Normalized() * speed, body: physics);
 
         var projectile = EnsureComp<ProjectileComponent>(uid);
@@ -520,7 +535,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         projectile.Weapon = gunUid;
         projectile.ExtraIgnoredEntity = GetShotExtraIgnoredEntity(user);
 
-        TransformSystem.SetWorldRotationNoLerp(uid, direction.ToWorldAngle() + projectile.Angle);
+        _xform.SetWorldRotationNoLerp(uid, direction.ToWorldAngle() + projectile.Angle);
     }
 
     protected void ShootOrThrow(EntityUid uid,
@@ -582,10 +597,22 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         random /= Contests.MassContest(user);
         var spread = component.CurrentAngle.Theta * random;
-        var angle = new Angle(direction.Theta + spread);
-        // Misfit Fix: spread -> random ||| corrects slight typo or misinterpretation
-        //                spread is the already modified angle and random is that modification
-        DebugTools.Assert(random <= component.MaxAngleModified.Theta);
+
+        // #Cythisiax Added - Accuracy penalty when shooting from a moving vehicle/buckle
+        var buckleMovementSpread = 0d;
+        if (user != null &&
+            TryComp<BuckleComponent>(user.Value, out var buckle) &&
+            buckle.BuckledTo is { } buckledTo &&
+            HasComp<VehicleComponent>(buckledTo) &&
+            TryComp<PhysicsComponent>(buckledTo, out var vehiclePhysics))
+        {
+            var vehicleSpeed = vehiclePhysics.LinearVelocity.Length();
+            if (vehicleSpeed > 1.0f) // Only penalize above walking speed
+                buckleMovementSpread = (vehicleSpeed - 1.0f) * 0.04; // ~0.12 rad (~7°) at full bike speed (~4 m/s)
+        }
+
+        var angle = new Angle(direction.Theta + spread + buckleMovementSpread);
+        //DebugTools.Assert(spread <= component.MaxAngleModified.Theta);
         return angle;
     }
 
@@ -654,8 +681,8 @@ public abstract partial class SharedGunSystem : EntitySystem
         // [Changed by MisfitsCrew/Operator] Hitscan beam effects must be anchored to the grid or map,
         // not to a ridden vehicle that happens to be the shooter's coordinate parent.
         return MapManager.TryFindGridAt(mapCoordinates, out var gridUid, out _)
-            ? EntityCoordinates.FromMap(gridUid, mapCoordinates, TransformSystem, EntityManager)
-            : EntityCoordinates.FromMap(MapManager.GetMapEntityId(mapCoordinates.MapId), mapCoordinates, TransformSystem, EntityManager);
+            ? EntityCoordinates.FromMap(gridUid, mapCoordinates, _xform, EntityManager)
+            : EntityCoordinates.FromMap(MapManager.GetMap(mapCoordinates.MapId), mapCoordinates, _xform, EntityManager);
     }
 
     protected bool TryResolveGunHitscan(EntityUid gunUid, out HitscanPrototype hitscan)
@@ -779,52 +806,39 @@ public abstract partial class SharedGunSystem : EntitySystem
         cartridge.Spent = spent;
         Appearance.SetData(uid, AmmoVisuals.Spent, spent);
     }
-
+    /// TODO Misfit: Get rid of useless params like angle, playsound, ect... and replace with something else
+    /// Misfit: revamped EjectCartridge
     /// <summary>
     /// Drops a single cartridge / shell
+    /// Also raises <see cref="EjectSpentCartEvent"> to handle spent cartridges
+    /// to strip its comps(including physics) and ensure no desync issues
     /// </summary>
     protected void EjectCartridge(
-        EntityUid entity,
+        EntityUid cart, EntityCoordinates baseCoords,
         Angle? angle = null,
-        bool playSound = true)
+        bool playSound = true,
+        ICommonSession? userSession = null)
     {
-        // TODO: Sound limit version.
-        var offsetPos = Random.NextVector2(EjectOffset);
-        var xform = Transform(entity);
+        // Misfit: pending refactor. maybe redundant check
+        if (!TryGetNetEntity(cart, out var netEnt)) return;
 
-        var coordinates = xform.Coordinates;
-        coordinates = coordinates.Offset(offsetPos);
-
-        TransformSystem.SetLocalRotation(xform, Random.NextAngle());
-        TransformSystem.SetCoordinates(entity, xform, coordinates);
-
-        // decides direction the casing ejects and only when not cycling
-        if (angle != null)
+        var xform = Transform(cart);
+        if (!TryComp<CartridgeAmmoComponent>(cart, out var cartComp) || !cartComp.Spent)
         {
-            Angle ejectAngle = angle.Value;
-            ejectAngle += 3.7f; // 212 degrees; casings should eject slightly to the right and behind of a gun
-            ThrowingSystem.TryThrow(entity, ejectAngle.ToVec().Normalized() / 100, 5f);
-        }
-        if (playSound && TryComp<CartridgeAmmoComponent>(entity, out var cartridge))
-        {
-            Audio.PlayPvs(cartridge.EjectSound, entity, AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-1f));
+            var (posEjectRNG, angleEjectRNG) = GetRandVectAngle(netEnt.Value.Id, netEnt.Value.Id);
+            _xform.SetLocalPositionRotation(cart, xform.Coordinates.Offset(posEjectRNG).Position, angleEjectRNG, xform);
+            return;
         }
 
-        // Make spent cartridges unpickable and automatically despawn when ejected.
-        if (TryComp<CartridgeAmmoComponent>(entity, out var cartridge2) && cartridge2.Spent)
-        {
-            var despawn = EnsureComp<TimedDespawnComponent>(entity);
-            despawn.Lifetime = 30f; // #Misfits Tweak - Reduce casing despawn from 5min to 30s to prevent entity buildup during war
+        var angleW = _xform.GetWorldRotation(baseCoords.EntityId);
+        var mapCoord = _xform.ToMapCoordinates(baseCoords);
+        var cartProto = MetaData(cart).EntityPrototype?.ID;
+        var senderNetID = userSession?.UserId;
 
-            _entManager.RemoveComponent<ItemComponent>(entity);
-
-            // #Misfits Fix - Casings ejected without a throw angle (revolver/manual cycling)
-            // never get ThrownItemComponent, so LandEvent never fires and
-            // CasingPhysicsOptSystem can't strip their physics. Remove it here.
-            if (angle == null)
-                RemCompDeferred<PhysicsComponent>(entity);
-        }
+        EjectSpentCart(new SpentCartEvent(mapCoord, angleW, cartProto, senderNetID));
+        PredictedDel(cart);
     }
+
 
     protected IShootable EnsureShootable(EntityUid uid)
     {
@@ -858,8 +872,8 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, EntityUid user, PhysicsComponent userPhysics)
     {
-        var fromMap = fromCoordinates.ToMapPos(EntityManager, TransformSystem);
-        var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);
+        var fromMap = fromCoordinates.ToMapPos(EntityManager, _xform);
+        var toMap = toCoordinates.ToMapPos(EntityManager, _xform);
         var shotDirection = (toMap - fromMap).Normalized();
 
         const float impulseStrength = 25.0f;

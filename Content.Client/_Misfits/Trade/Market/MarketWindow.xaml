@@ -1,0 +1,126 @@
+<!-- #Cythisiax Add - Wendover Free Market Exchange -->
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    SetSize="1120 700"
+    MinSize="960 600"
+    Title="{Loc 'market-window-title'}">
+    <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="6" HorizontalExpand="True" VerticalExpand="True">
+
+        <!-- Header: balances -->
+        <BoxContainer Orientation="Horizontal" SeparationOverride="16" HorizontalExpand="True">
+            <Control HorizontalExpand="True" />
+            <Label Name="CapsLabel" Text="Caps: 0" />
+            <Label Name="NcrLabel" Text="NCR: 0" />
+        </BoxContainer>
+        <Label Name="ActionResultLabel" Text="" StyleClasses="LabelSubText" />
+
+        <!-- Tab bar -->
+        <BoxContainer Name="TabBar" Orientation="Horizontal" SeparationOverride="2" Margin="0 2">
+            <Button Name="TabExchangeBtn" Text="{Loc 'market-tab-exchange'}" Disabled="True" />
+            <Button Name="TabCreateBtn" Text="{Loc 'market-tab-create'}" />
+            <Button Name="TabMyOrdersBtn" Text="{Loc 'market-tab-my-orders'}" />
+            <Button Name="TabActivityBtn" Text="{Loc 'market-tab-activity'}" />
+        </BoxContainer>
+
+        <!-- Tab 0: Market Exchange -->
+        <BoxContainer Name="TabExchange" Orientation="Horizontal" SeparationOverride="8" HorizontalExpand="True" VerticalExpand="True">
+            <!-- Left: Item Directory + Search -->
+            <PanelContainer MinWidth="250" MaxWidth="280" VerticalExpand="True" StyleClasses="MarketPanel">
+                <BoxContainer Orientation="Vertical" Margin="6" SeparationOverride="6" HorizontalExpand="True" VerticalExpand="True">
+                    <Label Text="Item Directory" StyleClasses="LabelKeyText" />
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                        <LineEdit Name="ProtoSearch" PlaceHolder="Search items..." HorizontalExpand="True" />
+                        <Button Name="ProtoSearchBtn" Text="Go" MinWidth="40" />
+                    </BoxContainer>
+                    <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+                        <BoxContainer Name="ItemDirectory" Orientation="Vertical" SeparationOverride="2" HorizontalExpand="True" />
+                    </ScrollContainer>
+                </BoxContainer>
+            </PanelContainer>
+            <!-- Center: Order Book -->
+            <PanelContainer MinWidth="460" HorizontalExpand="True" VerticalExpand="True" StyleClasses="MarketPanel">
+                <BoxContainer Orientation="Vertical" Margin="6" SeparationOverride="6" HorizontalExpand="True" VerticalExpand="True">
+                    <Label Text="Order Book" StyleClasses="LabelKeyText" />
+                    <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+                        <BoxContainer Name="OrderBookContainer" Orientation="Vertical" SeparationOverride="4" HorizontalExpand="True" />
+                    </ScrollContainer>
+                </BoxContainer>
+            </PanelContainer>
+            <!-- Right: Detail -->
+            <PanelContainer MinWidth="250" MaxWidth="280" VerticalExpand="True" StyleClasses="MarketPanel">
+                <BoxContainer Orientation="Vertical" Margin="6" SeparationOverride="6" HorizontalExpand="True" VerticalExpand="True">
+                    <Label Text="Selected Item" StyleClasses="LabelKeyText" />
+                    <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+                        <BoxContainer Name="DetailContainer" Orientation="Vertical" SeparationOverride="6" HorizontalExpand="True">
+                            <Label Text="Select an item to view order book." StyleClasses="LabelSubText" />
+                        </BoxContainer>
+                    </ScrollContainer>
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+
+        <!-- Tab 1: Create Listing -->
+        <BoxContainer Name="TabCreate" Orientation="Vertical" SeparationOverride="6" Visible="False" VerticalExpand="True">
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="0 4">
+                    <!-- Deposit storage -->
+                    <Label Text="Your Market Storage" StyleClasses="LabelHeading" />
+                    <Label Text="Right-click items near the terminal and select 'Deposit to Market' to store them here." StyleClasses="LabelSubText" />
+                    <BoxContainer Name="DepositItemsContainer" Orientation="Vertical" SeparationOverride="2" />
+
+                    <Control MinHeight="8" />
+
+                    <!-- Order form -->
+                    <Label Text="New Listing" StyleClasses="LabelHeading" />
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                        <Label Text="Item:" MinWidth="80" VerticalAlignment="Center" />
+                        <Label Name="SelectedProtoLabel" Text="(select from storage or search)" VerticalAlignment="Center" />
+                    </BoxContainer>
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                        <Label Text="Currency:" MinWidth="80" VerticalAlignment="Center" />
+                        <OptionButton Name="OrderCurrencyBtn" MinWidth="120" />
+                    </BoxContainer>
+                    <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                        <Label Text="Price/unit:" MinWidth="80" VerticalAlignment="Center" />
+                        <LineEdit Name="OrderPrice" PlaceHolder="10" MinWidth="80" />
+                        <Label Text="Qty:" VerticalAlignment="Center" />
+                        <LineEdit Name="OrderQty" PlaceHolder="1" MinWidth="60" />
+                        <Label Name="OrderFeeLabel" Text="" VerticalAlignment="Center" />
+                    </BoxContainer>
+                    <Button Name="SubmitOrderBtn" Text="PLACE LISTING" MinWidth="140" />
+                    <!-- Barter item search (visible when Barter selected) -->
+                    <BoxContainer Name="BarterSearchBox" Orientation="Vertical" SeparationOverride="4" Visible="False">
+                        <Label Text="{Loc 'market-barter-request-heading'}" StyleClasses="LabelHeading" />
+                        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+                            <LineEdit Name="BarterSearch" PlaceHolder="e.g. antiseptic" HorizontalExpand="True" />
+                            <Button Name="BarterSearchBtn" Text="Search" MinWidth="60" />
+                        </BoxContainer>
+                        <BoxContainer Name="BarterResultsContainer" Orientation="Vertical" SeparationOverride="1" />
+                        <Label Name="SelectedBarterLabel" Text="{Loc 'market-barter-request-none'}" StyleClasses="LabelSubText" />
+                    </BoxContainer>
+                </BoxContainer>
+            </ScrollContainer>
+        </BoxContainer>
+
+        <!-- Tab 2: My Orders & Listings -->
+        <BoxContainer Name="TabMyOrders" Orientation="Vertical" SeparationOverride="4" Visible="False" VerticalExpand="True">
+            <Label Text="Active Orders" StyleClasses="LabelHeading" />
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <BoxContainer Name="MyOrdersContainer" Orientation="Vertical" SeparationOverride="2" />
+            </ScrollContainer>
+            <Control MinHeight="8" />
+            <Label Text="Completed (Claim)" StyleClasses="LabelHeading" />
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <BoxContainer Name="MyCompletedContainer" Orientation="Vertical" SeparationOverride="2" />
+            </ScrollContainer>
+        </BoxContainer>
+
+        <!-- Tab 3: Activity Feed -->
+        <BoxContainer Name="TabActivity" Orientation="Vertical" SeparationOverride="2" Visible="False" VerticalExpand="True">
+            <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                <BoxContainer Name="FeedContainer" Orientation="Vertical" SeparationOverride="1" />
+            </ScrollContainer>
+        </BoxContainer>
+
+    </BoxContainer>
+</DefaultWindow>

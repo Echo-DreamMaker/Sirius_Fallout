@@ -1,5 +1,6 @@
 using Content.Client.Interactable.Components;
 using Content.Client.StatusIcon;
+using Content.Shared._Misfits.StealthBoy;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
@@ -11,6 +12,9 @@ namespace Content.Client.Stealth;
 public sealed class StealthSystem : SharedStealthSystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
+    private const string StealthShaderId = "MisfitsStealth";
 
     private ShaderInstance _shader = default!;
 
@@ -40,16 +44,25 @@ public sealed class StealthSystem : SharedStealthSystem
             return;
 
         sprite.Color = Color.White;
-        sprite.PostShader = enabled ? _shader : null;
-        sprite.GetScreenTexture = enabled;
-        sprite.RaiseShaderEvent = enabled;
 
+        // #Misfits Fix - the legacy PostShader/GetScreenTexture/RaiseShaderEvent fields no
+        // longer reach the shader entry the renderer actually reads, so the stealth shader
+        // was running with no SCREEN_TEXTURE and never getting its uniforms set. Go through
+        // SpriteSystem so both flags land on the entry.
         if (!enabled)
         {
+            _sprite.RemovePostShader((uid, sprite), StealthShaderId);
+
             if (component.HadOutline && !TerminatingOrDeleted(uid))
                 EnsureComp<InteractionOutlineComponent>(uid);
             return;
         }
+
+        _sprite.SetPostShader((uid, sprite), new SpriteComponent.PostShaderArgs(StealthShaderId, _shader)
+        {
+            GetScreenTexture = true,
+            RaiseShaderEvent = true,
+        });
 
         if (TryComp(uid, out InteractionOutlineComponent? outline))
         {
@@ -69,7 +82,7 @@ public sealed class StealthSystem : SharedStealthSystem
             SetShader(uid, false, component);
     }
 
-    private void OnShaderRender(EntityUid uid, StealthComponent component, BeforePostShaderRenderEvent args)
+    private void OnShaderRender(EntityUid uid, StealthComponent component, ref BeforePostShaderRenderEvent args)
     {
         // Distortion effect uses screen coordinates. If a player moves, the entities appear to move on screen. this
         // makes the distortion very noticeable.
@@ -87,6 +100,7 @@ public sealed class StealthSystem : SharedStealthSystem
 
         // actual visual visibility effect is limited to +/- 1.
         visibility = Math.Clamp(visibility, -1f, 1f);
+
 
         _shader.SetParameter("reference", reference);
         _shader.SetParameter("visibility", visibility);

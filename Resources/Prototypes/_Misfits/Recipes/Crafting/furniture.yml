@@ -89,3 +89,94 @@
     state: clothing_rack
   objectType: Structure
   placementMode: SnapgridCenter
+
+# #Cythisiax Added - Crafting menu expansion: furniture (bench, store)
+- type: construction
+  name: wooden bench
+  id: WoodenBench
+  graph: MisfitsWoodBench
+  startNode: start
+  targetNode: WoodBench
+  category: construction-category-furniture
+  description: Did you get a splinter? Well, at least it's eco friendly.
+  hide: false
+  icon:
+    sprite: Structures/Furniture/chairs.rsi
+    state: wooden-bench
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+- type: construction
+  name: deli counter
+  id: N14StoreDeliCounter
+  graph: MisfitsStoreDeliCounter
+  startNode: start
+  targetNode: StoreDeliCounter
+  category: construction-category-storage
+  description: A metal counter for showing off food.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Store_Furniture/delistand.rsi
+    state: deli_stand
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  name: fruit stand
+  id: N14StoreFruitstand
+  graph: MisfitsStoreFruitstand
+  startNode: start
+  targetNode: StoreFruitstand
+  category: construction-category-storage
+  description: A box for displaying produce.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Store_Furniture/fruitstand.rsi
+    state: fruitstand_empty
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  name: fruit stand
+  id: N14StoreFruitstand1
+  graph: MisfitsStoreFruitstand
+  startNode: start
+  targetNode: StoreFruitstand1
+  category: construction-category-storage
+  description: A box for displaying produce. This one has stuff in it.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Store_Furniture/fruitstand.rsi
+    state: fruitstand-1
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  name: fruit stand
+  id: N14StoreFruitstand2
+  graph: MisfitsStoreFruitstand
+  startNode: start
+  targetNode: StoreFruitstand2
+  category: construction-category-storage
+  description: A box for displaying produce. This one has stuff in it.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Store_Furniture/fruitstand.rsi
+    state: fruitstand-2
+  objectType: Structure
+  placementMode: PlaceFree
+
+- type: construction
+  name: fruit stand
+  id: N14StoreFruitstand3
+  graph: MisfitsStoreFruitstand
+  startNode: start
+  targetNode: StoreFruitstand3
+  category: construction-category-storage
+  description: A box for displaying produce. This one has stuff in it.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Store_Furniture/fruitstand.rsi
+    state: fruitstand-3
+  objectType: Structure
+  placementMode: PlaceFree

@@ -11,6 +11,11 @@
   order: 10 # #Misfits Change: robots last
   whitelistRequired: true # #Misfits Change
   restrictedCustomization: true # #Misfits Change
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so Mister Handy Etiquette is visible/selectable
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticMrHandy # #Misfits Change
   restrictedJobs: # #Misfits Change
   - SyntheticMrHandy
@@ -30,6 +35,11 @@
   order: 10
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticMrHandy
   restrictedJobs:
   - SyntheticMrHandy
@@ -49,6 +59,11 @@
   order: 11 # #Misfits Change: robots last
   whitelistRequired: true # #Misfits Change
   restrictedCustomization: true # #Misfits Change
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectron # #Misfits Change
   restrictedJobs: # #Misfits Change
   - SyntheticProtectron
@@ -68,6 +83,11 @@
   order: 14 # #Misfits Add: hidden from main selector, used by Robot Model picker
   whitelistRequired: true # #Misfits Add
   restrictedCustomization: true # #Misfits Add
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectron # #Misfits Add
   restrictedJobs: # #Misfits Add
   - SyntheticProtectron
@@ -87,6 +107,11 @@
   order: 15 # #Misfits Add: hidden from main selector, used by Robot Model picker
   whitelistRequired: true # #Misfits Add
   restrictedCustomization: true # #Misfits Add
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectron # #Misfits Add
   restrictedJobs: # #Misfits Add
   - SyntheticProtectron
@@ -106,6 +131,11 @@
   order: 16 # #Misfits Add: hidden from main selector, used by Robot Model picker
   whitelistRequired: true # #Misfits Add
   restrictedCustomization: true # #Misfits Add
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectron # #Misfits Add
   restrictedJobs: # #Misfits Add
   - SyntheticProtectron
@@ -125,6 +155,11 @@
   order: 15
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectron
   restrictedJobs:
   - SyntheticProtectron
@@ -144,6 +179,11 @@
   order: 16
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectron
   restrictedJobs:
   - SyntheticProtectron
@@ -163,6 +203,11 @@
   order: 14
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectron
   restrictedJobs:
   - SyntheticProtectron
@@ -182,6 +227,11 @@
   order: 21 # hidden from main selector, used by Robot Model picker
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectronTribal
   restrictedJobs:
   - SyntheticProtectronTribal
@@ -201,6 +251,11 @@
   order: 22
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectron
   restrictedJobs:
   - SyntheticProtectron
@@ -220,6 +275,11 @@
   order: 23
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectron
   restrictedJobs:
   - SyntheticProtectron
@@ -239,6 +299,11 @@
   order: 24
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectron
   restrictedJobs:
   - SyntheticProtectron
@@ -258,6 +323,11 @@
   order: 25
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectron
   restrictedJobs:
   - SyntheticProtectron
@@ -277,6 +347,11 @@
   order: 26
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticProtectron
   restrictedJobs:
   - SyntheticProtectron
@@ -296,6 +371,11 @@
   order: 12 # #Misfits Change: robots last
   whitelistRequired: true # #Misfits Change
   restrictedCustomization: true # #Misfits Change
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticMrGutsy # #Misfits Change
   restrictedJobs: # #Misfits Change
   - SyntheticMrGutsy
@@ -315,6 +395,11 @@
   order: 12
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticMrGutsy
   restrictedJobs:
   - SyntheticMrGutsy
@@ -334,6 +419,11 @@
   order: 13 # #Misfits Change: robots last
   whitelistRequired: true # #Misfits Change
   restrictedCustomization: true # #Misfits Change
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticAssaultron # #Misfits Change
   restrictedJobs: # #Misfits Change
   - SyntheticAssaultron
@@ -353,6 +443,11 @@
   order: 14 # #Misfits Add: hidden variant, used by Robot Model picker
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticAssaultron # shares the same job as base Assaultron
   restrictedJobs:
   - SyntheticAssaultron
@@ -372,6 +467,11 @@
   order: 13
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticAssaultron
   restrictedJobs:
   - SyntheticAssaultron
@@ -391,6 +491,11 @@
   order: 14
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticAssaultron
   restrictedJobs:
   - SyntheticAssaultron
@@ -410,6 +515,11 @@
   order: 17 # #Misfits Add: sentry bot species
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticSentryBot
   restrictedJobs:
   - SyntheticSentryBot
@@ -437,6 +547,11 @@
   order: 18 # #Misfits Add: hidden variant, used by model picker
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticSentryBot
   restrictedJobs:
   - SyntheticSentryBot
@@ -462,6 +577,11 @@
   order: 17
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticSentryBot
   restrictedJobs:
   - SyntheticSentryBot
@@ -487,6 +607,11 @@
   order: 18
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticSentryBot
   restrictedJobs:
   - SyntheticSentryBot
@@ -512,6 +637,11 @@
   order: 19 # #Misfits Add: robobrain species
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticRobobrain
   restrictedJobs:
   - SyntheticRobobrain
@@ -531,6 +661,11 @@
   order: 20 # #Misfits Add: hidden variant, used by model picker
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticRobobrain
   restrictedJobs:
   - SyntheticRobobrain
@@ -550,6 +685,11 @@
   order: 19
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticRobobrain
   restrictedJobs:
   - SyntheticRobobrain
@@ -569,6 +709,11 @@
   order: 20
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   jobWhitelistUnlock: SyntheticRobobrain
   restrictedJobs:
   - SyntheticRobobrain

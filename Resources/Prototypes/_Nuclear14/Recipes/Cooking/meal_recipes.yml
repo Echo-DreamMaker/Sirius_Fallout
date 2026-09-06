@@ -200,6 +200,38 @@
   solids:
     N14FoodMeatRadchickenCutlet: 1
 
+- type: microwaveMealRecipe
+  id: N14RecipeSteakHuman
+  name: human steak recipe
+  result: N14FoodMeatHumanCooked
+  time: 15
+  solids:
+    N14FoodMeatHuman: 1
+
+- type: microwaveMealRecipe
+  id: N14RecipeCutletHuman
+  name: human cutlet recipe
+  result: N14FoodMeatHumanCutletCooked
+  time: 5
+  solids:
+    N14FoodMeatHumanCutlet: 1
+
+- type: microwaveMealRecipe
+  id: N14RecipeSteakSupermutant
+  name: supermutant steak recipe
+  result: N14FoodMeatSupermutantCooked
+  time: 15
+  solids:
+    N14FoodMeatSupermutant: 1
+
+- type: microwaveMealRecipe
+  id: N14RecipeCutletSupermutant
+  name: supermutant cutlet recipe
+  result: N14FoodMeatSupermutantCutletCooked
+  time: 5
+  solids:
+    N14FoodMeatSupermutantCutlet: 1
+
 #THE GREAT DOWNSTREAM MIGRATION BEGINS HERE GANG
 
 - type: microwaveMealRecipe
@@ -283,6 +315,24 @@
   solids:
     N14CookedFoodBreadBun: 1
     N14FoodMeatRadchicken: 1 #N14 change
+
+- type: microwaveMealRecipe
+  id: N14RecipeHumanBurger
+  name: human burger recipe
+  result: N14CookedFoodBurgerHuman
+  time: 10
+  solids:
+    N14CookedFoodBreadBun: 1
+    N14FoodMeatHuman: 1
+
+- type: microwaveMealRecipe
+  id: N14RecipeSupermutantBurger
+  name: supermutant burger recipe
+  result: N14CookedFoodSupermutantBurger
+  time: 10
+  solids:
+    N14CookedFoodBreadBun: 1
+    N14FoodMeatSupermutant: 1
 
 - type: microwaveMealRecipe
   id: N14RecipeCrabBurger
@@ -657,6 +707,14 @@
   time: 10
   solids:
     N14FoodDoughCornmeal: 1
+
+- type: microwaveMealRecipe
+  id: N14RecipeCornbreadMuffin
+  name: cornbread muffin recipe
+  result: N14CookedFoodBakedMuffinCorn
+  time: 5
+  solids:
+    N14FoodDoughCornmealSlice: 1 # rejoice, they are no longer useless.
 
 - type: microwaveMealRecipe
   id: N14RecipeCreamCheeseBread
@@ -1368,6 +1426,7 @@
     Cream: 5
   solids:
     N14CookedFoodCakePlain: 1
+    FoodCherry: 1
 
 - type: microwaveMealRecipe
   id: N14RecipeChocolateCake

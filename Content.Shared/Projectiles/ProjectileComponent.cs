@@ -5,13 +5,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Projectiles;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ProjectileComponent : Component
 {
     /// <summary>
     ///     The angle of the fired projectile.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public Angle Angle;
 
     /// <summary>
@@ -23,32 +23,33 @@ public sealed partial class ProjectileComponent : Component
     /// <summary>
     ///     User that shot this projectile.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public EntityUid? Shooter;
 
     /// <summary>
     ///     Weapon used to shoot.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public EntityUid? Weapon;
 
     /// <summary>
     ///     Optional extra entity to ignore for collision. Used for mech shells so pilot-held weapons
     ///     do not immediately collide with the mech itself.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public EntityUid? ExtraIgnoredEntity;
 
     /// <summary>
     ///     The projectile spawns inside the shooter most of the time, this prevents entities from shooting themselves.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public bool IgnoreShooter = true;
 
     /// <summary>
     ///     The amount of damage the projectile will do.
     /// </summary>
-    [DataField(required: true)] [ViewVariables(VVAccess.ReadWrite)]
+    [DataField(required: true)]
+    [ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier Damage = new();
 
     /// <summary>
@@ -84,6 +85,6 @@ public sealed partial class ProjectileComponent : Component
     /// <summary>
     ///     Whether this projectile has already damaged an entity.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public bool DamagedEntity;
 }

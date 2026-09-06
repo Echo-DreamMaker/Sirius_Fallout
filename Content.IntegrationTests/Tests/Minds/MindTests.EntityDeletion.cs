@@ -81,7 +81,7 @@ public sealed partial class MindTests
         var testMap2 = await pair.CreateTestMap();
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
-        var mapManager = server.ResolveDependency<IMapManager>();
+        var mapManager = server.ResolveDependency<SharedMapSystem>();
         var playerMan = server.ResolveDependency<IPlayerManager>();
         var player = playerMan.Sessions.Single();
 

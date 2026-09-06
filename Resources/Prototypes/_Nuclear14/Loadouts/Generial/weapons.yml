@@ -269,7 +269,7 @@
       - CaesarLegionSlave
       - NCRPrisoner
   items:
-    - N14WeaponRevolver44Magnun
+    - N14WeaponRevolver44Magnum
 
 - type: loadout
   id: N14LoadoutWeaponRevolver44TribalUpgradedExtra
@@ -477,7 +477,7 @@
       jobs:
         - CaesarLegionPrimeDecanus
   items:
-    - N14WeaponBlowback
+    - N14WeaponShotgunBlowback
 
 
 

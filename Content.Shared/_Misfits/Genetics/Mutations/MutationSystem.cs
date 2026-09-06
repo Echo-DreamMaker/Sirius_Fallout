@@ -163,7 +163,7 @@ public sealed partial class MutationSystem : CommonMutationSystem
 
         var popup = Loc.GetString(id + "-mutated");
         if (predicted)
-            _popup.PopupEntity(popup, ent, ent, PopupType.MediumCaution);
+            _popup.PopupPredicted(popup, ent, ent, PopupType.MediumCaution);
         else
             _popup.PopupEntity(popup, ent, ent, PopupType.MediumCaution);
     }
@@ -187,7 +187,7 @@ public sealed partial class MutationSystem : CommonMutationSystem
             return;
 
         if (predicted)
-            _popup.PopupEntity(popup, ent, ent, PopupType.MediumCaution);
+            _popup.PopupPredicted(popup, ent, ent, PopupType.MediumCaution);
         else
             _popup.PopupEntity(popup, ent, ent, PopupType.MediumCaution);
     }
@@ -590,7 +590,9 @@ public sealed partial class MutationSystem : CommonMutationSystem
             return;
 
         // add enough random dormant mutations so there will be enough sequences.
-        while (ent.Comp.Dormant.Count < ent.Comp.MaxDormant)
+        // never ask for more than exist, the pick loop can't terminate once they're all taken
+        var max = Math.Min(ent.Comp.MaxDormant, UnlockedMutations.Count);
+        while (ent.Comp.Dormant.Count < max)
         {
             var picked = _random.Pick(UnlockedMutations);
             if (!ent.Comp.Dormant.Contains(picked))
@@ -726,8 +728,12 @@ public sealed partial class MutationSystem : CommonMutationSystem
 
         foreach (var id in _removing)
         {
-            PredictedQueueDel(ent.Comp.Mutations[id]);
+            var uid = ent.Comp.Mutations[id];
             ent.Comp.Mutations.Remove(id);
+            // go through MutationRemoved so instability is refunded and provided actions are cleaned up
+            if (_query.TryComp(uid, out var comp))
+                MutationRemoved(ent, (uid, comp), null, automatic: true, predicted: false);
+            PredictedQueueDel(uid);
         }
 
         DirtyField(ent, ent.Comp, nameof(MutatableComponent.Mutations));
@@ -750,7 +756,7 @@ public sealed partial class MutationSystem : CommonMutationSystem
         {
             var msg = Loc.GetString(key);
             if (predicted)
-                _popup.PopupEntity(msg, ent, ent);
+                _popup.PopupPredicted(msg, ent, ent);
             else
                 _popup.PopupEntity(msg, ent, ent);
         }

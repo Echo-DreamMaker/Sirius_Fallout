@@ -380,8 +380,8 @@
 - type: entity
   parent: N14PosterSafety1
   id: N14PosterAdvertNukaCola1
-  name: Weathered Nuka-Cola Ad
-  description: "An old pin-up style advertisement for Nuka-Cola, it mostly makes you thirst for some decoration that isn't saturated in Old World corporate product placement."
+  name: Old Nuka-Cola Ad
+  description: "An advertisement for Nuka-Cola, its unusually restrained compared to most of the ancient posters for the drink that litter the wasteland. Its still not art fit to decorate your apartment, its a soft drink ad."
   components:
   - type: Sprite
     state: nukacola1
@@ -389,8 +389,8 @@
 - type: entity
   parent: N14PosterSafety1
   id: N14PosterAdvertNukaCola2
-  name: Old Nuka-Cola Ad
-  description: "An advertisement for Nuka-Cola, its unusually restrained compared to most of the ancient posters for the drink that litter the wasteland. Its still not art fit to decorate your apartment, its a soft drink ad."
+  name: Weathered Nuka-Cola Ad
+  description: "An old pin-up style advertisement for Nuka-Cola, it mostly makes you thirst for some decoration that isn't saturated in Old World corporate product placement."
   components:
   - type: Sprite
     state: nukacola2

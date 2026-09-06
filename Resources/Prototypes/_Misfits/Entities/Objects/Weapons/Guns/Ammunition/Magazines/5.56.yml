@@ -1,0 +1,18 @@
+# #Misfits Add - 80-round heavy magazine for the Heavy Assault Rifle
+# (N14WeaponRifle556HeavyAssault). Same 5.56 cartridge and refill behaviour as every
+# other 5.56 box magazine; it carries its own tag so only the heavy assault rifle
+# accepts it, mirroring how LongMagazine556Rifle / LMGMagazine556Rifle are gated.
+- type: entity
+  id: N14MagazineHeavy556Rifle
+  name: "heavy magazine (5.56mm)"
+  parent: BaseMagazine556Rifle
+  components:
+  - type: Tag
+    tags:
+      - N14MagazineHeavy556Rifle
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556Rifle
+    capacity: 80
+  - type: Sprite
+    netsync: false
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/5.56/maglmg.rsi

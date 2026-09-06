@@ -137,14 +137,20 @@ public sealed partial class NcStoreLogicSystem
         if (maxPossible <= 0)
             return false;
 
-        var actual = Math.Min(count, maxPossible);
+        // UnitsPerPurchase acts as a batch size for sales too, e.g. 2 NCR dollars per 1 cap.
+        var batchSize = Math.Max(1, listing.UnitsPerPurchase);
+        var requested = Math.Min(count, maxPossible);
+        var actual = requested / batchSize * batchSize;
+        if (actual <= 0)
+            return false;
 
         // Take via the new system.
         var ok = _inventory.TryTakeProductUnitsFromRootCached(root, listing.ProductEntity, actual, listing.MatchMode);
         if (!ok)
             return false;
 
-        var totalL = (long) unitPrice * actual;
+        var batches = actual / batchSize;
+        var totalL = (long) unitPrice * batches;
         if (totalL > int.MaxValue)
             return false;
 

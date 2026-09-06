@@ -9,10 +9,10 @@
   description: job-description-caesar-legion-houndmaster
   playTimeTracker: CaesarLegionHoundmaster
   requirements:
-    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T5 faction timelock (16h Legion)
+    - !type:CharacterDepartmentTimeRequirement # Legion total timelock
       department: CaesarLegion
-      min: 57600 # 16 hours
-    - !type:CharacterSpeciesRequirement
+      min: 72000 # 20 hours
+    - !type:CharacterSpeciesRequirement # remove vex time req, why would you need playtime as a standard bearer to be the guy who trains dogs?
       species:
       - Human
   startingGear: CaesarLegionHoundmasterGear

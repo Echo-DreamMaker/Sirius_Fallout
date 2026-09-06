@@ -90,3 +90,19 @@
     Circuitry: 1000
     Steel: 1500
     N14Copper: 1000
+
+# #Misfits Add - Vertibird turret ammunition belt. Same cost as the Brotherhood and
+# NCR versions so no faction gets a cheaper gun run.
+- type: latheRecipe
+  id: N14BPEnclaveAmmoVertibirdGunBelt
+  result: N14VertibirdGunBelt
+  category: N14enclaveheavyordnancet5
+  completetime: 15
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Lead: 1200
+    N14Brass: 600
+    N14Gunpowder: 600
+    Steel: 400

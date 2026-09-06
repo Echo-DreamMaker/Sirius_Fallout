@@ -15,10 +15,12 @@ using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player; // #Misfits Fix - ActorComponent lives in Robust.Shared.Player
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Misfits.SpiritBoard;
@@ -36,6 +38,7 @@ public sealed class SpiritBoardSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
     // Reusable buffer for proximity lookups
     private readonly HashSet<EntityUid> _proximityBuffer = new();
@@ -276,6 +279,8 @@ public sealed class SpiritBoardSystem : EntitySystem
         return component.ActivatorJobs.Contains(jobPrototype.ID);
     }
 
+    // #Misfits Fix - resolved against the target department's role list so dual-citizenship tribe jobs
+    // (SuperMutantTribal, SyntheticProtectronTribal) receive spirit board broadcasts.
     private bool IsInDepartment(EntityUid uid, string departmentId)
     {
         if (!_mind.TryGetMind(uid, out var mindId, out _))
@@ -284,7 +289,8 @@ public sealed class SpiritBoardSystem : EntitySystem
         if (!_jobs.MindTryGetJob(mindId, out _, out var jobPrototype))
             return false;
 
-        return _jobs.TryGetDepartment(jobPrototype.ID, out var dept) && dept.ID == departmentId;
+        return _prototypes.TryIndex<DepartmentPrototype>(departmentId, out var dept)
+            && dept.Roles.Contains(jobPrototype.ID);
     }
 
     private bool IsInRange(EntityUid a, EntityUid b, float range)

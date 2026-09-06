@@ -223,7 +223,7 @@
   - type: Wieldable
     wieldedSpeedModifier: 0.8
   - type: StrengthRequirement
-    requiredStrength: 6
+    requiredStrength: 5
   - type: GunRequiresWield
   - type: GunWieldBonus
     minAngle: -20
@@ -359,7 +359,7 @@
   - type: Wieldable
     wieldedSpeedModifier: 0.8
   - type: StrengthRequirement
-    requiredStrength: 6
+    requiredStrength: 7
   - type: GunRequiresWield
   - type: GunWieldBonus
     minAngle: -21
@@ -369,7 +369,7 @@
     maxAngle: 50
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 4
+    fireRate: 4.5
     soundGunshot:
       collection: N14AutoRifleGunshot
     selectedMode: FullAuto

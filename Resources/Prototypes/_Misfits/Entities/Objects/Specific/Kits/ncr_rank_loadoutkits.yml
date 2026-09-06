@@ -309,9 +309,9 @@
   - type: SpawnItemsOnUse
     items:
       - id: ClothingBeltNCR
-      - id: N14WeaponRifle556ServiceScoped
-      - id: Magazine556Rifle
-        amount: 6
+      - id: N14WeaponRifle762Marksman
+      - id: Magazine762Rifle
+        amount: 4
       - id: N14WeaponPistol9mm
       - id: N14MagazinePistol9mm
         amount: 3

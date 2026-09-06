@@ -35,7 +35,7 @@ public sealed class MisfitsPersistentSpawnSystem : EntitySystem
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IResourceManager _resourceManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;

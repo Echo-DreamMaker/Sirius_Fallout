@@ -2,6 +2,7 @@ using System.Linq;
 using System.Text;
 using Content.Shared._NC.Sponsor; // Forge-Change
 using Content.Shared.Inventory;
+using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
@@ -25,7 +26,12 @@ public sealed class CharacterRequirementsSystem : EntitySystem
             entityManager, prototypeManager, configManager, sponsorManager, // Forge-Change
             out reason, depth);
 
-        if (!valid && jobWhitelisted && requirement.CanBeBypassedByJobWhitelist(job))
+        if (!valid && IsGrandfatheredTimer(job, requirement, playTimes))
+        {
+            reason = null;
+            valid = true;
+        }
+        else if (!valid && jobWhitelisted && requirement.CanBeBypassedByJobWhitelist(job))
         {
             reason = null;
             valid = true;
@@ -50,7 +56,12 @@ public sealed class CharacterRequirementsSystem : EntitySystem
                 entityManager, prototypeManager, configManager, sponsorManager, // Forge-Change
                 out var reason, depth);
 
-            if (!requirementValid && jobWhitelisted && requirement.CanBeBypassedByJobWhitelist(job))
+            if (!requirementValid && IsGrandfatheredTimer(job, requirement, playTimes))
+            {
+                reason = null;
+                requirementValid = true;
+            }
+            else if (!requirementValid && jobWhitelisted && requirement.CanBeBypassedByJobWhitelist(job))
             {
                 reason = null;
                 requirementValid = true;
@@ -74,6 +85,15 @@ public sealed class CharacterRequirementsSystem : EntitySystem
         }
 
         return valid;
+    }
+
+    private static bool IsGrandfatheredTimer(JobPrototype job, CharacterRequirement requirement,
+        Dictionary<string, TimeSpan> playTimes)
+    {
+        // Only bypass role-timer requirements. Species, sex, whitelist, and other
+        // job restrictions remain enforced for grandfathered players.
+        return playTimes.ContainsKey(PlayTimeTrackingShared.GrandfatheredRoleTracker(job.ID))
+            && requirement.CanBeBypassedByJobWhitelist(job);
     }
 
     public bool CheckPlaytimeRequirementsVisible(List<CharacterRequirement> requirements, JobPrototype job,

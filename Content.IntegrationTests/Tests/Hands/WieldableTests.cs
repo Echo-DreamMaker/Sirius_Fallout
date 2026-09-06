@@ -30,7 +30,7 @@ public sealed class WieldableTests
         var server = pair.Server;
         var entMan = server.ResolveDependency<IEntityManager>();
         var playerMan = server.ResolveDependency<IPlayerManager>();
-        var mapMan = server.ResolveDependency<IMapManager>();
+        var mapMan = server.ResolveDependency<SharedMapSystem>();
 
         var handsSystem = entMan.System<SharedHandsSystem>();
         var wieldSystem = entMan.System<WieldableSystem>();
@@ -91,7 +91,7 @@ public sealed class WieldableTests
         var server = pair.Server;
         var entMan = server.ResolveDependency<IEntityManager>();
         var playerMan = server.ResolveDependency<IPlayerManager>();
-        var mapMan = server.ResolveDependency<IMapManager>();
+        var mapMan = server.ResolveDependency<SharedMapSystem>();
 
         var handsSystem = entMan.System<SharedHandsSystem>();
         var wieldSystem = entMan.System<WieldableSystem>();
@@ -150,7 +150,7 @@ public sealed class WieldableTests
         var server = pair.Server;
         var entMan = server.ResolveDependency<IEntityManager>();
         var playerMan = server.ResolveDependency<IPlayerManager>();
-        var mapMan = server.ResolveDependency<IMapManager>();
+        var mapMan = server.ResolveDependency<SharedMapSystem>();
 
         var handsSystem = entMan.System<SharedHandsSystem>();
         var wieldSystem = entMan.System<WieldableSystem>();

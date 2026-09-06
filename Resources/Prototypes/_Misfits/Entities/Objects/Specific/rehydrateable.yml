@@ -1,0 +1,55 @@
+﻿# lots of copy-pasted code here, Trying to make Misfits variant for monkey cubes
+# this will be the starting point for hopefully a bunch of cooking 'fixes'
+# pretty much just making N14 variants for everything and only using those
+# the sprites suck, I know. but I used the pallet at least
+# Amaster222 was here
+- type: entity
+  parent: BaseItem
+  id: RadCube
+  name: rad cube
+  description: Just add... is that green?
+  components:
+  - type: Item
+    size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      cube:
+        maxVol: 11 # needs room for water
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+  - type: Food
+    solution: cube
+  - type: RefillableSolution
+    solution: cube
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/radcube.rsi
+    state: cube_rad
+  - type: Reactive
+    reactions:
+    - reagents: [Water]
+      methods: [Touch, Ingestion, Injection]
+      effects:
+      - !type:AddToSolutionReaction
+        solution: cube
+  - type: Rehydratable
+    possibleSpawns:
+    - MisfitsRadMonkey
+  - type: CollisionWake
+    enabled: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        density: 5
+        mask:
+        - ItemMask
+      rehydrate:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        hard: false
+        layer:
+        - LowImpassable

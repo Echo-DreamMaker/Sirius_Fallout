@@ -120,7 +120,7 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
     {
         if (GetWorkableMob(ent.Owner) is not {} mob ||
             _genome.GetSequence(mob, args.Sequence) is not {} sequence ||
-            args.Index > sequence.Bases.Length)
+            args.Index >= sequence.Bases.Length)
             return;
 
         // chud language can't just set a char directly
@@ -144,7 +144,7 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
             ent.Comp.SequenceDelay,
             new SequenceDoAfterEvent(GetNetEntity(mob), args.Index),
             eventTarget: ent,
-            target: mob,
+            // see OnScan, reaching the mob inside the scanner is never unobstructed
             used: ent)
         {
             BreakOnMove = true,
@@ -240,10 +240,10 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
 
         var doAfterArgs = new DoAfterArgs(EntityManager,
             args.Actor,
-            ent.Comp.SequenceDelay,
+            ent.Comp.CombineDelay,
             new CombineDoAfterEvent(GetNetEntity(mob), args.Index),
             eventTarget: ent,
-            target: mob,
+            // see OnScan, reaching the mob inside the scanner is never unobstructed
             used: ent)
         {
             BreakOnMove = true,
@@ -300,6 +300,7 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
 
         _damage.TryChangeDamage(mob, ent.Comp.CombineDamage);
 
+        _audio.PlayPredicted(ent.Comp.CombineSound, ent, args.User);
         Speak(ent, "combined");
 
         _adminLog.Add(LogType.Action, LogImpact.Medium, $"{result} combined from {mutation} and {diskMutation} by {args.User:user} using console {ent.Owner}");

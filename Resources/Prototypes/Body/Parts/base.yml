@@ -157,7 +157,7 @@
     staminaCost: 7
   - type: Butcherable # Misfits Addition
     spawned:
-    - id: FoodMeatHuman
+    - id: N14FoodMeatHuman
       amount: 1
 
 - type: entity
@@ -177,7 +177,7 @@
     staminaCost: 7
   - type: Butcherable # Misfits Addition
     spawned:
-    - id: FoodMeatHuman
+    - id: N14FoodMeatHuman
       amount: 1
 
 - type: entity
@@ -228,7 +228,7 @@
     staminaCost: 9
   - type: Butcherable # Misfits Addition
     spawned:
-    - id: FoodMeatHuman
+    - id: N14FoodMeatHuman
       amount: 2
 
 - type: entity
@@ -249,7 +249,7 @@
     staminaCost: 9
   - type: Butcherable # Misfits Addition
     spawned:
-    - id: FoodMeatHuman
+    - id: N14FoodMeatHuman
       amount: 2
 
 - type: entity

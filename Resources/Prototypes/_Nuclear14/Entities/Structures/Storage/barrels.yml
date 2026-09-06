@@ -76,6 +76,9 @@
   name: black barrel
   description: A worn out black barrel. The label is torn off.
   components:
+  - type: Construction
+    graph: N14Barrels
+    node: barrelblack
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: black-closed
@@ -89,6 +92,9 @@
   name: blue barrel
   description: A blue barrel with a warning sign of. Maybe it contains water?
   components:
+  - type: Construction
+    graph: N14Barrels
+    node: barrelblue
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: blue-closed
@@ -99,6 +105,9 @@
   name: red barrel
   description: A red barrel with an explosive warning sign on. Better be careful.
   components:
+  - type: Construction
+    graph: N14Barrels
+    node: barrelred
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: red-closed
@@ -124,6 +133,9 @@
   name: yellow barrel
   description: A yellow barrel with a radiation warning sign on. Better be careful.
   components:
+  - type: Construction
+    graph: N14Barrels
+    node: barrelyellow
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: yellow-closed
@@ -139,6 +151,9 @@
   name: black barrel
   description: A worn out black barrel. The label is torn off. The lid is off and you can see inside.
   components:
+  - type: Construction
+    graph: N14Barrels
+    node: barrelblackopen
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: black-open
@@ -153,6 +168,9 @@
   name: blue barrel
   description: A blue barrel with a warning sign of. The lid is off and you can see inside.
   components:
+  - type: Construction
+    graph: N14Barrels
+    node: barrelblueopen
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: blue-open
@@ -164,6 +182,9 @@
   name: red barrel
   description: A red barrel with an explosive warning sign on. The lid is off and you can see inside.
   components:
+  - type: Construction
+    graph: N14Barrels
+    node: barrelredopen
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: red-open
@@ -175,6 +196,9 @@
   name: yellow barrel
   description: A yellow barrel with a radiation warning sign on. The lid is off and you can see inside but it still makes you twitch.
   components:
+  - type: Construction
+    graph: N14Barrels
+    node: barrelyellowopen
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: yellow-open
@@ -189,6 +213,9 @@
   suffix: full
   description: A worn out black barrel. This one looks full of some dark liquid.
   components:
+  - type: Construction
+    graph: N14Barrels
+    node: barrelblackfull
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: black-full
@@ -203,6 +230,9 @@
   suffix: full
   description: A red barrel with an explosive warning sign on. It has a golden liquid inside.
   components:
+  - type: Construction
+    graph: N14Barrels
+    node: barrelredfull
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: red-full
@@ -228,6 +258,9 @@
   suffix: full
   description: A yellow barrel with a radiation warning sign on. You can see the glowing goo bubble.
   components:
+  - type: Construction
+    graph: N14Barrels
+    node: barrelyellowfull
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: yellow-full

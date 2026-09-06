@@ -463,7 +463,15 @@ namespace Content.Server.NPC.Pathfinding
                 return PathFlags.None;
             }
 
-            return GetFlags(npc.Blackboard);
+            var flags = GetFlags(npc.Blackboard);
+
+            // NavClimb is an AI preference, not proof that this mob can perform the
+            // Climbing DoAfter.  Never plan through railings/tables for entities that
+            // lack the actual climbing capability.
+            if (!HasComp<ClimbingComponent>(uid))
+                flags &= ~PathFlags.Climbing;
+
+            return flags;
         }
 
         public PathFlags GetFlags(NPCBlackboard blackboard)
@@ -483,6 +491,15 @@ namespace Content.Server.NPC.Pathfinding
             if (blackboard.TryGetValue<bool>(NPCBlackboard.NavClimb, out var climb, EntityManager) && climb)
             {
                 flags |= PathFlags.Climbing;
+
+                // Planning operators pass a blackboard rather than an entity.  Resolve the
+                // owner here as well, so their routes cannot include climb nodes unless the
+                // NPC can execute the corresponding Climbing DoAfter.
+                if (blackboard.TryGetValue<EntityUid>(NPCBlackboard.Owner, out var owner, EntityManager) &&
+                    !HasComp<ClimbingComponent>(owner))
+                {
+                    flags &= ~PathFlags.Climbing;
+                }
             }
 
             if (blackboard.TryGetValue<bool>(NPCBlackboard.NavInteract, out var interact, EntityManager) && interact)

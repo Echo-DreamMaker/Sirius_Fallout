@@ -13,6 +13,7 @@ using Robust.Shared.IoC;
 using Robust.Shared.Maths;
 using Robust.Shared.Localization;
 using Robust.Shared.Console;
+using Content.Client.Administration.Managers;
 
 namespace Content.Client._Misfits.Administration.UI.Tabs;
 
@@ -65,12 +66,36 @@ public sealed partial class LoreMasterTab : Control
         RefreshButton.OnPressed += _ => RequestRefresh();
         // #Misfits Add - open the admin fax manager panel via the server console command
         FaxManagerButton.OnPressed += _ => IoCManager.Resolve<IConsoleHost>().ExecuteCommand("faxui");
+        UploadLocalAudioButton.OnPressed += _ => UploadLocalAudio();
+        UploadLocalAudioButton.Disabled = !IoCManager.Resolve<IClientAdminManager>().CanCommand("uploadfile")
+                                         || !IoCManager.Resolve<IClientAdminManager>().CanCommand("playglobalsound");
+        UploadMapButton.OnPressed += _ => UploadMap();
+        UploadMapButton.Disabled = !IoCManager.Resolve<IClientAdminManager>().CanCommand("uploadfile");
         // #Misfits Add - open the admin Force War panel (bypasses cooldowns and rank checks)
         ForceWarButton.OnPressed += _ => IoCManager.Resolve<IConsoleHost>().ExecuteCommand("forcewar");
         // #Misfits Tweak - IssueButton (preset objectives) removed — presets are disabled.
         IssueCustomButton.OnPressed += _ => OnIssueCustomPressed();
 
         OnFactionChanged();
+    }
+
+    /// <summary>
+    /// Uses the engine's privileged runtime uploader. The server only reacts to this private path
+    /// prefix and plays the uploaded sound from the admin's current entity, never globally.
+    /// </summary>
+    private void UploadLocalAudio()
+    {
+        var path = $"/LoreMasterAudio/{Guid.NewGuid():N}.ogg";
+        IoCManager.Resolve<IConsoleHost>().ExecuteCommand($"uploadfile {path}");
+    }
+
+    /// <summary>
+    /// Uploads a map as a temporary runtime resource. The engine mounts this at
+    /// /Uploaded/Maps/Misfits/Wendover.yml, which can then be passed to loadmap.
+    /// </summary>
+    private void UploadMap()
+    {
+        IoCManager.Resolve<IConsoleHost>().ExecuteCommand("uploadfile /Maps/Misfits/Wendover.yml");
     }
 
     // ── Control lifecycle ─────────────────────────────────────────────────

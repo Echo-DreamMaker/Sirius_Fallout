@@ -16,7 +16,7 @@ namespace Content.Shared.Physics.Controllers;
 
 public abstract class SharedConveyorController : VirtualController
 {
-    [Dependency] protected readonly IMapManager MapManager = default!;
+    [Dependency] protected readonly SharedMapSystem MapManager = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
     [Dependency] protected readonly SharedMapSystem MapSystem = default!;
     [Dependency] protected readonly SharedPhysicsSystem Physics = default!;

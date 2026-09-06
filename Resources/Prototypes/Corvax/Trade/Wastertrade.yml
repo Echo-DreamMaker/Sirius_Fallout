@@ -1,0 +1,800 @@
+# EXCHANGE RATES FOR REFERENCE
+#GOLD BAR = 25 CAPS, 1.6 GOLD BARS = 1 AUREUS, 40 CAPS
+#SILVER BAR = 20 CAPS = 5 DENARIUS
+#1 DENARIUS = 4 CAPS
+#1 AUREUS = 40 CAPS
+#1 CAP = 2 NCR
+#IF I CATCH YOU CHANGING ONE VALUE WITHOUT ADJUSTING THE OTHERS, I WILL CROSS YOU - LEGATE TYTOS
+#'buy2' refers to what the PLAYER buys, 'sell2' refers to what the PLAYER sells.
+
+#Waster Trade Caravan
+
+- type: entity
+  id: TrademachineWaster
+  parent: Trademachine
+  abstract: true
+  name: Waster Caravan Wagon
+  description: A caravan operated by Wastelanders, offering goods from all across the wastes.
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: NcStoreStructuredBoundUi
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        density: 300
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/caravanwagon.rsi
+    layers:
+    - state: caravanwagon
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: TrademachineWasterCity
+  parent: TrademachineWaster
+  name: Waster Caravan Wagon
+  description: A caravan operated by Wastelanders, offering goods from all across the wastes.
+  suffix: vendor, normal
+  components:
+  - type: NcStore
+    buyPresets:
+    - Waster_Buy2
+    sellPresets:
+    - Waster_Sell2
+    contractPresets:
+    - PresetBazar
+  # #Misfits Change — restored TownieShopkeeper access restriction (players must be shopkeeper to use terminal)
+  # #Misfits Add — track Hall of Fame roster for the tier contract system
+  - type: AccessReader
+    access:
+    - [ "WasterTrader" ]
+  - type: NcContractRoster
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Drinks
+  name: "Drinks"
+  entries:
+  - proto: N14DrinkRoentgenRum
+    price: 30
+  - proto: N14DrinkWhisky
+    price: 30
+  - proto: DrinkBeerCan
+    price: 15
+  - proto: DrinkBeerBottleFull
+    price: 15
+  - proto: N14DrinkNukaColaIceCold
+    price: 10
+  - proto: N14DrinkNukaColaCherryIceCold
+    price: 10
+  - proto: N14DrinkNukaColaGrapeIceCold
+    price: 10
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Food
+  name: "Food"
+  entries:
+  - proto: N14FoodMeatBrahminCooked
+    price: 20
+  - proto: N14FoodMeatRadstagCooked
+    price: 20
+  - proto: N14FoodMeatBighornerCooked
+    price: 20
+  - proto: N14FoodMeatRadscorpionCooked
+    price: 20
+  - proto: N14FoodMeatGeckoCooked
+    price: 20
+  - proto: N14FoodDandyboyapples
+    price: 10
+  - proto: N14FoodInstamash
+    price: 10
+  - proto: N14FoodYumyumdeviledeggs
+    price: 10
+  - proto: N14FoodCrisps
+    price: 10
+  - proto: N14FoodSalisburysteak
+    price: 10
+
+- type: storeCategoryStructured
+  id: WasterBuy2_SurvivalGear
+  name: "Survival Gear"
+  entries:
+  - proto: PowerCellHigh
+    price: 25
+  - proto: OreBag
+    price: 50
+  - proto: N14Flashlight
+    price: 10
+  - proto: Charcoal1
+    amount: 1
+    price: 20
+  - proto: BoxFlare
+    price: 35
+  - proto: Torch
+    price: 1
+  - proto: DrinkWaterBottleFull
+    price: 25
+  - proto: Pickaxe
+    price: 40
+  - proto: GeigerCounter
+    price: 50
+  - proto: N14RadXCanisterFilled
+    price: 100
+  - proto: MisfitsWendoverMap
+    price: 150
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Melee
+  name: "Melee"
+  entries:
+  - proto: KukriKnife
+    price: 20
+  - proto: SurvivalKnife
+    price: 20
+  - proto: N14TrenchClub
+    price: 75
+  - proto: N14FireAxe
+    price: 150
+  - proto: N14TribalSword
+    price: 300
+  - proto: N14LongSword
+    price: 200
+  - proto: N14ChineseSword
+    price: 400
+  - proto: N14ShieldMetalHeavy
+    price: 200
+  - proto: N14ShieldMetalLight
+    price: 100
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Longguns
+  name: "Long guns"
+  entries:
+  - proto: N14WeaponLaserRifleCrude
+    price: 200
+  - proto: N14WeaponPlasmaRifleCrude
+    price: 240
+  - proto: N14WeaponLaserRifle
+    price: 450
+  - proto: N14WeaponSniper50Pipe
+    price: 1200
+    count: 4
+  - proto: N14WeaponSMG10mmPipe
+    price: 170
+  - proto: N14WeaponSMG12mmPipe
+    price: 125
+  - proto: N14WeaponSMG12mmAdvancedChinese
+    price: 350
+    count: 2
+  - proto: N14WeaponLMGchinese
+    price: 3600
+    count: 2
+  - proto: N14WeaponRifle762MarksmanChinese
+    price: 550
+    count: 2
+  - proto: N14WeaponShotgunChinese
+    price: 450
+    count: 5
+  - proto: N14WeaponShotgunCanadian
+    price: 450
+    count: 4
+  - proto: N14WeaponSniperHunting
+    price: 125
+  - proto: N14WeaponRifle556Pipe
+    price: 120
+  - proto: N14WeaponShotgun
+    price: 50
+  - proto: N14WeaponRifle762SKS
+    price: 150
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Handguns
+  name: "Handguns"
+  entries:
+  - proto: N14WeaponPistolWebley
+    price: 30
+  - proto: N14WeaponPistol12mm
+    price: 35
+  - proto: N14WeaponPistol45Colt
+    price: 45
+  - proto: N14WeaponRevolver44Magnum
+    price: 70
+  - proto: N14WeaponPistol22lr
+    price: 20
+  - proto: N14WeaponLaserPistol
+    price: 60
+  - proto: N14WeaponPistol9mmChinese
+    price: 18
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Armor
+  name: "Armor"
+  entries:
+  - proto: MisfitsClothingOuterKhansArmoredJacket
+    price: 250
+  - proto: N14ClothingOuterCombatTribal
+    price: 350
+  - proto: N14ClothingOuterCombatArmorRCMP
+    price: 450
+  - proto: N14ClothingOuterRaiderCombat1
+    price: 500
+  - proto: MisfitsClothingOuterKhansBattlecoatBlack
+    price: 300
+  - proto: MisfitsClothingOuterKhansVest
+    price: 200
+  - proto: N14ClothingOuterPoliceCombat
+    price: 300
+  - proto: N14ClothingOuterCombatArmorMK2
+    price: 800
+  - proto: N14ClothingOuterCombatArmorChinese
+    price: 500
+  - proto: N14ClothingOuterPainspike
+    price: 100
+  - proto: N14ClothingOuterVestChinese
+    price: 200
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Clothes
+  name: "Clothes"
+  entries:
+  - proto: N14ClothingUniformJumpsuitChinese
+    price: 100
+  - proto: M14ClothingUniformKhansUniform
+    price: 100
+  - proto: M14ClothingUniformKhansUniformShorts
+    price: 100
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Headgear
+  name: "Headgear"
+  entries:
+  - proto: MisfitsClothingHeadKhanFullHelmet
+    price: 75
+  - proto: N14ClothingHeadHatCombatHelmetMK2Cargo
+    price: 150
+  - proto: MisfitsClothingHeadKhanHelmet
+    price: 50
+  - proto: N14ClothingHeadHatChineseHelmet
+    price: 100
+  - proto: N14ClothingHeadHatChinese
+    price: 50
+  - proto: N14ClothingHeadHatChineseHelmetMk2
+    price: 175
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Footwear
+  name: "Footwear"
+  entries:
+  - proto: ClothingShoesBootsJack
+    price: 25
+  - proto: N14ClothingBootsLeather
+    price: 10
+  - proto: N14ClothingBootsCombatFilled
+    price: 35
+  - proto: N14ClothingBootsCombatMK2Filled
+    price: 50
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Ammo
+  name: "Ammo"
+  entries:
+  - proto: N14PowerCellSmall
+    price: 250
+  - proto: N14MicrofusionCell
+    price: 350
+  - proto: N14AmmoBox50
+    price: 350
+  - proto: N14AmmoBox9mm
+    price: 120
+  - proto: N14AmmoBox10mm
+    price: 180
+  - proto: N14AmmoBox44Magnum
+    price: 220
+  - proto: N14AmmoBox22lr
+    price: 100
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Medicine
+  name: "Medicine"
+  entries:
+  - proto: N14CleanGauze10
+    amount: 10
+    price: 75
+  - proto: N14AloeSalve
+    amount: 10
+    price: 100
+  - proto: N14Stimpak
+    price: 150
+  - proto: N14HealingPowder
+    price: 80
+  - proto: N14RadAwayBloodbag
+    price: 100
+  - proto: N14RadAwayInhaler
+    price: 300
+  - proto: N14MedkitCombatFilled
+    price: 600
+  - proto: N14BuffoutCanisterFilled
+    price: 400
+  - proto: N14Jet
+    price: 200
+  - proto: N14Psycho
+    price: 400
+  - proto: N14Med-X
+    price: 700
+  - proto: N14Turbo
+    price: 450
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Materials
+  name: "Materials"
+  entries:
+  - proto: SheetSteel
+    amount: 30
+    price: 350
+  - proto: MaterialWoodPlank
+    amount: 30
+    price: 100
+  - proto: N14MaterialLeather10
+    amount: 10
+    price: 250
+  - proto: FertilizerOre
+    amount: 10
+    price: 200
+  - proto: N14MaterialCircuitry
+    amount: 10
+    price: 375
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Cosmetic
+  name: "Cosmetic"
+  entries:
+  - proto: SprayPaintBlue
+    price: 25
+  - proto: SprayPaintBlack
+    price: 25
+  - proto: SprayPaintWhite
+    price: 25
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Storage
+  name: "Storage"
+  entries:
+  - proto: ClothingBackpackSatchelLeather
+    price: 150
+  - proto: ClothingBackpackSatchelSalvage
+    price: 150
+  - proto: ClothingBackpackDuffel
+    price: 200
+  - proto: ClothingBeltSecurityWebbing
+    price: 300
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Sprouts
+  name: "Cuttings"
+  entries:
+  - proto: N14FloraWildAgaveClippingSeed
+    price: 5
+  - proto: N14FloraWildBananaYuccaClippingSeed
+    price: 5
+  - proto: N14FloraWildBarrelCactusClippingSeed
+    price: 5
+  - proto: N14FloraWildBlackberryClippingSeed
+    price: 5
+  - proto: N14FloraWildBrocFlowerClippingSeed
+    price: 5
+  - proto: N14FloraWildBuffaloGourdClippingSeed
+    price: 5
+  - proto: N14FloraWildCabbageClippingSeed
+    price: 5
+  - proto: N14FloraWildCarrotClippingSeed
+    price: 5
+  - proto: N14FloraWildCoyoteTobaccoClippingSeed
+    price: 5
+  - proto: N14FloraDaturaClippingSeed
+    price: 5
+  - proto: N14FloraWildGlowpepperClippingSeed
+    price: 5
+  - proto: N14FloraWildMaizeClippingSeed
+    price: 5
+  - proto: N14FloraWildHoneyMesquiteClippingSeed
+    price: 5
+  - proto: N14FloraWildMutfruitClippingSeed
+    price: 5
+  - proto: N14FloraWildNettleClippingSeed
+    price: 5
+  - proto: N14FloraWildOnionClippingSeed
+    price: 5
+  - proto: N14FloraWildPinyonClippingSeed
+    price: 5
+  - proto: N14FloraWildPricklyPearClippingSeed
+    price: 5
+  - proto: N14FloraWildRazorgrainClippingSeed
+    price: 5
+  - proto: N14FloraWildStarlightBerryClippingSeed
+    price: 5
+  - proto: N14FloraWildTarberryClippingSeed
+    price: 5
+  - proto: N14FloraWildTatoClippingSeed
+    price: 5
+  - proto: N14FloraWildWhiteHorsenettleClippingSeed
+    price: 5
+  - proto: N14FloraWildXanderRootClippingSeed
+    price: 5
+
+- type: storeCategoryStructured
+  id: WasterBuy2_Currency # IF YOU CHANGE ONE EXCHANGE RATE, YOU MUST CHANGE ALL OTHERS ACROSS ALL FOUR FILES TO MATCH, OR YOU WILL CREATE AN INFINITE MONEY GLITCH
+  name: "Currency"
+  entries:
+  - proto: N14CurrencyNCRDollar2
+    amount: 2
+    price: 1
+  - proto: N14CurrencyLegionDenarius
+    price: 4
+  - proto: N14CurrencyLegionAureus
+    price: 40
+
+- type: storePresetStructured #list of categories
+  id: Waster_Buy2
+  currency: Caps
+  categories:
+  - WasterBuy2_Drinks
+  - WasterBuy2_Food
+  - WasterBuy2_SurvivalGear
+  - WasterBuy2_Melee
+  - WasterBuy2_Longguns
+  - WasterBuy2_Handguns
+  - WasterBuy2_Armor
+  - WasterBuy2_Clothes
+  - WasterBuy2_Headgear
+  - WasterBuy2_Footwear
+  - WasterBuy2_Ammo
+  - WasterBuy2_Medicine
+  - WasterBuy2_Materials
+  - WasterBuy2_Cosmetic
+  - WasterBuy2_Storage
+  - WasterBuy2_Currency
+  - WasterBuy2_Sprouts
+
+- type: storeCategoryStructured
+  id: WasterSell2_Drinks
+  name: "Drinks"
+  entries:
+  - proto: N14DrinkRoentgenRum
+    price: 15
+  - proto: N14DrinkWhisky
+    price: 15
+  - proto: DrinkBeerCan
+    price: 8
+  - proto: DrinkBeerBottleFull
+    price: 8
+  - proto: N14DrinkNukaColaIceCold
+    price: 5
+  - proto: N14DrinkNukaColaCherryIceCold
+    price: 5
+  - proto: N14DrinkNukaColaGrapeIceCold
+    price: 5
+
+- type: storeCategoryStructured
+  id: WasterSell2_Food
+  name: "Food"
+  entries:
+  - proto: N14FoodMeatBrahminCooked
+    price: 10
+  - proto: N14FoodMeatRadstagCooked
+    price: 10
+  - proto: N14FoodMeatBighornerCooked
+    price: 10
+  - proto: N14FoodMeatRadscorpionCooked
+    price: 10
+  - proto: N14FoodMeatGeckoCooked
+    price: 10
+  - proto: N14FoodDandyboyapples
+    price: 5
+  - proto: N14FoodInstamash
+    price: 5
+  - proto: N14FoodYumyumdeviledeggs
+    price: 5
+  - proto: N14FoodCrisps
+    price: 5
+  - proto: N14FoodSalisburysteak
+    price: 5
+
+- type: storeCategoryStructured
+  id: WasterSell2_SurvivalGear
+  name: "Survival Gear"
+  entries:
+  - proto: PowerCellHigh
+    price: 13
+  - proto: OreBag
+    price: 25
+  - proto: N14Flashlight
+    price: 5
+  - proto: Charcoal
+    price: 10
+  - proto: BoxFlare
+    price: 18
+  - proto: Torch
+    price: 1
+  - proto: DrinkWaterBottleFull
+    price: 13
+  - proto: Pickaxe
+    price: 20
+  - proto: GeigerCounter
+    price: 25
+  - proto: N14RadXCanisterFilled
+    price: 50
+  - proto: MisfitsWendoverMap
+    price: 75
+
+- type: storeCategoryStructured
+  id: WasterSell2_Melee
+  name: "Melee"
+  entries:
+  - proto: KukriKnife
+    price: 10
+  - proto: SurvivalKnife
+    price: 10
+  - proto: N14TrenchClub
+    price: 38
+  - proto: N14FireAxe
+    price: 75
+  - proto: N14TribalSword
+    price: 150
+  - proto: N14LongSword
+    price: 100
+  - proto: N14ChineseSword
+    price: 200
+  - proto: N14ShieldMetalHeavy
+    price: 100
+  - proto: N14ShieldMetalLight
+    price: 50
+
+- type: storeCategoryStructured
+  id: WasterSell2_Longguns
+  name: "Longguns"
+  entries:
+  - proto: N14WeaponLaserRifleCrude
+    price: 100
+  - proto: N14WeaponPlasmaRifleCrude
+    price: 120
+  - proto: N14WeaponSniper50Pipe
+    price: 400
+  - proto: N14WeaponSMG10mmPipe
+    price: 85
+  - proto: N14WeaponSMG12mmPipe
+    price: 63
+  - proto: N14WeaponLMGchinese
+    price: 1800
+  - proto: N14WeaponRifle762MarksmanChinese
+    price: 275
+  - proto: N14WeaponShotgunChinese
+    price: 225
+  - proto: N14WeaponShotgunCanadian
+    price: 225
+  - proto: N14WeaponSniperHunting
+    price: 63
+  - proto: N14WeaponRifle556Pipe
+    price: 60
+  - proto: N14WeaponShotgun
+    price: 25
+  - proto: N14WeaponRifle762SKS
+    price: 75
+
+- type: storeCategoryStructured
+  id: WasterSell2_Handguns
+  name: "Handguns"
+  entries:
+  - proto: N14WeaponPistolWebley
+    price: 15
+  - proto: N14WeaponPistol12mm
+    price: 18
+  - proto: N14WeaponPistol45Colt
+    price: 23
+  - proto: N14WeaponRevolver44Magnum
+    price: 35
+  - proto: N14WeaponPistol22lr
+    price: 10
+  - proto: N14WeaponLaserPistol
+    price: 30
+  - proto: N14WeaponPistol9mmChinese
+    price: 9
+
+- type: storeCategoryStructured
+  id: WasterSell2_Armor
+  name: "Armor"
+  entries:
+  - proto: MisfitsClothingOuterKhansArmoredJacket
+    price: 125
+  - proto: N14ClothingOuterCombatTribal
+    price: 175
+  - proto: N14ClothingOuterCombatArmorRCMP
+    price: 225
+  - proto: N14ClothingOuterRaiderCombat1
+    price: 250
+  - proto: MisfitsClothingOuterKhansBattlecoatBlack
+    price: 150
+  - proto: MisfitsClothingOuterKhansVest
+    price: 100
+  - proto: N14ClothingOuterPoliceCombat
+    price: 150
+  - proto: N14ClothingOuterCombatArmorMK2
+    price: 400
+  - proto: N14ClothingOuterCombatArmorChinese
+    price: 250
+  - proto: N14ClothingOuterPainspike
+    price: 50
+  - proto: N14ClothingOuterVestChinese
+    price: 100
+
+- type: storeCategoryStructured
+  id: WasterSell2_Clothes
+  name: "Clothes"
+  entries:
+  - proto: N14ClothingUniformJumpsuitChinese
+    price: 50
+  - proto: M14ClothingUniformKhansUniform
+    price: 50
+  - proto: M14ClothingUniformKhansUniformShorts
+    price: 50
+
+- type: storeCategoryStructured
+  id: WasterSell2_Headgear
+  name: "Headgear"
+  entries:
+  - proto: MisfitsClothingHeadKhanFullHelmet
+    price: 38
+  - proto: N14ClothingHeadHatCombatHelmetMK2Cargo
+    price: 75
+  - proto: MisfitsClothingHeadKhanHelmet
+    price: 25
+  - proto: N14ClothingHeadHatChineseHelmet
+    price: 50
+  - proto: N14ClothingHeadHatChinese
+    price: 25
+  - proto: N14ClothingHeadHatChineseHelmetMk2
+    price: 88
+
+- type: storeCategoryStructured
+  id: WasterSell2_Footwear
+  name: "Footwear"
+  entries:
+  - proto: ClothingShoesBootsJack
+    price: 13
+  - proto: N14ClothingBootsLeather
+    price: 5
+  - proto: N14ClothingBootsCombatFilled
+    price: 18
+  - proto: N14ClothingBootsCombatMK2Filled
+    price: 25
+
+- type: storeCategoryStructured
+  id: WasterSell2_Ammo
+  name: "Ammo"
+  entries:
+  - proto: N14PowerCellSmall
+    price: 125
+  - proto: N14MicrofusionCell
+    price: 175
+
+
+- type: storeCategoryStructured
+  id: WasterSell2_Medicine
+  name: "Medicine"
+  entries:
+  - proto: N14CleanGauze10
+    price: 1
+  - proto: N14AloeSalve
+    price: 5
+  - proto: N14Stimpak
+    price: 75
+  - proto: N14HealingPowder
+    price: 40
+  - proto: N14RadAwayBloodbag
+    price: 50
+  - proto: N14RadAwayInhaler
+    price: 150
+  - proto: N14Jet
+    price: 100
+  - proto: N14Psycho
+    price: 125
+  - proto: N14Med-X
+    price: 225
+  - proto: N14Turbo
+    price: 150
+
+- type: storeCategoryStructured
+  id: WasterSell2_Materials
+  name: "Materials"
+  entries:
+  - proto: SheetSteel
+    price: 5
+  - proto: MaterialWoodPlank
+    price: 1
+  - proto: N14MaterialLeather10
+    price: 15
+  - proto: FertilizerOre
+    price: 10
+  - proto: N14MaterialCircuitry
+    price: 15
+
+- type: storeCategoryStructured
+  id: WasterSell2_Cosmetic
+  name: "Cosmetic"
+  entries:
+  - proto: SprayPaintBlue
+    price: 13
+  - proto: SprayPaintBlack
+    price: 13
+  - proto: SprayPaintWhite
+    price: 13
+
+- type: storeCategoryStructured
+  id: WasterSell2_Storage
+  name: "Storage"
+  entries:
+  - proto: ClothingBackpackSatchelLeather
+    price: 75
+  - proto: ClothingBackpackSatchelSalvage
+    price: 75
+  - proto: ClothingBackpackDuffel
+    price: 100
+  - proto: ClothingBeltSecurityWebbing
+    price: 150
+
+- type: storeCategoryStructured
+  id: WasterSell2_Currency # IF YOU CHANGE ONE EXCHANGE RATE, YOU MUST CHANGE ALL OTHERS ACROSS ALL FOUR FILES TO MATCH, OR YOU WILL CREATE AN INFINITE MONEY GLITCH
+  name: "Currency"
+  entries:
+  - proto: N14CurrencyLegionDenarius
+    price: 4
+  - proto: N14CurrencyLegionAureus
+    price: 40
+  - proto: N14CurrencyNCRDollar2
+    amount: 2
+    price: 1
+  - proto: N14IngotGold1
+    price: 25
+  - proto: N14IngotSilver1
+    price: 20
+  - proto: N14IngotCopper1
+    price: 10
+  - proto: N14IngotAluminum1
+    price: 10
+
+- type: storePresetStructured #list of categories
+  id: Waster_Sell2
+  currency: Caps
+  categories:
+  - WasterSell2_Drinks
+  - WasterSell2_Food
+  - WasterSell2_SurvivalGear
+  - WasterSell2_Melee
+  - WasterSell2_Longguns
+  - WasterSell2_Handguns
+  - WasterSell2_Armor
+  - WasterSell2_Clothes
+  - WasterSell2_Headgear
+  - WasterSell2_Footwear
+  - WasterSell2_Ammo
+  - WasterSell2_Medicine
+  - WasterSell2_Materials
+  - WasterSell2_Cosmetic
+  - WasterSell2_Storage
+  - WasterSell2_Currency

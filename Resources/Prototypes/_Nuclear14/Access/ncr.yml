@@ -3,6 +3,11 @@
   name: id-card-access-level-ncr-captain
 
 - type: accessLevel
+  id: NCRTrader
+  name: id-card-access-level-ncr-trader
+  #Misfits add, trader has own access to use caravan wagon
+
+- type: accessLevel
   id: NCRLT
   name: id-card-access-level-ncr-lt
 
@@ -22,6 +27,11 @@
   id: NCR
   name: id-card-access-level-ncr
 
+# #Misfits Add - Office of Science and Industry records and laboratory access.
+- type: accessLevel
+  id: OSI
+  name: id-card-access-level-osi
+
 - type: accessGroup
   id: NCR
   #Misfits Change /Fix/: Base NCR access should only open base NCR doors.
@@ -29,11 +39,26 @@
   - NCR
 
 - type: accessGroup
+  id: NCRTrader
+  #Misfits add, trader has own access to use caravan wagon
+  tags:
+  - NCRTrader
+
+
+- type: accessGroup
   id: NCRMedic
   #Misfits Change /Fix/: NCR medics inherit base NCR access plus medic spaces.
   tags:
   - NCR
   - NCRMedic
+
+- type: accessGroup
+  id: OSI
+  # OSI personnel retain ordinary NCR access, plus their own archive/laboratory tag.
+  tags:
+  - NCR
+  - NCRMedic
+  - OSI
 
 - type: accessGroup
   id: NCRSGT

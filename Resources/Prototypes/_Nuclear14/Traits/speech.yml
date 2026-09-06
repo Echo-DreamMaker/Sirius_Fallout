@@ -63,6 +63,7 @@
   - !type:CharacterDepartmentRequirement
     departments:
     - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
   - !type:CharacterJobRequirement
     inverted: true
     jobs:
@@ -71,8 +72,7 @@
     - BoSWestScribe
   functions:
   - !type:TraitModifyLanguages
-    languagesSpoken:
-    - N14BrotherBeep
+    # #Misfits Fix / #Cythisiax Fixed - Brotherhood Code perk only grants understanding; speaking code requires a Scribe augmentation (see job LanguageKnowledge).
     languagesUnderstood:
     - N14BrotherBeep
 
@@ -85,6 +85,7 @@
       inverted: true
       departments:
         - BrotherhoodOfSteel
+        - BrotherhoodOfSteelLancers
   - !type:CharacterJobRequirement
     inverted: true
     jobs:
@@ -95,6 +96,7 @@
     - NCRCommander
     - NCRExecutiveOfficer
     - NCRPlatoonLeader
+    - NCRVertibirdPilot
     - NCRVeteranRanger
     - NCRFieldRanger
     - NCRPatrolRanger
@@ -115,6 +117,9 @@
     - NCRCadet
     - BoSMidScribe
     - BoSMidKnight
+    - BoSLancerCaptain
+    - BoSLancerKnight
+    # #Cythisiax Removed - Lancer rank folded into Lancer-Knight
     - BoSMidSquire
     - CaesarLegionCenturion
     - CaesarLegionLegate

@@ -117,6 +117,7 @@
       shader: unshaded
       map: ["light"]
       visible: false
+  - type: SyncSprite
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -186,8 +187,10 @@
         Quantity: 5
     duration: 3
     nextChargeTime: 10
-  - type: RobotGunPowerDrain # #Misfits Add: each flamer burst drains the robot's chassis battery
-    drainPerShot: 20
+  # #Misfits Fix - Removed RobotGunPowerDrain: the flamer drained the same chassis cell_slot that
+  # powers the built-in flashlight (HandheldLight). Spraying killed the light and it could not be
+  # re-enabled until the cell recharged — the reported "flashlight breaks when using blaster" bug.
+  # The flamer is already fuel/ammo-limited, so this doesn't make it free.
   - type: ContainerFill
     containers:
       borg_brain:
@@ -327,6 +330,7 @@
       shader: unshaded
       map: ["light"]
       visible: false
+  - type: SyncSprite
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -378,8 +382,11 @@
     count: 15
   - type: RechargeBasicEntityAmmo # #Misfits Add: recharge simulates internal capacitor cycling
     rechargeCooldown: 2
-  - type: RobotGunPowerDrain # #Misfits Add: each plasma shot drains the robot's chassis battery
-    drainPerShot: 50
+  # #Misfits Fix - Removed RobotGunPowerDrain: the plasma blaster shared the chassis cell_slot with
+  # the built-in flashlight (HandheldLight). Each shot drained 50 charge, dropping the cell below the
+  # light's 0.2 wattage threshold -> HandheldLightSystem force-turned the light off and blocked
+  # re-enable ("cell-dead") until recharge. That's the reported "flashlight breaks when I use my
+  # blaster" bug. The blaster is already ammo-limited, so this doesn't make it free.
   - type: ContainerFill
     containers:
       borg_brain:

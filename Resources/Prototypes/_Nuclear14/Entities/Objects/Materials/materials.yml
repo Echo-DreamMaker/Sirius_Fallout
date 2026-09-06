@@ -802,7 +802,7 @@
 - type: entity
   parent: N14MaterialBase
   id: N14MaterialBrick
-  name: brick
+  name: adobe brick
   description: Clay brick for construction.
   categories: [ HideSpawnMenu ]
   components:

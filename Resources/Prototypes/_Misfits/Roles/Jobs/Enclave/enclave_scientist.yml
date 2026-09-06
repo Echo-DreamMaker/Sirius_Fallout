@@ -4,7 +4,6 @@
 - type: job
   id: EnclaveScientist
   setPreference: true
-  hideWithoutJobWhitelist: true
   jobWhitelistBypassesRoleTimers: true # #Misfits Change
   weight: 106
   displayWeight: 125
@@ -32,7 +31,12 @@
       - type: NpcFactionMember
         factions:
           - Enclave
+          - Wastelander
+      - type: ReplacementAccent
+        accent: n14Enclave
       - type: CPRTraining
+  - !type:AddTraitSpecial # #Misfits Add - Enclave scientists are issued an Enclave Eyebot companion
+    traits: [ MisfitsPetEyebotEnclave ]
 
 - type: startingGear
   id: EnclaveScientistGear

@@ -1,5 +1,6 @@
 // #Misfits Add - Per-round Enclave recruitment system.
-// Enclave members get a right-click "Recruit" verb on player entities.
+// #Cythisiax Edited - The "Recruit" verb is now restricted to Enclave Junior
+// Officers (previously any Enclave department member could recruit).
 // Recruited players are assigned the EnclaveRecruit job so their time counts
 // toward Enclave department role timers. Resets on death or round restart.
 
@@ -31,8 +32,10 @@ public sealed class EnclaveRecruitSystem : EntitySystem
     [Dependency] private readonly EuiManager _eui = default!;
     [Dependency] private readonly EnclaveMicroBombSystem _microBombs = default!;
 
-    /// <summary>Enclave department ID from the department prototype.</summary>
-    private const string EnclaveDepartmentId = "Enclave";
+    /// <summary>#Cythisiax Edited - Only this Enclave job may use the Recruit verb.
+    /// The former EnclaveDepartmentId const was removed since recruitment is no
+    /// longer open to every Enclave department member.</summary>
+    private const string EnclaveRecruiterJobId = "EnclaveJuniorOfficer";
 
     /// <summary>The literal job assigned to accepted recruits.</summary>
     private const string EnclaveRecruitJobId = "EnclaveRecruit";
@@ -64,7 +67,7 @@ public sealed class EnclaveRecruitSystem : EntitySystem
 
         var user = args.User;
 
-        // User must be a living player with an Enclave job
+        // User must be a living player with the Enclave Junior Officer job
         if (!IsEnclaveMember(user))
             return;
 
@@ -239,10 +242,15 @@ public sealed class EnclaveRecruitSystem : EntitySystem
     }
 
     /// <summary>
-    /// Check if a user entity is an Enclave member (has an Enclave department job).
+    /// Check if a user entity may recruit: must be an Enclave Junior Officer,
+    /// or carry the admin bypass EnclaveRecruiterComponent.
     /// </summary>
     private bool IsEnclaveMember(EntityUid uid)
     {
+        // Bypass: admins can addcomp EnclaveRecruiterComponent to any player
+        if (HasComp<EnclaveRecruiterComponent>(uid))
+            return true;
+
         // Get the mind ID from the user's entity
         if (!TryComp<MindContainerComponent>(uid, out var mindContainer) || !mindContainer.HasMind)
             return false;
@@ -253,8 +261,8 @@ public sealed class EnclaveRecruitSystem : EntitySystem
         if (!_jobs.MindTryGetJob(mindId, out _, out var jobProto))
             return false;
 
-        // Check if the job belongs to the Enclave department
-        var department = _prototypes.Index<DepartmentPrototype>(EnclaveDepartmentId);
-        return department.Roles.Contains(jobProto.ID);
+        // #Cythisiax Edited - Restricted to the Enclave Junior Officer job only
+        // (was: any job in the Enclave department could recruit).
+        return jobProto.ID == EnclaveRecruiterJobId;
     }
 }

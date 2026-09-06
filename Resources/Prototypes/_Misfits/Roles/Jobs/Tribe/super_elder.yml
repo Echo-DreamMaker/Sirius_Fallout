@@ -1,0 +1,83 @@
+# #Misfits Add - "Yuma" Elder role for the Tribe (Willowers) faction.
+# A sagely old tribal who mentors the young and advises the Chieftan. Second
+# in command to the chief, but NOT a commander — leadership stays with the chief.
+# Requested as the "Yuma Elder" (1-3 per round) to take some weight off the Shaman
+# and add variety to tribe rounds.
+- type: job
+  id: SuperElder
+  setPreference: true
+  jobWhitelistBypassesRoleTimers: true
+  weight: 50
+  showBorder: true
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-willow-elder
+  description: job-description-willow-elder
+  playTimeTracker: SuperElder
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Add - sagely elders are senior tribal members
+      department: Tribe
+      min: 43200 # 12 hours
+  startingGear: SuperElderGear
+  alwaysUseSpawner: true
+  icon: "JobIconTribal" # Corvax-Change
+  supervisors: job-supervisors-tribal # answers to the Chieftan
+  access:
+  - TribeMember
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - Tribal
+      - type: Warcry
+        action: ActionTribalWarcry
+        targetDepartment: Tribe
+        range: 6
+        speedBonus: 0.30
+        duration: 10
+        overlayColor: "#3FAF63"
+        speechVerb: MisfitsTribalWarcry
+        warcryMessage: warcry-message-tribal
+        warcryMessageCount: 6
+        buffPopup: warcry-popup-buffed-tribal
+        excludedJobs:
+        - SuperMutantTribal
+        - SyntheticProtectronTribal
+      - type: TribalHuntParticipant
+        targetDepartment: Tribe
+  - !type:AddTraitSpecial
+    traits: [ LanguageTribal ]
+
+- type: startingGear
+  id: SuperElderGear
+  equipment:
+    head: N14ClothingTribalHeadWraps # weathered headwraps for the sagely old
+    jumpsuit: N14ClothingUniformJumpsuitTribal
+    outerClothing: N14ClothingOuterTribalCoat
+    suitstorage: Cane # walking cane — an elder's mark
+    shoes: N14ClothingShoesTribal
+    gloves: N14ClothingHandsGlovesTribal
+    back: N14ClothingBackpackTrekker # Corvax-Change
+    pocket1: N14TribalKnife
+    pocket2: Triballoadoutkits
+    id: N14IDTribeBulletsPendant # not command — wears the member pendant
+  innerClothingSkirt: N14ClothingUniformJumpskirtTribal
+  satchel: N14ClothingBackpackSatchelTribalFilled
+  storage: # Corvax-Change
+    back:
+    - Torch
+    - Torch
+    - Torch
+    - N14Bandage
+    - Ointment
+    - N14HealingPowder
+    - N14HealingPoultice # spare healing supplies to lighten the Shaman's load
+
+- type: playTimeTracker
+  id: SuperElder

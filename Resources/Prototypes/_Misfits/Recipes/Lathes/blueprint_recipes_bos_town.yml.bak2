@@ -1032,7 +1032,7 @@
 # --- Town Tier 3 Weapons ---
 - type: latheRecipe
   id: N14BPTownWeaponRevolver44Magnun
-  result: N14WeaponRevolver44Magnun
+  result: N14WeaponRevolver44Magnum
   category: N14BlueprintTownWeaponsT3
   completetime: 10
   requiresBlueprint: true

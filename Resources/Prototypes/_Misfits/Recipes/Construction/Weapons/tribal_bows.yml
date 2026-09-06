@@ -21,7 +21,7 @@
         doAfter: 4
 
   - node: TribalWarBow
-    entity: N14WarBow
+    entity: N14TribalWarBow
 
 - type: constructionGraph
   id: TribalRecurveBow
@@ -42,4 +42,4 @@
         doAfter: 2
 
   - node: TribalRecurveBow
-    entity: N14RecurveBow
+    entity: N14TribalRecurveBow

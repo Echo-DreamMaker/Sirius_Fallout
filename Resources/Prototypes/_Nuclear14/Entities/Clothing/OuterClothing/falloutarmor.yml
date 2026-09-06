@@ -325,8 +325,8 @@
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
   id: N14ClothingOuterEnclaveArmor
-  name: enclave armor
-  description: A suit of armor used by Enclave soldiers.
+  name: U.S. Army armor
+  description: A suit of armor used by U.S. Army soldiers.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutenclavearmor.rsi
@@ -362,8 +362,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterEnclavePeacekeeper
-  name: enclave peacekeeper vest
-  description: A bulletproof vest used by Enclave 'peacekeepers'. Pfft. Yeah, right.
+  name: U.S. Army peacekeeper vest
+  description: A bulletproof vest used by U.S. Army 'peacekeepers'. Pfft. Yeah, right.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutpeacekeeper.rsi
@@ -1678,7 +1678,7 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Wash/InitiateArmor.rsi
   - type: Armor
-    modifiers:
+    modifiers: # #Misfits Tweak: Initiate is the lowest BoS rank - weakest armor in the ladder (T2, 0.85/0.80), now below Squire
       coefficients:
         Blunt: 0.825
         Slash: 0.825
@@ -1705,7 +1705,7 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Wash/SquireArmor.rsi
   - type: Armor
-    modifiers:
+    modifiers: # #Misfits Tweak: Squire (T3, 0.80/0.75) now outranks Initiate (T2, 0.85/0.80)
       coefficients:
         Blunt: 0.8
         Slash: 0.8
@@ -1893,7 +1893,7 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Midw/InitiateArmor.rsi
   - type: Armor
-    modifiers:
+    modifiers: # #Misfits Tweak: Initiate is the lowest BoS rank - weakest armor in the ladder (T2, 0.85/0.80), now below Squire
       coefficients:
         Blunt: 0.825
         Slash: 0.825
@@ -1920,7 +1920,7 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Midw/SquireArmor.rsi
   - type: Armor
-    modifiers:
+    modifiers: # #Misfits Tweak: Squire (T3, 0.80/0.75) now outranks Initiate (T2, 0.85/0.80)
       coefficients:
         Blunt: 0.8
         Slash: 0.8
@@ -2445,12 +2445,12 @@
         Slash: 0.75
         Piercing: 0.85
         Heat: 0.85
-      flatReductions:  
+      flatReductions:
         Blunt: 2
         Slash: 2
         Piercing: 2
         Heat: 2
-    priceMultiplier: 0.8 
+    priceMultiplier: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.75
 
@@ -2458,7 +2458,7 @@
   parent: N14FalloutArmorBase
   id: N14WinterTribeLightArmor
   name: Winter Tribe Light Armor
-  description: локализация 
+  description: локализация
   components:
   - type: Sprite
     sprite: _Sirius/Clothing/OuterClothing/WinterTribeLight.rsi
@@ -2471,12 +2471,12 @@
         Slash: 0.75
         Piercing: 0.85
         Heat: 0.80
-      flatReductions:  
+      flatReductions:
         Blunt: 2
         Slash: 2
         Piercing: 2
         Heat: 2
-    priceMultiplier: 0.8 
+    priceMultiplier: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.75
 
@@ -2484,7 +2484,7 @@
   parent: N14FalloutArmorBase
   id: N14WinterTribeHeavyArmor
   name: Winter Tribe Heavy Armor
-  description: локализация 
+  description: локализация
   components:
   - type: Sprite
     sprite: _Sirius/Clothing/OuterClothing/WinterTribeHeavy.rsi
@@ -2497,12 +2497,12 @@
         Slash: 0.75
         Piercing: 0.70
         Heat: 0.65
-      flatReductions:  
+      flatReductions:
         Blunt: 2
         Slash: 2
         Piercing: 2
         Heat: 2
-    priceMultiplier: 0.8 
+    priceMultiplier: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.75
   - type: ClothingSpeedModifier

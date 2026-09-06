@@ -601,6 +601,22 @@ undecided-loadout-category-misfits-enclave-engineering-science-description =
     a filled electrical toolbox, a handheld radio,
     1 stimpak, 1 gauze pack, and 1 flare.
 
+# Misfits NCR Office of Science and Industry (OSI) sets
+undecided-loadout-category-misfits-osi-mechanical-name = Mechanical Branch Kit
+undecided-loadout-category-misfits-osi-mechanical-description =
+    Includes a filled mechanical toolbox, a filled electrical toolbox,
+    a handheld radio, 1 stimpak, 1 gauze pack, and 1 flare.
+
+undecided-loadout-category-misfits-osi-medical-name = Medical Branch Kit
+undecided-loadout-category-misfits-osi-medical-description =
+    Includes a filled combat medkit, 1 super stimpak,
+    1 RadAway blood bag, 2 gauze packs, and a handheld radio.
+
+undecided-loadout-category-misfits-osi-field-name = Field Branch Kit
+undecided-loadout-category-misfits-osi-field-description =
+    Includes a radiation suit, a geiger counter, a filled radiation medkit,
+    a 9mm pistol, 1 stimpak, 1 gauze pack, 1 flare, and a handheld radio.
+
 # Misfits NCR rank sets
 undecided-loadout-category-misfits-ncra-pfc-fireteam-name = Private First Class Fireteam Kit
 undecided-loadout-category-misfits-ncra-pfc-fireteam-description =
@@ -659,7 +675,7 @@ undecided-loadout-category-misfits-ncra-captain-marksman-description =
 undecided-loadout-category-misfits-ncra-captain-service-rifle-name = Captain Field Officer Kit
 undecided-loadout-category-misfits-ncra-captain-service-rifle-description =
     Includes NCR officer armor, an NCR belt,
-    a scoped service rifle with 6 magazines,
+    a marksman carbine with 4 magazines,
     a 9mm pistol with 3 magazines, a handheld radio,
     2 smoke grenades, a stick of dynamite, a C ration MRE,
     a stimpak, 2 super stimpaks, a RadAway blood bag,
@@ -736,6 +752,18 @@ undecided-loadout-category-misfits-priestess-zealot-name = Priestess of Zealotry
 undecided-loadout-category-misfits-priestess-zealot-desc =
     Includes a Ceremonial Sword, Legionnaire Shield,
     spear quiver, 3 pilum, 2 Bolas, 2 Cazador acid sacs,
+    2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-acolyte-healing-name = Acolyte Healer
+undecided-loadout-category-misfits-acolyte-healing-desc =
+    Includes 2 Smelling Salts, 1 health analyzer, 1 Bitter Drink,
+    1 Poultices, 1 Powder, 1 bandage,
+    2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-acolyte-zealot-name = Acolyte Zealot
+undecided-loadout-category-misfits-acolyte-zealot-desc =
+    Includes a Gladius, Legionnaire buckler,
+    spear quiver, A battle rifle, 308 clips,
     2 K rations, and a ceramic flask.
 
 undecided-loadout-category-misfits-eighties-block-road-captain-name = Road Captain Kit

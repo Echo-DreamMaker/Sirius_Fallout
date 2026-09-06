@@ -3,7 +3,8 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._NC.Trade;
 
 [Serializable, NetSerializable]
-public sealed class ContractTargetClientData
+[DataDefinition]
+public sealed partial class ContractTargetClientData
 {
     [DataField("match")]
     public PrototypeMatchMode MatchMode = PrototypeMatchMode.Exact;

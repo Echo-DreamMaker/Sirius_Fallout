@@ -1,0 +1,59 @@
+# #Misfits Add - Patreon supporter hats (shareholder roles).
+# Credits: Misfits Nuclear Wasteland. Gated in the character editor via the "Patreon"
+# loadout tab (see _Misfits/Loadouts/patreon.yml), where each hat reflects the
+# supporter's shareholder role and is gated by supporter tier.
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsClothingHeadPatreonBondholder
+  name: Bondholder hat
+  description: A crisp hat bearing the mark of a Bondholder. Worn by those whose patronage keeps the settlement's wheels turning.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/Patreon/bondholder.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/Patreon/bondholder.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsClothingHeadPatreonEquityPartner
+  name: Equity Partner hat
+  description: A hat worn by Equity Partners, whose investment keeps wasteland ventures afloat.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/Patreon/equitypartner.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/Patreon/equitypartner.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsClothingHeadPatreonVentureCapitalist
+  name: Venture Capitalist hat
+  description: A hat favored by Venture Capitalists, always scouting the next big score to back.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/Patreon/venturecapitalist.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/Patreon/venturecapitalist.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsClothingHeadPatreonShareholder
+  name: Shareholder hat
+  description: A hat marking a Shareholder of the settlement's fortunes.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/Patreon/shareholder.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/Patreon/shareholder.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsClothingHeadPatreonPrincipalShareholder
+  name: Principal Shareholder hat
+  description: A hat worn by Principal Shareholders, the highest tier of patron supporting the settlement.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/Patreon/principalshareholder.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/Patreon/principalshareholder.rsi

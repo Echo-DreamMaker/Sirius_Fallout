@@ -1002,7 +1002,7 @@ public sealed class ChatUIController : UIController
                 terms = nameParts.Length > 1 ? new[] { nameParts[0], nameParts[^1] } : nameParts;
             }
 
-            var color = Color.TryFromHex(_config.GetCVar(CCVars.ChatHighlightColor)) ?? Color.Gold;
+            var color = Color.TryFromHex(_config.GetCVar(CCVars.ChatHighlightColor), out var parsedColor) ? parsedColor : Color.Gold;
             foreach (var term in terms.Distinct(StringComparer.OrdinalIgnoreCase).OrderByDescending(term => term.Length))
             {
                 msg.WrappedMessage = SharedChatSystem.InjectFontSizeAroundString(msg, term, 14);

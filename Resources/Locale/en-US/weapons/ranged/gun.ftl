@@ -16,7 +16,7 @@ gun-FullAuto = full-auto
 gun-ballistic-cycle = Cycle
 gun-ballistic-cycled = Cycled
 gun-ballistic-cycled-empty = Cycled (empty)
-gun-ballistic-transfer-invalid = {CAPITALIZE(THE($ammoEntity))} won't fit inside {THE($targetEntity)}!
+gun-ballistic-transfer-invalid = {CAPITALIZE(THE($ammoEntity))}'s items won't fit inside {THE($targetEntity)}!
 gun-ballistic-transfer-empty = {CAPITALIZE(THE($entity))} is empty.
 gun-ballistic-transfer-target-full = {CAPITALIZE(THE($entity))} is already fully loaded.
 
@@ -48,3 +48,6 @@ gun-revolver-insert = Inserted
 gun-revolver-spin = Spin revolver
 gun-revolver-spun = Spun
 gun-speedloader-empty = Speedloader empty
+
+# Misfit: gun refactoring. Later on this might need to accomodate for diff types of guns
+gun-general-empty = {$entName}'s Empty

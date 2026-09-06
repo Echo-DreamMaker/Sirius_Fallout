@@ -1,0 +1,716 @@
+# EXCHANGE RATES FOR REFERENCE
+#GOLD BAR = 25 CAPS, 1.6 GOLD BARS = 1 AUREUS, 40 CAPS
+#SILVER BAR = 20 CAPS = 5 DENARIUS
+#1 DENARIUS = 4 CAPS
+#1 AUREUS = 40 CAPS
+#1 CAP = 2 NCR
+#IF I CATCH YOU CHANGING ONE VALUE WITHOUT ADJUSTING THE OTHERS, I WILL CROSS YOU - LEGATE TYTOS
+#'buy2' refers to what the PLAYER buys, 'sell2' refers to what the PLAYER sells.
+
+#legion trade market - legion prices should be 1/4th of cap prices as 1 denar = 4 caps
+
+- type: entity
+  id: TrademachineLegion
+  parent: Trademachine
+  abstract: true
+  name: Legion Market Stall
+  description: Market stall operated by Legion Plebeians, offering goods from the east.
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: NcStoreStructuredBoundUi
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        density: 300
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/legionmarket.rsi
+    layers:
+    - state: legionmarket
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: TrademachineLegionCity
+  parent: TrademachineLegion
+  name: Legion Market Stall
+  description: Market stall operated by Legion Plebeians, offering goods from the east.
+  suffix: vendor, normal
+  components:
+  - type: NcStore
+    buyPresets:
+    - legion_buy2
+    sellPresets:
+    - legion_sell2
+    contractPresets:
+    - PresetBazar
+  # #Misfits Change — restored TownieShopkeeper access restriction (players must be shopkeeper to use terminal)
+  # #Misfits Add — track Hall of Fame roster for the tier contract system
+  - type: AccessReader
+    access:
+    - [ "CaesarLegionTrader" ]
+  - type: NcContractRoster
+
+- type: storeCategoryStructured
+  id: LegionBuy2_MachineGuns
+  name: "Machine Guns"
+  entries:
+  - proto: N14WeaponLMGBren # one more time for those who dont understand buying power: DENARIUS is FOUR TIMES AS VALUABLE as caps, so the prices are 1/4th of cap prices
+    price: 1200
+    count: 2
+  - proto: N14WeaponM60GPMG
+    price: 1000
+    count: 2
+  - proto: N14WeaponLMGchinese
+    price: 900
+    count: 2
+  - proto: N14WeaponRifleAk112
+    price: 400
+    count: 3
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Rifles
+  name: "Rifles"
+  entries:
+  - proto: N14WeaponRifle556EM2
+    price: 80
+  - proto: N14WeaponRifle762SKS
+    price: 45
+  - proto: N14WeaponRifle762Chinese
+    price: 100
+  - proto: N14WeaponSniper308Ross
+    price: 31
+  - proto: N14WeaponRifle308Battle
+    price: 25
+  - proto: N14WeaponSniper308Tribal
+    price: 20
+  - proto: N14WeaponSniper308TribalUpgraded
+    price: 25
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Smgs
+  name: "SMGs"
+  entries:
+  - proto: N14WeaponSMG45
+    price: 38
+  - proto: N14WeaponSMGGreaseGun
+    price: 40
+  - proto: N14WeaponSMG10mmChinese
+    price: 45
+  - proto: N14WeaponSMGPPSh41
+    price: 50
+  - proto: N14WeaponSMG10mm
+    price: 63
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Shotguns
+  name: "Shotguns"
+  entries:
+  - proto: N14WeaponShotgunNeostead
+    price: 160
+    count: 2
+  - proto: N14WeaponShotgunBoomstick
+    price: 25
+  - proto: N14WeaponShotgunBlowback
+    price: 110
+    count: 3
+  - proto: N14WeaponShotgunAuto
+    price: 75
+  - proto: N14WeaponShotgunSawedOff
+    price: 31
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Pistols
+  name: "Pistols"
+  entries:
+  - proto: N14WeaponSMG10mmPipe
+    price: 43
+  - proto: N14WeaponRevolver44TribalUpgradedExtra
+    price: 30
+  - proto: N14WeaponPistol45Colt
+    price: 11
+  - proto: N14WeaponRevolver45-70HandcannonUpgraded
+    price: 93
+  - proto: N14WeaponRevolver45-70Handcannon
+    price: 10
+  - proto: N14WeaponRevolver44Magnum
+    price: 20
+  - proto: N14WeaponRevolver44Tribal
+    price: 13
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Armor
+  name: "Armor"
+  entries:
+  - proto: N14ClothingOuterLegionnaireVeteranArmor
+    price: 160
+  - proto: N14ClothingOuterLegionnaireExplorerArmor
+    price: 75
+  - proto: N14ClothingOuterLegionnaireBaseArmor
+    price: 50
+  - proto: N14ClothingOuterLegionnaireRecruitArmor
+    price: 25
+  - proto: N14ClothingOuterLegionnaireReconnaissanceArmor
+    price: 75
+  - proto: N14ClothingOuterLegionnaireVexillariusArmor
+    price: 75
+  - proto: N14ClothingLegionReconArmor
+    price: 60
+  - proto: N14ClothingOuterDeanLegionnairePrimeArmor
+    price: 200
+  - proto: N14ClothingOuterDeanLegionnaireRecruitArmor
+    price: 180
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Helmets
+  name: "Helmets"
+  entries:
+  - proto: N14ClothingHeadHatAnimal
+    price: 8
+  - proto: N14ClothingHeadHatLegionHood
+    price: 1
+  - proto: N14ClothingHeadHatDeanRecruitHelmet
+    price: 25
+  - proto: N14ClothingHeadHatDeanPrimeHelmet
+    price: 30
+  - proto: N14ClothingHeadHatBaseballHelmet
+    price: 30
+  - proto: N14ClothingHeadHatLightBaseballHelmet
+    price: 5
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Ammo
+  name: "Ammo"
+  entries:
+  - proto: N14AmmoBox556
+    price: 55
+  - proto: N14AmmoBox9mm
+    price: 40
+  - proto: N14AmmoBox10mm
+    price: 40
+  - proto: N14AmmoBox12gauge
+    price: 45
+  - proto: N14AmmoBox308
+    price: 50
+  - proto: N14AmmoBox44Magnum
+    price: 32
+  - proto: N14AmmoBox762
+    price: 55
+  - proto: N14AmmoBox45
+    price: 40
+  - proto: 40mmGrenadeFrag
+    price: 63
+    count: 10
+  - proto: 40mmGrenadeFire
+    price: 55
+    count: 10
+  - proto: MagazineBox545
+    price: 35
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Melee
+  name: "Melee"
+  entries:
+  - proto: N14LongSword
+    price: 25
+  - proto: N14WastelandSpear
+    price: 19
+  - proto: N14PilumSpear
+    price: 10
+  - proto: ThrowingKnife
+    price: 10
+  - proto: N14TribalKnife
+    price: 8
+  - proto: N14WastelandTribalJavelin
+    price: 15
+  - proto: N14TribalRecurveBow
+    price: 5
+  - proto: N14TribalClub
+    price: 10
+  - proto: N14TribalBigClubDecorated
+    price: 150
+  - proto: N14Gladius
+    price: 80
+  - proto: N14CeremonialSword
+    price: 138
+  - proto: N14ClothingHandsPowerFistGoliath
+    price: 160
+  - proto: N14WastelandTribalSpear
+    price: 20
+  - proto: N14SledgeHammer
+    price: 50
+  - proto: N14TribalBigClub
+    price: 30
+  - proto: N14TrenchClub
+    price: 3
+  - proto: N14TribalMachete
+    price: 2
+  - proto: N14TribalSword
+    price: 70
+  - proto: N14LegionnaireShield
+    price: 15
+  - proto: N14LegionnaireBuckler
+    price: 8
+  - proto: N14WeaponKebab
+    price: 50
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Medicine
+  name: "Medicine"
+  entries:
+  - proto: N14HealingPoultice
+    price: 20
+  - proto: N14HealingPowder
+    price: 10
+  - proto: N14CleansingPowder
+    price: 5
+  - proto: N14BerserkerPowder
+    price: 30
+  - proto: N14Bitterdrink
+    price: 35
+  - proto: N14CleanGauze10
+    amount: 10
+    price: 10
+  - proto: N14AloeSalve
+    amount: 10
+    price: 25
+  - proto: Bloodpack
+    price: 10
+  - proto: ClothingBackpackDuffelSurgeryFilled
+    price: 40
+  - proto: SurgicalSterileWipe
+    price: 5
+  - proto: ClothingBeltMedical
+    price: 15
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Materials
+  name: "Materials"
+  entries:
+  - proto: MaterialWoodPlank
+    amount: 30
+    price: 25
+  - proto: SheetSteel
+    amount: 30
+    price: 88
+  - proto: N14IngotBrass
+    amount: 5
+    price: 100
+  - proto: N14MaterialThread
+    amount: 5
+    price: 25
+  - proto: N14MaterialBrick
+    amount: 1
+    price: 5
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Survival
+  name: "Survival Gear"
+  entries:
+  - proto: ClothingBeltRope
+    price: 19
+  - proto: ClothingBeltMilitary
+    price: 25
+  - proto: MisfitsWendoverMap
+    price: 19
+  - proto: N14Binoculars
+    price: 25
+  - proto: OreBag
+    price: 10
+  - proto: RadioHandheld
+    price: 10
+  - proto: FishingRod
+    price: 13
+  - proto: M14OldSatchel
+    price: 10
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Cosmetics
+  name: "Cosmetics"
+  entries:
+  - proto: TrainingManualLegionLatin
+    price: 350
+  - proto: BookLegionLaw
+    price: 1 #to know the will of Mars is free
+  - proto: N14DecorationFlagpoleLegion
+    price: 5
+  - proto: M14ClothingNeckLegionForgemaster
+    price: 10
+  - proto: M14ClothingNeckLegionMedicus
+    price: 10
+  - proto: NCClothingCollarLegionSlave
+    price: 10
+  - proto: LegionnaireStandard
+    price: 10
+  - proto: N14ClothingNeckCloakLegionRed
+    price: 10
+  - proto: N14ClothingNeckCloakLegionBlack
+    price: 10
+  - proto: N14ClothingNeckCloakLegionWhite
+    price: 10
+  - proto: N14ClothingUniformJumpsuitLegionnaire
+    price: 1
+  - proto: N14ClothingUniformJumpsuitLegionnaireOther
+    price: 1
+  - proto: M14LegionBackpackCapeBlack
+    price: 25
+  - proto: M14LegionBackpackCapeRed
+    price: 25
+  - proto: SprayPaintRed
+    price: 5
+  - proto: SprayPaintBlack
+    price: 5
+  - proto: SprayPaintPurple
+    price: 5
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Currency # IF YOU CHANGE ONE EXCHANGE RATE, YOU MUST CHANGE ALL OTHERS ACROSS ALL FOUR FILES TO MATCH, OR YOU WILL CREATE AN INFINITE MONEY GLITCH
+  name: "Currency"
+  entries:
+  - proto: N14CurrencyLegionAureus
+    price: 10
+    amount: 1
+  - proto: N14CurrencyCap4
+    price: 1
+    amount: 4 # N14CurrencyCap4's Stack count is 4; amount sets units-per-purchase so buying once actually gives 4 caps.
+  #if you screw with the price of one currency, silver, or gold, you must change everything else to match.
+  # legion wont buy ncr dollars AT ALL because they dont want that profligate fiat trash.
+
+- type: storePresetStructured #list of categories
+  id: legion_buy2
+  currency: LegionDenarius
+  categories:
+  - LegionBuy2_MachineGuns
+  - LegionBuy2_Rifles
+  - LegionBuy2_Smgs
+  - LegionBuy2_Shotguns
+  - LegionBuy2_Pistols
+  - LegionBuy2_Armor
+  - LegionBuy2_Helmets
+  - LegionBuy2_Ammo
+  - LegionBuy2_Melee
+  - LegionBuy2_Medicine
+  - LegionBuy2_Materials
+  - LegionBuy2_Survival
+  - LegionBuy2_Cosmetics
+  - LegionBuy2_Currency
+
+- type: storeCategoryStructured
+  id: LegionSell2_MachineGuns
+  name: "Machine Guns"
+  entries:
+  - proto: N14WeaponLMGBren
+    price: 600
+  - proto: N14WeaponM60GPMG
+    price: 500
+  - proto: N14WeaponLMGchinese
+    price: 450
+  - proto: N14WeaponRifleAk112
+    price: 400
+
+- type: storeCategoryStructured
+  id: LegionSell2_Rifles
+  name: "Rifles"
+  entries:
+  - proto: N14WeaponRifle556EM2
+    price: 30
+  - proto: N14WeaponRifle762SKS
+    price: 19
+  - proto: N14WeaponRifle762Chinese
+    price: 10
+  - proto: N14WeaponSniper308Ross
+    price: 16
+  - proto: N14WeaponRifle308Battle
+    price: 13
+  - proto: N14WeaponSniper308Tribal
+    price: 10
+  - proto: N14WeaponSniper308TribalUpgraded
+    price: 13
+
+- type: storeCategoryStructured
+  id: LegionSell2_Smgs
+  name: "SMGs"
+  entries:
+  - proto: N14WeaponSMG45
+    price: 19
+  - proto: N14WeaponSMGGreaseGun
+    price: 20
+  - proto: N14WeaponSMG10mmChinese
+    price: 23
+  - proto: N14WeaponSMGPPSh41
+    price: 25
+  - proto: N14WeaponSMG10mm
+    price: 32
+
+- type: storeCategoryStructured
+  id: LegionSell2_Shotguns
+  name: "Shotguns"
+  entries:
+  - proto: N14WeaponShotgunNeostead
+    price: 80
+  - proto: N14WeaponShotgunBoomstick
+    price: 13
+  - proto: N14WeaponShotgunBlowback
+    price: 55
+  - proto: N14WeaponShotgunAuto
+    price: 38
+  - proto: N14WeaponShotgunSawedOff
+    price: 16
+
+- type: storeCategoryStructured
+  id: LegionSell2_Pistols
+  name: "Pistols"
+  entries:
+  - proto: N14WeaponSMG10mmPipe
+    price: 22
+  - proto: N14WeaponRevolver44TribalUpgradedExtra
+    price: 15
+  - proto: N14WeaponPistol45Colt
+    price: 6
+  - proto: N14WeaponRevolver45-70HandcannonUpgraded
+    price: 47
+  - proto: N14WeaponRevolver45-70Handcannon
+    price: 5
+  - proto: N14WeaponRevolver44Magnum
+    price: 10
+  - proto: N14WeaponRevolver44Tribal
+    price: 7
+
+- type: storeCategoryStructured
+  id: LegionSell2_Armor
+  name: "Armor"
+  entries:
+  - proto: N14ClothingOuterLegionnaireVeteranArmor
+    price: 80
+  - proto: N14ClothingOuterLegionnaireExplorerArmor
+    price: 38
+  - proto: N14ClothingOuterLegionnaireBaseArmor
+    price: 25
+  - proto: N14ClothingOuterLegionnaireRecruitArmor
+    price: 13
+  - proto: N14ClothingOuterLegionnaireReconnaissanceArmor
+    price: 38
+  - proto: N14ClothingOuterLegionnaireVexillariusArmor
+    price: 38
+  - proto: N14ClothingLegionReconArmor
+    price: 60
+  - proto: N14ClothingOuterDeanLegionnairePrimeArmor
+    price: 100
+  - proto: N14ClothingOuterDeanLegionnaireRecruitArmor
+    price: 90
+
+- type: storeCategoryStructured
+  id: LegionSell2_Helmets
+  name: "Helmets"
+  entries:
+  - proto: N14ClothingHeadHatAnimal
+    price: 4
+  - proto: N14ClothingHeadHatLegionHood
+    price: 1
+  - proto: N14ClothingHeadHatDeanRecruitHelmet
+    price: 13
+  - proto: N14ClothingHeadHatDeanPrimeHelmet
+    price: 15
+  - proto: N14ClothingHeadHatBaseballHelmet
+    price: 15
+  - proto: N14ClothingHeadHatLightBaseballHelmet
+    price: 3
+
+
+- type: storeCategoryStructured
+  id: LegionSell2_Melee
+  name: "Melee"
+  entries:
+  - proto: N14LongSword
+    price: 13
+  - proto: N14WastelandSpear
+    price: 10
+  - proto: N14PilumSpear
+    price: 5
+  - proto: N14WastelandTribalJavelin
+    price: 8
+  - proto: N14TribalRecurveBow
+    price: 3
+  - proto: N14TribalClub
+    price: 5
+  - proto: N14TribalBigClubDecorated
+    price: 75
+  - proto: N14Gladius
+    price: 40
+  - proto: N14CeremonialSword
+    price: 69
+  - proto: N14WastelandTribalSpear
+    price: 10
+  - proto: N14SledgeHammer
+    price: 25
+  - proto: N14TribalBigClub
+    price: 15
+  - proto: N14TrenchClub
+    price: 2
+  - proto: N14TribalMachete
+    price: 1
+  - proto: N14TribalSword
+    price: 35
+  - proto: N14LegionnaireShield
+    price: 8
+  - proto: N14LegionnaireBuckler
+    price: 4
+
+- type: storeCategoryStructured
+  id: LegionSell2_Medicine
+  name: "Medicine"
+  entries:
+  - proto: N14HealingPoultice
+    price: 10
+  - proto: N14HealingPowder
+    price: 5
+  - proto: N14CleansingPowder
+    price: 3
+  - proto: N14BerserkerPowder
+    price: 15
+  - proto: N14Bitterdrink
+    price: 18
+  - proto: N14CleanGauze
+    price: 1
+  - proto: N14AloeSalve
+    price: 1
+  - proto: Bloodpack
+    price: 5
+  - proto: SurgicalSterileWipe
+    price: 3
+
+- type: storeCategoryStructured
+  id: LegionSell2_Materials
+  name: "Materials"
+  entries:
+  - proto: MaterialWoodPlank2
+    count: 2
+    price: 1
+  - proto: SheetSteel
+    price: 1
+  - proto: N14IngotLead
+    price: 2
+  - proto: N14IngotBrass
+    price: 10
+  - proto: N14MaterialThread
+    price: 2
+
+- type: storeCategoryStructured
+  id: LegionSell2_Survival
+  name: "Survival"
+  entries:
+  - proto: ClothingBeltRope
+    price: 10
+  - proto: ClothingBeltMilitary
+    price: 13
+  - proto: MisfitsWendoverMap
+    price: 10
+  - proto: N14Binoculars
+    price: 13
+  - proto: OreBag
+    price: 5
+  - proto: RadioHandheld
+    price: 5
+  - proto: FishingRod
+    price: 7
+  - proto: M14OldSatchel
+    price: 5
+
+- type: storeCategoryStructured
+  id: LegionSell2_Cosmetics
+  name: "Cosmetics"
+  entries:
+  - proto: TrainingManualLegionLatin
+    price: 175
+  - proto: BookLegionLaw
+    price: 1
+  - proto: N14DecorationFlagpoleLegion
+    price: 3
+  - proto: M14ClothingNeckLegionForgemaster
+    price: 5
+  - proto: M14ClothingNeckLegionMedicus
+    price: 5
+  - proto: NCClothingCollarLegionSlave
+    price: 5
+  - proto: LegionnaireStandard
+    price: 5
+  - proto: N14ClothingNeckCloakLegionRed
+    price: 5
+  - proto: N14ClothingNeckCloakLegionBlack
+    price: 5
+  - proto: N14ClothingNeckCloakLegionWhite
+    price: 5
+  - proto: N14ClothingUniformJumpsuitLegionnaire
+    price: 1
+  - proto: N14ClothingUniformJumpsuitLegionnaireOther
+    price: 1
+  - proto: M14LegionBackpackCapeBlack
+    price: 13
+  - proto: M14LegionBackpackCapeRed
+    price: 13
+  - proto: SprayPaintRed
+    price: 3
+  - proto: SprayPaintBlack
+    price: 3
+  - proto: SprayPaintPurple
+    price: 3
+
+- type: storeCategoryStructured
+  id: LegionSell2_Currency # IF YOU CHANGE ONE EXCHANGE RATE, YOU MUST CHANGE ALL OTHERS ACROSS ALL FOUR FILES TO MATCH, OR YOU WILL CREATE AN INFINITE MONEY GLITCH
+  name: "Currency"
+  entries:
+  - proto: N14IngotGold1
+    price: 6
+  - proto: N14IngotSilver1
+    price: 5
+  - proto: N14CurrencyCap4
+    amount: 4
+    price: 1
+  - proto: N14CurrencyLegionAureus
+    price: 10
+  - proto: N14IngotCopper1
+    price: 2
+  - proto: N14IngotAluminum1
+    price: 2
+  - proto: N14IngotIron1
+    price: 2
+  - proto: N14IngotBrass1
+    price: 10
+  - proto: N14IngotLead1
+    price: 2
+  #if you screw with the price of one currency, silver, or gold, you must change everything else to match.
+
+- type: storePresetStructured #list of categories
+  id: legion_sell2
+  currency: LegionDenarius
+  categories:
+  - LegionSell2_MachineGuns
+  - LegionSell2_Rifles
+  - LegionSell2_Smgs
+  - LegionSell2_Shotguns
+  - LegionSell2_Pistols
+  - LegionSell2_Armor
+  - LegionSell2_Helmets
+  - LegionSell2_Melee
+  - LegionSell2_Medicine
+  - LegionSell2_Materials
+  - LegionSell2_Survival
+  - LegionSell2_Cosmetics
+  - LegionSell2_Currency

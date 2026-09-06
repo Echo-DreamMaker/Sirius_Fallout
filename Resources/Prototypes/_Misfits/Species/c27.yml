@@ -10,6 +10,11 @@
   order: 4 # #Misfits Add - sort just after Super Mutant, before Robot variants
   whitelistRequired: true # #Misfits Add - administrative whitelist gate
   restrictedCustomization: true # #Misfits Add - keep marking choices controlled per faction skin
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   allowedLoadoutCategories: # #Misfits Add - show loadout tab despite restrictedCustomization (armor from kit; accessories/weapons still selectable)
   - Weapons
 #  - Accessories
@@ -121,6 +126,11 @@
   order: 5
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   allowedLoadoutCategories: # #Misfits Add - show loadout tab for NCR variant
   - Weapons
 #  - Accessories
@@ -158,6 +168,11 @@
   order: 6
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   allowedLoadoutCategories: # #Misfits Add - show loadout tab for BoS variant
   - Weapons
 #  - Accessories
@@ -194,6 +209,11 @@
   order: 7
   whitelistRequired: true
   restrictedCustomization: true
+  allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
   allowedLoadoutCategories:
   - Weapons
 #  - Accessories

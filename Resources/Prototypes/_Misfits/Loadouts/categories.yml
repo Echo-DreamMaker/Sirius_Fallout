@@ -1,0 +1,6 @@
+# #Cythisiax Add - Patreon supporter loadout category
+# Loadouts in this category require a Patreon supporter tier (supporterTier on the loadout)
+# and only appear in the "Patreon" tab of the character editor.
+- type: loadoutCategory
+  id: Patreon
+  root: true

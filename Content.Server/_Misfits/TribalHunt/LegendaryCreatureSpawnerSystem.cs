@@ -46,7 +46,7 @@ public sealed partial class LegendaryCreatureSpawnerSystem : EntitySystem
     };
 
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;

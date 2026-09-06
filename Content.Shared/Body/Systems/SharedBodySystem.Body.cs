@@ -26,6 +26,9 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Standing;
 using Robust.Shared.Timing;
 
+// #Misfits Add - Roundstart prosthetics use their own event type to avoid a duplicate directed subscription.
+using Content.Shared._Misfits.Prosthetics;
+
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
@@ -454,6 +457,10 @@ public partial class SharedBodySystem
 
         foreach (var part in GetBodyChildren(uid, component))
             EnsureComp<BodyPartAppearanceComponent>(part.Id);
+
+        // #Misfits Add - Notify roundstart prosthetics. Uses a distinct event type so the server
+        // RoundstartProstheticSystem can subscribe without duplicating this directed subscription.
+        RaiseLocalEvent(uid, new RoundstartProfileLoadedEvent());
     }
 
     private void OnStandAttempt(Entity<BodyComponent> ent, ref StandAttemptEvent args)

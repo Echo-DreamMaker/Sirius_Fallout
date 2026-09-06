@@ -1,0 +1,43 @@
+# #Misfits Add - Bwonsamdi's speech and vocal emotes use the existing Deathclaw recordings.
+- type: speechSounds
+  id: MisfitsDeathclaw
+  saySound:
+    path: /Audio/_Misfits/Mobs/Deathclaw/idle.ogg
+  askSound:
+    path: /Audio/_Misfits/Mobs/Deathclaw/aggro1.ogg
+  exclaimSound:
+    path: /Audio/_Misfits/Mobs/Deathclaw/taunt.ogg
+
+- type: emoteSounds
+  id: MisfitsDeathclawEmotes
+  params:
+    variation: 0.08
+  sounds:
+    MisfitsDeathclawGrowl:
+      path: /Audio/_Misfits/Mobs/Deathclaw/aggro2.ogg
+    MisfitsDeathclawRoar:
+      path: /Audio/_Misfits/Mobs/Deathclaw/taunt.ogg
+
+- type: emote
+  id: MisfitsDeathclawGrowl
+  name: misfits-emote-name-deathclaw-growl
+  category: Vocal
+  icon: Interface/Emotes/growl.png
+  available: false
+  whitelist:
+    components:
+    - SentientDeathclaw
+  chatMessages:
+  - misfits-emote-message-deathclaw-growl
+
+- type: emote
+  id: MisfitsDeathclawRoar
+  name: misfits-emote-name-deathclaw-roar
+  category: Vocal
+  icon: Interface/Emotes/scream.png
+  available: false
+  whitelist:
+    components:
+    - SentientDeathclaw
+  chatMessages:
+  - misfits-emote-message-deathclaw-roar

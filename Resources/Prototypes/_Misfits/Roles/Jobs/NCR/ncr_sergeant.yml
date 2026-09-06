@@ -18,6 +18,9 @@
     - !type:CharacterDepartmentTimeRequirement # T5 faction timelock (16h NCR)
       department: NCR
       min: 57600 # 16 hours
+    - !type:CharacterPlaytimeRequirement
+      tracker: NCRWeaponSpecialist
+      min: 14400 # 4 hours as Weapon Specialist
   startingGear: NCRNCOGear
   icon: "JobIconNcrSerg"
   supervisors: job-supervisors-ncr-nco

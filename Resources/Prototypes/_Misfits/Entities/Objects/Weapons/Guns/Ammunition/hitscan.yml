@@ -48,7 +48,7 @@
   id: N14MFLaserGreen
   damage:
     types:
-      Heat: 25
+      Heat: 26
   muzzleFlash:
     sprite: _Misfits/Objects/Weapons/Guns/Projectiles/green_laser.rsi
     state: muzzle_green_laser
@@ -80,7 +80,8 @@
   id: N14MFLaserViolet
   damage:
     types:
-      Heat: 30
+      Heat: 38
+      Radiation: 3
   tintColor: "#8B00FF"
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -114,7 +115,7 @@
     state: impact_laser
 
 #MARK: Electron Charge Pack Pulses — Red < Green < Blue < Violet
-# Used by N14ElectronChargePackRed/Green/Blue/Violet. All pulse weapons accept any of these.
+# Used by the colored ECP variants accepted by the RCW.
 
 - type: hitscan
   id: N14PulseRed

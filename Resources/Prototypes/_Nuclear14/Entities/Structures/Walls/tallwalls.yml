@@ -110,6 +110,9 @@
   name: adobe wall
   suffix: tall
   components:
+  - type: Construction
+    graph: N14AdobeWall
+    node: AdobeWallTall
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/tall/adobe.rsi
   - type: Icon

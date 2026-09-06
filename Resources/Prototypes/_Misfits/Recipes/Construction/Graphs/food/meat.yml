@@ -1,0 +1,68 @@
+﻿# cooked human steak and cutlets, don't forget to change microwave recipes too!
+- type: constructionGraph
+  id: HumanMeatSteak
+  start: start
+  graph:
+
+  - node: start
+    edges:
+    - to: human meat steak
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 345
+
+  - node: human meat steak
+    entity: N14FoodMeatHumanCooked
+
+- type: constructionGraph
+  id: HumanMeatCutlet
+  start: start
+  graph:
+
+  - node: start
+    edges:
+    - to: human meat cutlet
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 345
+
+  - node: human meat cutlet
+    entity: N14FoodMeatHumanCutletCooked
+
+- type: constructionGraph
+  id: SupermutantMeatSteak
+  start: start
+  graph:
+
+  - node: start
+    edges:
+    - to: supermutant meat steak
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 360 # tough meat! takes more to cook it
+
+  - node: supermutant meat steak
+    entity: N14FoodMeatSupermutantCooked
+
+- type: constructionGraph
+  id: SupermutantMeatCutlet
+  start: start
+  graph:
+
+  - node: start
+    edges:
+    - to: supermutant meat cutlet
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 360 # tough meat! takes more to cook it
+
+  - node: supermutant meat cutlet
+    entity: N14FoodMeatSupermutantCutletCooked

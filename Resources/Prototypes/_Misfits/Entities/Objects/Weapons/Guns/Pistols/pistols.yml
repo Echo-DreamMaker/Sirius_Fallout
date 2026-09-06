@@ -60,3 +60,51 @@
   - type: Appearance
   - type: StaticPrice
     price: 100
+
+# #Misfits Add - T-60 Pistol. Pre-war .44 sidearm issued alongside T-60 power armor.
+# Ballistics and rate of fire are copied from the Desert Eagle .44
+# (N14WeaponDesertEagle44) and it shares the same N14MagazinePistol44 magazines.
+# The tightened spread values represent the integrated targeting electronics that
+# stand in for the missing iron sights.
+- type: entity
+  name: T-60 pistol
+  parent: N14BaseWeaponPistol
+  id: N14WeaponPistolT60
+  description: A large semi-automatic handgun chambered in .44, this weapon was designed pre-war for power armored units, specifically the T-60 line. Its lack of conventional sights is made up for by its built in electronics that increase its accuracy greatly.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Pistols/t60pistol.rsi
+  - type: Item
+    sprite: _Misfits/Objects/Weapons/Guns/Pistols/t60pistol.rsi
+  - type: Gun
+    fireRate: 2.5
+    minAngle: 0
+    maxAngle: 4
+    angleIncrease: 0.3
+    angleDecay: 8
+    soundGunshot:
+      collection: N14PistolDesertEagleGunshot
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MagazinePistol44
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - N14MagazinePistol44
+      gun_chamber:
+        name: Chamber
+        startingItem: N14Cartridge44Magnum
+        priority: 1
+        whitelist:
+          tags:
+            - N14Cartridge44Magnum
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 100

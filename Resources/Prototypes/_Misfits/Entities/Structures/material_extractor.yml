@@ -1,0 +1,132 @@
+- type: entity
+  parent: N14MachineWaterTreatmentBroken
+  id: N14SeismicMaterialExtractor
+  name: seismic material extractor
+  description: A battered pre-war drill that hammers the ground for usable raw materials. Its racket draws unwanted attention.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Structures/Machines/seismic_extractor.rsi
+    layers:
+    - state: seismic_extractor
+  - type: PointLight
+    enabled: false
+    color: "#ff2020"
+    radius: 3
+    energy: 2
+  - type: MaterialExtractorLandmark
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          N14SeismicMaterialExtractorBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # Balance: all economic and encounter tuning is kept here.
+  - type: MaterialExtractor
+    operatorRadius: 4
+    pulseIntervalSeconds: 2
+    firstWaveMinSeconds: 15
+    firstWaveMaxSeconds: 15
+    waveMinSeconds: 20
+    waveMaxSeconds: 20
+    waveWarningSeconds: 0
+    waveMinMobCount: 1
+    waveMaxMobCount: 3
+    waveSpawnMinDistance: 8
+    waveSpawnMaxDistance: 14
+    waveSpawnAttempts: 40
+    waveSpawnPvsBuffer: 3
+    waveMobWeights:
+      N14MobMaterialExtractorMoleratWave: 24
+      N14MobMaterialExtractorGeckoWave: 18
+      N14MobMaterialExtractorMirelurkWave: 12
+      N14MobMaterialExtractorRadhogWave: 10
+      N14MobMaterialExtractorFireGeckoWave: 8
+      N14MobMaterialExtractorNightstalkerCubWave: 8
+      N14MobMaterialExtractorGiantAntWave: 7
+      N14MobMaterialExtractorNightstalkerWave: 4
+      N14MobMaterialExtractorRadMirelurkWave: 3
+      N14MobMaterialExtractorGiantFireAntWave: 3
+      N14MobMaterialExtractorRadscorpionWave: 3
+    poorDepositChance: 0.25
+    richDepositChance: 0.15
+    poorYieldMultiplier: 0.7
+    richYieldMultiplier: 1.4
+    lowFuelWarningFraction: 0.25
+    fuelSolution: tank
+    fuelReagent: WeldingFuel
+    outputWeights:
+      N14IronOre1: 20
+      N14CopperOre1: 18
+      N14LeadOre1: 14
+      SulfurOre1: 12
+      N14Sand1: 12
+      Salt1: 10
+      N14ZincOre1: 6
+      N14BauxiteOre1: 5
+      FertilizerOre1: 3
+  - type: FuelGenerator
+    on: false
+    targetPower: 1000
+    minTargetPower: 1000
+    optimalPower: 1000
+    maxTargetPower: 1000
+    # A full 250u tank lasts about two hours while the extractor runs.
+    optimalBurnRate: 0.03333333
+    fuelEfficiencyConstant: 0.3
+  - type: PowerSupplier
+    supplyRate: 1000
+    supplyRampRate: 1000
+    supplyRampTolerance: 1000
+    enabled: false
+  - type: ChemicalFuelGeneratorAdapter
+    solution: tank
+    reagents:
+      WeldingFuel: 1
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 250
+        # It spawns ready to operate once; subsequent operation needs refueling.
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 250
+  - type: RefillableSolution
+    solution: tank
+  - type: Storage
+    grid:
+    - 0,0,10,7
+    maxItemSize: Normal
+    clickInsert: false
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.MaterialExtractorUiKey.Key:
+        type: MaterialExtractorBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StorageUiKey.Key
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Tag
+    tags:
+    - Structure
+
+- type: entity
+  parent: N14MachineWaterTreatmentBroken
+  id: N14SeismicMaterialExtractorBroken
+  name: destroyed seismic material extractor
+  description: The drill is silent. Its ruined hopper is full of twisted machinery.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Structures/Machines/seismic_extractor.rsi
+    layers:
+    - state: seismic_extractor_broken
+  - type: MaterialExtractorLandmark

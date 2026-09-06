@@ -440,7 +440,6 @@
     chatsan-word-57: chatsan-replacement-57
     chatsan-word-58: chatsan-replacement-58
     chatsan-word-59: chatsan-replacement-59
-    chatsan-word-60: chatsan-replacement-60
     # #Misfits Fix: 61-72, 75-98, 100, 102-116, 118-125 were added to this YAML in the Jan 2025 upstream merge
     # but NO FTL entries were ever created for them. Without FTL backing the accent system cannot match
     # real words for those slots (it would try to match the literal key string). Commented out until content is defined.

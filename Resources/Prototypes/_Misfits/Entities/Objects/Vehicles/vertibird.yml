@@ -42,3 +42,154 @@
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseStructureDynamic
+  id: N14VehicleVertibird
+  name: vertibird
+  description: A heavy tilt-rotor aircraft rigged for short-range wasteland flight.
+  suffix: Flyable, Wendover
+  components:
+  - type: Vertibird
+    mapConfigId: Wendover
+    startupDuration: 55
+    hoverAltitude: 0.85
+    verticalSpeed: 0.75
+    thrustAcceleration: 6
+    reverseAcceleration: 2
+    maxFlightSpeed: 12
+    flightDrag: 0.75
+    turnSpeedDegrees: 90
+    altitudeTransitionDuration: 5
+    seatCount: 6
+    fuelSolution: vertibirdFuel
+    fuelUsePerSecond: 0.5
+    minimumTakeoffFuel: 30
+  - type: SolutionContainerManager
+    solutions:
+      vertibirdFuel:
+        maxVol: 250
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 250
+  - type: RefillableSolution
+    solution: vertibirdFuel
+  - type: ExaminableSolution
+    solution: vertibirdFuel
+  # #Misfits Fix - mobs are KinematicController bodies, which carry effectively infinite
+  # mass in the solver, so walking into a dynamic body launched the craft across the pad.
+  # Matching the mech pattern of KinematicController plus Pullable makes the vertibird
+  # immune to being shoved while still leaving it draggable, since PullingSystem only
+  # refuses static bodies. Flight is unaffected: it drives velocity directly.
+  - type: Physics
+    bodyType: KinematicController
+  - type: MZPhysics
+    bounciness: 0.05
+  # #Misfits Add - co-pilot turret. Ammunition is the LimitedCharges below.
+  # #Cythisiax Removed - Vertibird co-pilot turret disabled (unwanted feature; caused lag).
+  # - type: VertibirdTurret
+  # #Misfits Add - power armoured passengers can drop out while cruising.
+  - type: VertibirdCombatDrop
+  - type: LimitedCharges
+    maxCharges: 12
+    charges: 12
+  # #Misfits Add - airframe repair. Trained crew weld it back together faster.
+  # Heals Structural because that is all the AircraftStructural container carries.
+  - type: VertibirdRepair
+    doAfterDelay: 8
+    fuelCost: 10
+    damage:
+      types:
+        Structural: -60
+  - type: AircraftImpactDamage
+    minimumSpeed: 4
+    damage:
+      types:
+        Structural: 10
+    speedDamageFactor: 0.5
+    velocityRetention: 0.25
+    damageCooldown: 0.65
+    # #Misfits Add - CMU momentum: smash through destructible walls using leftover speed
+    obstacleDamageMultiplier: 150
+  - type: Appearance
+  - type: CanMoveInAir
+  - type: MovementAlwaysTouching
+  - type: InteractionOutline
+  - type: UserInterface
+    interfaces:
+      enum.VertibirdUiKey.Key:
+        type: VertibirdBoundUserInterface
+  - type: ActivatableUI
+    key: enum.VertibirdUiKey.Key
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/vertibird.rsi
+    drawdepth: Mobs
+    noRot: false
+    offset: 0, 1.8
+    scale: 0.6, 0.6
+    layers:
+    - sprite: _Nuclear14/Mobs/Robots/eyebot.rsi
+      state: shadow_eyebot
+      map: [ enum.VertibirdVisualLayers.Shadow ]
+      offset: 0, -1.8
+      scale: 8, 4
+      color: "#00000055"
+      visible: false
+    - state: vertibird
+      map: [ enum.VertibirdVisualLayers.Base ]
+  - type: Strap
+    position: Stand
+    size: 900
+    # Occupants are hidden while boarded. Keep their interaction origin on the
+    # craft so the standard self-unbuckle action remains within buckle range.
+    buckleOffset: 0, 0
+    lockToBuckleOffset: true
+    selfUnBuckleDelay: 5
+    unbuckleDoafterTime: 5
+    rotation: 0
+    buckleOnInteractHand: false
+    whitelist:
+      requireAll: true
+      components:
+      - HumanoidAppearance
+  - type: MovementSpeedModifier
+    acceleration: 0
+    friction: 5
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.6,-0.6,1.6,0.6"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: AircraftStructural
+
+# #Misfits Add - Turret camera. The gunner's mind occupies this while manning the
+# turret; it is repositioned every tick to sit under the craft on the level below.
+- type: entity
+  id: VertibirdTurretEye
+  name: turret sight
+  description: A gunner's view of the ground below.
+  categories: [ HideSpawnMenu ]
+  components:
+  # Deliberately not a mover: the turret system pins this to the craft every tick,
+  # so any movement input would just fight the tracking.
+  - type: Eye
+    drawFov: false
+  - type: ContentEye
+    maxZoom: 1.44,1.44
+  - type: Input
+    context: "ghost"
+  - type: Examiner
+    skipChecks: true
+  - type: Tag
+    tags:
+    - BypassInteractionRangeChecks

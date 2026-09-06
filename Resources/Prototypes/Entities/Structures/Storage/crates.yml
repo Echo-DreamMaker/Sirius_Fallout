@@ -62,7 +62,7 @@
   parent: CrateGeneric
   id: Trashbin
   name: trash bin
-  description: A trash bin for putting rubbish in.
+  description: A good place to put dreams and rubbish alike.
   components:
   - type: Icon
     sprite: Structures/Storage/Crates/trashbin.rsi

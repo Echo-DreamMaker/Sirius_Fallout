@@ -1,0 +1,15 @@
+- type: inventoryTemplate
+  id: bwonsamdi
+  slots:
+  - name: back
+    slotTexture: back
+    fullTextureName: template_small
+    slotFlags: BACK
+    slotGroup: SecondHotbar
+    stripTime: 5
+    uiWindowPos: 0,0
+    strippingWindowPos: 0,0
+    displayName: Trophy Harness
+    whitelist:
+      tags:
+      - BwonsamdiHarness

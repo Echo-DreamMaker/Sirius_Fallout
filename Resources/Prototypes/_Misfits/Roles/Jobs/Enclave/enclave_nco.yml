@@ -3,7 +3,6 @@
 - type: job
   id: EnclaveNCO
   setPreference: true
-  hideWithoutJobWhitelist: true
   jobWhitelistBypassesRoleTimers: true # #Misfits Change
   weight: 105
   displayWeight: 123
@@ -19,10 +18,7 @@
       - Human
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T5 faction timelock (16h Enclave)
       department: Enclave
-      min: 57600 # 16 hours
-    - !type:CharacterPlaytimeRequirement
-      tracker: EnclaveEnlisted
-      min: 36000 # 10 hours
+      min: 216000 # 60 hours
   startingGear: EnclaveNCOGear
   icon: "JobIconEnclaveNCO"
   supervisors: job-supervisors-enclave-nco
@@ -35,6 +31,9 @@
       - type: NpcFactionMember
         factions:
           - Enclave
+          - Wastelander
+      - type: ReplacementAccent
+        accent: n14Enclave
       - type: PowerArmorProficiency
 
 - type: startingGear

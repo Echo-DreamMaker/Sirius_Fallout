@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
@@ -47,6 +48,21 @@ public sealed class MisfitsBanListAllEui : BaseEui
     public override EuiStateBase GetNewState()
     {
         return new MisfitsBanListAllEuiState(_activeBans, _activeRoleBans, _allBans, _allRoleBans);
+    }
+
+    public override async void HandleMessage(EuiMessageBase msg)
+    {
+        base.HandleMessage(msg);
+
+        if (msg is not PardonRoleBansMessage pardon || !_admins.HasAdminFlag(Player, AdminFlags.Ban))
+            return;
+
+        // The IDs are resolved server-side through the normal pardon path. This keeps
+        // bulk UI actions subject to the same existence/already-pardoned checks as roleunban.
+        foreach (var banId in pardon.BanIds.Distinct())
+            await IoCManager.Resolve<IBanManager>().PardonRoleBan(banId, Player.UserId, DateTimeOffset.Now);
+
+        await LoadAllBans();
     }
 
     private void OnPermsChanged(AdminPermsChangedEventArgs args)

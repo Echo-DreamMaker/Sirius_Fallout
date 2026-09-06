@@ -1,8 +1,8 @@
 - type: entity
   parent: N14SignBase
   id: NCSignBarRat
-  name: " wet rat "
-  description: The sign of the Wet Rat bar
+  name: " Wet Rat Bar Sign "
+  description: Hidden away under the bazaar, its the ideal place to discuss secrets or have a drink without being spotted by passing legionnaires or troopers visiting the settlement.
   suffix: Mapping
   components:
   - type: Sprite

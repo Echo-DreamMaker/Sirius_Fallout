@@ -28,6 +28,12 @@ namespace Content.Client.Stylesheets
         public const string ButtonCaution = "Caution";
         public const string ButtonDanger = "Danger";
 
+        // RobCo archive browser action colors. These remain distinct from the
+        // general-purpose caution/danger controls used by other interfaces.
+        public const string ButtonTerminalFolder = "TerminalFolder";
+        public const string ButtonTerminalCaution = "TerminalCaution";
+        public const string ButtonTerminalDanger = "TerminalDanger";
+
         public const int DefaultGrabberSize = 10;
 
         public abstract Stylesheet Stylesheet { get; }

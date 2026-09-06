@@ -44,7 +44,7 @@ public sealed partial class DungeonSystem
         }
 
         var position = new Vector2i(posX, posY);
-        var dungeonUid = _mapManager.GetMapEntityId(mapId);
+        var dungeonUid = _mapManager.GetMap(mapId);
 
         if (!TryComp<MapGridComponent>(dungeonUid, out var dungeonGrid))
         {
@@ -116,7 +116,7 @@ public sealed partial class DungeonSystem
         }
 
         var mapId = new MapId(mapInt);
-        var mapUid = _mapManager.GetMapEntityId(mapId);
+        var mapUid = _mapManager.GetMap(mapId);
 
         if (!_prototype.TryIndex<DungeonRoomPackPrototype>(args[1], out var pack))
         {
@@ -172,7 +172,7 @@ public sealed partial class DungeonSystem
         }
 
         var mapId = new MapId(mapInt);
-        var mapUid = _mapManager.GetMapEntityId(mapId);
+        var mapUid = _mapManager.GetMap(mapId);
 
         if (!_prototype.TryIndex<DungeonPresetPrototype>(args[1], out var preset))
         {

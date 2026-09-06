@@ -36,7 +36,7 @@
     head: N14ClothingHeadHatNCRPatrolRangerCampaign # Misfits Tweak - patrol rangers are given a campaign hat.
     back: N14ClothingBackpackMilitary # Corvax-Change
     jumpsuit: N14ClothingUniformNCRPatrolRanger
-    ears: N14ClothingHeadsetNCR
+    ears: MisfitsClothingHeadsetNCRRanger
     shoes: N14ClothingBootsLeather
     belt: ClothingBeltRevolverdesertfilled
     gloves: N14ClothingHandsGlovesBlackLeather

@@ -9,8 +9,9 @@
   description: job-description-caesar-legion-trader
   playTimeTracker: CaesarLegionTrader
   requirements:
-  - !type:MinPlayersRequirement
-    min: 0
+  - !type:CharacterDepartmentTimeRequirement # Legion total timelock
+      department: CaesarLegion
+      min: 28800  # 8 hours
   - !type:CharacterSpeciesRequirement
     species:
     - Human
@@ -21,6 +22,8 @@
   icon: "JobIconlegionerRecruit"
   supervisors: job-supervisors-caesar-legion-slave
   canBeAntag: false
+  accessGroups:
+  - CaesarLegionTrader
   special:
   - !type:AddComponentSpecial
     components:
@@ -42,6 +45,8 @@
     shoes: N14ClothingShoesBlack
     id: N14IDLegionaryBadgeTrader
     belt: N14WalletCash
+    pocket1: MisfitsLegionTraderFlatpack
+    pocket2: N14Multitool
   innerClothingSkirt: N14ClothingUniformJumpskirtFalloutBlack
   satchel: N14ClothingBackpackSatchelWastelanderFilled
   duffelbag: N14ClothingBackpackDuffelFilled  # N14TODO: Trader bag

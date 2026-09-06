@@ -183,3 +183,11 @@
       id: MisfitsLoadoutUniformEnclaveUniformGrey
     - type: loadout # Misfits
       id: MisfitsLoadoutUniformEnclaveUniformBlue
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformDeadHorsesUniform
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformSorrowsUniform
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformRustwalkersUniform
+    - type: loadout # Misfits
+      id: MisfitsLoadoutUniformWhiteLegsUniform

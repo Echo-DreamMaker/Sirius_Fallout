@@ -10,15 +10,19 @@ public sealed class SupporterEntry
     public string Username = string.Empty;
     public string? Title;
     public string? NameColor;
+    // #Cythisiax Added - Patreon supporter tier, gates supporter-exclusive features (e.g. Patreon loadout tab).
+    public SupporterTier Tier;
 
     public SupporterEntry() { }
 
-    public SupporterEntry(Guid userId, string username, string? title, string? nameColor)
+    // #Cythisiax Edited - Added Tier parameter
+    public SupporterEntry(Guid userId, string username, string? title, string? nameColor, SupporterTier tier = SupporterTier.None)
     {
         UserId = userId;
         Username = username;
         Title = title;
         NameColor = nameColor;
+        Tier = tier;
     }
 }
 
@@ -46,6 +50,8 @@ public sealed class SupporterSetMessage : EuiMessageBase
     public string Username = string.Empty;
     public string? Title;
     public string? NameColor;
+    // #Cythisiax Added - Patreon tier to assign (nullable so existing admin clients can update without touching tier).
+    public SupporterTier? Tier;
 }
 
 [Serializable, NetSerializable]

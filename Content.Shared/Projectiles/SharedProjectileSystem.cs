@@ -53,7 +53,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
+        InitCompStates(); // Misfit: manual comp state
         SubscribeLocalEvent<ProjectileComponent, PreventCollideEvent>(PreventCollision);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ProjectileHitEvent>(OnEmbedProjectileHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit);
@@ -75,7 +75,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             if (comp.AutoRemoveTime == null || comp.AutoRemoveTime > curTime)
                 continue;
 
-            if (comp.Target is {} targetUid)
+            if (comp.Target is { } targetUid)
                 _popup.PopupClient(Loc.GetString("throwing-embed-falloff", ("item", uid)), targetUid, targetUid);
 
             RemoveEmbed(uid, comp);
@@ -123,7 +123,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             (EntityManager.EntityExists(component.Shooter) || EntityManager.EntityExists(component.Weapon)))
         {
             if (modifiedDamage.AnyPositive() && !deleted)
-                    _color.RaiseEffect(Color.Red, new List<EntityUid> { target }, filter);
+                _color.RaiseEffect(Color.Red, new List<EntityUid> { target }, filter);
 
             var source = EntityManager.EntityExists(component.Shooter)
                 ? component.Shooter!.Value
@@ -185,7 +185,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         args.Handled = true;
 
-        if (component.Target is {} targetUid)
+        if (component.Target is { } targetUid)
             _popup.PopupClient(Loc.GetString("throwing-embed-remove-alert-owner", ("item", uid), ("other", args.User)),
                 args.User, targetUid);
 
@@ -244,7 +244,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         _physics.WakeBody(uid, body: physics);
 
         // try place it in the user's hand
-        if (remover is {} removerUid)
+        if (remover is { } removerUid)
             _hands.TryPickupAnyHand(removerUid, uid);
     }
 
@@ -306,6 +306,15 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         {
             args.Cancelled = true;
         }
+
+        // #Misfits Edited - Broadcast extension point so fork systems (aircraft/vertibird) can add their
+        // own projectile collision rules without a duplicate PreventCollideEvent subscription.
+        if (!args.Cancelled)
+        {
+            var ev = new ProjectilePreventCollideEvent((uid, component), args.OtherEntity);
+            RaiseLocalEvent(ref ev);
+            args.Cancelled = ev.Cancelled;
+        }
     }
 
     public void SetShooter(EntityUid id, ProjectileComponent component, EntityUid shooterId)
@@ -319,7 +328,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, EmbeddableProjectileComponent component, ExaminedEvent args)
     {
-        if (!(component.Target is {} target))
+        if (!(component.Target is { } target))
             return;
 
         var targetIdentity = Identity.Entity(target, EntityManager);

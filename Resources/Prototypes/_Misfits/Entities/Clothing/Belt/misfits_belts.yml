@@ -24,6 +24,19 @@
   - type: Clothing
     sprite: _Misfits/Clothing/Belt/vaultsecuritybelt.rsi
   - type: Appearance
+  # #Cythisiax Fixed - belt could only hold ammo; handcuffs & police baton could not be stored
+  - type: Storage
+    whitelist:
+      tags:
+        - CigPack
+        - N14AmmoCell
+        - Handcuffs
+        - N14PoliceBaton
+        # #Cythisiax Added - belt can store the Wendover map (Document)
+        - Document
+      components:
+        - BallisticAmmoProvider
+        - CartridgeAmmo
 
 # #Misfits Add - BoS Squire webbing variants.
 - type: entity
@@ -46,3 +59,15 @@
     sprite: _Misfits/Clothing/Belt/squirewebbing_brown.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/Belt/squirewebbing_brown.rsi
+
+# #Misfits Add - BoS Paladin webbing variant.
+- type: entity
+  parent: N14ClothingBeltBoSWebbing
+  id: MisfitsClothingBeltPaladinWebbing
+  name: paladin webbing
+  description: Lightweight Brotherhood webbing sized for a Paladin, with pouches for medicine, tools, and ammunition.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Belt/paladinwebbing_black.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Belt/paladinwebbing_black.rsi

@@ -38,6 +38,19 @@ public sealed partial class VaultDoorConsoleComponent : Component
     [DataField]
     public string RaidFaction = "Vault";
 
+    // #Misfits Add - Faction flavour. Lets a second faction's door reuse this system instead of
+    // forking it: only the wording changes, the minigame is identical. Defaults are the Vault-Tec
+    // text this console already showed, so the existing vault door is unaffected.
+    [DataField]
+    public string TerminalTitle = "Vault-Tec Security Terminal";
+
+    /// <summary>
+    /// What this console calls the door it opens, e.g. "vault door". Used in the success popup and
+    /// copied onto <see cref="VaultDoorHackLockComponent"/> so the inside button can name it too.
+    /// </summary>
+    [DataField]
+    public string DoorNoun = "vault door";
+
     [ViewVariables]
     public List<string> WordPool = new();
 

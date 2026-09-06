@@ -36,7 +36,6 @@ namespace Content.Client.Gameplay
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] protected readonly IUserInterfaceManager UserInterfaceManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IViewVariablesManager _vvm = default!;
@@ -225,9 +224,10 @@ namespace Content.Client.Gameplay
                     entityToClick = GetClickedEntity(mousePosWorld);
                 }
 
-                coordinates = _mapManager.TryFindGridAt(mousePosWorld, out var gridUid, out var grid) ?
+                coordinates = _entitySystemManager.GetEntitySystem<SharedMapSystem>().TryFindGridAt(mousePosWorld, out var gridUid, out var grid) ?
                     _entitySystemManager.GetEntitySystem<SharedMapSystem>().MapToGrid(gridUid, mousePosWorld) :
-                    EntityCoordinates.FromMap(_mapManager, mousePosWorld);
+                    EntityCoordinates.FromMap(_entitySystemManager.GetEntitySystem<SharedMapSystem>().GetMap(mousePosWorld.MapId), mousePosWorld,
+                        _entitySystemManager.GetEntitySystem<SharedTransformSystem>());
             }
 
             var message = new ClientFullInputCmdMessage(_timing.CurTick, _timing.TickFraction, funcId)

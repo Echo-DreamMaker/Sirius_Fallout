@@ -96,7 +96,7 @@
 <p>Blueprint: NCR Ranger Arms Schematic (N14BlueprintNCRWeaponsT3)</p>
 <ul>
 <li>N14WeaponDesertEagle44</li>
-<li>N14WeaponRevolver44Magnun</li>
+<li>N14WeaponRevolver44Magnum</li>
 <li>N14WeaponRevolver45-70RangerSequoia</li>
 <li>N14WeaponRifle308Battle</li>
 <li>N14WeaponRifle556Carbine</li>
@@ -204,6 +204,7 @@
 <p>Blueprint: Legion Legionnaire Arsenal (N14BlueprintLegionWeaponsT2)</p>
 <ul>
 <li>N14Machete</li>
+<li>N14Gladius</li>
 <li>N14TrenchClub</li>
 <li>N14TribalHatchet</li>
 <li>N14TribalMachete</li>
@@ -220,6 +221,7 @@
 <li>N14ClothingLegionReconArmor</li>
 <li>N14ClothingOuterLegionnaireBaseArmor</li>
 <li>N14ClothingOuterLegionnaireVexillariusArmor</li>
+<li>N14ClothingHeadHatLightBaseballHelmet</li>
 </ul>
 
 <h3 Text="Ammo"/>
@@ -255,6 +257,8 @@
 <li>N14ClothingOuterLegionnaireOptioArmor</li>
 <li>N14ClothingOuterLegionnaireReconnaissanceArmor</li>
 <li>N14ClothingOuterLegionnaireVeteranArmor</li>
+<li>N14ClothingHeadHatBaseballHelmet</li>
+<li>N14ClothingHeadHatDeanRecruitHelmet</li>
 </ul>
 
 <h3 Text="Ammo"/>
@@ -509,7 +513,7 @@
 <ul>
 <li>N14SledgeHammer</li>
 <li>N14WeaponDesertEagle44</li>
-<li>N14WeaponRevolver44Magnun</li>
+<li>N14WeaponRevolver44Magnum</li>
 <li>N14WeaponRifle308Battle</li>
 <li>N14WeaponRifle762Marksman</li>
 <li>N14WeaponShotgunAuto</li>

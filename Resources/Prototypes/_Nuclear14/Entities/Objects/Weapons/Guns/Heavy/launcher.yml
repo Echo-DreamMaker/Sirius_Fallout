@@ -56,7 +56,7 @@
   - type: Wieldable
     wieldedSpeedModifier: 0.8
   - type: StrengthRequirement
-    requiredStrength: 7
+    requiredStrength: 4
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -104

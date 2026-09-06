@@ -21,23 +21,78 @@ public sealed partial class MagicMirrorWindow : DefaultWindow
     public Action<int>? OnFacialHairSlotRemoved;
     public Action? OnFacialHairSlotAdded;
 
+    // #Cythisiax Added - confirm-apply mode: raised when the user presses the Apply button with
+    // pending style/color changes. (category, slot, markingId?, colors?)
+    public Action<MagicMirrorCategory, int, string?, List<Color>?>? OnApply;
+
+    private bool _requireConfirm;
+    private (int slot, string id)? _pendingHairStyle;
+    private (int slot, Marking marking)? _pendingHairColor;
+    private (int slot, string id)? _pendingFacialStyle;
+    private (int slot, Marking marking)? _pendingFacialColor;
+
     public MagicMirrorWindow()
     {
         RobustXamlLoader.Load(this);
 
-        HairPicker.OnMarkingSelect += args => OnHairSelected!(args);
-        HairPicker.OnColorChanged += args => OnHairColorChanged!(args);
+        // #Cythisiax Edited - when the item requires confirmation (barber scissors), picker
+        // changes are buffered instead of being sent to the server immediately, which previously
+        // started/cancelled a DoAfter on every slider tick and every style click.
+        HairPicker.OnMarkingSelect += args =>
+        {
+            if (_requireConfirm)
+            {
+                _pendingHairStyle = args;
+                UpdateApplyButton();
+            }
+            else
+                OnHairSelected!(args);
+        };
+        HairPicker.OnColorChanged += args =>
+        {
+            if (_requireConfirm)
+            {
+                _pendingHairColor = args;
+                UpdateApplyButton();
+            }
+            else
+                OnHairColorChanged!(args);
+        };
         HairPicker.OnSlotRemove += args => OnHairSlotRemoved!(args);
         HairPicker.OnSlotAdd += delegate { OnHairSlotAdded!(); };
 
-        FacialHairPicker.OnMarkingSelect += args => OnFacialHairSelected!(args);
-        FacialHairPicker.OnColorChanged += args => OnFacialHairColorChanged!(args);
+        FacialHairPicker.OnMarkingSelect += args =>
+        {
+            if (_requireConfirm)
+            {
+                _pendingFacialStyle = args;
+                UpdateApplyButton();
+            }
+            else
+                OnFacialHairSelected!(args);
+        };
+        FacialHairPicker.OnColorChanged += args =>
+        {
+            if (_requireConfirm)
+            {
+                _pendingFacialColor = args;
+                UpdateApplyButton();
+            }
+            else
+                OnFacialHairColorChanged!(args);
+        };
         FacialHairPicker.OnSlotRemove += args => OnFacialHairSlotRemoved!(args);
         FacialHairPicker.OnSlotAdd += delegate { OnFacialHairSlotAdded!(); };
+
+        ApplyButton.OnPressed += _ => OnApplyPressed();
     }
 
     public void UpdateState(MagicMirrorUiState state)
     {
+        _requireConfirm = state.RequireConfirm;
+        ApplyButton.Visible = _requireConfirm;
+        UpdateApplyButton();
+
         HairPicker.UpdateData(state.Hair, state.Species, state.HairSlotTotal);
         FacialHairPicker.UpdateData(state.FacialHair, state.Species, state.FacialHairSlotTotal);
 
@@ -45,5 +100,43 @@ public sealed partial class MagicMirrorWindow : DefaultWindow
         {
             AddChild(new Label { Text = Loc.GetString("magic-mirror-component-activate-user-has-no-hair") });
         }
+    }
+
+    private void OnApplyPressed()
+    {
+        if (!_requireConfirm)
+            return;
+
+        ApplyCategory(MagicMirrorCategory.Hair, _pendingHairStyle, _pendingHairColor);
+        ApplyCategory(MagicMirrorCategory.FacialHair, _pendingFacialStyle, _pendingFacialColor);
+
+        _pendingHairStyle = null;
+        _pendingHairColor = null;
+        _pendingFacialStyle = null;
+        _pendingFacialColor = null;
+        UpdateApplyButton();
+    }
+
+    private void ApplyCategory(MagicMirrorCategory category, (int slot, string id)? style, (int slot, Marking marking)? color)
+    {
+        if (style is { } s)
+        {
+            // Only bundle the color when it targets the same slot as the selected style.
+            var colors = color is { } c && c.slot == s.slot ? new List<Color>(c.marking.MarkingColors) : null;
+            OnApply?.Invoke(category, s.slot, s.id, colors);
+        }
+        else if (color is { } c)
+        {
+            OnApply?.Invoke(category, c.slot, null, new List<Color>(c.marking.MarkingColors));
+        }
+    }
+
+    private void UpdateApplyButton()
+    {
+        if (!_requireConfirm)
+            return;
+
+        ApplyButton.Disabled = _pendingHairStyle == null && _pendingHairColor == null
+            && _pendingFacialStyle == null && _pendingFacialColor == null;
     }
 }

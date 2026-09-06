@@ -1,5 +1,6 @@
 using Content.Server._NC.Discord;
 using Content.Server._Misfits.DiscordLink; // #Misfits Add - player Discord account linking
+using Content.Server._Misfits.Administration; // #Misfits Add - watchdog deploy bridge
 using Content.Server._Misfits.Holotape; // #Misfits Add - Terminal notes data store IoC registration
 using Content.Server._Misfits.Supporter; // #Misfits Add - Supporter manager
 using Content.Server.Administration;
@@ -37,6 +38,7 @@ using Content.Shared.Players.RateLimiting;
 using Content.Shared._NC.Sponsor; // Forge-Change
 using Content.Server._NC.Sponsor;
 using Content.Server._NC.TTS; // Forge-Change
+using Content.Shared._Misfits.Supporter; // #Cythisiax Add - Patreon supporter tier sync
 
 namespace Content.Server.IoC
 {
@@ -54,6 +56,7 @@ namespace Content.Server.IoC
             IoCManager.Register<INodeGroupFactory, NodeGroupFactory>();
             IoCManager.Register<IConnectionManager, ConnectionManager>();
             IoCManager.Register<ServerUpdateManager>();
+            IoCManager.Register<WatchdogDeployManager>(); // #Misfits Add - server-side watchdog deploy bridge
             IoCManager.Register<IAdminManager, AdminManager>();
             IoCManager.Register<ISharedAdminManager, AdminManager>();
             IoCManager.Register<EuiManager, EuiManager>();
@@ -89,6 +92,7 @@ namespace Content.Server.IoC
             IoCManager.Register<TerminalNotesDataStore>(); // #Misfits Add - Persistent terminal notes storage
             IoCManager.Register<TerminalDatabaseDataStore>(); // #Misfits Add - Persistent faction database storage
             IoCManager.Register<ISupporterManager, SupporterManager>(); // #Misfits Add
+            IoCManager.Register<ISharedSupporterManager, SupporterManager>(); // #Cythisiax Add - same singleton via IoC dupe detection
         }
     }
 }

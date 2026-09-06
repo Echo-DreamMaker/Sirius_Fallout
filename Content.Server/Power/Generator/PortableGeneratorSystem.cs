@@ -147,6 +147,17 @@ public sealed class PortableGeneratorSystem : SharedPortableGeneratorSystem
         if (!args.CanAccess || !args.CanInteract)
             return;
 
+        if (HasComp<GeneratorControlPanelComponent>(uid))
+        {
+            args.Verbs.Add(new AlternativeVerb
+            {
+                Act = () => _uiSystem.OpenUi(uid, GeneratorComponentUiKey.Key, args.User),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/zap.svg.192dpi.png")),
+                Text = Loc.GetString("portable-generator-verb-controls"),
+            });
+            return;
+        }
+
         var fuelGenerator = Comp<FuelGeneratorComponent>(uid);
         if (fuelGenerator.On)
         {

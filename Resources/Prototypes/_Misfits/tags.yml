@@ -18,6 +18,14 @@
 - type: Tag
   id: IdCardEnclave # #Misfits Change
 
+# #Misfits Add - Tag for NCR Ranger IDs so the Ranger tactical map's
+# Overwatch tab only tracks Ranger personnel (not the whole NCR).
+# Applied to N14IDBadgeNCRDesertRangerRecruit (base of all ranger badges),
+# so every ranger role (Recruit/Patrol/Field/Veteran/Chief/Republic) inherits it.
+# NOTE: distinct from IdCardNCR - regular NCR dogtags must NOT carry this tag.
+- type: Tag
+  id: IdCardNCRRanger # #Misfits Add - used by Ranger tactical map Overwatch filter
+
 # #Misfits Add - Tag for Legion faction map blip tracking.
 # Applied to every Legion ID card / medallion / badge so the
 # Centurion tactical computer (N14LegionTacticalComputer) can
@@ -70,3 +78,14 @@
 # Shared no-ride tag used by vehicles and large creature species to block mounting logic.
 - type: Tag
   id: CannotRide
+
+# #Misfits Add - Tag for the 80-round heavy 5.56 magazine used by the Heavy Assault
+# Rifle (N14WeaponRifle556HeavyAssault). Keeps the oversized magazine out of the
+# standard 5.56 rifles, the same way LongMagazine556Rifle gates the assault carbine.
+- type: Tag
+  id: N14MagazineHeavy556Rifle
+- type: Tag # #Cythisiax Fixed - was lowercase 'type: tag', which YAMLLinter rejected (Unknown prototype type: 'tag')
+  id: BwonsamdiBreakable
+
+- type: Tag # #Cythisiax Fixed - was lowercase 'type: tag'
+  id: BwonsamdiHarness

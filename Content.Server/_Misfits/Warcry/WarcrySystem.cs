@@ -8,6 +8,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
@@ -194,6 +195,9 @@ public sealed class WarcrySystem : EntitySystem
         if (component.ExcludedJobs != null && component.ExcludedJobs.Contains(jobPrototype.ID))
             return false;
 
-        return _jobs.TryGetDepartment(jobPrototype.ID, out var department) && department.ID == component.TargetDepartment;
+        // #Misfits Fix - resolved against the target department's role list so dual-citizenship tribe jobs
+        // (SuperMutantTribal, SyntheticProtectronTribal) count as tribe members for warcries.
+        return _prototype.TryIndex<DepartmentPrototype>(component.TargetDepartment, out var department)
+            && department.Roles.Contains(jobPrototype.ID);
     }
 }

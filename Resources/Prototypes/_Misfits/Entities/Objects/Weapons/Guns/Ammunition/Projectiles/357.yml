@@ -1,0 +1,21 @@
+# #Misfits Add - .357 Magnum projectile.
+# The .357 cartridge previously reused N14Bullet44 (30 Piercing), which made the
+# .357 Detective / Cowboy Repeater .44-class weapons — overshadowing faction
+# sidearms when added to blueprints. This dedicated round sits between 10mm (15)
+# and .44 (30) at 22 Piercing, keeping .357 genuinely mediocre.
+# TODO: dedicated 357.rsi sprite if the projectile ever needs one (base bullet is fine).
+
+- type: entity
+  id: N14Bullet357
+  name: bullet (.357 magnum)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 22
+  - type: BallisticDamageFalloff
+    falloffStartTiles: 6.0
+    maxFalloffTiles: 12.0
+    minDamageMultiplier: 0.50

@@ -3,6 +3,7 @@ using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client._NC.DiscordAuth;
 using Content.Client._Misfits.DiscordLink; // #Misfits Add - player Discord account linking
+using Content.Client._Misfits.Supporter; // #Cythisiax Add - Patreon supporter tier sync
 using Content.Client.JoinQueue;
 using Content.Client.DebugMon;
 using Content.Client.Eui;
@@ -80,6 +81,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly ContentReplayPlaybackManager _replayMan = default!;
         [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
         [Dependency] private readonly SponsorManager _sponsorMan = default!; // Forge-Change
+        [Dependency] private readonly SupporterManager _supporterMan = default!; // #Cythisiax Add - Patreon supporter tier sync
 
         public override void Init()
         {
@@ -142,6 +144,7 @@ namespace Content.Client.Entry
             _jobRequirements.Initialize();
             _playbackMan.Initialize();
             _sponsorMan.Initialize(); // Forge-Change
+            _supporterMan.Initialize(); // #Cythisiax Add - Patreon supporter tier sync
 
             //AUTOSCALING default Setup!
             _configManager.SetCVar("interface.resolutionAutoScaleUpperCutoffX", 1080);

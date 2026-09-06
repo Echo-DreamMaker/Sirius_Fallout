@@ -18,7 +18,11 @@
     - !type:CharacterDepartmentTimeRequirement # T6 faction timelock (20h NCR)
       department: NCR
       min: 72000 # 20 hours
-  weight: 105
+    - !type:CharacterPlaytimeRequirement
+      tracker: NCRSquadLeader
+      min: 28800 # 8 hours as NCO
+  weight: 103 # #Misfits Tweak - platoon leader starts below aviation
+  showBorder: true # #Misfits Tweak - starts the platoon/NCO tier
   startingGear: NCRPlatoonLeaderGear
   icon: "JobIconNcrLeader"
   supervisors: job-supervisors-ncr-commander

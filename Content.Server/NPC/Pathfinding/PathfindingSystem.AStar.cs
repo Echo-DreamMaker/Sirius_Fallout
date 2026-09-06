@@ -130,6 +130,13 @@ public sealed partial class PathfindingSystem
             }
         }
 
+        // NodeLimit is a per-update work budget, not a declaration that the target is
+        // unreachable. Keep this request queued and resume from its existing frontier.
+        if (!arrived && request.Frontier.Count > 0)
+        {
+            return PathResult.Continuing;
+        }
+
         if (!arrived)
         {
             return PathResult.NoPath;

@@ -8,6 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.MouseRotator;
 
+
 /// <inheritdoc/>
 public sealed class MouseRotatorSystem : SharedMouseRotatorSystem
 {
@@ -26,10 +27,17 @@ public sealed class MouseRotatorSystem : SharedMouseRotatorSystem
 
         var player = _player.LocalEntity;
 
-        if (player == null || !TryComp<MouseRotatorComponent>(player, out var rotator))
+        if (player == null)
             return;
 
-        var xform = Transform(player.Value);
+        var rotationEntity = player.Value;
+        if (TryComp<Content.Shared.Mech.Components.MechPilotComponent>(rotationEntity, out var pilot))
+            rotationEntity = pilot.Mech;
+
+        if (!TryComp<MouseRotatorComponent>(rotationEntity, out var rotator))
+            return;
+
+        var xform = Transform(rotationEntity);
 
         // Get mouse loc and convert to angle based on player location
         var coords = _input.MouseScreenPosition;
@@ -38,7 +46,7 @@ public sealed class MouseRotatorSystem : SharedMouseRotatorSystem
         if (mapPos.MapId == MapId.Nullspace)
             return;
 
-        var angle = (mapPos.Position - _transform.GetMapCoordinates(player.Value, xform: xform).Position).ToWorldAngle();
+        var angle = (mapPos.Position - _transform.GetMapCoordinates(rotationEntity, xform: xform).Position).ToWorldAngle();
 
         var curRot = _transform.GetWorldRotation(xform);
 

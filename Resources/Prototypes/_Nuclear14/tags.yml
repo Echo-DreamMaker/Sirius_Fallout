@@ -53,6 +53,13 @@
 - type: Tag
   id: IdCardVault
 
+- type: Tag
+  id: MisfitsPipBoy
+
+# #Cythisiax Added - lets utility belts store the N14 welding goggles
+- type: Tag
+  id: WeldingGoggles
+
 # Medical Items
 - type: Tag
   id: N14DirtyGauze
@@ -189,6 +196,9 @@
 
 - type: Tag
   id: N14Igniter
+
+- type: Tag
+  id: N14PoliceBaton
 
 - type: Tag
   id: Capacitor2
@@ -458,6 +468,12 @@
 - type: Tag
   id: N14ElectronChargePack
 
+- type: Tag
+  id: N14PulseEnergyCell
+
+- type: Tag
+  id: N14PulseMicrofusionCell
+
 #MARK: Ammo tags(explosives)
 
 - type: Tag
@@ -520,9 +536,6 @@
 
 - type: Tag
   id: MechKey
-
-- type: Tag
-  id: MisfitsPipBoy
 
 - type: Tag
   id: N14GaussCell

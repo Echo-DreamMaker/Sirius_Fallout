@@ -69,24 +69,60 @@
 # Backward-compatible aliases — colored variants redirect to the single generic MFC.
 # Kept so existing map files, kits, crates, and trade references continue to work.
 - type: entity
+  name: microfusion cell (red)
+  description: A standard microfusion cell calibrated to emit a red laser beam.
   id: N14MicrofusionCellRed
   parent: N14MicrofusionCell
   suffix: Full
+  components:
+  - type: Battery
+    maxCharge: 1200 # 24 shots at 50 charge per shot
+    startingCharge: 1200
+  - type: HitscanBatteryAmmoProvider
+    proto: N14MFLaserRed
+    fireCost: 50
 
 - type: entity
+  name: microfusion cell (green)
+  description: A tuned microfusion cell calibrated to emit a green laser beam.
   id: N14MicrofusionCellGreen
   parent: N14MicrofusionCell
   suffix: Full
+  components:
+  - type: Battery
+    maxCharge: 1000 # 20 shots at 50 charge per shot
+    startingCharge: 1000
+  - type: HitscanBatteryAmmoProvider
+    proto: N14MFLaserGreen
+    fireCost: 50
 
 - type: entity
+  name: microfusion cell (blue)
+  description: An advanced microfusion cell calibrated to emit a blue laser beam.
   id: N14MicrofusionCellBlue
   parent: N14MicrofusionCell
   suffix: Full
+  components:
+  - type: Battery
+    maxCharge: 900 # 18 shots at 50 charge per shot
+    startingCharge: 900
+  - type: HitscanBatteryAmmoProvider
+    proto: N14MFLaserBlue
+    fireCost: 50
 
 - type: entity
+  name: microfusion cell (violet)
+  description: An experimental microfusion cell calibrated to emit a violet laser beam.
   id: N14MicrofusionCellViolet
   parent: N14MicrofusionCell
   suffix: Full
+  components:
+  - type: Battery
+    maxCharge: 600 # 12 shots at 50 charge per shot
+    startingCharge: 600
+  - type: HitscanBatteryAmmoProvider
+    proto: N14MFLaserViolet
+    fireCost: 50
 
 #MARK: Fusion Core — single consolidated type
 # #Misfits Change - Consolidated from 4 colored variants into one generic fusion core.
@@ -177,24 +213,48 @@
 
 # Backward-compatible aliases for colored ECPs.
 - type: entity
+  name: electron charge pack (red)
+  description: A standard electron charge pack calibrated for red pulse discharge.
   id: N14ElectronChargePackRed
   parent: N14ElectronChargePack
   suffix: Full
+  components:
+  - type: HitscanBatteryAmmoProvider
+    proto: N14PulseRed
+    fireCost: 50
 
 - type: entity
+  name: electron charge pack (green)
+  description: A tuned electron charge pack calibrated for green pulse discharge.
   id: N14ElectronChargePackGreen
   parent: N14ElectronChargePack
   suffix: Full
+  components:
+  - type: HitscanBatteryAmmoProvider
+    proto: N14PulseGreen
+    fireCost: 50
 
 - type: entity
+  name: electron charge pack (blue)
+  description: An advanced electron charge pack calibrated for blue pulse discharge.
   id: N14ElectronChargePackBlue
   parent: N14ElectronChargePack
   suffix: Full
+  components:
+  - type: HitscanBatteryAmmoProvider
+    proto: N14PulseBlue
+    fireCost: 50
 
 - type: entity
+  name: electron charge pack (violet)
+  description: An experimental electron charge pack calibrated for violet pulse discharge.
   id: N14ElectronChargePackViolet
   parent: N14ElectronChargePack
   suffix: Full
+  components:
+  - type: HitscanBatteryAmmoProvider
+    proto: N14PulseViolet
+    fireCost: 50
 
 #MARK: Legacy Power Cells (commented out — replaced by tiered microfusion/ECP system above)
 

@@ -20,7 +20,7 @@ public class MapLoadBenchmark
 {
     private TestPair _pair = default!;
     private MapLoaderSystem _mapLoader = default!;
-    private IMapManager _mapManager = default!;
+    private SharedMapSystem _mapManager = default!;
 
     [GlobalSetup]
     public void Setup()
@@ -36,7 +36,7 @@ public class MapLoadBenchmark
             .ToDictionary(x => x.ID, x => x.MapPath.ToString());
 
         _mapLoader = server.ResolveDependency<IEntityManager>().System<MapLoaderSystem>();
-        _mapManager = server.ResolveDependency<IMapManager>();
+        _mapManager = server.ResolveDependency<SharedMapSystem>();
     }
 
     [GlobalCleanup]

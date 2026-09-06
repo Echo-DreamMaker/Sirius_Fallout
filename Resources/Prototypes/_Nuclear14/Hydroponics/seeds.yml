@@ -254,13 +254,11 @@
     - N14FloraProduceWildMaize
   lifespan: 25
   maturation: 15
-  production: 6
+  production: 1
   yield: 3
   potency: 20
   growthStages: 3
-  idealLight: 8
   waterConsumption: 2
-  idealHeat: 298
   chemicals:
     Nutriment:
       Min: 1
@@ -282,13 +280,11 @@
     - N14FloraProduceWildMesquitePods
   lifespan: 25
   maturation: 15
-  production: 6
+  production: 1
   yield: 9
   potency: 20
   growthStages: 5
-  idealLight: 8
   waterConsumption: 2
-  idealHeat: 298
   chemicals:
     ExtractHoneyMesquitePod:
       Min: 1
@@ -306,13 +302,11 @@
     - N14FloraProduceWildMutfruit
   lifespan: 25
   maturation: 15
-  production: 6
+  production: 1
   yield: 3
   potency: 20
   growthStages: 4
-  idealLight: 8
   waterConsumption: 2
-  idealHeat: 298
   chemicals:
     ExtractMutfruit:
       Min: 1
@@ -330,13 +324,11 @@
     - N14FloraProduceWildNettle
   lifespan: 25
   maturation: 8
-  production: 6
+  production: 1
   yield: 2
   potency: 20
   growthStages: 5
-  idealLight: 8
   waterConsumption: 0.60
-  idealHeat: 298
   chemicals:
     Histamine:
       Min: 1
@@ -384,13 +376,11 @@
     - N14FloraProduceWildPinyonNuts
   lifespan: 25
   maturation: 15
-  production: 6
+  production: 1
   yield: 3
   potency: 20
   growthStages: 3
-  idealLight: 8
   waterConsumption: 2
-  idealHeat: 298
   chemicals:
     Nutriment:
       Min: 1
@@ -416,9 +406,7 @@
   yield: 3
   potency: 20
   growthStages: 4
-  idealLight: 8
   waterConsumption: 2
-  idealHeat: 298
   chemicals:
     ExtractPricklyPearFruit:
       Min: 1
@@ -440,7 +428,6 @@
   yield: 4
   potency: 5
   growthStages: 3
-  idealLight: 8
   waterConsumption: 2
   nutrientConsumption: 0.15
   chemicals:

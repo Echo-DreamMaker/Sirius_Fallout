@@ -1,22 +1,18 @@
 using Content.Shared._Misfits.Special;
 using Content.Shared._Misfits.Special.Components;
-using Content.Shared.GameTicking;
 using Content.Shared.Random.Helpers;
-using Content.Shared.Storage;
-using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server._Misfits.SpecialStats;
 
 /// <summary>
-/// Grants a small bonus item chance when a lucky player opens marked junk storage.
+/// Grants a small bonus item chance when a lucky player completes a junk-pile search.
 /// </summary>
 public sealed class SpecialLuckSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedSpecialSystem _special = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
 
     private static readonly Dictionary<LuckyLootRarity, float> RarityWeights = new()
     {
@@ -27,40 +23,12 @@ public sealed class SpecialLuckSystem : EntitySystem
         [LuckyLootRarity.Legendary] = 1f,
     };
 
-    private readonly Dictionary<EntityUid, HashSet<EntityUid>> _alreadyRolled = new();
-
-    public override void Initialize()
+    /// <summary>
+    /// Rolls the Luck S.P.E.C.I.A.L. bonus for one completed junk-pile search.
+    /// </summary>
+    public void TryGrantJunkBonus(Entity<LuckJunkBonusComponent> ent, EntityUid actor)
     {
-        base.Initialize();
-
-        SubscribeLocalEvent<LuckJunkBonusComponent, ComponentShutdown>(OnLuckCompShutdown);
-        SubscribeLocalEvent<LuckJunkBonusComponent, BoundUIOpenedEvent>(OnStorageOpened);
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-    }
-
-    private void OnRoundRestart(RoundRestartCleanupEvent args)
-    {
-        _alreadyRolled.Clear();
-    }
-
-    private void OnLuckCompShutdown(Entity<LuckJunkBonusComponent> ent, ref ComponentShutdown args)
-    {
-        _alreadyRolled.Remove(ent.Owner);
-    }
-
-    private void OnStorageOpened(Entity<LuckJunkBonusComponent> ent, ref BoundUIOpenedEvent args)
-    {
-        var actor = args.Actor;
         if (!TryComp<SpecialComponent>(actor, out var special))
-            return;
-
-        if (!_alreadyRolled.TryGetValue(ent.Owner, out var rolledSet))
-        {
-            rolledSet = new HashSet<EntityUid>();
-            _alreadyRolled[ent.Owner] = rolledSet;
-        }
-
-        if (!rolledSet.Add(actor))
             return;
 
         var rollChance = _special.GetLuckRollChance(actor, 0f, ent.Comp.ChancePerLuckPoint, special);
@@ -73,12 +41,7 @@ public sealed class SpecialLuckSystem : EntitySystem
         if (!TryPickLuckyItem(ent.Comp, out var chosenProto))
             return;
 
-        if (!TryComp<StorageComponent>(ent.Owner, out var storage))
-            return;
-
-        var spawned = Spawn(chosenProto, Transform(ent.Owner).Coordinates);
-        if (!_storage.Insert(ent.Owner, spawned, out _, out _, actor, storage, playSound: false))
-            Del(spawned);
+        Spawn(chosenProto, Transform(ent.Owner).Coordinates);
     }
 
     private bool TryPickLuckyItem(LuckJunkBonusComponent component, out EntProtoId chosenProto)

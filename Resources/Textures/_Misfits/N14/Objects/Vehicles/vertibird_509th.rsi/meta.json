@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "caelum1(discord) misfits",
+  "size": { "x": 300, "y": 300 },
+  "states": [
+    { "name": "vertibird_509th" },
+    { "name": "vertibird_509th_flying", "delays": [[0.1, 0.1, 0.1, 0.1, 0.1, 0.1]] }
+  ]
+}

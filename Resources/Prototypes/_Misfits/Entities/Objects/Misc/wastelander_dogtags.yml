@@ -28,3 +28,28 @@
     tags:
     - IdCardWastelander
     - DoorBumpOpener
+
+- type: entity
+  parent: ClothingNeckBase
+  id: N14ClothingNeckDogtagsTrader
+  name: Wasteland Trader's Dogtags
+  description: A pair of engraved metal identification tags. Can be inserted into a Pip-Boy.
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Misc/dogtags.rsi
+  - type: Clothing
+    sprite: Clothing/Neck/Misc/dogtags.rsi
+    slots:
+    - idcard # #Misfits Add - allows dogtags to equip in the ID slot
+  - type: Access
+  - type: IdCard
+    nameLocId: n14-id-dogtag-name # #Misfits Add - display "dogtags" instead of default "ID card"
+    fullNameLocId: n14-id-dogtag-full-name
+  - type: NanoChatCard
+  - type: StationRecordKeyStorage
+  - type: PresetIdCard
+    job: WasterTrader
+  - type: Tag
+    tags:
+    - IdCardWastelander
+    - DoorBumpOpener

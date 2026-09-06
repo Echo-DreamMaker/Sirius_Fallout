@@ -93,6 +93,14 @@ namespace Content.Client.Options.UI.Tabs
             FpsCounterCheckBox.Pressed = _cfg.GetCVar(CCVars.HudFpsCounterVisible);
             ViewportWidthSlider.Value = _cfg.GetCVar(CCVars.ViewportWidth);
 
+            // misfit Add:
+            CartridgeSlider.Value = _cfg.GetCVar(CCVars.SpentCartridgeVisual);
+            CartridgeSlider.OnValueChanged += _ =>
+            {
+                UpdateApplyButton();
+            };
+
+
             _cfg.OnValueChanged(CCVars.ViewportMinimumWidth, _ => UpdateViewportWidthRange());
             _cfg.OnValueChanged(CCVars.ViewportMaximumWidth, _ => UpdateViewportWidthRange());
 
@@ -101,6 +109,8 @@ namespace Content.Client.Options.UI.Tabs
             UpdateViewportScale();
             UpdateApplyButton();
         }
+
+
 
         private void OnUIScaleChanged(OptionButton.ItemSelectedEventArgs args)
         {
@@ -127,6 +137,7 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.HudFpsCounterVisible, FpsCounterCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ViewportWidth, (int) ViewportWidthSlider.Value);
 
+            _cfg.SetCVar(CCVars.SpentCartridgeVisual, (int) CartridgeSlider.Value);
             _cfg.SaveToFile();
             UpdateApplyButton();
         }
@@ -158,6 +169,8 @@ namespace Content.Client.Options.UI.Tabs
             var isFpsCounterVisibleSame = FpsCounterCheckBox.Pressed == _cfg.GetCVar(CCVars.HudFpsCounterVisible);
             var isWidthSame = (int) ViewportWidthSlider.Value == _cfg.GetCVar(CCVars.ViewportWidth);
 
+            var isCartridgeSame = CartridgeSlider.Value == _cfg.GetCVar(CCVars.SpentCartridgeVisual); // Misfit add:
+
             ApplyButton.Disabled = isVSyncSame &&
                                    isFullscreenSame &&
                                    isLightingQualitySame &&
@@ -170,7 +183,7 @@ namespace Content.Client.Options.UI.Tabs
                                    isPLQSame &&
                                    isTileBlendMasksSame &&
                                    isFpsCounterVisibleSame &&
-                                   isWidthSame;
+                                   isWidthSame && isCartridgeSame;
         }
 
         private bool ConfigIsFullscreen =>

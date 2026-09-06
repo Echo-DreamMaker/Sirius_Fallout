@@ -1,7 +1,8 @@
 namespace Content.Shared._NC.RandomAccessKey;
 /// <summary>
-/// Marker to let the game know that when a door is created with this component,
-/// a random key must be generated.
+/// #Cythisiax Edited - marker for a constructed door that has a randomly assigned key.
+/// The system mints the key on construction completion and lets the holder toggle the
+/// door's lock (stored in <c>AccessReader.Enabled</c>) by using the key on the door.
 /// </summary>
 [RegisterComponent]
 public sealed partial class RandomAccessKeyComponent : Component

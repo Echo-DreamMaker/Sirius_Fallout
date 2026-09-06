@@ -20,7 +20,7 @@ namespace Content.Client.Atmos.Overlays
     public sealed class GasTileOverlay : Overlay
     {
         private readonly IEntityManager _entManager;
-        private readonly IMapManager _mapManager;
+        private readonly SharedMapSystem _mapManager;
 
         public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities | OverlaySpace.WorldSpaceBelowWorld;
         private readonly ShaderInstance _shader;
@@ -49,7 +49,7 @@ namespace Content.Client.Atmos.Overlays
         public GasTileOverlay(GasTileOverlaySystem system, IEntityManager entManager, IResourceCache resourceCache, IPrototypeManager protoMan, SpriteSystem spriteSys)
         {
             _entManager = entManager;
-            _mapManager = IoCManager.Resolve<IMapManager>();
+            _mapManager = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SharedMapSystem>();
             _shader = protoMan.Index<ShaderPrototype>("unshaded").Instance();
             ZIndex = GasOverlayZIndex;
 
@@ -160,7 +160,7 @@ namespace Content.Client.Atmos.Overlays
                 overlayQuery,
                 xformQuery);
 
-            var mapUid = _mapManager.GetMapEntityId(args.MapId);
+            var mapUid = _mapManager.GetMap(args.MapId);
 
             if (_entManager.TryGetComponent<MapAtmosphereComponent>(mapUid, out var atmos))
                 DrawMapOverlay(drawHandle, args, mapUid, atmos);

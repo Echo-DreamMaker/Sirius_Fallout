@@ -1,7 +1,7 @@
 - type: gameMap
   id: NewIsland
   mapName: 'New Island'
-  mapPath: /Maps/N14/IslandV174.yml
+  mapPath: /Maps/N14/IslandV177.yml
   minPlayers: 0
   stations:
     NewIsland:
@@ -76,25 +76,25 @@
             # BoSWashingtonScribe: [ 2, 1 ]
             # BoSWashingtonKnight: [ 2, 2 ]
             # BoSWashingtonInitiate: [ 0, 2 ]
-            # BoSMidPaladinCommander: [ 1, 1 ]
+            BoSMidPaladinCommander: [ 1, 1 ]
             # BoSHeadKnight: [ 1, 1 ]  #Misfits Change /Add/: New consolidated BoS jobs
             # BoSWestScribe: [ 1, 1 ] # Misfits Change
-            # BoSMidPaladin: [ 1, 1 ]  #Misfits Tweak: 1 slot — Senior Paladin is a rare rank
-            # BoSMidKnight: [ 1, 1 ]
+            BoSMidPaladin: [ 1, 1 ]  #Misfits Tweak: 1 slot — Senior Paladin is a rare rank
+            BoSMidKnight: [ 2, 2 ]
             # BoSMidScribe: [ 1, 1 ]
             # BoSPaladin: [ 2, 2 ]  #Misfits Tweak: 3 slots — standard Paladin complement
             # BoSKnight: [ 3, 3 ]  #Misfits Change /Add/
             # BoSScribe: [ 2, 2 ]  #Misfits Change /Add/
-            # BoSMidSquire: [ 3, 3 ]
+            BoSMidSquire: [ 1, 1 ]
             # BoSInitiate: [ 2, 2 ]  #Misfits Change /Add/
             # BoSMidSerf: [ 5, 5 ]
             # BoSWashingtonInitiate: [ 3, 3 ] #Misfits Change /Comment-out/: Washington BoS removed
             # VaultManagement: [ 1, 1 ] # #Misfits Tweak - 0 active slots (admin-notify role)
-            Overseer: [ 1, 1 ]
-            VaultDoctor: [ 1, 2 ]
-            VaultDweller: [ 3, 4 ]
-            VaultEngineer: [ 1, 1 ]
-            VaultSecurity: [ 2, 3 ]
+            # Overseer: [ 1, 1 ]
+            # VaultDoctor: [ 1, 2 ]
+            VaultDweller: [ 6, 7 ]
+            # VaultEngineer: [ 1, 1 ]
+            # VaultSecurity: [ 2, 3 ]
             #CaesarLegionLegate: [ 1, 1 ] # Forge-Legion # #Misfits Tweak - 0 active slots (admin-notify role)
             #CaesarLegionCenturion: [ 1, 1 ] # Forge-Legion
             #CaesarLegionVeteranDecanus: [ 1, 1 ] # Forge-Legion

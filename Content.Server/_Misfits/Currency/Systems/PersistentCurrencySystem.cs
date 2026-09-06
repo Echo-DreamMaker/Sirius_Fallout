@@ -38,7 +38,19 @@ public sealed class PersistentCurrencySystem : EntitySystem
     private static readonly Dictionary<CurrencyType, string> CurrencyPrototypes = new()
     {
         { CurrencyType.Bottlecaps, "N14CurrencyCap" },
-        // #Misfits Change - NCRDollars, LegionDenarii, PrewarMoney removed from persistent tracking
+        // #Misfits Change - NCRDollars, LegionDenarii, and PrewarMoney are now tracked persistently again
+        { CurrencyType.NCRDollars, "N14CurrencyNCRDollar" },
+        { CurrencyType.LegionDenarii, "N14CurrencyLegionDenarius" },
+        { CurrencyType.PrewarMoney, "N14CurrencyPrewar" },
+    };
+
+    // #Nuclear14 Add - display names for chat/wallet messages, keyed by currency type
+    private static readonly Dictionary<CurrencyType, string> CurrencyDisplayNames = new()
+    {
+        { CurrencyType.Bottlecaps, "Bottlecaps" },
+        { CurrencyType.NCRDollars, "NCR Dollars" },
+        { CurrencyType.LegionDenarii, "Legion Denarii" },
+        { CurrencyType.PrewarMoney, "Pre-War Money" },
     };
 
     public override void Initialize()
@@ -107,16 +119,15 @@ public sealed class PersistentCurrencySystem : EntitySystem
         if (TryComp<StackComponent>(heldItem.Value, out var stackComp))
             amount *= stackComp.Count;
 
-        // #Misfits Change - only Bottlecaps are tracked persistently; reject other types
-        if (currency.CurrencyType != CurrencyType.Bottlecaps)
+        // #Misfits Change - all tracked currency types are again supported for deposit -Tytos
+        if (!CurrencyDisplayNames.TryGetValue(currency.CurrencyType, out var typeName))
         {
             var unsupportedMsg = Loc.GetString("misfits-currency-unsupported-type");
             _chatManager.ChatMessageToOne(ChatChannel.Server, unsupportedMsg, unsupportedMsg, EntityUid.Invalid, false, session.Channel);
             return;
         }
 
-        var typeName = "Bottlecaps";
-        comp.Bottlecaps += amount;
+        SetBalance(comp, currency.CurrencyType, GetBalance(comp, currency.CurrencyType) + amount);
 
         var total = GetBalance(comp, currency.CurrencyType);
 
@@ -149,6 +160,9 @@ public sealed class PersistentCurrencySystem : EntitySystem
         var stateMsg = new CurrencyWalletStateMessage
         {
             Bottlecaps = comp.Bottlecaps,
+            NcrDollars = comp.NcrDollars,
+            LegionDenarii = comp.LegionDenarii,
+            PrewarMoney = comp.PrewarMoney,
             OpenWindow = true,
         };
 
@@ -191,18 +205,18 @@ public sealed class PersistentCurrencySystem : EntitySystem
         if (TryComp<StackComponent>(heldItem.Value, out var stack))
             amount *= stack.Count;
 
-        // #Misfits Change - only Bottlecaps are tracked persistently
-        if (currency.CurrencyType != CurrencyType.Bottlecaps)
+        // #Nuclear14 Change - all tracked currency types are now supported for deposit
+        if (!CurrencyDisplayNames.TryGetValue(currency.CurrencyType, out var typeName))
         {
             var unsupportedMsg = Loc.GetString("misfits-currency-unsupported-type");
             _chatManager.ChatMessageToOne(ChatChannel.Server, unsupportedMsg, unsupportedMsg, EntityUid.Invalid, false, player.Channel);
             return;
         }
 
-        comp.Bottlecaps += amount;
+        SetBalance(comp, currency.CurrencyType, GetBalance(comp, currency.CurrencyType) + amount);
 
         var total = GetBalance(comp, currency.CurrencyType);
-        var depositMsg = Loc.GetString("misfits-currency-deposited", ("amount", amount), ("type", "Bottlecaps"), ("total", total));
+        var depositMsg = Loc.GetString("misfits-currency-deposited", ("amount", amount), ("type", typeName), ("total", total));
         _chatManager.ChatMessageToOne(ChatChannel.Server, depositMsg, depositMsg, EntityUid.Invalid, false, player.Channel);
 
         Dirty(uid, comp);
@@ -220,6 +234,9 @@ public sealed class PersistentCurrencySystem : EntitySystem
         RaiseNetworkEvent(new CurrencyWalletStateMessage
         {
             Bottlecaps = comp.Bottlecaps,
+            NcrDollars = comp.NcrDollars,
+            LegionDenarii = comp.LegionDenarii,
+            PrewarMoney = comp.PrewarMoney,
         }, actor.PlayerSession.Channel);
     }
 
@@ -265,13 +282,17 @@ public sealed class PersistentCurrencySystem : EntitySystem
         // Try to put in hand
         _hands.TryPickupAnyHand(uid, spawned);
 
-        var withdrawMsg = Loc.GetString("misfits-currency-withdrew", ("amount", msg.Amount), ("type", "Bottlecaps"));
+        var typeName = CurrencyDisplayNames.GetValueOrDefault(msg.CurrencyType, "Bottlecaps");
+        var withdrawMsg = Loc.GetString("misfits-currency-withdrew", ("amount", msg.Amount), ("type", typeName));
         _chatManager.ChatMessageToOne(ChatChannel.Server, withdrawMsg, withdrawMsg, EntityUid.Invalid, false, player.Channel);
 
         // Send updated state to client
         var stateMsg = new CurrencyWalletStateMessage
         {
             Bottlecaps = comp.Bottlecaps,
+            NcrDollars = comp.NcrDollars,
+            LegionDenarii = comp.LegionDenarii,
+            PrewarMoney = comp.PrewarMoney,
         };
 
         RaiseNetworkEvent(stateMsg, player.Channel);
@@ -279,15 +300,35 @@ public sealed class PersistentCurrencySystem : EntitySystem
 
     private int GetBalance(PersistentCurrencyComponent comp, CurrencyType type)
     {
-        // #Misfits Change - only Bottlecaps are tracked persistently
-        return type == CurrencyType.Bottlecaps ? comp.Bottlecaps : 0;
+        // #Misfits Tytos Change - Bottlecaps, NCR Dollars, Legion Denarii, and Pre-War Money are all tracked persistently
+        return type switch
+        {
+            CurrencyType.Bottlecaps => comp.Bottlecaps,
+            CurrencyType.NCRDollars => comp.NcrDollars,
+            CurrencyType.LegionDenarii => comp.LegionDenarii,
+            CurrencyType.PrewarMoney => comp.PrewarMoney,
+            _ => 0,
+        };
     }
 
     private void SetBalance(PersistentCurrencyComponent comp, CurrencyType type, int value)
     {
-        // #Misfits Change - only Bottlecaps are tracked persistently
-        if (type == CurrencyType.Bottlecaps)
-            comp.Bottlecaps = value;
+        // #Misfits Change - Bottlecaps, NCR Dollars, Legion Denarii, and Pre-War Money are all tracked persistently -Tytos
+        switch (type)
+        {
+            case CurrencyType.Bottlecaps:
+                comp.Bottlecaps = value;
+                break;
+            case CurrencyType.NCRDollars:
+                comp.NcrDollars = value;
+                break;
+            case CurrencyType.LegionDenarii:
+                comp.LegionDenarii = value;
+                break;
+            case CurrencyType.PrewarMoney:
+                comp.PrewarMoney = value;
+                break;
+        }
     }
 
     private void OnUseCurrency(Entity<ConsumableCurrencyComponent> ent, ref UseInHandEvent args)
@@ -307,12 +348,11 @@ public sealed class PersistentCurrencySystem : EntitySystem
             amount *= stack.Count;
         }
 
-        // #Misfits Change - only Bottlecaps are tracked persistently; leave non-Bottlecap items alone
-        if (ent.Comp.CurrencyType != CurrencyType.Bottlecaps)
+        // #Misfits Change - all tracked currency types can now be consumed into the wallet
+        if (!CurrencyDisplayNames.TryGetValue(ent.Comp.CurrencyType, out var typeName))
             return;
 
-        currencyComp.Bottlecaps += amount;
-        var typeName = "bottlecaps";
+        SetBalance(currencyComp, ent.Comp.CurrencyType, GetBalance(currencyComp, ent.Comp.CurrencyType) + amount);
 
         var total = GetBalance(currencyComp, ent.Comp.CurrencyType);
         if (TryComp<ActorComponent>(user, out var actorComp))
@@ -338,6 +378,9 @@ public sealed class PersistentCurrencySystem : EntitySystem
             RaiseNetworkEvent(new CurrencyWalletStateMessage
             {
                 Bottlecaps = currencyComp.Bottlecaps,
+                NcrDollars = currencyComp.NcrDollars,
+                LegionDenarii = currencyComp.LegionDenarii,
+                PrewarMoney = currencyComp.PrewarMoney,
             }, actor.PlayerSession.Channel);
         }
 
@@ -347,8 +390,11 @@ public sealed class PersistentCurrencySystem : EntitySystem
     // #Misfits Fix - Load currency on spawn, when mind is guaranteed to be ready.
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
     {
-        if (!TryComp<PersistentCurrencyComponent>(args.Mob, out var comp))
-            return;
+        // #Misfits Fix - EnsureComp (mirrors PersistentPlayerDataSystem) so ANY player species
+        // mob gets a wallet, even if its prototype forgot to declare PersistentCurrency.
+        // Previously TryComp silently skipped e.g. the C-27 chassis (inherits BaseMobSpecies,
+        // not BaseMobSpeciesOrganic), so its balance was never loaded or saved between rounds.
+        var comp = EnsureComp<PersistentCurrencyComponent>(args.Mob);
 
         if (args.Player.AttachedEntity == args.Mob)
             LoadCurrencyAsync(args.Mob, comp, args.Player);
@@ -356,7 +402,11 @@ public sealed class PersistentCurrencySystem : EntitySystem
 
     private void OnCurrencyShutdown(Entity<PersistentCurrencyComponent> ent, ref ComponentShutdown args)
     {
-        // #Misfits Change - nothing to remove; action is no longer granted
+        // #Misfits Fix - Flush the balance to the DB on entity deletion so the wallet is never
+        // lost at round end, even if the last change didn't trigger an explicit SaveCurrency.
+        // Mirrors PersistentPlayerDataSystem.OnShutdown.
+        if (ent.Comp.Loaded && ent.Comp.UserId != null && ent.Comp.CharacterName != null)
+            SaveCurrency(ent.Comp.UserId, ent.Comp.CharacterName, ent.Comp);
     }
 
     private void OnPlayerAttached(Entity<PersistentCurrencyComponent> ent, ref PlayerAttachedEvent args)
@@ -384,7 +434,13 @@ public sealed class PersistentCurrencySystem : EntitySystem
 
         try
         {
-            comp.Bottlecaps = await _db.GetCharacterCurrencyAsync(playerId, characterName);
+            var row = await _db.GetCharacterCurrencyAsync(playerId, characterName);
+            comp.Bottlecaps = row?.Bottlecaps ?? 0;
+            comp.NcrDollars = row?.NcrDollars ?? 0; // #Cythisiax Add
+            comp.Silver = row?.Silver ?? 0; // #Cythisiax Add
+            comp.Gold = row?.Gold ?? 0; // #Cythisiax Add
+            comp.LegionDenarii = row?.LegionDenarii ?? 0; // #Nuclear14 Add
+            comp.PrewarMoney = row?.PrewarMoney ?? 0; // #Nuclear14 Add
         }
         catch (Exception ex)
         {
@@ -401,6 +457,9 @@ public sealed class PersistentCurrencySystem : EntitySystem
             RaiseNetworkEvent(new CurrencyWalletStateMessage
             {
                 Bottlecaps = comp.Bottlecaps,
+                NcrDollars = comp.NcrDollars,
+                LegionDenarii = comp.LegionDenarii,
+                PrewarMoney = comp.PrewarMoney,
             }, actor.PlayerSession.Channel);
         }
     }
@@ -410,7 +469,8 @@ public sealed class PersistentCurrencySystem : EntitySystem
         if (!Guid.TryParse(userId, out var playerId))
             return;
 
-        _db.UpsertCharacterCurrencyAsync(playerId, characterName, comp.Bottlecaps);
+        _db.UpsertCharacterCurrencyAsync(playerId, characterName, comp.Bottlecaps,
+            comp.NcrDollars, comp.Silver, comp.Gold, comp.LegionDenarii, comp.PrewarMoney); // #Cythisiax Add - multi-currency
     }
 
     // ── One-time JSON → database migration ─────────────────────────────────────
@@ -441,7 +501,7 @@ public sealed class PersistentCurrencySystem : EntitySystem
                 if (string.IsNullOrEmpty(record.UserId) || !Guid.TryParse(record.UserId, out var pid))
                     continue;
 
-                await _db.UpsertCharacterCurrencyAsync(pid, record.CharacterName, record.Bottlecaps);
+                await _db.UpsertCharacterCurrencyAsync(pid, record.CharacterName, record.Bottlecaps); // #Cythisiax - multi-currency migration (legacy records only have caps)
             }
 
             File.Move(jsonPath, jsonPath + ".migrated");

@@ -18,6 +18,7 @@
           availableJobs:
             Wastelander: [ -1, -1 ]
             SuperMutant: [ 0, 1 ] # #Misfits Change /Fix/: make the FEV Mutant role available for mid-round joins.
+            Nightkin: [ 0, 1 ] # #Misfits Add - Nightkin variant, whitelist gated.
             SuperMutantGladiator: [ 0, 1 ] # #Misfits Add: Gladiator variant latejoin slot.
             SuperMutantNCRRanger: [ 0, 1 ] # #Misfits Add: NCR Ranger variant latejoin slot.
             SuperMutantNCRTrooper: [ 0, 1 ] # #Misfits Add: NCR Trooper variant latejoin slot.

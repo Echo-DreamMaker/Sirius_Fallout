@@ -589,7 +589,7 @@
         - id: N14WeaponSniper556VarmintRifle
           prob: 0.09
           orGroup: Weapon
-        - id: N14WeaponRevolver44Magnun
+        - id: N14WeaponRevolver44Magnum
           prob: 0.07
           orGroup: Weapon
         #- id: N14WeaponDesertEagle44 # Forge-Change
@@ -1657,6 +1657,9 @@
         # #Misfits Change - Extremely rare pipboy (0.5%) and low-chance wasteland scrap headset (2%) for junk pile finds
         - id: N14Pipboy
           prob: 0.005
+        # #Misfits Add - Shoddy power armor manual, same rare drop chance as the pipboy (0.5%)
+        - id: WastelandPowerArmor
+          prob: 0.005
         - id: MisfitsClothingHeadsetWastelandScrap
           prob: 0.02
         - id: N14CurrencyCap
@@ -1812,7 +1815,7 @@
         - id: N14WeaponRevolver10mm
           prob: 0.01
           orGroup: Weapons
-        - id: N14WeaponRevolver44Magnun
+        - id: N14WeaponRevolver44Magnum
           prob: 0.01
           orGroup: Weapons
         - id: N14WeaponPistol9mm
@@ -2253,7 +2256,7 @@
         - id: N14WeaponPistol9mmSpy
           prob: 0.05
           orGroup: Weapon
-        - id: N14WeaponRevolver44Magnun
+        - id: N14WeaponRevolver44Magnum
           prob: 0.07
           orGroup: Weapon
         - id: N14WeaponRevolver45-70Hunter

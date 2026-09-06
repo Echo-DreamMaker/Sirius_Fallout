@@ -1,0 +1,18 @@
+# #Misfits Add - Vertibird turret ammunition. Used on a vertibird to top up its gun,
+# consuming only the rounds the craft is actually short so a partly spent belt survives.
+
+- type: entity
+  parent: BaseItem
+  id: N14VertibirdGunBelt
+  name: vertibird gun belt
+  description: A linked belt of high-calibre rounds spooled for a vertibird's chin gun. Feeds twelve bursts when full.
+  components:
+  - type: VertibirdTurretRestock
+  - type: LimitedCharges
+    maxCharges: 12
+    charges: 12
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Boxes/12-7mm.rsi
+    state: base
+  - type: Item
+    size: Normal

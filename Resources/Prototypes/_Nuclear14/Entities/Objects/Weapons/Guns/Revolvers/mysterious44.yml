@@ -1,5 +1,5 @@
 - type: entity
-  parent: N14WeaponRevolver44Magnun
+  parent: N14WeaponRevolver44Magnum
   id: N14WeaponRevolver44Mysterious
   name: mysterious revolver
   description: A finely kept revolver with an unsettling air about it. Uses .44 magnum ammo.

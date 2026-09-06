@@ -44,7 +44,7 @@
     head: N14ClothingHeadHatRangerHelmetDesert
     back: N14ClothingBackpackMilitary # Corvax-Change
     jumpsuit: N14ClothingUniformRangerVeteran
-    ears: N14ClothingHeadsetNCR
+    ears: MisfitsClothingHeadsetNCRRanger
     shoes: N14ClothingBootsCombatFilled
     gloves: N14ClothingHandsGlovesCombat
     belt: ClothingBeltRevolvervetfilled

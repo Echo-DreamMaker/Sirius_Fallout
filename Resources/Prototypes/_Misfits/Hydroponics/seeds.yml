@@ -114,3 +114,27 @@
       Min: 1
       Max: 3
       PotencyDivisor: 40
+
+- type: seed
+  id: zoybean
+  name: zoybean
+  noun: seeds-noun-seeds
+  displayName: zoybean bushes
+  plantRsi: _Misfits/Objects/Specific/Hydroponics/zoybeans.rsi
+  packetPrototype: ZoybeanSeeds
+  productPrototypes:
+  - MisfitsFloraProduceWildZoybeans
+  harvestRepeat: NoRepeat
+  growthStages: 2
+  lifespan: 30
+  maturation: 20
+  production: 1
+  yield: 3
+  potency: 5
+  idealLight: 7
+  nutrientConsumption: 0.40
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 2
+      PotencyDivisor: 50

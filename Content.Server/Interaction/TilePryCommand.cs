@@ -44,7 +44,6 @@ namespace Content.Server.Interaction
                 return;
             }
 
-            var mapManager = IoCManager.Resolve<IMapManager>();
             var mapSystem = _entities.System<SharedMapSystem>();
             var xform = _entities.GetComponent<TransformComponent>(attached);
             var playerGrid = xform.GridUid;

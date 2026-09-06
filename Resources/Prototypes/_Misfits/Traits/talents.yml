@@ -1,0 +1,77 @@
+# #Misfits Add - Talent Tree: Fallout-inspired perk traits.
+
+# MENTAL tree - Scholar branch
+- type: trait
+  id: TraitSwiftLearner
+  category: Mental
+  points: -2
+  tier: 1
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: TraitSwiftLearner
+- type: trait
+  id: TraitScrounger
+  category: Mental
+  points: -3
+  tier: 2
+  requirements:
+    - !type:CharacterTraitRequirement
+      traits:
+        - TraitSwiftLearner
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: TraitScrounger
+- type: trait
+  id: TraitEducated
+  category: Mental
+  points: -4
+  tier: 3
+  requirements:
+    - !type:CharacterTraitRequirement
+      traits:
+        - TraitScrounger
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: TraitEducated
+- type: trait
+  id: TraitJunkerFinder
+  category: Mental
+  points: -3
+  tier: 3
+  requirements:
+    - !type:CharacterTraitRequirement
+      traits:
+        - TraitScrounger
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: TraitJunkerFinder
+- type: trait
+  id: TraitNerdRage
+  category: Mental
+  points: -5
+  tier: 4
+  requirements:
+    - !type:CharacterTraitRequirement
+      traits:
+        - TraitEducated
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: TraitNerdRage
+- type: trait
+  id: TraitFortunesFavor
+  category: Mental
+  points: -8
+  tier: 5
+  requirements:
+    - !type:CharacterTraitRequirement
+      traits:
+        - TraitNerdRage
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: TraitFortunesFavor

@@ -104,8 +104,8 @@
 - type: entity
   parent: N14ClothingUniformSkirtBase
   id: N14ClothingUniformJumpskirtRDFormal
-  name: research director's formal dress
-  description: Some formal attire for the research director.
+  name: formal brown dress
+  description: Formal attire for office workers and research personnel alike, in the safe neutral tones of beige and brown, it even has a clip-on tie included. This outfit has achieved true neutrality.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSkirts/rdformal.rsi

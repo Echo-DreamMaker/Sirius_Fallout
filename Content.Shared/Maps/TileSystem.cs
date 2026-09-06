@@ -17,7 +17,7 @@ namespace Content.Shared.Maps;
 /// </summary>
 public sealed class TileSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly SharedDecalSystem _decal = default!;
@@ -206,7 +206,7 @@ public sealed class TileSystem : EntitySystem
         }
 
         // Destroy any decals on the tile
-        var decals = _decal.GetDecalsInRange(gridUid, coordinates.SnapToGrid(EntityManager, _mapManager).Position, 0.5f);
+        var decals = _decal.GetDecalsInRange(gridUid, coordinates.SnapToGrid(EntityManager).Position, 0.5f);
         foreach (var (id, _) in decals)
         {
             _decal.RemoveDecal(tileRef.GridUid, id);

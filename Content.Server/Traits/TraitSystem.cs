@@ -60,6 +60,16 @@ public sealed class TraitSystem : EntitySystem
     {
         var pointsTotal = _configuration.GetCVar(CCVars.GameTraitsDefaultPoints);
         var traitSelections = _configuration.GetCVar(CCVars.GameTraitsMax);
+
+        // #Cythisiax Added - pets are paid for out of their own separate point pool with their
+        // own size caps (1 large / 2 medium / 3 small / 3 total), independent from perk points.
+        var petPoints = _configuration.GetCVar(CCVars.GamePetsDefaultPoints);
+        var petMaxSmall = _configuration.GetCVar(CCVars.GamePetsMaxSmall);
+        var petMaxMedium = _configuration.GetCVar(CCVars.GamePetsMaxMedium);
+        var petMaxLarge = _configuration.GetCVar(CCVars.GamePetsMaxLarge);
+        var petMaxTotal = _configuration.GetCVar(CCVars.GamePetsMaxTotal);
+        int petSmall = 0, petMedium = 0, petLarge = 0, petTotal = 0;
+
         if (jobId is not null && _prototype.TryIndex(jobId, out var jobPrototype)
             && jobPrototype is not null && !jobPrototype.ApplyTraits)
             return;
@@ -86,13 +96,33 @@ public sealed class TraitSystem : EntitySystem
                 continue;
 
             // To check for cheaters. :FaridaBirb.png:
-            pointsTotal += traitPrototype.Points;
-            --traitSelections;
+            if (PetTraitHelpers.IsPet(traitPrototype))
+            {
+                petPoints += traitPrototype.Points;
+                petTotal++;
+                switch (PetTraitHelpers.GetPetSize(traitPrototype))
+                {
+                    case PetTraitHelpers.SizeSmall: petSmall++; break;
+                    case PetTraitHelpers.SizeMedium: petMedium++; break;
+                    case PetTraitHelpers.SizeLarge: petLarge++; break;
+                }
+            }
+            else
+            {
+                pointsTotal += traitPrototype.Points;
+                --traitSelections;
+            }
 
             AddTrait(uid, traitPrototype);
         }
 
-        if (punishCheater && (pointsTotal < 0 || traitSelections < 0))
+        var petsInvalid = petPoints < 0
+            || petSmall > petMaxSmall
+            || petMedium > petMaxMedium
+            || petLarge > petMaxLarge
+            || petTotal > petMaxTotal;
+
+        if (punishCheater && (pointsTotal < 0 || traitSelections < 0 || petsInvalid))
             PunishCheater(uid);
     }
 

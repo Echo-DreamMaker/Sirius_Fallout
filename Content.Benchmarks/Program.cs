@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using BenchmarkDotNet.Running;
@@ -24,7 +24,8 @@ namespace Content.Benchmarks
             Console.WriteLine("THE DEBUG BUILD IS ONLY GOOD FOR FIXING A CRASHING BENCHMARK\n");
             BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args, new DebugInProcessConfig());
 #else
-            var config = Environment.GetEnvironmentVariable("ROBUST_BENCHMARKS_ENABLE_SQL") != null ? DefaultSQLConfig.Instance : null;
+            var config = DefaultSQLConfig.Instance;
+           // config.BuildTimeout.Add(new TimeSpan(0, 10, 0));
             BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args, config);
 #endif
         }

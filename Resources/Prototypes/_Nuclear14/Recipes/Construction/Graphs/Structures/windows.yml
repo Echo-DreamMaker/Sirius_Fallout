@@ -14,7 +14,7 @@
             - material: Glass
               amount: 2
               doAfter: 2
-              
+
     - node: N14WindowSlanted
       entity: N14WindowSlanted
       edges:
@@ -27,3 +27,33 @@
           steps:
             - tool: Prying
               doAfter: 10
+
+- type: constructionGraph
+  id: N14WindowBars
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bars
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+
+    - node: bars
+      entity: N14WindowBars
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Cutting
+              doAfter: 1
+
+

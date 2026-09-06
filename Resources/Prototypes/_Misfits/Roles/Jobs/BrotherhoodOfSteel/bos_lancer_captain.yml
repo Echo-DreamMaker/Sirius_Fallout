@@ -1,0 +1,59 @@
+# #Misfits Add / #Cythisiax Renamed (player-facing) - Knight-Captain: the chapter's vertibird
+# pilot and head of the aviation branch. Top of the ladder, ranked alongside the Senior Knights.
+# Prototype IDs kept stable so Lancers playtime is preserved.
+
+- type: job
+  id: BoSLancerCaptain
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false
+  jobWhitelistBypassesRoleTimers: true
+  weight: 69
+  overrideConsoleVisibility: true
+  canBeAntag: false
+  name: job-name-bos-lancer-captain
+  overwatchCategory: OverwatchBosKnight
+  description: job-description-bos-lancer-captain
+  playTimeTracker: BoSLancerCaptain
+  requirements:
+    - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
+      species:
+      - Human
+    - !type:CharacterDepartmentTimeRequirement # 20h flying with the Lancers
+      department: BrotherhoodOfSteelLancers
+      min: 72000 # 20 hours
+  startingGear: BoSLancerCaptainGear
+  alwaysUseSpawner: true
+  icon: "JobIconBosMKnight"
+  supervisors: job-supervisors-bos-lancer-captain
+  accessGroups:
+  - BOSSeniorKnight
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - BrotherhoodOfSteel
+      - type: VertibirdPilotPerk # #Misfits Add - pilot perk granted free with the role
+      - type: VertibirdCrew # #Misfits Add - trained crew repair the airframe faster
+
+- type: startingGear
+  id: BoSLancerCaptainGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpskirtBOSBlack
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsLeatherFilled
+    head: N14ClothingHeadHatBrotherhoodBeret
+    outerClothing: N14ClothingOuterJacketBomber
+    hands: N14ClothingHandsGlovesCombat
+    eyes: N14ClothingEyesGlassesPilot
+    pocket1: BoSBrotherhoodSeniorKnightKits
+    id: N14LancerCaptain_PipBoy
+    ears: N14ClothingHeadsetBrotherhoodOfSteel
+    belt: ClothingBeltBoSWebbing
+  storage:
+    back:
+    - N14ClothingHeadHatBrotherhoodHelmetKnight
+    - N14BoxPlasticFilledMilitary
+
+- type: playTimeTracker
+  id: BoSLancerCaptain

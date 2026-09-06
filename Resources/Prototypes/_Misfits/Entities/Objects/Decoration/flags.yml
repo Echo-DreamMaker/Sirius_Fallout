@@ -43,3 +43,29 @@
         density: 1000
         layer:
           - WallLayer
+
+# #Misfits Add - 509th Brotherhood of Steel standing flag (sprite by enchantedcrocolisk)
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: MisfitsDecorationFlagBoSBonneville509
+  name: Flag of the 509th Brotherhood of Steel
+  description: The banner of the 509th Brotherhood of Steel, an offshoot of the Mojave Chapter that survived Operation Sunburst and spent a decade as ghosts of the salt flats. Now risen as an active vanguard, they secure the region's lost technology before the Enclave or the ignorant can seize it.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Structures/Decoration/bos509thflag.rsi
+    state: bos509thflag
+  - type: Construction
+    graph: MisfitsFlagBOS509
+    node: FlagBOS509
+
+# #Misfits Add - 509th Brotherhood of Steel flagpole item (sprite by enchantedcrocolisk)
+- type: entity
+  parent: N14DecorationFlagpoleMBOS
+  id: MisfitsDecorationFlagpoleBoSBonneville509
+  name: 509th Brotherhood of Steel Flagpole
+  description: The banner of the 509th Brotherhood of Steel, descendants of the United States military who now attempt to confiscate and safeguard dangerous technology to prevent another apocalypse. The flag stands proud and tall, a challenge to those around it.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Decoration/Flags/bos509th_flagpole.rsi
+    state: icon
+    noRot: true

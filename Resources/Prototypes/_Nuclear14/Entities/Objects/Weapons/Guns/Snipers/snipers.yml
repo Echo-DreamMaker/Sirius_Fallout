@@ -163,6 +163,8 @@
     bonusDamage:
       types:
         Piercing: 25
+  - type: StrengthRequirement
+    requiredStrength: 6
 
 - type: entity
   name: .50 NCR rifle
@@ -213,6 +215,8 @@
     bonusDamage:
       types:
         Piercing: 20
+  - type: StrengthRequirement
+    requiredStrength: 6
 
 - type: entity
   name: lever action carbine
@@ -448,6 +452,8 @@
     bonusDamage:
       types:
         Piercing: 10
+  - type: StrengthRequirement
+    requiredStrength: 6
 
 - type: entity
   name: huntstick

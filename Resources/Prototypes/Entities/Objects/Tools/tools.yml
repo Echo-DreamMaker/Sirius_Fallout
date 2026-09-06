@@ -187,6 +187,7 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/wrench.rsi
+    storedRotation: 0 # Misfit: visually align sprite else it just pokes out lol
     storedSprite:
       sprite: Objects/Tools/wrench.rsi
       state: storage

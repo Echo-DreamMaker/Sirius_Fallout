@@ -67,26 +67,26 @@ undecided-loadout-category-soldier-morale-description =
 
 # NCRA Engineer Kits
 
-undecided-loadout-category-engi-mechanic-name = Engineer Mechanic Kit
+undecided-loadout-category-engi-mechanic-name = Engineer Sapper Kit
 undecided-loadout-category-engi-mechanic-description =
     Includes 1 filled utility belt, 1 butchered service rifle,
-    3 5.56 service rifle magazines, scrap, 10 glass sheets, wood planks,
-    1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack, and 1 torch.
+    3 5.56 service rifle magazines, A full stack of steel, 2 stacks of wood planks,
+    1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack
 
 undecided-loadout-category-engi-demo-name = Engineer Demolition Kit
 undecided-loadout-category-engi-demo-description =
     Includes 1 NCR shotgun belt, 1 9mm SMG, 3 9mm SMG magazines,
     1 short shotgun, 1 box of 12 gauge shells,
-    1 mechanical toolbox, 1 C4 charge, 1 ripper,
-    1 C ration MRE, 1 stimpak,
-    1 RadAway blood bag, 1 gauze pack, and 1 torch.
+    1 mechanical toolbox, 3 C4 charge, 1 ripper,
+    1 C ration MRE, 1 stimpak, 1 heavy metal shield
+    1 RadAway blood bag and 1 gauze pack
 
 undecided-loadout-category-engi-breach-name = Engineer Breacher Kit
 undecided-loadout-category-engi-breach-description =
     Includes 1 NCR shotgun belt, 1 combat shotgun, 3 12 gauge drum magazines,
     1 mechanical toolbox, 1 9mm pistol, 2 9mm pistol magazines,
-    1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack, and 1 torch.
-
+    1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack,
+    1 dynamite and 2 tin-grenades
 # NCRA Medic Kits
 
 undecided-loadout-category-med-surg-name = Medic Advanced Field Kit
@@ -186,6 +186,14 @@ undecided-loadout-category-lt-tactical-description =
     Includes 1 NCR officer armor, 1 loaded revolver belt, 1 assault carbine,
     3 long carbine magazines, 1 C ration MRE, 1 stimpak,
     1 super stimpak, 1 RadAway blood bag, 2 gauze packs, and 1 flare.
+
+undecided-loadout-category-lt-commissar-name = LT's Commissar Kit
+undecided-loadout-category-lt-commissar-description =
+    Includes 1 NCR Commissar plate, 1 NCR commissar jacket,
+    1 NCR commissar gas mask, 1 NCR Belt, 1 commissar sabre,
+    1 NCR commissar hat, 1 lasered desert eagle 44, 4 .44 pistol mags,
+    1 C ration MRE, 1 stimpak, 1 super stimpak, 1 RadAway blood bag,
+    2 gauze packs, and 1 flare.
 
 # Ranger stuff thingies
 
@@ -505,7 +513,7 @@ undecided-loadout-category-town-lawb-description =
 undecided-loadout-category-town-brea-name = Breacher Kit
 undecided-loadout-category-town-brea-description =
     Only when you don't have to worry about friendly fire!
-    Includes 1 visor brodie helmet, 1 riot armor,
+    Includes 1 visor brodie helmet(visor not included), 1 riot armor,
     1 blowback shotgun, 1 box of 12 gauge shells,
     1 Webley pistol, 2 9mm pistol mags,
     1 stack of gauze and basic ration supplies.

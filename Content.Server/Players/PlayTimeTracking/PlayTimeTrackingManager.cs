@@ -6,6 +6,7 @@ using Content.Server.Database;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
 using Content.Shared.Players.PlayTimeTracking;
+using Content.Shared.Roles;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
@@ -64,6 +65,7 @@ public sealed partial class PlayTimeTrackingManager : ISharedPlaytimeManager, IP
     [Dependency] private readonly ITaskManager _task = default!;
     [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
     [Dependency] private readonly UserDbDataManager _userDb = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -324,6 +326,8 @@ public sealed partial class PlayTimeTrackingManager : ISharedPlaytimeManager, IP
         foreach (var timer in playTimes)
             data.TrackerTimes.Add(timer.Tracker, timer.TimeSpent);
 
+        ApplyLegacyRoleTimerMigration(session, data);
+
         if (session.ContentData() != null)
             session.ContentData()!.Whitelisted = await _db.GetWhitelistStatusAsync(session.UserId);
 
@@ -332,6 +336,43 @@ public sealed partial class PlayTimeTrackingManager : ISharedPlaytimeManager, IP
         QueueRefreshTrackers(session);
         QueueSendTimers(session);
         QueueSendWhitelist(session); // Nyanotrasen - Whitelist status
+    }
+
+    private void ApplyLegacyRoleTimerMigration(ICommonSession session, PlayTimeData data)
+    {
+        if (data.TrackerTimes.ContainsKey(PlayTimeTrackingShared.GrandfatherMigrationTracker))
+            return;
+
+        const double grandfatherHours = 60;
+        var grandfatherTime = TimeSpan.FromTicks(1);
+
+        foreach (var department in _prototypes.EnumeratePrototypes<DepartmentPrototype>())
+        {
+            if (department.UICategory is not (DepartmentUICategory.MajorFaction or DepartmentUICategory.MinorFaction)
+                || department.ID == "Enclave")
+                continue;
+
+            var departmentTime = TimeSpan.Zero;
+            foreach (var role in department.Roles)
+            {
+                var job = _prototypes.Index<JobPrototype>(role);
+                departmentTime += data.TrackerTimes.GetValueOrDefault(job.PlayTimeTracker);
+            }
+
+            if (departmentTime.TotalHours < grandfatherHours)
+                continue;
+
+            foreach (var role in department.Roles)
+            {
+                var marker = PlayTimeTrackingShared.GrandfatheredRoleTracker(role);
+                data.TrackerTimes[marker] = grandfatherTime;
+                data.DbTrackersDirty.Add(marker);
+            }
+        }
+
+        data.TrackerTimes[PlayTimeTrackingShared.GrandfatherMigrationTracker] = grandfatherTime;
+        data.DbTrackersDirty.Add(PlayTimeTrackingShared.GrandfatherMigrationTracker);
+        _sawmill.Info($"Applied legacy role-timer migration for {session.UserId}.");
     }
 
     public void ClientDisconnected(ICommonSession session)

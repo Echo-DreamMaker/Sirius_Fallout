@@ -1,6 +1,7 @@
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Containers;
 
@@ -146,13 +147,26 @@ public abstract partial class SharedGunSystem
     private void FinaliseMagazineTakeAmmo(EntityUid uid, MagazineAmmoProviderComponent component, int count, int capacity, EntityUid? user, AppearanceComponent? appearance)
     {
         // If no ammo then check for autoeject
-        if (component.AutoEject && count == 0)
+        if (component.AutoEject && count == 0 && !ShouldDeferAutoEject(uid, component))
         {
             EjectMagazine(uid, component);
             Audio.PlayPredicted(component.SoundAutoEject, uid, user);
         }
 
         UpdateMagazineAppearance(uid, appearance, true, count, capacity);
+    }
+
+    /// <summary>
+    /// #Misfits Fixed - En-bloc clip guns (M1 Garand, SKS, battle rifle) keep their empty clip in
+    /// while a round is still chambered — the bolt holds the clip in until the chamber runs dry too.
+    /// This defers the auto-eject (and the Garand "ping") so a +1 round loaded doesn't pop the clip
+    /// out early and force a double bolt on reload.
+    /// </summary>
+    private bool ShouldDeferAutoEject(EntityUid uid, MagazineAmmoProviderComponent component)
+    {
+        return component is ChamberMagazineAmmoProviderComponent chamberComp
+               && chamberComp.RetainEmptyWhenChambered
+               && GetChamberEntity(uid) != null;
     }
 
     private void UpdateMagazineAppearance(EntityUid uid, MagazineAmmoProviderComponent component, EntityUid magEnt)

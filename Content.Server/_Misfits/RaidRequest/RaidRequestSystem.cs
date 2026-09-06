@@ -13,9 +13,11 @@ using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server._Misfits.FactionWar;
+using Content.Server._Misfits.Group;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Shared._Misfits.RaidRequest;
+using Content.Shared._Misfits.Group;
 using Content.Shared.GameTicking;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
@@ -38,6 +40,7 @@ public sealed class RaidRequestSystem : EntitySystem
     [Dependency] private readonly IPlayerManager   _playerManager = default!;
     [Dependency] private readonly IGameTiming      _gameTiming    = default!;
     [Dependency] private readonly FactionWarSystem _factionWar    = default!;
+    [Dependency] private readonly GroupSystem      _groupSystem   = default!;
 
     /// <summary>All requests this round, keyed by sequential id.</summary>
     private readonly Dictionary<int, RaidRequestEntry> _requests = new();
@@ -268,18 +271,34 @@ public sealed class RaidRequestSystem : EntitySystem
             data.IneligibleReason = "You are not a member of any raid-eligible faction.";
         }
 
-        // Target faction list: faction-tier set, minus self. Wastelanders pick their target the same way.
+        // Target list: faction-tier set, minus self, plus formed player groups.
         foreach (var f in RaidRequestConfig.FactionTierFactions)
         {
             if (f == canonicalFaction)
                 continue;
-            data.TargetFactions.Add(new RaidRequestTargetInfo
+            data.TargetOptions.Add(new RaidRequestTargetInfo
             {
+                Kind        = RaidRequestTargetKind.Faction,
                 Id          = f,
                 DisplayName = RaidRequestConfig.FactionDisplayName(f),
             });
         }
-        data.TargetFactions.Sort((a, b) => string.Compare(a.DisplayName, b.DisplayName, StringComparison.Ordinal));
+        foreach (var group in _groupSystem.GetRaidTargets())
+        {
+            data.TargetOptions.Add(new RaidRequestTargetInfo
+            {
+                Kind        = RaidRequestTargetKind.Group,
+                Id          = group.GroupId.ToString(),
+                DisplayName = $"{group.GroupName} ({group.Members.Count})",
+            });
+        }
+        data.TargetOptions.Sort((a, b) =>
+        {
+            var byKind = a.Kind.CompareTo(b.Kind);
+            return byKind != 0
+                ? byKind
+                : string.Compare(a.DisplayName, b.DisplayName, StringComparison.Ordinal);
+        });
 
         // Player's own requests this round (so they can see their pending submissions).
         foreach (var entry in _requests.Values)
@@ -316,17 +335,37 @@ public sealed class RaidRequestSystem : EntitySystem
             return;
         }
 
-        var targetFaction = msg.TargetFaction.Trim();
+        var targetKind    = msg.TargetKind;
+        var targetId      = msg.TargetId.Trim();
         var location      = (msg.LocationNotes ?? string.Empty).Trim();
         var reason        = (msg.Reason ?? string.Empty).Trim();
 
-        if (!RaidRequestConfig.FactionTierFactions.Contains(targetFaction))
+        string targetDisplayName;
+        switch (targetKind)
         {
-            SendSubmitResult(session, false, $"'{targetFaction}' is not a valid raid target.");
-            return;
+            case RaidRequestTargetKind.Faction:
+                if (!RaidRequestConfig.FactionTierFactions.Contains(targetId))
+                {
+                    SendSubmitResult(session, false, $"'{targetId}' is not a valid raid target.");
+                    return;
+                }
+                targetDisplayName = RaidRequestConfig.FactionDisplayName(targetId);
+                break;
+            case RaidRequestTargetKind.Group:
+                if (!int.TryParse(targetId, out var targetGroupId)
+                    || !_groupSystem.TryGetRaidTargetInfo(targetGroupId, out var targetGroup))
+                {
+                    SendSubmitResult(session, false, $"'{targetId}' is not a valid raid target.");
+                    return;
+                }
+                targetDisplayName = targetGroup.GroupName;
+                break;
+            default:
+                SendSubmitResult(session, false, $"'{targetId}' is not a valid raid target.");
+                return;
         }
 
-        if (targetFaction == canonicalFaction)
+        if (targetKind == RaidRequestTargetKind.Faction && targetId == canonicalFaction)
         {
             SendSubmitResult(session, false, "You cannot request a raid on your own faction.");
             return;
@@ -370,7 +409,7 @@ public sealed class RaidRequestSystem : EntitySystem
         {
             if (existing.Status != RaidRequestStatus.Pending)
                 continue;
-            if (existing.TargetFaction != targetFaction)
+            if (existing.TargetKind != targetKind || existing.TargetId != targetId)
                 continue;
 
             var sameSubmitter =
@@ -400,7 +439,9 @@ public sealed class RaidRequestSystem : EntitySystem
             RequesterJob           = jobName,
             RequesterFaction       = canonicalFaction,
             IsIndividual           = isIndividual,
-            TargetFaction          = targetFaction,
+            TargetKind             = targetKind,
+            TargetId               = targetId,
+            TargetDisplayName      = targetDisplayName,
             LocationNotes          = location,
             Reason                 = reason,
             CreatedAtUtc           = DateTime.UtcNow,
@@ -420,7 +461,7 @@ public sealed class RaidRequestSystem : EntitySystem
             ? $"{entry.RequesterCharacterName} ({session.Name})"
             : $"{RaidRequestConfig.FactionDisplayName(canonicalFaction)} (via {entry.RequesterCharacterName})";
         _chat.SendAdminAnnouncement(
-            $"[RaidRequest #{entry.Id}] {who} → {RaidRequestConfig.FactionDisplayName(targetFaction)}: \"{reason}\"");
+            $"[RaidRequest #{entry.Id}] {who} → {GetTargetDisplayName(entry)}: \"{reason}\"");
 
         // #Misfits Add - Faction-tier raids also prompt the highest-ranking online member of the
         // TARGET faction. They can YES/NO directly, bypassing admin review while still publishing
@@ -510,7 +551,7 @@ public sealed class RaidRequestSystem : EntitySystem
             // Server-wide chat heads-up so both factions can see the prep clock running.
             _chat.DispatchServerAnnouncement(
                 $"INCOMING RAID — {RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} → " +
-                $"{RaidRequestConfig.FactionDisplayName(entry.TargetFaction)}.\n" +
+                $"{GetTargetDisplayName(entry)}.\n" +
                 $"Raid may begin in 5 minutes. Prepare accordingly.",
                 Color.OrangeRed);
         }
@@ -523,7 +564,7 @@ public sealed class RaidRequestSystem : EntitySystem
         _chat.SendAdminAnnouncement(
             $"[RaidRequest #{entry.Id}] {decidedByName} {verb}: " +
             $"{RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} → " +
-            $"{RaidRequestConfig.FactionDisplayName(entry.TargetFaction)}. Remarks: {comment}");
+            $"{GetTargetDisplayName(entry)}. Remarks: {comment}");
     }
 
     /// <summary>
@@ -544,14 +585,14 @@ public sealed class RaidRequestSystem : EntitySystem
 
         _chat.DispatchServerAnnouncement(
             $"RAID HAS BEGUN — {RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} vs " +
-            $"{RaidRequestConfig.FactionDisplayName(entry.TargetFaction)}.\n" +
+            $"{GetTargetDisplayName(entry)}.\n" +
             $"Engagement window: 15 minutes.",
             Color.Red);
 
         _chat.SendAdminAnnouncement(
             $"[RaidRequest #{entry.Id}] ACTIVE: " +
             $"{RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} \u2192 " +
-            $"{RaidRequestConfig.FactionDisplayName(entry.TargetFaction)}.");
+            $"{GetTargetDisplayName(entry)}.");
     }
 
     // ── Admin: end an approved raid (manual conclude) ──────────────────────
@@ -585,7 +626,7 @@ public sealed class RaidRequestSystem : EntitySystem
     // ── Peer-faction approval (target leader bypasses admin) ───────────────
 
     /// <summary>
-    /// #Misfits Add - Locates the highest-ranking online member of the target faction and sends
+    /// #Misfits Add - Locates the highest-ranking online member of the target faction or group and sends
     /// them a peer-approval popup. No-op when no eligible leader is online; the request then
     /// remains Pending for admin review.
     /// </summary>
@@ -594,19 +635,45 @@ public sealed class RaidRequestSystem : EntitySystem
         ICommonSession? topSession = null;
         var topWeight = 0;
 
-        foreach (var session in EnumerateFactionMembers(entry.TargetFaction))
+        if (entry.TargetKind == RaidRequestTargetKind.Group)
         {
-            if (session.AttachedEntity is not { } ent)
-                continue;
-            if (!_minds.TryGetMind(ent, out var mindId, out _))
-                continue;
+            if (!TryGetTargetGroupInfo(entry, out var targetGroup))
+                return;
 
-            var w = GetJobWeight(mindId);
-            if (w <= 0 || w <= topWeight)
-                continue;
+            foreach (var member in targetGroup.Members.OrderByDescending(m => (int)m.Role))
+            {
+                var memberEntity = GetEntity(member.Entity);
+                if (!Exists(memberEntity) || !TryComp<ActorComponent>(memberEntity, out var actor))
+                    continue;
+                if (actor.PlayerSession.Status != SessionStatus.InGame)
+                    continue;
+                if (!_minds.TryGetMind(memberEntity, out var mindId, out _))
+                    continue;
 
-            topWeight = w;
-            topSession = session;
+                var w = GetJobWeight(mindId);
+                if (w <= 0 || w <= topWeight)
+                    continue;
+
+                topWeight = w;
+                topSession = actor.PlayerSession;
+            }
+        }
+        else
+        {
+            foreach (var session in EnumerateFactionMembers(entry.TargetId))
+            {
+                if (session.AttachedEntity is not { } ent)
+                    continue;
+                if (!_minds.TryGetMind(ent, out var mindId, out _))
+                    continue;
+
+                var w = GetJobWeight(mindId);
+                if (w <= 0 || w <= topWeight)
+                    continue;
+
+                topWeight = w;
+                topSession = session;
+            }
         }
 
         if (topSession == null)
@@ -645,17 +712,17 @@ public sealed class RaidRequestSystem : EntitySystem
             return;
         }
 
-        // #Misfits Fix - Re-verify current faction membership. A player who died and respawned
-        // into a different faction since the prompt was sent must not be allowed to decide —
-        // they would be approving/denying a raid that affects their new faction (conflict of interest).
+        // #Misfits Fix - Re-verify current target membership. A player who died and respawned
+        // into a different faction or group since the prompt was sent must not be allowed to decide —
+        // they would be approving/denying a raid that affects their new side (conflict of interest).
         if (session.AttachedEntity is not { } currentEntity
-            || !IsEntityInFaction(currentEntity, entry.TargetFaction))
+            || !IsEntityInTarget(currentEntity, entry))
         {
             _pendingPeerPrompts.Remove(entry.Id);
             SendPeerResult(session, msg.RequestId, false,
-                "You are no longer a member of the target faction and cannot decide this request. " +
+                "You are no longer a member of the target faction or group and cannot decide this request. " +
                 "Another leader or an admin will be notified.");
-            // Re-route to whoever is now highest-ranking in the target faction; no-op if nobody qualifies.
+            // Re-route to whoever is now highest-ranking in the target faction or group; no-op if nobody qualifies.
             TrySendPeerPrompt(entry);
             return;
         }
@@ -668,7 +735,7 @@ public sealed class RaidRequestSystem : EntitySystem
         var charName = session.AttachedEntity is { } responderEnt
             ? Name(responderEnt)
             : session.Name;
-        var decidedByName = $"{charName} (Target Faction Leader)";
+        var decidedByName = $"{charName} (Target Leader)";
 
         ApplyDecision(entry, msg.Approve, decidedByName, comment);
         SendPeerResult(session, msg.RequestId, true, msg.Approve ? "Raid approved." : "Raid denied.");
@@ -704,7 +771,7 @@ public sealed class RaidRequestSystem : EntitySystem
         _chat.SendAdminAnnouncement(
             $"[RaidRequest #{entry.Id}] CONCLUDED ({concludedBy}): " +
             $"{RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} → " +
-            $"{RaidRequestConfig.FactionDisplayName(entry.TargetFaction)}.");
+            $"{GetTargetDisplayName(entry)}.");
     }
 
     private void SendEndResult(ICommonSession session, int requestId, bool success, string message) =>
@@ -720,6 +787,7 @@ public sealed class RaidRequestSystem : EntitySystem
     ///     this matches the spec ("only the requestor"); a lone wastelander doesn't get to put
     ///     a whole faction on alert just by asking.
     ///   * Faction-tier: every online member of both the requester faction AND the target faction.
+    ///   * Group target: every online member of the targeted group.
     /// </summary>
     private void BroadcastDecisionAnnouncement(RaidRequestEntry entry)
     {
@@ -738,8 +806,8 @@ public sealed class RaidRequestSystem : EntitySystem
         foreach (var session in EnumerateFactionMembers(entry.RequesterFaction))
             NotifyOne(session, entry, isTargetSide: false, chatLine, notified);
 
-        // Faction-tier target side: all online members of the raided faction.
-        foreach (var session in EnumerateFactionMembers(entry.TargetFaction))
+        // Target side: all online members of the raided faction or group.
+        foreach (var session in EnumerateTargetMembers(entry))
             NotifyOne(session, entry, isTargetSide: true, chatLine, notified);
     }
 
@@ -766,13 +834,13 @@ public sealed class RaidRequestSystem : EntitySystem
         _chat.DispatchServerMessage(session, chatLine);
     }
 
-    private static string BuildDecisionChatLine(RaidRequestEntry entry)
+    private string BuildDecisionChatLine(RaidRequestEntry entry)
     {
         var verb = entry.Status == RaidRequestStatus.Approved ? "APPROVED" : "DENIED";
         var whoFrom = entry.IsIndividual
             ? entry.RequesterCharacterName
             : RaidRequestConfig.FactionDisplayName(entry.RequesterFaction);
-        var whoTo = RaidRequestConfig.FactionDisplayName(entry.TargetFaction);
+        var whoTo = GetTargetDisplayName(entry);
         var loc = string.IsNullOrWhiteSpace(entry.LocationNotes) ? "" : $" at {entry.LocationNotes}";
         var admin = entry.AdminUserName ?? "(unknown)";
         var remarks = entry.AdminComment ?? "";
@@ -783,7 +851,7 @@ public sealed class RaidRequestSystem : EntitySystem
 
     /// <summary>
     /// Sends the mandatory raid-over acknowledgement to every online member of both involved
-    /// factions. Individual-tier raids notify only their requester, matching their participation
+    /// sides. Individual-tier raids notify only their requester, matching their participation
     /// and decision-notification scope.
     /// </summary>
     private void BroadcastConclusionAnnouncement(RaidRequestEntry entry)
@@ -800,7 +868,7 @@ public sealed class RaidRequestSystem : EntitySystem
         foreach (var session in EnumerateFactionMembers(entry.RequesterFaction))
             NotifyRaidConcluded(session, entry, notified);
 
-        foreach (var session in EnumerateFactionMembers(entry.TargetFaction))
+        foreach (var session in EnumerateTargetMembers(entry))
             NotifyRaidConcluded(session, entry, notified);
     }
 
@@ -816,8 +884,68 @@ public sealed class RaidRequestSystem : EntitySystem
         _chat.DispatchServerMessage(session,
             $"Raid #{entry.Id} is over. Combat authorization between " +
             $"{RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} and " +
-            $"{RaidRequestConfig.FactionDisplayName(entry.TargetFaction)} has ended.");
+            $"{GetTargetDisplayName(entry)} has ended.");
     }
+
+    private string GetTargetDisplayName(RaidRequestEntry entry) => entry.TargetKind switch
+    {
+        RaidRequestTargetKind.Faction => RaidRequestConfig.FactionDisplayName(entry.TargetId),
+        RaidRequestTargetKind.Group   => string.IsNullOrWhiteSpace(entry.TargetDisplayName) ? $"Group {entry.TargetId}" : entry.TargetDisplayName,
+        _                             => entry.TargetDisplayName,
+    };
+
+    private bool TryGetTargetGroupInfo(RaidRequestEntry entry, out GroupRaidTargetInfo info)
+    {
+        info = default;
+        if (entry.TargetKind != RaidRequestTargetKind.Group)
+            return false;
+        if (!int.TryParse(entry.TargetId, out var groupId))
+            return false;
+
+        return _groupSystem.TryGetRaidTargetInfo(groupId, out info);
+    }
+
+    private IEnumerable<ICommonSession> EnumerateTargetMembers(RaidRequestEntry entry)
+    {
+        if (entry.TargetKind == RaidRequestTargetKind.Group)
+        {
+            if (!TryGetTargetGroupInfo(entry, out var group))
+                yield break;
+
+            foreach (var member in group.Members)
+            {
+                var memberEntity = GetEntity(member.Entity);
+                if (!Exists(memberEntity) || !TryComp<ActorComponent>(memberEntity, out var actor))
+                    continue;
+                if (actor.PlayerSession.Status != SessionStatus.InGame)
+                    continue;
+                yield return actor.PlayerSession;
+            }
+
+            yield break;
+        }
+
+        foreach (var session in EnumerateFactionMembers(entry.TargetId))
+            yield return session;
+    }
+
+    private bool IsEntityInTarget(EntityUid entity, RaidRequestEntry entry)
+    {
+        return entry.TargetKind switch
+        {
+            RaidRequestTargetKind.Faction => IsEntityInFaction(entity, entry.TargetId),
+            RaidRequestTargetKind.Group   => TryGetTargetGroupInfo(entry, out var group) &&
+                                             group.Members.Any(member => member.Entity == GetNetEntity(entity)),
+            _                             => false,
+        };
+    }
+
+    private string GetTargetSideKey(RaidRequestEntry entry) => entry.TargetKind switch
+    {
+        RaidRequestTargetKind.Faction => $"faction:{entry.TargetId}",
+        RaidRequestTargetKind.Group   => $"group:{entry.TargetId}",
+        _                             => entry.TargetId,
+    };
 
     // ── Admin sync helpers ─────────────────────────────────────────────────
 
@@ -977,7 +1105,9 @@ public sealed class RaidRequestSystem : EntitySystem
     {
         foreach (var entry in _requests.Values)
         {
-            if (entry.Status == RaidRequestStatus.Active && entry.TargetFaction == factionId)
+            if (entry.Status == RaidRequestStatus.Active
+                && entry.TargetKind == RaidRequestTargetKind.Faction
+                && entry.TargetId == factionId)
                 return true;
         }
         return false;
@@ -1001,8 +1131,8 @@ public sealed class RaidRequestSystem : EntitySystem
     }
 
     /// <summary>
-    /// Builds the NetEntity → faction-side dict for every online player whose attached entity
-    /// belongs to a faction involved in any approved faction-tier raid. Mirrors
+    /// Builds the NetEntity → side-key dict for every online player whose attached entity
+    /// belongs to a faction or group involved in any approved non-individual raid. Mirrors
     /// FactionWarSystem.BuildParticipantDict so the client can merge both dicts cleanly.
     /// Honors the same OverlayExemptJobs list (Frumentarii, etc.) used by the war overlay.
     /// </summary>
@@ -1010,17 +1140,30 @@ public sealed class RaidRequestSystem : EntitySystem
     {
         var dict = new Dictionary<NetEntity, string>();
 
-        // Collect every faction id involved in an approved faction-tier raid (plus aliases).
+        // Collect every faction/group side involved in an approved non-individual raid.
         var raidFactions = new HashSet<string>();
+        var raidGroups = new Dictionary<int, HashSet<NetEntity>>();
         foreach (var entry in _requests.Values)
         {
             if (entry.Status != RaidRequestStatus.Active || entry.IsIndividual)
                 continue;
             raidFactions.Add(entry.RequesterFaction);
-            raidFactions.Add(entry.TargetFaction);
+            if (entry.TargetKind == RaidRequestTargetKind.Faction)
+            {
+                raidFactions.Add(entry.TargetId);
+                continue;
+            }
+
+            if (!TryGetTargetGroupInfo(entry, out var targetGroup))
+                continue;
+
+            var members = new HashSet<NetEntity>();
+            foreach (var member in targetGroup.Members)
+                members.Add(member.Entity);
+            raidGroups[targetGroup.GroupId] = members;
         }
 
-        if (raidFactions.Count == 0)
+        if (raidFactions.Count == 0 && raidGroups.Count == 0)
             return dict;
 
         // Walk every faction-bearing entity and tag it with the canonical raid side.
@@ -1041,6 +1184,14 @@ public sealed class RaidRequestSystem : EntitySystem
                 dict[GetNetEntity(uid)] = fId;
                 break; // first match wins
             }
+        }
+
+        // Group sides are keyed by their target group id because they are not NPC factions.
+        foreach (var (groupId, members) in raidGroups)
+        {
+            var sideKey = $"group:{groupId}";
+            foreach (var member in members)
+                dict[member] = sideKey;
         }
 
         return dict;

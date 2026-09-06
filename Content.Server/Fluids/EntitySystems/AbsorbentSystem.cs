@@ -56,14 +56,14 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
 
         var oldProgress = component.Progress.ShallowClone();
         component.Progress.Clear();
-
-        var water = solution.GetTotalPrototypeQuantity(PuddleSystem.EvaporationReagents);
+        //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
+        var water = solution.GetTotalPrototypeQuantity(PuddleSystem.FastEvaporationReagents);
         if (water > FixedPoint2.Zero)
-        {
-            component.Progress[solution.GetColorWithOnly(_prototype, PuddleSystem.EvaporationReagents)] = water.Float();
+        { //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
+            component.Progress[solution.GetColorWithOnly(_prototype, PuddleSystem.FastEvaporationReagents)] = water.Float();
         }
-
-        var otherColor = solution.GetColorWithout(_prototype, PuddleSystem.EvaporationReagents);
+        //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
+        var otherColor = solution.GetColorWithout(_prototype, PuddleSystem.FastEvaporationReagents);
         var other = (solution.Volume - water).Float();
 
         if (other > 0f)
@@ -182,7 +182,8 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
         }
 
         // Prioritize transferring non-evaporatives if absorbent has any
-        var contaminants = _solutionContainerSystem.SplitSolutionWithout(absorbentSoln, transferAmount, PuddleSystem.EvaporationReagents);
+        //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
+        var contaminants = _solutionContainerSystem.SplitSolutionWithout(absorbentSoln, transferAmount, PuddleSystem.FastEvaporationReagents);
         if (contaminants.Volume > 0)
         {
             _solutionContainerSystem.TryAddSolution(refillableSoln, contaminants);
@@ -206,8 +207,8 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
         AbsorbentComponent component,
         Entity<SolutionComponent> absorbentSoln,
         Entity<SolutionComponent> refillableSoln)
-    {
-        var contaminantsFromAbsorbent = _solutionContainerSystem.SplitSolutionWithout(absorbentSoln, component.PickupAmount, PuddleSystem.EvaporationReagents);
+    {   //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
+        var contaminantsFromAbsorbent = _solutionContainerSystem.SplitSolutionWithout(absorbentSoln, component.PickupAmount, PuddleSystem.FastEvaporationReagents);
 
         var absorbentSolution = absorbentSoln.Comp.Solution;
         if (contaminantsFromAbsorbent.Volume == FixedPoint2.Zero && absorbentSolution.AvailableVolume == FixedPoint2.Zero)
@@ -224,7 +225,8 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
             absorbentSolution.AvailableVolume;
 
         var refillableSolution = refillableSoln.Comp.Solution;
-        var waterFromRefillable = refillableSolution.SplitSolutionWithOnly(waterPulled, PuddleSystem.EvaporationReagents);
+        //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
+        var waterFromRefillable = refillableSolution.SplitSolutionWithOnly(waterPulled, PuddleSystem.FastEvaporationReagents);
         _solutionContainerSystem.UpdateChemicals(refillableSoln);
 
         if (waterFromRefillable.Volume == FixedPoint2.Zero && contaminantsFromAbsorbent.Volume == FixedPoint2.Zero)
@@ -277,16 +279,15 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
         if (!_solutionContainerSystem.ResolveSolution(target, puddle.SolutionName, ref puddle.Solution, out var puddleSolution) || puddleSolution.Volume <= 0)
             return false;
 
-        // Check if the puddle has any non-evaporative reagents
-        if (_puddleSystem.CanFullyEvaporate(puddleSolution))
-        {
-            _popups.PopupEntity(Loc.GetString("mopping-system-puddle-evaporate", ("target", target)), user, user);
-            return true;
-        }
+        // #Cythisiax Fixed - Since EvaporationReagents now contains every reagent (ReagentPrototype.Evaporates
+        // defaults true and no N14 reagent overrides it), CanFullyEvaporate() was true for ALL puddles, so this
+        // guard always fired and mops could never clean a spill ("is evaporating"). Mirrors upstream #38743
+        // "allow mopping evaporating puddles" — mops should clean any puddle.
 
-        // Check if we have any evaporative reagents on our absorber to transfer
+        // Check if we have any FAST evaporative reagents (water) on our absorber to transfer
+        //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
         var absorberSolution = absorberSoln.Comp.Solution;
-        var available = absorberSolution.GetTotalPrototypeQuantity(PuddleSystem.EvaporationReagents);
+        var available = absorberSolution.GetTotalPrototypeQuantity(PuddleSystem.FastEvaporationReagents);
 
         // No material
         if (available == FixedPoint2.Zero)
@@ -298,8 +299,11 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
         var transferMax = absorber.PickupAmount;
         var transferAmount = available > transferMax ? transferMax : available;
 
-        var puddleSplit = puddleSolution.SplitSolutionWithout(transferAmount, PuddleSystem.EvaporationReagents);
-        var absorberSplit = absorberSolution.SplitSolutionWithOnly(puddleSplit.Volume, PuddleSystem.EvaporationReagents);
+        // Pick up the spilled liquid directly, then leave water behind so the spill becomes
+        // a water puddle (changes color) that evaporates faster — the expected mop behavior.
+        var puddleSplit = puddleSolution.SplitSolution(transferAmount);
+        var absorberSplit = absorberSolution.SplitSolutionWithOnly(puddleSplit.Volume, PuddleSystem.FastEvaporationReagents);
+        // AND THIS ONE TOO, FROM PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
 
         // Do tile reactions first
         var transform = Transform(target);

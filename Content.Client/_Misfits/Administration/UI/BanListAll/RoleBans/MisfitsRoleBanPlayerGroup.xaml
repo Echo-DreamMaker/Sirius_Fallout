@@ -1,0 +1,21 @@
+<PanelContainer
+    xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    >
+    <PanelContainer.PanelOverride>
+        <gfx:StyleBoxFlat BackgroundColor="#2a2024" BorderThickness="0 0 0 1" BorderColor="#5a3338"
+                          ContentMarginLeftOverride="8" ContentMarginRightOverride="8"
+                          ContentMarginTopOverride="6" ContentMarginBottomOverride="6" />
+    </PanelContainer.PanelOverride>
+    <BoxContainer Orientation="Horizontal" VerticalAlignment="Center">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+            <Label Name="Player" Access="Public" StyleClasses="LabelHeading" />
+            <Label Name="Count" Access="Public" FontColorOverride="#c8b9bd" />
+        </BoxContainer>
+        <ui:ConfirmButton Name="Pardon" Access="Public"
+                          Text="{Loc banlistall-roleban-pardon-active}"
+                          ConfirmationText="{Loc banlistall-roleban-pardon-confirm}"
+                          MinWidth="190" />
+    </BoxContainer>
+</PanelContainer>

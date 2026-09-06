@@ -9,6 +9,18 @@
     mapConfigId: Wendover
     mapTitle: Enclave TacMap
     tacticalFeed: Enclave
+    communicationsJobs:
+    - EnclaveCommander
+    - EnclaveSeniorOfficer
+    - EnclaveJuniorOfficer
+    - EnclaveHeadScientist
+  # #Misfits Fix - Override the BOS OverwatchConsole inherited from N14BrotherhoodTacticalmap
+  # so this map's Overwatch tab only tracks Enclave members (IdCardEnclave), not Brotherhood.
+  # The child component replaces the parent's trackedTags.
+  - type: OverwatchConsole
+    monitorTitle: overwatch-monitor-title-enclave
+    trackedTags:
+    - IdCardEnclave
   - type: AccessReader
     access: [["Enclave"]]
   - type: ActivatableUIRequiresAccess
@@ -37,6 +49,18 @@
     mapConfigId: Wendover
     mapTitle: Enclave TacMap
     tacticalFeed: Enclave
+    communicationsJobs:
+    - EnclaveCommander
+    - EnclaveSeniorOfficer
+    - EnclaveJuniorOfficer
+    - EnclaveHeadScientist
+  # #Misfits Fix - Override the BOS OverwatchConsole inherited from N14BrotherhoodTacticalmap
+  # so this map's Overwatch tab only tracks Enclave members (IdCardEnclave), not Brotherhood.
+  # The child component replaces the parent's trackedTags.
+  - type: OverwatchConsole
+    monitorTitle: overwatch-monitor-title-enclave
+    trackedTags:
+    - IdCardEnclave
   - type: AccessReader
     access: [["Enclave"]]
   - type: ActivatableUIRequiresAccess

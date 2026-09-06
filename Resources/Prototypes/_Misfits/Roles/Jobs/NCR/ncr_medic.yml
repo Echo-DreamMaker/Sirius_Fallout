@@ -5,7 +5,8 @@
   jobWhitelistBypassesRoleTimers: true
   overrideConsoleVisibility: false
   canBeAntag: false
-  weight: 42
+  weight: 39 # #Misfits Tweak - Medic belongs below Engineer in the support tier
+  showBorder: false
   name: job-name-ncr-medic
   overwatchCategory: OverwatchNcrMedical
   description: job-description-ncr-medic
@@ -18,6 +19,9 @@
     - !type:CharacterDepartmentTimeRequirement # T4 faction timelock (12h NCR)
       department: NCR
       min: 43200 # 12 hours
+    - !type:CharacterPlaytimeRequirement
+      tracker: NCRTrooper
+      min: 14400 # 4 hours as NCR Trooper
   startingGear: NCRMedicGear
   icon: "JobIconNcrMedic"
   supervisors: job-supervisors-ncr-nco
@@ -38,7 +42,7 @@
   id: NCRMedicGear
   equipment:
     jumpsuit: N14ClothingUniformNCRMedicVariant # Corvax-Change
-    #outerClothing: N14ClothingOuterNCRPouchedVestDesert # Forge-Change
+    outerClothing: N14ClothingOuterCoatFollowersArmored
     back: N14ClothingBackpackNCR # Corvax-Change
     shoes: N14ClothingBootsLeatherFilled
     ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece

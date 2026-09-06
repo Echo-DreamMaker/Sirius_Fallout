@@ -1,0 +1,173 @@
+# Faction paint schemes inherit the complete Vertibird flight, seating, fuel,
+# MultiZ transfer, combat-drop, turret and repair behavior.  Only the RSI and
+# its stationary/rotor-animation states differ.
+
+- type: entity
+  parent: N14VehicleVertibird
+  id: N14VehicleVertibirdBoS
+  name: Brotherhood of Steel vertibird
+  suffix: Flyable, Wendover
+  components:
+  - type: Vertibird
+    groundedSpriteState: vertibird_bos
+    flyingSpriteState: vertibird_bos_flying
+  # #Misfits Fix - faction RSIs use faction-prefixed states; relist layers so the Base
+  # layer points at the faction state and the parent's Shadow layer is preserved.
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/vertibird_bos.rsi
+    layers:
+    - sprite: _Nuclear14/Mobs/Robots/eyebot.rsi
+      state: shadow_eyebot
+      map: [ enum.VertibirdVisualLayers.Shadow ]
+      offset: 0, -1.8
+      scale: 8, 4
+      color: "#00000055"
+      visible: false
+    - state: vertibird_bos
+      map: [ enum.VertibirdVisualLayers.Base ]
+
+- type: entity
+  parent: N14VehicleVertibirdWreck
+  id: N14VehicleVertibirdBoSWreck
+  name: grounded Brotherhood of Steel vertibird
+  suffix: Mapping
+  components:
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/vertibird_bos.rsi
+    state: vertibird_bos
+
+- type: entity
+  parent: N14VehicleVertibird
+  id: N14VehicleVertibird509th
+  name: 509th Brotherhood of Steel vertibird
+  suffix: Flyable, Wendover
+  components:
+  - type: Vertibird
+    groundedSpriteState: vertibird_509th
+    flyingSpriteState: vertibird_509th_flying
+  # #Misfits Fix - faction RSIs use faction-prefixed states; relist layers so the Base
+  # layer points at the faction state and the parent's Shadow layer is preserved.
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/vertibird_509th.rsi
+    layers:
+    - sprite: _Nuclear14/Mobs/Robots/eyebot.rsi
+      state: shadow_eyebot
+      map: [ enum.VertibirdVisualLayers.Shadow ]
+      offset: 0, -1.8
+      scale: 8, 4
+      color: "#00000055"
+      visible: false
+    - state: vertibird_509th
+      map: [ enum.VertibirdVisualLayers.Base ]
+
+- type: entity
+  parent: N14VehicleVertibirdWreck
+  id: N14VehicleVertibird509thWreck
+  name: grounded 509th Brotherhood of Steel vertibird
+  suffix: Mapping
+  components:
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/vertibird_509th.rsi
+    state: vertibird_509th
+
+- type: entity
+  parent: N14VehicleVertibird
+  id: N14VehicleVertibirdEnclave
+  name: Enclave vertibird
+  suffix: Flyable, Wendover
+  components:
+  - type: Vertibird
+    groundedSpriteState: vertibird_enclave
+    flyingSpriteState: vertibird_enclave_flying
+  # #Misfits Fix - faction RSIs use faction-prefixed states; relist layers so the Base
+  # layer points at the faction state and the parent's Shadow layer is preserved.
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/vertibird_enclave.rsi
+    layers:
+    - sprite: _Nuclear14/Mobs/Robots/eyebot.rsi
+      state: shadow_eyebot
+      map: [ enum.VertibirdVisualLayers.Shadow ]
+      offset: 0, -1.8
+      scale: 8, 4
+      color: "#00000055"
+      visible: false
+    - state: vertibird_enclave
+      map: [ enum.VertibirdVisualLayers.Base ]
+
+- type: entity
+  parent: N14VehicleVertibirdWreck
+  id: N14VehicleVertibirdEnclaveWreck
+  name: grounded Enclave vertibird
+  suffix: Mapping
+  components:
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/vertibird_enclave.rsi
+    state: vertibird_enclave
+
+- type: entity
+  parent: N14VehicleVertibird
+  id: N14VehicleVertibirdNCR
+  name: NCR vertibird
+  suffix: Flyable, Wendover
+  components:
+  - type: Vertibird
+    groundedSpriteState: vertibird_ncr
+    flyingSpriteState: vertibird_ncr_flying
+  # #Misfits Fix - faction RSIs use faction-prefixed states; relist layers so the Base
+  # layer points at the faction state and the parent's Shadow layer is preserved.
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/vertibird_ncr.rsi
+    layers:
+    - sprite: _Nuclear14/Mobs/Robots/eyebot.rsi
+      state: shadow_eyebot
+      map: [ enum.VertibirdVisualLayers.Shadow ]
+      offset: 0, -1.8
+      scale: 8, 4
+      color: "#00000055"
+      visible: false
+    - state: vertibird_ncr
+      map: [ enum.VertibirdVisualLayers.Base ]
+
+- type: entity
+  parent: N14VehicleVertibirdWreck
+  id: N14VehicleVertibirdNCRWreck
+  name: grounded NCR vertibird
+  suffix: Mapping
+  components:
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/vertibird_ncr.rsi
+    state: vertibird_ncr
+
+- type: entity
+  parent: N14VehicleVertibird
+  id: N14VehicleVertibirdVaultTec
+  name: Vault-Tec vertibird
+  suffix: Flyable, Wendover
+  components:
+  - type: Vertibird
+    groundedSpriteState: vertibird_vaulttec
+    flyingSpriteState: vertibird_vaulttec_flying
+  # #Misfits Fix - faction RSIs use faction-prefixed states; relist layers so the Base
+  # layer points at the faction state and the parent's Shadow layer is preserved.
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/vertibird_vaulttec.rsi
+    layers:
+    - sprite: _Nuclear14/Mobs/Robots/eyebot.rsi
+      state: shadow_eyebot
+      map: [ enum.VertibirdVisualLayers.Shadow ]
+      offset: 0, -1.8
+      scale: 8, 4
+      color: "#00000055"
+      visible: false
+    - state: vertibird_vaulttec
+      map: [ enum.VertibirdVisualLayers.Base ]
+
+- type: entity
+  parent: N14VehicleVertibirdWreck
+  id: N14VehicleVertibirdVaultTecWreck
+  name: grounded Vault-Tec vertibird
+  suffix: Mapping
+  components:
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/vertibird_vaulttec.rsi
+    state: vertibird_vaulttec

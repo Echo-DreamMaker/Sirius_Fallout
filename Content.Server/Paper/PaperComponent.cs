@@ -8,7 +8,7 @@ public sealed partial class PaperComponent : SharedPaperComponent
 {
     public PaperAction Mode;
     [DataField("content")]
-    public string Content { get; set; } = "";
+    public string PaperContent { get; set; } = "";
 
     [DataField("contentSize")]
     public int ContentSize { get; set; } = 6000;

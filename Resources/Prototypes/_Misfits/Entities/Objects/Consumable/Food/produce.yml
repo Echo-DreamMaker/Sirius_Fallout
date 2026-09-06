@@ -241,3 +241,35 @@
   - type: StealthOnMove
     passiveVisibilityRate: -0.5
     movementVisibilityRate: 0.6
+
+- type: entity
+  name: zoybeans
+  description: Looks like green soy, has a lime zing to it.
+  id: MisfitsFloraProduceWildZoybeans
+  parent: FoodProduceBase
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Specific/Hydroponics/zoybeans.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 4
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+  - type: Produce
+    seedId: zoybean
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: MisfitsMilkZoy
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Vegetable
+  - type: FlavorProfile
+    flavors:
+    - zoy
+  - type: Stack
+    stackType: ZoyBeans
+    count: 1

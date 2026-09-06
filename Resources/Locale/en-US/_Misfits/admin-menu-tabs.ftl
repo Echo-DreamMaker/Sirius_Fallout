@@ -13,6 +13,9 @@ misfits-admin-menu-ticket-stats-tab = Ticket Stats
 ## Fax Manager shortcut
 loremaster-tab-fax-manager = Fax Manager
 loremaster-tab-fax-manager-hint = Open the admin fax panel to read and respond to player faxes
+loremaster-tab-upload-local-audio = Play Local Audio
+loremaster-tab-local-audio-hint = Upload an .ogg to play nearby at a safe volume
+loremaster-tab-upload-map = Upload Map File
 
 ## LoreMaster tab UI strings
 loremaster-tab-faction-label = Faction:
@@ -160,6 +163,8 @@ misfits-round-tab-extend-round-desc = Stop the incoming train and add more time 
 misfits-server-tab-shutdown-desc = Shut down the game server.
 misfits-server-restart = Restart Server
 misfits-server-tab-restart-desc = Cleanly restart the server process (watchdog/systemd will relaunch).
+misfits-server-deploy = Deploy Published Build
+misfits-server-tab-deploy-desc = Ask the watchdog to stage the latest GitHub-published build.
 misfits-server-tab-ooc-desc = Toggle OOC (out-of-character) chat on or off.
 misfits-server-tab-looc-desc = Toggle LOOC (local out-of-character) chat on or off.
 

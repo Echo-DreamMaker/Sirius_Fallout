@@ -70,10 +70,9 @@ public sealed partial class GunSystem
         }
 
         // 4. Тратим патрон: удаляем последний патрон из контейнера или уменьшаем UnspawnedCount
-        if (ballistic.Entities.Count > 0)
+        if (ballistic.Container.ContainedEntities.Count > 0)
         {
-            var lastEntity = ballistic.Entities[^1];
-            ballistic.Entities.RemoveAt(ballistic.Entities.Count - 1);
+            var lastEntity = ballistic.Container.ContainedEntities[^1];
             Containers.Remove(lastEntity, ballistic.Container);
             QueueDel(lastEntity); // Удаляем сущность патрона (гильза не нужна)
         }
@@ -92,7 +91,7 @@ public sealed partial class GunSystem
 
         // 6. Создаём снаряд в координатах выстрела
         var fromCoordinates = args.Coordinates;
-        var mapCoords = fromCoordinates.ToMap(EntityManager, TransformSystem);
+        var mapCoords = fromCoordinates.ToMap(EntityManager, _transform);
         var projectile = Spawn(component.Prototype, mapCoords);
 
         // 7. Добавляем снаряд в список для выстрела (основной GunSystem обработает его)
@@ -120,6 +119,6 @@ public sealed partial class GunSystem
 
     private int GetBallisticShots(BallisticAmmoProviderComponent component)
     {
-        return component.UnspawnedCount + component.Entities.Count;
+        return component.UnspawnedCount + component.Container.ContainedEntities.Count;
     }
 }

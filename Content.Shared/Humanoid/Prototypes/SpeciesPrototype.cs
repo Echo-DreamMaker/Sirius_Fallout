@@ -235,6 +235,14 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<ProtoId<TraitCategoryPrototype>>? AllowedTraitCategories; // #Misfits Change
+
+    /// <summary>
+    ///     If set, only these exact trait IDs will be shown, regardless of category.
+    ///     Takes precedence over <see cref="AllowedTraitCategories"/> so a restricted species
+    ///     can allow a single specific perk (e.g. Mr Handy + Italian Accent).
+    /// </summary>
+    [DataField]
+    public List<ProtoId<TraitPrototype>>? AllowedTraits; // #Cythisiax Added - per-trait whitelist
 }
 
 public enum SpeciesNaming : byte

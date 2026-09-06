@@ -42,6 +42,7 @@
   - BoSMidPaladin                # Senior Paladin | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_seniorpaladin.yml
   - BoSMidKnight                 # Senior Knight  | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_seniorknight.yml
   - BoSMidScribe                 # Senior Scribe  | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_seniorscribe.yml
+  #Misfits Change - the aviator role moved into its own Lancers department below.
   # Members
   #- BoSWashingtonPaladin         # Paladin (old Washington)
   #- BoSWashingtonKnight          # Knight (old Washington)
@@ -55,6 +56,22 @@
   #- BoSWashingtonInitiate        # Initiate (old Washington)
   - BoSInitiate                  # Initiate       | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_initiate.yml  #Misfits Change /Add/
   - BoSMidSerf                  # Serf       | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_serf.yml  #Misfits Change /Add/
+
+# #Misfits Add - Brotherhood Lancers (aviation): the chapter's aviation branch, styled after the
+# Rangers/MilitaryPolice pattern of a sub-branch with its own department block.
+# The ID deliberately extends BrotherhoodOfSteel so ordinal sorting parks it directly
+# beneath the Brotherhood in the character selection screen.
+# #Cythisiax Renamed (player-facing) - Lancer-Captain shows as Knight-Captain, Lancer-Knight as
+# Knight-Lancer; the entry "Lancer" rung was removed and its slot folded into Lancer-Knight.
+# Prototype IDs kept stable so Lancers playtime is preserved.
+- type: department
+  id: BrotherhoodOfSteelLancers
+  description: department-BrotherhoodOfSteelLancers-description
+  color: "#2F5D8C" # deeper Wendover blue, distinct from the chapter's #3B72BF
+  uiCategory: MajorFaction
+  roles:
+  - BoSLancerCaptain # Knight-Captain (player-facing) | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_lancer_captain.yml
+  - BoSLancerKnight  # Knight-Lancer  (player-facing) | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_lancer_knight.yml
 
 #- type: department
 #  id: CaravanCompany
@@ -78,12 +95,15 @@
   - NCRExecutiveOfficer  # NCR Executive Officer   | _Misfits/Roles/Jobs/NCR/ncr_lieutenant.yml
   - NCRPlatoonLeader     # NCR Platoon Leader      | _Misfits/Roles/Jobs/NCR/ncr_platoon_leader.yml
   - NCRRO                # NCR Requisition Officer | _Misfits/Roles/Jobs/NCR/ncr_requisition_officer.yml
+  # Aviation (WO1/CW2/CW3 pins) — ranks on the warrant officer track, outside the command ladder
+  - NCRVertibirdPilot    # NCR Vertibird Pilot     | _Misfits/Roles/Jobs/NCR/ncr_vertibird_pilot.yml # #Misfits Add
   # NCOs — 4 map slots, one job (CPL/SGT/SSG/SFC pins)
   - NCRNCO               # NCR NCO (4 slots)       | _Misfits/Roles/Jobs/NCR/ncr_sergeant.yml
   # Specialists (PV2/PFC/SPC pins)
   - NCREngineer          # NCR Engineer            | _Misfits/Roles/Jobs/NCR/ncr_engineer.yml
   - NCRMedic             # NCR Medic               | _Misfits/Roles/Jobs/NCR/ncr_medic.yml
   - NCRWS                # NCR Weapon Specialist   | _Misfits/Roles/Jobs/NCR/ncr_specialist.yml
+  - NCRHeavyTrooperLead  # NCR Heavy Trooper Lead  | _Misfits/Roles/Jobs/NCR/ncr_heavy_trooper_lead.yml # #Misfits Add
   - NCRHeavyTrooper      # NCR Heavy Trooper       | _Misfits/Roles/Jobs/NCR/ncr_heavy_trooper.yml
   - SuperMutantNCRTrooper # Super Mutant Trooper   | _Misfits/Roles/Jobs/SuperMutant/supermutant.yml # Misfits Add
   # Entry
@@ -126,6 +146,19 @@
   - NCRMilitaryPoliceCaptain
   #- NCRMPinvestigator    # NCR MP Investigator     | _Misfits/Roles/Jobs/NCR/ncr_mp_investigator.yml
 
+# #Misfits Add - NCR Office of Science and Industry (OSI). The Republic's civilian
+# science branch, operating beside the military ladder like the Rangers and MP.
+- type: department
+  id: OSI
+  description: department-OSI-description
+  color: "#26a69a"
+  uiCategory: MajorFaction
+  roles:
+  - OSIChiefScientist # OSI Chief Scientist | _Misfits/Roles/Jobs/OSI/osi_jobs.yml
+  - OSIAgent          # OSI Agent (whitelist-only) | _Misfits/Roles/Jobs/OSI/osi_jobs.yml
+  - OSIScientist      # OSI Scientist | _Misfits/Roles/Jobs/OSI/osi_jobs.yml
+  - OSIAssistant      # OSI Assistant | _Misfits/Roles/Jobs/OSI/osi_jobs.yml
+
 - type: department
   id: Tribe
   description: department-Tribe-description
@@ -133,6 +166,7 @@
   uiCategory: MinorFaction
   roles:
   - TribalElder
+  - SuperElder # #Misfits Add - sagely old tribal, second-in-command to the Chieftan | _Misfits/Roles/Jobs/Tribe/super_elder.yml
   - SuperMutantTribal # Misfits Change - dual departmental citizenship for mutants
   - TribalShaman # #Misfits Change - renamed from TribalHealer
   - TribalFarmer
@@ -164,11 +198,11 @@
   id: Wastelander
   description: department-Wastelander-description
   color: "#81c784"
-  uiCategory: Wasteland
+  uiCategory: NoFaction
   roles:
   - Wastelander
-  - WastelandMusician
-  - WastelandScavenger
+  - Outcast
+  - WasterTrader
   # Forge-Change: Followers — moved to FollowersOfTheApocalypse department in _Misfits/Roles/Jobs/Followers/followers.yml
 
 - type: department

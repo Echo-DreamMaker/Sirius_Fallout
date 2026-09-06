@@ -700,7 +700,7 @@ sealed class Explosion
         int maxTileBreak,
         bool canCreateVacuum,
         IEntityManager entMan,
-        IMapManager mapMan,
+        SharedMapSystem mapMan,
         EntityUid visualEnt)
     {
         VisualEnt = visualEnt;
@@ -723,7 +723,7 @@ sealed class Explosion
 
         if (spaceData != null)
         {
-            var mapUid = mapMan.GetMapEntityId(epicenter.MapId);
+            var mapUid = mapMan.GetMap(epicenter.MapId);
 
             _explosionData.Add(new()
             {

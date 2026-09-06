@@ -170,7 +170,25 @@
       id: MisfitsLoadoutOuterArmorKitShoulder
     - type: loadout
       id: MisfitsLoadoutOuterKhanLeather
-
+    - type: loadout
+      id: MisfitsLoadoutOuterKhansBattlecoatBlack
+    - type: loadout
+      id: MisfitsLoadoutOuterCombatTalon
+    - type: loadout
+      id: MisfitsLoadoutOuterCombatTalonDuster
+    - type: loadout
+      id: MisfitsLoadoutOuterDeadHorsesArmor
+    - type: loadout
+      id: MisfitsLoadoutOuterSorrowsArmor
+    - type: loadout
+      id: MisfitsLoadoutOuterRustwalkersArmor
+    - type: loadout
+      id: MisfitsLoadoutOuterRustwalkersLightArmor
+    - type: loadout
+      id: MisfitsLoadoutOuterWhiteLegsArmor
 #Sirius
     - type: loadout
       id: ClothingOuterMothFluffy #Sirius Add
+    - type: loadout
+      id: MisfitsClothingOuterKhansVest
+

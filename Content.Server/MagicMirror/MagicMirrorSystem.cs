@@ -32,6 +32,7 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
             subs.Event<MagicMirrorChangeColorMessage>(OnTryMagicMirrorChangeColor);
             subs.Event<MagicMirrorAddSlotMessage>(OnTryMagicMirrorAddSlot);
             subs.Event<MagicMirrorRemoveSlotMessage>(OnTryMagicMirrorRemoveSlot);
+            subs.Event<MagicMirrorApplyMessage>(OnTryMagicMirrorApply); // #Cythisiax Added - confirm-apply button
         });
 
 
@@ -39,6 +40,7 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
         SubscribeLocalEvent<MagicMirrorComponent, MagicMirrorChangeColorDoAfterEvent>(OnChangeColorDoAfter);
         SubscribeLocalEvent<MagicMirrorComponent, MagicMirrorRemoveSlotDoAfterEvent>(OnRemoveSlotDoAfter);
         SubscribeLocalEvent<MagicMirrorComponent, MagicMirrorAddSlotDoAfterEvent>(OnAddSlotDoAfter);
+        SubscribeLocalEvent<MagicMirrorComponent, MagicMirrorApplyDoAfterEvent>(OnApplyDoAfter); // #Cythisiax Added
     }
 
     private void OnMagicMirrorSelect(EntityUid uid, MagicMirrorComponent component, MagicMirrorSelectMessage message)
@@ -149,6 +151,73 @@ public sealed class MagicMirrorSystem : SharedMagicMirrorSystem
         // using this makes the UI feel like total ass
         // que
         // UpdateInterface(uid, component.Target, message.Session);
+    }
+
+    // #Cythisiax Added - handles the "Apply" button: one DoAfter that applies both the selected
+    // hair style and color at once, instead of the previous behavior of starting/cancelling a
+    // separate 20s DoAfter on every slider tick / style click (barber scissors spam).
+    private void OnTryMagicMirrorApply(EntityUid uid, MagicMirrorComponent component, MagicMirrorApplyMessage message)
+    {
+        if (component.Target is not { } target)
+            return;
+
+        _doAfterSystem.Cancel(component.DoAfter);
+        component.DoAfter = null;
+
+        var doAfter = new MagicMirrorApplyDoAfterEvent()
+        {
+            Category = message.Category,
+            Slot = message.Slot,
+            Marking = message.Marking,
+            Colors = message.Colors ?? new(),
+        };
+
+        // Style changes take the (longer) select time; pure recolor uses the faster color time.
+        var time = message.Marking != null ? component.SelectSlotTime : component.ChangeSlotTime;
+
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, message.Actor, time, doAfter, uid, target: target, used: uid)
+        {
+            DistanceThreshold = SharedInteractionSystem.InteractionRange,
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BreakOnHandChange = false,
+            NeedHand = true
+        },
+            out var doAfterId);
+
+        component.DoAfter = doAfterId;
+        _audio.PlayPvs(component.ChangeHairSound, uid);
+    }
+
+    private void OnApplyDoAfter(EntityUid uid, MagicMirrorComponent component, MagicMirrorApplyDoAfterEvent args)
+    {
+        if (args.Handled || args.Target == null || args.Cancelled)
+            return;
+
+        if (component.Target != args.Target)
+            return;
+
+        MarkingCategories category;
+
+        switch (args.Category)
+        {
+            case MagicMirrorCategory.Hair:
+                category = MarkingCategories.Hair;
+                break;
+            case MagicMirrorCategory.FacialHair:
+                category = MarkingCategories.FacialHair;
+                break;
+            default:
+                return;
+        }
+
+        if (args.Marking != null)
+            _humanoid.SetMarkingId(component.Target.Value, category, args.Slot, args.Marking);
+
+        if (args.Colors.Count > 0)
+            _humanoid.SetMarkingColor(component.Target.Value, category, args.Slot, args.Colors);
+
+        UpdateInterface(uid, component.Target.Value, component);
     }
 
     private void OnTryMagicMirrorRemoveSlot(EntityUid uid, MagicMirrorComponent component, MagicMirrorRemoveSlotMessage message)

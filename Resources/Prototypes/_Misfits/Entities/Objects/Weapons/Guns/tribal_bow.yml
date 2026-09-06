@@ -3,99 +3,64 @@
 # GenericVisualizer state switching, back-slot carry, and UseDelay.
 # Only the sprite RSI path is overridden.
 
+# Base bow: base fallout bow texture
 - type: entity
   parent: BowImprovised
+  id: N14BaseBow
+  name: tribal bow BASE LOL
+  description: shluldnt see dis
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Bow/temp_bow.rsi
+  - type: UseDelay
+    delay: 1
+  - type: GunRequiresWield
+  - type: Gun
+    minAngle: 0
+    maxAngle: 3
+
+# Tribal Bow
+- type: entity
+  parent: N14BaseBow
   id: N14TribalBow
   name: tribal bow
   description: A bone-and-sinew bow crafted using pre-war tribal techniques. Crude by Wasteland standards but surprisingly effective at close range — and completely silent.
   components:
   - type: Sprite
-    sprite: _Misfits/Objects/Weapons/Guns/Bow/tribal_bow.rsi
+    sprite: Objects/Weapons/Guns/Bow/bow.rsi # Use vanilla improv bow sprite for visual distinction cause we only got 1 fallout bow sprite rn lol
 
 # #Misfits Add - War Bow: heavy draw weight, slower but hits harder with a higher projectile speed.
 - type: entity
-  parent: BaseBow
-  id: N14WarBow
+  parent: N14BaseBow
+  id: N14TribalWarBow
   name: war bow
   description: A heavy-draw tribal war bow reinforced with braided sinew and bone laminates. Slower to fire but the arrows fly with devastating force.
   components:
-  - type: Sprite
-    sprite: _Misfits/Objects/Weapons/Guns/Bow/tribal_bow.rsi
   - type: Gun
     fireRate: 0.8
     projectileSpeed: 45.5
   - type: Wieldable
     wieldedSpeedModifier: 0.8
-  - type: Appearance
-  - type: ItemMapper
-    spriteLayers:
-    - arrow
-    - plunger
-    mapLayers:
-      arrow:
-        whitelist:
-          tags:
-          - Arrow
-      plunger:
-        whitelist:
-          tags:
-          - Plunger
-  - type: GenericVisualizer
-    visuals:
-      enum.WieldableVisuals.Wielded:
-        arrow:
-          True: { state: wielded-arrow }
-          False: { state: unwielded-arrow }
-        plunger:
-          True: { state: wielded-plunger }
-          False: { state: unwielded-plunger }
-        base:
-          True: { state: wielded }
-          False: { state: unwielded }
   - type: Construction
     graph: TribalWarBow
     node: TribalWarBow
+  - type: Sprite
+    color: "#e03d3d" # LEGION FLAVORED COLOR. Remove when we get a unique sprite
 
 # #Misfits Add - Recurve Bow: lighter and faster, favored by tribal hunters for quick follow-up shots.
 - type: entity
-  parent: BaseBow
-  id: N14RecurveBow
+  parent: N14BaseBow
+  id: N14TribalRecurveBow
   name: recurve bow
   description: A compact recurve bow with reflexed limb tips, designed for rapid shooting at the cost of raw stopping power. Popular among tribal hunters who value speed over force.
   components:
-  - type: Sprite
-    sprite: _Misfits/Objects/Weapons/Guns/Bow/tribal_bow.rsi
   - type: Gun
     fireRate: 1.2
-    projectileSpeed: 29.75
+    maxAngle: 5
+  - type: UseDelay
+    delay: .5    # Fire-rate didnt matter without this(need to draw the bow to shoot it)
   - type: Wieldable
     wieldedSpeedModifier: 0.95
-  - type: Appearance
-  - type: ItemMapper
-    spriteLayers:
-    - arrow
-    - plunger
-    mapLayers:
-      arrow:
-        whitelist:
-          tags:
-          - Arrow
-      plunger:
-        whitelist:
-          tags:
-          - Plunger
-  - type: GenericVisualizer
-    visuals:
-      enum.WieldableVisuals.Wielded:
-        arrow:
-          True: { state: wielded-arrow }
-          False: { state: unwielded-arrow }
-        plunger:
-          True: { state: wielded-plunger }
-          False: { state: unwielded-plunger }
-        base:
-          True: { state: wielded }
-          False: { state: unwielded }
   - type: Construction
     graph: TribalRecurveBow
     node: TribalRecurveBow

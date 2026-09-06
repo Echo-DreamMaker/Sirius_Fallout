@@ -30,15 +30,6 @@
 
         <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 0"/>
 
-        <!-- ── Your Faction ───────────────────────────────────────── -->
-        <BoxContainer Orientation="Horizontal" Margin="10 8 10 4">
-            <Label Text="{Loc faction-war-your-faction}" VerticalAlignment="Center" Margin="0 0 6 0"/>
-            <Label Name="MyFactionLabel" VerticalAlignment="Center" HorizontalExpand="True"
-                   StyleClasses="LabelSubText" Modulate="#F0C040"/>
-        </BoxContainer>
-
-        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 0"/>
-
         <!-- ── Active Wars ────────────────────────────────────────── -->
         <Label Text="{Loc faction-war-active-wars-header}" Margin="10 6 10 2" Modulate="#CC4040"/>
         <ScrollContainer MaxHeight="120" Margin="10 0" HorizontalExpand="True">
@@ -67,8 +58,18 @@
                StyleClasses="LabelBig"/>
 
         <BoxContainer Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="8">
-            <Label Text="{Loc faction-war-target-label}" VerticalAlignment="Center" MinWidth="100"/>
+            <Label Text="{Loc faction-war-target-faction-label}" VerticalAlignment="Center" MinWidth="100"/>
             <OptionButton Name="TargetFactionSelector" HorizontalExpand="True" Access="Public"/>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="8">
+            <Label Text="{Loc faction-war-target-group-label}" VerticalAlignment="Center" MinWidth="100"/>
+            <OptionButton Name="TargetGroupSelector" HorizontalExpand="True" Access="Public"/>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="8">
+            <Label Text="{Loc faction-war-target-wastelander-label}" VerticalAlignment="Center" MinWidth="100"/>
+            <OptionButton Name="TargetWastelanderSelector" HorizontalExpand="True" Access="Public"/>
         </BoxContainer>
 
         <BoxContainer Orientation="Vertical" Margin="10 0 10 4" SeparationOverride="2">

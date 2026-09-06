@@ -15,15 +15,17 @@
   mapAuthor: 'mc_rainbow32' # Misfits Add - map credit displayed in lobby
   mapPath: /Maps/Misfits/Wendover.yml
   minPlayers: 0
+  mapsAbove:
+    - /Maps/Misfits/WendoverSky.yml
+  mapsBelow:
+    - /Maps/Misfits/Vault.yml
+    - /Maps/Misfits/Enclave.yml
   stations:
     Wendover:
       stationProto: FalloutStation
       components:
       - type: StationNameSetup
         mapNameTemplate: 'Wendover'
-      - type: CP14StationAdditionalMap
-        mapPaths:
-        - /Maps/Misfits/Vault.yml
       - type: StationJobs
         overflowJobs:
         - Townsperson # #Misfits Change - Townsperson is now the default starter overflow role
@@ -31,11 +33,15 @@
           SuperMutantEnclave : [ 0, 0 ] # #Misfits Add - Enclave-aligned supermutant latejoin slot.
           SuperMutantFollowerDoctor: [ 1, 1 ] # #Misfits Add: FOTA-aligned supermutant.
           Wastelander: [ -1, -1 ]
+          WasterTrader: [ 1, 1 ]
           SuperMutant: [ 5, 5 ] # #Misfits Change /Fix/: make the FEV Mutant role available for mid-round joins.
+          Nightkin: [ 0, 1 ] # #Misfits Add - Nightkin variant, whitelist gated.
           SuperMutantGladiator: [ 0, 1 ] # #Misfits Add: Gladiator variant.
           SuperMutantNCRRanger: [ 0, 1 ] # #Misfits Add: NCR Ranger variant.
           # SuperMutantNCRTrooper: [ 0, 0 ] # #Misfits Add: NCR Trooper variant.
           SuperMutantTribal: [ 1, 1 ] # #Misfits Add: Tribal variant.
+          SentientDeathclawRegular: [ 0, 0 ] # Two ordinary sentient Deathclaw slots; administrators open them manually when appropriate.
+          SentientDeathclaw: [ 0, 0 ] # #Cythisiax Add - sentient deathclaw whitelist boss slot (admin-only; no map spawner placed yet).
           C27: [ 2, 2 ]    # #Misfits Add - C-27 Generic slot (whitelist gates actual access)/// Increased to 2 from 1.
           C27NCR: [ 1, 1 ] # #Misfits Add - C-27 NCR variant.
           C27BoS: [ 1, 1 ] # #Misfits Add - C-27 Brotherhood variant.
@@ -46,6 +52,7 @@
           WastelandChaplain: [ 1, 1 ]
           WastelandBartender: [ 1, 2 ]
           TribalElder: [ 1, 1 ] # #Misfits Tweak - Willowers leadership stays singular while the faction expands to 16 total slots.
+          SuperElder: [ 1, 3 ] # #Misfits Add - sagely elder, 1-3 per round
           Tribal: [ 8, 8 ]
           TribalFarmer: [ 4, 4 ]
           TribalShaman: [ 3, 3 ] # #Misfits Change - renamed from TribalHealer
@@ -63,6 +70,7 @@
           NCRProvost: [ 1, 1 ]
           NCRExecutiveOfficer: [ 1, 1 ]
           NCRPlatoonLeader: [ 1, 1 ]
+          NCRVertibirdPilot: [ 1, 1 ] # #Misfits Add
           NCRRO: [ 1, 1 ]
           NCRChiefRanger: [ 1, 0 ]  # #Misfits Change - admin-only Chief Ranger; renamed from ChiefRanger
           NCRVeteranRanger: [ 1, 1 ] # #Misfits Change - renamed from RangerVeteran
@@ -71,7 +79,8 @@
           NCRRangerRecruit: [ 2, 2 ] # #Misfits Add - entry-level Ranger Recruit slot
           NCRFirstSergeant: [ 1, 1 ]
           #NCRStaffSergeant: [ 1, 1 ] # #Misfits Removed - replaced by NCRHeavyTrooper as T5 specialist slot
-          NCRHeavyTrooper: [ 2, 2 ]
+          NCRHeavyTrooper: [ 3, 3 ]
+          NCRHeavyTrooperLead: [ 1, 1 ]
           NCRNCO: [ 3, 3 ]
           NCRWS: [ 2, 2 ]
           NCREngineer: [ 2, 2 ]
@@ -86,12 +95,22 @@
           NCRMilitaryPoliceSergeant: [ 1, 1 ]
           NCRMilitaryPoliceRecruit: [ 2, 2 ]
           NCRMilitaryPoliceCaptain: [ 1, 1 ]
+          # #Misfits Add - NCR Office of Science and Industry (OSI) slots. Agent is whitelist-gated by the job prototype.
+          OSIChiefScientist: [ 1, 1 ]
+          OSIAgent: [ 2, 2 ]
+          OSIScientist: [ 2, 2 ]
+          OSIAssistant: [ 3, 3 ]
           BoSWestElderCommander: [ 1, 0 ] # Misfits Change # #Misfits Tweak - 0 active slots (admin-notify role)
           BoSMidPaladinCommander: [ 1, 1 ]
           BoSHeadKnight: [ 1, 1 ]  #Misfits Change /Add/: New consolidated BoS jobs
           BoSWestScribe: [ 1, 1 ] # Misfits Change
-          BoSMidPaladin: [ 1, 1 ]  #Misfits Tweak: 1 slot — Senior Paladin is a rare rank
+          BoSMidPaladin: [ 1, 2 ]  #Misfits Tweak: 2 slots — Senior Paladin remains a rare rank
           BoSMidKnight: [ 3, 3 ]
+          # #Misfits Add - Brotherhood Lancers aviation branch, one slot per rank
+          # #Cythisiax Renamed (player-facing) - Lancer ranks show as Knight-Captain / Knight-Lancer;
+          # the entry Lancer rung was removed and its slot folded into Lancer-Knight.
+          BoSLancerCaptain: [ 1, 1 ]
+          BoSLancerKnight: [ 2, 2 ]
           BoSMidScribe: [ 3, 3 ]
           BoSPaladin: [ 3, 3 ]  #Misfits Tweak: 3 slots — standard Paladin complement
           BoSKnight: [ 3, 3 ]  #Misfits Change /Add/
@@ -131,9 +150,9 @@
           # #Misfits Change - Khan removed (deactivated); Eighties expanded to 5-rank department.
           EightiesTheBlock:  [ 1, 1 ] # leader
           EightiesCylinders: [ 1, 1 ] # officer tier
-          EightiesPistons:   [ 1, 1 ] # NCO tier
-          EightiesOilers:    [ 3, 3 ] # specialist tier
-          EightiesRoadRash:  [ 2, 2 ] # recruit tier
+          EightiesPistons:   [ 4, 4 ] # NCO tier
+          EightiesOilers:    [ 4, 4 ] # specialist tier
+          EightiesRoadRash:  [ 4, 4 ] # recruit tier
           WhiteLegs: [ 16, 16 ] # #Misfits Change - keep the compatible White Legs base role live at 16 slots until ranked markers are placed.
           WhiteLegsWarChief: [ 0, 0 ] # #Misfits Add - prototype-ready rank, no placed map marker yet.
           WhiteLegsBoneBreaker: [ 0, 0 ] # #Misfits Add - prototype-ready rank, no placed map marker yet.
@@ -154,8 +173,9 @@
           EnclaveCommander: [ 1, 1 ]
           EnclaveSeniorOfficer: [ 1, 1 ]
           EnclaveJuniorOfficer: [ 1, 1 ]
+          EnclaveVertibirdPilot: [ 1, 1 ] # #Misfits Add
           EnclaveNCO: [ 2, 2 ]
           EnclaveEnlisted: [ 4, 4 ]
           EnclaveHeadScientist: [ 1, 1 ]
-          EnclaveScientist: [ 1, 1 ]
-          EnclaveJuniorScientist: [ 1, 1 ]
+          EnclaveScientist: [ 2, 2 ]
+          EnclaveJuniorScientist: [ 2, 2 ]

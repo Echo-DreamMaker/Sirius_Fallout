@@ -2,7 +2,7 @@
   parent: BaseMachinePowered
   id: FaxMachineBase
   name: long range fax machine
-  description: Bluespace technologies on the application of bureaucracy.
+  description: For when things are bad enough, or good enough, to warrant letting the top dogs know about it.
   components:
   - type: Sprite
     sprite: Structures/Machines/fax_machine.rsi
@@ -75,7 +75,7 @@
 - type: entity
   parent: FaxMachineBase
   id: FaxMachineCentcom
-  name: CentCom long range fax machine
+  name: corporate long range fax machine
   suffix: CentCom
   components:
   - type: Sprite
@@ -90,7 +90,7 @@
 - type: entity
   parent: FaxMachineBase
   id: FaxMachineSyndie
-  name: syndicate long range fax machine
+  name: smuggler long range fax machine
   suffix: Syndicate
   components:
   - type: Sprite
@@ -107,7 +107,7 @@
 - type: entity
   parent: FaxMachineBase
   id: FaxMachineCaptain
-  name: captain long range fax machine
+  name: military long range fax machine
   suffix: NukeCodes
   components:
     - type: FaxMachine

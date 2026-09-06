@@ -428,6 +428,17 @@
               amount: 6
               doAfter: 4
 
+        - to: AdobeWallTall
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: N14Brick
+              amount: 10
+              doAfter: 5
+
     - node: AdobeWall
       entity: N14WallAdobeSlanted
       edges:
@@ -437,6 +448,21 @@
               prototype: N14MaterialBrick1
               amount: 3
             - !type:DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 20
+
+    - node: AdobeWallTall
+      entity: N14WallAdobeTall
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: N14MaterialBrick1
+              amount: 5
+            - !type:DeleteEntity
+          conditions:
+            - !type:EntityAnchored {}
           steps:
             - tool: Prying
               doAfter: 20
@@ -542,3 +568,4 @@
           steps:
             - tool: Prying
               doAfter: 5
+

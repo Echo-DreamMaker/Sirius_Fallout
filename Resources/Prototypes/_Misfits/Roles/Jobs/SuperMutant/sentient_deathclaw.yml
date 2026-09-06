@@ -1,0 +1,70 @@
+# Bwonsamdi retains the original internal job ID so existing job-whitelist records remain valid.
+
+- type: job
+  id: SentientDeathclaw
+  jobWhitelistBypassesRoleTimers: true # #Cythisiax - whitelist bypasses role timers, like other FEV Mutant roles
+  name: job-name-bwonsamdi
+  description: job-description-bwonsamdi
+  playTimeTracker: SentientDeathclaw
+  icon: JobIconBorg
+  supervisors: job-supervisors-sentient-deathclaw
+  canBeAntag: false
+  setPreference: true
+  overrideConsoleVisibility: true
+  whitelisted: true # #Cythisiax - full whitelist
+  hideWithoutWhitelist: true
+  spawnLoadout: true
+  startingGear: BwonsamdiGear
+  jobEntity: N14MobDeathclawPlayer
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - BwonsamdiDeathclaw
+  special: # #Cythisiax - register with the FEV-mutant player faction (also set on the body entity)
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - PlayerSuperMutant
+      - Wastelander
+
+- type: playTimeTracker
+  id: SentientDeathclaw
+
+# Ordinary sentient Deathclaw. This whitelist grants none of Bwonsamdi's supernatural body or abilities.
+- type: job
+  id: SentientDeathclawRegular
+  jobWhitelistBypassesRoleTimers: true
+  name: job-name-sentient-deathclaw
+  description: job-description-sentient-deathclaw
+  playTimeTracker: SentientDeathclawRegular
+  icon: JobIconBorg
+  supervisors: job-supervisors-sentient-deathclaw-regular
+  canBeAntag: false
+  setPreference: true
+  overrideConsoleVisibility: true
+  whitelisted: true
+  hideWithoutWhitelist: true
+  jobEntity: N14MobDeathclawSentient
+  useProfileSpeciesPrototype: true # Adult, adolescent, and hatchling bodies are selected by the saved Deathclaw variant.
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Deathclaw
+    - DeathclawAdolescent
+    - DeathclawHatchling
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - PlayerSuperMutant
+      - Wastelander
+
+- type: playTimeTracker
+  id: SentientDeathclawRegular
+
+- type: startingGear
+  id: BwonsamdiGear
+  equipment:
+    back: ClothingBackpackBwonsamdiHarness

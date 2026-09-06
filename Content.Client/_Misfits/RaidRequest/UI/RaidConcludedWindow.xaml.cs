@@ -32,7 +32,7 @@ public sealed partial class RaidConcludedWindow : FancyWindow
     public void Populate(RaidRequestEntry entry)
     {
         var requester = RaidRequestConfig.FactionDisplayName(entry.RequesterFaction);
-        var target = RaidRequestConfig.FactionDisplayName(entry.TargetFaction);
+        var target = GetTargetDisplayName(entry);
 
         HeaderLabel.SetMarkup(
             $"[color=#FF5555][bold]{FormattedMessage.EscapeText(Loc.GetString("raid-concluded-header", ("id", entry.Id)))}[/bold][/color]");
@@ -50,5 +50,15 @@ public sealed partial class RaidConcludedWindow : FancyWindow
     {
         _mayClose = true;
         base.Close();
+    }
+
+    private static string GetTargetDisplayName(RaidRequestEntry entry)
+    {
+        if (!string.IsNullOrWhiteSpace(entry.TargetDisplayName))
+            return entry.TargetDisplayName;
+
+        return entry.TargetKind == RaidRequestTargetKind.Faction
+            ? RaidRequestConfig.FactionDisplayName(entry.TargetId)
+            : $"Group {entry.TargetId}";
     }
 }

@@ -1,4 +1,6 @@
-﻿using Content.Server.Body.Systems;
+﻿using Content.Server._Misfits.Deathclaw;
+using Content.Server.Body.Systems;
+using Content.Shared._Misfits.Deathclaw;
 using Content.Server.Kitchen.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Stack;
@@ -165,10 +167,16 @@ public sealed class SharpSystem : EntitySystem
         if (component.Type != ButcheringType.Knife || args.Hands == null || !args.CanAccess || !args.CanInteract)
             return;
 
+        // Sentient Deathclaw claws are sharp enough to butcher with empty hands. This deliberately
+        // uses the common sentient marker, not Bwonsamdi's StructureBreaker authorization.
+        var tool = args.Using;
+        if (tool == null && HasComp<SharpComponent>(args.User) && HasComp<SentientDeathclawComponent>(args.User))
+            tool = args.User;
+
         bool disabled = false;
         string? message = null;
 
-        if (!HasComp<SharpComponent>(args.Using))
+        if (tool == null || !HasComp<SharpComponent>(tool.Value))
         {
             disabled = true;
             message = Loc.GetString("butcherable-need-knife",
@@ -191,7 +199,7 @@ public sealed class SharpSystem : EntitySystem
             Act = () =>
             {
                 if (!disabled)
-                    TryStartButcherDoafter(args.Using!.Value, args.Target, args.User);
+                    TryStartButcherDoafter(tool!.Value, args.Target, args.User);
             },
             Message = message,
             Disabled = disabled,

@@ -17,9 +17,9 @@ namespace Content.Client._Misfits.RaidRequest.UI;
 public sealed partial class RaidRequestWindow : FancyWindow
 {
     /// <summary>(targetFactionId, locationNotes, reason)</summary>
-    public event Action<string, string, string>? OnSubmit;
+    public event Action<(RaidRequestTargetKind Kind, string Id), string, string>? OnSubmit;
 
-    private readonly List<(string Display, string Id)> _targetItems = new();
+    private readonly List<(RaidRequestTargetKind Kind, string Display, string Id)> _targetItems = new();
     private bool _confirmPending;
 
     public RaidRequestWindow()
@@ -66,9 +66,9 @@ public sealed partial class RaidRequestWindow : FancyWindow
         // Target dropdown
         _targetItems.Clear();
         TargetSelector.Clear();
-        foreach (var t in msg.TargetFactions)
+        foreach (var t in msg.TargetOptions)
         {
-            _targetItems.Add((t.DisplayName, t.Id));
+            _targetItems.Add((t.Kind, t.DisplayName, t.Id));
             TargetSelector.AddItem(t.DisplayName);
         }
 
@@ -133,9 +133,9 @@ public sealed partial class RaidRequestWindow : FancyWindow
             return;
         }
 
-        var targetId = _targetItems[idx].Id;
+        var target = _targetItems[idx];
         var location = LocationEdit.Text.Trim();
-        OnSubmit?.Invoke(targetId, location, reason);
+        OnSubmit?.Invoke((target.Kind, target.Id), location, reason);
         ResetConfirm();
     }
 
@@ -167,7 +167,7 @@ public sealed partial class RaidRequestWindow : FancyWindow
         var headerLabel = new RichTextLabel { HorizontalExpand = true };
         headerLabel.SetMarkup(
             $"[color={statusColor}][bold]#{req.Id} {req.Status.ToString().ToUpperInvariant()}[/bold][/color] " +
-            $"[color=#CCCCCC]→ {FormattedMessage.EscapeText(RaidRequestConfig.FactionDisplayName(req.TargetFaction))}[/color]");
+            $"[color=#CCCCCC]→ {FormattedMessage.EscapeText(GetTargetDisplayName(req))}[/color]");
         box.AddChild(headerLabel);
 
         if (!string.IsNullOrWhiteSpace(req.AdminComment))
@@ -178,5 +178,15 @@ public sealed partial class RaidRequestWindow : FancyWindow
             box.AddChild(commentLabel);
         }
         return box;
+    }
+
+    private static string GetTargetDisplayName(RaidRequestEntry req)
+    {
+        if (!string.IsNullOrWhiteSpace(req.TargetDisplayName))
+            return req.TargetDisplayName;
+
+        return req.TargetKind == RaidRequestTargetKind.Faction
+            ? RaidRequestConfig.FactionDisplayName(req.TargetId)
+            : $"Group {req.TargetId}";
     }
 }

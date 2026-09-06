@@ -303,6 +303,45 @@
   - type: GhostRoleMobSpawner
     prototype: MisfitsMobPetEyebotTribe
 
+# OSI Eyebot companion, issued only by the OSI scientist job specials.
+- type: entity
+  parent: MisfitsPetSpawnerEyebot
+  id: MisfitsPetSpawnerEyebotOSI
+  name: OSI eyebot companion spawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-misfits-pet-eyebot-osi-name
+    description: ghost-role-information-misfits-pet-eyebot-osi-description
+    rules: ghost-role-component-default-rules
+  - type: GhostRoleMobSpawner
+    prototype: MisfitsMobPetEyebotOSI
+
+# Enclave Eyebot companion, issued only by the Enclave scientist job specials.
+- type: entity
+  parent: MisfitsPetSpawnerEyebot
+  id: MisfitsPetSpawnerEyebotEnclave
+  name: Enclave eyebot companion spawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-misfits-pet-eyebot-enclave-name
+    description: ghost-role-information-misfits-pet-eyebot-enclave-description
+    rules: ghost-role-component-default-rules
+  - type: GhostRoleMobSpawner
+    prototype: MisfitsMobPetEyebotEnclave
+
+# Enclave Cyberdog companion, purchasable only by Enclave scientist roles.
+- type: entity
+  parent: MisfitsPetSpawnerBase
+  id: MisfitsPetSpawnerDogEnclave
+  name: Enclave cyberdog companion spawner
+  components:
+  - type: GhostRole
+    name: ghost-role-information-misfits-pet-dog-enclave-name
+    description: ghost-role-information-misfits-pet-dog-enclave-description
+    rules: ghost-role-component-default-rules
+  - type: GhostRoleMobSpawner
+    prototype: MisfitsMobPetDogEnclave
+
 # Dog companion spawner (Wastelander/Tribe/Townsfolk)
 - type: entity
   parent: MisfitsPetSpawnerBase

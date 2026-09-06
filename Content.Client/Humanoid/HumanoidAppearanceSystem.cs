@@ -56,13 +56,13 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         sprite.Scale = new Vector2(width, height);
 
         sprite[sprite.LayerMapReserveBlank(HumanoidVisualLayers.Eyes)].Color = component.EyeColor;
-        ApplyRobotSkinTint(component, sprite); // #Misfits Add: robot sprites use damage-state base layers instead of humanoid skin layers.
+        ApplyDamageStateSkinTint(component, sprite); // #Misfits Add: some species use a damage-state base instead of humanoid skin layers.
     }
 
-    // #Misfits Add: playable robots bypass humanoid base skin layers, so tint their base sprite directly.
-    private static void ApplyRobotSkinTint(HumanoidAppearanceComponent component, SpriteComponent sprite)
+    // #Misfits Add: robots and deathclaws bypass humanoid base skin layers, so tint their base sprite directly.
+    private static void ApplyDamageStateSkinTint(HumanoidAppearanceComponent component, SpriteComponent sprite)
     {
-        if (!IsRobotTintSpecies(component.Species))
+        if (!UsesDamageStateSkinTint(component.Species))
             return;
 
         if (!sprite.LayerMapTryGet(DamageStateVisualLayers.Base, out var baseIndex))
@@ -71,10 +71,12 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         sprite[baseIndex].Color = component.SkinColor;
     }
 
-    // #Misfits Add: keep robot-only tint logic isolated so non-robot species keep stock rendering.
-    private static bool IsRobotTintSpecies(string speciesId)
+    // #Misfits Add: keep direct base-layer tint isolated so other species retain stock rendering.
+    private static bool UsesDamageStateSkinTint(string speciesId)
     {
-        return speciesId == "RobotMrHandy"
+        return speciesId == "Deathclaw"
+            || speciesId == "BwonsamdiDeathclaw"
+            || speciesId == "RobotMrHandy"
             || speciesId == "RobotMrHandyZAX"
             || speciesId == "RobotProtectron"
             || speciesId == "RobotProtectronPolice"
@@ -207,7 +209,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             return;
         }
 
-        var customBaseLayers = new Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo>();
+        var customBaseLayers = new Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo>(profile.Appearance.CustomBaseLayers);
 
         var speciesPrototype = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
         var markings = new MarkingSet(speciesPrototype.MarkingPoints, _markingManager, _prototypeManager);
@@ -327,6 +329,21 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
     private void ClearAllMarkings(HumanoidAppearanceComponent humanoid, SpriteComponent sprite)
     {
+        // #Cythisiax Fixed - reliably remove every marking layer this client has added. This
+        // no longer depends solely on ClientOldMarkings being in sync: if that set drifts (e.g.
+        // barber scissors rapid appearance changes), the tracked layer keys still get cleared,
+        // preventing stale haircuts from being layered under the new one for observers.
+        foreach (var layerId in humanoid.ClientMarkingLayerKeys)
+        {
+            if (!sprite.LayerMapTryGet(layerId, out var index))
+                continue;
+
+            sprite.LayerMapRemove(layerId);
+            sprite.RemoveLayer(index);
+        }
+
+        humanoid.ClientMarkingLayerKeys.Clear();
+
         foreach (var markingList in humanoid.ClientOldMarkings.Markings.Values)
         {
             foreach (var marking in markingList)
@@ -424,6 +441,10 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
             var layerId = $"{markingPrototype.ID}-{rsi.RsiState}";
 
+            // #Cythisiax Added - record every marking layer key this system manages so that
+            // ClearAllMarkings can always remove it, even if ClientOldMarkings is out of sync.
+            humanoid.ClientMarkingLayerKeys.Add(layerId);
+
             if (!sprite.LayerMapTryGet(layerId, out _))
             {
                 // RenderOverClothing: append at the very end of the layer stack so the marking
@@ -475,7 +496,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             sprite[index].Color = skinColor.WithAlpha(spriteInfo.LayerAlpha);
         }
 
-        ApplyRobotSkinTint(humanoid, sprite); // #Misfits Add: update robot tint when the profile skin color changes in the editor.
+        ApplyDamageStateSkinTint(humanoid, sprite); // #Misfits Add: update direct base-layer tint in the profile editor.
     }
 
     protected override void SetLayerVisibility(

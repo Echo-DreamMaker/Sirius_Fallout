@@ -25,7 +25,7 @@ namespace Content.Shared.Tiles;
 public sealed class FloorTileSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -170,7 +170,7 @@ public sealed class FloorTileSystem : EntitySystem
                 if (_netManager.IsClient)
                     return;
 
-                mapGrid = _mapManager.CreateGrid(locationMap.MapId);
+                mapGrid = _mapManager.CreateGridEntity(locationMap.MapId);
                 var gridUid = mapGrid.Owner;
                 var gridXform = Transform(gridUid);
                 _transform.SetWorldPosition(gridXform, locationMap.Position);

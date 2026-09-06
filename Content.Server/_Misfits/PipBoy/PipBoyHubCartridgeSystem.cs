@@ -108,6 +108,16 @@ public sealed class PipBoyHubCartridgeSystem : EntitySystem
         if (!GetCard(GetEntity(args.LoaderUid), out var cardUid, out var cardComp, out var netComp))
             return;
 
+        // #Misfits Fix - Enforce the lock server-side. When the Pip-Boy is locked, the ONLY
+        // permitted action is attempting to unlock with the password. All other messages
+        // (removing/changing the password, contacts, groups, directory, SOS, dead drops,
+        // status, etc.) are rejected while locked. Previously any client could send
+        // PasswordSet("") to clear the password and unlock a Pip-Boy without knowing it
+        // (e.g. by opening the Settings program on a handed-over Pip-Boy and using the
+        // Remove Password action), so the lock was purely cosmetic and trivially bypassed.
+        if (netComp.IsLocked && msg.Type != PipBoyHubMessageType.PasswordUnlock)
+            return;
+
         var ownNumber = cardComp.Number ?? 0;
 
         switch (msg.Type)
@@ -636,10 +646,24 @@ public sealed class PipBoyHubCartridgeSystem : EntitySystem
         List<PipBoyDeadDrop> nearbyDeadDrops = EmptyDeadDrops;
         var hasRadioConnection = false;
 
-        if (ent.Comp.Card != null &&
-            TryComp<NanoChatCardComponent>(ent.Comp.Card, out var card) &&
-            TryComp<PipBoyNetworkComponent>(ent.Comp.Card, out var net))
+        // #Misfits Fix - Resolve the card directly from the loader's PDA first so the
+        // lock/password state is correct even before the periodic card-sync tick has run
+        // (e.g. a friend opening the Settings program on a freshly handed-over locked
+        // Pip-Boy). Falls back to the cached Card reference kept in sync by Update(), and
+        // opportunistically refreshes that cache. Without this, a stale/null cache could
+        // push an IsLocked=false state and let the client render the unlocked Settings
+        // panel (with the Remove Password button) on a locked Pip-Boy.
+        var cardEntity = ent.Comp.Card;
+        if (TryComp<PdaComponent>(loader, out var pda) && pda.ContainedId is { } containedId)
+            cardEntity = containedId;
+
+        if (cardEntity is { } resolvedCard &&
+            TryComp<NanoChatCardComponent>(resolvedCard, out var card) &&
+            TryComp<PipBoyNetworkComponent>(resolvedCard, out var net))
         {
+            // #Misfits Fix - Opportunistically refresh the cached card reference.
+            ent.Comp.Card = resolvedCard;
+
             ownNumber = card.Number ?? 0;
             hasPassword = net.Password != null;
             isLocked = net.IsLocked;

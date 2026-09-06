@@ -45,9 +45,10 @@ namespace Content.Client.LateJoin
         private readonly Dictionary<NetEntity, Dictionary<string, List<JobButton>>> _jobButtons = new();
         private readonly Dictionary<NetEntity, Dictionary<string, BoxContainer>> _jobCategories = new();
         private readonly List<ScrollContainer> _jobLists = new();
+        private readonly HashSet<string> _collapsedDepartments = new();
 
         // #Misfits Add - active job tab filter; persists across RebuildUI calls
-        private DepartmentUICategory _selectedCategory = DepartmentUICategory.Wasteland;
+        private DepartmentUICategory _selectedCategory = DepartmentUICategory.NoFaction;
 
         private readonly Control _base;
 
@@ -149,7 +150,7 @@ namespace Content.Client.LateJoin
                     _base.AddChild(crewManifestButton);
                 }
 
-                // #Misfits Add - 4-tab strip: Wasteland | Minor Factions | Major Factions | Whitelist
+                // #Misfits Add - 4-tab strip: No Faction | Minor Factions | Major Factions | Whitelist
                 var tabStrip = new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
@@ -159,7 +160,7 @@ namespace Content.Client.LateJoin
 
                 var tabDefs = new[]
                 {
-                    (DepartmentUICategory.Wasteland,    "job-tab-wasteland"),
+                    (DepartmentUICategory.NoFaction,    "job-tab-no-faction"),
                     (DepartmentUICategory.MinorFaction, "job-tab-minor-factions"),
                     (DepartmentUICategory.MajorFaction, "job-tab-major-factions"),
                     (DepartmentUICategory.Whitelist,    "job-tab-whitelist"),
@@ -285,17 +286,30 @@ namespace Content.Client.LateJoin
                         });
                     }
 
-                    category.AddChild(new PanelContainer
+                    var departmentContents = new BoxContainer
                     {
-                        Children =
-                        {
-                            new Label
-                            {
-                                StyleClasses = { "LabelBig" },
-                                Text = Loc.GetString("late-join-gui-department-jobs-label", ("departmentName", departmentName))
-                            }
-                        }
-                    });
+                        Orientation = LayoutOrientation.Vertical,
+                        Visible = !_collapsedDepartments.Contains(department.ID),
+                    };
+
+                    var departmentButton = new Button
+                    {
+                        Text = departmentName,
+                        HorizontalExpand = true,
+                        ToggleMode = true,
+                        Pressed = !_collapsedDepartments.Contains(department.ID),
+                    };
+                    departmentButton.OnToggled += args =>
+                    {
+                        departmentContents.Visible = args.Pressed;
+                        if (args.Pressed)
+                            _collapsedDepartments.Remove(department.ID);
+                        else
+                            _collapsedDepartments.Add(department.ID);
+                    };
+
+                    category.AddChild(departmentButton);
+                    category.AddChild(departmentContents);
 
                     _jobCategories[id][department.ID] = category;
                     jobList.AddChild(category);
@@ -338,7 +352,7 @@ namespace Content.Client.LateJoin
                         // #Misfits Tweak - stronger gap makes role tier breaks readable in ranked departments.
                         if (prototype.ShowBorder)
                         {
-                            category.AddChild(new PanelContainer
+                            departmentContents.AddChild(new PanelContainer
                             {
                                 PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#464966") },
                                 MinSize = new Vector2(0, 2),
@@ -346,7 +360,7 @@ namespace Content.Client.LateJoin
                             });
                         }
 
-                        category.AddChild(jobButton);
+                        departmentContents.AddChild(jobButton);
 
                         jobButton.OnPressed += _ => SelectedId.Invoke((id, jobButton.JobId));
 

@@ -4,7 +4,7 @@
   name: molerat
   id: N14MobMolerat
   parent: N14MobBaseHostile
-  description: Part mole, part rat, full pest. Watch out for the teeth.
+  description: Eusocial creatures that prefer the underground. They are hostile to anything outside their colony.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -71,7 +71,7 @@
   name: pigrat
   id: N14MobPigrat
   parent: N14MobBaseHostile
-  description: Part pig, part rat, full pest. Watch out for the teeth.
+  description: Fast but weak pests that tend to join colonies of their cousins, the molerats and giant rats, instead of making their own nests.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -141,7 +141,7 @@
   name: feral dog
   id: N14MobDogFeral
   parent: N14MobBaseHostile
-  description: A rabid dog. Not so friendly even if friend-shaped.
+  description: Starving and irradiated, these partially ghoulified mutts are not friendly.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -201,13 +201,41 @@
       params:
         volume: -3
         maxDistance: 10
+  - type: ActionGrant # #Cythisiax Added - give feral dogs the deathclaw-style melee charge ability
+    actions:
+    - MisfitsActionMeleeCharge
+  - type: MeleeChargeAudio # #Cythisiax Added - dog charge bark on activation, heavy stomp on impact
+    activationSound:
+      collection: N14DogAttack
+      params:
+        volume: -2
+        maxDistance: 15
+    impactSound:
+      path: /Audio/Effects/Footsteps/largethud.ogg
+      params:
+        volume: 3
+        maxDistance: 15
+ #- type: Reproductive
+   #breedChance: 0.05
+   #birthPopup: reproductive-birth-popup
+   #makeOffspringInfant: false
+   #partnerWhitelist:
+     # tags:
+    # - DogFeral
+   #offspring:
+   #- id: N14MobDogFeral
+     #maxAmount: 1
+ #- type: ReproductivePartner
+ #- type: Tag
+ #   tags:
+   # - DogFeral
 
 # Yao Guai
 - type: entity
   name: Yao Guai
   id: N14MobYaoguai
   parent: N14MobBaseHostile
-  description: An angry bear... but uglier, meaner, and with bigger claws.
+  description: Descended from the American black bears, their capacity for destruction is only matched by their massive appetite.
   components:
   - type: Damageable
     damageContainer: Biological
@@ -292,7 +320,7 @@
   name: brahmin
   parent: MobCow
   id: N14MobBrahmin
-  description: Moo? Wonder if I can eat that.
+  description: The ultimate beast of burden, it can carry heavy packs, produces fertilizer for farms and milk, can be butchered for hide and meat, and you can ride it.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -437,7 +465,7 @@
   name: bighorner
   parent: N14MobBrahmin
   id: N14MobBighorner
-  description: Fluffy but with horns.
+  description: These ornery beasts are really only good for meat and hide. Try to put a pack or saddle on them and they'll just lay down and refuse to move.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -526,7 +554,7 @@
   name: radstag
   parent: N14MobBrahmin
   id: N14MobRadstag
-  description: Stag? Raaaad!
+  description: These pathetic creatures prefer to flee rather than right, but if cornered they can do some real harm.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -608,7 +636,7 @@
   name: radhog
   parent: N14MobBrahmin
   id: N14MobRadhog
-  description: Radiated bacon on angry hooves.
+  description: Surprisingly intelligent creatures, their ancestors were feral hogs, and they've retained the attitude and knack for survival.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -662,7 +690,7 @@
   parent: MobChicken
   id: N14MobChicken
   name: chicken
-  description: Cluck cluck.
+  description: Surviving the Great War relatively untouched, they've remained one of man's greatest domesticated food sources.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -727,7 +755,7 @@
   parent: N14MobBaseSimple
   id: N14MobIguana
   name: iguana
-  description: Little green food... I mean friend.
+  description: Kept as pets and used as food, their stringy meat is served oven baked, as grilled bits, sandwiches, soups, and even whole on a stick.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -760,7 +788,7 @@
   parent: N14MobBaseSimple
   id: N14MobNuclearBeaver
   name: nuclear beaver
-  description: Wonder what kind of trees its knawed down.
+  description: Often called nature's ecosystem engineers, they vastly outnumber actual ecosystem engineers since the Great War happened.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -788,7 +816,7 @@
   parent: N14MobBaseSimple
   id: N14MobNuclearOpossum
   name: nuclear opossum
-  description: Play dead!
+  description: They prefer to flee or play dead to putting up a real fight.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -815,7 +843,7 @@
   parent: N14MobBaseSimple
   id: N14MobOpossum
   name: opossum
-  description: Play dead!
+  description: Popular as pets among certain frontier types, even more popular as a source of fat, gamey meat.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -846,7 +874,7 @@
   parent: N14MobBaseSimple
   id: N14MobNuclearRabbit
   name: nuclear rabbit
-  description: Not a cotton-tail anymore, huh.
+  description: Nearly identical to its pre-war ancestors, aside from most of its fur being lost. Settlers and tribals usually hunt them for easy meat.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -876,7 +904,7 @@
   parent: N14MobBaseSimple
   id: N14MobRabbit
   name: rabbit
-  description: What a sweet little cotton-tail!
+  description: Timid and sweet natured, a good carrot will earn this cotton tail's heart.
   components:
   - type: Sprite
     drawdepth: Mobs

@@ -18,6 +18,13 @@
     equippedPrefix: unlit
   - type: Item
     size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 100
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 100
 
 
 - type: entity

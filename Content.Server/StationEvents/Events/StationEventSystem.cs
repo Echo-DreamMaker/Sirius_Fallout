@@ -22,7 +22,7 @@ namespace Content.Server.StationEvents.Events;
 public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : IComponent
 {
     [Dependency] protected readonly IAdminLogManager AdminLogManager = default!;
-    [Dependency] protected readonly IMapManager MapManager = default!;
+    [Dependency] protected readonly SharedMapSystem MapManager = default!;
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
     [Dependency] protected readonly ChatSystem ChatSystem = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;

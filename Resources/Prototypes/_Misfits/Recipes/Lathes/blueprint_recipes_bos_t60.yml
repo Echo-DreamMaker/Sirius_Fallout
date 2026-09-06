@@ -1,0 +1,83 @@
+# #Misfits Add - Brotherhood of Steel power armor armament blueprint recipes.
+# The pre-war T-60 pattern weapons: the Heavy Assault Rifle, the T-60 Pistol, and the
+# 80-round heavy 5.56 magazine the rifle feeds from. All three require the
+# N14BlueprintBoSWeaponsT60 blueprint item placed in a workbench, plus Brotherhood
+# of Steel faction access.
+#
+# Material amounts are in the lathe's internal units where 100 units = 1 physical
+# sheet / bar / ingot / piece. Costs are anchored to the existing BoS ballistic
+# benchmark, the Bozar (N14BPBoSWeaponBozarGRA, 115 steel + 20 brass), and to the
+# 35-round carbine magazine (N14BPTownAmmoMag556Long) for the magazine.
+
+- type: latheCategory
+  id: N14BlueprintBoSWeaponsT60
+  name: lathe-category-blueprint-bos-weapons-t60
+
+# =====================================================================
+# WEAPONS
+# =====================================================================
+
+# Heavy Assault Rifle - 90 steel, 15 brass, 2 scrap electronics, 4 plastic.
+# Sits just under the Bozar: a heavy pre-war receiver, but no optics or gold contacts.
+- type: latheRecipe
+  id: N14BPBoSWeaponRifleHeavyAssault
+  result: N14WeaponRifle556HeavyAssault
+  category: N14BlueprintBoSWeaponsT60
+  completetime: 18
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 9000
+
+    N14Brass: 1500
+
+    ScrapElectronic: 200
+
+    Plastic: 400
+
+
+# T-60 Pistol - 45 steel, 8 brass, 6 circuitry, 2 glass, 2.5 scrap electronics.
+# The circuitry and glass are the integrated targeting electronics that replace the
+# missing iron sights; that is what puts it above an ordinary .44 sidearm.
+- type: latheRecipe
+  id: N14BPBoSWeaponPistolT60
+  result: N14WeaponPistolT60
+  category: N14BlueprintBoSWeaponsT60
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 4500
+
+    N14Brass: 800
+
+    Circuitry: 600
+
+    Glass: 200
+
+    ScrapElectronic: 250
+
+
+# =====================================================================
+# AMMUNITION
+# =====================================================================
+
+# 80-round heavy 5.56 magazine - 1.2 steel, 1.5 lead, 9 gunpowder.
+# Scaled from the 35-round carbine magazine (50 steel / 65 lead / 400 gunpowder);
+# crafted magazines come out loaded, so the lead and powder cover the rounds.
+- type: latheRecipe
+  id: N14BPBoSAmmoMagHeavy556
+  result: N14MagazineHeavy556Rifle
+  category: N14BlueprintBoSWeaponsT60
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 120
+
+    Lead: 150
+
+    N14Gunpowder: 900

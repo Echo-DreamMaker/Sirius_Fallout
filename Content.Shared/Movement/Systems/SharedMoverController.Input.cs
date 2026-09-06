@@ -13,6 +13,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 
 namespace Content.Shared.Movement.Systems
 {
@@ -215,13 +217,13 @@ namespace Content.Shared.Movement.Systems
             }
 
             // If we went from grid -> map we'll preserve our worldrotation
-            if (relative != null && _mapManager.IsMap(relative.Value))
+            if (relative != null && EntityManager.HasComponent<MapComponent>(relative.Value))
             {
                 targetRotation = currentRotation.FlipPositive().Reduced();
             }
             // If we went from grid -> grid OR grid -> map then snap the target to cardinal and lerp there.
             // OR just rotate to zero (depending on cvar)
-            else if (relative != null && _mapManager.IsGrid(relative.Value))
+            else if (relative != null && EntityManager.HasComponent<MapGridComponent>(relative.Value))
             {
                 if (CameraRotationLocked)
                     targetRotation = Angle.Zero;

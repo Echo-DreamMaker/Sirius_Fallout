@@ -11,7 +11,7 @@ raid-request-not-eligible = Your faction ({ $faction }) is not permitted to subm
 
 # Submission form
 raid-request-submit-header = Submit a raid request
-raid-request-target-label = Target faction:
+raid-request-target-label = Target faction or group:
 raid-request-location-label = Location (optional):
 raid-request-location-placeholder = e.g. NCR Outpost Bravo, the southern dunes...
 raid-request-reason-label = Reason / plan:
@@ -31,7 +31,7 @@ raid-request-filter-decided = Decided
 raid-request-filter-all = All
 raid-request-list-empty = (no requests match this filter)
 raid-request-no-selection = Select a request to view details.
-raid-request-admin-comment-label = Remarks (sent to faction):
+raid-request-admin-comment-label = Remarks (sent to faction or group):
 raid-request-admin-comment-placeholder = Required. This message is delivered to every notified player.
 raid-request-approve-button = Approve
 raid-request-deny-button = Deny
@@ -43,7 +43,7 @@ raid-request-no-pending = No pending raid requests.
 # Decision popups (client-side)
 raid-request-popup-approved = Raid APPROVED: { $from } → { $to }
 raid-request-popup-denied = Raid DENIED: { $from } → { $to }
-raid-request-popup-target-warning = Incoming raid threat APPROVED against { $faction }!
+raid-request-popup-target-warning = Incoming raid threat APPROVED against { $target }!
 
 # #Misfits Add - Mandatory acknowledgement shown when a raid concludes.
 raid-concluded-window-title = Raid Over
@@ -52,14 +52,14 @@ raid-concluded-parties = { $from } vs { $to }
 raid-concluded-warning = Combat authorization has ended. Stop all raid-related hostilities immediately.
 raid-concluded-acknowledge = I acknowledge
 
-# #Misfits Add - Peer-faction approval popup (target faction leader bypass).
+# #Misfits Add - Peer-faction / peer-group approval popup (target leader bypass).
 raid-request-peer-window-title = Raid Threat — Decide
 raid-request-peer-header = Incoming raid request from { $faction } against { $target }.
 raid-request-peer-from-label = From:
 raid-request-peer-location-label = Stated location:
 raid-request-peer-location-unset = (not specified)
 raid-request-peer-reason-label = Reason / plan:
-raid-request-peer-comment-label = Your remarks (sent to the requester's faction):
-raid-request-peer-comment-placeholder = Optional. Will be shown verbatim to the other faction.
+raid-request-peer-comment-label = Your remarks (sent to the requester's faction or group):
+raid-request-peer-comment-placeholder = Optional. Will be shown verbatim to the other faction or group.
 raid-request-peer-approve-button = Allow Raid
 raid-request-peer-deny-button = Refuse

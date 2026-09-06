@@ -43,6 +43,8 @@ namespace Content.Server.Database
 
         Task SaveAdminOOCColorAsync(NetUserId userId, Color color);
 
+        Task SaveRoundEndReportAnonymityAsync(NetUserId userId, bool anonymous);
+
         // Single method for two operations for transaction.
         Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot);
         Task<PlayerPreferences?> GetPlayerPreferencesAsync(NetUserId userId, CancellationToken cancel);
@@ -361,15 +363,15 @@ namespace Content.Server.Database
         #region Currency
 
         /// <summary>
-        /// Get a character's persistent Bottle Caps balance.
-        /// Returns null if no record exists yet.
+        /// Get a character's persistent multi-currency balances (Bottlecaps, NCR Dollars, Silver, Gold).
+        /// Returns full <see cref="CharacterCurrency"/> row or null if no record exists yet.
         /// </summary>
-        Task<int> GetCharacterCurrencyAsync(Guid playerId, string characterName, CancellationToken cancel = default);
+        Task<CharacterCurrency?> GetCharacterCurrencyAsync(Guid playerId, string characterName, CancellationToken cancel = default);
 
         /// <summary>
-        /// Create or update a character's persistent Bottle Caps balance.
+        /// Create or update a character's persistent multi-currency balances.
         /// </summary>
-        Task UpsertCharacterCurrencyAsync(Guid playerId, string characterName, int bottlecaps);
+        Task UpsertCharacterCurrencyAsync(Guid playerId, string characterName, int bottlecaps, int ncrDollars = 0, int silver = 0, int gold = 0, int legionDenarii = 0, int prewarMoney = 0);
 
         #endregion
 
@@ -445,8 +447,28 @@ namespace Content.Server.Database
         #region Supporter
 
         Task<List<Supporter>> GetAllSupportersAsync(CancellationToken cancel = default);
-        Task UpsertSupporterAsync(Guid userId, string username, string? title, string? nameColor);
+        Task UpsertSupporterAsync(Guid userId, string username, string? title, string? nameColor, int tier = 0);
         Task RemoveSupporterAsync(Guid userId);
+
+        #endregion
+
+        // #Cythisiax Add - Free market persistence
+
+        #region Market
+
+        Task<List<MarketListing>> GetActiveMarketListingsAsync(CancellationToken cancel = default);
+        Task<MarketListing?> GetMarketListingByIdAsync(Guid listingId, CancellationToken cancel = default);
+        Task UpsertMarketListingAsync(MarketListing listing);
+        Task DeleteExpiredMarketListingsAsync(CancellationToken cancel = default);
+
+        Task AddMarketPricePointAsync(MarketPriceHistory point);
+        Task<List<MarketPriceHistory>> GetMarketPriceHistoryAsync(string prototypeId, int days = 30, CancellationToken cancel = default);
+
+        Task AddMarketSaleAsync(MarketSale sale);
+        Task<List<MarketSale>> GetRecentMarketSalesAsync(int days = 14, CancellationToken cancel = default);
+
+        Task<bool> IsItemMarketSoldAsync(string soldTag, CancellationToken cancel = default);
+        Task AddMarketSoldItemAsync(string soldTag);
 
         #endregion
     }
@@ -571,6 +593,12 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SaveAdminOOCColorAsync(userId, color));
+        }
+
+        public Task SaveRoundEndReportAnonymityAsync(NetUserId userId, bool anonymous)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SaveRoundEndReportAnonymityAsync(userId, anonymous));
         }
 
         public Task<PlayerPreferences?> GetPlayerPreferencesAsync(NetUserId userId, CancellationToken cancel)
@@ -1161,16 +1189,16 @@ namespace Content.Server.Database
 
         #region Currency
 
-        public Task<int> GetCharacterCurrencyAsync(Guid playerId, string characterName, CancellationToken cancel)
+        public Task<CharacterCurrency?> GetCharacterCurrencyAsync(Guid playerId, string characterName, CancellationToken cancel)
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetCharacterCurrencyAsync(playerId, characterName, cancel));
         }
 
-        public Task UpsertCharacterCurrencyAsync(Guid playerId, string characterName, int bottlecaps)
+        public Task UpsertCharacterCurrencyAsync(Guid playerId, string characterName, int bottlecaps, int ncrDollars = 0, int silver = 0, int gold = 0, int legionDenarii = 0, int prewarMoney = 0)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.UpsertCharacterCurrencyAsync(playerId, characterName, bottlecaps));
+            return RunDbCommand(() => _db.UpsertCharacterCurrencyAsync(playerId, characterName, bottlecaps, ncrDollars, silver, gold, legionDenarii, prewarMoney));
         }
 
         #endregion
@@ -1340,16 +1368,82 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetAllSupportersAsync(cancel));
         }
 
-        public Task UpsertSupporterAsync(Guid userId, string username, string? title, string? nameColor)
+        public Task UpsertSupporterAsync(Guid userId, string username, string? title, string? nameColor, int tier = 0)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.UpsertSupporterAsync(userId, username, title, nameColor));
+            return RunDbCommand(() => _db.UpsertSupporterAsync(userId, username, title, nameColor, tier));
         }
 
         public Task RemoveSupporterAsync(Guid userId)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.RemoveSupporterAsync(userId));
+        }
+
+        #endregion
+
+        // #Cythisiax Add - Free market persistence
+
+        #region Market
+
+        public Task<List<MarketListing>> GetActiveMarketListingsAsync(CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetActiveMarketListingsAsync(cancel));
+        }
+
+        public Task<MarketListing?> GetMarketListingByIdAsync(Guid listingId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetMarketListingByIdAsync(listingId, cancel));
+        }
+
+        public Task UpsertMarketListingAsync(MarketListing listing)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpsertMarketListingAsync(listing));
+        }
+
+        public Task DeleteExpiredMarketListingsAsync(CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.DeleteExpiredMarketListingsAsync(cancel));
+        }
+
+        public Task AddMarketPricePointAsync(MarketPriceHistory point)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddMarketPricePointAsync(point));
+        }
+
+        public Task<List<MarketPriceHistory>> GetMarketPriceHistoryAsync(string prototypeId, int days = 30, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetMarketPriceHistoryAsync(prototypeId, days, cancel));
+        }
+
+        public Task AddMarketSaleAsync(MarketSale sale)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddMarketSaleAsync(sale));
+        }
+
+        public Task<List<MarketSale>> GetRecentMarketSalesAsync(int days = 14, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetRecentMarketSalesAsync(days, cancel));
+        }
+
+        public Task<bool> IsItemMarketSoldAsync(string soldTag, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.IsItemMarketSoldAsync(soldTag, cancel));
+        }
+
+        public Task AddMarketSoldItemAsync(string soldTag)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddMarketSoldItemAsync(soldTag));
         }
 
         #endregion
@@ -1442,6 +1536,8 @@ namespace Content.Server.Database
 
             builder.UseNpgsql(connectionString);
             SetupLogging(builder);
+            // #Cythisiax Add - Suppress pending model changes warning for hand-written migrations
+            builder.ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning));
             return (builder.Options, connectionString);
         }
 
@@ -1479,6 +1575,8 @@ namespace Content.Server.Database
                 var builder = new DbContextOptionsBuilder<SqliteServerDbContext>();
                 builder.UseSqlite(getConnection());
                 SetupLogging(builder);
+                // #Cythisiax Add - Suppress pending model changes warning for hand-written migrations
+                builder.ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning));
                 return builder.Options;
             };
         }

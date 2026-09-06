@@ -28,7 +28,6 @@ public sealed partial class MapScreen : BoxContainer
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     private readonly SharedAudioSystem _audio;
     private readonly SharedMapSystem _maps;
@@ -311,7 +310,7 @@ public sealed partial class MapScreen : BoxContainer
             };
 
             _mapHeadings.Add(mapComp.MapId, gridContents);
-            foreach (var grid in _mapManager.GetAllMapGrids(mapComp.MapId))
+            foreach (var grid in _maps.GetAllMapGrids(mapComp.MapId))
             {
                 _entManager.TryGetComponent(grid.Owner, out IFFComponent? iffComp);
 
@@ -327,7 +326,7 @@ public sealed partial class MapScreen : BoxContainer
                 {
                     AddMapObject(mapComp.MapId, gridObj);
                 }
-                else if (!_shuttles.IsBeaconMap(_mapManager.GetMapEntityId(mapComp.MapId)) && (iffComp == null ||
+                else if (!_shuttles.IsBeaconMap(_maps.GetMap(mapComp.MapId)) && (iffComp == null ||
                          (iffComp.Flags & IFFFlags.Hide) == 0x0))
                 {
                     _pendingMapObjects.Add((mapComp.MapId, gridObj));

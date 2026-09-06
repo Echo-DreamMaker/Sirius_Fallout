@@ -14,14 +14,17 @@ public sealed partial class SelfAwareComponent : Component
     // <summary>
     //     Damage types that an entity is able to precisely analyze like a health analyzer when they examine themselves.
     // </summary>
+    // #Cythisiax Fixed + #Misfits Fixed - init to empty set instead of default! so a freshly-created client-side component is never null;
+    // the auto-generated network OnHandleState calls .Clear() on this set, which NRE'd when null after suicide/delimb state desync.
     [DataField(required: true, customTypeSerializer:typeof(PrototypeIdHashSetSerializer<DamageTypePrototype>)), AutoNetworkedField]
-    public HashSet<string> AnalyzableTypes = default!;
+    public HashSet<string> AnalyzableTypes = new();
 
     // <summary>
     //     Damage groups that an entity is able to detect the presence of when they examine themselves.
     // </summary>
+    // #Cythisiax Fixed + #Misfits Fixed - same null-safety as AnalyzableTypes
     [DataField(required: true, customTypeSerializer:typeof(PrototypeIdHashSetSerializer<DamageGroupPrototype>)), AutoNetworkedField]
-    public HashSet<string> DetectableGroups = default!;
+    public HashSet<string> DetectableGroups = new();
 
     // <summary>
     //     The thresholds for determining the examine text of DetectableGroups for certain amounts of damage.

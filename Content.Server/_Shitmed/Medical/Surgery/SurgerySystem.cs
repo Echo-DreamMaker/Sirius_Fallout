@@ -55,7 +55,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
 
         SubscribeLocalEvent<SurgeryToolComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
         SubscribeLocalEvent<SurgeryTargetComponent, SurgeryStepDamageEvent>(OnSurgeryStepDamage);
-        SubscribeLocalEvent<SurgeryContaminableComponent, SurgeryDirtinessEvent>(OnSurgeryDirtiness); // #Misfits Change - surgery contamination
+        SubscribeLocalEvent<SurgeryTargetComponent, SurgeryDirtinessEvent>(OnSurgeryDirtiness); // #Misfits Fix - was SurgeryContaminableComponent (humanoids only), so animal surgery never dirtied tools
         // You might be wondering "why aren't we using StepEvent for these two?" reason being that StepEvent fires off regardless of success on the previous functions
         // so this would heal entities even if you had a used or incorrect organ.
         SubscribeLocalEvent<SurgerySpecialDamageChangeEffectComponent, SurgeryStepDamageChangeEvent>(OnSurgerySpecialDamageChange);
@@ -260,39 +260,56 @@ public sealed class SurgerySystem : SharedSurgerySystem
         return FixedPoint2.Min(FixedPoint2.New(additionalDamage) + ent.Comp.BaseDamage, ent.Comp.ToxinStepLimit);
     }
 
-    private void OnSurgeryDirtiness(Entity<SurgeryContaminableComponent> ent, ref SurgeryDirtinessEvent args)
+    // #Misfits Fix Begin - Surgical tools now get dirtied on animals too.
+    // Previously this handler was subscribed to SurgeryContaminableComponent (humanoid species only)
+    // and bailed out without a DnaComponent, so operating on monkeys/animals never soiled the tools.
+    // Now it subscribes to SurgeryTargetComponent (any operable body) and gates the sepsis damage
+    // internally on the contaminable species, while tool/glove dirtying always applies.
+    private void OnSurgeryDirtiness(Entity<SurgeryTargetComponent> ent, ref SurgeryDirtinessEvent args)
     {
-        if (!TryComp<DnaComponent>(ent, out var dnaComp))
-            return;
-
         // #Misfits Change - Sanitized surgeons (e.g. Mr. Handy) are sterile: skip both contamination
         // damage and instrument dirtying, consistent with the SanitizedComponent intent in Steps.cs.
         if (HasComp<SanitizedComponent>(args.User))
             return;
 
-        var dirtiness = TotalDirtiness(args.User, args.Tools, (ent, dnaComp, ent));
-        var damage = DamageToBeDealt(ent, dirtiness);
-
-        if (damage > 0)
+        // Sepsis damage — only for contaminable species (humanoids with DNA). Animals (monkeys, etc.)
+        // lack SurgeryContaminableComponent/DnaComponent, so they don't get sepsis but still dirty tools.
+        if (TryComp<SurgeryContaminableComponent>(ent, out var contaminable)
+            && TryComp<DnaComponent>(ent, out var dnaComp))
         {
-            var sepsis = new DamageSpecifier(_prototypes.Index(ent.Comp.SepsisDamageType), damage);
-            SetDamage(ent, sepsis, 0.5f, args.User, args.Part);
+            // Pass ent.Owner explicitly: the 3-tuple -> Entity<T1,T2> conversion needs an EntityUid for
+            // the Comp2 slot, and an Entity<SurgeryTargetComponent> can't convert to SurgeryContaminableComponent.
+            // #Cythisiax Fixed - was (ent.Owner, dnaComp, ent.Owner); third tuple element must be the
+            // SurgeryContaminableComponent (not the patient EntityUid) to match TotalDirtiness'
+            // Entity<DnaComponent, SurgeryContaminableComponent> parameter
+            var dirtiness = TotalDirtiness(args.User, args.Tools, (ent.Owner, dnaComp, contaminable));
+            var damage = DamageToBeDealt((ent, contaminable), dirtiness);
+
+            if (damage > 0)
+            {
+                var sepsis = new DamageSpecifier(_prototypes.Index(contaminable.SepsisDamageType), damage);
+                SetDamage(ent, sepsis, 0.5f, args.User, args.Part);
+            }
         }
 
         if (!TryComp<SurgeryStepDirtinessComponent>(args.Step, out var surgicalStepDirtiness))
             return;
 
+        // DNA-less patients (animals) still soil the instruments; only the cross-contamination DNA
+        // tag is skipped because there's no patient DNA to record on the tool.
+        TryComp<DnaComponent>(ent, out var patientDna);
+
         if (HasComp<SurgerySelfDirtyComponent>(args.User))
         {
             _clean.AddDirt(args.User, surgicalStepDirtiness.ToolDirtiness);
-            _clean.AddDna(args.User, dnaComp.DNA);
+            _clean.AddDna(args.User, patientDna?.DNA);
             return;
         }
 
         if (_surgeryInventory.TryGetSlotEntity(args.User, "gloves", out var glovesEntity))
         {
             _clean.AddDirt(glovesEntity.Value, surgicalStepDirtiness.GloveDirtiness);
-            _clean.AddDna(glovesEntity.Value, dnaComp.DNA);
+            _clean.AddDna(glovesEntity.Value, patientDna?.DNA);
         }
 
         foreach (var tool in args.Tools)
@@ -302,9 +319,10 @@ public sealed class SurgerySystem : SharedSurgerySystem
                 continue;
 
             _clean.AddDirt(tool, surgicalStepDirtiness.ToolDirtiness);
-            _clean.AddDna(tool, dnaComp.DNA);
+            _clean.AddDna(tool, patientDna?.DNA);
         }
     }
+    // #Misfits Fix End
 
     // #Misfits Change End
 }
