@@ -90,11 +90,11 @@
             # BoSMidSerf: [ 5, 5 ]
             # BoSWashingtonInitiate: [ 3, 3 ] #Misfits Change /Comment-out/: Washington BoS removed
             # VaultManagement: [ 1, 1 ] # #Misfits Tweak - 0 active slots (admin-notify role)
-            Overseer: [ 1, 1 ]
-            VaultDoctor: [ 1, 2 ]
-            VaultDweller: [ 3, 4 ]
-            VaultEngineer: [ 1, 1 ]
-            VaultSecurity: [ 2, 3 ]
+            # Overseer: [ 1, 1 ]
+            # VaultDoctor: [ 1, 2 ]
+            VaultDweller: [ 6, 7 ]
+            # VaultEngineer: [ 1, 1 ]
+            # VaultSecurity: [ 2, 3 ]
             #CaesarLegionLegate: [ 1, 1 ] # Forge-Legion # #Misfits Tweak - 0 active slots (admin-notify role)
             #CaesarLegionCenturion: [ 1, 1 ] # Forge-Legion
             #CaesarLegionVeteranDecanus: [ 1, 1 ] # Forge-Legion
