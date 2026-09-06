@@ -88078,6 +88078,7 @@ entities:
 - proto: EscapeShuttleObjective
   entities:
   - uid: 89951
+    components: []
     mapInit: true
 - proto: ExGrenade
   entities:
@@ -96873,6 +96874,7 @@ entities:
 - proto: HijackShuttleObjective
   entities:
   - uid: 89952
+    components: []
     mapInit: true
 - proto: HospitalCurtainsOpen
   entities:
