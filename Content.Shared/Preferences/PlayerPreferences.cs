@@ -13,11 +13,12 @@ namespace Content.Shared.Preferences
     {
         private Dictionary<int, ICharacterProfile> _characters;
 
-        public PlayerPreferences(IEnumerable<KeyValuePair<int, ICharacterProfile>> characters, int selectedCharacterIndex, Color adminOOCColor)
+        public PlayerPreferences(IEnumerable<KeyValuePair<int, ICharacterProfile>> characters, int selectedCharacterIndex, Color adminOOCColor, bool anonymousRoundEndReport = false)
         {
             _characters = new Dictionary<int, ICharacterProfile>(characters);
             SelectedCharacterIndex = selectedCharacterIndex;
             AdminOOCColor = adminOOCColor;
+            AnonymousRoundEndReport = anonymousRoundEndReport;
         }
 
         /// <summary>
@@ -41,6 +42,12 @@ namespace Content.Shared.Preferences
         public ICharacterProfile SelectedCharacter => Characters[SelectedCharacterIndex];
 
         public Color AdminOOCColor { get; set; }
+
+        /// <summary>
+        ///     If true, this player's characters will be hidden from other players in the
+        ///     end-of-round report. Admins and the player themselves still see the real name.
+        /// </summary>
+        public bool AnonymousRoundEndReport { get; set; } // #Cythisiax Added - round-end report anonymity toggle
 
         public int IndexOfCharacter(ICharacterProfile profile)
         {

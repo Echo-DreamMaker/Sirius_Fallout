@@ -34,6 +34,10 @@
                 <Label Text="{Loc misfits-server-tab-restart-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
             </BoxContainer>
             <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                <cc:CommandButton Command="misfitsdeploy" Text="{Loc misfits-server-deploy}" MinWidth="180" />
+                <Label Text="{Loc misfits-server-tab-deploy-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
+            </BoxContainer>
+            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
                 <cc:CommandButton Name="SetOocButton" Command="setooc" Text="{Loc server-ooc-toggle}" ToggleMode="True" MinWidth="180" />
                 <Label Text="{Loc misfits-server-tab-ooc-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
             </BoxContainer>

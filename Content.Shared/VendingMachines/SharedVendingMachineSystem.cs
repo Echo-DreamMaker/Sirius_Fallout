@@ -29,6 +29,12 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
     protected virtual void OnComponentInit(EntityUid uid, VendingMachineComponent component, ComponentInit args)
     {
+        // #Misfits Fix - The stock roll is random and Inventory is not networked, so a client
+        // that rolls its own ends up showing a stock list the server never had. The real list
+        // arrives with the UI state, which would then visibly rewrite itself mid-use.
+        if (_net.IsClient)
+            return;
+
         RestockInventoryFromPrototype(uid, component, component.InitialStockQuality);
     }
 

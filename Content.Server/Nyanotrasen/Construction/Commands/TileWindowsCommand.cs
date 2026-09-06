@@ -29,7 +29,7 @@ namespace Content.Server.Construction.Commands
             var player = shell.Player;
             var entityManager = IoCManager.Resolve<IEntityManager>();
             var lookup = IoCManager.Resolve<EntityLookupSystem>();
-            var mapSystem = IoCManager.Resolve<SharedMapSystem>();
+            var mapSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SharedMapSystem>();
 
             EntityUid? gridId;
 

@@ -1,0 +1,14 @@
+# Misfits Add: Make binoculars available from the hand-crafting (G) menu.
+- type: construction
+  name: binoculars
+  id: MisfitsBinoculars
+  graph: MisfitsBinocularsGraph
+  startNode: start
+  targetNode: binoculars
+  category: construction-category-tools
+  description: A pair of pre-war binoculars for scouting distant areas.
+  hide: false
+  icon:
+    sprite: _Misfits/Objects/Devices/binoculars.rsi
+    state: binoculars_civ
+  objectType: Item

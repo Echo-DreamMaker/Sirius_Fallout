@@ -12,6 +12,13 @@
   components:
   - type: HumanoidAppearance
     species: C27
+  # #Misfits Fix - Persistent currency wallet + player data for the C-27 chassis.
+  # C-27 inherits BaseMobSpecies (NOT BaseMobSpeciesOrganic), and BaseMobSpecies does not
+  # carry PersistentCurrency/PersistentPlayerData — only the organic base does. Without this
+  # C-27 players' bottle-cap wallet and SPECIAL/history data were never loaded or saved, so
+  # they reset every round. Matches the component set on N14BaseRobotChassis.
+  - type: PersistentCurrency
+  - type: PersistentPlayerData
   # #Misfits Fix - Override BaseMobSpecies' default NanoTrasen faction with Wastelander
   # (same as MobHuman / SuperMutant). Raiders, ghouls (Feral), wastelandanimal, etc. only
   # target Wastelander — without this C-27 players are invisible to all hostile wasteland NPCs.

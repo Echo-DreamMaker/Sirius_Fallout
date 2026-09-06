@@ -44,6 +44,7 @@ N14WeaponSawedOffShotgun: N14WeaponShotgunSawedOff
 N14WeaponSawedOffShotgunEmpty: N14WeaponShotgunSawedOffEmpty
 N14WeaponAutoShotgun: N14WeaponShotgunAuto
 N14WeaponCaravanShotgun: N14WeaponShotgunCaravan
+N14WeaponBlowback: N14WeaponShotgunBlowback
 N14WeaponLeverShotgun: N14WeaponShotgunLever
 N14WeaponRiotShotgun: N14WeaponShotgunRiot
 N14WeaponRifleR91: N14WeaponRifle556R91
@@ -54,7 +55,8 @@ N14WeaponService: N14WeaponRifle556Service
 N14WeaponScout: N14WeaponRifle556Scout
 N14WeaponBattleRifle: N14WeaponRifle308Battle
 N14WeaponOldCarbine: N14WeaponRifle556CarbineOld
-N14WeaponRevolverMagnun: N14WeaponRevolver44Magnun
+N14WeaponRevolverMagnun: N14WeaponRevolver44Magnum
+N14WeaponRevolver44Magnun: N14WeaponRevolver44Magnum
 N14WeaponRevolverCaptainMagnun: N14WeaponRevolver44MagnumCaptain
 N14WeaponHunterRevolver: N14WeaponRevolver45-70Hunter
 N14Weaponwildwhisper: N14WeaponRevolver45-70WildWhisper

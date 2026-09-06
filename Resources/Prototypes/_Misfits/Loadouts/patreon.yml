@@ -1,0 +1,82 @@
+# #Cythisiax Add - Patreon supporter-exclusive loadouts.
+# These only show in the "Patreon" tab of the character editor, which is hidden unless the
+# player is a Patreon supporter. The server also enforces supporterTier on spawn, so edited
+# profiles can't sneak these in.
+#
+# Tiers: 1 = Silver, 2 = Gold, 3 = Nuclear (see Content.Shared/_Misfits/Supporter/SupporterTier.cs)
+
+- type: loadout
+  id: LoadoutPatreonSilverUniformVaultJumpsuit
+  category: Patreon
+  cost: 2
+  exclusive: true
+  supporterTier: 1
+  items:
+    - N14ClothingUniformJumpsuitVault14
+
+- type: loadout
+  id: LoadoutPatreonGoldCombatBoots
+  category: Patreon
+  cost: 2
+  exclusive: true
+  supporterTier: 2
+  items:
+    - N14ClothingBootsCombat
+
+- type: loadout
+  id: LoadoutPatreonNuclearPistol10mm
+  category: Patreon
+  cost: 4
+  exclusive: true
+  supporterTier: 3
+  items:
+    - N14WeaponPistol10mm
+
+# #Misfits Add - Patreon shareholder role hats (credits: Misfits Nuclear Wasteland).
+# Each hat reflects the supporter's shareholder role; tier gating matches role rank:
+# Silver = Bondholder / Equity Partner, Gold = Venture Capitalist / Shareholder,
+# Nuclear = Principal Shareholder.
+- type: loadout
+  id: LoadoutPatreonBondholderHat
+  category: Patreon
+  cost: 2
+  exclusive: true
+  supporterTier: 1
+  items:
+    - MisfitsClothingHeadPatreonBondholder
+
+- type: loadout
+  id: LoadoutPatreonEquityPartnerHat
+  category: Patreon
+  cost: 2
+  exclusive: true
+  supporterTier: 1
+  items:
+    - MisfitsClothingHeadPatreonEquityPartner
+
+- type: loadout
+  id: LoadoutPatreonVentureCapitalistHat
+  category: Patreon
+  cost: 2
+  exclusive: true
+  supporterTier: 2
+  items:
+    - MisfitsClothingHeadPatreonVentureCapitalist
+
+- type: loadout
+  id: LoadoutPatreonShareholderHat
+  category: Patreon
+  cost: 2
+  exclusive: true
+  supporterTier: 2
+  items:
+    - MisfitsClothingHeadPatreonShareholder
+
+- type: loadout
+  id: LoadoutPatreonPrincipalShareholderHat
+  category: Patreon
+  cost: 2
+  exclusive: true
+  supporterTier: 3
+  items:
+    - MisfitsClothingHeadPatreonPrincipalShareholder

@@ -72,7 +72,7 @@ public static class RmcIgnoredComponents
         "BulletholeGenerator",
         "CMArmor",
         "CMArmorPiercing",
-        "CMAutomatedVendor",
+        // "CMAutomatedVendor", // Implemented by _RMC/Vendors.
         "CMBleedersClamped",
         "CMBoneGel",
         "CMBoneSaw",
@@ -108,7 +108,7 @@ public static class RmcIgnoredComponents
         "CMSurgeryTarget",
         "CMSurgeryTool",
         "CMSurgicalDrill",
-        "CMVendorBundle",
+        // "CMVendorBundle", // Implemented by _RMC/Vendors.
         "CMVendorMapToSquad",
         "CMVocalizeTrigger",
         "CPRDummy",

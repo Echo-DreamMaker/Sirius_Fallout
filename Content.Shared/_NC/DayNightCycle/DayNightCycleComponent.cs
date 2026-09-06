@@ -1,4 +1,6 @@
 // #Misfits Change - Reworked to use IGameTiming-based deterministic cycle (no per-frame dirty spam)
+// #Misfits Change - 4-hour dawn-to-dawn cycle synced to round start: day = first half, night = second
+// half, dawn ramp starts at 3h 46m so round end (4h) is dawn. Nights darkened vs. the old curve.
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -9,35 +11,46 @@ namespace Content.Shared._NC14.DayNightCycle
     {
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("cycleDuration")]
-        public float CycleDurationMinutes { get; set; } = 90f; // Default cycle duration is 90 minutes
+        public float CycleDurationMinutes { get; set; } = 240f; // #Misfits Change - 90min -> 240min (4h round = 4h cycle)
 
         /// <summary>
-        /// Offset into the cycle (0–1) applied at startup so the world begins at
-        /// "early morning" rather than midnight.
+        /// Offset into the cycle (0–1) applied at startup so the world begins partway through the cycle.
+        /// 0 = start at dawn (cycle time 0), which is where each round begins.
         /// </summary>
         [DataField("startOffset")]
         [AutoNetworkedField]
-        public float StartOffset { get; set; } = 0.2f; // Start at 20% (early morning)
+        public float StartOffset { get; set; } = 0f; // #Misfits Change - 0.2 (early morning) -> 0 (dawn)
+
+        /// <summary>
+        /// Server <see cref="IGameTiming.CurTime"/> in seconds when the current round started. Set by
+        /// DayNightCycleRoundStartSyncSystem on RoundStartedEvent so every round begins at cycle time 0
+        /// (dawn) and the 4-hour cycle lines up exactly with the round (round end = dawn again).
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [AutoNetworkedField]
+        public float RoundStartTimeSeconds { get; set; } = 0f;
 
         [DataField("timeEntries")]
         public List<TimeEntry> TimeEntries { get; set; } = new()
         {
-            new() { Time = 0.00f, ColorHex = "#26262C" }, // Midnight       – lifted grey-black so silhouettes remain readable
-            new() { Time = 0.03f, ColorHex = "#2B2B32" }, // Deep night     – still dim, but not crushed to black
-            new() { Time = 0.06f, ColorHex = "#33333D" }, // Late night     – subtle cool grey before dawn warmth starts
-            new() { Time = 0.10f, ColorHex = "#463C33" }, // Pre-dawn       – faint brown-grey on the horizon
-            new() { Time = 0.14f, ColorHex = "#66513D" }, // First light    – muted desert bronze
-            new() { Time = 0.17f, ColorHex = "#85684A" }, // Dawn           – compact sunrise ramp, about 15 minutes in
-            new() { Time = 0.25f, ColorHex = "#A27C55" }, // Early morning  – warm tan, more gradual lift into day
-            new() { Time = 0.35f, ColorHex = "#BB9764" }, // Morning        – steady brightening with less abrupt jump
-            new() { Time = 0.45f, ColorHex = "#D4B27A" }, // Late morning   – smoother approach toward noon brightness
-            new() { Time = 0.55f, ColorHex = "#E2C692" }, // Noon           – bright, dusty sun rather than harsh white-gold
-            new() { Time = 0.65f, ColorHex = "#CDA66F" }, // Early afternoon – begins easing down from noon more gently
-            new() { Time = 0.75f, ColorHex = "#A9794B" }, // Afternoon      – warm ochre descent toward dusk
-            new() { Time = 0.83f, ColorHex = "#745339" }, // Dusk           – compact sunset ramp, about 15 minutes before midnight
-            new() { Time = 0.90f, ColorHex = "#4A3E3A" }, // Early night    – warm grey-brown rather than near-black
-            new() { Time = 0.97f, ColorHex = "#313138" }, // Late night     – returns to cool grey before midnight
-            new() { Time = 1.00f, ColorHex = "#26262C" }  // Back to Midnight
+            // #Misfits Change - Dawn-to-dawn curve for 4h rounds (0 = round start = dawn, 1 = round end = dawn).
+            new() { Time = 0.00f, ColorHex = "#A87A4E" },  // Dawn (round start)
+            new() { Time = 0.06f, ColorHex = "#CDA06C" },  // Sunrise
+            new() { Time = 0.15f, ColorHex = "#E2BE89" },  // Early morning
+            new() { Time = 0.25f, ColorHex = "#EED3A0" },  // Morning
+            new() { Time = 0.375f, ColorHex = "#F7DDB0" }, // Late morning
+            new() { Time = 0.50f, ColorHex = "#FAE3B8" },  // Noon (peak)
+            new() { Time = 0.56f, ColorHex = "#EFD09A" },  // Early afternoon
+            new() { Time = 0.63f, ColorHex = "#D6AC74" },  // Late afternoon
+            new() { Time = 0.66f, ColorHex = "#9E6C45" },  // Sunset (2h 38m)
+            new() { Time = 0.71f, ColorHex = "#5C4650" },  // Twilight
+            new() { Time = 0.75f, ColorHex = "#372C40" },  // Night falls
+            new() { Time = 0.82f, ColorHex = "#241C30" },  // Night
+            new() { Time = 0.89f, ColorHex = "#151021" }, // Deep night
+            new() { Time = 0.94f, ColorHex = "#2B2234" },  // Pre-dawn first light
+            new() { Time = 0.965f, ColorHex = "#523A3A" }, // Dawn glow
+            new() { Time = 0.985f, ColorHex = "#7E5C3C" }, // Dawn
+            new() { Time = 1.00f, ColorHex = "#A87A4E" }   // Full dawn (round end, wraps to start)
         };
     }
 

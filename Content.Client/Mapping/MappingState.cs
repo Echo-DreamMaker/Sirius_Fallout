@@ -48,7 +48,6 @@ public sealed class MappingState : GameplayStateBase
     [Dependency] private readonly IEntityNetworkManager _entityNetwork = default!;
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly ILogManager _log = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly MappingManager _mapping = default!;
     [Dependency] private readonly IOverlayManager _overlays = default!;
     [Dependency] private readonly IPlacementManager _placement = default!;
@@ -1161,7 +1160,7 @@ public sealed class MappingState : GameplayStateBase
             {
                 var mapPos = _transform.ToMapCoordinates(coords);
 
-                if (_mapMan.TryFindGridAt(mapPos, out var gridUid, out var grid) &&
+                if (_entityManager.System<SharedMapSystem>().TryFindGridAt(mapPos, out var gridUid, out var grid) &&
                     _entityManager.System<SharedMapSystem>().TryGetTileRef(gridUid, grid, coords, out var tileRef) &&
                     _allPrototypesDict.TryGetValue(tileRef.GetContentTileDefinition(), out button))
                 {
@@ -1330,7 +1329,7 @@ public sealed class MappingState : GameplayStateBase
         }
 
         var mapPos = viewport.PixelToMap(position.Position);
-        if (_mapMan.TryFindGridAt(mapPos, out var gridUid, out var grid))
+        if (_entityManager.System<SharedMapSystem>().TryFindGridAt(mapPos, out var gridUid, out var grid))
         {
             return new Entity<MapGridComponent>(gridUid, grid);
         }

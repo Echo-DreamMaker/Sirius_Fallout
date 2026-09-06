@@ -122,6 +122,18 @@
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCR1stSergeant
+  name: first sergeant pin
+  components:
+  - type: RankTitle
+    rankTitle: Первый сержант НКР
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+    layers:
+    - state: sergeantmajor
+
+- type: entity
+  parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRSergeantMajor
   name: sergeant major pin
   components:
@@ -162,6 +174,49 @@
     tags:
     - SuperMutantWearable
 
+# #Misfits Add - Chief Warrant Officer grades for the NCR aviation track.
+# No warrant-specific sprites exist, so these borrow officer pin art the same way
+# ClothingNeckPinNCRWarrantOfficer already borrows the second lieutenant state.
+- type: entity
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRChiefWarrantOfficer2
+  name: chief warrant officer 2 pin
+  components:
+  - type: RankTitle
+    rankTitle: Chief Warrant Officer 2
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+    layers:
+    - state: firstlieutenant
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+    clothingVisuals:
+      neck:
+      - state: silver-equipped
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
+- type: entity
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRChiefWarrantOfficer3
+  name: chief warrant officer 3 pin
+  components:
+  - type: RankTitle
+    rankTitle: Chief Warrant Officer 3
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+    layers:
+    - state: captain
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+    clothingVisuals:
+      neck:
+      - state: silver-equipped
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRSecondLieutenant
@@ -176,7 +231,7 @@
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
-  id: ClothingNeckPinNCRFirstlLieutenant
+  id: ClothingNeckPinNCRFirstLieutenant
   name: first lieutenant pin
   components:
   - type: RankTitle

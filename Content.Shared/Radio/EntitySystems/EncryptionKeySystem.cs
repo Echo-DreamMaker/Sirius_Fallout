@@ -83,9 +83,32 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         {
             if (TryComp<EncryptionKeyComponent>(ent, out var key))
             {
-                component.Channels.UnionWith(key.Channels);
-                component.DefaultChannel ??= key.DefaultChannel;
+                foreach (var channel in key.Channels)
+                {
+                    if (TryComp<DisabledEncryptionChannelsComponent>(ent, out var disabled) &&
+                        disabled.Channels.Contains(channel))
+                    {
+                        continue;
+                    }
+
+                    component.Channels.Add(channel);
+                }
+
+                if (key.DefaultChannel != null &&
+                    component.DefaultChannel == null &&
+                    (!TryComp<DisabledEncryptionChannelsComponent>(ent, out var disabledDefault) ||
+                     !disabledDefault.Channels.Contains(key.DefaultChannel)))
+                {
+                    component.DefaultChannel = key.DefaultChannel;
+                }
             }
+        }
+
+        if (TryComp<DisabledEncryptionChannelsComponent>(uid, out var disabledHolder))
+        {
+            component.Channels.ExceptWith(disabledHolder.Channels);
+            if (component.DefaultChannel != null && disabledHolder.Channels.Contains(component.DefaultChannel))
+                component.DefaultChannel = component.Channels.FirstOrDefault();
         }
 
         RaiseLocalEvent(uid, new EncryptionChannelsChangedEvent(component));

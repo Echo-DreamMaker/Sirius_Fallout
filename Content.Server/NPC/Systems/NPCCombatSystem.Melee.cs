@@ -27,7 +27,9 @@ public sealed partial class NPCCombatSystem
             _combat.SetInCombatMode(uid, false, combatMode);
         }
 
-        _steering.Unregister(uid);
+        // Combat has actually ended; unlike a transient HTN movement-plan cleanup this
+        // must stop steering even if an obstacle action is still active.
+        _steering.Unregister(uid, force: true);
     }
 
     private void OnMeleeStartup(EntityUid uid, NPCMeleeCombatComponent component, ComponentStartup args)

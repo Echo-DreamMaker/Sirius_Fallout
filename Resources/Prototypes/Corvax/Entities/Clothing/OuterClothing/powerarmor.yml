@@ -46,6 +46,12 @@
         Piercing: 5
         Heat: 8
         Caustic: 2
+  - type: Reflect # #Misfits Add - explicit NCR T-51 ricochet: small-caliber rounds bounce at 20% (overrides inherited 0.4 from the T-45NCR line)
+    reflects:
+      - SmallCaliber
+    reflectProb: 0.2
+    innate: true
+    spread: 90
   - type: ClothingSpeedModifier # #Misfits Tweak - standalone 35% slowdown, no fusion core required
     walkModifier: 0.70
     sprintModifier: 0.70
@@ -105,7 +111,8 @@
 - type: entity
   parent: N14ClothingOuterPowerArmorAdvanced2
   id: N14ClothingOuterPowerArmorAdvanced2Tesla
-  name: X-02 tesla power armor
+  # #Misfits Change - Renamed X-02 -> APA MK II
+  name: APA MK II tesla power armor
   description: A lightweight version of the APA with fewer protective coatings to facilitate repairs. The Tesla system provides electrical resistance.
   components:
   - type: Sprite

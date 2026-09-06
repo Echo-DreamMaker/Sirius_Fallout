@@ -37,19 +37,19 @@
 
 - type: startingGear
   id: NCRChiefRangerGear
-  # Fox ranger helmet and coat; rest inherited from Veteran Ranger loadout
+  # The admin-only Chief Ranger is the sole round-start Ranger issued the PA suit.
   equipment:
     head: N14ClothingHeadHatRangerHelmetFox      # fox ranger helmet
     back: N14ClothingBackpackMilitary
     jumpsuit: N14ClothingUniformRangerV3
-    ears: N14ClothingHeadsetNCR
+    ears: MisfitsClothingHeadsetNCRRanger
     shoes: N14ClothingBootsCombatFilled
     gloves: N14ClothingHandsGlovesCombat
     belt: ClothingBeltRevolvervetfilled
     mask: ClothingMaskGasRangerElite
     pocket1: MagazineBox45-70
     eyes: ClothingEyesGlassesSunglasses
-    outerClothing: N14ClothingOuterRangerFox      # fox ranger coat
+    outerClothing: MisfitsClothingOuterPowerArmorRanger
     id: N14IDBadgeNCRDesertRangerElite
   innerClothingSkirt: N14ClothingUniformRangerV3
   satchel: N14ClothingBackpackSatchelMilitaryFilled

@@ -45,8 +45,17 @@
   - type: Sprite
     state: grob3
 
+# Misfits Change /Add/: Shared base for floor decor barrels - own name/description
+# instead of inheriting the concrete barrier's "stopping traffic" text.
 - type: entity
   parent: N14DecorConcreteBarrier
+  id: NCDecorFloorBarrelBase
+  abstract: true
+  name: Barrel
+  description: A rusted metal barrel. It's hard to tell what it once held.
+
+- type: entity
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelsDuo
   name: Barrel
   components:
@@ -64,7 +73,7 @@
     state: double_grey_2
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelsRedDuo
   name: Barrel
   components:
@@ -82,13 +91,16 @@
     state: double_red_2
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelsToxicDuo
   name: Barrel
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/barrels.rsi
     state: double_toxic_1
+  - type: RadiationSource #Misfits Change /Add/: toxic/green sludge barrels emit radiation
+    intensity: 2
+    slope: 1
 
 - type: entity
   parent: NCDecorFloorBarrelsToxicDuo
@@ -109,7 +121,7 @@
     state: double_waste_2
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelsYellowDuo
   name: Barrel
   components:
@@ -127,7 +139,7 @@
     state: double_yellow_2
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelsFlam
   name: Barrel
   components:
@@ -154,7 +166,7 @@
     state: flammable_3
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelsGrey
   name: Barrel
   components:
@@ -181,7 +193,7 @@
     state: grey_3
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelsHazard
   name: Barrel
   components:
@@ -208,7 +220,7 @@
     state: hazard_3
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelsLabel
   name: Barrel
   components:
@@ -235,7 +247,7 @@
     state: label_3
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelSquad
   name: Barrel
   components:
@@ -269,6 +281,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/barrels.rsi
     state: quad_toxic_1
+  - type: RadiationSource #Misfits Change /Add/: toxic/green sludge barrels emit radiation
+    intensity: 2
+    slope: 1
 
 - type: entity
   parent: NCDecorFloorBarrelSquad
@@ -278,6 +293,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/barrels.rsi
     state: quad_waste_1
+  - type: RadiationSource #Misfits Change /Add/: toxic/green sludge barrels emit radiation
+    intensity: 2
+    slope: 1
 
 - type: entity
   parent: NCDecorFloorBarrelSquad
@@ -289,7 +307,7 @@
     state: quad_yellow_1
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrel
   name: Barrel
   components:
@@ -316,7 +334,7 @@
     state: red_3
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelAlt
   name: Barrel
   components:
@@ -343,13 +361,16 @@
     state: red_alt_3
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelToxic
   name: Barrel
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/barrels.rsi
     state: toxic_1
+  - type: RadiationSource #Misfits Change /Add/: toxic/green sludge barrels emit radiation
+    intensity: 2
+    slope: 1
 
 - type: entity
   parent: NCDecorFloorBarrelToxic
@@ -379,7 +400,7 @@
     state: toxic_4
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelTriple
   name: Barrel
   components:
@@ -431,6 +452,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/barrels.rsi
     state: triple_toxic_1
+  - type: RadiationSource #Misfits Change /Add/: toxic/green sludge barrels emit radiation
+    intensity: 2
+    slope: 1
 
 - type: entity
   parent: NCDecorFloorBarrelTriple
@@ -440,6 +464,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/barrels.rsi
     state: triple_toxic_2
+  - type: RadiationSource #Misfits Change /Add/: toxic/green sludge barrels emit radiation
+    intensity: 2
+    slope: 1
 
 - type: entity
   parent: NCDecorFloorBarrelTriple
@@ -449,6 +476,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/barrels.rsi
     state: triple_waste_1
+  - type: RadiationSource #Misfits Change /Add/: toxic/green sludge barrels emit radiation
+    intensity: 2
+    slope: 1
 
 - type: entity
   parent: NCDecorFloorBarrelTriple
@@ -458,6 +488,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/barrels.rsi
     state: triple_waste_2
+  - type: RadiationSource #Misfits Change /Add/: toxic/green sludge barrels emit radiation
+    intensity: 2
+    slope: 1
 
 - type: entity
   parent: NCDecorFloorBarrelTriple
@@ -467,6 +500,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/barrels.rsi
     state: triple_waste_3
+  - type: RadiationSource #Misfits Change /Add/: toxic/green sludge barrels emit radiation
+    intensity: 2
+    slope: 1
 
 - type: entity
   parent: NCDecorFloorBarrelTriple
@@ -496,7 +532,7 @@
     state: triple_yellow_3
 
 - type: entity
-  parent: N14DecorConcreteBarrier
+  parent: NCDecorFloorBarrelBase
   id: NCDecorFloorBarrelWarning
   name: Barrel
   components:
@@ -530,6 +566,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Decoration/barrels.rsi
     state: waste_1
+  - type: RadiationSource #Misfits Change /Add/: toxic/green sludge barrels emit radiation
+    intensity: 2
+    slope: 1
 
 - type: entity
   parent: NCDecorFloorBarrelWarning
@@ -602,8 +641,8 @@
 - type: entity
   parent: N14DecorationFlagpoleNCR
   id: N14DecorationFlagpoleUSA
-  name: Small Enclave Flag
-  description: The banner of the Enclave, the descendents of America's elite who claim to be the true inheritors of the United States federal government. This one is a flag meant to be used as a desk paperweight.
+  name: Small U.S. Army Flag
+  description: The banner of the U.S. Army, the descendents of America's elite who claim to be the true inheritors of the United States federal government. This one is a flag meant to be used as a desk paperweight.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/clutter.rsi

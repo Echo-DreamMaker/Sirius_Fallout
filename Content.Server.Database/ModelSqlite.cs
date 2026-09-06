@@ -81,6 +81,11 @@ namespace Content.Server.Database
             modelBuilder.Entity<Profile>()
                 .Property(log => log.Markings)
                 .HasConversion(jsonByteArrayConverter);
+
+            // #Cythisiax Added - Persist roundstart prosthetics (CustomBaseLayers) the same way as Markings
+            modelBuilder.Entity<Profile>()
+                .Property(log => log.CustomBaseLayers)
+                .HasConversion(jsonByteArrayConverter);
         }
 
         public override int CountAdminLogs()

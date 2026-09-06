@@ -184,7 +184,7 @@
   - type: Access
     tags:
     - FotA
-    - FotADoctor 
+    - FotADoctor
 
 
 # #Misfits Change - BoS Midwest holotags commented out.
@@ -308,7 +308,7 @@
   parent: N14IDPassportBlank
   id: N14IDEnclaveTrooper
   name: holotag
-  description: An ID holotag worn by the Enclave.
+  description: An ID holotag worn by the U.S. Army.
   suffix: Trooper
   components:
   - type: Sprite
@@ -328,7 +328,7 @@
   parent: N14IDPassportBlank
   id: N14IDEnclaveOfficer
   name: holotag
-  description: An ID holotag worn by higher ranking memebers of the Enclave.
+  description: An ID holotag worn by higher ranking memebers of the U.S. Army.
   suffix: Officer
   components:
   - type: Sprite
@@ -337,6 +337,11 @@
   - type: IdCard # #Misfits Add - display "holotags" instead of default "ID card"
     nameLocId: n14-id-holotag-name
     fullNameLocId: n14-id-holotag-full-name
+  # #Misfits Fix - Tag officer holotags so the Enclave TacMap Overwatch tracks them
+  # (only Trooper holotags were tagged before, leaving officers off the Enclave feed).
+  - type: Tag
+    tags:
+    - IdCardEnclave
   # - type: PresetIdCard
   #   job: EnclaveOfficer
 
@@ -344,7 +349,7 @@
   parent: N14IDPassportBlank
   id: N14IDEnclaveNoncombat
   name: holotag
-  description: An ID holotag worn by the non-combat members of Enclave.
+  description: An ID holotag worn by the non-combat members of U.S. Army.
   suffix: Scientist , Noncombat
   components:
   - type: Sprite
@@ -353,6 +358,11 @@
   - type: IdCard # #Misfits Add - display "holotags" instead of default "ID card"
     nameLocId: n14-id-holotag-name
     fullNameLocId: n14-id-holotag-full-name
+  # #Misfits Fix - Tag noncombat holotags so the Enclave TacMap Overwatch tracks them
+  # (scientists/noncombat were missing the Enclave tag entirely).
+  - type: Tag
+    tags:
+    - IdCardEnclave
   # - type: PresetIdCard
   #   job: EnclaveScientist
 
@@ -627,6 +637,15 @@
     state: ranger_recruit
   - type: PresetIdCard
     job: NCRPatrolRanger
+  # #Misfits Fix - Tag every ranger badge so the Rangers TacMap Overwatch tab only
+  # tracks Ranger personnel, not the whole NCR. This is the base of ALL ranger badges
+  # (Desert Ranger, Elite, Chief, Republic Ranger). NOTE: a child Tag component
+  # REPLACES the parent's (composition is not additive for this field), so we must
+  # re-list IdCardNCR here to keep rangers on the standard NCR map/Pip-Boy feed.
+  - type: Tag
+    tags:
+    - IdCardNCR
+    - IdCardNCRRanger
 
 - type: entity
   parent: N14IDBadgeNCRDesertRangerRecruit
@@ -700,7 +719,7 @@
     state: passport_presidential
   - type: PresetIdCard
     job: TownShopkeeper
-  
+
 - type: entity # Forge-Add-Start
   parent: N14IDPassportTownsfolk
   id: N14IDShopkeeperHelperTown

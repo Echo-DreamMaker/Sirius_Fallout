@@ -4,6 +4,15 @@ namespace Content.Shared.Players.PlayTimeTracking;
 
 public static class PlayTimeTrackingShared
 {
+    // #Misfits Add - one-time legacy role-timer grandfathering markers.
+    public const string GrandfatherMigrationTracker = "MisfitsLegacyRoleTimersMigrated";
+    public const string GrandfatheredRolePrefix = "MisfitsLegacyRole:";
+
+    public static string GrandfatheredRoleTracker(string jobId)
+    {
+        return GrandfatheredRolePrefix + jobId;
+    }
+
     /// <summary>
     /// The prototype ID of the play time tracker that represents overall playtime, i.e. not tied to any one role.
     /// </summary>

@@ -174,7 +174,15 @@ public abstract partial class SharedBuckleSystem
 
         var delta = (xform.LocalPosition - strapComp.BuckleOffset).LengthSquared();
         if (delta > 1e-5)
+        {
+            if (strapComp.LockToBuckleOffset)
+            {
+                _transform.SetLocalPosition(buckle.Owner, strapComp.BuckleOffset, xform);
+                return;
+            }
+
             Unbuckle(buckle, (strapUid, strapComp), null);
+        }
     }
 
     #endregion

@@ -7,13 +7,16 @@ using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Containers;
+using Robust.Shared.Player;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
-
+/*
+Pending refactor
+*/
 public abstract partial class SharedGunSystem
 {
     protected const string ChamberSlot = "gun_chamber";
-
+    [Dependency] private ISharedPlayerManager _player = default!;
     protected virtual void InitializeChamberMagazine()
     {
         SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, ComponentStartup>(OnChamberStartup);
@@ -42,7 +45,7 @@ public abstract partial class SharedGunSystem
         // Appearance data doesn't get serialized and want to make sure this is correct on spawn (regardless of MapInit) so.
         if (component.BoltClosed != null)
         {
-           Appearance.SetData(uid, AmmoVisuals.BoltClosed, component.BoltClosed.Value);
+            Appearance.SetData(uid, AmmoVisuals.BoltClosed, component.BoltClosed.Value);
         }
     }
 
@@ -104,15 +107,11 @@ public abstract partial class SharedGunSystem
 
         if (TryTakeChamberEntity(uid, out var chamberEnt))
         {
-            if (_netManager.IsServer)
-            {
-                EjectCartridge(chamberEnt.Value);
-            }
-            else
-            {
-                // Similar to below just due to prediction.
-                TransformSystem.DetachEntity(chamberEnt.Value, Transform(chamberEnt.Value));
-            }
+            /// Misfit change: <code> if (_netManager.IsServer){ } </code>
+            /// prediction handled inside EjectCartridge
+            /// Misfit fix duplicated spent carts:
+            var sender = _player.TryGetSessionByEntity(user!.Value, out var session) ? session : _player.LocalSession;
+            EjectCartridge(chamberEnt.Value, baseCoords: Transform(uid).Coordinates, userSession: sender);
         }
 
         if (!CycleCartridge(uid, component, user))
@@ -161,7 +160,7 @@ public abstract partial class SharedGunSystem
             CycleCartridge(uid, component, user, appearance);
 
             if (user != null)
-                PopupSystem.PopupClient(Loc.GetString("gun-chamber-bolt-closed"), uid, user.Value);
+                _popup.PopupClient(Loc.GetString("gun-chamber-bolt-closed"), uid, user.Value);
 
             if (slots != null)
             {
@@ -174,24 +173,23 @@ public abstract partial class SharedGunSystem
         {
             if (TryTakeChamberEntity(uid, out var chambered))
             {
-                if (_netManager.IsServer)
-                {
-                    EjectCartridge(chambered.Value);
-                }
-                else
-                {
-                    // Prediction moment
-                    // The problem is client will dump the cartridge on the ground and the new server state
-                    // won't correspond due to randomness so looks weird
-                    // but we also need to always take it from the chamber or else ammocount won't be correct.
-                    TransformSystem.DetachParentToNull(chambered.Value, Transform(chambered.Value));
-                }
+                // Misfit removed: if (_netManager.IsServer)
+                //                 prediction handled in EjectCartridge
+                // Misfit temp fix: shared code duplicates client carts since server doesnt get passed player session
+                // temp because uid is nullable for some reason and there might be edge cases
+                // we are just assuming this shared code is being run by the "user" ent
+                // tho worse case is that the client doesnt get any spent cart visual womp womp
+                // solution maybe is when reworking gun code is to explictly seperate server and client calls
+                // like server only ever reacts to client ejects via events, and only sends its own via npcs in own explicit methods
+                // also code below ugo af
+                var sender = _player.TryGetSessionByEntity(user!.Value, out var session) ? session : _player.LocalSession;
 
+                EjectCartridge(chambered.Value, baseCoords: Transform(uid).Coordinates, userSession: sender);
                 UpdateAmmoCount(uid);
             }
 
             if (user != null)
-                PopupSystem.PopupClient(Loc.GetString("gun-chamber-bolt-opened"), uid, user.Value);
+                _popup.PopupClient(Loc.GetString("gun-chamber-bolt-opened"), uid, user.Value);
 
             if (slots != null)
             {
@@ -312,7 +310,7 @@ public abstract partial class SharedGunSystem
         return true;
     }
 
-    protected EntityUid? GetChamberEntity(EntityUid uid)
+    public EntityUid? GetChamberEntity(EntityUid uid)
     {
         if (!Containers.TryGetContainer(uid, ChamberSlot, out var container) ||
             container is not ContainerSlot slot)

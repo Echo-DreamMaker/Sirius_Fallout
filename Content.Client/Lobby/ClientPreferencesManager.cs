@@ -36,6 +36,7 @@ namespace Content.Client.Lobby
             _netManager.RegisterNetMessage<MsgUpdateCharacter>();
             _netManager.RegisterNetMessage<MsgSelectCharacter>();
             _netManager.RegisterNetMessage<MsgDeleteCharacter>();
+            _netManager.RegisterNetMessage<MsgRoundEndReportAnonymity>();
 
             _baseClient.RunLevelChanged += BaseClientOnRunLevelChanged;
         }
@@ -56,7 +57,7 @@ namespace Content.Client.Lobby
 
         public void SelectCharacter(int slot)
         {
-            Preferences = new PlayerPreferences(Preferences.Characters, slot, Preferences.AdminOOCColor);
+            Preferences = new PlayerPreferences(Preferences.Characters, slot, Preferences.AdminOOCColor, Preferences.AnonymousRoundEndReport);
             var msg = new MsgSelectCharacter
             {
                 SelectedCharacterIndex = slot
@@ -69,7 +70,7 @@ namespace Content.Client.Lobby
             var collection = IoCManager.Instance!;
             profile.EnsureValid(_playerManager.LocalSession!, collection);
             var characters = new Dictionary<int, ICharacterProfile>(Preferences.Characters) {[slot] = profile};
-            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor);
+            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.AnonymousRoundEndReport);
             var msg = new MsgUpdateCharacter
             {
                 Profile = profile,
@@ -92,7 +93,7 @@ namespace Content.Client.Lobby
 
             var l = lowest.Value;
             characters.Add(l, profile);
-            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor);
+            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.AnonymousRoundEndReport);
 
             UpdateCharacter(profile, l);
         }
@@ -105,10 +106,20 @@ namespace Content.Client.Lobby
         public void DeleteCharacter(int slot)
         {
             var characters = Preferences.Characters.Where(p => p.Key != slot);
-            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor);
+            Preferences = new PlayerPreferences(characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, Preferences.AnonymousRoundEndReport);
             var msg = new MsgDeleteCharacter
             {
                 Slot = slot
+            };
+            _netManager.ClientSendMessage(msg);
+        }
+
+        public void SetRoundEndReportAnonymity(bool anonymous)
+        {
+            Preferences = new PlayerPreferences(Preferences.Characters, Preferences.SelectedCharacterIndex, Preferences.AdminOOCColor, anonymous);
+            var msg = new MsgRoundEndReportAnonymity
+            {
+                Anonymous = anonymous
             };
             _netManager.ClientSendMessage(msg);
         }

@@ -58,7 +58,7 @@ namespace Content.IntegrationTests.Tests.Body
 
             await server.WaitIdleAsync();
 
-            var mapManager = server.ResolveDependency<IMapManager>();
+            var mapManager = server.ResolveDependency<SharedMapSystem>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var mapLoader = entityManager.System<MapLoaderSystem>();
             var mapSys = entityManager.System<SharedMapSystem>();
@@ -136,7 +136,7 @@ namespace Content.IntegrationTests.Tests.Body
             await using var pair = await PoolManager.GetServerClient();
             var server = pair.Server;
 
-            var mapManager = server.ResolveDependency<IMapManager>();
+            var mapManager = server.ResolveDependency<SharedMapSystem>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var cfg = server.ResolveDependency<IConfigurationManager>();
             var mapLoader = entityManager.System<MapLoaderSystem>();

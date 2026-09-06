@@ -92,6 +92,13 @@ ui-theme-amber = Amber Terminal
 ui-theme-vault-blue = Vault Blue
 ui-theme-classic = Classic (Gold)
 
+# Misfit Graphics Additions
+ui-options-cartridge-slider-label = Spent Cartridge Preformance Setting
+ui-options-cartridge-slider-text =  Adjusts spent cartridge visual from firing guns.
+                                    Physics for spent casings are on by default.
+                                    Half bar to spawn static old-school casings.
+                                    Empty bar blocks spawning of any casing
+
 ui-options-hud-theme = HUD theme:
 ui-options-hud-theme-default = Default
 ui-options-hud-theme-plasmafire = Plasmafire

@@ -24,6 +24,62 @@
         factions:
           - Wastelander
 
+- type: job
+  id: Outcast
+  setPreference: true
+  weight: 10
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-outcast
+  description: job-description-outcast
+  playTimeTracker: Outcast
+  startingGear: WastelanderGear
+  icon: "JobIconWastelander"
+  supervisors: job-supervisors-wastelander
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+      - GhoulGlowing
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - BrotherhoodOfSteel
+          - Wastelander
+
+- type: job
+  id: WasterTrader
+  setPreference: true
+  weight: 20 # #Misfits Change - no longer default starter, pushed down
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-wasterTrader
+  description: job-description-wasterTrader
+  playTimeTracker: WasterTrader
+  startingGear: WasterTraderGear
+  icon: "JobIconWastelander" # Corvax-Change
+  supervisors: job-supervisors-wastelander
+  requirements: # #Misfits Change: 8h playtime lock, block non-human species
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+      - GhoulGlowing
+    - !type:CharacterPlaytimeRequirement
+      tracker: Wastelander
+      min: 28800 # 8 hours
+  accessGroups:
+  - WasterTrader
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+
 - type: startingGear
   id: WastelanderGear
   equipment:
@@ -39,5 +95,29 @@
     back:
     - N14BoxPlasticFilledWastelander
 
+- type: startingGear
+  id: WasterTraderGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitMerchant
+    ears: MisfitsClothingHeadsetWastelandScrap
+    back: N14ClothingBackpackExplorer # Corvax-Change
+    shoes: N14ClothingShoesRags
+    id: N14ClothingNeckDogtagsTrader # #Tytos add, waster trader has a special id to use his shop
+    belt: N14WalletCash
+    pocket1: MisfitsWasterTraderFlatpack
+    pocket2: N14Multitool
+  innerClothingSkirt: N14ClothingUniformJumpskirtFalloutBlack
+  satchel: N14ClothingBackpackSatchelWastelanderFilled
+  duffelbag: N14ClothingBackpackDuffelFilled
+  storage: # Corvax-Change
+    back:
+    - N14BoxPlasticFilledWastelander
+
 - type: playTimeTracker
   id: Wastelander
+
+- type: playTimeTracker
+  id: WasterTrader
+
+- type: playTimeTracker
+  id: Outcast

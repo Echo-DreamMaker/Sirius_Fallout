@@ -4,7 +4,9 @@
     xmlns:controls="clr-namespace:Content.Client._Misfits.Administration.UI.BanListAll"
     xmlns:bans="clr-namespace:Content.Client._Misfits.Administration.UI.BanListAll.Bans"
     xmlns:roleBans="clr-namespace:Content.Client._Misfits.Administration.UI.BanListAll.RoleBans"
-    SetSize="1600 500">
+    SetSize="1600 600"
+    HeaderClass="windowHeaderAlert"
+    TitleClass="windowTitleAlert">
     <TabContainer Name="TabContainer">
         <bans:MisfitsBanListAllControl Name="ActiveBanList" Access="Public"/>
         <roleBans:MisfitsRoleBanListAllControl Name="ActiveRoleBanList" Access="Public"/>

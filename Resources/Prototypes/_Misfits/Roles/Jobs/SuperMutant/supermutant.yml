@@ -264,7 +264,7 @@
     shoes: ClothingSuperMutantGladiatorBoots # Placeholder untill we get NCR boots
     jumpsuit: ClothingSuperMutantRangerShirt
     outerClothing: ClothingSuperMutantRangerArmor
-    ears: N14ClothingHeadsetNCR
+    ears: MisfitsClothingHeadsetNCRRanger
     id: N14IDBadgeNCRRanger
     back: N14ClothingBackpackMilitary
 
@@ -464,8 +464,8 @@
 - type: job
   id: SuperMutantEnclave
   jobWhitelistBypassesRoleTimers: true
-  name: job-name-supermutant-enclave
-  description: job-description-supermutant-enclave
+  name: job-name-supermutant-enclave # #Cythisiax Fixed - plain-text name triggered "Unknown messageId" loc warnings
+  description: job-description-supermutant-enclave # #Cythisiax Fixed - plain-text description triggered "Unknown messageId" loc warnings
   playTimeTracker: SuperMutantEnclave
   icon: "JobIconEnclaveEnlisted"
   supervisors: job-supervisors-enclave
@@ -491,15 +491,15 @@
           factions:
             - PlayerSuperMutant
             - Enclave
+        - type: ReplacementAccent
+          accent: n14Enclave
         - type: PowerArmorProficiency
-- type: startingGear
+- type: startingGear # Enclave will give the Enlisted mutant their weapons
   id: SuperMutantEnclaveGear
   equipment:
     outerClothing: MisfitsEnclavePowerArmor
-    jumpsuit: ClothingSuperMutantLabcoat
+    jumpsuit: ClothingSuperMutantJumpsuit
     ears: N14ClothingHeadsetEnclave
     id: N14EnclaveTrooperPipboy
-    belt: ClothingBeltMilitary
-    pocket1: EnclaveSoldierloadoutkits
 - type: playTimeTracker
   id: SuperMutantEnclave

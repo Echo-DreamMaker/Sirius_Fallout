@@ -1,0 +1,60 @@
+- type: entity
+  id: VertibirdRotorWashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1.2
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    scale: 1.35, 1.35
+    layers:
+    - shader: unshaded
+      sprite: Effects/atmospherics.rsi
+      state: water_vapor_old
+      color: "#d4c09dcc"
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: AnimationPlayer
+
+# #Misfits Add - Ground impact when a power armoured passenger drops from the vertibird.
+- type: entity
+  id: VertibirdCombatDropImpactEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1.4
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    scale: 1.4, 1.4
+    layers:
+    - sprite: Effects/rockspawn.rsi
+      state: asteroid
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: VertibirdOverheadShadowEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.35
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - sprite: _Nuclear14/Mobs/Robots/eyebot.rsi
+      state: shadow_eyebot
+      scale: 8, 4
+      color: "#00000099"
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: AnimationPlayer

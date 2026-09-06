@@ -124,7 +124,7 @@ DrinkGoldschlagerGlass: DrinkGildlagerGlass
 
 # 2024-01-07
 ClosetBase: ClosetSteelBase
-MonkeyCubeBox: VariantCubeBox
+#MonkeyCubeBox: VariantCubeBox Amaster222; replaced with RadCubeBox
 
 # 2024-01-10
 ClothingHeadHatHoodRad: null

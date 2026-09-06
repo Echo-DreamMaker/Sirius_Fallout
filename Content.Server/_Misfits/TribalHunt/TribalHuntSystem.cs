@@ -7,9 +7,11 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Misfits.TribalHunt;
@@ -42,6 +44,7 @@ public sealed class TribalHuntSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly LegendaryCreatureSpawnerSystem _huntSpawner = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
     private TribalHuntStage _stage = TribalHuntStage.Inactive;
     private TribalHuntType _huntType = TribalHuntType.None;
@@ -498,6 +501,8 @@ public sealed class TribalHuntSystem : EntitySystem
         return component.ActivatorJobs.Contains(prototype.ID);
     }
 
+    // #Misfits Fix - resolved against the target department's role list so dual-citizenship tribe jobs
+    // (SuperMutantTribal, SyntheticProtectronTribal) count as tribe members for hunts.
     private bool IsInDepartment(EntityUid uid, string departmentId)
     {
         if (!_mind.TryGetMind(uid, out var mindId, out _))
@@ -506,7 +511,8 @@ public sealed class TribalHuntSystem : EntitySystem
         if (!_jobs.MindTryGetJob(mindId, out _, out var jobPrototype))
             return false;
 
-        return _jobs.TryGetDepartment(jobPrototype.ID, out var department) && department.ID == departmentId;
+        return _prototypes.TryIndex<DepartmentPrototype>(departmentId, out var department)
+            && department.Roles.Contains(jobPrototype.ID);
     }
 
     private void BroadcastUiToDepartment(string departmentId, string statusText)

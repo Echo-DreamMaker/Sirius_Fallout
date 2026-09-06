@@ -278,7 +278,10 @@ public sealed partial class ExplosionSystem : EntitySystem
         // diameter x diameter sized box, use a smaller box with radius sized sides:
         var box = Box2.CenteredAround(epicenter.Position, new Vector2(radius, radius));
 
-        foreach (var grid in _mapManager.FindGridsIntersecting(epicenter.MapId, box))
+        var intersectingGrids = new List<Entity<MapGridComponent>>();
+        _mapManager.FindGridsIntersecting(epicenter.MapId, box, ref intersectingGrids);
+
+        foreach (var grid in intersectingGrids)
         {
             if (TryComp(grid.Owner, out PhysicsComponent? physics) && physics.Mass > mass)
             {
@@ -298,7 +301,8 @@ public sealed partial class ExplosionSystem : EntitySystem
 
         radius *= 4;
         box = Box2.CenteredAround(epicenter.Position, new Vector2(radius, radius));
-        var mapGrids = _mapManager.FindGridsIntersecting(epicenter.MapId, box).ToList();
+        var mapGrids = new List<Entity<MapGridComponent>>();
+        _mapManager.FindGridsIntersecting(epicenter.MapId, box, ref mapGrids);
         var grids = mapGrids.Select(x => x.Owner).ToList();
 
         if (referenceGrid != null)

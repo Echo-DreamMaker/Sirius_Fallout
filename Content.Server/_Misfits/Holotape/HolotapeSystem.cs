@@ -239,11 +239,14 @@ public sealed class HolotapeSystem : EntitySystem
         }
 
         // ── DATABASE tab: viewer-driven faction database resolution ────────
-        // #Misfits Change - DATABASE tab is now on every terminal. The viewer's ID
-        // access tags determine which faction database (if any) they see. Wastelanders
-        // and IDless characters get a NO ACCESS sentinel state from BuildState.
-        var dbSystem = EntityManager.System<TerminalDatabaseSystem>();
-        var databaseState = dbSystem.BuildState(uid, actor, openDatabaseDocumentId);
+        // #Misfits Change - DATABASE is exposed only by explicit terminal gateways.
+        // The viewer's ID still determines which faction database (if any) they see.
+        TerminalDatabaseState? databaseState = null;
+        if (HasComp<TerminalDatabaseAccessComponent>(uid))
+        {
+            var dbSystem = EntityManager.System<TerminalDatabaseSystem>();
+            databaseState = dbSystem.BuildState(uid, actor, openDatabaseDocumentId);
+        }
         var overwatchState = EntityManager.System<Content.Server._Misfits.Overwatch.OverwatchConsoleSystem>()
             .BuildUiState(uid);
 

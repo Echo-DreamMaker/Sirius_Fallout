@@ -5,6 +5,9 @@
   name: deli counter
   description: A metal counter for showing off food.
   components:
+  - type: Construction
+    graph: MisfitsStoreDeliCounter
+    node: StoreDeliCounter
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Store_Furniture/delistand.rsi
     netsync: false
@@ -69,6 +72,9 @@
   name: fruit stand
   description: A box for displaying produce.
   components:
+  - type: Construction
+    graph: MisfitsStoreFruitstand
+    node: StoreFruitstand
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/Store_Furniture/fruitstand.rsi
     snapCardinals: true
@@ -120,6 +126,9 @@
   name: fruit stand
   description: A box for displaying produce. This one has stuff in it.
   components:
+  - type: Construction
+    graph: MisfitsStoreFruitstand
+    node: StoreFruitstand1
   - type: Sprite
     state: fruitstand-1
 
@@ -128,6 +137,9 @@
   id: N14StoreFruitstand2
   suffix: green
   components:
+  - type: Construction
+    graph: MisfitsStoreFruitstand
+    node: StoreFruitstand2
   - type: Sprite
     state: fruitstand-2
 
@@ -136,5 +148,8 @@
   id: N14StoreFruitstand3
   suffix: yellow
   components:
+  - type: Construction
+    graph: MisfitsStoreFruitstand
+    node: StoreFruitstand3
   - type: Sprite
     state: fruitstand-3

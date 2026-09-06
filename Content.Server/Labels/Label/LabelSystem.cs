@@ -103,14 +103,14 @@ namespace Content.Server.Labels
                     // Assuming yaml has the correct entity whitelist, this should not happen.
                     return;
 
-                if (string.IsNullOrWhiteSpace(paper.Content))
+                if (string.IsNullOrWhiteSpace(paper.PaperContent))
                 {
                     args.PushMarkup(Loc.GetString("comp-paper-label-has-label-blank"));
                     return;
                 }
 
                 args.PushMarkup(Loc.GetString("comp-paper-label-has-label"));
-                var text = paper.Content;
+                var text = paper.PaperContent;
                 args.PushMarkup(text.TrimEnd());
             }
         }

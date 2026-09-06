@@ -118,6 +118,7 @@ public sealed class AGhost : LocalizedCommands
 
         var comp = _entities.GetComponent<GhostComponent>(ghost);
         ghostSystem.SetCanReturnToBody(comp, canReturn);
-        ghostSystem.ApplyMisfitsGhostColor(ghost, comp, mind);
+        // #Misfits Edited - aghost defaults to red; per-user presets override it
+        ghostSystem.ApplyMisfitsGhostColor(ghost, comp, mind, Color.FromHex("#ff3333cc"));
     }
 }

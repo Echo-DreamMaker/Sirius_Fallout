@@ -21,7 +21,7 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
     [Dependency] private readonly PoissonDiskSampler _sampler = default!;
     [Dependency] private readonly TransformSystem _xformSys = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     private ISawmill _sawmill = default!;
@@ -175,8 +175,13 @@ public sealed class DebrisFeaturePlacerSystem : BaseWorldSystem
 
             var coords = new EntityCoordinates(chunk.Map, point);
 
-            if (_mapManager
-                .FindGridsIntersecting(Comp<MapComponent>(chunk.Map).MapId, safetyBounds.Translated(point)).Any())
+            var collides = false;
+            _mapManager.FindGridsIntersecting(Comp<MapComponent>(chunk.Map).MapId, safetyBounds.Translated(point), (uid, grid) =>
+            {
+                collides = true;
+                return false;
+            });
+            if (collides)
                 continue; // Oops, gonna collide.
 
             var preEv = new PrePlaceDebrisFeatureEvent(coords, args.Chunk);

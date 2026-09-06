@@ -2,50 +2,68 @@
 # Each pet spawns a separate invisible ghost-role spawner entity via TraitSpawnEntity,
 # allowing multiple pets to each register their own ghost role independently.
 
-# Dog Companion — generic wasteland dog, available to all roles, costs 8 perk points
+# OSI personnel receive this through their job special rather than purchasing it.
+# The job requirement also prevents the companion from appearing in other roles'
+# character setup.
+- type: trait
+  id: MisfitsPetEyebotOSI
+  category: PetsMedium
+  points: -6
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - OSIChiefScientist
+    - OSIScientist
+    - OSIAssistant
+  functions:
+  - !type:TraitSpawnEntity
+    prototypes:
+    - MisfitsPetSpawnerEyebotOSI
+
+# Dog Companion — generic wasteland dog, available to all roles, costs 8 pet points (Medium, max 2)
 - type: trait
   id: N14PetDogCompanion
-  category: Pets
+  category: PetsMedium # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -8
   functions:
     - !type:TraitSpawnEntity
       prototypes:
         - MisfitsPetSpawnerDog
 
-# Brahmin — two-headed pack animal, available to all roles, costs 10 perk points
+# Brahmin — two-headed pack animal, available to all roles, costs 5 pet points (Large, max 1)
 - type: trait
   id: N14PetBrahmin
-  category: Pets
-  points: -10
+  category: PetsLarge # #Cythisiax Edited - pet size subcategory; costs 5 points from the separate pet pool
+  points: -5
   functions:
     - !type:TraitSpawnEntity
       prototypes:
         - MisfitsPetSpawnerBrahmin
 
-# Mirelurk — irradiated crustacean companion, available to all roles, costs 8 perk points
+# Mirelurk — irradiated crustacean companion, available to all roles, costs 8 pet points (Medium, max 2)
 - type: trait
   id: N14PetMirelurk
-  category: Pets
+  category: PetsMedium # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -8
   functions:
     - !type:TraitSpawnEntity
       prototypes:
         - MisfitsPetSpawnerMirelurk
 
-# Rad Chicken — glowing wasteland chicken, available to all roles, costs 5 perk points
+# Rad Chicken — glowing wasteland chicken, available to all roles, costs 5 pet points (Small, max 3)
 - type: trait
   id: N14PetRadChicken
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
       prototypes:
         - MisfitsPetSpawnerRadChicken
 
-# Cat — a basic cat companion, available to all roles, costs 5 perk points (NOT MobCatFloppa, NOT N14MobCatHaggis)
+# Cat — a basic cat companion, available to all roles, costs 5 pet points (Small, max 3) (NOT MobCatFloppa, NOT N14MobCatHaggis)
 - type: trait
   id: N14PetCat
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
@@ -54,7 +72,7 @@
 
 - type: trait
   id: N14PetCatBlack
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
@@ -63,7 +81,7 @@
 
 - type: trait
   id: N14PetCatBrownTabby
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
@@ -72,7 +90,7 @@
 
 - type: trait
   id: N14PetCatCalico
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
@@ -81,7 +99,7 @@
 
 - type: trait
   id: N14PetCatGingerTabby
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
@@ -90,7 +108,7 @@
 
 - type: trait
   id: N14PetCatGrayTabby
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
@@ -99,7 +117,7 @@
 
 - type: trait
   id: N14PetCatMela
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
@@ -108,7 +126,7 @@
 
 - type: trait
   id: N14PetCatOcicat
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
@@ -117,7 +135,7 @@
 
 - type: trait
   id: N14PetCatSiamese
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
@@ -126,7 +144,7 @@
 
 - type: trait
   id: N14PetCatSphinx
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
@@ -135,7 +153,7 @@
 
 - type: trait
   id: N14PetCatTortoiseshell
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
@@ -144,23 +162,29 @@
 
 - type: trait
   id: N14PetCatWhite
-  category: Pets
+  category: PetsSmall # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -5
   functions:
     - !type:TraitSpawnEntity
       prototypes:
         - MisfitsPetSpawnerCatWhite
 
-# Centaur — FEV-warped creature, SUPERMUTANT ONLY (FEVMutants department), costs 8 perk points
+# Centaur — FEV-warped creature, SUPERMUTANT ONLY (FEVMutants department), costs 8 pet points (Large, max 1)
 # Placeholder — full implementation pending dedicated pet centaur prototype
+# #Misfits Fix - gate by SPECIES (SuperMutant/Nightkin) instead of the FEVMutants department.
+# The department-based CharacterDepartmentRequirement resolved zero roles (reporters saw the
+# centaur locked even on supermutant characters — "none of the roles are considered part of it"),
+# so a supermutant could never take the pet. Species is the same authoritative check the supermutant
+# job prototypes use, and it does not depend on department/job-priority lookup.
 - type: trait
   id: N14PetCentaur
-  category: Pets
+  category: PetsLarge # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -8
   requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - FEVMutants
+    - !type:CharacterSpeciesRequirement
+      species:
+        - SuperMutant
+        - Nightkin
   functions:
     - !type:TraitSpawnEntity
       prototypes:
@@ -169,7 +193,7 @@
 # Tribe-exclusive variant of the Eyebot pet
 - type: trait
   id: MisfitsPetEyebotTribe
-  category: Pets
+  category: PetsMedium # #Cythisiax Edited - pet size subcategory for the separate Pets points system
   points: -6
   requirements:
   - !type:CharacterDepartmentRequirement
@@ -189,3 +213,36 @@
     - !type:TraitSpawnEntity
       prototypes:
         - SiriusPetSpawnerMoff
+# #Misfits Add - Enclave Eyebot companion for the Enclave scientist roles.
+# Enclave scientists receive this through their job special rather than purchasing it.
+# The job requirement prevents the companion from appearing in other roles' character setup.
+- type: trait
+  id: MisfitsPetEyebotEnclave
+  category: PetsMedium
+  points: -6
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - EnclaveJuniorScientist
+    - EnclaveScientist
+    - EnclaveHeadScientist
+  functions:
+  - !type:TraitSpawnEntity
+    prototypes:
+    - MisfitsPetSpawnerEyebotEnclave
+
+# #Misfits Add - Enclave Cyberdog companion, purchasable by Enclave scientist roles.
+- type: trait
+  id: MisfitsPetDogEnclave
+  category: PetsMedium
+  points: -6
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - EnclaveJuniorScientist
+    - EnclaveScientist
+    - EnclaveHeadScientist
+  functions:
+  - !type:TraitSpawnEntity
+    prototypes:
+    - MisfitsPetSpawnerDogEnclave

@@ -32,7 +32,7 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
 {
     [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;

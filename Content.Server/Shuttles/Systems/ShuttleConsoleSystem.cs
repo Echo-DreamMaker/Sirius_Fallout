@@ -27,7 +27,7 @@ namespace Content.Server.Shuttles.Systems;
 
 public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;

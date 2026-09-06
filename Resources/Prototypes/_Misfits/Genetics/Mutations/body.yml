@@ -504,7 +504,7 @@
     instability: 25
     difficulty: 24
   - type: MobThresholdMutation
-    removed: SoftCritical
+    removed: Critical # no crit to fall into, you keep going until you drop dead
 
 - type: entity
   parent: BaseMutation

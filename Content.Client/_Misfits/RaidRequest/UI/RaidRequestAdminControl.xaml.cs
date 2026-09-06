@@ -140,7 +140,7 @@ public sealed partial class RaidRequestAdminControl : Control
             Pressed          = _selectedId == entry.Id,
             Text             = $"#{entry.Id}  [{statusName}]\n" +
                                $"{(entry.IsIndividual ? entry.RequesterCharacterName : RaidRequestConfig.FactionDisplayName(entry.RequesterFaction))} " +
-                               $"→ {RaidRequestConfig.FactionDisplayName(entry.TargetFaction)}",
+                               $"→ {GetTargetDisplayName(entry)}",
             Modulate         = statusColor,
         };
         btn.OnPressed += _ =>
@@ -177,7 +177,7 @@ public sealed partial class RaidRequestAdminControl : Control
         var body = $"[color={hex}][bold]{statusName}[/bold][/color]\n\n" +
                    $"[bold]Requester:[/bold] {FormattedMessage.EscapeText(who)}\n" +
                    $"[bold]Job:[/bold] {FormattedMessage.EscapeText(entry.RequesterJob)}\n" +
-                   $"[bold]Target:[/bold] {FormattedMessage.EscapeText(RaidRequestConfig.FactionDisplayName(entry.TargetFaction))}\n";
+                   $"[bold]Target:[/bold] {FormattedMessage.EscapeText(GetTargetDisplayName(entry))}\n";
 
         if (!string.IsNullOrWhiteSpace(entry.LocationNotes))
             body += $"[bold]Location:[/bold] {FormattedMessage.EscapeText(entry.LocationNotes)}\n";
@@ -250,4 +250,14 @@ public sealed partial class RaidRequestAdminControl : Control
         RaidRequestStatus.Concluded => (Color.FromHex("#7B68EE"), "CONCLUDED"), // #Misfits Add - slate blue distinguishes ended raids.
         _                           => (Color.White,              status.ToString()),
     };
+
+    private static string GetTargetDisplayName(RaidRequestEntry entry)
+    {
+        if (!string.IsNullOrWhiteSpace(entry.TargetDisplayName))
+            return entry.TargetDisplayName;
+
+        return entry.TargetKind == RaidRequestTargetKind.Faction
+            ? RaidRequestConfig.FactionDisplayName(entry.TargetId)
+            : $"Group {entry.TargetId}";
+    }
 }

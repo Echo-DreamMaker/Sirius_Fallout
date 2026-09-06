@@ -1,0 +1,108 @@
+- type: entity
+  parent: OreBase
+  id: N14ZincOre
+  name: zinc ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: N14ZincOre
+    count: 30
+  - type: Sprite
+    sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+    state: lead
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawZinc: 500
+  - type: Extractable
+    grindableSolutionName: zincore
+  - type: SolutionContainerManager
+    solutions:
+      zincore:
+        reagents:
+        - ReagentId: Zinc
+          Quantity: 10
+
+- type: entity
+  parent: N14ZincOre
+  id: N14ZincOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: OreBase
+  id: N14BauxiteOre
+  name: bauxite ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: N14BauxiteOre
+    count: 30
+  - type: Sprite
+    sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+    state: copper
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RawBauxite: 500
+  - type: Extractable
+    grindableSolutionName: bauxiteore
+  - type: SolutionContainerManager
+    solutions:
+      bauxiteore:
+        reagents:
+        - ReagentId: Aluminium
+          Quantity: 10
+
+- type: entity
+  parent: N14BauxiteOre
+  id: N14BauxiteOre1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: IngotBase
+  id: N14IngotZinc
+  name: zinc bar
+  suffix: Full, 30
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Zinc: 100
+  - type: Stack
+    stackType: Zinc
+    baseLayer: base
+    layerStates:
+    - ingot_aluminum
+    - ingot_aluminum
+    - ingot_aluminum
+  - type: Sprite
+    sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+    state: ingot_aluminum
+    layers:
+    - state: ingot_aluminum
+      map: ["base"]
+  - type: Item
+    heldPrefix: ingot_aluminum
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: zinc
+  - type: SolutionContainerManager
+    solutions:
+      zinc:
+        reagents:
+        - ReagentId: Zinc
+          Quantity: 10
+
+- type: entity
+  parent: N14IngotZinc
+  id: N14IngotZinc1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1

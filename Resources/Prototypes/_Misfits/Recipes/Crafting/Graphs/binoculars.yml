@@ -1,0 +1,19 @@
+# Misfits Add: Hand-crafting graph for binoculars.
+- type: constructionGraph
+  id: MisfitsBinocularsGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: binoculars
+          steps:
+            - material: Steel
+              amount: 2
+            - material: Plastic
+              amount: 1
+            - material: Glass
+              amount: 2
+              doAfter: 5
+
+    - node: binoculars
+      entity: N14Binoculars

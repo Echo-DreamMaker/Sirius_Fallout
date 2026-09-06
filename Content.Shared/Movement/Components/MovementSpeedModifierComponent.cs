@@ -91,6 +91,12 @@ namespace Content.Shared.Movement.Components
         public float Acceleration = DefaultAcceleration;
 
         /// <summary>
+        /// Whether this entity's configured acceleration takes precedence over a ground tile's acceleration override.
+        /// </summary>
+        [DataField]
+        public bool IgnoreTileAcceleration;
+
+        /// <summary>
         /// The negative velocity applied for friction.
         /// </summary>
         [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite), DataField]

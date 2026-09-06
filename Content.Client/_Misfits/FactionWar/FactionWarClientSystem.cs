@@ -274,11 +274,12 @@ public sealed class FactionWarClientSystem : EntitySystem
         _window = new FactionWarWindow();
         _window.OnClose += () => _window = null;
 
-        _window.OnDeclareWar += (targetPlayer, reason, sideName1) =>
+        _window.OnDeclareWar += (targetKind, targetId, reason, sideName1) =>
         {
             RaiseNetworkEvent(new PlayerWarDeclareRequestEvent
             {
-                TargetPlayer = targetPlayer,
+                TargetKind = targetKind,
+                TargetId = targetId,
                 Reason = reason,
                 SideName1 = sideName1,
             });

@@ -1,0 +1,66 @@
+# #Cythisiax Added - "HONOR GUARD" personal-whitelist BoS rank.
+# Hidden rank beneath the Elder (same whitelist treatment as Elder/Tombstone): a
+# personal-whitelist posting that carries the 509th BoS T-51bc (moved here from the
+# Head Paladin's loadout). Otherwise it is built exactly like a regular Head Paladin
+# (BoSMidPaladinCommander): same BOSHeadPaladin access, same specials, same gear kit —
+# only the armor is the 509th T-51bc and the tags read "Honor Guard".
+
+- type: job
+  id: BoSHonorGuard
+  setPreference: true
+  whitelisted: true # #Cythisiax Added - requires an explicit job whitelist entry (jobwhitelistadd <ckey> BoSHonorGuard)
+  hideWithoutJobWhitelist: true # #Cythisiax Added - hidden from the job picker unless whitelisted for this job
+  jobWhitelistBypassesRoleTimers: true
+  weight: 112 # #Cythisiax Added - beneath Elder (120), above Head Paladin (110) / Tombstone (111)
+  showBorder: true
+  canBeAntag: false
+  name: job-name-bos-honor-guard
+  overwatchCategory: OverwatchBosPaladin # #Cythisiax Added - tracked with the paladin wing like the Head Paladin
+  description: job-description-bos-honor-guard
+  playTimeTracker: BoSHonorGuard
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+  startingGear: BoSHonorGuardGear
+  alwaysUseSpawner: true
+  requireAdminNotify: true
+  icon: "JobIconBosMCommander"
+  supervisors: job-supervisors-bos-honor-guard
+  accessGroups:
+  - BOSHeadPaladin
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - BrotherhoodOfSteel
+      - type: PowerArmorProficiency
+      - type: LanguageKnowledge # #Cythisiax Added - understands (does not speak) Brotherhood code, like the Head Paladin.
+        speaks:
+        - English
+        understands:
+        - English
+        - N14BrotherBeep
+
+# #Cythisiax Added - Honor Guard kit: the Head Paladin loadout with the 509th T-51bc
+# and Honor Guard holotags in place of the Head Paladin Pip-Boy.
+- type: startingGear
+  id: BoSHonorGuardGear
+  equipment:
+    jumpsuit: N14ClothingUniformBosRecon
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsLeatherFilled
+    head: N14ClothingPaladinBeret
+    outerClothing: MisfitsClothingOuterPowerArmorBoS509HonorGuard
+    hands: N14ClothingHandsGlovesCombat
+    pocket1: BoSBrotherhoodHeadPaladinKits
+    id: N14IDBrotherhoodOfSteelHolotagHonorGuard
+    ears: N14ClothingHeadsetBrotherhoodOfSteel
+    belt: MisfitsClothingBeltPaladinWebbing
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+
+- type: playTimeTracker
+  id: BoSHonorGuard

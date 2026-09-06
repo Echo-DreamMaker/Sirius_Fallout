@@ -3,6 +3,7 @@
 # Their armor is lightweight tribal gear — bone, leather, and scavenged military webbing.
 # Stats baseline: NCR Private T2 ±10%. Biased toward slash/heat resistance (treated hides).
 # Sprites: placeholder khansjacket.rsi until WhiteLegs-specific RSIs are sourced and converted.
+# Item used for wastelanders at the moment in loadout_wastelanders.yml but if ever added back as faction equipment remove that from the loadout_wastelanders.yml
 
 - type: entity
   parent: N14FalloutArmorBase

@@ -67,6 +67,17 @@
     OreSulfur: 2
     OreFertilizer: 3
 
+# #Cythisiax Added - N14 high-value ore distribution (N14 ore sprites so drops stack with N14 ores)
+- type: weightedRandomOre
+  id: N14RandomOreDistributionHigh
+  weights:
+    N14OreIron: 1
+    OreSpaceQuartz: 2
+    N14OreGold: 10
+    N14OreSilver: 4
+    OreUranium: 6
+    OreArtifactFragment: 0.5
+
 # Plants
 - type: ore
   id: WildAgave

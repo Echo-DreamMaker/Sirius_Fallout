@@ -16,6 +16,8 @@
         - SecBeltEquip
         - Radio
         - Flashlight
+        # #Cythisiax Added - belt can store the Wendover map (Document)
+        - Document
       components:
         - Stunbaton
         - FlashOnTrigger

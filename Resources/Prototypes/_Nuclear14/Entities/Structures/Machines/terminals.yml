@@ -69,6 +69,9 @@
   # Using a holotape on the terminal displays the holotape's content instead.
   - type: HolotapeReader
   - type: HolotapeData
+  # #Misfits Add - Explicitly permits this working terminal to access faction databases.
+  # Database selection remains viewer-driven; holotape items do not receive this marker.
+  - type: TerminalDatabaseAccess
   - type: TerminalRandomContent
     contentPool:
       - MisfitsTerminalEntries

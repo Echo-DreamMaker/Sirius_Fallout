@@ -18,7 +18,7 @@ public sealed class PersistentDecalPlacementOverlay : Overlay
 {
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    private readonly SharedMapSystem _mapManager;
 
     private readonly PersistentDecalPlacementSystem _placement;
     private readonly SharedTransformSystem _transform;
@@ -32,6 +32,7 @@ public sealed class PersistentDecalPlacementOverlay : Overlay
         SpriteSystem sprite)
     {
         IoCManager.InjectDependencies(this);
+        _mapManager = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SharedMapSystem>();
         _placement = placement;
         _transform = transform;
         _sprite = sprite;

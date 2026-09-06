@@ -43,5 +43,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 35
-        Slash: 10
+        Piercing: 10
+        Slash: 50 # tribal arrow did more bleed
+                  # 1 piercing does .2 bleed
+                  # 1 slash does .25 bleed lol
+

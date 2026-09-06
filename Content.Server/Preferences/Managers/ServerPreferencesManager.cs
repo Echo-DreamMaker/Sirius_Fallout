@@ -36,6 +36,11 @@ namespace Content.Server.Preferences.Managers
         private readonly Dictionary<NetUserId, PlayerPrefData> _cachedPlayerPrefs =
             new();
 
+        // #Cythisiax Added - Keeps the round-end anonymity flag available even after a player disconnects,
+        // so the round-end report can still mask their characters.
+        private readonly Dictionary<NetUserId, bool> _roundEndAnonymity =
+            new();
+
         private ISawmill _sawmill = default!;
 
         private int MaxCharacterSlots => _cfg.GetCVar(CCVars.GameMaxCharacterSlots);
@@ -46,6 +51,7 @@ namespace Content.Server.Preferences.Managers
             _netManager.RegisterNetMessage<MsgSelectCharacter>(HandleSelectCharacterMessage);
             _netManager.RegisterNetMessage<MsgUpdateCharacter>(HandleUpdateCharacterMessage);
             _netManager.RegisterNetMessage<MsgDeleteCharacter>(HandleDeleteCharacterMessage);
+            _netManager.RegisterNetMessage<MsgRoundEndReportAnonymity>(HandleRoundEndReportAnonymityMessage);
             _sawmill = _log.GetSawmill("prefs");
         }
 
@@ -73,7 +79,7 @@ namespace Content.Server.Preferences.Managers
                 return;
             }
 
-            prefsData.Prefs = new PlayerPreferences(curPrefs.Characters, index, curPrefs.AdminOOCColor);
+            prefsData.Prefs = new PlayerPreferences(curPrefs.Characters, index, curPrefs.AdminOOCColor, curPrefs.AnonymousRoundEndReport);
 
             if (ShouldStorePrefs(message.MsgChannel.AuthType))
             {
@@ -132,10 +138,44 @@ namespace Content.Server.Preferences.Managers
                 [slot] = profile
             };
 
-            prefsData.Prefs = new PlayerPreferences(profiles, slot, curPrefs.AdminOOCColor);
+            prefsData.Prefs = new PlayerPreferences(profiles, slot, curPrefs.AdminOOCColor, curPrefs.AnonymousRoundEndReport);
 
             if (ShouldStorePrefs(session.Channel.AuthType))
                 await _db.SaveCharacterSlotAsync(userId, profile, slot);
+        }
+
+        private async void HandleRoundEndReportAnonymityMessage(MsgRoundEndReportAnonymity message)
+        {
+            var userId = message.MsgChannel.UserId;
+
+            if (!_cachedPlayerPrefs.TryGetValue(userId, out var prefsData) || !prefsData.PrefsLoaded)
+            {
+                _sawmill.Error($"User {userId} tried to modify preferences before they loaded.");
+                return;
+            }
+
+            await SetRoundEndReportAnonymity(userId, message.Anonymous);
+        }
+
+        public async Task SetRoundEndReportAnonymity(NetUserId userId, bool anonymous)
+        {
+            if (!_cachedPlayerPrefs.TryGetValue(userId, out var prefsData) || !prefsData.PrefsLoaded)
+            {
+                _sawmill.Error($"Tried to modify user {userId} preferences before they loaded.");
+                return;
+            }
+
+            var curPrefs = prefsData.Prefs!;
+            prefsData.Prefs = new PlayerPreferences(curPrefs.Characters, curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor, anonymous);
+            _roundEndAnonymity[userId] = anonymous;
+
+            if (_playerManager.TryGetSessionById(userId, out var session) && ShouldStorePrefs(session.Channel.AuthType))
+                await _db.SaveRoundEndReportAnonymityAsync(userId, anonymous);
+        }
+
+        public bool IsRoundEndReportAnonymous(NetUserId userId)
+        {
+            return _roundEndAnonymity.TryGetValue(userId, out var anonymous) && anonymous;
         }
 
         private async void HandleDeleteCharacterMessage(MsgDeleteCharacter message)
@@ -175,7 +215,7 @@ namespace Content.Server.Preferences.Managers
             var arr = new Dictionary<int, ICharacterProfile>(curPrefs.Characters);
             arr.Remove(slot);
 
-            prefsData.Prefs = new PlayerPreferences(arr, nextSlot ?? curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor);
+            prefsData.Prefs = new PlayerPreferences(arr, nextSlot ?? curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor, curPrefs.AnonymousRoundEndReport);
 
             if (!ShouldStorePrefs(message.MsgChannel.AuthType))
             {
@@ -206,6 +246,8 @@ namespace Content.Server.Preferences.Managers
                         0, Color.Transparent)
                 };
 
+                _roundEndAnonymity[session.UserId] = false;
+
                 _cachedPlayerPrefs[session.UserId] = prefsData;
             }
             else
@@ -234,6 +276,8 @@ namespace Content.Server.Preferences.Managers
             prefsData.Prefs = SanitizePreferences(session, prefsData.Prefs, _dependencies);
 
             prefsData.PrefsLoaded = true;
+
+            _roundEndAnonymity[session.UserId] = prefsData.Prefs.AnonymousRoundEndReport;
 
             var msg = new MsgPreferencesAndSettings();
             msg.Preferences = prefsData.Prefs;
@@ -330,7 +374,7 @@ namespace Content.Server.Preferences.Managers
             // Clean up preferences in case of changes to the game,
             // such as removed jobs still being selected.
             return new PlayerPreferences(prefs.Characters.Select(p => new KeyValuePair<int, ICharacterProfile>(p.Key,
-                    p.Value.Validated(session, collection))), prefs.SelectedCharacterIndex, prefs.AdminOOCColor);
+                    p.Value.Validated(session, collection))), prefs.SelectedCharacterIndex, prefs.AdminOOCColor, prefs.AnonymousRoundEndReport);
         }
 
         public IEnumerable<KeyValuePair<NetUserId, ICharacterProfile>> GetSelectedProfilesForPlayers(

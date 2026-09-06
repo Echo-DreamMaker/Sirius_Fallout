@@ -543253,7 +543253,7 @@ entities:
       - null
       - null
       - null
-- proto: N14WeaponRevolver44Magnun
+- proto: N14WeaponRevolver44Magnum
   entities:
   - uid: 85779
     components:

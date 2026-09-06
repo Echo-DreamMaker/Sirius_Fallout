@@ -237,10 +237,12 @@ public sealed class WillowerTreeCommunicationsTest
                 entities.SpawnEntity("MisfitsTribalSignalFire", map.GridCoords));
             Assert.Multiple(() =>
             {
-                Assert.That(signals.CanUse(superMutant, defaultSignal), Is.False);
-                Assert.That(signals.CanUse(protectron, defaultSignal), Is.False);
+                // #Misfits Fix - dual-citizenship tribe jobs (SuperMutantTribal, SyntheticProtectronTribal)
+                // now count as full tribe members for signal fires.
+                Assert.That(signals.CanUse(superMutant, defaultSignal), Is.True);
+                Assert.That(signals.CanUse(protectron, defaultSignal), Is.True);
                 Assert.That(signals.GetRecipients(defaultSignal),
-                    Is.EquivalentTo(new[] { shaman, elder, tribal }));
+                    Is.EquivalentTo(new[] { shaman, elder, tribal, superMutant, protectron }));
             });
 
             entities.EventBus.RaiseLocalEvent(tree, new SmokeSignalSendMessage("   ") { Actor = shaman });

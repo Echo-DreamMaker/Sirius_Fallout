@@ -35,6 +35,9 @@ public sealed partial class VaultDoorConsoleWindow : DefaultWindow
 
     public void UpdateState(VaultDoorConsoleBoundUserInterfaceState state)
     {
+        // #Misfits Add - The XAML title is only the placeholder shown before the first state lands.
+        Title = state.Title;
+
         var interactable = !state.Solved && !state.LockedOut;
 
         if (state.Solved)

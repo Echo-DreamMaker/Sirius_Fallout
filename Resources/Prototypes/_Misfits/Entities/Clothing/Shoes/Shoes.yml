@@ -14,7 +14,7 @@
     sprintModifier: 0.4
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingShoesMilitaryBase
   id: MisfitsMilitaryCowboyBoots
   name: military cowboy boots
   description: A pair of cowhide boots with spurs, traced over with tan paint. They have a Cuban heel, rounded to pointed toe, high shaft, and, traditionally, no lacing.
@@ -29,7 +29,7 @@
       collection: FootstepSpurs
 
 - type: entity
-  parent: ClothingShoesBase
+  parent: ClothingShoesMilitaryBase
   id: MisfitsMilitarySteelTippedBoots
   name: steel-tipped boots
   description: A pair of leather boots reinforced with metal toe caps.

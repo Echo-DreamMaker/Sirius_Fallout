@@ -51,7 +51,7 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
     [Dependency] private readonly HTNSystem _htn = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
     [Dependency] private readonly StationAiSystem _stationAi = default!;
@@ -681,7 +681,7 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
     private EntityCoordinates OffsetTargetInMap(EntityCoordinates target, Vector2 offset)
     {
         var mapTarget = target.ToMap(EntityManager, _transform);
-        return EntityCoordinates.FromMap(_mapManager, new MapCoordinates(mapTarget.Position + offset, mapTarget.MapId));
+        return EntityCoordinates.FromMap(_mapManager.GetMap(mapTarget.MapId), new MapCoordinates(mapTarget.Position + offset, mapTarget.MapId), _transform, EntityManager);
     }
 
     private bool ValidateAi(EntityUid uid)

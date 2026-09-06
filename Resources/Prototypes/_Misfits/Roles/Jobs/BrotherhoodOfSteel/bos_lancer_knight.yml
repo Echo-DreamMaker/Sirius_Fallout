@@ -1,0 +1,62 @@
+# #Misfits Add / #Cythisiax Renamed (player-facing) - Knight-Lancer: vertibird crew chief,
+# door gunner, and deck crew. Mans the turret from the co-pilot seat, keeps the gun fed, and
+# welds the airframe. The aviation branch's entry rung - absorbed the old Lancer rank's slot.
+# Prototype IDs kept stable so Lancers playtime is preserved.
+
+- type: job
+  id: BoSLancerKnight
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false
+  jobWhitelistBypassesRoleTimers: true
+  weight: 45
+  overrideConsoleVisibility: true
+  canBeAntag: false
+  name: job-name-bos-lancer-knight
+  overwatchCategory: OverwatchBosSupport
+  description: job-description-bos-lancer-knight
+  playTimeTracker: BoSLancerKnight
+  requirements:
+    - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
+      species:
+      - Human
+    # #Cythisiax Changed - entry rung gates on chapter service rather than Lancers time,
+    # otherwise nobody could ever accumulate the hours Knight-Captain requires. (was 10h Lancers)
+    - !type:CharacterDepartmentTimeRequirement # T3 faction timelock (8h BoS)
+      department: BrotherhoodOfSteel
+      min: 28800 # 8 hours
+  startingGear: BoSLancerKnightGear
+  alwaysUseSpawner: true
+  icon: "JobIconBosMKnight"
+  supervisors: job-supervisors-bos-lancer-knight
+  accessGroups:
+  - BOSKnight
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - BrotherhoodOfSteel
+
+- type: startingGear
+  id: BoSLancerKnightGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpskirtBOSBlack
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsLeatherFilled
+    head: N14ClothingHeadHatBrotherhoodBeret
+    outerClothing: N14ClothingOuterJacketBomber
+    hands: N14ClothingHandsGlovesCombat
+    eyes: N14ClothingEyesGlassesPilot
+    pocket1: BoSBrotherhoodKnightKits
+    id: N14LancerKnight_PipBoy
+    ears: N14ClothingHeadsetBrotherhoodOfSteel
+    belt: ClothingBeltBoSWebbing
+  storage:
+    back:
+    - N14ClothingHeadHatBrotherhoodHelmetMK2
+    - N14BoxPlasticFilledMilitary
+    # #Cythisiax Added - absorbed the Lancer deck-crew role; airframe repair needs a welding tool.
+    - Welder
+
+- type: playTimeTracker
+  id: BoSLancerKnight

@@ -65,7 +65,7 @@ public class PvsBenchmark
             var success = _entMan.System<MapLoaderSystem>().TryLoadMapWithId(_mapId, new Robust.Shared.Utility.ResPath(Map), out _, out _);
             if (!success)
                 throw new Exception("Map load failed");
-            _pair.Server.MapMan.DoMapInitialize(_mapId);
+            _pair.Server.System<SharedMapSystem>().InitializeMap(_mapId);
         }).Wait();
 
         // Get list of ghost warp positions

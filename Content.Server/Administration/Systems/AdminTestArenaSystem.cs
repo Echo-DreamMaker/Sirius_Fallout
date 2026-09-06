@@ -1,4 +1,9 @@
+﻿using System.Linq;
+using Robust.Server.GameObjects;
+using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -10,9 +15,9 @@ namespace Content.Server.Administration.Systems;
 /// </summary>
 public sealed class AdminTestArenaSystem : EntitySystem
 {
-    [Dependency] private readonly MapLoaderSystem _loader = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
+    [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
-    [Dependency] private readonly SharedMapSystem _maps = default!;
 
     public const string ArenaMapPath = "/Maps/Test/admin_test_arena.yml";
 
@@ -27,27 +32,35 @@ public sealed class AdminTestArenaSystem : EntitySystem
             {
                 return (arenaMap, arenaGrid);
             }
-
-
-            ArenaGrid[admin.UserId] = null;
-            return (arenaMap, null);
+            else
+            {
+                ArenaGrid[admin.UserId] = null;
+                return (arenaMap, null);
+            }
         }
 
-        var path = new ResPath(ArenaMapPath);
-        var mapUid = _maps.CreateMap(out var mapId);
-
-        if (!_loader.TryLoadGrid(mapId, path, out var grid))
+        if (!_map.TryLoadMap(new ResPath(ArenaMapPath), out var loadedMap, out var grids) || grids == null || grids.Count == 0)
         {
-            QueueDel(mapUid);
-            throw new Exception($"Failed to load admin arena");
+            // Fallback: create empty map
+            ArenaMap[admin.UserId] = _mapManager.CreateMap();
+            _metaDataSystem.SetEntityName(ArenaMap[admin.UserId], $"ATAM-{admin.Name}");
+            ArenaGrid[admin.UserId] = null;
+            return (ArenaMap[admin.UserId], ArenaGrid[admin.UserId]);
         }
 
-        ArenaMap[admin.UserId] = mapUid;
-        _metaDataSystem.SetEntityName(mapUid, $"ATAM-{admin.Name}");
+        ArenaMap[admin.UserId] = loadedMap!.Value.Owner;
+        _metaDataSystem.SetEntityName(ArenaMap[admin.UserId], $"ATAM-{admin.Name}");
+        if (grids.Count != 0)
+        {
+            var firstGrid = grids.First().Owner;
+            _metaDataSystem.SetEntityName(firstGrid, $"ATAG-{admin.Name}");
+            ArenaGrid[admin.UserId] = firstGrid;
+        }
+        else
+        {
+            ArenaGrid[admin.UserId] = null;
+        }
 
-        ArenaGrid[admin.UserId] = grid.Value.Owner;
-        _metaDataSystem.SetEntityName(grid.Value.Owner, $"ATAG-{admin.Name}");
-
-        return (mapUid, grid.Value.Owner);
+        return (ArenaMap[admin.UserId], ArenaGrid[admin.UserId]);
     }
 }

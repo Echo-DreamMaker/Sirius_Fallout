@@ -1,0 +1,34 @@
+# #Misfits Add - NCR Ranger power armor (sprite by PatoGrone).
+# Fallout's Ranger/NCR power armor is an NCR refit of T-60 hardware. This suit
+# deliberately lands between the current T-45 and T-60 game tiers: it inherits
+# their complete PA contract but uses midpoint integrity and armor coefficients.
+# It is intentionally not placed in any recipe, vendor, map, or standard Ranger
+# loadout; only the admin-only Chief Ranger starts with a suit.
+- type: entity
+  parent: N14ClothingOuterPowerArmorT60
+  id: MisfitsClothingOuterPowerArmorRanger
+  name: NCR Ranger power armor
+  description: A rare NCR refit of salvaged T-60 power armor. Ranger combat armor styling, reinforced plates, and sealed machinery make it suitable for fighting the Mojave's most dangerous predators.
+  components:
+  - type: PowerArmorIntegrity
+    brokenBleedthroughRatio: 1.0
+    maxIntegrity: 525
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/ranger_pa.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/ranger_pa.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.675
+        Slash: 0.675
+        Piercing: 0.675
+        Heat: 0.675
+        Caustic: 0.675
+        Radiation: 0.6
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: MisfitsClothingHeadHelmetPowerArmorRanger
+      gloves: N14ClothingPAGauntlets
+      shoes: N14ClothingPABoots
+      back: N14ClothingPowerSystemsBack

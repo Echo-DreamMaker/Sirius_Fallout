@@ -32,7 +32,7 @@ public sealed class SharedVaultDoorConsoleSystem : EntitySystem
 
         if (!ent.Comp.BypassRaidRequirement && !ent.Comp.RaidActive)
         {
-            _popup.PopupClient("SECURITY LOCKOUT: no active operation against this vault is on record.", ent, args.User);
+            _popup.PopupClient(ent.Comp.LockoutMessage, ent, args.User);
             args.Cancel();
         }
     }

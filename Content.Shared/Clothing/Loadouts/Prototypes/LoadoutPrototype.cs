@@ -1,4 +1,5 @@
 using Content.Shared._NC.Sponsor; // Forge-Change
+using Content.Shared._Misfits.Supporter; // #Cythisiax Add - Patreon supporter loadouts
 using Content.Shared.Customization.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
@@ -53,6 +54,11 @@ public sealed partial class LoadoutPrototype : IPrototype
 
     [DataField("sponsorLevel")]
     public SponsorLevel Level = SponsorLevel.None; // Forge-Change
+
+    // #Cythisiax Added - Patreon supporter tier required to use this loadout. None = any player.
+    // Mirrors sponsorLevel, but gated by the Misfits Patreon supporter system instead of Forge sponsors.
+    [DataField("supporterTier")]
+    public SupporterTier SupporterTier = SupporterTier.None;
 }
 
 /// This serves as a hook for loadout functions to modify one or more entities upon spawning in.

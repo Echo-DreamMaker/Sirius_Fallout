@@ -1,0 +1,276 @@
+# #Misfits Add - NCR Office of Science and Industry (OSI) role ladder.
+# OSI is the Republic's civilian science branch. Four billets, each able to pick
+# one of three branch loadout kits (Mechanical / Medical / Field) on spawn.
+# The OSI Agent is whitelist-only (hidden from the job picker without an admin whitelist).
+
+# OSI Chief Scientist — head of the detachment's science program.
+- type: job
+  id: OSIChiefScientist
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 106
+  showBorder: true
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-osi-chief-scientist
+  overwatchCategory: OverwatchNcrOfficers
+  description: job-description-osi-chief-scientist
+  playTimeTracker: OSIChiefScientist
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h NCR)
+      department: NCR
+      min: 72000 # 20 hours
+    - !type:CharacterPlaytimeRequirement
+      tracker: OSIScientist
+      min: 28800 # 8 hours as OSI Scientist
+  startingGear: OSIChiefScientistGear
+  icon: "JobIconScientist"
+  supervisors: job-supervisors-osi-chief-scientist
+  requireAdminNotify: true
+  alwaysUseSpawner: true
+  access:
+  - NCR
+  - NCRMedic
+  - NCRLT
+  - OSI
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - NCR
+      - type: CPRTraining
+  - !type:AddTraitSpecial
+    traits: [ TraitSwiftLearner, TraitScrounger, TraitEducated, MisfitsPetEyebotOSI ]
+
+- type: startingGear
+  id: OSIChiefScientistGear
+  equipment:
+    head: N14ClothingHeadHatNCRBeretMedic
+    jumpsuit: N14ClothingUniformJumpsuitRDFormal
+    outerClothing: N14ClothingOuterCoatFollowersArmored
+    back: N14ClothingBackpackNCR
+    shoes: ClothingShoesColorBlack
+    eyes: N14ClothingEyesGlassesWelding
+    belt: ClothingBeltUtility
+    ears: MisfitsClothingHeadsetOSI
+    mask: ClothingMaskSterile
+    gloves: N14ClothingHandsGlovesNitrile
+    pocket1: RadioHandheld
+    pocket2: OSIloadoutkits
+    id: N14IDNCRDogtagOSIChiefScientist
+  innerClothingSkirt: N14ClothingUniformJumpskirtRDFormal
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
+
+- type: playTimeTracker
+  id: OSIChiefScientist
+
+# OSI Scientist — mid-tier science specialist.
+- type: job
+  id: OSIScientist
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 102
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-osi-scientist
+  overwatchCategory: OverwatchNcrSupport
+  description: job-description-osi-scientist
+  playTimeTracker: OSIScientist
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T4 faction timelock (12h NCR)
+      department: NCR
+      min: 43200 # 12 hours
+  startingGear: OSIScientistGear
+  icon: "JobIconScientist"
+  supervisors: job-supervisors-osi-scientist
+  alwaysUseSpawner: true
+  access:
+  - NCR
+  - NCRMedic
+  - OSI
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - NCR
+      - type: CPRTraining
+  - !type:AddTraitSpecial
+    traits: [ TraitSwiftLearner, TraitScrounger, TraitEducated, MisfitsPetEyebotOSI ]
+
+- type: startingGear
+  id: OSIScientistGear
+  equipment:
+    head: N14ClothingHeadHatNCRBeretMedic
+    jumpsuit: N14ClothingUniformJumpsuitRDFormal
+    outerClothing: N14ClothingOuterCoatLab
+    back: N14ClothingBackpackNCR
+    shoes: ClothingShoesColorBlack
+    eyes: N14ClothingEyesGlassesWelding
+    belt: ClothingBeltMedical
+    ears: MisfitsClothingHeadsetOSI
+    mask: ClothingMaskSterile
+    gloves: N14ClothingHandsGlovesNitrile
+    pocket2: OSIloadoutkits
+    id: N14IDNCRDogtagOSIScientist
+  innerClothingSkirt: N14ClothingUniformJumpskirtRDFormal
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
+
+- type: playTimeTracker
+  id: OSIScientist
+
+# OSI Assistant — entry-level science aide.
+- type: job
+  id: OSIAssistant
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 100
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-osi-assistant
+  overwatchCategory: OverwatchNcrSupport
+  description: job-description-osi-assistant
+  playTimeTracker: OSIAssistant
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T2 faction timelock (4h NCR)
+      department: NCR
+      min: 14400 # 4 hours
+  startingGear: OSIAssistantGear
+  icon: "JobIconScientist"
+  supervisors: job-supervisors-osi-assistant
+  alwaysUseSpawner: true
+  access:
+  - NCR
+  - NCRMedic
+  - OSI
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - NCR
+      - type: CPRTraining
+  - !type:AddTraitSpecial
+    traits: [ TraitSwiftLearner, TraitScrounger, TraitEducated, MisfitsPetEyebotOSI ]
+
+- type: startingGear
+  id: OSIAssistantGear
+  equipment:
+    head: N14ClothingHeadHatNCRBeretMedic
+    jumpsuit: N14ClothingUniformJumpsuitRDFormal
+    outerClothing: N14ClothingOuterCoatLab
+    back: N14ClothingBackpackNCR
+    shoes: ClothingShoesColorBlack
+    eyes: N14ClothingEyesGlassesWelding
+    belt: ClothingBeltMedical
+    ears: MisfitsClothingHeadsetOSI
+    mask: ClothingMaskSterile
+    gloves: N14ClothingHandsGlovesNitrile
+    pocket2: OSIloadoutkits
+    id: N14IDNCRDogtagOSIAssistant
+  innerClothingSkirt: N14ClothingUniformJumpskirtRDFormal
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
+
+- type: playTimeTracker
+  id: OSIAssistant
+
+# OSI Agent — whitelist-only field operative attached to the science office.
+- type: job
+  id: OSIAgent
+  setPreference: true
+  hideWithoutJobWhitelist: true # #Misfits Add - OSI Agent is whitelist-only
+  hideIfPlaytimeRequirementsNotMet: false
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 104
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-osi-agent
+  overwatchCategory: OverwatchNcrSupport
+  description: job-description-osi-agent
+  playTimeTracker: OSIAgent
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+  startingGear: OSIAgentGear
+  icon: "JobIconNcrSpec"
+  supervisors: job-supervisors-osi-agent
+  requireAdminNotify: true
+  alwaysUseSpawner: true
+  access:
+  - NCR
+  - NCRMedic
+  - OSI
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - NCR
+  - !type:AddTraitSpecial
+    traits: [ TraitSwiftLearner, TraitScrounger, TraitEducated ]
+
+- type: startingGear
+  id: OSIAgentGear
+  equipment:
+    jumpsuit: N14ClothingUniformNCRDesert
+    outerClothing: N14ClothingOuterNCRPouchedVestDesert
+    back: N14ClothingBackpackNCR
+    shoes: N14ClothingBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglasses
+    belt: ClothingBeltNCR
+    ears: MisfitsClothingHeadsetOSI
+    pocket1: RadioHandheld
+    pocket2: OSIloadoutkits
+    id: N14IDNCRDogtagOSIAgent
+  innerClothingSkirt: N14ClothingUniformNCRDesert
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
+
+- type: playTimeTracker
+  id: OSIAgent
+
+# Ghost-role tracker for OSI Eyebot companions; not selectable in character setup.
+- type: job
+  id: OSIEyebot
+  setPreference: false
+  canBeAntag: false
+  name: job-name-osi-eyebot
+  overwatchCategory: OverwatchNcrSupport
+  description: job-description-osi-eyebot
+  playTimeTracker: OSIEyebot
+
+- type: playTimeTracker
+  id: OSIEyebot

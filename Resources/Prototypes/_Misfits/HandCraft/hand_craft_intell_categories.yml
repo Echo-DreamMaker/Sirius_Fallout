@@ -2,7 +2,7 @@
 - type: handCraftIntellRecipe
   id: BowImprovised
   minInt: 6
-  result: BowImprovised
+  result: N14TribalBow
   completeTime: 12
   materials:
     Wood: 500
@@ -997,6 +997,15 @@
   completeTime: 2
   materials:
     Plastic: 50
+
+- type: handCraftIntellRecipe
+  id: N14ClothingBeltRope
+  minInt: 3
+  result: ClothingBeltRope
+  completeTime: 2
+  materials:
+    Thread: 500
+    Cloth: 500
 
 # Medicine
 

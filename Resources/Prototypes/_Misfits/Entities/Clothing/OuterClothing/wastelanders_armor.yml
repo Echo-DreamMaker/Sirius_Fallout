@@ -1,5 +1,5 @@
 - type: entity
-  parent: N14ClothingOuterBase
+  parent: N14FalloutArmorBase
   id: M14ClothingOuterHighwayPatrolJacket
   name: highway patrol jacket
   description: An old police motorcycle jacket with internal padding and a gold badge with the logo of the Utah State Troopers
@@ -10,22 +10,27 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/ahp_suit.rsi
   - type: Armor
     modifiers:
-     coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
-    priceMultiplier: 0.5
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: N14MaterialLeather1
-      amount: 1
-    - id: MaterialCloth1
-      amount: 1
+      coefficients:
+        Blunt: 0.775
+        Slash: 0.775
+        Piercing: 0.775
+        Heat: 0.775
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
 
 - type: entity
-  parent: N14ClothingOuterBase
+  parent: N14FalloutArmorBase
   id: M14ClothingOuterMarlowGangOvercoat
   name: marlow gang overcoat
   description: A heavy raw buckskin overcoat littered with aged bullet holes and frays from regular wear-and-tear.
@@ -36,22 +41,27 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/marlowsuit.rsi
   - type: Armor
     modifiers:
-     coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
-    priceMultiplier: 0.5
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: N14MaterialLeather1
-      amount: 1
-    - id: MaterialCloth1
-      amount: 1
+      coefficients:
+        Blunt: 0.775
+        Slash: 0.775
+        Piercing: 0.775
+        Heat: 0.775
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
 
 - type: entity
-  parent: N14ClothingOuterBase
+  parent: N14FalloutArmorBase
   id: M14ClothingOuterGunfightersOvercoat
   name: gunfighters overcoat
   description: A thick double-breasted red leather overcoat worn through with scattered tears and bullet holes.
@@ -62,22 +72,27 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/ikesuit.rsi
   - type: Armor
     modifiers:
-     coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
-    priceMultiplier: 0.5
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: N14MaterialLeather1
-      amount: 1
-    - id: MaterialCloth1
-      amount: 1
+      coefficients:
+        Blunt: 0.775
+        Slash: 0.775
+        Piercing: 0.775
+        Heat: 0.775
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
 
 - type: entity
-  parent: N14ClothingOuterBase
+  parent: N14FalloutArmorBase
   id: M14ClothingOuterVegabondsVest
   name: vegabonds vest
   description: A padded thick red leather vest, coated in stitched pockets and other mends.
@@ -88,22 +103,27 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/masonsuit.rsi
   - type: Armor
     modifiers:
-     coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
-    priceMultiplier: 0.5
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: N14MaterialLeather1
-      amount: 1
-    - id: MaterialCloth1
-      amount: 1
+      coefficients:
+        Blunt: 0.775
+        Slash: 0.775
+        Piercing: 0.775
+        Heat: 0.775
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
 
 - type: entity
-  parent: N14ClothingOuterBase
+  parent: N14FalloutArmorBase
   id: M14ClothingOuterArmorKit
   name: armor kit
   description: Separate armor parts you can wear over your clothing, giving basic protection against bullets entering some of your organs. Very well ventilated.
@@ -114,14 +134,16 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/armorkit.rsi
   - type: Armor
     modifiers:
-     coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      coefficients:
+        Blunt: 0.775
+        Slash: 0.775
+        Piercing: 0.775
+        Heat: 0.775
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
 
 - type: entity
-  parent: N14ClothingOuterBase
+  parent: N14FalloutArmorBase
   id: M14ClothingOuterArmorKitPunk
   name: punk armor kit
   description: A couple of armor parts that can be worn over the clothing for moderate protection against the dangers of wasteland. Do you feel lucky now? Well, do ya, punk?
@@ -132,14 +154,16 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/armorkitpunk.rsi
   - type: Armor
     modifiers:
-     coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      coefficients:
+        Blunt: 0.775
+        Slash: 0.775
+        Piercing: 0.775
+        Heat: 0.775
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
 
 - type: entity
-  parent: N14ClothingOuterBase
+  parent: N14FalloutArmorBase
   id: M14ClothingOuterArmorKitShoulder
   name: shoulder armor kit
   description: A single big metal shoulderplate for the right side, keeping it turned towards the enemy is advisable.
@@ -150,27 +174,220 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/armorkitshoulder.rsi
   - type: Armor
     modifiers:
-     coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      coefficients:
+        Blunt: 0.775
+        Slash: 0.775
+        Piercing: 0.775
+        Heat: 0.775
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
 
-#If return to Khan bring to Khans_armor.yml and adjust armor values to bring in line to armored jacket
+#East Coast /Organization/ Talon Company. Make up the lore as you play them. Why are they west coast? Thats up to you as the player.
 - type: entity
-  parent: N14ClothingOuterBase
-  id: M14ClothingOuterKhanLeather
-  name: great khan leather vest
-  description: A black leather jacket. There is an illustration on the back - an aggressive, red-eyed skull wearing a fur hat with horns. The skull has a mongoloid moustache - it's obviously a Great Khans emblem.
+  parent: N14ClothingOuterCombatArmor
+  id: M14ClothingOuterCombatTalon
+  name: talon company combat armor
+  description: A set of weathered combat armour spray-painted black, with the Talon Company symbol grafted onto the chest. This set has been stripped down to just the chespiece and kneepads, with the right pauldron removed for ease with shouldering rifles.
   components:
   - type: Sprite
-    sprite: _Misfits/Clothing/OuterClothing/Armor/khansaltarmoredjacket.rsi
+    sprite: _Misfits/Clothing/OuterClothing/Armor/talonarmor.rsi
   - type: Clothing
-    sprite: _Misfits/Clothing/OuterClothing/Armor/khansaltarmoredjacket.rsi
+    sprite: _Misfits/Clothing/OuterClothing/Armor/talonarmor.rsi
+
+- type: entity
+  parent: N14ClothingOuterCombatArmor
+  id: M14ClothingOuterCombatTalonDuster
+  name: talon company combat duster armor
+  description: A set of weathered combat armour spray-painted black, with the Talon Company symbol grafted onto the chest. This set has been stripped down to just the chespiece and kneepads, the left pauldron stitched into a dark grey duster.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/talonduster.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/talonduster.rsi
+
+#Marked Men, The men who survived the Divide. How they ended up to the region that they are is up to the player. Armor exclusive to Ghouls + Glowing Ghouls. As Marked Men are technically a unique ghoul species for NV. But sadly not on Misfits.
+
+- type: entity
+  parent: N14ClothingOuterCombatArmor
+  id: M14ClothingOuterMarkedMenCombatTribalArmor
+  name: marked men tribal armor
+  description: A set of oddly ornate ruined armour put together with scrap metal, license plates and pure anger. While ugly in look, it seems to have a nice amount of protection in it's plates, bearing a striking resemblance to the armour most commonly worn by a Legatus - although lacking it's golden beauty and flowing red cape.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/markedmentribal.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/markedmentribal.rsi
+
+- type: entity
+  parent: N14ClothingOuterCombatArmor
+  id: M14ClothingOuterMarkedMenCombatPatrolArmor
+  name: marked men patrol armor
+  description: A set of weathered Ranger Patrol gear that's definitely seen better days. Bits and pieces of it have been modified and replaced with license plates and scrap metal, as opposed to it's usual kevlar padding. The entire kit being caked with dust, bullet holes and stab marks, most definitely a reminder of the past rather than functioning armour.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/markedmenpatrol.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/markedmenpatrol.rsi
+
+
+#All of the armors below are equivalent to White Legs armor. These armors are for Tribals / Wastelanders. All tribes in this category gets two armors outside of the Sorrows.
+- type: entity
+  parent: N14FalloutArmorBase
+  id: M14ClothingOuterDeadHorsesArmor
+  name: dead horses armor
+  description: A simple leather bandolier and gecko hide chest covering, with an engraved metal pauldron and a pair of black leather straps. Commonly worn by the members of the Dead Horses tribe.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/deadhorsesarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/deadhorsesarmor.rsi
   - type: Armor
     modifiers:
-     coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+      coefficients:
+        Blunt: 0.88
+        Slash: 0.80
+        Piercing: 0.82
+        Heat: 0.78
+  - type: ExplosionResistance
+    damageCoefficient: 0.92
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: M14ClothingOuterDeadHorsesLightArmor
+  name: dead horses light armor
+  description: A simple leather bandolier and gecko hide chest covering. Worn by the members of the Dead Horses tribe.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/deadhorseslightarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/deadhorseslightarmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.88
+        Slash: 0.80
+        Piercing: 0.82
+        Heat: 0.78
+  - type: ExplosionResistance
+    damageCoefficient: 0.92
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: M14ClothingOuterSorrowsArmor
+  name: sorrows armor
+  description: A worn ballistic vest from Salt Lake, adorned with feathers and turqoise beads, with an ornamental pattern painted over the sides. Commonly worn by the members of the peaceful Sorrows tribe.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/sorrowsarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/sorrowsarmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.88
+        Slash: 0.80
+        Piercing: 0.82
+        Heat: 0.78
+  - type: ExplosionResistance
+    damageCoefficient: 0.92
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: M14ClothingOuterRustwalkersArmor
+  name: rustwalkers armor
+  description: A chestplate, pauldron and vambrace that bear a distinct resemblance to a coolant tank, engine valves and an exhaust. Commonly worn by members of the Rustwalkers tribe
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/rustwalkerarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/rustwalkerarmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.88
+        Slash: 0.80
+        Piercing: 0.82
+        Heat: 0.78
+  - type: ExplosionResistance
+    damageCoefficient: 0.92
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: M14ClothingOuterRustwalkersLightArmor
+  name: rustwalkers light armor
+  description: A duster made from some combination of leather and cloth, probably torn out of an old car. The shoulders appear to have had parts of an engine either strapped or stitched onto them. Commonly worn by members of the Rustwalkers tribe.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/rustwalkerlightarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/rustwalkerlightarmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.88
+        Slash: 0.80
+        Piercing: 0.82
+        Heat: 0.78
+  - type: ExplosionResistance
+    damageCoefficient: 0.92
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: M14ClothingOuterWesternWayfarerArmor
+  name: western wayfarer salvaged armor
+  description: A set of scrap and banded metal armor forged by the Wayfarer tribe, due to it's lightweight and unrestrictive nature,  it's used by scouts and agile hunters. A torn cloak hangs around its neck, protecting the user from the harsh desert sands.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/westernwayfarerarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/westernwayfarerarmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.88
+        Slash: 0.80
+        Piercing: 0.82
+        Heat: 0.78
+  - type: ExplosionResistance
+    damageCoefficient: 0.92
+
+#Technically should be considered heavy armor but drip was needed. If it ever becomes a 'heavy' armor then put the stats to this one and Warden Plate to heavy armors.
+- type: entity
+  parent: N14FalloutArmorBase
+  id: M14ClothingOuterWesternWayfarerHeavyArmor
+  name: western wayfarer heavy armor
+  description: A Suit of armor crafted by Tribals using pieces of scrap metals and the armor of fallen foes, a bighorner's skull sits on the right pauldron along with bighorner fur lining the collar of the leather bound chest. Along the leather straps adoring it are multiple bone charms with odd markings on them.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/westernwayfarerheavyarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/westernwayfarerheavyarmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.88
+        Slash: 0.80
+        Piercing: 0.82
+        Heat: 0.78
+  - type: ExplosionResistance
+    damageCoefficient: 0.92
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: M14ClothingOuterWardenPlate
+  name: warden plate
+  description: Thick metal breastplate with a decorative skull on the shoulder.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/wardenplate.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/wardenplate.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.88
+        Slash: 0.80
+        Piercing: 0.82
+        Heat: 0.78
+  - type: ExplosionResistance
+    damageCoefficient: 0.92

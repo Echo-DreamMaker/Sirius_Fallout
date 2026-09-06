@@ -33,6 +33,9 @@ public sealed partial class MobThresholdMutationSystem : EntitySystem
         states.Remove(state);
         Dirty(target, mob);
 
+        ent.Comp.RemovedState = true;
+        Dirty(ent);
+
         if (!TryComp<MobThresholdsComponent>(target, out var thresholds))
             return;
 
@@ -46,30 +49,32 @@ public sealed partial class MobThresholdMutationSystem : EntitySystem
 
         ent.Comp.OldThreshold = threshold;
         Dirty(ent);
+
+        // recheck now, a mob already sitting in the removed state has nothing mapping it anymore
+        _threshold.VerifyThresholds(target, thresholds);
     }
 
     private void OnRemoved(Entity<MobThresholdMutationComponent> ent, ref MutationRemovedEvent args)
     {
-        if (ent.Comp.OldThreshold is not {} threshold)
+        if (!ent.Comp.RemovedState)
             return;
 
+        var target = args.Target;
+        var state = ent.Comp.Removed;
+
+        var old = ent.Comp.OldThreshold;
+        ent.Comp.RemovedState = false;
         ent.Comp.OldThreshold = null;
         Dirty(ent);
 
-        var target = args.Target;
-        if (!TryComp<MobStateComponent>(target, out var mob))
+        if (TryComp<MobStateComponent>(target, out var mob) && mob.AllowedStates.Add(state))
+            Dirty(target, mob);
+
+        // the threshold is restored separately, the mob may not have had one to take
+        if (old is not {} threshold || !TryComp<MobThresholdsComponent>(target, out var thresholds))
             return;
 
-        var states = mob.AllowedStates;
-        var state = ent.Comp.Removed;
-        states.Add(state);
-        Dirty(target, mob);
-
-        if (!TryComp<MobThresholdsComponent>(target, out var thresholds))
-            return;
-
-        var dict = thresholds.Thresholds;
-        dict.Add(threshold, state);
-        Dirty(target, thresholds);
+        // re-verifies state afterwards, the mob may already be past the restored threshold
+        _threshold.SetMobStateThreshold(target, threshold, state, thresholds);
     }
 }

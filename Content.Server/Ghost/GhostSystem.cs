@@ -503,22 +503,34 @@ namespace Content.Server.Ghost
             return ghost;
         }
 
-        // #Misfits Add - apply YAML-driven ghost color presets
+        // #Misfits Edited - apply YAML-driven ghost color presets; when the user has no
+        // matching preset, fall back to a caller-provided default (white for regular ghosts,
+        // red for aghost). Explicitly dirties so the color always propagates to the client.
         public void ApplyMisfitsGhostColor(EntityUid ghost, GhostComponent ghostComp, MindComponent mind)
+            => ApplyMisfitsGhostColor(ghost, ghostComp, mind, Color.White);
+
+        public void ApplyMisfitsGhostColor(EntityUid ghost, GhostComponent ghostComp, MindComponent mind, Color fallbackColor)
         {
             var sessionName = mind.Session?.Name;
-            if (string.IsNullOrWhiteSpace(sessionName))
-                return;
+            var color = fallbackColor;
 
-            foreach (var preset in _proto.EnumeratePrototypes<MisfitsGhostColorPrototype>())
+            if (!string.IsNullOrWhiteSpace(sessionName))
             {
-                if (preset.Users.Any(u => string.Equals(u, sessionName, StringComparison.OrdinalIgnoreCase)))
+                foreach (var preset in _proto.EnumeratePrototypes<MisfitsGhostColorPrototype>())
                 {
-                    ghostComp.color = preset.Color;
-                    Dirty(ghost, ghostComp);
-                    break;
+                    if (preset.Users.Any(u => string.Equals(u, sessionName, StringComparison.OrdinalIgnoreCase)))
+                    {
+                        color = preset.Color;
+                        break;
+                    }
                 }
             }
+
+            if (ghostComp.color == color)
+                return;
+
+            ghostComp.color = color;
+            Dirty(ghost, ghostComp);
         }
     }
 }

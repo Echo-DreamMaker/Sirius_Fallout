@@ -23,3 +23,18 @@ smoke-signal-nearby = Thick smoke rises nearby, carrying the smell of damp leave
 willower-tree-announce-verb = Announce to the Willowers
 willower-tree-announcement = {$sender} speaks through the Tree of Life: {$message}
 willower-tree-announcement-cooldown = The Tree of Life is still gathering its voice... ({$seconds}s remaining)
+
+# #Misfits Add - Tree of Life restorative aura.
+tree-of-life-healing-aura = You feel cushioned the closer to the Tree of Life. It is rejuvenating.
+tree-of-life-intruder-warning = The branches stir. A stranger stands at the roots.
+tree-of-life-rites-verb = Commune with the Tree of Life
+tree-of-life-rites-title = Sacred Rites
+tree-of-life-rites-current = Current rite: {$rite}
+tree-of-life-rites-ready = A Shaman may choose a new rite.
+tree-of-life-rites-cooldown = The Tree must rest for {$seconds}s before another rite may be chosen.
+tree-of-life-rite-none = No rite is active
+tree-of-life-rite-returning = Rite of Returning
+tree-of-life-rite-hearth = Rite of the Hearth
+tree-of-life-rite-returning-desc = Alerts the Tribe when one of its people falls critical.
+tree-of-life-rite-hearth-desc = Strengthens the Tree's healing sanctuary for Tribe members.
+tree-of-life-returning-alert = The Tree calls the Tribe to {$target}, who has fallen.

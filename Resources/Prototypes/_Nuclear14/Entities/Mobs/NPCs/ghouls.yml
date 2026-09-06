@@ -2,7 +2,7 @@
   name: Feral Ghoul
   id: N14MobGhoulFeral
   parent: N14MobBaseHostileFeral
-  description: A mean looking ghoul.
+  description: Humans who have lost all capacity for thought, driven only by instinct with an increased level of aggression and appetite. They cannot be saved.
   components:
   - type: MobThresholds
     thresholds:
@@ -44,7 +44,7 @@
   parent: N14MobBaseHostileFeral
   id: N14MobGhoulFeralReaver
   name: Feral Ghoul Reaver
-  description: A mean looking ghoul clad in the remnants of metal armor.
+  description: Wasteland warriors still clad in the remains of their metal armor, their mind may be gone but the muscle memory from years of combat remains.
   components:
   - type: MeleeWeapon
     hidden: true
@@ -86,7 +86,7 @@
   parent: N14MobBaseHostileFeral
   id: N14MobGhoulFeralRotter
   name: Feral Ghoul Rotter
-  description: A rotten looking ghoul barely holding itself together.
+  description: Even with their lifespan and regeneration, ghouls can fall apart too. This one is rotting alive, if you can call this festering thing alive.
   components:
   - type: MeleeWeapon
     hidden: true
@@ -124,7 +124,7 @@
   parent: N14MobBaseHostileFeral
   id: N14MobGhoulMaypole
   name: Maypole
-  description: A special looking ghoul towering over most everything.
+  description: Towering over everything around it, the massive radiation this mutant gives off attracts a horde of feral ghouls like a radioactive lighthouse.
   components:
   - type: Damageable
     damageContainer: MisfitsNPCBiological  # Misfits Change - no starvation for feral ghouls

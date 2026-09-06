@@ -1,3 +1,4 @@
+using Content.Server.Administration;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Explosion.EntitySystems;
@@ -8,6 +9,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
@@ -16,9 +18,12 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Vehicles;
+using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Vehicles;
 
@@ -28,6 +33,8 @@ public sealed class MotorbikeSystem : EntitySystem
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
+    [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -48,7 +55,35 @@ public sealed class MotorbikeSystem : EntitySystem
         SubscribeLocalEvent<MotorbikeComponent, MotorbikeRefuelDoAfterEvent>(OnRefuelDoAfter);
         SubscribeLocalEvent<MotorbikeComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<MotorbikeComponent, ExaminedEvent>(OnExamined);
+
+        SubscribeLocalEvent<MotorbikeComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
     }
+
+    // Adds a Rename verb to motorbikes, allowing players to give them a custom name.
+    private void OnGetVerbs(Entity<MotorbikeComponent> ent, ref GetVerbsEvent<Verb> args)
+    {
+        if (!TryComp<ActorComponent>(args.User, out var actor))
+            return;
+
+        var player = actor.PlayerSession;
+
+        var rename = new Verb
+        {
+            Text = "Rename",
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/rename.svg.192dpi.png")),
+            Act = () =>
+            {
+                _quickDialog.OpenDialog(player, "Rename", "Name", (string newName) =>
+                {
+                    _metaSystem.SetEntityName(ent.Owner, newName);
+                });
+            },
+            Impact = LogImpact.Low,
+        };
+
+        args.Verbs.Add(rename);
+    }
+
 
     public override void Update(float frameTime)
     {

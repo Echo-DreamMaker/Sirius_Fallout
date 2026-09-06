@@ -10,15 +10,11 @@
         state: full
   - type: RandomSpawner
     prototypes:
-      - N14WallRockMammothSlanted
-      - N14RockGreyMining
       - N14WallRockBasalt
       - N14WallRockSlanted
       - N14WallRockSandMining
       - N14WallRockMining
-      - N14WallRockAndesiteMining
       - N14WallRockBasaltMining
-      - N14WallRockDroughtSlantedMining
     chance: 0.99
     rarePrototypes:
       - Barricade
@@ -42,7 +38,7 @@
       - N14SpawnMobCazador
       - N14SpawnMobBloatfly
       - N14BarricadeWoodTall
-    rareChance: 0.20
+    rareChance: 0.05
 
 - type: entity
   name: Crystal Spawner

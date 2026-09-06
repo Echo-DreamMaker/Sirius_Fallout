@@ -9,6 +9,9 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/Eyes/weldgoggles.rsi
   - type: EyeProtection
+  - type: Tag
+    tags:
+    - WeldingGoggles # #Cythisiax Added - lets utility belts store the welding goggles
 
 - type: entity
   parent: ClothingEyesBase

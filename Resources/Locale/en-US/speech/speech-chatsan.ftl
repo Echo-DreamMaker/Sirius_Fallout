@@ -109,8 +109,8 @@ chatsan-replacement-36 = get the fuck out
 chatsan-word-37 = wdym
 chatsan-replacement-37 = what do you mean
 
-chatsan-word-38 = mf
-chatsan-replacement-38 = motherfucker
+chatsan-word-38 = oml
+chatsan-replacement-38 = oh my lord
 
 chatsan-word-39 = etc
 chatsan-word-40 = etc.
@@ -148,8 +148,8 @@ chatsan-replacement-49 = don't worry.
 chatsan-word-50 = mb
 chatsan-replacement-50 = my bad.
 
-chatsan-word-51 = asap
-chatsan-replacement-51 = as soon as possible.
+chatsan-word-51 = tbqh
+chatsan-replacement-51 = to be quite honest.
 
 chatsan-word-52 = atm
 chatsan-replacement-52 = at the moment.
@@ -174,9 +174,6 @@ chatsan-replacement-58 = sorry.
 
 chatsan-word-59 = cya
 chatsan-replacement-59 = see you.
-
-chatsan-word-60 = u
-chatsan-replacement-60 = you
 
 chatsan-word-117 = bbt
 chatsan-replacement-117 = I'm a moron

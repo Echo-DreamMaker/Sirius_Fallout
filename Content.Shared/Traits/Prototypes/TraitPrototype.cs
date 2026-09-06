@@ -28,6 +28,14 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public int Points = 0;
 
+    // #Cythisiax Added - tier hint for the trait talent-tree graph layout (higher = deeper row).
+    // -1 (default) means the tree graph auto-places the node by prerequisite depth.
+    /// <summary>
+    ///     Vertical row hint for the talent-tree graph. Higher values place the node deeper.
+    /// </summary>
+    [DataField]
+    public int Tier = -1;
+
     /// <summary>
     ///     Hidden traits can be granted by systems or jobs, but are not valid character-creation picks.
     /// </summary>

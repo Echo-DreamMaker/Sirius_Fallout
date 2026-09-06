@@ -41,3 +41,50 @@
     useDelay: 45
     icon: _Misfits/Interface/Actions/warcry.png
     event: !type:PerformWarcryActionEvent
+
+- type: entity
+  id: ActionBwonsamdiDreadRoar
+  name: action-name-bwonsamdi-dread-roar
+  description: action-desc-bwonsamdi-dread-roar
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 55
+    icon: _Misfits/Interface/Actions/warcry.png
+    event: !type:DreadRoarActionEvent
+
+- type: entity
+  id: ActionBwonsamdiSoulCompass
+  name: action-name-bwonsamdi-soul-compass
+  description: action-desc-bwonsamdi-soul-compass
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: _Misfits/Interface/Actions/warcry.png
+    event: !type:OpenUiActionEvent
+      key: enum.WastelandMapUiKey.Key
+
+- type: entity
+  id: ActionBwonsamdiRitualClaim
+  name: action-name-bwonsamdi-ritual-claim
+  description: action-desc-bwonsamdi-ritual-claim
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon: _Misfits/Interface/Actions/warcry.png
+    range: 2
+    checkCanAccess: false
+    event: !type:BwonsamdiRitualClaimActionEvent
+
+- type: entity
+  id: ActionBwonsamdiMercy
+  name: action-name-bwonsamdi-mercy
+  description: action-desc-bwonsamdi-mercy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    useDelay: 720
+    icon: _Misfits/Interface/Actions/warcry.png
+    range: 2
+    checkCanAccess: false
+    event: !type:BwonsamdiMercyActionEvent

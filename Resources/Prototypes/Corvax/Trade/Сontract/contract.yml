@@ -622,7 +622,7 @@
 - type: storeContract
   id: caravan_contract_N14FoodEggChicken
   name: "Eggs, Over Easy"
-  description: "In large industrial cities such as The Hub, things like fresh eggs can be hard to get. Citizens of the New California Republic will pay generously for clean, fresh food from the frontiers."
+  description: "In large industrial cities such as The Hub, things like fresh eggs can be hard to get. Citizens of the NCR will pay generously for clean, fresh food from the frontiers."
   difficulty: Road Kill
   targets:
   - id: N14FoodEggChicken

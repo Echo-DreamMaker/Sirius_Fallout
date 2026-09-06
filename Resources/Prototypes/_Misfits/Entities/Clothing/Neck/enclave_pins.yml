@@ -105,6 +105,18 @@
     layers:
     - state: sergeantmajor
 
+- type: entity
+  parent: ClothingNeckPinEnclaveBase
+  id: ClothingNeckPinEnclaveSergeantMajor
+  name: enclave sergeant major pin
+  components:
+  - type: RankTitle
+    rankTitle: Главный сержант-майор Анклава
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+    layers:
+    - state: sergeantmajor
+
 # Junior Officer ranks
 - type: entity
   parent: ClothingNeckPinEnclaveBase

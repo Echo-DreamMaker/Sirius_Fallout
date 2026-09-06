@@ -19,9 +19,10 @@
             <!-- ═══ HEADER BAR ═══ -->
             <PanelContainer MinHeight="42">
                 <PanelContainer.PanelOverride>
-                    <gfx:StyleBoxFlat BackgroundColor="#141428"
+                    <!-- Match the admin-mode header used by BwoinkControl. -->
+                    <gfx:StyleBoxFlat BackgroundColor="#5a0f0f"
                                       BorderThickness="0 0 0 1"
-                                      BorderColor="#252540" />
+                                      BorderColor="#2a0505" />
                 </PanelContainer.PanelOverride>
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
                               Margin="12 0 12 0" VerticalAlignment="Center"

@@ -58,7 +58,7 @@ public sealed class RaidRequestClientSystem : EntitySystem
         SubscribeNetworkEvent<RaidRequestConcludedAnnouncementMsg>(OnConcludedAnnouncement);
         // #Misfits Add - Overlay participants stream (drives AllyTagOverlay).
         SubscribeNetworkEvent<RaidRequestParticipantsUpdatedMsg>(OnParticipantsUpdated);
-        // #Misfits Add - Peer-approval popup for target faction leader.
+        // #Misfits Add - Peer-approval popup for target faction or group leader.
         SubscribeNetworkEvent<RaidRequestPeerPromptMsg>(OnPeerPrompt);
         SubscribeNetworkEvent<RaidRequestPeerDecisionResultMsg>(OnPeerDecisionResult);
 
@@ -87,7 +87,7 @@ public sealed class RaidRequestClientSystem : EntitySystem
     {
         EnsureWindow();
         _window!.OpenCentered();
-        // Ask the server for fresh panel data — faction resolution lives server-side.
+        // Ask the server for fresh panel data — target resolution lives server-side.
         RaiseNetworkEvent(new RaidRequestOpenPanelMsg());
     }
 
@@ -103,7 +103,8 @@ public sealed class RaidRequestClientSystem : EntitySystem
         {
             RaiseNetworkEvent(new RaidRequestSubmitMsg
             {
-                TargetFaction = target,
+                TargetKind = target.Kind,
+                TargetId   = target.Id,
                 LocationNotes = location,
                 Reason        = reason,
             });
@@ -223,7 +224,11 @@ public sealed class RaidRequestClientSystem : EntitySystem
         var who   = entry.IsIndividual
             ? entry.RequesterCharacterName
             : RaidRequestConfig.FactionDisplayName(entry.RequesterFaction);
-        var target = RaidRequestConfig.FactionDisplayName(entry.TargetFaction);
+        var target = string.IsNullOrWhiteSpace(entry.TargetDisplayName)
+            ? (entry.TargetKind == RaidRequestTargetKind.Faction
+                ? RaidRequestConfig.FactionDisplayName(entry.TargetId)
+                : $"Group {entry.TargetId}")
+            : entry.TargetDisplayName;
 
         // Different framing depending on whether you're the raider side or being raided.
         var header = msg.IsTargetSide

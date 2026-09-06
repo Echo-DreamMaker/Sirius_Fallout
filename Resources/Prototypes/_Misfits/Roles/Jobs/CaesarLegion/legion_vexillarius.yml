@@ -9,12 +9,12 @@
   description: job-description-caesar-legion-vexillarius
   playTimeTracker: CaesarLegionVexillarius
   requirements:
-    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T5 faction timelock (16h Legion)
+    - !type:CharacterDepartmentTimeRequirement # Legion total timelock
       department: CaesarLegion
-      min: 57600 # 16 hours
-    #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
-    #  tracker: CaesarLegionExplorer
-    #  min: 18000 # 5 hours
+      min: 43200 # 12 hours
+    - !type:CharacterPlaytimeRequirement
+      tracker: CaesarLegionLegionnaireVeteran
+      min: 28800 # 8 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human

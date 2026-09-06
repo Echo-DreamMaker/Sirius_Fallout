@@ -581,6 +581,7 @@
       shader: unshaded
       map: ["light"]
       visible: false
+  - type: SyncSprite
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -816,6 +817,7 @@
       shader: unshaded
       map: ["light"]
       visible: false
+  - type: SyncSprite
   # - type: GhostRole
     # prob: 1
     # makeSentient: true

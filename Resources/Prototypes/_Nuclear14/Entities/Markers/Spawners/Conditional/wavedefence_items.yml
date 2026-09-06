@@ -41,34 +41,10 @@
         - state: red
         - sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/magnum.rsi
           state: icon
-    - type: RandomSpawner
-      prototypes:
-        - N14WeaponPistol9mm
-        - N14WeaponPistol10mm
-        - N14WeaponPistol12mm
-        - MagazinePistol
-        - MagazinePistol
-        - MagazinePistol
-        - MagazinePistol
-        - N14WeaponPistol45Colt
-        - N14WeaponRevolver9mm
-        - SpeedLoaderMagnum
-        - SpeedLoaderMagnum
-        - SpeedLoaderMagnum
-        - SpeedLoaderMagnum
-      chance: 0.70
-      offset: 0.0
-      rarePrototypes:
-        - N14WeaponRevolver44Magnun
-        - N14WeaponSMG12mm
-        - MagazineMagnumSubMachineGun
-        - N14WeaponSMG10mm
-        - N14WeaponSMG10mmPipe
-        - MagazinePistolSubMachineGun
-        - MagazinePistolSubMachineGun
-        - N14WeaponLaserPistol
-        - BoxMagazinePistol
-      rareChance: 0.15
+    - type: EntityTableSpawner
+      table: !type:NestedSelector
+        tableId: N14WeaponLootTier1
+        prob: 0.85
       
 - type: entity
   name: Random Weapon Spawner
@@ -81,18 +57,10 @@
         - state: red
         - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/combat_shotgun.rsi
           state: icon
-    - type: RandomSpawner
-      prototypes:
-        - N14WeaponShotgunDoubleBarrel
-        - N14WeaponShotgun
-        - N14WeaponLaserRifle
-      chance: 0.65
-      offset: 0.0
-      rarePrototypes:
-        - N14WeaponShotgunAuto
-        - N14WeaponRifle556R91
-        - N14WeaponSniperHunting
-      rareChance: 0.20
+    - type: EntityTableSpawner
+      table: !type:NestedSelector
+        tableId: N14WeaponLootTier2
+        prob: 0.75
       
 - type: entity
   name: Random Weapon Spawner
@@ -105,14 +73,10 @@
         - state: red
         - sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_pistol.rsi
           state: base
-    - type: RandomSpawner
-      prototypes:
-        - N14WeaponLaserPistol
-      chance: 0.5
-      offset: 0.0
-      rarePrototypes:
-        - N14WeaponLaserRifle
-      rareChance: 0.15
+    - type: EntityTableSpawner
+      table: !type:NestedSelector
+        tableId: N14WeaponLootTier3
+        prob: 0.65
 
 # Drugs & Consumables
 - type: entity

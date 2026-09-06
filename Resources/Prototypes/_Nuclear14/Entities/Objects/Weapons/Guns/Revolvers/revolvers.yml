@@ -116,7 +116,7 @@
 - type: entity
   name: magnum revolver
   parent: N14WeaponRevolverBase
-  id: N14WeaponRevolver44Magnun
+  id: N14WeaponRevolver44Magnum
   description: The Big Iron. Uses .44 magnum ammo.
   components:
   - type: Sprite

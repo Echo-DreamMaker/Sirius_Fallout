@@ -17,6 +17,10 @@
 
             <Label Text="Name color:" VerticalAlignment="Center" />
             <LineEdit Name="ColorEdit" PlaceHolder="Hex color e.g. #FFD700  (leave blank to clear)" HorizontalExpand="True" />
+
+            <!-- #Cythisiax Added - Patreon tier selector for supporter-exclusive loadouts -->
+            <Label Text="Patreon tier:" VerticalAlignment="Center" />
+            <OptionButton Name="TierEdit" HorizontalExpand="True" />
         </GridContainer>
 
         <BoxContainer Orientation="Horizontal" SeparationOverride="6">

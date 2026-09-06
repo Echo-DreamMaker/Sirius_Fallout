@@ -16,6 +16,7 @@ using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Threading;
 using Robust.Shared.Timing;
@@ -30,7 +31,7 @@ namespace Content.Server.Atmos.EntitySystems
     {
         [Robust.Shared.IoC.Dependency] private readonly IGameTiming _gameTiming = default!;
         [Robust.Shared.IoC.Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Robust.Shared.IoC.Dependency] private readonly IMapManager _mapManager = default!;
+        [Robust.Shared.IoC.Dependency] private readonly SharedMapSystem _mapManager = default!;
         [Robust.Shared.IoC.Dependency] private readonly IConfigurationManager _confMan = default!;
         [Robust.Shared.IoC.Dependency] private readonly IParallelManager _parMan = default!;
         [Robust.Shared.IoC.Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
@@ -365,7 +366,7 @@ namespace Content.Server.Atmos.EntitySystems
             public int BatchSize => 2;
 
             public IEntityManager EntManager;
-            public IMapManager MapManager;
+            public SharedMapSystem MapManager;
             public ChunkingSystem ChunkingSys;
             public GasTileOverlaySystem System;
             public ObjectPool<HashSet<Vector2i>> ChunkIndexPool;
@@ -391,7 +392,7 @@ namespace Content.Server.Atmos.EntitySystems
                         previouslySent.Remove(netGrid);
 
                         // If grid was deleted then don't worry about sending it to the client.
-                        if (!EntManager.TryGetEntity(netGrid, out var gridId) || !MapManager.IsGrid(gridId.Value))
+                        if (!EntManager.TryGetEntity(netGrid, out var gridId) || !EntManager.HasComponent<MapGridComponent>(gridId.Value))
                             ev.RemovedChunks[netGrid] = oldIndices;
                         else
                         {

@@ -7,15 +7,22 @@
   - type: Physics
   - type: Fixtures
     fixtures:
+      itemcollide:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.2,0.3,0.5"
+        layer:
+        - HighImpassable
+        hard: false
       fix1:
         shape:
           !type:PhysShapeAabb
             bounds: "-0.3,-0.2,0.3,0.5"
         density: 190
         mask:
-        - MachineMask
+        - HalfWallLayer
         layer:
-        - MachineLayer
+        - HalfWallLayer
   - type: Sprite
     netsync: false
     sprite: _Nuclear14/Structures/Decoration/crafting_junk.rsi

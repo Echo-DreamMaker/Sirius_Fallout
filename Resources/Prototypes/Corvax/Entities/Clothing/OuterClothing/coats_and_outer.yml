@@ -20,8 +20,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: N14ClothingOuterRadSuitEnclave
-  name: Enclave Science Suit
-  description: A state-of-the-art hazardous enviornment and radiation suit utilized by Enclave Science personnel.
+  name: U.S. Army Science Suit
+  description: A state-of-the-art hazardous enviornment and radiation suit utilized by U.S. Army Science personnel. The sealed lining also contains the wearer's own radioactive emissions, letting glowing ghouls work safely around non-ghouls.
   components:
   - type: Sprite
     sprite: Corvax/Clothing/OuterClothing/Coats_and_outer/enclaverad.rsi
@@ -32,6 +32,9 @@
       coefficients:
         Heat: 0.90
         Radiation: 0.001
+  # #Misfits Add - Suppress the wearer's own RadiationSource (e.g. glowing ghouls)
+  # so they don't irradiate people nearby while wearing the suit.
+  - type: RadiationSourceSuppression
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1

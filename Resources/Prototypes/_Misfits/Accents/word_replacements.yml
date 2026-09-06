@@ -341,3 +341,40 @@
     accent-n14-german-words-23: accent-n14-german-words-replace-23
     accent-n14-german-words-24: accent-n14-german-words-replace-24
     accent-n14-german-words-25: accent-n14-german-words-replace-25
+
+- type: accent
+  id: n14Enclave
+  wordReplacements:
+    accent-n14-enclave-words-1: accent-n14-enclave-words-replace-1
+    accent-n14-enclave-words-2: accent-n14-enclave-words-replace-2
+    accent-n14-enclave-words-3: accent-n14-enclave-words-replace-3
+
+# Shared spoken accent for sentient Deathclaws, including Bwonsamdi.
+- type: accent
+  id: misfitsDeathclaw
+  wordReplacements:
+    accent-misfits-deathclaw-words-1: accent-misfits-deathclaw-words-replace-1
+    accent-misfits-deathclaw-words-2: accent-misfits-deathclaw-words-replace-2
+    accent-misfits-deathclaw-words-3: accent-misfits-deathclaw-words-replace-3
+    accent-misfits-deathclaw-words-4: accent-misfits-deathclaw-words-replace-4
+    accent-misfits-deathclaw-words-5: accent-misfits-deathclaw-words-replace-5
+    accent-misfits-deathclaw-words-6: accent-misfits-deathclaw-words-replace-6
+    accent-misfits-deathclaw-words-7: accent-misfits-deathclaw-words-replace-7
+    accent-misfits-deathclaw-words-8: accent-misfits-deathclaw-words-replace-8
+    accent-misfits-deathclaw-words-9: accent-misfits-deathclaw-words-replace-9
+    accent-misfits-deathclaw-words-10: accent-misfits-deathclaw-words-replace-10
+    accent-misfits-deathclaw-words-11: accent-misfits-deathclaw-words-replace-11
+    accent-misfits-deathclaw-words-12: accent-misfits-deathclaw-words-replace-12
+    accent-misfits-deathclaw-words-13: accent-misfits-deathclaw-words-replace-13
+    accent-misfits-deathclaw-words-14: accent-misfits-deathclaw-words-replace-14
+    accent-misfits-deathclaw-words-15: accent-misfits-deathclaw-words-replace-15
+    accent-misfits-deathclaw-words-16: accent-misfits-deathclaw-words-replace-16
+    accent-misfits-deathclaw-words-17: accent-misfits-deathclaw-words-replace-17
+    accent-misfits-deathclaw-words-18: accent-misfits-deathclaw-words-replace-18
+    accent-misfits-deathclaw-words-19: accent-misfits-deathclaw-words-replace-19
+    accent-misfits-deathclaw-words-20: accent-misfits-deathclaw-words-replace-20
+    accent-misfits-deathclaw-words-21: accent-misfits-deathclaw-words-replace-21
+    accent-misfits-deathclaw-words-22: accent-misfits-deathclaw-words-replace-22
+    accent-misfits-deathclaw-words-23: accent-misfits-deathclaw-words-replace-23
+    accent-misfits-deathclaw-words-24: accent-misfits-deathclaw-words-replace-24
+    accent-misfits-deathclaw-words-25: accent-misfits-deathclaw-words-replace-25

@@ -35,7 +35,11 @@ public sealed partial class NcStoreLogicSystem
             var maxByRemaining = remaining >= 0 ? remaining : int.MaxValue;
             if (maxByRemaining <= 0)
                 continue;
+            // UnitsPerPurchase is a batch size for sales too; floor to whole batches so we never pay out
+            // for a partial batch (e.g. selling an odd number of a 2-for-1 currency).
+            var batchSize = Math.Max(1, listing.UnitsPerPurchase);
             var take = Math.Min(step.Count, maxByRemaining);
+            take = take / batchSize * batchSize;
             if (take <= 0)
                 continue;
 
@@ -50,7 +54,7 @@ public sealed partial class NcStoreLogicSystem
             if (listing.RemainingCount > 0)
                 listing.RemainingCount = Math.Max(0, listing.RemainingCount - take);
 
-            var total = (long) step.UnitPrice * take;
+            var total = (long) step.UnitPrice * (take / batchSize);
             SafeAddIncome(incomeActual, step.CurrencyId, total);
             any = true;
         }

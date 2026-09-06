@@ -275,6 +275,18 @@
   - type: PresetIdCard
     job: BoSMidPaladinCommander
 
+# #Cythisiax Commented - Paladin Commander holotag no longer used: the Brotherhood Deserter
+# retired HT Instructor slot used NCR prisoner dogtags instead of BoS holotags.
+#- type: entity
+#  parent: N14IDBrotherhoodOfSteelHolotagBase
+#  id: N14IDBrotherhoodOfSteelHolotagPaladinCommander
+#  name: paladin commander's holotags
+#  description: An ID holotag worn by the Paladin Commander of the Brotherhood of Steel.
+#  suffix: Paladin Commander
+#  components:
+#  - type: PresetIdCard
+#    job: RetiredHTInstructor
+
 - type: entity
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagElder
@@ -284,6 +296,17 @@
   components:
   - type: PresetIdCard
     job: BoSWestElderCommander
+
+# #Cythisiax Added - HONOR GUARD personal-whitelist holotag.
+- type: entity
+  parent: N14IDBrotherhoodOfSteelHolotagBase
+  id: N14IDBrotherhoodOfSteelHolotagHonorGuard
+  name: honor guard's holotags
+  description: An ID holotag worn by an Honor Guard of the Brotherhood of Steel.
+  suffix: Honor Guard
+  components:
+  - type: PresetIdCard
+    job: BoSHonorGuard
 
 ##MARK: NCR Specialist Dogtag # #Misfits Tweak - renamed from WS/Corporal
 - type: entity

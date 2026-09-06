@@ -6,6 +6,7 @@
   components:
   - type: SuperMutantFitting
   - type: StrengthRequirement
+    requiredStrength: 6
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/minigun.rsi
     layers:
@@ -16,6 +17,17 @@
   - type: Item
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/minigun.rsi
     size: Ginormous
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Weapons/spinon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/spinoff.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/spinloop.ogg
+  - type: UseDelay
+    delay: 1.5
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/minigun.rsi
     quickEquip: false
@@ -96,12 +108,15 @@
   id: N14WeaponMinigun
   description: An extremely heavy minigun with 3 barrels, it uses 5mm ammo. # TODO: Need to create projectiles, magazines and boxes for 5.56.
   components:
+  - type: MinigunToggle
+    ActivatedFireRate: 15
+    InactiveWeaponFireRate: 1
   - type: Gun
-    minAngle: 4 # #Misfits Tweak - nerfed spread vs base (was 2); wider cone for NCR tier balance
-    maxAngle: 15 # #Misfits Tweak - nerfed spread vs base (was 12)
-    angleIncrease: 2
+    minAngle: 7 # #Burger - nerfed spread vs pre-buff (was 4); wider cone to make up for higher ROF
+    maxAngle: 30 # #Burger - nerfed spread vs pre-buff (was 12)
+    angleIncrease: 6 # # - nerfed spread vs pre-buff (was 2)
     angleDecay: 12
-    fireRate: 6
+    fireRate: 15 # #Burger - prior proposed ROF (was 6)
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -115,6 +130,9 @@
   id: N14WeaponMinigunAvenger
   description: An extremely heavy advanced minigun with multiple barrels, it uses 5mm ammo. # TODO: Need to create projectiles, magazines and boxes for 5.56.
   components:
+  - type: MinigunToggle
+    ActivatedFireRate: 15
+    InactiveWeaponFireRate: 1
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/avengerminigun.rsi
     layers:
@@ -125,11 +143,11 @@
   - type: Item
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/avengerminigun.rsi
   - type: Gun
-    minAngle: 3 # #Misfits Tweak - increased spread range (was 2)
-    maxAngle: 10 # #Misfits Tweak - increased spread range (was 8)
-    angleIncrease: 2
+    minAngle: 4 # #Burger - increased spread range, but  (was 3)
+    maxAngle: 12 # #Burger - increased spread range (was 10)
+    angleIncrease: 5 # #Burger - makes the steady spread slightly less predictable (was 3)
     angleDecay: 8
-    fireRate: 8
+    fireRate: 15 # #Burger - ROF to match buffed base minigun (was 8)
   - type: HeldSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8

@@ -4,9 +4,13 @@
   abstract: true
   components:
   - type: Wieldable
+    unwieldOnUse: false
     wieldedSpeedModifier: 0.9
   - type: StrengthRequirement
     requiredStrength: 4
+  - type: GunWieldBonus
+    minAngle: -5
+    maxAngle: -10
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -193,6 +197,8 @@
             - N14CartridgePistol127
   - type: StaticPrice
     price: 100
+  - type: StrengthRequirement
+    requiredStrength: 5
 
 - type: entity
   name: 12.7mm pipe SMG
@@ -214,7 +220,7 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 3 #sirius change
+    fireRate: 3.5 #sirius change
     soundGunshot:
       collection: N14Pistol12mmGunshot
     selectedMode: Fullauto
@@ -254,6 +260,8 @@
     bonusDamage:
       types:
         Piercing: -3
+  - type: StrengthRequirement
+    requiredStrength: 5
 
 - type: entity
   parent: N14WeaponSMG12mmPipe
@@ -424,6 +432,8 @@
             - N14CartridgePistol127
   - type: StaticPrice
     price: 175
+  - type: StrengthRequirement
+    requiredStrength: 4
 
 - type: entity
   name: 9mm SMG
@@ -782,6 +792,8 @@
     bonusDamage:
       types:
         Piercing: 2
+  - type: StrengthRequirement
+    requiredStrength: 5
 
 - type: entity
   name: chinese SMG
@@ -1150,7 +1162,7 @@
     slots:
     - Back
     - suitStorage
-  - type: Item 
+  - type: Item
     size: Normal
     shape:
     - 0,0,2,1

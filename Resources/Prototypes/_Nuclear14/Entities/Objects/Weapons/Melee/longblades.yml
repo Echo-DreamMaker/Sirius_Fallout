@@ -126,7 +126,7 @@
       types:
         Slash: 18
         Piercing: 3
-        Structural: 8
+        Structural: 18
     soundHit:
       path: /Audio/_Nuclear14/Weapons/Melee/Swing/ripper.ogg
   - type: Item

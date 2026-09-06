@@ -2,7 +2,7 @@
   name: Radtoad
   parent: SimpleMobBase
   id: MisfitsMobRadtoad
-  description: Toad? Raaaad!
+  description: Mutated offspring of the Boreal Toad, they are bred and domesticated by the Willowers Tribe. Nearly extinct when discovered, their spawning pool is fiecely protected within the village.
   components:
   - type: Sprite
     drawdepth: Mobs

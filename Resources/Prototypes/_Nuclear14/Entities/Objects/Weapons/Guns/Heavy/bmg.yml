@@ -21,7 +21,7 @@
   - type: Wieldable
     wieldedSpeedModifier: 0.5
   - type: StrengthRequirement
-    requiredStrength: 7
+    requiredStrength: 9
   - type: GunRequiresWield
   - type: GunWieldBonus
     minAngle: -19
@@ -31,7 +31,7 @@
     maxAngle: 60
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 3
+    fireRate: 4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/Heavyburst2.ogg
     selectedMode: FullAuto

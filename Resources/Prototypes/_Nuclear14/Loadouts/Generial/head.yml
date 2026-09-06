@@ -365,3 +365,170 @@
       - NCRPrisoner
   items:
     - ClothingHeadHatHoodMothFluffy
+    - N14ClothingTribalRadstagSkull
+
+
+- type: loadout
+  id: N14ClothingHeadHatCombatHelmet
+  category: Head
+  cost: 2 # Its 10% literally nothing (agreed)
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
+       - BrotherhoodOfSteel
+       - BrotherhoodOfSteelLancers
+       - NCR
+       - CaesarLegion
+       - Rangers
+  items:
+    - N14ClothingHeadHatCombatHelmet
+
+- type: loadout
+  id: N14ClothingHeadHatPressHelmet
+  category: Head
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
+       - BrotherhoodOfSteel
+       - BrotherhoodOfSteelLancers
+       - NCR
+       - CaesarLegion
+       - Rangers
+  items:
+    - N14ClothingHeadHatPressHelmet
+
+- type: loadout
+  id: N14ClothingHeadHatLightBaseballHelmet
+  category: Head
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
+       - BrotherhoodOfSteel
+       - BrotherhoodOfSteelLancers
+       - NCR
+       - CaesarLegion
+       - Rangers
+  items:
+    - N14ClothingHeadHatLightBaseballHelmet
+
+- type: loadout
+  id: N14ClothingHeadHatChineseHelmet
+  category: Head
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterTraitRequirement
+      traits:
+      - LanguageChinese
+      - LanguageNerd
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
+       - BrotherhoodOfSteel
+       - BrotherhoodOfSteelLancers
+       - NCR
+       - CaesarLegion
+       - Rangers
+  items:
+    - N14ClothingHeadHatChineseHelmet
+
+- type: loadout
+  id: N14ClothingHeadHatPrewarMilitaryHelmet
+  category: Head
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
+       - BrotherhoodOfSteel
+       - BrotherhoodOfSteelLancers
+       - NCR
+       - CaesarLegion
+       - Rangers
+  items:
+    - N14ClothingHeadHatPrewarMilitaryHelmet
+
+
+- type: loadout
+  id: N14ClothingHeadHatChineseHelmetMk2
+  category: Head
+  cost: 3 # Its actually not better than the normal helmet for some reason, but make it 3 since drip expensive I guess
+  exclusive: true
+  requirements:
+    - !type:CharacterTraitRequirement
+      traits:
+      - LanguageChinese
+      - LanguageNerd
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
+       - BrotherhoodOfSteel
+       - BrotherhoodOfSteelLancers
+       - NCR
+       - CaesarLegion
+       - Rangers
+  items:
+    - N14ClothingHeadHatChineseHelmetMk2

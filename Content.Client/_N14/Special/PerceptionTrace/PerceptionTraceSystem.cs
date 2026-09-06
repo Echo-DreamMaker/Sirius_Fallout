@@ -24,7 +24,7 @@ public sealed class PerceptionTraceSystem : EntitySystem
 
     private PerceptionTraceOverlay _overlay = default!;
 
-    public Color CurrentColor { get; private set; } = Color.TryFromHex("#ff5a2a") ?? new Color(1f, 0.35f, 0.16f);
+    public Color CurrentColor { get; private set; } = Color.TryFromHex("#ff5a2a", out var color) ? color : new Color(1f, 0.35f, 0.16f);
     public float CurrentAlpha { get; private set; }
 
     public float RevealRadius { get; private set; } = 13f;

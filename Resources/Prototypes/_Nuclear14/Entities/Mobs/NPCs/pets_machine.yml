@@ -308,6 +308,24 @@
     - Chinese # #Misfits Fix: 'Spanish' is not a valid LanguagePrototype id; N14 uses 'Chinese' as the legacy id for Spanish
 
 - type: entity
+  name: OSI Eyebot
+  id: MisfitsMobPetEyebotOSI
+  parent: N14MobPetEyebot
+  description: A professionally maintained Eyebot assigned to the NCR Office of Science and Industry. Its laser is kept calibrated for field research.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - NCR
+  - type: GhostRole
+    name: ghost-role-information-misfits-pet-eyebot-osi-name
+    description: ghost-role-information-misfits-pet-eyebot-osi-description
+    rules: ghost-role-component-default-rules
+    makeSentient: false
+    allowMovement: true
+  - type: GhostRoleJob
+    job: OSIEyebot
+
+- type: entity
   name: Washington BoS Eyebot
   id: N14MobPetEyebotWBoS
   parent: N14MobPetEyebot

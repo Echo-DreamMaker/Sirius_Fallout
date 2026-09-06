@@ -26,7 +26,7 @@ public sealed partial class StencilOverlay
         {
             var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
             _grids.Clear();
-            _mapManager.FindGridsIntersecting(mapId, worldAABB, ref _grids);
+            _entManager.System<SharedMapSystem>().FindGridsIntersecting(mapId, worldAABB, ref _grids);
 
             foreach (var grid in _grids)
             {

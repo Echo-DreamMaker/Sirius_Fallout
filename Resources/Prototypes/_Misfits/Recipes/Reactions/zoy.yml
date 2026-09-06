@@ -1,0 +1,78 @@
+﻿- type: reaction
+  id: ZoyPilk
+  reactants:
+    Cola:
+      amount: 1
+    MisfitsMilkZoy:
+      amount: 1
+  products:
+    MisfitsZoyPilk: 2 # a truly insane combo
+
+- type: reaction
+  id: MisfitsZoyCurdling
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    MisfitsMilkZoy:
+      amount: 40
+    Enzyme:
+      amount: 5
+      catalyst: true
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: N14FoodTofu # sadly the reaction removes the lime flavor
+
+- type: reaction
+  id: MisfitsZoyLatte
+  reactants:
+    Coffee:
+      amount: 1
+    MisfitsMilkZoy:
+      amount: 1
+  products:
+    SoyLatte: 2 # some things don't need to be different
+
+- type: reaction
+  id: MisfitsZoySauce
+  reactants:
+    MisfitsMilkZoy:
+      amount: 2
+    SulfuricAcid:
+      amount: 1
+  products:
+    Soysauce: 3
+
+- type: reaction
+  id: CreateZoyCakeBatterWheat
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    Flour:
+      amount: 15
+    MisfitsMilkZoy:
+      amount: 15
+    Sugar:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: N14FoodCakeBatter
+
+- type: reaction
+  id: CreateZoyCakeBatterRazorgrain
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    ExtractRazorgrainFlour:
+      amount: 15
+    MisfitsMilkZoy:
+      amount: 15
+    Sugar:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: N14FoodCakeBatter
+
+

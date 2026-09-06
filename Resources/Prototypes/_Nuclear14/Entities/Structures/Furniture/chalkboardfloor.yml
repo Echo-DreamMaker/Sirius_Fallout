@@ -132,6 +132,10 @@
     # #Misfits Fix - Keep the corrected Wendover AABB so Legion blips align with the map image.
     worldBounds: "-517,-308,484,311"
     tacticalFeed: Legion
+    communicationsJobs:
+    - CaesarLegionLegate
+    - CaesarLegionCenturion
+    - CaesarLegionOptio
   - type: ActivatableUI
     key: enum.WastelandMapUiKey.Key
   - type: UserInterface

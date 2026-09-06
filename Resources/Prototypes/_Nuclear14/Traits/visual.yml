@@ -7,6 +7,7 @@
       inverted: true
       departments:
         - BrotherhoodOfSteel
+        - BrotherhoodOfSteelLancers
   - !type:CharacterJobRequirement # Forge-Change
     inverted: true
     jobs:
@@ -17,6 +18,7 @@
     - NCRCommander
     - NCRExecutiveOfficer
     - NCRPlatoonLeader
+    - NCRVertibirdPilot
     - NCRDoctor
     - NCRVeteranRanger
     - NCRFieldRanger
@@ -39,6 +41,9 @@
     #- BoSMidInquisitor # Misfits Fix: job prototype commented out
     - BoSMidScribe
     - BoSMidKnight
+    - BoSLancerCaptain
+    - BoSLancerKnight
+    # #Cythisiax Removed - Lancer rank folded into Lancer-Knight
     - BoSMidSquire
     - CaesarLegionCenturion
     - CaesarLegionLegate

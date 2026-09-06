@@ -1,0 +1,45 @@
+# #Misfits Add - .357 Magnum speed loader.
+# Mirrors the SpeedLoader44 template so the Detective Special can be loaded via a
+# speed loader, not just loose cartridges.
+# TODO: dedicated 357loader sprite; reusing 44loader.rsi as a placeholder for now.
+
+- type: entity
+  id: N14BaseSpeedLoader357
+  name: "speed loader (.357 magnum)"
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - SpeedLoader357
+  - type: SpeedLoader
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - N14CartridgePistol357
+    capacity: 6
+  - type: Sprite
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+- type: entity
+  id: N14SpeedLoader357
+  name: "speed loader (.357 magnum)"
+  parent: N14BaseSpeedLoader357
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol357
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Speedloaders/44loader.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-6
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 7
+    zeroVisible: false
+  - type: Appearance

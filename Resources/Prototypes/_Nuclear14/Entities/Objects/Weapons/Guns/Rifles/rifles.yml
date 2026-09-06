@@ -418,6 +418,7 @@
         map: ["enum.GunVisualLayers.Mag"]
   - type: ChamberMagazineAmmoProvider
     autoEject: true
+    retainEmptyWhenChambered: true # #Misfits Fixed - same en-bloc clip retention as the M1 Garand
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -56
@@ -1077,6 +1078,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: ChamberMagazineAmmoProvider
     autoEject: true
+    retainEmptyWhenChambered: true # #Misfits Fixed - keep the empty clip while a round is chambered (no early ping / double bolt with +1)
     # The iconic Garand ping when the en-bloc clip ejects on empty
     soundAutoEject:
       path: /Audio/_Nuclear14/Weapons/Guns/Rifles/N14WeaponM1Garand/garand_ping.ogg
@@ -1247,6 +1249,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: ChamberMagazineAmmoProvider
     autoEject: true
+    retainEmptyWhenChambered: true # #Misfits Fixed - same en-bloc clip retention as the M1 Garand
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -56

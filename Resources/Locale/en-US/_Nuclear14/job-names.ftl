@@ -1,6 +1,9 @@
 # Brotherhood of Steel
 job-name-bos-mid-paladin-comm = Brotherhood Head Paladin
 job-description-bos-mid-paladin-comm = Lead the martial wing of the Brotherhood chapter and direct field operations.
+# #Cythisiax Add - HONOR GUARD personal-whitelist BoS rank (hidden, beneath the Elder)
+job-name-bos-honor-guard = Brotherhood Honor Guard
+job-description-bos-honor-guard = A hand-picked guardian of the Elder, wearing the 509th T-51bc. Carry the same authority as a Head Paladin, partial of an Elder's voice, but your first duty is the Elder's life.
 job-name-bos-mid-paladin = Brotherhood Senior Paladin
 job-description-bos-mid-paladin = Serve as a veteran field commander and heavy infantry leader for the Brotherhood.
 job-name-bos-mid-knight = Brotherhood Senior Knight
@@ -36,10 +39,12 @@ job-name-ncr-recruit = NCR Trooper
 job-description-ncr-recruit = Junior enlisted trooper. Perform basic duties, follow lawful orders from your Squad Leader, and earn promotions through service and discipline.
 job-name-ncr-cadet = NCR Trooper
 job-description-ncr-cadet = Training trooper learning basic soldiering. Follow orders from your Squad Leader and train to become an effective member of the squad.
-job-name-ncr-doctor = NCR Medical Doctor
-job-description-ncr-doctor = Provide and coordinate battlefield medical care. Follow mission medical orders from your Squad Leader and the medical chain of command.
+job-name-ncr-doctor = NCR Medical Officer
+job-description-ncr-doctor = Provide and coordinate battlefield medical care as the NCR medical officer. Follow mission medical orders from command and direct the medical chain of command.
 job-name-ncr-medic = NCR Medic
 job-description-ncr-medic = Stabilise and treat casualties on the line; follow orders from your Squad Leader and the unit's medical Officer.
+job-name-ncr-heavy-trooper-lead = NCR Heavy Trooper Lead
+job-description-ncr-heavy-trooper-lead = Lead NCR heavy troopers in the field, coordinate heavy weapons, and hold the line.
 job-name-ncr-first-sergeant = NCR First Sergeant
 job-description-ncr-first-sergeant = Senior NCO responsible for enlisted discipline and unit administration; implement orders from command and issue direction to the enlisted line — take and give orders through your Senior NCO and Officer.
 job-name-ncr-staff-sergeant = NCR Staff Sergeant
@@ -74,6 +79,18 @@ job-name-ncr-ranger = NCR Ranger
 job-description-ncr-ranger = Elite scout and combat trooper. Operate independently or lead small teams under orders from your Squad Leader and mission command.
 job-name-ncr-ranger-veteran = NCR Ranger Veteran
 job-description-ncr-ranger-veteran = Veteran Ranger. Lead Ranger operations, make tactical decisions, and follow orders when directed by your Squad Leader or mission command.
+
+# #Misfits Add - NCR Office of Science and Industry (OSI) job names and descriptions.
+job-name-osi-chief-scientist = OSI Chief Scientist
+job-description-osi-chief-scientist = Lead the NCR Office of Science and Industry detachment. Direct research, industry, and field studies, and coordinate your scientists with the NCR command chain.
+job-name-osi-scientist = OSI Scientist
+job-description-osi-scientist = Conduct research, maintain industrial systems, and provide technical expertise for the NCR. Follow orders from the OSI Chief Scientist.
+job-name-osi-assistant = OSI Assistant
+job-description-osi-assistant = Support OSI scientists and help keep the lab, clinic, and field work running. Follow orders from the scientists above you.
+job-name-osi-agent = OSI Agent
+job-description-osi-agent = Field operative of the Office of Science and Industry. Protect OSI personnel and assets, escort expeditions, and handle threats to the Republic's scientific mission.
+job-name-osi-eyebot = OSI Eyebot
+job-description-osi-eyebot = Serve the NCR Office of Science and Industry as a loyal robotic research companion.
 
 # Rangers
 job-name-ranger-patrol = Patrol Ranger
@@ -130,7 +147,12 @@ job-name-scavenger = Scavenger
 job-description-scavenger = This role is going to be removed from the game, please set your preference to "NEVER" on all your characters!
 job-name-wastelander = Wastelander
 job-description-wastelander = Survive in the wasteland and carve out your own path. It's tough out there alone, consider finding others.
-
+# #Misfits Change - renamed "Outcast" to "BoS Exile" (display name only, ID stays Outcast so preferences/playtime are kept)
+job-name-outcast = BoS Exile
+job-description-outcast = A Brotherhood of Steel exile, surviving beyond the protection of the order while seeking a place in the wasteland.
+# Tytos add, neutral traveling trader
+job-name-wasterTrader = Wasteland Trader
+job-description-wasterTrader = buy and sell a variety of exotic and essential goods to anyone who will pay, you are loyal only to caps.
 # Town
 job-name-townsperson = Town Townsperson
 job-description-townsperson = A member of the post-war society. Follow the town rules or try run for Mayor to change them.

@@ -95,14 +95,37 @@
     sprite: _Misfits/Clothing/Head/ahphelmet.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/Head/ahphelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
 
 - type: entity
   parent: ClothingHeadBase
   id: MisfitsClothingHeadKhanHelmet
-  name: great khan helmet
+  name: khan helmet
   description: A piece of headwear commonly worn by the Great Khans that appears to resemble stereotypical traditional Mongolian helmets - likely adapted from a pre-War motorcycle helmet. It is black with two horns on either side and a small spike jutting from the top, much like a pickelhaube. A leather covering protects the wearer's neck and ears from sunburn.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Head/khanhorned.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/Head/khanhorned.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+
+- type: entity
+  parent: N14ClothingHeadHatCombatHelmet
+  id: MisfitsClothingHeadKhanFullHelmet
+  name: khan full helmet
+  description: A Khan helmet modified with steel horns and a full guard comprised of red sunglass lenses and a thick metal plate to conceal the lower face.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/khanfullhelmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/khanfullhelmet.rsi

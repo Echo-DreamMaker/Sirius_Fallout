@@ -1,6 +1,7 @@
 using Content.Shared._Misfits.Holotape;
 using Content.Shared._Misfits.Overwatch;
 using Content.Client.Eye;
+using Content.Client._Misfits.Overwatch;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
@@ -72,6 +73,8 @@ public sealed class HolotapeBoundUserInterface : BoundUserInterface
             SendMessage(new CreateDatabaseDocumentMessage(folderId, subfolderId, title, body, markAdmin));
         _window.OnEditDatabaseDocument += (docId, body) =>
             SendMessage(new EditDatabaseDocumentMessage(docId, body));
+        _window.OnRenameDatabaseEntry += (name, folderId, subParent, subId, docId) =>
+            SendMessage(new RenameDatabaseEntryMessage(name, folderId, subParent, subId, docId));
         _window.OnDeleteDatabaseFolder += (folderId, subfolderId) =>
             SendMessage(new DeleteDatabaseFolderMessage(folderId, subfolderId));
         _window.OnDeleteDatabaseDocument += docId =>
@@ -86,6 +89,9 @@ public sealed class HolotapeBoundUserInterface : BoundUserInterface
         // #Misfits Add - Forward permanent delete requests to the server.
         _window.OnPermanentDeleteDatabaseEntry += (folderId, subParent, subId, docId) =>
             SendMessage(new PermanentDeleteDatabaseEntryMessage(folderId, subParent, subId, docId));
+        // #Misfits Add - Forward Leadership "move" (tidying) requests to the server.
+        _window.OnMoveDatabaseEntry += (folderId, subParent, subId, docId, targetFolderId, targetSubfolderId) =>
+            SendMessage(new MoveDatabaseEntryMessage(folderId, subParent, subId, docId, targetFolderId, targetSubfolderId));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -109,13 +115,14 @@ public sealed class HolotapeBoundUserInterface : BoundUserInterface
         // #Misfits Add - Update the DATABASE tab (faction-shared knowledge base)
         _window.UpdateDatabase(cast.Database);
 
-        var eye = ResolveOverwatchEye(cast.Overwatch);
-        _window.UpdateOverwatch(cast.Overwatch, eye);
+        var watch = EntMan.System<OverwatchConsoleSystem>().GetLocalWatch();
+        var eye = ResolveOverwatchEye(watch);
+        _window.UpdateOverwatch(cast.Overwatch, watch, eye);
     }
 
-    private IEye? ResolveOverwatchEye(OverwatchConsoleState? state)
+    private IEye? ResolveOverwatchEye(OverwatchWatchingComponent? watch)
     {
-        var target = EntMan.GetEntity(state?.WatchedEntity);
+        var target = watch?.Watching;
         if (target == null)
         {
             ClearOverwatchTarget();

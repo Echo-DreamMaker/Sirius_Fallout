@@ -1,10 +1,12 @@
-- type: radioChannel
-  id: Wasteland
-  name: chat-radio-wasteland
-  keycode: 'r'
-  frequency: 1728
-  color: "#d8d52f"
-  longRange: true
+# Misfits: retired in favor of WastelandGlobal (:w).  :r is reserved for the
+# NCR Ranger net, whose issued headset supplies the dedicated encryption key.
+# - type: radioChannel
+#   id: Wasteland
+#   name: chat-radio-wasteland
+#   keycode: 'r'
+#   frequency: 1728
+#   color: "#d8d52f"
+#   longRange: true
 
 # - type: radioChannel
 #   id: BrotherhoodWest

@@ -7,7 +7,8 @@
   - type: Vehicle
   - type: Motorbike
   - type: Damageable
-    damageContainer: Inorganic
+    # #Cythisiax Fixed - was Inorganic, which ignored Structural/Caustic/Radiation damage and made motorbikes take zero damage from plasma (BulletPlasma deals Caustic + Radiation + Structural). StructuralInorganic matches the windows.yml fix.
+    damageContainer: StructuralInorganic
     damageModifierSet: Motorbike
   - type: Repairable
     fuelCost: 10
@@ -137,6 +138,9 @@
   - type: Vehicle
     renderOver: None
     overlayPrototype: VehicleBikeScramblerOverlay
+  - type: MovementSpeedModifier
+    acceleration: 0.5 # #Cythisiax Added - Scrambler takes ~4.6s to reach max speed (heavy bike feel)
+    ignoreTileAcceleration: true # Planet tiles otherwise override this with their own acceleration.
 
 - type: entity
   id: VehicleBikeScramblerOverlay

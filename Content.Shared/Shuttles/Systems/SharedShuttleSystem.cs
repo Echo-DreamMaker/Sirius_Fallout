@@ -13,7 +13,7 @@ namespace Content.Shared.Shuttles.Systems;
 
 public abstract partial class SharedShuttleSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] protected readonly SharedMapSystem Maps = default!;
     [Dependency] protected readonly SharedTransformSystem XformSystem = default!;
@@ -41,7 +41,7 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     /// </summary>
     public bool CanFTLTo(EntityUid shuttleUid, MapId targetMap, EntityUid consoleUid)
     {
-        var mapUid = _mapManager.GetMapEntityId(targetMap);
+        var mapUid = _mapManager.GetMap(targetMap);
         var shuttleMap = _xformQuery.GetComponent(shuttleUid).MapID;
 
         if (shuttleMap == targetMap)

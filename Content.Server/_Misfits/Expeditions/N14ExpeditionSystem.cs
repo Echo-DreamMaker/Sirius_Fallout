@@ -47,7 +47,7 @@ public sealed class N14ExpeditionSystem : EntitySystem
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!; // #Misfits Add - set static breathable air on procedural maps
     [Dependency] private readonly GravitySystem _gravity = default!;
     [Dependency] private readonly DungeonSystem _dungeon = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly NpcFactionSystem _factions = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;

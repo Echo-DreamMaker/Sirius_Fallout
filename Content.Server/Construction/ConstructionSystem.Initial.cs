@@ -14,6 +14,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Storage;
+using Content.Shared.Stacks;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
@@ -173,17 +174,20 @@ namespace Content.Server.Construction
                 switch (step)
                 {
                     case MaterialConstructionGraphStep materialStep:
-                        foreach (var entity in EnumerateNearby(user))
+                        // A material requirement is a total amount, not a requirement that
+                        // one stack entity contain the whole amount. The old implementation
+                        // called EntityValid(amount), so five 1-count scrap stacks could not
+                        // satisfy a 5 scrap recipe even though they were all reachable.
+                        var remaining = materialStep.Amount;
+                        foreach (var entity in new HashSet<EntityUid>(EnumerateNearby(user)))
                         {
-                            if (!materialStep.EntityValid(entity, out var stack))
+                            if (!TryComp(entity, out StackComponent? stack) ||
+                                stack.StackTypeId != materialStep.MaterialPrototypeId ||
+                                stack.Count <= 0)
                                 continue;
 
-                            if (used.Contains(entity))
-                                continue;
-
-                            // TODO allow taking from several stacks.
-                            // Also update crafting steps to check if it works.
-                            var splitStack = _stackSystem.Split(entity, materialStep.Amount, user.ToCoordinates(0, 0), stack);
+                            var amount = Math.Min(remaining, stack.Count);
+                            var splitStack = _stackSystem.Split(entity, amount, user.ToCoordinates(0, 0), stack);
 
                             if (splitStack == null)
                                 continue;
@@ -196,8 +200,12 @@ namespace Content.Server.Construction
                             else if (!_container.Insert(splitStack.Value, GetContainer(materialStep.Store)))
                                 continue;
 
-                            handled = true;
-                            break;
+                            remaining -= amount;
+                            if (remaining <= 0)
+                            {
+                                handled = true;
+                                break;
+                            }
                         }
 
                         break;

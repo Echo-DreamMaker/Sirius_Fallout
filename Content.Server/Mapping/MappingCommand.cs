@@ -18,7 +18,6 @@ namespace Content.Server.Mapping
     sealed class MappingCommand : IConsoleCommand
     {
         [Dependency] private readonly IEntityManager _entities = default!;
-        [Dependency] private readonly IMapManager _map = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         public string Command => "mapping";
@@ -80,7 +79,7 @@ namespace Content.Server.Mapping
                     return;
                 }
 
-                if (_map.MapExists(mapId))
+                if (_entities.System<SharedMapSystem>().MapExists(mapId))
                 {
                     shell.WriteError(Loc.GetString("cmd-mapping-exists", ("mapId", mapId)));
                     return;
@@ -102,7 +101,7 @@ namespace Content.Server.Mapping
                 }
 
                 // was the map actually created or did it fail somehow?
-                if (!_map.MapExists(mapId))
+                if (!_entities.System<SharedMapSystem>().MapExists(mapId))
                 {
                     shell.WriteError(Loc.GetString("cmd-mapping-error"));
                     return;
@@ -128,7 +127,7 @@ namespace Content.Server.Mapping
                 shell.ExecuteCommand($"toggleautosave {mapId} {toLoad ?? "NEWMAP"}");
             shell.ExecuteCommand($"tp 0 0 {mapId}");
             shell.RemoteExecuteCommand("mappingclientsidesetup");
-            _map.SetMapPaused(mapId, true);
+            _entities.System<SharedMapSystem>().SetPaused(mapId, true);
 
             if (args.Length == 2)
                 shell.WriteLine(Loc.GetString("cmd-mapping-success-load",("mapId",mapId),("path", args[1])));

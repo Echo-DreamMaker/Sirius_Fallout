@@ -16,6 +16,15 @@
       - state: green
       - state: commander
 
+# #Cythisiax Added - HONOR GUARD personal-whitelist spawn point.
+- type: entity
+  parent: MisfitsSpawnPointBoSMidPaladinCommander
+  id: MisfitsSpawnPointBoSHonorGuard
+  name: Brotherhood Honor Guard
+  components:
+  - type: SpawnPoint
+    job_id: BoSHonorGuard
+
 - type: entity
   parent: MisfitsSpawnPointBoSMidPaladinCommander
   id: MisfitsSpawnPointBoSMidKnight
@@ -23,6 +32,33 @@
   components:
   - type: SpawnPoint
     job_id: BoSMidKnight
+  - type: Sprite
+    layers:
+      - state: green
+      - state: knight
+
+# #Misfits Add / #Cythisiax Renamed (player-facing) - Brotherhood Knights spawn points
+# (Knight-Captain / Knight-Lancer). Entity IDs and job_ids kept stable so spawns keep working.
+# Lancer spawn point removed with the rank it served.
+- type: entity
+  parent: MisfitsSpawnPointBoSMidPaladinCommander
+  id: MisfitsSpawnPointBoSLancerCaptain
+  name: Brotherhood Knight-Captain
+  components:
+  - type: SpawnPoint
+    job_id: BoSLancerCaptain
+  - type: Sprite
+    layers:
+      - state: green
+      - state: knight
+
+- type: entity
+  parent: MisfitsSpawnPointBoSMidPaladinCommander
+  id: MisfitsSpawnPointBoSLancerKnight
+  name: Brotherhood Knight-Lancer
+  components:
+  - type: SpawnPoint
+    job_id: BoSLancerKnight
   - type: Sprite
     layers:
       - state: green
@@ -414,6 +450,14 @@
       - state: cadet
 
 - type: entity
+  parent: MisfitsSpawnPointNCRHeavyTrooper
+  id: MisfitsSpawnPointNCRHeavyTrooperLead
+  name: NCR Heavy Trooper Lead
+  components:
+  - type: SpawnPoint
+    job_id: NCRHeavyTrooperLead
+
+- type: entity
   parent: SpawnPointJobBase
   id: MisfitsSpawnPointNCRCadet
   name: NCR Recruit
@@ -610,6 +654,56 @@
       - state: green
       - state: recruit
 
+# NCR Office of Science and Industry (OSI) spawn points. # #Misfits Add
+# Spawn near the NCRA labs/medic area like the NCR Doctor.
+- type: entity
+  parent: MisfitsSpawnPointNCRCadet
+  id: MisfitsSpawnPointOSIChiefScientist
+  name: OSI Chief Scientist
+  components:
+  - type: SpawnPoint
+    job_id: OSIChiefScientist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: medic
+
+- type: entity
+  parent: MisfitsSpawnPointNCRCadet
+  id: MisfitsSpawnPointOSIScientist
+  name: OSI Scientist
+  components:
+  - type: SpawnPoint
+    job_id: OSIScientist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: medic
+
+- type: entity
+  parent: MisfitsSpawnPointNCRCadet
+  id: MisfitsSpawnPointOSIAssistant
+  name: OSI Assistant
+  components:
+  - type: SpawnPoint
+    job_id: OSIAssistant
+  - type: Sprite
+    layers:
+      - state: green
+      - state: medic
+
+- type: entity
+  parent: MisfitsSpawnPointNCRCadet
+  id: MisfitsSpawnPointOSIAgent
+  name: OSI Agent
+  components:
+  - type: SpawnPoint
+    job_id: OSIAgent
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ws
+
 # Enclave — expanded 8-role hierarchy (#Misfits Change)
 - type: entity
   parent: SpawnPointJobBase
@@ -643,6 +737,19 @@
   components:
   - type: SpawnPoint
     job_id: EnclaveJuniorOfficer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: lt
+
+# #Misfits Add - Vertibird Pilot spawn point.
+- type: entity
+  parent: MisfitsSpawnPointEnclaveCommander
+  id: MisfitsSpawnPointEnclaveVertibirdPilot
+  name: Enclave Vertibird Pilot
+  components:
+  - type: SpawnPoint
+    job_id: EnclaveVertibirdPilot
   - type: Sprite
     layers:
       - state: green
@@ -885,6 +992,31 @@
   components:
   - type: SpawnPoint
     job_id: SuperMutantFollowerDoctor
+
+# Bwonsamdi spawn point (original prototype ID retained; not placed on Wendover).
+- type: entity
+  parent: SpawnPointJobBase
+  id: MisfitsSpawnPointSentientDeathclaw
+  name: Bwonsamdi
+  components:
+  - type: SpawnPoint
+    job_id: SentientDeathclaw
+  - type: Sprite
+    sprite: Corvax/Markers/jobs.rsi
+    layers:
+    - state: green
+
+- type: entity
+  parent: SpawnPointJobBase
+  id: MisfitsSpawnPointSentientDeathclawRegular
+  name: sentient deathclaw
+  components:
+  - type: SpawnPoint
+    job_id: SentientDeathclawRegular
+  - type: Sprite
+    sprite: Corvax/Markers/jobs.rsi
+    layers:
+    - state: green
 
 # #Misfits Removed - Khan spawn point deactivated; Khan job dissolved into Eighties department.
 # #Misfits Removed - Jackal, Viper, Gunner, Fiend spawn points removed as part of Outlaws faction overhaul.

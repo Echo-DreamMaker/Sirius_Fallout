@@ -1,0 +1,183 @@
+# Enclave R&D collection jobs. The ASRS console draws four of these at random and
+# replaces each one as it is handed in, so the board is never the same twice.
+# Hand-in is the normal delivery pass: put the items on the platform and lower it.
+#
+# Tiers: 300 bulk salvage, 700 salvaged tech, 1400 rare recovery.
+
+# ── Tier 1: bulk salvage ──────────────────────────────────────────────────────
+- type: requisitionsBounty
+  id: EnclaveBountyScrapSteel
+  pools: [ Enclave ]
+  item: N14ScrapSteel
+  amount: 30
+  reward: 300
+
+- type: requisitionsBounty
+  id: EnclaveBountyScrapCopper
+  pools: [ Enclave ]
+  item: N14ScrapCopper
+  amount: 25
+  reward: 300
+
+- type: requisitionsBounty
+  id: EnclaveBountyScrapLead
+  pools: [ Enclave ]
+  item: N14ScrapLead
+  amount: 25
+  reward: 300
+
+- type: requisitionsBounty
+  id: EnclaveBountyScrapBrass
+  pools: [ Enclave ]
+  item: N14ScrapBrass
+  amount: 20
+  reward: 300
+
+- type: requisitionsBounty
+  id: EnclaveBountyMeatBrahmin
+  pools: [ Enclave ]
+  item: N14FoodMeatBrahmin
+  amount: 20
+  reward: 300
+
+- type: requisitionsBounty
+  id: EnclaveBountyMeatBighorner
+  pools: [ Enclave ]
+  item: N14FoodMeatBighorner
+  amount: 20
+  reward: 300
+
+- type: requisitionsBounty
+  id: EnclaveBountyEggChicken
+  pools: [ Enclave ]
+  item: N14FoodEggChicken
+  amount: 25
+  reward: 300
+
+- type: requisitionsBounty
+  id: EnclaveBountyEggGecko
+  pools: [ Enclave ]
+  item: N14FoodEggGecko
+  amount: 20
+  reward: 300
+
+# ── Tier 2: salvaged tech ─────────────────────────────────────────────────────
+- type: requisitionsBounty
+  id: EnclaveBountyScrapElectronic
+  pools: [ Enclave ]
+  item: N14ScrapElectronic
+  amount: 15
+  reward: 700
+
+- type: requisitionsBounty
+  id: EnclaveBountyCircuitry
+  pools: [ Enclave ]
+  item: N14MaterialCircuitry1
+  amount: 12
+  reward: 700
+
+- type: requisitionsBounty
+  id: EnclaveBountyCapacitor
+  pools: [ Enclave ]
+  item: N14JunkComponentCapacitor1
+  amount: 12
+  reward: 700
+
+- type: requisitionsBounty
+  id: EnclaveBountyMicrofusionCell
+  pools: [ Enclave ]
+  item: N14MicrofusionCell
+  amount: 10
+  reward: 700
+
+- type: requisitionsBounty
+  id: EnclaveBountyPlasmaCartridge
+  pools: [ Enclave ]
+  item: N14PlasmaCartridge
+  amount: 10
+  reward: 700
+
+- type: requisitionsBounty
+  id: EnclaveBountyElectronChargePack
+  pools: [ Enclave ]
+  item: N14ElectronChargePack
+  amount: 10
+  reward: 700
+
+- type: requisitionsBounty
+  id: EnclaveBountyPowerCellSmall
+  pools: [ Enclave ]
+  item: N14PowerCellSmall
+  amount: 12
+  reward: 700
+
+- type: requisitionsBounty
+  id: EnclaveBountyHolotape
+  pools: [ Enclave ]
+  item: N14Holotape
+  amount: 8
+  reward: 700
+
+- type: requisitionsBounty
+  id: EnclaveBountyEggNightstalker
+  pools: [ Enclave ]
+  item: N14FoodEggNightstalker
+  amount: 10
+  reward: 700
+
+# ── Tier 3: rare recovery ─────────────────────────────────────────────────────
+- type: requisitionsBounty
+  id: EnclaveBountyScrapGold
+  pools: [ Enclave ]
+  item: N14ScrapGold
+  amount: 5
+  reward: 1400
+
+- type: requisitionsBounty
+  id: EnclaveBountyFusionCore
+  pools: [ Enclave ]
+  item: N14FusionCore
+  amount: 4
+  reward: 1400
+
+- type: requisitionsBounty
+  id: EnclaveBountyFusionCoreRed
+  pools: [ Enclave ]
+  item: N14FusionCoreRed
+  amount: 3
+  reward: 1400
+
+- type: requisitionsBounty
+  id: EnclaveBountyFusionCoreViolet
+  pools: [ Enclave ]
+  item: N14FusionCoreViolet
+  amount: 3
+  reward: 1400
+
+- type: requisitionsBounty
+  id: EnclaveBountyMicrofusionCellViolet
+  pools: [ Enclave ]
+  item: N14MicrofusionCellViolet
+  amount: 5
+  reward: 1400
+
+- type: requisitionsBounty
+  id: EnclaveBountyEggDeathclaw
+  pools: [ Enclave ]
+  item: N14FoodEggDeathclaw
+  amount: 2
+  reward: 1400
+
+- type: requisitionsBounty
+  id: EnclaveBountyPrewarHelmet
+  pools: [ Enclave ]
+  item: N14ClothingHeadHatPrewarMilitaryHelmet
+  amount: 3
+  reward: 1400
+
+- type: requisitionsBounty
+  id: EnclaveBountyPrewarCurrency
+  pools: [ Enclave ]
+  item: N14CurrencyPrewar
+  amount: 5
+  reward: 1400

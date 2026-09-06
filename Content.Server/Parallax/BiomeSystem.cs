@@ -38,7 +38,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
 {
     [Dependency] private readonly IConfigurationManager _configManager = default!;
     [Dependency] private readonly IConsoleHost _console = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -240,7 +240,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     private void OnFTLStarted(ref FTLStartedEvent ev)
     {
         var targetMap = ev.TargetCoordinates.ToMap(EntityManager, _transform);
-        var targetMapUid = _mapManager.GetMapEntityId(targetMap.MapId);
+        var targetMapUid = _mapManager.GetMap(targetMap.MapId);
 
         if (!TryComp<BiomeComponent>(targetMapUid, out var biome))
             return;

@@ -23,7 +23,7 @@ public sealed class SentryBotMissileLauncherSystem : EntitySystem
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
 
@@ -125,7 +125,7 @@ public sealed class SentryBotMissileLauncherSystem : EntitySystem
             var fromMap = fromCoords.ToMap(EntityManager, _transform);
             var spawnCoords = _mapManager.TryFindGridAt(fromMap, out var gridUid, out _)
                 ? fromCoords.WithEntityId(gridUid, EntityManager)
-                : new EntityCoordinates(_mapManager.GetMapEntityId(fromMap.MapId), fromMap.Position);
+                : new EntityCoordinates(_mapManager.GetMap(fromMap.MapId), fromMap.Position);
 
             var missile = Spawn(MissilePrototype, spawnCoords);
             var userVelocity = _physics.GetMapLinearVelocity(uid);

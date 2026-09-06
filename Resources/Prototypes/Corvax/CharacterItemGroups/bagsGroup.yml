@@ -40,6 +40,6 @@
     - type: loadout
       id: N14ClothingBackpackSatchelMilitary
     - type: loadout
-      id: N14ClothingBackpackSatchelMarching
+      id: MisfitsClothingBackpackSatchelMarching
     - type: loadout
-      id: N14ClothingBackpackSatchelOld
+      id: MisfitsClothingBackpackSatchelOld

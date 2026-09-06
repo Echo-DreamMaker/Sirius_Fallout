@@ -11,6 +11,7 @@
 
 using Content.Server.Chat.Managers;
 using Content.Shared._Misfits.SmokeSignal;
+using Content.Shared._Misfits.Deathclaw;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Chat;
 using Content.Shared.Interaction;
@@ -193,33 +194,44 @@ public sealed class SmokeSignalSystem : EntitySystem
         return true;
     }
 
-    // #Misfits Change - Tree allowlists use exact membership while legacy signals retain first-department behavior.
+    // #Misfits Fix - department membership is resolved against the target department's role list so
+    // dual-citizenship tribe jobs (SuperMutantTribal, SyntheticProtectronTribal) authorize correctly.
     internal bool CanUse(EntityUid uid, SmokeSignalComponent component)
     {
+        if (IsBwonsamdiTribalSignal(uid, component))
+            return true;
+
         if (!_mind.TryGetMind(uid, out var mindId, out _)
             || !_jobs.MindTryGetJob(mindId, out _, out var job))
             return false;
 
-        if (component.ActivatorJobs is not { Count: > 0 })
-            return _jobs.TryGetDepartment(job.ID, out var department) && department.ID == component.TargetDepartment;
+        if (!_prototypes.TryIndex<DepartmentPrototype>(component.TargetDepartment, out var targetDepartment)
+            || !targetDepartment.Roles.Contains(job.ID))
+            return false;
 
-        return _prototypes.TryIndex<DepartmentPrototype>(component.TargetDepartment, out var targetDepartment)
-            && targetDepartment.Roles.Contains(job.ID)
-            && component.ActivatorJobs.Contains(job.ID);
+        return component.ActivatorJobs is not { Count: > 0 } || component.ActivatorJobs.Contains(job.ID);
     }
 
-    // #Misfits Change - recipients follow the same Tree-versus-legacy department compatibility mode as authorization.
+    // #Misfits Fix - recipients resolved against the target department's role list so dual-citizenship
+    // tribe jobs (SuperMutantTribal, SyntheticProtectronTribal) receive broadcasts.
     internal bool IsInDepartment(EntityUid uid, SmokeSignalComponent component)
     {
+        if (IsBwonsamdiTribalSignal(uid, component))
+            return true;
+
         if (!_mind.TryGetMind(uid, out var mindId, out _)
             || !_jobs.MindTryGetJob(mindId, out _, out var job))
             return false;
-
-        if (component.ActivatorJobs is not { Count: > 0 })
-            return _jobs.TryGetDepartment(job.ID, out var department) && department.ID == component.TargetDepartment;
 
         return _prototypes.TryIndex<DepartmentPrototype>(component.TargetDepartment, out var targetDepartment)
             && targetDepartment.Roles.Contains(job.ID);
+    }
+
+    // Bwonsamdi is a Willower ally rather than a Tribe job. Keep this exception
+    // scoped to tribal signal fires so ordinary sentient Deathclaws gain nothing.
+    private bool IsBwonsamdiTribalSignal(EntityUid uid, SmokeSignalComponent component)
+    {
+        return component.TargetDepartment == "Tribe" && HasComp<BwonsamdiComponent>(uid);
     }
 
     // #Misfits Change - share component-specific living recipient selection between delivery and regression coverage.

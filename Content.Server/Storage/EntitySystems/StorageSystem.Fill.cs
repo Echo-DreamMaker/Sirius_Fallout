@@ -14,7 +14,7 @@ public sealed partial class StorageSystem
 {
     private void OnStorageFillMapInit(EntityUid uid, StorageFillComponent component, MapInitEvent args)
     {
-        if (component.Contents.Count == 0)
+        if (!component.FillOnMapInit || component.Contents.Count == 0)
             return;
 
         if (TryComp<StorageComponent>(uid, out var storageComp))

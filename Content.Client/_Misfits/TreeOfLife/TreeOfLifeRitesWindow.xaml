@@ -1,0 +1,20 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc tree-of-life-rites-title}"
+                      Resizable="True"
+                      SetSize="500 430"
+                      MinSize="380 280">
+  <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+    <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="6" HorizontalExpand="True">
+      <Label Name="CurrentRite" HorizontalAlignment="Center" StyleClasses="LabelBig" />
+      <Label Name="Cooldown" HorizontalAlignment="Center" />
+      <PanelContainer StyleClasses="LowDivider" MinHeight="1" />
+      <Label Text="{Loc tree-of-life-rite-returning}" StyleClasses="LabelBig" />
+      <Label Text="{Loc tree-of-life-rite-returning-desc}" />
+      <Button Name="ReturningButton" Text="{Loc tree-of-life-rite-returning}" />
+      <Label Text="{Loc tree-of-life-rite-hearth}" StyleClasses="LabelBig" />
+      <Label Text="{Loc tree-of-life-rite-hearth-desc}" />
+      <Button Name="HearthButton" Text="{Loc tree-of-life-rite-hearth}" />
+    </BoxContainer>
+  </ScrollContainer>
+</controls:FancyWindow>

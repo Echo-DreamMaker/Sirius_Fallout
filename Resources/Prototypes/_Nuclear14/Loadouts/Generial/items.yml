@@ -141,6 +141,7 @@
       - EnclaveEnlisted
       - EnclaveNCO
       - EnclaveJuniorOfficer
+      - EnclaveVertibirdPilot
       - EnclaveSeniorOfficer
       - EnclaveCommander
       - EnclaveJuniorScientist

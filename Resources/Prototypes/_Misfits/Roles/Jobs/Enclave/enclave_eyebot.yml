@@ -1,0 +1,14 @@
+# #Misfits Add - Ghost-role job for the Enclave Eyebot pet perk.
+# This job is NOT selectable in character setup (setPreference: false).
+# It exists solely so that when a player takes the Enclave Eyebot ghost role,
+# their playtime is recorded under the Enclave faction tracker.
+- type: job
+  id: EnclaveEyebot
+  setPreference: false
+  canBeAntag: false
+  name: job-name-enclave-eyebot
+  description: job-description-enclave-eyebot
+  playTimeTracker: EnclaveEyebot
+
+- type: playTimeTracker
+  id: EnclaveEyebot

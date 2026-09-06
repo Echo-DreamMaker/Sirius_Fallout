@@ -1,0 +1,22 @@
+﻿- type: reagent
+  id: MisfitsMilkZoy
+  parent: MilkOat
+  name: reagent-name-milk-zoy
+  desc: reagent-desc-milk-zoy
+  physicalDesc: reagent-physical-desc-tangy
+  flavor: zoy
+  color: "#cfc88e"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 5 # slightly more thirst-quenching than soy milk
+
+- type: reagent
+  id: MisfitsZoyPilk
+  parent: Pilk
+  name: reagent-name-zilk
+  desc: reagent-desc-zilk
+  physicalDesc: reagent-physical-desc-clumpy
+  color: "#9e785b"
+  flavor: zilk

@@ -6,6 +6,9 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Construction
+    graph: TorchFloor
+    node: torchfloor
   - type: Transform
     anchored: true
   - type: Clickable

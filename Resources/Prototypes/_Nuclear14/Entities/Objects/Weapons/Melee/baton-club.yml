@@ -19,6 +19,9 @@
     state: icon
   - type: Item
     size: Normal
+  - type: Tag
+    tags:
+    - N14PoliceBaton # #Cythisiax Added - tag so security belts can whitelist the baton
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Melee/policebaton.rsi
     quickEquip: false

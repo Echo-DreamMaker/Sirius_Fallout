@@ -10,7 +10,7 @@
   description: job-description-caesar-legion-Acolyte-of-mars
   playTimeTracker: CaesarLegionAcolyteOfMars
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
+    - !type:CharacterDepartmentTimeRequirement # Legion total timelock
       department: CaesarLegion
     - !type:CharacterSpeciesRequirement
       species:
@@ -43,12 +43,14 @@
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitLegionnaire
     ears: N14ClothingHeadsetLegion
+    neck: N14ClothingNeckAcolyteCloak
     mask: N14ClothingMaskBrownMask
     back: N14ClothingBackpackMilitary
     shoes: N14ClothingBootsLeather
     head: N14ClothingHeadHatTribalOutcastHood
     gloves: N14ClothingHandsGlovesTribal
     outerClothing: N14ClothingOuterLegionnaireRecruitArmor
+    pocket1: LegionAcolyteLoadoutKits
     id: N14IDLegionaryBadge
   innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
   storage:

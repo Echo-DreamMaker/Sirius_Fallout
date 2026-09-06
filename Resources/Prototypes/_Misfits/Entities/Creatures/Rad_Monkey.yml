@@ -1,0 +1,41 @@
+﻿# new irradiated monkey mob to replace normal monkeys from monkey cubes
+# they specifically give N14FoodMeatRadRaw instead of FoodMeat so the cooking changes are smoother
+# whenever I can get to the rest of the cooking changes, at least...
+# Amaster222 was here
+- type: entity
+  name: Irradiated Monkey
+  parent: N14MobBaseSimple
+  id: MisfitsRadMonkey
+  description: Once top banana in the kitchen, now a chimp chump.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: rad_monkey
+      sprite: _Misfits/Mobs/Animals/radmonkey.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: rad_monkey
+      Dead:
+        Base: rad_monkey_dead
+  - type: Stamina
+    critThreshold: 200
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Dead
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: N14FoodMeatRadRaw
+      amount: 3
+  - type: Bloodstream
+    bloodMaxVolume: 100
+    bloodReagent: WastelandBlood
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1
+    baseSprintSpeed : 2
+  - type: NameIdentifier
+    group: Monkey

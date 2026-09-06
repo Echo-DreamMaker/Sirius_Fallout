@@ -5,7 +5,8 @@ namespace Content.Shared._NC.Trade;
 // ============================================================
 
 [Serializable]
-public sealed class ContractTargetServerData
+[DataDefinition]
+public sealed partial class ContractTargetServerData
 {
     [DataField("match")]
     public PrototypeMatchMode MatchMode = PrototypeMatchMode.Exact;
@@ -16,7 +17,8 @@ public sealed class ContractTargetServerData
 }
 
 [Serializable]
-public sealed class ContractServerData
+[DataDefinition]
+public sealed partial class ContractServerData
 {
     [DataField("match")]
     public PrototypeMatchMode MatchMode = PrototypeMatchMode.Exact;

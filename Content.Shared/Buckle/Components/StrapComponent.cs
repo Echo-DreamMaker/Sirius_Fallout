@@ -44,6 +44,14 @@ public sealed partial class StrapComponent : Component
     public Vector2 BuckleOffset = Vector2.Zero;
 
     /// <summary>
+    /// Keeps a buckled entity fixed at <see cref="BuckleOffset"/> if movement
+    /// prediction displaces it. Ordinary straps instead treat that drift as an
+    /// implicit unbuckle.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool LockToBuckleOffset;
+
+    /// <summary>
     /// The angle to rotate the player by when they get strapped
     /// </summary>
     [DataField]

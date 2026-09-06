@@ -406,7 +406,7 @@
   description: The strong flavor of bighorner meat marries the sweet-smoky sauce so, so well... #N14 change
   components:
   - type: Food
-    trash: 
+    trash:
     - FoodKebabSkewer
   - type: FlavorProfile
     flavors:
@@ -455,6 +455,61 @@
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 3
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: human burger
+  parent: N14FoodBurgerBase
+  id: N14CookedFoodBurgerHuman
+  description: Still a good source of protein...
+  components:
+  - type: FlavorProfile
+    flavors:
+    - bun
+    - people
+  - type: Sprite
+    state: human
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 23
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  name: supermutant burger
+  parent: N14FoodBurgerBase
+  id: N14CookedFoodSupermutantBurger
+  description: Tastes alright, but you better have a steel jaw.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - bun
+    - people
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/burger.rsi
+    state: supermutant
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 5
   - type: Tag
     tags:
     - Meat

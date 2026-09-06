@@ -61,3 +61,14 @@ public sealed class MisfitsRoleBanEntry
         PlayerName = playerName;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class PardonRoleBansMessage : EuiMessageBase
+{
+    public List<int> BanIds { get; }
+
+    public PardonRoleBansMessage(List<int> banIds)
+    {
+        BanIds = banIds;
+    }
+}
