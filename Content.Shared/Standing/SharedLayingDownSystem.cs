@@ -196,7 +196,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
             return false;
         }
 
-        _standing.Down(uid, true, behavior != DropHeldItemsBehavior.DropIfStanding, standingState); // Corvax-Change
+        _standing.Down(uid, true, behavior != DropHeldItemsBehavior.DropIfStanding, standingState, voluntary: true); // Corvax-Change
         return true;
     }
 }

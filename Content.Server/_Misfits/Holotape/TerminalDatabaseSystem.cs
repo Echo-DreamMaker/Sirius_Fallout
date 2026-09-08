@@ -59,19 +59,22 @@ public sealed class TerminalDatabaseSystem : EntitySystem
 
         _dataStore.Initialize();
 
-        SubscribeLocalEvent<HolotapeDataComponent, RequestDatabaseStateMessage>(OnRequestState);
-        SubscribeLocalEvent<HolotapeDataComponent, OpenDatabaseDocumentMessage>(OnOpenDocument);
-        SubscribeLocalEvent<HolotapeDataComponent, CreateDatabaseFolderMessage>(OnCreateFolder);
-        SubscribeLocalEvent<HolotapeDataComponent, CreateDatabaseDocumentMessage>(OnCreateDocument);
-        SubscribeLocalEvent<HolotapeDataComponent, EditDatabaseDocumentMessage>(OnEditDocument);
-        SubscribeLocalEvent<HolotapeDataComponent, DeleteDatabaseFolderMessage>(OnDeleteFolder);
-        SubscribeLocalEvent<HolotapeDataComponent, DeleteDatabaseDocumentMessage>(OnDeleteDocument);
-        SubscribeLocalEvent<HolotapeDataComponent, RollbackDatabaseDocumentMessage>(OnRollbackDocument);
-        SubscribeLocalEvent<HolotapeDataComponent, RestoreDatabaseEntryMessage>(OnRestoreEntry);
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, RequestDatabaseStateMessage>(OnRequestState);
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, OpenDatabaseDocumentMessage>(OnOpenDocument);
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, CreateDatabaseFolderMessage>(OnCreateFolder);
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, CreateDatabaseDocumentMessage>(OnCreateDocument);
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, EditDatabaseDocumentMessage>(OnEditDocument);
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, RenameDatabaseEntryMessage>(OnRenameEntry);
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, DeleteDatabaseFolderMessage>(OnDeleteFolder);
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, DeleteDatabaseDocumentMessage>(OnDeleteDocument);
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, RollbackDatabaseDocumentMessage>(OnRollbackDocument);
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, RestoreDatabaseEntryMessage>(OnRestoreEntry);
         // #Misfits Add - Export current document body+title into a physical holotape entity.
-        SubscribeLocalEvent<HolotapeDataComponent, ExportDatabaseDocumentMessage>(OnExportDocument);
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, ExportDatabaseDocumentMessage>(OnExportDocument);
         // #Misfits Add - Permanent delete: actually remove entries from the data store.
-        SubscribeLocalEvent<HolotapeDataComponent, PermanentDeleteDatabaseEntryMessage>(OnPermanentDeleteEntry);
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, PermanentDeleteDatabaseEntryMessage>(OnPermanentDeleteEntry);
+        // #Misfits Add - Leadership "move" (tidying): relocate entries into another container.
+        SubscribeLocalEvent<TerminalDatabaseAccessComponent, MoveDatabaseEntryMessage>(OnMoveEntry);
     }
 
     // ── Public API: state assembly used by HolotapeSystem on UI open ─────────
@@ -104,33 +107,33 @@ public sealed class TerminalDatabaseSystem : EntitySystem
 
         var (canRead, canWrite, canLeadership, canAdmin) = ResolveAccess(viewer, proto);
 
-        // Build folder summaries. Leaders also see soft-deleted entries (so they can restore them).
+        // Build folder summaries. Only the highest-rank tier sees deleted entries.
         var folders = _dataStore.GetFolders(proto.ID);
         var folderSummaries = new List<DatabaseFolderSummary>();
         foreach (var f in folders)
         {
-            if (f.Deleted && !canLeadership)
+            if (f.Deleted && !canAdmin)
                 continue;
 
             var subSummaries = new List<DatabaseSubfolderSummary>();
             foreach (var s in f.Subfolders)
             {
-                if (s.Deleted && !canLeadership)
+                if (s.Deleted && !canAdmin)
                     continue;
                 subSummaries.Add(new DatabaseSubfolderSummary(
                     s.SubfolderId, s.Name, s.Deleted, s.CreatedByUserIdGuid, s.CreatedByCharName, s.CreatedAt,
-                    BuildDocSummaries(s.Documents, canLeadership)));
+                    BuildDocSummaries(s.Documents, canAdmin)));
             }
 
             folderSummaries.Add(new DatabaseFolderSummary(
                 f.FolderId, f.Name, f.Deleted, f.IsAdmin, f.CreatedByUserIdGuid, f.CreatedByCharName, f.CreatedAt,
                 subSummaries,
-                BuildDocSummaries(f.Documents, canLeadership)));
+                BuildDocSummaries(f.Documents, canAdmin)));
         }
 
         DatabaseDocumentView? openDoc = null;
         if (openDocumentId.HasValue)
-            openDoc = BuildDocView(proto.ID, openDocumentId.Value, canLeadership);
+            openDoc = BuildDocView(proto.ID, openDocumentId.Value, canAdmin);
 
         return new TerminalDatabaseState(
             proto.ID,
@@ -203,12 +206,12 @@ public sealed class TerminalDatabaseSystem : EntitySystem
     // #Misfits Change - All handlers now resolve the database by the actor's ID
     // access (ResolveDatabaseForViewer), not by a component on the terminal.
 
-    private void OnRequestState(EntityUid uid, HolotapeDataComponent comp, RequestDatabaseStateMessage msg)
+    private void OnRequestState(EntityUid uid, TerminalDatabaseAccessComponent comp, RequestDatabaseStateMessage msg)
     {
         PushFullState(uid, msg.Actor, openDocumentId: null);
     }
 
-    private void OnOpenDocument(EntityUid uid, HolotapeDataComponent comp, OpenDatabaseDocumentMessage msg)
+    private void OnOpenDocument(EntityUid uid, TerminalDatabaseAccessComponent comp, OpenDatabaseDocumentMessage msg)
     {
         var proto = ResolveDatabaseForViewer(msg.Actor);
         if (proto == null)
@@ -220,7 +223,7 @@ public sealed class TerminalDatabaseSystem : EntitySystem
     //   - Subfolder under existing root requires AccessWrite (Tier 6+).
     //   - Root folder requires Leadership (Tier 7+).
     //   - MarkAsAdmin additionally requires Admin (Tier 8).
-    private void OnCreateFolder(EntityUid uid, HolotapeDataComponent comp, CreateDatabaseFolderMessage msg)
+    private void OnCreateFolder(EntityUid uid, TerminalDatabaseAccessComponent comp, CreateDatabaseFolderMessage msg)
     {
         var proto = ResolveDatabaseForViewer(msg.Actor);
         if (proto == null)
@@ -273,7 +276,7 @@ public sealed class TerminalDatabaseSystem : EntitySystem
         PushFullState(uid, msg.Actor, openDocumentId: null);
     }
 
-    private void OnCreateDocument(EntityUid uid, HolotapeDataComponent comp, CreateDatabaseDocumentMessage msg)
+    private void OnCreateDocument(EntityUid uid, TerminalDatabaseAccessComponent comp, CreateDatabaseDocumentMessage msg)
     {
         var proto = ResolveDatabaseForViewer(msg.Actor);
         if (proto == null)
@@ -329,7 +332,7 @@ public sealed class TerminalDatabaseSystem : EntitySystem
         PushFullState(uid, msg.Actor, openDocumentId: newDoc?.DocumentId);
     }
 
-    private void OnEditDocument(EntityUid uid, HolotapeDataComponent comp, EditDatabaseDocumentMessage msg)
+    private void OnEditDocument(EntityUid uid, TerminalDatabaseAccessComponent comp, EditDatabaseDocumentMessage msg)
     {
         var proto = ResolveDatabaseForViewer(msg.Actor);
         if (proto == null)
@@ -351,9 +354,43 @@ public sealed class TerminalDatabaseSystem : EntitySystem
         PushFullState(uid, msg.Actor, openDocumentId: msg.DocumentId);
     }
 
-    // #Misfits Change - Tiered delete: Leadership deletes non-Admin entries; Admin
-    // required for Admin-marked entries (and everything inside them).
-    private void OnDeleteFolder(EntityUid uid, HolotapeDataComponent comp, DeleteDatabaseFolderMessage msg)
+    // Leaders may organize the shared archive without being granted deletion. Protected
+    // entries remain exclusive to the database's highest configured rank.
+    private void OnRenameEntry(EntityUid uid, TerminalDatabaseAccessComponent comp, RenameDatabaseEntryMessage msg)
+    {
+        var proto = ResolveDatabaseForViewer(msg.Actor);
+        if (proto == null)
+            return;
+        var perms = ResolveAccess(msg.Actor, proto);
+        if (!perms.leadership)
+            return;
+
+        var name = SanitiseTitle(msg.Name);
+        if (string.IsNullOrEmpty(name))
+            return;
+
+        var protectedEntry = false;
+        if (msg.FolderId.HasValue && !msg.SubfolderId.HasValue && !msg.DocumentId.HasValue)
+            protectedEntry = IsFolderAdminProtected(proto.ID, msg.FolderId.Value);
+        else if (msg.SubfolderParentFolderId.HasValue && msg.SubfolderId.HasValue && !msg.DocumentId.HasValue)
+            protectedEntry = IsSubfolderAdminProtected(proto.ID, msg.SubfolderParentFolderId.Value, msg.SubfolderId.Value);
+        else if (msg.DocumentId.HasValue && !msg.FolderId.HasValue && !msg.SubfolderId.HasValue)
+            protectedEntry = IsDocumentInAdminFolder(proto.ID, msg.DocumentId.Value);
+        else
+            return;
+
+        if (protectedEntry && !perms.admin)
+            return;
+
+        if (!_dataStore.RenameEntry(proto.ID, name, msg.FolderId, msg.SubfolderParentFolderId, msg.SubfolderId, msg.DocumentId))
+            return;
+
+        PushFullState(uid, msg.Actor, openDocumentId: msg.DocumentId);
+    }
+
+    // #Misfits Change - Delete is restricted to the database-specific highest rank
+    // configured in AdminJobs, regardless of protection or authorship.
+    private void OnDeleteFolder(EntityUid uid, TerminalDatabaseAccessComponent comp, DeleteDatabaseFolderMessage msg)
     {
         var proto = ResolveDatabaseForViewer(msg.Actor);
         if (proto == null)
@@ -366,9 +403,9 @@ public sealed class TerminalDatabaseSystem : EntitySystem
         if (folder == null)
             return;
 
-        // Admin-protected subtree — only Admin tier may remove entries here.
-        var requiresAdmin = folder.IsAdmin;
-        if (requiresAdmin ? !perms.admin : !perms.leadership)
+        // #Misfits Change - Deletion is structural administration. Only the highest
+        // database-specific rank configured in AdminJobs may delete any folder.
+        if (!perms.admin)
             return;
 
         if (!_dataStore.SoftDeleteFolder(proto.ID, msg.FolderId, msg.SubfolderId))
@@ -377,16 +414,15 @@ public sealed class TerminalDatabaseSystem : EntitySystem
         PushFullState(uid, msg.Actor, openDocumentId: null);
     }
 
-    private void OnDeleteDocument(EntityUid uid, HolotapeDataComponent comp, DeleteDatabaseDocumentMessage msg)
+    private void OnDeleteDocument(EntityUid uid, TerminalDatabaseAccessComponent comp, DeleteDatabaseDocumentMessage msg)
     {
         var proto = ResolveDatabaseForViewer(msg.Actor);
         if (proto == null)
             return;
         var perms = ResolveAccess(msg.Actor, proto);
 
-        // Walk parent folders to determine Admin gating for this document.
-        var requiresAdmin = IsDocumentInAdminFolder(proto.ID, msg.DocumentId);
-        if (requiresAdmin ? !perms.admin : !perms.leadership)
+        // #Misfits Change - Only the highest database-specific rank may delete.
+        if (!perms.admin)
             return;
 
         if (!_dataStore.SoftDeleteDocument(proto.ID, msg.DocumentId))
@@ -415,7 +451,49 @@ public sealed class TerminalDatabaseSystem : EntitySystem
         return false;
     }
 
-    private void OnRollbackDocument(EntityUid uid, HolotapeDataComponent comp, RollbackDatabaseDocumentMessage msg)
+    /// <summary>
+    /// #Misfits Add - Returns true if a top-level folder is Admin-protected: the folder itself
+    /// is Admin-marked, OR any nested document is independently Admin-marked. Used to gate the
+    /// Leadership "move" action — Admin-protected entries cannot be relocated.
+    /// </summary>
+    private bool IsFolderAdminProtected(string databaseId, Guid folderId)
+    {
+        var folder = _dataStore.GetFolders(databaseId).Find(f => f.FolderId == folderId);
+        if (folder == null)
+            return true; // treat missing as protected
+        if (folder.IsAdmin)
+            return true;
+        foreach (var doc in folder.Documents)
+            if (doc.IsAdmin)
+                return true;
+        foreach (var sub in folder.Subfolders)
+            foreach (var doc in sub.Documents)
+                if (doc.IsAdmin)
+                    return true;
+        return false;
+    }
+
+    /// <summary>
+    /// #Misfits Add - Returns true if a subfolder is Admin-protected: its parent root folder is
+    /// Admin-marked, OR any nested document is independently Admin-marked.
+    /// </summary>
+    private bool IsSubfolderAdminProtected(string databaseId, Guid parentFolderId, Guid subfolderId)
+    {
+        var folder = _dataStore.GetFolders(databaseId).Find(f => f.FolderId == parentFolderId);
+        if (folder == null)
+            return true;
+        if (folder.IsAdmin)
+            return true;
+        var sub = folder.Subfolders.Find(s => s.SubfolderId == subfolderId);
+        if (sub == null)
+            return true;
+        foreach (var doc in sub.Documents)
+            if (doc.IsAdmin)
+                return true;
+        return false;
+    }
+
+    private void OnRollbackDocument(EntityUid uid, TerminalDatabaseAccessComponent comp, RollbackDatabaseDocumentMessage msg)
     {
         var proto = ResolveDatabaseForViewer(msg.Actor);
         if (proto == null)
@@ -433,33 +511,16 @@ public sealed class TerminalDatabaseSystem : EntitySystem
         PushFullState(uid, msg.Actor, openDocumentId: msg.DocumentId);
     }
 
-    // #Misfits Change - Restore mirrors delete: Admin-flagged subtree restores require Admin tier.
-    private void OnRestoreEntry(EntityUid uid, HolotapeDataComponent comp, RestoreDatabaseEntryMessage msg)
+    // #Misfits Change - Restore mirrors delete and is highest-rank only.
+    private void OnRestoreEntry(EntityUid uid, TerminalDatabaseAccessComponent comp, RestoreDatabaseEntryMessage msg)
     {
         var proto = ResolveDatabaseForViewer(msg.Actor);
         if (proto == null)
             return;
         var perms = ResolveAccess(msg.Actor, proto);
 
-        // Determine whether the target is in an Admin-flagged folder.
-        var folders = _dataStore.GetFolders(proto.ID);
-        bool requiresAdmin = false;
-        if (msg.FolderId.HasValue && !msg.SubfolderId.HasValue)
-        {
-            var f = folders.Find(x => x.FolderId == msg.FolderId.Value);
-            requiresAdmin = f?.IsAdmin ?? false;
-        }
-        else if (msg.SubfolderParentFolderId.HasValue)
-        {
-            var f = folders.Find(x => x.FolderId == msg.SubfolderParentFolderId.Value);
-            requiresAdmin = f?.IsAdmin ?? false;
-        }
-        else if (msg.DocumentId.HasValue)
-        {
-            requiresAdmin = IsDocumentInAdminFolder(proto.ID, msg.DocumentId.Value);
-        }
-
-        if (requiresAdmin ? !perms.admin : !perms.leadership)
+        // Restore is the inverse of deletion and uses the same highest-rank gate.
+        if (!perms.admin)
             return;
 
         var changed = false;
@@ -476,18 +537,19 @@ public sealed class TerminalDatabaseSystem : EntitySystem
         PushFullState(uid, msg.Actor, openDocumentId: msg.DocumentId);
     }
 
-    // #Misfits Add - Permanent delete handler. Authorized for the original author OR
-    // Admin tier only (e.g. Elder Council). Leadership can still soft-delete/restore.
-    private void OnPermanentDeleteEntry(EntityUid uid, HolotapeDataComponent comp, PermanentDeleteDatabaseEntryMessage msg)
+    // #Misfits Add - Legacy permanent-delete handler. Highest-rank only; this will move
+    // out of the normal faction UI during the recursive hierarchy refactor.
+    private void OnPermanentDeleteEntry(EntityUid uid, TerminalDatabaseAccessComponent comp, PermanentDeleteDatabaseEntryMessage msg)
     {
         var proto = ResolveDatabaseForViewer(msg.Actor);
         if (proto == null)
             return;
         var perms = ResolveAccess(msg.Actor, proto);
-        var actorUserId = GetUserId(msg.Actor);
-
-        bool IsAuthor(Guid? entryUserId) =>
-            actorUserId != null && entryUserId.HasValue && actorUserId.Value.UserId == entryUserId.Value;
+        // #Misfits Change - Authorship no longer grants destructive control over shared
+        // database trees. Until permanent purge moves to an administration tool, only
+        // the highest database-specific rank can use this legacy message.
+        if (!perms.admin)
+            return;
 
         if (msg.FolderId.HasValue && !msg.SubfolderId.HasValue)
         {
@@ -495,9 +557,6 @@ public sealed class TerminalDatabaseSystem : EntitySystem
             var folders = _dataStore.GetFolders(proto.ID);
             var folder = folders.Find(f => f.FolderId == msg.FolderId.Value);
             if (folder == null)
-                return;
-            var authorized = IsAuthor(folder.CreatedByUserIdGuid) || perms.admin;
-            if (!authorized)
                 return;
             _dataStore.HardDeleteFolder(proto.ID, msg.FolderId.Value);
         }
@@ -511,9 +570,6 @@ public sealed class TerminalDatabaseSystem : EntitySystem
             var sub = parent.Subfolders.Find(s => s.SubfolderId == msg.SubfolderId.Value);
             if (sub == null)
                 return;
-            var authorized = IsAuthor(sub.CreatedByUserIdGuid) || perms.admin;
-            if (!authorized)
-                return;
             _dataStore.HardDeleteSubfolder(proto.ID, msg.SubfolderParentFolderId.Value, msg.SubfolderId.Value);
         }
         else if (msg.DocumentId.HasValue)
@@ -521,9 +577,6 @@ public sealed class TerminalDatabaseSystem : EntitySystem
             // Document permanent delete
             var doc = _dataStore.FindDocument(proto.ID, msg.DocumentId.Value);
             if (doc == null)
-                return;
-            var authorized = IsAuthor(doc.CreatedByUserIdGuid) || perms.admin;
-            if (!authorized)
                 return;
             _dataStore.HardDeleteDocument(proto.ID, msg.DocumentId.Value);
         }
@@ -535,10 +588,99 @@ public sealed class TerminalDatabaseSystem : EntitySystem
         PushFullState(uid, msg.Actor, openDocumentId: null);
     }
 
+    // #Misfits Add - Leadership-tier "move" (tidying). Leaders can relocate ANY non-admin
+    // entry into another live container (e.g. a "TRASH" folder they created). This is NOT a
+    // delete — moved entries stay visible; Admin-tier roles then delete them as they already can.
+    // Rules:
+    //   • Requires Leadership tier (Tier 7+); Admin (Tier 8) inherits it via ResolveAccess.
+    //   • Cannot move Admin-protected entries (IsAdmin folder, admin-marked doc, or doc inside
+    //     an Admin folder) — those remain Admin-only territory.
+    //   • Root folders can only become subfolders when they contain no subfolders of their own
+    //     (the schema nests one level deep).
+    private void OnMoveEntry(EntityUid uid, TerminalDatabaseAccessComponent comp, MoveDatabaseEntryMessage msg)
+    {
+        var proto = ResolveDatabaseForViewer(msg.Actor);
+        if (proto == null)
+            return;
+        var perms = ResolveAccess(msg.Actor, proto);
+        if (!perms.leadership)
+            return;
+
+        var folders = _dataStore.GetFolders(proto.ID);
+
+        // Destination container must exist and be live.
+        if (msg.TargetFolderId == null)
+            return;
+        var targetFolder = folders.Find(f => f.FolderId == msg.TargetFolderId.Value && !f.Deleted);
+        if (targetFolder == null)
+            return;
+        TerminalDatabaseDataStore.SubfolderDto? targetSub = null;
+        if (msg.TargetSubfolderId.HasValue)
+        {
+            targetSub = targetFolder.Subfolders.Find(s => s.SubfolderId == msg.TargetSubfolderId.Value && !s.Deleted);
+            if (targetSub == null)
+                return;
+        }
+
+        var changed = false;
+        if (msg.FolderId.HasValue && !msg.SubfolderId.HasValue && !msg.DocumentId.HasValue)
+        {
+            // Move a top-level folder into another root folder (becomes a subfolder).
+            if (msg.TargetSubfolderId.HasValue)
+                return; // folders cannot be nested inside subfolders
+            var folder = folders.Find(f => f.FolderId == msg.FolderId.Value);
+            if (folder == null || folder.Deleted)
+                return;
+            if (folder.FolderId == targetFolder.FolderId)
+                return; // no-op: already lives in the target
+            if (IsFolderAdminProtected(proto.ID, folder.FolderId))
+                return;
+            if (folder.Subfolders.Count > 0)
+                return; // cannot flatten a folder that contains subfolders
+            changed = _dataStore.MoveFolderToSubfolder(proto.ID, folder.FolderId, targetFolder.FolderId);
+        }
+        else if (msg.SubfolderParentFolderId.HasValue && msg.SubfolderId.HasValue && !msg.DocumentId.HasValue)
+        {
+            // Move a subfolder to another root folder.
+            if (msg.TargetSubfolderId.HasValue)
+                return; // subfolders cannot nest
+            var srcFolder = folders.Find(f => f.FolderId == msg.SubfolderParentFolderId.Value);
+            if (srcFolder == null || srcFolder.Deleted)
+                return;
+            var sub = srcFolder.Subfolders.Find(s => s.SubfolderId == msg.SubfolderId.Value);
+            if (sub == null || sub.Deleted)
+                return;
+            if (srcFolder.FolderId == targetFolder.FolderId)
+                return; // no-op: already lives in the target
+            if (IsSubfolderAdminProtected(proto.ID, srcFolder.FolderId, sub.SubfolderId))
+                return;
+            changed = _dataStore.MoveSubfolder(proto.ID, sub.SubfolderId, targetFolder.FolderId);
+        }
+        else if (msg.DocumentId.HasValue)
+        {
+            // Move a document into a folder root or subfolder.
+            var doc = _dataStore.FindDocument(proto.ID, msg.DocumentId.Value);
+            if (doc == null || doc.Deleted)
+                return;
+            if (IsDocumentInAdminFolder(proto.ID, doc.DocumentId))
+                return;
+            changed = _dataStore.MoveDocument(proto.ID, doc.DocumentId, targetFolder.FolderId, targetSub?.SubfolderId);
+        }
+        else
+        {
+            return; // nothing specified
+        }
+
+        if (!changed)
+            return;
+
+        PushFullState(uid, msg.Actor, openDocumentId: msg.DocumentId);
+    }
+
     // #Misfits Add - Spawn a holotape with the document's title + body and put it in the
     // actor's hands. Read access is required (you can't export what you can't see). Deleted
     // documents are blocked unless the actor has Leadership (mirrors viewer visibility).
-    private void OnExportDocument(EntityUid uid, HolotapeDataComponent comp, ExportDatabaseDocumentMessage msg)
+    private void OnExportDocument(EntityUid uid, TerminalDatabaseAccessComponent comp, ExportDatabaseDocumentMessage msg)
     {
         var proto = ResolveDatabaseForViewer(msg.Actor);
         if (proto == null)

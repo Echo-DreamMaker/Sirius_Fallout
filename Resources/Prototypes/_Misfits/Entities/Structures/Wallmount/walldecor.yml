@@ -1,0 +1,14 @@
+# #Misfits Add - 509th Brotherhood of Steel wall flag (sprite by enchantedcrocolisk)
+- type: entity
+  parent: N14FlagWallUS
+  id: MisfitsFlagWallBrotherhoodBonneville509
+  name: Flag of the 509th Brotherhood of Steel
+  suffix: 509th BoS
+  description: The banner of the 509th Brotherhood of Steel, an offshoot of the Mojave Chapter that survived Operation Sunburst and spent a decade as ghosts of the salt flats. Now risen as an active vanguard, they secure the region's lost technology before the Enclave or the ignorant can seize it.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Structures/Wallmounts/walldecor_bos509th.rsi
+    state: flag_509th
+  - type: Construction
+    graph: MisfitsFlagBOS509W
+    node: flagbos509w

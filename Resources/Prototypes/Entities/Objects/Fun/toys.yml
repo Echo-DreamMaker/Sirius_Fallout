@@ -2129,3 +2129,31 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/metal_thud1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: Plushie_Scribe
+  name: Cicero Plushie
+  description: A plushie of a Scribe of the Brotherhood of Steel, it smells really bad, no manner of washing remove the rancid stench.
+  components:
+  - type: Sprite
+    state: Plushie_Scribe
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Human/femalescream_2.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Human/female_sneeze_1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Human/femalescream_3.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Human/femalescream_4.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Human/femalescream_2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Human/femalescream_5.ogg

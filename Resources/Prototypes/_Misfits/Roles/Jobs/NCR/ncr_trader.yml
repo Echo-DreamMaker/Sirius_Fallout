@@ -3,7 +3,7 @@
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
   jobWhitelistBypassesRoleTimers: true # #Misfits Change
-  weight: 1
+  weight: 1 # Keep Trader above Prisoner in the civilian tier
   showBorder: false
   overrideConsoleVisibility: true
   canBeAntag: false
@@ -14,6 +14,9 @@
   requirements: # TEMP REMOVED - all requirements removed
    # - !type:MinPlayersRequirement
    #   min: 55
+    - !type:CharacterDepartmentTimeRequirement
+      department: NCR
+      min: 28800 # 8 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human
@@ -24,6 +27,8 @@
   startingGear: NCRTraderGear
   icon: "JobIconNcrCadet"
   supervisors: job-supervisors-ncr-prisoners
+  accessGroups:
+  - NCRTrader
   alwaysUseSpawner: true
   special:
   - !type:AddComponentSpecial
@@ -42,12 +47,14 @@
     shoes: N14ClothingShoesBlack
     id: N14IDNCRPassportTrader
     belt: N14WalletCash
+    pocket1: MisfitsNCRTraderFlatpack
+    pocket2: N14Multitool
   innerClothingSkirt: N14ClothingUniformJumpskirtFalloutBlack
   satchel: N14ClothingBackpackSatchelWastelanderFilled
   duffelbag: N14ClothingBackpackDuffelFilled  # N14TODO: Trader bag
   storage:
     back:
-    - N14BoxPlasticFilledWastelander 
+    - N14BoxPlasticFilledWastelander
 
 - type: playTimeTracker
   id: NCRTrader

@@ -1,0 +1,32 @@
+# #Misfits Add - 509th Bonneville BoS T-51bc power armor variants (sprites by enchantedcrocolisk).
+# Reskins of the T-51bc Paladin Commander suit; inherit ALL T-51bc mechanics
+# (Armor, ExplosionResistance, Reflect, PowerArmorIntegrity, WastelandMap HUD,
+# ToggleableClothing with the T-51bc helmet/gauntlets/boots). Only Sprite/Clothing
+# paths are overridden. These are NOT round-start spawn gear — delivered via
+# role-gated loadout picks (see loadouts_bos.yml).
+
+# --- 509th BoS Elder T-51bc ---
+- type: entity
+  parent: N14ClothingOuterPowerArmorT51BC
+  id: MisfitsClothingOuterPowerArmorBoS509Elder
+  name: 509th BoS Elder T-51bc Power Armor
+  description: The personal T-51bc of the 509th Brotherhood of Steel Elder. Painted in the chapter's Bonneville colors, its servos hum with the authority of a decade of salt-flat command.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/bos509_elder_t51bc.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/bos509_elder_t51bc.rsi
+
+# #Cythisiax Edited - 509th BoS Honor Guard T-51bc (was "509th BoS Head Paladin T-51bc").
+# The suit moved off the Head Paladin's loadout and onto the hidden Honor Guard rank's
+# starting gear (bos_honor_guard.yml). Sprite path is shared with the N14MechPowerArmorT51BC509HeadPaladin mech, so it is kept as-is.
+- type: entity
+  parent: N14ClothingOuterPowerArmorT51BC
+  id: MisfitsClothingOuterPowerArmorBoS509HonorGuard
+  name: 509th BoS Honor Guard T-51bc Power Armor
+  description: The personal T-51bc of a 509th Brotherhood of Steel Honor Guard, sworn to stand between the chapter and its Elder. Painted in the chapter's Bonneville colors, it carries the scars of vanguard action on the salt flats.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/bos509_headpaladin_t51bc.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/bos509_headpaladin_t51bc.rsi

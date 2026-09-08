@@ -222,7 +222,8 @@
 # Brotherhood of Steel
 # ---------------------------------------------------------------------------
 
-# T2 — Squire (lighter than Midwest armor; Squires are still in training)
+# T2 — Initiate (weakest BoS armor; base N14ClothingOuterMBoSInitiateArmor carries these stats)
+# T3 — Squire (one step above Initiate, below Knight; still in training)
 - type: entity
   parent: N14ClothingOuterMidwestArmor
   id: MisfitsBoSSquireArmor
@@ -230,12 +231,12 @@
   description: Light Brotherhood-issue armor worn by Squires; sturdy enough for patrol duty but not yet the full combat kit of a Knight.
   components:
   - type: Armor
-    modifiers:
+    modifiers: # #Misfits Tweak: Squire raised T2→T3 (0.80/0.75) so it outranks Initiate (T2, 0.85/0.80)
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.80
-        Heat: 0.80
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.75
+        Heat: 0.75
     priceMultiplier: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.90

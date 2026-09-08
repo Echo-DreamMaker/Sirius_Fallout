@@ -1,118 +1,45 @@
-/*
-using System.Numerics;
-using Content.Shared.FixedPoint;
-using Content.Shared.Store;
-using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared._N14.Special.Components;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(ClothingSpecialModifierSystem))]
+/// <summary>
+/// Grants flat temporary SPECIAL stat bonuses to the wearer while this clothing is
+/// equipped. Applied through <see cref="ClothingSpecialModifierSystem"/> using the
+/// misfits temporary modifier API so the bonuses stack with gear and clear on unequip.
+/// </summary>
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ClothingSpecialModifierComponent : Component
 {
-    #region Special stats
-
-    /// <summary>
-    /// SPECIAL Strength of cloth boost
-    /// </summary>
-    ///
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("strengthModifier")]
-    public int StrengthModifier = 0;
-
-    /// <summary>
-    /// SPECIAL Perception of cloth boost
-    /// </summary>
-    ///
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("perceptionModifier")]
-    public int PerceptionModifier = 0;
-
-    /// <summary>
-    /// SPECIAL Endurance of cloth boost
-    /// </summary>
-    ///
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("enduranceModifier")]
-    public int EnduranceModifier = 0;
-
-    /// <summary>
-    /// SPECIAL Charisma of cloth boost
-    /// </summary>
-    ///
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("charismaModifier")]
-    public int CharismaModifier = 0;
-
-    /// <summary>
-    /// SPECIAL Intelligence of cloth boost
-    /// </summary>
-    ///
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("intelligenceModifier")]
-    public int IntelligenceModifier = 0;
-
-    /// <summary>
-    /// SPECIAL Agility of cloth boost
-    /// </summary>
-    ///
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("agilityModifier")]
-    public int AgilityModifier = 0;
-
-    /// <summary>
-    /// SPECIAL Luck of cloth boost
-    /// </summary>
-    ///
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("luckModifier")]
-    public int LuckModifier = 0;
-
-    /// <summary>
-    ///     Is this clothing item currently 'actively' affects you?
-    ///     e.g. magboots can be turned on and off.
-    ///     e.g. or clothing using something battery which could become dead
-    /// </summary>
-    [DataField("enabled")] public bool Enabled = true;
-
-
-    #endregion
-
-}
-
-[Serializable, NetSerializable]
-public sealed class ClothingSpecialModifierComponentState : ComponentState
-{
+    [DataField, AutoNetworkedField]
     public int StrengthModifier;
-    public int PerceptionModifier;
-    public int EnduranceModifier;
-    public int CharismaModifier;
-    public int IntelligenceModifier;
-    public int AgilityModifier;
-    public int LuckModifier;
-    public bool Enabled;
 
-    public ClothingSpecialModifierComponentState(
-        int strengthModifier,
-        int perceptionModifier,
-        int enduranceModifier,
-        int charismaModifier,
-        int intelligenceModifier,
-        int agilityModifier,
-        int luckModifier,
-        bool enabled)
-    {
-        StrengthModifier = strengthModifier;
-        PerceptionModifier = perceptionModifier;
-        EnduranceModifier = enduranceModifier;
-        CharismaModifier = charismaModifier;
-        IntelligenceModifier = intelligenceModifier;
-        AgilityModifier = agilityModifier;
-        LuckModifier = luckModifier;
-        Enabled = enabled;
-    }
+    [DataField, AutoNetworkedField]
+    public int PerceptionModifier;
+
+    [DataField, AutoNetworkedField]
+    public int EnduranceModifier;
+
+    [DataField, AutoNetworkedField]
+    public int CharismaModifier;
+
+    [DataField, AutoNetworkedField]
+    public int IntelligenceModifier;
+
+    [DataField, AutoNetworkedField]
+    public int AgilityModifier;
+
+    [DataField, AutoNetworkedField]
+    public int LuckModifier;
+
+    /// <summary>
+    /// Whether this clothing currently grants its bonuses (e.g. toggles or batteries).
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Enabled = true;
+
+    /// <summary>
+    /// The entity currently wearing this item (not networked). Used to clear the
+    /// modifiers if the clothing is destroyed while equipped.
+    /// </summary>
+    public EntityUid? Equipee;
 }
-*/

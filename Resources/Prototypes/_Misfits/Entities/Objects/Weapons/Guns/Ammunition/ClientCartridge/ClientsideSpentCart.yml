@@ -1,0 +1,77 @@
+# not sure if I really need to ensure netsync is off for every comp
+# but I dont like seeing that "networked comps" list in debug
+
+- type: entity
+  id: ClientCartridgePhysics
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    visible: true
+    sprite: _Misfits/Objects/Weapons/Guns/Ammunition/SpentCartDefault.rsi
+    state: base
+    drawdepth: Items
+    netsync: false
+  - type: CollisionWake
+    netsync: false
+  - type: Physics
+    bodyType: Dynamic
+    netsync: false
+    fixedRotation: false
+  - type: VisualPhys
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Weapons/Guns/Casings/casing_fall_1.ogg
+      params:
+        volume: -1
+    netsync: false
+  - type: Fixtures
+    netsync: false
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.05,0.10,0.05"
+        density: 1
+        mask:
+          - FullTileMask
+        restitution: 0.8
+        friction: 0.5
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: MetaData
+  - type: Transform
+    netsync: false
+  - type: TimedDespawn
+    lifetime: 10
+
+
+
+- type: entity
+  id: ClientCartridgeStatic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    visible: true
+    sprite: _Misfits/Objects/Weapons/Guns/Ammunition/SpentCartDefault.rsi
+    state: base
+    drawdepth: Items
+    netsync: false
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: MetaData
+  - type: Fixtures
+  - type: Transform
+    netsync: false
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Weapons/Guns/Casings/casing_fall_1.ogg
+      params:
+        volume: -1
+    netsync: false
+  - type: Physics
+    bodyType: Static
+    netsync: false
+  - type: TimedDespawn
+    lifetime: 10

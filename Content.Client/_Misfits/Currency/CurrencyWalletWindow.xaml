@@ -20,5 +20,41 @@
             <LineEdit Name="BottlecapsAmount" PlaceHolder="Amount" HorizontalExpand="True" />
             <Button Name="BottlecapsWithdraw" Text="Withdraw" />
         </BoxContainer>
+        <cc:HSeparator />
+
+        <!-- NCR Dollars -->
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <Label Text="NCR Dollars: " />
+            <Label Name="NcrDollarsLabel" Text="0" HorizontalExpand="True" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <Label Text="Withdraw: " />
+            <LineEdit Name="NcrDollarsAmount" PlaceHolder="Amount" HorizontalExpand="True" />
+            <Button Name="NcrDollarsWithdraw" Text="Withdraw" />
+        </BoxContainer>
+        <cc:HSeparator />
+
+        <!-- Legion Denarii -->
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <Label Text="Legion Denarii: " />
+            <Label Name="LegionDenariiLabel" Text="0" HorizontalExpand="True" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <Label Text="Withdraw: " />
+            <LineEdit Name="LegionDenariiAmount" PlaceHolder="Amount" HorizontalExpand="True" />
+            <Button Name="LegionDenariiWithdraw" Text="Withdraw" />
+        </BoxContainer>
+        <cc:HSeparator />
+
+        <!-- Pre-War Money -->
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <Label Text="Pre-War Money: " />
+            <Label Name="PrewarMoneyLabel" Text="0" HorizontalExpand="True" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4">
+            <Label Text="Withdraw: " />
+            <LineEdit Name="PrewarMoneyAmount" PlaceHolder="Amount" HorizontalExpand="True" />
+            <Button Name="PrewarMoneyWithdraw" Text="Withdraw" />
+        </BoxContainer>
     </BoxContainer>
 </DefaultWindow>

@@ -102,4 +102,72 @@ public sealed partial class SpecialTuningPrototype : IPrototype
 
     [DataField("luckLootChancePerPoint")]
     public float LuckLootChancePerPoint = 0.025f;
+
+    // Luck: chance to dodge incoming bullets and hitscan shots.
+    [DataField("luckDodgeChancePerPoint")]
+    public float LuckDodgeChancePerPoint = 0.0075f;
+
+    // Endurance: damage resistance to Poison and Radiation per point above average.
+    [DataField("endurancePoisonResistancePerPoint")]
+    public float EndurancePoisonResistancePerPoint = 0.1f;
+
+    [DataField("enduranceRadiationResistancePerPoint")]
+    public float EnduranceRadiationResistancePerPoint = 0.1f;
+
+    // Strength: reduces the chance of the character being disarmed per point above average.
+    [DataField("strengthDisarmProtectionPerPoint")]
+    public float StrengthDisarmProtectionPerPoint = 0.08f;
+
+    // Intelligence: energy-weapon misfire and drop penalties when INT < requirement.
+    [DataField("intelligenceWeaponMisfireChancePerPoint")]
+    public float IntelligenceWeaponMisfireChancePerPoint = 0.1f;
+
+    [DataField("intelligenceWeaponDropChancePerPoint")]
+    public float IntelligenceWeaponDropChancePerPoint = 0.05f;
+
+    // Intelligence: low-INT speech corruption (pronunciation + mumbling).
+    // Severity scales with the deficit below the requirement (4 - INT).
+    [DataField("intelligenceVowelReplaceBaseChance")]
+    public float IntelligenceVowelReplaceBaseChance = 0.2f;
+
+    [DataField("intelligenceVowelReplaceChancePerPoint")]
+    public float IntelligenceVowelReplaceChancePerPoint = 0.22f;
+
+    [DataField("intelligenceMumbleMinWordsBase")]
+    public int IntelligenceMumbleMinWordsBase = 6;
+
+    [DataField("intelligenceMumbleChanceBase")]
+    public float IntelligenceMumbleChanceBase = 0.1f;
+
+    [DataField("intelligenceMumbleChancePerPoint")]
+    public float IntelligenceMumbleChancePerPoint = 0.2f;
+
+    // Perception: aiming mode range and accuracy bonuses.
+    [DataField("perceptionAimZoomMultiplierPerPoint")]
+    public float PerceptionAimZoomMultiplierPerPoint = 0.08f;
+
+    [DataField("perceptionAimSpreadMultiplierPerPoint")]
+    public float PerceptionAimSpreadMultiplierPerPoint = 0.02f;
+
+    // Sniper rifles (tags: Sniper) get a stronger spread-reduction reward while aiming.
+    [DataField("perceptionAimSpreadSniperMultiplierPerPoint")]
+    public float PerceptionAimSpreadSniperMultiplierPerPoint = 0.05f;
+
+    // Perception: motion-trace "infrared" reveal of living mobs through walls.
+    // Requires a Perception of at least PerceptionTraceMinPerception. The instantly
+    // lingering afterimage fades out over PerceptionTracePersistenceTime.
+    [DataField("perceptionTraceMinPerception")]
+    public int PerceptionTraceMinPerception = 8;
+
+    [DataField("perceptionTraceRange")]
+    public float PerceptionTraceRange = 13f;
+
+    [DataField("perceptionTracePersistenceTime")]
+    public float PerceptionTracePersistenceTime = 3f;
+
+    [DataField("perceptionTraceMinAlpha")]
+    public float PerceptionTraceMinAlpha = 0.3f;
+
+    [DataField("perceptionTraceAlphaPerPoint")]
+    public float PerceptionTraceAlphaPerPoint = 0.25f;
 }

@@ -5,6 +5,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
+using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind.Components;
@@ -476,6 +477,49 @@ public abstract class SharedMindSystem : EntitySystem
 
         mindId = default;
         return false;
+    }
+
+    // #Misfits Add - remote piloting. A mind that has left its body to run a camera or a drone
+    // is not a ghost: the body is still standing there with working ears and a headset on, so
+    // speech and radio have to keep finding it. Ghosts are excluded on purpose, they are meant
+    // to have left their body's senses behind.
+
+    /// <summary>
+    /// The body a mind left behind while it is off piloting <paramref name="visiting"/> remotely.
+    /// </summary>
+    public bool TryGetPilotedBody(EntityUid visiting, out EntityUid body)
+    {
+        body = default;
+
+        if (HasComp<GhostComponent>(visiting) ||
+            !TryGetMind(visiting, out _, out var mind) ||
+            mind.VisitingEntity != visiting ||
+            mind.OwnedEntity is not { } owned)
+        {
+            return false;
+        }
+
+        body = owned;
+        return true;
+    }
+
+    /// <summary>
+    /// The session behind <paramref name="body"/> while its mind is off piloting something else.
+    /// Bodies whose player is present as normal return false: their own actor is the right target.
+    /// </summary>
+    public bool TryGetPilotingSession(EntityUid body, [NotNullWhen(true)] out ICommonSession? session)
+    {
+        session = null;
+
+        if (!TryGetMind(body, out _, out var mind) ||
+            mind.VisitingEntity is not { } visiting ||
+            HasComp<GhostComponent>(visiting))
+        {
+            return false;
+        }
+
+        session = mind.Session;
+        return session != null;
     }
 
     /// <summary>

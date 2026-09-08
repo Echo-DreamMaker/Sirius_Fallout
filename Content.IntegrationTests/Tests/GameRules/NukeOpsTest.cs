@@ -155,7 +155,7 @@ public sealed class NukeOpsTest
         Assert.That(entMan.EntityExists(nukieStation.Station));
         Assert.That(nukieStation.Station, Is.Not.EqualTo(rule.TargetStation));
 
-        Assert.That(server.MapMan.MapExists(gridsRule.Map));
+        Assert.That(mapSys.MapExists(gridsRule.Map));
         var nukieMap = mapSys.GetMap(gridsRule.Map!.Value);
 
         var targetStation = entMan.GetComponent<StationDataComponent>(rule.TargetStation!.Value);

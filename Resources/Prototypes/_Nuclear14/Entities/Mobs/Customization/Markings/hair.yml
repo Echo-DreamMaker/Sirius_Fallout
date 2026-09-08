@@ -69,7 +69,7 @@
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: zeta_basic_braids
-      
+
 - type: marking
   id: ZetaHairQuadspike
   bodyPart: Hair
@@ -1165,3 +1165,106 @@
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: standard_asymmetry
+#Sirius add
+- type: marking
+  id: N14HairCivil_1
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_civil_1
+
+- type: marking
+  id: N14HairKazachok
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_kazachok
+
+- type: marking
+  id: N14HairLishay
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_lishay
+
+- type: marking
+  id: N14HairModnayaLeftShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_modnaya_left_short
+
+- type: marking
+  id: N14HairModnayaLongLeft
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_modnaya_long_left
+
+- type: marking
+  id: N14HairModnayaRightLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_modnaya_right_long
+
+- type: marking
+  id: N14HairModnayaRightShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_modnaya_right_short
+- type: marking
+  id: N14HairRaider
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_raider_1
+
+- type: marking
+  id: N14HairRudeKare_1
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_rude_kare_1
+
+- type: marking
+  id: N14HairRudeKare_2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_rude_kare_2
+
+- type: marking
+  id: N14HairSideLeft
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_side_left
+
+- type: marking
+  id: N14HairSideRight
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_side_right
+
+- type: marking
+  id: N14HairTriokez
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Nuclear14/Mobs/Customization/new_hair.rsi
+      state: hair_triokez

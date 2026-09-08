@@ -52,6 +52,8 @@ using System.Reflection;
 using Robust.Shared.Network;
 using Content.Client._NC.Sponsor;
 using Content.Client._NC.TTS; // Forge-Change
+using Content.Client._Misfits.Supporter; // #Cythisiax Add - Patreon supporter loadouts
+using Content.Shared._Misfits.Supporter; // #Cythisiax Add - Patreon supporter loadouts
 
 namespace Content.Client.Lobby.UI
 {
@@ -74,6 +76,7 @@ namespace Content.Client.Lobby.UI
         private readonly LobbyUIController _controller;
         private readonly IRobustRandom _random;
         private readonly SponsorManager _sponsorMan; // Forge-Change
+        private readonly SupporterManager _supporterMan; // #Cythisiax Add - Patreon supporter loadouts
 
         private FlavorText.FlavorText? _flavorText;
         private BoxContainer _ccustomspecienamecontainerEdit => CCustomSpecieName;
@@ -165,16 +168,26 @@ namespace Content.Client.Lobby.UI
                 ("C27BoS", "humanoid-profile-editor-robot-model-c27-bos"),
                 ("C27ZAX", "humanoid-profile-editor-robot-model-c27-zax"),
             },
+            // Ordinary Deathclaw life stages share the same whitelist/job. Bwonsamdi is intentionally excluded.
+            ["Deathclaw"] = new[]
+            {
+                ("Deathclaw", "humanoid-profile-editor-deathclaw-variant-adult"),
+                ("DeathclawAdolescent", "humanoid-profile-editor-deathclaw-variant-adolescent"),
+                ("DeathclawHatchling", "humanoid-profile-editor-deathclaw-variant-hatchling"),
+            },
         };
 
         private readonly Dictionary<string, BoxContainer> _jobCategories;
+        private readonly HashSet<string> _collapsedJobDepartments = new();
 
         // #Misfits Add - active job tab; drives department filter in RefreshJobs
-        private DepartmentUICategory _jobUICategory = DepartmentUICategory.Wasteland;
+        private DepartmentUICategory _jobUICategory = DepartmentUICategory.NoFaction;
 
         private Dictionary<Button, ConfirmationData> _confirmationData = new();
-        private List<TraitPreferenceSelector> _traitPreferences = new();
         private int _traitCount;
+        private readonly HashSet<string> _usableTraitIds = new();
+        private readonly Dictionary<string, string> _traitCategoryRoots = new();
+        private HashSet<LoadoutPreferenceSelector> _patreonLoadoutPreferences = new(); // #Cythisiax Add - Patreon supporter loadouts
         private HashSet<LoadoutPreferenceSelector> _loadoutPreferences = new();
         private BoxContainer? _specialTab;
         private BoxContainer? _specialRows;
@@ -216,8 +229,9 @@ namespace Content.Client.Lobby.UI
             IResourceManager resManager, // Forge-Change
             JobRequirementsManager requirements,
             MarkingManager markings,
-            IRobustRandom random,
-            SponsorManager sponsorMan // Forge-Change
+            IRobustRandom random, // Forge-Change
+            SponsorManager sponsorMan, // Forge-Change
+            SupporterManager supporterMan // #Cythisiax Add - Patreon supporter loadouts
             )
         {
             RobustXamlLoader.Load(this);
@@ -231,6 +245,7 @@ namespace Content.Client.Lobby.UI
             _resManager = resManager; // Forge-Change
             _requirements = requirements;
             _random = random;
+            _supporterMan = supporterMan; // #Cythisiax Add - Patreon supporter loadouts
             _sponsorMan = sponsorMan; // Forge-Change
 
             _characterRequirementsSystem = _entManager.System<CharacterRequirementsSystem>();
@@ -256,6 +271,13 @@ namespace Content.Client.Lobby.UI
                     (HumanoidCharacterProfile?) _preferencesManager.Preferences?.SelectedCharacter,
                     _preferencesManager.Preferences?.SelectedCharacterIndex);
             };
+
+            // #Cythisiax Added - End-of-round report anonymity toggle (account-level setting).
+            RoundEndAnonymityCheckBox.OnToggled += args =>
+            {
+                _preferencesManager.SetRoundEndReportAnonymity(args.Pressed);
+            };
+            UpdateRoundEndAnonymityCheckBox();
 
             #region Left
 
@@ -383,6 +405,7 @@ namespace Content.Client.Lobby.UI
                 UpdateCustomSpecieNameEdit();
                 UpdateHeightWidthSliders();
                 UpdateRobotAppearanceFieldVisibility(); // #Misfits Add: robot species hide unsupported appearance fields while keeping skin color editable.
+                UpdateDeathclawAppearanceFieldVisibility(); // # #Cythisiax Add: deathclaw hides unsupported fields, keeps height/width.
                 UpdateRobotModelSelector(); // #Misfits Add: refresh model picker when species changes.
             };
 
@@ -586,6 +609,38 @@ namespace Content.Client.Lobby.UI
 
             #endregion SPECIAL
 
+            #region Traits
+            // #Misfits Change - Perks tab moved to directly after SPECIAL (before Jobs)
+
+            // Set up the traits tab
+            TraitsTab.Orphan();
+            CTabContainer.AddTab(TraitsTab, Loc.GetString("humanoid-profile-editor-traits-tab"));
+
+            // Show/Hide the traits tab if they ever get enabled/disabled
+            var traitsEnabled = cfgManager.GetCVar(CCVars.GameTraitsEnabled);
+            CTabContainer.SetTabVisible(TraitsTab, traitsEnabled);
+            cfgManager.OnValueChanged(CCVars.GameTraitsEnabled,
+                enabled => CTabContainer.SetTabVisible(TraitsTab, enabled));
+
+            // #Misfits Add - PETS tab: pet/mount traits get their own top-level tab.
+            PetsTab.Orphan();
+            CTabContainer.AddTab(PetsTab, Loc.GetString("humanoid-profile-editor-pets-tab"));
+            CTabContainer.SetTabVisible(PetsTab, traitsEnabled);
+            cfgManager.OnValueChanged(CCVars.GameTraitsEnabled,
+                enabled => CTabContainer.SetTabVisible(PetsTab, enabled));
+
+            // #Cythisiax Added - wire the pets talent tree to the separate pets point/cap system.
+            PetsTalentTree.NodePressed += OnPetsTreeNodePressed;
+
+            TraitsShowUnusableButton.OnToggled += args => UpdateTraits(args.Pressed);
+            TraitsRemoveUnusableButton.OnPressed += _ => TryRemoveUnusableTraits();
+
+            TalentTree.NodePressed += OnTalentTreeNodePressed;
+
+            UpdateTraits(false);
+
+            #endregion
+
             #region Jobs
 
             Jobs.Orphan();
@@ -615,7 +670,7 @@ namespace Content.Client.Lobby.UI
             JobTabWasteland.Pressed = true;
             var jobTabMap = new[]
             {
-                (JobTabWasteland,     DepartmentUICategory.Wasteland),
+                (JobTabWasteland,     DepartmentUICategory.NoFaction),
                 (JobTabMinorFactions, DepartmentUICategory.MinorFaction),
                 (JobTabMajorFactions, DepartmentUICategory.MajorFaction),
                 (JobTabWhitelist,     DepartmentUICategory.Whitelist),
@@ -635,31 +690,12 @@ namespace Content.Client.Lobby.UI
             #endregion Jobs
 
             #region Antags
+            // #Misfits Change - Antags tab removed from character setup (AddTab commented out so no tab renders)
 
             Antags.Orphan();
-            CTabContainer.AddTab(Antags, Loc.GetString("humanoid-profile-editor-antags-tab"));
+            // CTabContainer.AddTab(Antags, Loc.GetString("humanoid-profile-editor-antags-tab"));
 
             #endregion Antags
-
-            #region Traits
-
-            // Set up the traits tab
-            TraitsTab.Orphan();
-            CTabContainer.AddTab(TraitsTab, Loc.GetString("humanoid-profile-editor-traits-tab"));
-            _traitPreferences = new List<TraitPreferenceSelector>();
-
-            // Show/Hide the traits tab if they ever get enabled/disabled
-            var traitsEnabled = cfgManager.GetCVar(CCVars.GameTraitsEnabled);
-            CTabContainer.SetTabVisible(TraitsTab, traitsEnabled);
-            cfgManager.OnValueChanged(CCVars.GameTraitsEnabled,
-                enabled => CTabContainer.SetTabVisible(TraitsTab, enabled));
-
-            TraitsShowUnusableButton.OnToggled += args => UpdateTraits(args.Pressed);
-            TraitsRemoveUnusableButton.OnPressed += _ => TryRemoveUnusableTraits();
-
-            UpdateTraits(false);
-
-            #endregion
 
             #region Loadouts
 
@@ -681,6 +717,25 @@ namespace Content.Client.Lobby.UI
 
             #endregion
 
+            #region Patreon Loadouts
+            // #Cythisiax Add - Patreon supporter-exclusive loadout tab.
+            // Mirrors the regular loadout tab but only lists loadouts with a supporterTier
+            // requirement, and the whole tab is hidden unless the local player is a supporter.
+            PatreonLoadoutsTab.Orphan();
+            CTabContainer.AddTab(PatreonLoadoutsTab, Loc.GetString("humanoid-profile-editor-patreon-loadouts-tab"));
+            _patreonLoadoutPreferences = new();
+
+            var isPatreonSupporter = _playerManager.LocalUser is { } localUser
+                && _supporterMan.TryGetSupporterTier(localUser, out _);
+            CTabContainer.SetTabVisible(PatreonLoadoutsTab, isPatreonSupporter);
+
+            PatreonLoadoutsShowUnusableButton.OnToggled += args => UpdatePatreonLoadouts(args.Pressed);
+            PatreonLoadoutsRemoveUnusableButton.OnPressed += _ => TryRemoveUnusablePatreonLoadouts();
+
+            UpdatePatreonLoadouts(false);
+
+            #endregion
+
             #region Markings
 
             MarkingsTab.Orphan();
@@ -690,6 +745,8 @@ namespace Content.Client.Lobby.UI
             Markings.OnMarkingRemoved += OnMarkingChange;
             Markings.OnMarkingColorChange += OnMarkingChange;
             Markings.OnMarkingRankChange += OnMarkingChange;
+
+            SetupProstheticSelectors();
 
             #endregion Markings
 
@@ -828,7 +885,7 @@ namespace Content.Client.Lobby.UI
 
             for (var i = 0; i < _species.Count; i++)
             {
-                if (IsHiddenProtectronVariantSpecies(_species[i].ID))
+                if (IsHiddenModelVariantSpecies(_species[i].ID))
                     continue;
 
                 var buttonId = _speciesButtonSpeciesIds.Count;
@@ -1009,6 +1066,12 @@ namespace Content.Client.Lobby.UI
                 _preferencesManager.Preferences?.SelectedCharacterIndex);
         }
 
+        /// #Cythisiax Added - Keeps the end-of-round anonymity checkbox in sync with the account-level setting.
+        private void UpdateRoundEndAnonymityCheckBox()
+        {
+            RoundEndAnonymityCheckBox.Pressed = _preferencesManager.Preferences?.AnonymousRoundEndReport ?? false;
+        }
+
         /// Sets the editor to the specified profile with the specified slot
         public void SetProfile(HumanoidCharacterProfile? profile, int? slot)
         {
@@ -1031,6 +1094,7 @@ namespace Content.Client.Lobby.UI
             UpdateEyePickers();
             UpdateSaveButton();
             UpdateMarkings();
+            UpdateProsthetics();
             UpdateBarkVoicesControls(); // Corvax-Fallout-Barks
             UpdateSpeechVerbControls(); // #Misfits Add - vocal style
             UpdateTTSVoicesControls(); // Corvax-TTS
@@ -1042,7 +1106,10 @@ namespace Content.Client.Lobby.UI
             UpdateCharacterRequired();
             UpdateSpecialControls();
             UpdateRobotAppearanceFieldVisibility(); // #Misfits Add: keep robot-only field visibility consistent after profile load/reset.
+            UpdateDeathclawAppearanceFieldVisibility(); // # #Cythisiax Add: keep deathclaw appearance field visibility consistent after load/reset.
             UpdateRobotModelSelector(); // #Misfits Add: keep Robot Model selector in sync after profile load/reset.
+
+            UpdateRoundEndAnonymityCheckBox(); // #Cythisiax Added - sync round-end anonymity toggle
 
             RefreshAntags();
             RefreshJobs();
@@ -1074,7 +1141,6 @@ namespace Content.Client.Lobby.UI
             }
 
             SetPreviewRotation(_previewRotation);
-            TraitsTabs.UpdateTabMerging();
             LoadoutsTabs.UpdateTabMerging();
         }
 
@@ -1159,11 +1225,12 @@ namespace Content.Client.Lobby.UI
                     .ToArray();
 
                 Array.Sort(jobs, JobUIComparer.Instance);
-
                 // #Misfits Change: hide empty department categories
                 if (jobs.Length == 0)
                     continue;
 
+                // #Cythisiax Fixed - hoist departmentContents out of the if-block so it is visible to the jobs foreach below
+                BoxContainer departmentContents = null!;
                 if (!_jobCategories.TryGetValue(department.ID, out var category))
                 {
                     category = new BoxContainer
@@ -1179,19 +1246,30 @@ namespace Content.Client.Lobby.UI
                     else
                         category.AddChild(new Control { MinSize = new Vector2(0, 23) });
 
-                    category.AddChild(new PanelContainer
+                    departmentContents = new BoxContainer
                     {
-                        StyleClasses = { StyleNano.StyleClassPipBoyHighlight }, // #Misfits Change - themeable highlight
-                        Children =
-                        {
-                            new Label
-                            {
-                                Text = Loc.GetString("humanoid-profile-editor-department-jobs-label",
-                                    ("departmentName", departmentName)),
-                                Margin = new Thickness(5f, 0, 0, 0),
-                            },
-                        },
-                    });
+                        Orientation = LayoutOrientation.Vertical,
+                        Visible = !_collapsedJobDepartments.Contains(department.ID),
+                    };
+
+                    var departmentButton = new Button
+                    {
+                        Text = departmentName,
+                        HorizontalExpand = true,
+                        ToggleMode = true,
+                        Pressed = !_collapsedJobDepartments.Contains(department.ID),
+                    };
+                    departmentButton.OnToggled += args =>
+                    {
+                        departmentContents.Visible = args.Pressed;
+                        if (args.Pressed)
+                            _collapsedJobDepartments.Remove(department.ID);
+                        else
+                            _collapsedJobDepartments.Add(department.ID);
+                    };
+
+                    category.AddChild(departmentButton);
+                    category.AddChild(departmentContents);
 
                     _jobCategories[department.ID] = category;
                     JobList.AddChild(category);
@@ -1202,7 +1280,7 @@ namespace Content.Client.Lobby.UI
                     // #Misfits Tweak - stronger gap makes role tier breaks readable in ranked departments.
                     if (job.ShowBorder)
                     {
-                        category.AddChild(new PanelContainer
+                        departmentContents.AddChild(new PanelContainer
                         {
                             StyleClasses = { StyleNano.StyleClassPipBoyHighlight }, // #Misfits Change - themeable highlight
                             MinSize = new Vector2(0, 2),
@@ -1211,7 +1289,10 @@ namespace Content.Client.Lobby.UI
                     }
 
                     var jobContainer = new BoxContainer { Orientation = LayoutOrientation.Horizontal, };
-                    var selector = new RequirementsSelector { Margin = new(3f, 3f, 3f, 0f) };
+                    var selector = new RequirementsSelector
+                    {
+                        Margin = new(3f, 3f, 3f, 0f),
+                    };
 
                     // #Misfits Tweak - fixed icon slot keeps mixed faction rank icons aligned in job preferences.
                     var icon = new TextureRect
@@ -1268,7 +1349,7 @@ namespace Content.Client.Lobby.UI
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
-                    category.AddChild(jobContainer);
+                    departmentContents.AddChild(jobContainer);
                 }
             }
 
@@ -1295,6 +1376,9 @@ namespace Content.Client.Lobby.UI
 
             foreach (var department in departments)
             {
+                if (department.EditorHidden || department.UICategory != _jobUICategory)
+                    continue;
+
                 var departmentName = Loc.GetString($"department-{department.ID}");
                 var profile = Profile ?? HumanoidCharacterProfile.DefaultWithSpecies();
                 var playTimes = _requirements.GetRawPlayTimeTrackers();
@@ -1318,8 +1402,9 @@ namespace Content.Client.Lobby.UI
                         out _,
                         jobWhitelisted: _requirements.IsJobWhitelisted(job.ID))) // #Misfits Change
                     .ToArray();
-                Array.Sort(jobs, JobUIComparer.Instance);
 
+                BoxContainer departmentContents = null!;
+                Array.Sort(jobs, JobUIComparer.Instance);
                 // #Misfits Change: hide empty department categories
                 if (jobs.Length == 0)
                     continue;
@@ -1344,19 +1429,30 @@ namespace Content.Client.Lobby.UI
                         });
                     }
 
-                    category.AddChild(new PanelContainer
+                    departmentContents = new BoxContainer
                     {
-                        StyleClasses = { StyleNano.StyleClassPipBoyHighlight }, // #Misfits Change - themeable highlight
-                        Children =
-                        {
-                            new Label
-                            {
-                                Text = Loc.GetString("humanoid-profile-editor-department-jobs-label",
-                                    ("departmentName", departmentName)),
-                                Margin = new Thickness(5f, 0, 0, 0)
-                            }
-                        }
-                    });
+                        Orientation = LayoutOrientation.Vertical,
+                        Visible = !_collapsedJobDepartments.Contains(department.ID),
+                    };
+
+                    var departmentButton = new Button
+                    {
+                        Text = departmentName,
+                        HorizontalExpand = true,
+                        ToggleMode = true,
+                        Pressed = !_collapsedJobDepartments.Contains(department.ID),
+                    };
+                    departmentButton.OnToggled += args =>
+                    {
+                        departmentContents.Visible = args.Pressed;
+                        if (args.Pressed)
+                            _collapsedJobDepartments.Remove(department.ID);
+                        else
+                            _collapsedJobDepartments.Add(department.ID);
+                    };
+
+                    category.AddChild(departmentButton);
+                    category.AddChild(departmentContents);
 
                     _jobCategories[department.ID] = category;
                     JobList.AddChild(category);
@@ -1367,7 +1463,7 @@ namespace Content.Client.Lobby.UI
                     // #Misfits Tweak - stronger gap makes role tier breaks readable in ranked departments.
                     if (job.ShowBorder)
                     {
-                        category.AddChild(new PanelContainer
+                        departmentContents.AddChild(new PanelContainer
                         {
                             StyleClasses = { StyleNano.StyleClassPipBoyHighlight }, // #Misfits Change - themeable highlight
                             MinSize = new Vector2(0, 2),
@@ -1380,7 +1476,10 @@ namespace Content.Client.Lobby.UI
                         Orientation = LayoutOrientation.Horizontal,
                     };
 
-                    var selector = new RequirementsSelector { Margin = new Thickness(3f, 3f, 3f, 0f), };
+                    var selector = new RequirementsSelector
+                    {
+                        Margin = new Thickness(3f, 3f, 3f, 0f),
+                    };
 
                     // #Misfits Tweak - fixed icon slot keeps mixed faction rank icons aligned in job preferences.
                     var icon = new TextureRect
@@ -1437,7 +1536,7 @@ namespace Content.Client.Lobby.UI
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
-                    category.AddChild(jobContainer);
+                    departmentContents.AddChild(jobContainer);
                 }
             }
 
@@ -1731,6 +1830,7 @@ namespace Content.Client.Lobby.UI
 
             OnSkinColorOnValueChanged(); // Species may have special color prefs, make sure to update it.
             Markings.SetSpecies(newSpecies); // Repopulate the markings tab as well.
+            UpdateProsthetics();
             UpdateSexControls(); // Update sex for new species
             UpdateCharacterRequired();
             // Changing species provides inaccurate sliders without these
@@ -1739,6 +1839,7 @@ namespace Content.Client.Lobby.UI
             UpdateSpeciesGuidebookIcon();
             UpdateTabVisibility(newSpecies); // #Misfits Change: hide tabs for restricted species
             UpdateRobotAppearanceFieldVisibility(); // #Misfits Add: apply robot-specific appearance field locks immediately after species swap.
+            UpdateDeathclawAppearanceFieldVisibility(); // # #Cythisiax Add: apply deathclaw appearance field locks immediately after species swap.
             UpdateRobotModelSelector(); // #Misfits Add: update model selector to match selected Protectron variant.
             IsDirty = true;
             ReloadProfilePreview();
@@ -1822,6 +1923,31 @@ namespace Content.Client.Lobby.UI
             SexContainer.Visible = !isRobotSpecies;
         }
 
+        // # #Cythisiax Changed - Deathclaw species hides unsupported appearance fields (mirrors robots).
+        // Ordinary Deathclaws are locked to standard sprite size (size sliders hidden); only Bwonsamdi
+        // (BwonsamdiDeathclaw) keeps the height/width sliders.
+        private void UpdateDeathclawAppearanceFieldVisibility()
+        {
+            if (Profile == null)
+                return;
+
+            var isDeathclaw = Profile.Species == "Deathclaw"
+                || Profile.Species == "DeathclawAdolescent"
+                || Profile.Species == "DeathclawHatchling"
+                || Profile.Species == "BwonsamdiDeathclaw";
+            var isFixedSize = Profile.Species == "Deathclaw"
+                || Profile.Species == "DeathclawAdolescent"
+                || Profile.Species == "DeathclawHatchling"; // # #Cythisiax - ordinary sentient Deathclaws use fixed life-stage sprites
+
+            EyesContainer.Visible = !isDeathclaw;
+            WeightContainer.Visible = !isDeathclaw;
+            ClothingContainer.Visible = !isDeathclaw;
+            LoadoutsContainer.Visible = !isDeathclaw;
+            SexContainer.Visible = !isDeathclaw;
+            HeightContainer.Visible = !isFixedSize; // # #Cythisiax - only Bwonsamdi can adjust height
+            WidthContainer.Visible = !isFixedSize;  // # #Cythisiax - only Bwonsamdi can adjust width
+        }
+
         // #Misfits Add: helper for species checks used by robot-specific character editor behavior.
         private static bool IsRobotSpecies(string speciesId)
         {
@@ -1856,8 +1982,8 @@ namespace Content.Client.Lobby.UI
                 || speciesId == "RobotProtectronTribal";
         }
 
-        // #Misfits Add: variant species are hidden from the main Species dropdown and driven by Robot Model selector.
-        private static bool IsHiddenProtectronVariantSpecies(string speciesId)
+        // #Misfits Add: non-base model variants are hidden from the main Species dropdown.
+        private static bool IsHiddenModelVariantSpecies(string speciesId)
         {
             return speciesId == "RobotMrHandyZAX"
                 || speciesId == "RobotProtectronPolice"
@@ -1883,7 +2009,9 @@ namespace Content.Client.Lobby.UI
                 || speciesId == "C27NCR" // #Misfits Add - C-27 NCR variant picked via Robot Model dropdown
                 || speciesId == "C27BoS" // #Misfits Add - C-27 Brotherhood variant picked via Robot Model dropdown
                 || speciesId == "C27ZAX" // #Misfits Add - C-27 Z.A.X variant picked via Robot Model dropdown
-                || speciesId == "RobotProtectronTribal"; // Misfits Add - Protectron Spirit-Tender
+                || speciesId == "RobotProtectronTribal" // Misfits Add - Protectron Spirit-Tender
+                || speciesId == "DeathclawAdolescent"
+                || speciesId == "DeathclawHatchling";
         }
 
         // #Misfits Add: normalize hidden variants to base Protectron in main species selector.
@@ -1892,7 +2020,7 @@ namespace Content.Client.Lobby.UI
             if (speciesId == null)
                 return null;
 
-            if (!IsHiddenProtectronVariantSpecies(speciesId))
+            if (!IsHiddenModelVariantSpecies(speciesId))
                 return speciesId;
 
             // Map hidden variants back to their base species for the main dropdown.
@@ -1933,7 +2061,9 @@ namespace Content.Client.Lobby.UI
             CTabContainer.SetTabVisible(MarkingsTab, !restricted);
 
             // #Misfits Change: hide traits tab only if restricted AND no allowed categories
-            var showTraits = !restricted || species.AllowedTraitCategories is { Count: > 0 };
+            var showTraits = !restricted
+                || species.AllowedTraitCategories is { Count: > 0 }
+                || species.AllowedTraits is { Count: > 0 }; // #Cythisiax Added - per-trait whitelist also shows the tab
             CTabContainer.SetTabVisible(TraitsTab, showTraits);
 
             // #Misfits Change: hide loadouts tab only if restricted AND no allowed categories
@@ -2155,6 +2285,71 @@ namespace Content.Client.Lobby.UI
 
             Markings.SetData(Profile.Appearance.Markings, Profile.Species, Profile.Sex, Profile.Appearance.SkinColor,
                 Profile.Appearance.EyeColor);
+        }
+
+        private static readonly Dictionary<HumanoidVisualLayers, string[]> ProstheticOptions = new()
+        {
+            [HumanoidVisualLayers.LHand] = ["", "MisfitsProstheticSimpleLeftHand", "MisfitsProstheticVaultTecLeftHand", "MisfitsProstheticNCRLeftHand"],
+            [HumanoidVisualLayers.RHand] = ["", "MisfitsProstheticSimpleRightHand", "MisfitsProstheticVaultTecRightHand", "MisfitsProstheticNCRRightHand"],
+            [HumanoidVisualLayers.LFoot] = ["", "MisfitsProstheticSimpleLeftFoot", "MisfitsProstheticVaultTecLeftFoot"],
+            [HumanoidVisualLayers.RFoot] = ["", "MisfitsProstheticSimpleRightFoot", "MisfitsProstheticVaultTecRightFoot"],
+        };
+
+        private void SetupProstheticSelectors()
+        {
+            SetupProstheticSelector(ProstheticLeftHand, HumanoidVisualLayers.LHand);
+            SetupProstheticSelector(ProstheticRightHand, HumanoidVisualLayers.RHand);
+            SetupProstheticSelector(ProstheticLeftFoot, HumanoidVisualLayers.LFoot);
+            SetupProstheticSelector(ProstheticRightFoot, HumanoidVisualLayers.RFoot);
+        }
+
+        private void SetupProstheticSelector(OptionButton selector, HumanoidVisualLayers layer)
+        {
+            selector.AddItem(Loc.GetString("humanoid-profile-editor-prosthetic-none"), 0);
+            foreach (var id in ProstheticOptions[layer].Skip(1))
+                selector.AddItem(Loc.GetString($"entity-name-{id}"), selector.ItemCount);
+
+            selector.OnItemSelected += args =>
+            {
+                // OptionButton emits the selection event before committing the displayed item.
+                // Keep the control in sync with the profile mutation below.
+                selector.SelectId(args.Id);
+
+                if (Profile == null)
+                    return;
+
+                var id = ProstheticOptions[layer][args.Id];
+                if (string.IsNullOrEmpty(id))
+                    Profile.Appearance.CustomBaseLayers.Remove(layer);
+                else
+                    Profile.Appearance.CustomBaseLayers[layer] = new CustomBaseLayerInfo(id);
+
+                SetDirty();
+                ReloadProfilePreview();
+            };
+        }
+
+        private void UpdateProsthetics()
+        {
+            if (Profile == null)
+                return;
+
+            var available = Profile.Species is "Human" or "Ghoul";
+            ProstheticsPanel.Visible = available;
+            if (!available)
+                return;
+
+            SelectProsthetic(ProstheticLeftHand, HumanoidVisualLayers.LHand);
+            SelectProsthetic(ProstheticRightHand, HumanoidVisualLayers.RHand);
+            SelectProsthetic(ProstheticLeftFoot, HumanoidVisualLayers.LFoot);
+            SelectProsthetic(ProstheticRightFoot, HumanoidVisualLayers.RFoot);
+        }
+
+        private void SelectProsthetic(OptionButton selector, HumanoidVisualLayers layer)
+        {
+            var id = Profile!.Appearance.CustomBaseLayers.GetValueOrDefault(layer).Id?.ToString();
+            var index = Array.IndexOf(ProstheticOptions[layer], id ?? "");
+            selector.SelectId(index < 0 ? 0 : index);
         }
 
         private void UpdateGenderControls()
@@ -3074,34 +3269,62 @@ namespace Content.Client.Lobby.UI
 
         private void UpdateTraitPreferences()
         {
+            var ownedIds = Profile?.TraitPreferences ?? new HashSet<string>();
+            var ownedSet = new HashSet<string>(ownedIds);
+
+            // #Cythisiax Edited - pets use their own separate point pool and size caps; only
+            // non-pet perks are charged against the standard trait/perk budget and slot count.
             var points = _cfgManager.GetCVar(CCVars.GameTraitsDefaultPoints);
+            var petPoints = _cfgManager.GetCVar(CCVars.GamePetsDefaultPoints);
+            int petSmall = 0, petMedium = 0, petLarge = 0, petTotal = 0;
             _traitCount = 0;
 
-            foreach (var preferenceSelector in _traitPreferences)
+            foreach (var traitId in ownedIds)
             {
-                var traitId = preferenceSelector.Trait.ID;
-                var preference = Profile?.TraitPreferences.Contains(traitId) ?? false;
-
-                preferenceSelector.Preference = preference;
-
-                if (!preference)
+                if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var trait))
                     continue;
 
-                points += preferenceSelector.Trait.Points;
+                if (PetTraitHelpers.IsPet(trait))
+                {
+                    petPoints += trait.Points;
+                    petTotal++;
+                    switch (PetTraitHelpers.GetPetSize(trait))
+                    {
+                        case PetTraitHelpers.SizeSmall: petSmall++; break;
+                        case PetTraitHelpers.SizeMedium: petMedium++; break;
+                        case PetTraitHelpers.SizeLarge: petLarge++; break;
+                    }
+                    continue;
+                }
+
+                points += trait.Points;
                 _traitCount += 1;
             }
+
+            // Sync the tree node states (perks + pets).
+            TalentTree.RefreshStates(ownedSet, _usableTraitIds);
+            PetsTalentTree.RefreshStates(ownedSet, _usableTraitIds);
 
             TraitPointsBar.Value = points;
             TraitPointsLabel.Text = Loc.GetString("humanoid-profile-editor-traits-header",
                 ("points", points), ("traits", _traitCount),
                 ("maxTraits", _cfgManager.GetCVar(CCVars.GameTraitsMax)));
 
+            // #Cythisiax Added - update the separate pets point pool + size cap display.
+            var petBudget = _cfgManager.GetCVar(CCVars.GamePetsDefaultPoints);
+            PetPointsBar.MaxValue = petBudget;
+            PetPointsBar.Value = petPoints;
+            PetPointsLabel.Text = Loc.GetString("humanoid-profile-editor-pets-points-label",
+                ("points", petPoints), ("max", petBudget));
+            PetCapsLabel.Text = Loc.GetString("humanoid-profile-editor-pets-caps-label",
+                ("large", _cfgManager.GetCVar(CCVars.GamePetsMaxLarge)),
+                ("medium", _cfgManager.GetCVar(CCVars.GamePetsMaxMedium)),
+                ("small", _cfgManager.GetCVar(CCVars.GamePetsMaxSmall)),
+                ("total", _cfgManager.GetCVar(CCVars.GamePetsMaxTotal)));
+
             // Set the remove unusable button's label to have the correct amount of unusable traits
             TraitsRemoveUnusableButton.Text = Loc.GetString("humanoid-profile-editor-traits-remove-unusable-button",
-                ("count", _traits
-                    .Where(t => _traitPreferences
-                        .Where(tps => tps.Preference).Select(tps => tps.Trait).Contains(t.Key))
-                    .Count(t => !t.Value)));
+                ("count", _traits.Count(kv => !kv.Value && ownedSet.Contains(kv.Key.ID))));
             AdminUIHelpers.RemoveConfirm(TraitsRemoveUnusableButton, _confirmationData);
 
             SetDirty();
@@ -3122,18 +3345,31 @@ namespace Content.Client.Lobby.UI
             TraitPointsBar.MaxValue = points;
             TraitPointsBar.Value = points;
 
+            // #Cythisiax Added - reset the separate pets point pool display too.
+            var petBudget = _cfgManager.GetCVar(CCVars.GamePetsDefaultPoints);
+            PetPointsLabel.Text = Loc.GetString("humanoid-profile-editor-pets-points-label", ("points", petBudget), ("max", petBudget));
+            PetPointsBar.MaxValue = petBudget;
+            PetPointsBar.Value = petBudget;
+            PetCapsLabel.Text = Loc.GetString("humanoid-profile-editor-pets-caps-label",
+                ("large", _cfgManager.GetCVar(CCVars.GamePetsMaxLarge)),
+                ("medium", _cfgManager.GetCVar(CCVars.GamePetsMaxMedium)),
+                ("small", _cfgManager.GetCVar(CCVars.GamePetsMaxSmall)),
+                ("total", _cfgManager.GetCVar(CCVars.GamePetsMaxTotal)));
+
             // Reset the whole UI and delete caches
             if (reload)
             {
-                foreach (var tab in TraitsTabs.Tabs)
-                    TraitsTabs.RemoveTab(tab);
-                _traitPreferences.Clear();
+                _traits.Clear();
             }
 
 
             // Get the highest priority job to use for trait filtering
             var highJob = _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies());
 
+            // #Cythisiax Edited - build the category-root map up front so the species filter below
+            // can compare against ROOT categories. This lets a species that allows "Pets" keep
+            // allowing the new pet size subcategories (PetsSmall / PetsMedium / PetsLarge).
+            BuildTraitCategoryRoots();
             _traits.Clear();
             foreach (var trait in _prototypeManager.EnumeratePrototypes<TraitPrototype>())
             {
@@ -3158,235 +3394,263 @@ namespace Content.Client.Lobby.UI
                 if (Profile != null)
                 {
                     var currentSpecies = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
-                    if (currentSpecies.AllowedTraitCategories != null
-                        && !currentSpecies.AllowedTraitCategories.Contains(trait.Category))
+                    // #Cythisiax Added - per-trait whitelist overrides category filtering
+                    if (currentSpecies.AllowedTraits is { Count: > 0 })
+                    {
+                        if (!currentSpecies.AllowedTraits.Contains(trait.ID))
+                            continue;
+                    }
+                    else if (currentSpecies.AllowedTraitCategories != null
+                        && !currentSpecies.AllowedTraitCategories.Contains(GetRootTraitCategory(trait.Category)))
+                    {
                         continue;
+                    }
                 }
 
                 _traits.Add(trait, usable);
-
-                if (_traitPreferences.FindIndex(lps => lps.Trait.ID == trait.ID) is not (not -1 and var i))
-                    continue;
-
-                var selector = _traitPreferences[i];
-                selector.Valid = usable;
-                selector.ShowUnusable = showUnusable.Value;
             }
 
             if (_traits.Count == 0)
             {
-                TraitsTabs.AddTab(new Label { Text = Loc.GetString("humanoid-profile-editor-traits-no-traits") },
-                    Loc.GetString("trait-category-Uncategorized"));
+                TalentTree.SetTrees(new List<TreeBranch>());
+                PetsTalentTree.SetTrees(new List<TreeBranch>());
                 return;
             }
 
 
-            var uncategorized = TraitsTabs.Contents.FirstOrDefault(c => c.Name == "Uncategorized");
-            if (uncategorized == null)
-            {
-                uncategorized = new BoxContainer
-                {
-                    Name = "Uncategorized",
-                    Orientation = LayoutOrientation.Vertical,
-                    HorizontalExpand = true,
-                    VerticalExpand = true,
-                    // I hate ScrollContainers
-                    Children =
-                    {
-                        new ScrollContainer
-                        {
-                            HScrollEnabled = false,
-                            HorizontalExpand = true,
-                            VerticalExpand = true,
-                            Children =
-                            {
-                                new BoxContainer
-                                {
-                                    Orientation = LayoutOrientation.Vertical,
-                                    HorizontalExpand = true,
-                                    VerticalExpand = true,
-                                },
-                            },
-                        },
-                    },
-                };
+            // #Misfits Add - build the talent tree (one menu) and the PETS tree instead of
+            // the old per-category sub-tabs.
+            _usableTraitIds.Clear();
+            foreach (var (trait, usable) in _traits)
+                if (usable)
+                    _usableTraitIds.Add(trait.ID);
 
-                TraitsTabs.AddTab(uncategorized, Loc.GetString("trait-category-Uncategorized"));
-            }
+            var branches = new Dictionary<string, List<TreePerk>>();
+            var petsBranches = new Dictionary<string, List<TreePerk>>();
 
-            // Create a Dictionary/tree of categories and subcategories
-            var cats = CreateTree(_prototypeManager.EnumeratePrototypes<TraitCategoryPrototype>()
-                .Where(c => c.Root)
-                .OrderBy(c => Loc.GetString($"trait-category-{c.ID}"))
-                .ToList());
-            var categories = new Dictionary<string, object>();
-            foreach (var (key, value) in cats)
-                categories.Add(key, value);
-
-            // Create the UI elements for the category tree
-            CreateCategoryUI(categories, TraitsTabs);
-
-            // Fill categories with traits
             foreach (var (trait, usable) in _traits
                 .OrderBy(l => -l.Key.Points)
                 .ThenBy(l => l.Key.ID)
                 .ThenBy(l => Loc.GetString($"trait-name-{l.Key.ID}")))
             {
-                if (_traitPreferences.Select(lps => lps.Trait.ID).Contains(trait.ID))
+                var root = GetRootTraitCategory(trait.Category);
+
+                var sb = new System.Text.StringBuilder();
+                var desc = Loc.GetString($"trait-description-{trait.ID}");
+                if (!string.IsNullOrEmpty(desc) && desc != $"trait-description-{trait.ID}")
+                    sb.Append(desc);
+
+                _characterRequirementsSystem.CheckRequirementsValid(
+                    trait.Requirements, highJob, Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+                    _requirements.GetRawPlayTimeTrackers(), _requirements.IsWhitelisted(), trait,
+                    _entManager, _prototypeManager, _cfgManager, _sponsorMan, out var reasons);
+                foreach (var reason in reasons)
+                    sb.Append('\n').Append(reason);
+
+                var perk = new TreePerk(
+                    trait.ID,
+                    Loc.GetString($"trait-name-{trait.ID}"),
+                    trait.Points,
+                    trait.Tier,
+                    GetPrerequisiteTrait(trait),
+                    sb.Length > 0 ? sb.ToString() : null);
+
+                // #Cythisiax Edited - pets render as a talent tree grouped by size subcategory
+                // (PetsSmall / PetsMedium / PetsLarge) on their own Pets tab.
+                if (root == PetTraitHelpers.PetsRootCategory)
                 {
-                    var first = _traitPreferences.First(lps => lps.Trait.ID == trait.ID);
-                    first.Valid = usable;
-                    first.ShowUnusable = showUnusable.Value;
+                    if (!petsBranches.TryGetValue(trait.Category, out var petList))
+                        petsBranches[trait.Category] = petList = new List<TreePerk>();
+                    petList.Add(perk);
                     continue;
                 }
 
-                var selector = new TraitPreferenceSelector(
-                    trait, highJob, Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
-                    _entManager, _prototypeManager, _cfgManager, _characterRequirementsSystem, _requirements, _sponsorMan); // Forge-Change
-                selector.Valid = usable;
-                selector.ShowUnusable = showUnusable.Value;
-                AddSelector(selector);
-
-                // Look for an existing category tab
-                var match = FindCategory(trait.Category, TraitsTabs);
-
-                // If there is no category put it in Uncategorized (this shouldn't happen)
-                (match ?? uncategorized).Children.First().Children.First().AddChild(selector);
+                if (!branches.TryGetValue(root, out var list))
+                    branches[root] = list = new List<TreePerk>();
+                list.Add(perk);
             }
 
-            // Hide any empty tabs
-            HideEmptyTabs(_prototypeManager.EnumeratePrototypes<TraitCategoryPrototype>().ToList());
+            var petsTreeBranches = new List<TreeBranch>();
+            foreach (var (petRoot, perks) in petsBranches.OrderBy(b => b.Key))
+            {
+                petsTreeBranches.Add(new TreeBranch(
+                    Loc.GetString($"trait-category-{petRoot}"),
+                    perks.OrderBy(p => p.Tier).ToList()));
+            }
+            PetsTalentTree.SetTrees(petsTreeBranches);
+
+            var treeBranches = new List<TreeBranch>();
+            foreach (var (root, perks) in branches.OrderBy(b => b.Key))
+            {
+                treeBranches.Add(new TreeBranch(
+                    Loc.GetString($"trait-category-{root}"),
+                    perks.OrderBy(p => p.Tier).ToList()));
+            }
+
+            TalentTree.SetTrees(treeBranches);
+            TalentTree.RefreshStates(
+                new HashSet<string>(Profile?.TraitPreferences ?? new HashSet<string>()), _usableTraitIds);
+            PetsTalentTree.RefreshStates(
+                new HashSet<string>(Profile?.TraitPreferences ?? new HashSet<string>()), _usableTraitIds);
 
             UpdateTraitPreferences();
             return;
-
-
-            void CreateCategoryUI(Dictionary<string, object> tree, NeoTabContainer parent)
-            {
-                foreach (var (key, value) in tree)
-                {
-                    // If the category's container exists already, ignore it
-                    if (parent.Contents.Any(c => c.Name == key))
-                        continue;
-
-                    // If the value is a list of TraitPrototypes, create a final tab for them
-                    if (value is List<TraitPrototype>)
-                    {
-                        var category = new BoxContainer
-                        {
-                            Name = key,
-                            Orientation = LayoutOrientation.Vertical,
-                            HorizontalExpand = true,
-                            VerticalExpand = true,
-                            Children =
-                            {
-                                new ScrollContainer
-                                {
-                                    HScrollEnabled = false,
-                                    HorizontalExpand = true,
-                                    VerticalExpand = true,
-                                    Children =
-                                    {
-                                        new BoxContainer
-                                        {
-                                            Orientation = LayoutOrientation.Vertical,
-                                            HorizontalExpand = true,
-                                            VerticalExpand = true,
-                                        },
-                                    },
-                                },
-                            },
-                        };
-
-                        parent.AddTab(category, Loc.GetString($"trait-category-{key}"));
-                    }
-                    // If the value is a dictionary, create a new tab for it and recursively call this function to fill it
-                    else
-                    {
-                        var category = new NeoTabContainer
-                        {
-                            Name = key,
-                            HorizontalExpand = true,
-                            VerticalExpand = true,
-                            SeparatorMargin = new Thickness(0),
-                        };
-
-                        parent.AddTab(category, Loc.GetString($"trait-category-{key}"));
-                        CreateCategoryUI((Dictionary<string, object>) value, category);
-                    }
-                }
-            }
-
-            void AddSelector(TraitPreferenceSelector selector)
-            {
-                _traitPreferences.Add(selector);
-                selector.PreferenceChanged += preference =>
-                {
-                    // Make sure they have enough trait points
-                    preference = CheckPoints(preference ? selector.Trait.Points : -selector.Trait.Points, preference);
-                    // Make sure they have enough trait slots
-                    preference = preference ? _traitCount < _cfgManager.GetCVar(CCVars.GameTraitsMax) : preference;
-
-                    // Update Preferences
-                    Profile = Profile?.WithTraitPreference(selector.Trait.ID, preference);
-                    IsDirty = true;
-                    UpdateTraitPreferences();
-                    SetProfile(Profile, CharacterSlot);
-                };
-            }
-
-            bool CheckPoints(int points, bool preference)
-            {
-                var temp = TraitPointsBar.Value + points;
-                return preference ? !(temp < 0) : temp < 0;
-            }
         }
 
         #endregion
 
         #region Functions
 
-        private Dictionary<string, object> CreateTree(List<TraitCategoryPrototype> cats)
+        // #Misfits Add - talent tree helpers.
+        private void BuildTraitCategoryRoots()
         {
-            var tree = new Dictionary<string, object>();
-            foreach (var category in cats)
+            _traitCategoryRoots.Clear();
+            foreach (var root in _prototypeManager.EnumeratePrototypes<TraitCategoryPrototype>().Where(c => c.Root))
             {
-                // If the category is already in the tree, ignore it
-                if (tree.ContainsKey(category.ID))
-                    continue;
-
-                // Categories don't have a Parent field, so we need to instead check the SubCategories of every Category
-                var subCategories = category.SubCategories.Where(subCategory => !tree.ContainsKey(subCategory)).ToList();
-                // If there are no subcategories, add a loadout spot to the dictionary
-                if (subCategories.Count == 0)
+                void Walk(TraitCategoryPrototype category)
                 {
-                    tree.Add(category.ID, new List<TraitPrototype>());
-                    continue;
+                    _traitCategoryRoots[category.ID] = root.ID;
+                    foreach (var sub in category.SubCategories)
+                    {
+                        if (_prototypeManager.TryIndex<TraitCategoryPrototype>(sub, out var subCat))
+                            Walk(subCat);
+                    }
                 }
-
-                // If there are subcategories, we need to add them to the dictionary as well
-                var subCategoryTree = CreateTree(subCategories.Select(c => _prototypeManager.Index(c)).ToList());
-                tree.Add(category.ID, subCategoryTree);
+                Walk(root);
             }
-
-            return tree;
         }
 
-        private void HideEmptyTabs(List<TraitCategoryPrototype> cats)
-        {
-            foreach (var tab in cats.Select(category => FindCategory(category.ID, TraitsTabs)))
-            {
-                // If it's empty, hide it
-                if (tab != null)
-                    ((NeoTabContainer) tab.Parent!.Parent!.Parent!.Parent!).SetTabVisible(tab, tab.Children.First().Children.First().Children.Any());
+        private string GetRootTraitCategory(string categoryId)
+            => _traitCategoryRoots.GetValueOrDefault(categoryId, categoryId);
 
-                // If it has a parent tab container, hide it if it's empty
-                if (tab?.Parent?.Parent is NeoTabContainer parent)
+        private string? GetPrerequisiteTrait(TraitPrototype trait)
+        {
+            foreach (var req in trait.Requirements)
+            {
+                if (req is CharacterTraitRequirement { Inverted: false } ctr && ctr.Traits.Count > 0)
+                    return ctr.Traits[0].ToString();
+            }
+            return null;
+        }
+
+        private void OnTalentTreeNodePressed(string traitId, bool owned)
+        {
+            if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var trait))
+                return;
+
+            var points = owned ? trait.Points : -trait.Points;
+            if (owned && TraitPointsBar.Value + points < 0)
+                owned = false;
+            if (owned && _traitCount >= _cfgManager.GetCVar(CCVars.GameTraitsMax))
+                owned = false;
+
+            Profile = Profile?.WithTraitPreference(traitId, owned);
+
+            // #Cythisiax Fixed - unselecting a perk that is a prerequisite for other selected
+            // perks must also remove the dependents (Swift Learner -> Scrounger -> Educated ->
+            // Nerd Rage -> Fortune's Favor). Without this you can keep Fortune's Favor after
+            // dropping Nerd Rage and save an illegal profile.
+            if (!owned)
+                Profile = PrunePerkPrerequisites(Profile);
+
+            IsDirty = true;
+            UpdateTraitPreferences();
+            SetProfile(Profile, CharacterSlot);
+        }
+
+        // #Cythisiax Added - cascade removal: iterate selected perks and drop any whose
+        // non-inverted CharacterTraitRequirement (perk prerequisite) is no longer owned,
+        // repeating so deep chains are fully pruned. Keeps the perk tree legal.
+        private HumanoidCharacterProfile? PrunePerkPrerequisites(HumanoidCharacterProfile? profile)
+        {
+            if (profile == null)
+                return null;
+
+            var selected = new HashSet<string>(profile.TraitPreferences);
+            bool changed;
+            do
+            {
+                changed = false;
+                foreach (var traitId in selected.ToList())
                 {
-                    var parentCats = parent.Contents.Select(c => _prototypeManager.Index<TraitCategoryPrototype>(c.Name!)).ToList();
-                    HideEmptyTabs(parentCats);
+                    if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var trait))
+                        continue;
+
+                    foreach (var req in trait.Requirements)
+                    {
+                        if (req is CharacterTraitRequirement { Inverted: false } ctr
+                            && ctr.Traits.Count > 0
+                            && !ctr.Traits.Any(t => selected.Contains(t.ToString())))
+                        {
+                            selected.Remove(traitId);
+                            changed = true;
+                            break;
+                        }
+                    }
+                }
+            } while (changed);
+
+            var result = profile;
+            foreach (var removed in profile.TraitPreferences.Where(id => !selected.Contains(id)).ToList())
+                result = result.WithTraitPreference(removed, false);
+            return result;
+        }
+
+        // #Cythisiax Added - pets are paid for out of their own point pool with separate size
+        // caps (1 large / 2 medium / 3 small / 3 total). Toggling a pet that would break any of
+        // these is rejected and the node snaps back to unowned.
+        private void OnPetsTreeNodePressed(string traitId, bool owned)
+        {
+            if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var trait))
+                return;
+
+            if (owned && !CanSelectPet(trait))
+                owned = false;
+
+            Profile = Profile?.WithTraitPreference(traitId, owned);
+            IsDirty = true;
+            UpdateTraitPreferences();
+            SetProfile(Profile, CharacterSlot);
+        }
+
+        private bool CanSelectPet(TraitPrototype pet)
+        {
+            var petMaxSmall = _cfgManager.GetCVar(CCVars.GamePetsMaxSmall);
+            var petMaxMedium = _cfgManager.GetCVar(CCVars.GamePetsMaxMedium);
+            var petMaxLarge = _cfgManager.GetCVar(CCVars.GamePetsMaxLarge);
+            var petMaxTotal = _cfgManager.GetCVar(CCVars.GamePetsMaxTotal);
+
+            var petPoints = _cfgManager.GetCVar(CCVars.GamePetsDefaultPoints) + pet.Points;
+            int small = 0, medium = 0, large = 0, total = 1;
+            foreach (var traitId in Profile?.TraitPreferences ?? new HashSet<string>())
+            {
+                if (traitId == pet.ID)
+                    continue;
+                if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var trait) || !PetTraitHelpers.IsPet(trait))
+                    continue;
+
+                petPoints += trait.Points;
+                total++;
+                switch (PetTraitHelpers.GetPetSize(trait))
+                {
+                    case PetTraitHelpers.SizeSmall: small++; break;
+                    case PetTraitHelpers.SizeMedium: medium++; break;
+                    case PetTraitHelpers.SizeLarge: large++; break;
                 }
             }
+
+            switch (PetTraitHelpers.GetPetSize(pet))
+            {
+                case PetTraitHelpers.SizeSmall: small++; break;
+                case PetTraitHelpers.SizeMedium: medium++; break;
+                case PetTraitHelpers.SizeLarge: large++; break;
+            }
+
+            return petPoints >= 0
+                && small <= petMaxSmall
+                && medium <= petMaxMedium
+                && large <= petMaxLarge
+                && total <= petMaxTotal;
         }
 
         private void TryRemoveUnusableTraits()
@@ -3409,17 +3673,26 @@ namespace Content.Client.Lobby.UI
 
             var max = _cfgManager.GetCVar(CCVars.GameTraitsMax);
             var points = _cfgManager.GetCVar(CCVars.GameTraitsDefaultPoints);
+            var perkCount = 0;
             foreach (var trait in Profile.TraitPreferences
                 .Select(t => _prototypeManager.Index<TraitPrototype>(t))
                 .OrderByDescending(t => t?.Points))
             {
-                if (points + trait!.Points < 0 || Profile.TraitPreferences.Count > max)
+                if (trait == null)
+                    continue;
+
+                // #Cythisiax Edited - pets run on their own point pool + caps; only prune perks here.
+                if (PetTraitHelpers.IsPet(trait))
+                    continue;
+
+                if (points + trait.Points < 0 || perkCount >= max)
                 {
                     Profile = Profile.WithTraitPreference(trait.ID, false);
                 }
                 else
                 {
                     points += trait.Points;
+                    perkCount++;
                 }
             }
         }
@@ -3504,6 +3777,10 @@ namespace Content.Client.Lobby.UI
             _loadouts.Clear();
             foreach (var loadout in _prototypeManager.EnumeratePrototypes<LoadoutPrototype>())
             {
+                // #Cythisiax Added - Patreon-supporter loadouts are shown in their own tab instead
+                if (loadout.SupporterTier != SupporterTier.None)
+                    continue;
+
                 var usable = _characterRequirementsSystem.CheckRequirementsValid(
                     loadout.Requirements,
                     highJob ?? new JobPrototype(),
@@ -3758,6 +4035,195 @@ namespace Content.Client.Lobby.UI
             }
         }
 
+        // #Cythisiax Add - Patreon supporter-exclusive loadout tab
+        #region Patreon Loadouts
+
+        private void UpdatePatreonLoadoutPreferences()
+        {
+            var points = LoadoutPointBudget;
+            PatreonLoadoutsPointsBar.Value = points;
+            PatreonLoadoutsPointsLabel.Text = Loc.GetString("humanoid-profile-editor-loadouts-points-label", ("points", points), ("max", points));
+
+            foreach (var preferenceSelector in _patreonLoadoutPreferences)
+            {
+                var loadoutId = preferenceSelector.Loadout.ID;
+                var loadoutPreference = Profile?.LoadoutPreferences.FirstOrDefault(l => l.LoadoutName == loadoutId) ?? preferenceSelector.Preference;
+                var preference = new LoadoutPreference(
+                    loadoutPreference.LoadoutName,
+                    loadoutPreference.CustomName,
+                    loadoutPreference.CustomDescription,
+                    loadoutPreference.CustomColorTint,
+                    loadoutPreference.CustomHeirloom);
+
+                // The custom color tint needs to be reset so the preview updates when cleared
+                if (preferenceSelector.Preference.CustomColorTint != preference.CustomColorTint)
+                    preferenceSelector.Preference = new LoadoutPreference(loadoutId, preference.CustomName, preference.CustomDescription, null, preference.CustomHeirloom);
+
+                preferenceSelector.Preference = preference;
+            }
+
+            // Set the remove unusable button's label to have the correct amount of unusable loadouts
+            PatreonLoadoutsRemoveUnusableButton.Text = Loc.GetString("humanoid-profile-editor-loadouts-remove-unusable-button",
+                ("count", _patreonLoadoutPreferences.Count(l => !l.Valid || !l.Wearable)));
+            AdminUIHelpers.RemoveConfirm(PatreonLoadoutsRemoveUnusableButton, _confirmationData);
+        }
+
+        public void UpdatePatreonLoadouts(bool? showUnusable = null, bool reload = false)
+        {
+            showUnusable ??= PatreonLoadoutsShowUnusableButton.Pressed;
+
+            // Whole tab is hidden unless the local player is a Patreon supporter
+            var userId = _playerManager.LocalUser;
+            if (userId is not { } user
+                || !_supporterMan.TryGetSupporterTier(user, out var tier))
+            {
+                CTabContainer.SetTabVisible(PatreonLoadoutsTab, false);
+                return;
+            }
+            CTabContainer.SetTabVisible(PatreonLoadoutsTab, true);
+
+            // Shared point budget with the regular loadout tab
+            var points = LoadoutPointBudget;
+            PatreonLoadoutsPointsLabel.Text = Loc.GetString("humanoid-profile-editor-loadouts-points-label", ("points", points), ("max", points));
+            PatreonLoadoutsPointsBar.MaxValue = points;
+            PatreonLoadoutsPointsBar.Value = points;
+
+            // Reset the whole UI and delete caches
+            if (reload)
+            {
+                PatreonLoadoutsList.RemoveAllChildren();
+                _patreonLoadoutPreferences.Clear();
+            }
+
+            var highJob = _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies());
+
+            foreach (var loadout in _prototypeManager.EnumeratePrototypes<LoadoutPrototype>())
+            {
+                // Only supporter-gated loadouts belong here, and only up to the player's tier
+                if (loadout.SupporterTier == SupporterTier.None || loadout.SupporterTier > tier)
+                    continue;
+
+                // Reuse an existing selector for this loadout (keeps its state across refreshes)
+                var existing = _patreonLoadoutPreferences.FirstOrDefault(s => s.Loadout.ID == loadout.ID);
+                if (existing != null)
+                {
+                    var prof = Profile?.LoadoutPreferences.FirstOrDefault(lp => lp.LoadoutName == loadout.ID);
+                    existing.Preference = new LoadoutPreference(
+                        loadout.ID, prof?.CustomName, prof?.CustomDescription, prof?.CustomColorTint, prof?.CustomHeirloom);
+                    continue;
+                }
+
+                var usable = _characterRequirementsSystem.CheckRequirementsValid(
+                    loadout.Requirements,
+                    highJob ?? new JobPrototype(),
+                    Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+                    _requirements.GetRawPlayTimeTrackers(),
+                    _requirements.IsWhitelisted(),
+                    loadout,
+                    _entManager,
+                    _prototypeManager,
+                    _cfgManager,
+                    _sponsorMan, // Forge-Change
+                    out _
+                );
+
+                var selector = new LoadoutPreferenceSelector(
+                    loadout, highJob ?? new JobPrototype(),
+                    Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(), ref _dummyLoadouts,
+                    _entManager, _prototypeManager, _cfgManager, _characterRequirementsSystem, _requirements, _sponsorMan) // Forge-Change
+                    { Preference = new LoadoutPreference(loadout.ID) };
+
+                UpdatePatreonSelector(selector, usable, showUnusable.Value);
+                _patreonLoadoutPreferences.Add(selector);
+                selector.PreferenceChanged += preference =>
+                {
+                    // Make sure they have enough loadout points
+                    var wasSelected = Profile?.LoadoutPreferences
+                        .FirstOrDefault(it => it.LoadoutName == selector.Loadout.ID)
+                        ?.Selected ?? false;
+                    var selected = preference.Selected && (wasSelected || CheckPatreonPoints(-selector.Loadout.Cost, true));
+
+                    // Update Preferences
+                    Profile = Profile?.WithLoadoutPreference(
+                        selector.Loadout.ID,
+                        selected,
+                        preference.CustomName,
+                        preference.CustomDescription,
+                        preference.CustomColorTint,
+                        preference.CustomHeirloom);
+                    IsDirty = true;
+                    UpdateLoadoutPreferences();
+                    UpdatePatreonLoadoutPreferences();
+                    SetProfile(Profile, CharacterSlot);
+                };
+
+                PatreonLoadoutsList.AddChild(selector);
+            }
+
+            if (_patreonLoadoutPreferences.Count == 0)
+            {
+                PatreonLoadoutsList.AddChild(new Label
+                {
+                    Text = Loc.GetString("humanoid-profile-editor-patreon-loadouts-no-loadouts"),
+                    HorizontalAlignment = HAlignment.Center,
+                    Margin = new Thickness(0, 8),
+                });
+            }
+        }
+
+        // Mirrors the regular loadout tab's UpdateSelector: flags unusable/unwearable entries
+        private void UpdatePatreonSelector(LoadoutPreferenceSelector selector, bool usable, bool showUnusable)
+        {
+            selector.Valid = usable;
+            selector.ShowUnusable = showUnusable;
+
+            foreach (var item in selector.Loadout.Items)
+            {
+                if (_dummyLoadouts.TryGetValue(selector.Loadout.ID + selector.Loadout.Items.IndexOf(item), out var entity)
+                    && _entManager.GetComponent<MetaDataComponent>(entity).EntityPrototype!.ID == item)
+                {
+                    if (!_entManager.HasComponent<ClothingComponent>(entity))
+                    {
+                        selector.Wearable = true;
+                        continue;
+                    }
+                    selector.Wearable = _characterRequirementsSystem.CanEntityWearItem(PreviewDummy, entity);
+                    continue;
+                }
+
+                entity = _entManager.SpawnEntity(item, MapCoordinates.Nullspace);
+                _dummyLoadouts[selector.Loadout.ID + selector.Loadout.Items.IndexOf(item)] = entity;
+
+                if (!_entManager.HasComponent<ClothingComponent>(entity))
+                {
+                    selector.Wearable = true;
+                    continue;
+                }
+                selector.Wearable = _characterRequirementsSystem.CanEntityWearItem(PreviewDummy, entity);
+            }
+        }
+
+        private void TryRemoveUnusablePatreonLoadouts()
+        {
+            // Confirm the user wants to remove unusable loadouts
+            if (!AdminUIHelpers.TryConfirm(PatreonLoadoutsRemoveUnusableButton, _confirmationData))
+                return;
+
+            // Remove unusable and unwearable loadouts
+            foreach (var selector in _patreonLoadoutPreferences
+                .Where(l => !l.Valid || !l.Wearable).ToList())
+                Profile = Profile?.WithLoadoutPreference(selector.Loadout.ID, false);
+            UpdateCharacterRequired();
+        }
+
+        private bool CheckPatreonPoints(int points, bool preference)
+        {
+            var temp = PatreonLoadoutsPointsBar.Value + points;
+            return preference ? temp >= 0 : temp < 0;
+        }
+
+        #endregion
+
         #endregion
 
         #region Functions
@@ -3886,6 +4352,30 @@ namespace Content.Client.Lobby.UI
                 }
             }
         }
+
+        // #Cythisiax Add - drop Patreon loadouts the local player no longer qualifies for
+        private void RemoveSupporterLoadouts()
+        {
+            if (Profile?.LoadoutPreferences == null)
+                return;
+
+            var user = _playerManager.LocalUser;
+            if (user == null)
+                return;
+
+            foreach (var pref in Profile.LoadoutPreferences.Where(l => l.Selected))
+            {
+                var loadoutProto = _prototypeManager.Index<LoadoutPrototype>(pref.LoadoutName);
+                if (loadoutProto.SupporterTier == SupporterTier.None)
+                    continue;
+
+                if (!_supporterMan.TryGetSupporterTier(user.Value, out var tier)
+                    || loadoutProto.SupporterTier > tier)
+                {
+                    Profile.LoadoutPreferences.Remove(pref);
+                }
+            }
+        }
         // Forge-Change-End
 
         #endregion
@@ -3898,10 +4388,12 @@ namespace Content.Client.Lobby.UI
             RemoveSuperfluousTraits(); // Forge-Change
             RemoveSuperfluousLoadouts(); // Forge-Change
             RemoveSponsorLoadouts(); // Forge-Change
+            RemoveSupporterLoadouts(); // #Cythisiax Add - Patreon loadout cleanup
 
             UpdateRoleRequirements();
             UpdateTraits(TraitsShowUnusableButton.Pressed);
             UpdateLoadouts(LoadoutsShowUnusableButton.Pressed);
+            UpdatePatreonLoadouts(PatreonLoadoutsShowUnusableButton.Pressed); // #Cythisiax Add
         }
     }
 }

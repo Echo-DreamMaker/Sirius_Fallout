@@ -155,6 +155,9 @@ public sealed partial class NcStoreLogicSystem
             if (unitPrice <= 0 || string.IsNullOrWhiteSpace(currencyId))
                 continue;
 
+            // UnitsPerPurchase is a batch size for sales too (e.g. 2 NCR dollars per 1 cap); only whole batches pay out.
+            var batchSize = Math.Max(1, listing.UnitsPerPurchase);
+
             var remaining = listing.RemainingCount;
             if (remaining < -1)
                 remaining = -1;
@@ -165,6 +168,9 @@ public sealed partial class NcStoreLogicSystem
             if (maxTakeByInt <= 0)
                 continue;
             var want = Math.Min(maxByRemaining, maxTakeByInt);
+            want = want / batchSize * batchSize;
+            if (want <= 0)
+                continue;
 
             string? expectedStackType = null;
             if (_protos.TryIndex<EntityPrototype>(listing.ProductEntity, out var prodProto) &&
@@ -173,6 +179,9 @@ public sealed partial class NcStoreLogicSystem
 
             var taken = 0;
             var effectiveMatch = _inventory.ResolveMatchMode(listing.ProductEntity, listing.MatchMode);
+            // Tracks (isStack, key, amount) contributions in the order they were taken, so a partial
+            // final batch can be returned to the correct source below.
+            var contributions = new List<(bool IsStack, string Key, int Amount)>();
 
             if (!string.IsNullOrEmpty(expectedStackType))
             {
@@ -180,6 +189,7 @@ public sealed partial class NcStoreLogicSystem
                     continue;
                 taken = Math.Min(available, want);
                 stackTypeCounts[expectedStackType] = available - taken;
+                contributions.Add((true, expectedStackType, taken));
             }
             else
             {
@@ -191,6 +201,7 @@ public sealed partial class NcStoreLogicSystem
                         continue;
                     taken = Math.Min(available, want);
                     protoCounts[listing.ProductEntity] = available - taken;
+                    contributions.Add((false, listing.ProductEntity, taken));
                 }
                 else
                 {
@@ -225,13 +236,34 @@ public sealed partial class NcStoreLogicSystem
                         else
                             protoCounts[protoId] = available - take;
                         taken += take;
+                        contributions.Add((isStackProto, isStackProto ? stType! : protoId, take));
                     }
                 }
             }
 
             if (taken <= 0)
                 continue;
-            var total = (long) unitPrice * taken;
+
+            // Only whole batches are sellable; return any partial-batch remainder to its source(s) untouched.
+            var leftover = taken % batchSize;
+            for (var i = contributions.Count - 1; leftover > 0 && i >= 0; i--)
+            {
+                var (isStack, key, amount) = contributions[i];
+                var giveBack = Math.Min(amount, leftover);
+                if (giveBack <= 0)
+                    continue;
+                if (isStack)
+                    stackTypeCounts[key] = stackTypeCounts.GetValueOrDefault(key) + giveBack;
+                else
+                    protoCounts[key] = protoCounts.GetValueOrDefault(key) + giveBack;
+                leftover -= giveBack;
+                taken -= giveBack;
+            }
+
+            if (taken <= 0)
+                continue;
+            var batches = taken / batchSize;
+            var total = (long) unitPrice * batches;
             SafeAddIncome(incomeByCurrency, currencyId, total);
             unitsByListingId[listing.Id] = taken;
             priceByListingId[listing.Id] = (currencyId, unitPrice);

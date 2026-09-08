@@ -20,6 +20,7 @@
   startingGear: TownDeputyGear
   icon: "JobIconTownDeputy" # Forge-Change
   supervisors: job-supervisors-townsfolk
+  alwaysUseSpawner: true
   access:
   - TownieLaw
   - TownieMechanic

@@ -1,0 +1,20 @@
+﻿- type: entity
+  parent: N14WastelandFlora
+  id: MisfitsWastelandFloraWildZoy
+  name: wild zoybean plant
+  description: A wild zoybean plant. It looks healthy.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Specific/Hydroponics/zoybeans.rsi
+    state: harvest
+  - type: OreVein
+    currentOre: WildZoy
+  - type: Gatherable
+    toolWhitelist:
+      components:
+      - Hands
+      tags:
+      - PlantSampleTaker
+    loot:
+      All: WildZoyAll
+      PlantSampleTaker: WildZoyClippers

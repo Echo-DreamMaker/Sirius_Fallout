@@ -1,0 +1,39 @@
+# #Misfits Add - Ranger PA weapons (sprites by PatoGrone).
+# These are cosmetic reskins of established weapons and are not added to job
+# loadouts, recipes, vendors, or maps; administrators may spawn them for events.
+
+- type: entity
+  parent: N14WeaponLMG
+  id: MisfitsWeaponRangerPowerArmorLMG
+  name: Ranger power armor light machine gun
+  description: A power-armor-braced NCR light machine gun. Its heavy receiver and reinforced grip are intended for use in powered gauntlets.
+  components:
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Guns/LMGs/ranger_lmg.rsi
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/LMGs/ranger_lmg_icon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _Misfits/Objects/Weapons/Guns/LMGs/ranger_lmg_icon.rsi
+
+- type: entity
+  parent: N14WeaponPistol10mm
+  id: MisfitsWeaponRangerPowerArmorPistol
+  name: Ranger power armor pistol
+  description: A rugged 10mm sidearm modified for NCR Ranger power armor gauntlets.
+  components:
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Guns/Pistols/ranger_pistol.rsi
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Pistols/ranger_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _Misfits/Objects/Weapons/Guns/Pistols/ranger_pistol.rsi

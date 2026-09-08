@@ -10,6 +10,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Rejuvenate;
 using Robust.Shared.Player;
 
 namespace Content.Server._Misfits.Medical;
@@ -113,6 +114,57 @@ public sealed class ResuscitationSystem : EntitySystem
         }), session);
 
         return new ResuscitationResult(false, false, true, true);
+    }
+
+    /// <summary>
+    /// Consent-aware full rejuvenation for exceptional abilities such as Mercy of the Loa.
+    /// Unlike ordinary resuscitation, this deliberately bypasses damage thresholds only after
+    /// validating an existing, non-rotten dead body and an active player session.
+    /// </summary>
+    public ResuscitationResult TryRejuvenateWithConsent(EntityUid target, Action<bool> onCompleted)
+    {
+        if (!TryComp<MobStateComponent>(target, out var mobState) ||
+            !_mobState.IsDead(target, mobState))
+            return default;
+
+        if (_rotting.IsRotten(target))
+            return new ResuscitationResult(false, true, false, false);
+
+        if (!_mind.TryGetMind(target, out _, out var mind) || mind.Session is not { } session)
+            return new ResuscitationResult(false, false, false, false);
+
+        if (mind.CurrentEntity == target)
+        {
+            var success = PerformRejuvenate(target);
+            onCompleted(success);
+            return new ResuscitationResult(success, false, true, false);
+        }
+
+        var targetCopy = target;
+        _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, () =>
+        {
+            if (Deleted(targetCopy)
+                || _rotting.IsRotten(targetCopy)
+                || !TryComp<MobStateComponent>(targetCopy, out var currentState)
+                || !_mobState.IsDead(targetCopy, currentState)
+                || mind.Session == null)
+            {
+                onCompleted(false);
+                return;
+            }
+
+            onCompleted(PerformRejuvenate(targetCopy));
+        }), session);
+
+        return new ResuscitationResult(false, false, true, true);
+    }
+
+    private bool PerformRejuvenate(EntityUid target)
+    {
+        RaiseLocalEvent(target, new RejuvenateEvent());
+        return !Deleted(target)
+            && TryComp<MobStateComponent>(target, out var state)
+            && !_mobState.IsDead(target, state);
     }
 
     // #Misfits Add - Centralised heal + state transition. Called either immediately

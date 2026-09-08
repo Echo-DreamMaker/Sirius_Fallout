@@ -18,5 +18,6 @@ namespace Content.Client.Lobby
         void CreateCharacter(ICharacterProfile profile);
         void DeleteCharacter(ICharacterProfile profile);
         void DeleteCharacter(int slot);
+        void SetRoundEndReportAnonymity(bool anonymous);
     }
 }

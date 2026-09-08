@@ -30,6 +30,10 @@ public sealed class MagicMirrorBoundUserInterface : BoundUserInterface
             args => ChangeColor(MagicMirrorCategory.FacialHair, args.marking, args.slot);
         _window.OnFacialHairSlotAdded += delegate () { AddSlot(MagicMirrorCategory.FacialHair); };
         _window.OnFacialHairSlotRemoved += args => RemoveSlot(MagicMirrorCategory.FacialHair, args);
+
+        // #Cythisiax Added - confirm-apply button (barber scissors): sends one combined change.
+        _window.OnApply += (category, slot, marking, colors) =>
+            SendMessage(new MagicMirrorApplyMessage(category, slot, marking, colors));
     }
 
     private void SelectHair(MagicMirrorCategory category, string marking, int slot)

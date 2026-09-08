@@ -322,6 +322,37 @@ public sealed partial class CCVars
     public static readonly CVarDef<int> GameTraitsDefaultPoints =
         CVarDef.Create("game.traits_default_points", 10, CVar.REPLICATED);
 
+    // #Cythisiax Added - separate Pets point pool and size caps, independent from perk/trait points.
+    /// <summary>
+    ///     How many pet points a character should start with (separate from trait/perk points).
+    /// </summary>
+    public static readonly CVarDef<int> GamePetsDefaultPoints =
+        CVarDef.Create("game.pets_default_points", 10, CVar.REPLICATED);
+
+    /// <summary>
+    ///     Maximum number of small pets a character can have.
+    /// </summary>
+    public static readonly CVarDef<int> GamePetsMaxSmall =
+        CVarDef.Create("game.pets_max_small", 3, CVar.REPLICATED);
+
+    /// <summary>
+    ///     Maximum number of medium pets a character can have.
+    /// </summary>
+    public static readonly CVarDef<int> GamePetsMaxMedium =
+        CVarDef.Create("game.pets_max_medium", 2, CVar.REPLICATED);
+
+    /// <summary>
+    ///     Maximum number of large pets a character can have.
+    /// </summary>
+    public static readonly CVarDef<int> GamePetsMaxLarge =
+        CVarDef.Create("game.pets_max_large", 1, CVar.REPLICATED);
+
+    /// <summary>
+    ///     Maximum total number of pets a character can have, regardless of size mix.
+    /// </summary>
+    public static readonly CVarDef<int> GamePetsMaxTotal =
+        CVarDef.Create("game.pets_max_total", 3, CVar.REPLICATED);
+
     /// <summary>
     ///     Whether the game will SMITE people who used cheat engine to spawn with all of the traits.
     ///     Illegal trait totals will still be logged even if this is disabled.

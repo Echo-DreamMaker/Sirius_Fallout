@@ -357,6 +357,12 @@ public sealed class MapViewerControl : Control
                 handle.DrawCircle(markerPos, 5f, Color.Black);
                 break;
 
+            case WastelandMapTrackedBlipKind.GroupRallyPoint:
+                DrawDiamond(handle, markerPos, 12f, color);
+                handle.DrawCircle(markerPos, 3.5f, Color.Black);
+                handle.DrawCircle(markerPos, 2f, Color.White);
+                break;
+
             case WastelandMapTrackedBlipKind.TribalHuntTarget:
                 // Hunt target: bright crimson ring + white center for fast recognition.
                 handle.DrawCircle(markerPos, 11f, color);
@@ -366,6 +372,24 @@ public sealed class MapViewerControl : Control
             // #Misfits Add - Followers dead body blip: pale white X mark
             case WastelandMapTrackedBlipKind.DeadBody:
                 DrawX(handle, markerPos, 9f, color);
+                break;
+            case WastelandMapTrackedBlipKind.CriticalSoul:
+                handle.DrawCircle(markerPos, 11f, color);
+                handle.DrawCircle(markerPos, 4f, Color.White);
+                break;
+            case WastelandMapTrackedBlipKind.DeadSoul:
+                DrawX(handle, markerPos, 10f, color);
+                break;
+            case WastelandMapTrackedBlipKind.TribeCritical:
+                handle.DrawCircle(markerPos, 12f, color);
+                handle.DrawCircle(markerPos, 7f, Color.Black);
+                handle.DrawCircle(markerPos, 3f, Color.White);
+                break;
+            case WastelandMapTrackedBlipKind.MaterialExtractor:
+                DrawDiamond(handle, markerPos, 13f, color);
+                handle.DrawCircle(markerPos, 6f, Color.Black);
+                handle.DrawRect(UIBox2.FromDimensions(markerPos + new Vector2(-2f, -8f), new Vector2(4f, 16f)), Color.White);
+                handle.DrawRect(UIBox2.FromDimensions(markerPos + new Vector2(-8f, -2f), new Vector2(16f, 4f)), Color.White);
                 break;
             // End Misfits Add
         }
@@ -562,9 +586,14 @@ public sealed class MapViewerControl : Control
             WastelandMapTrackedBlipKind.LegionDecanus => new Color(0.92f, 0.18f, 0.12f, 1f),   // bright red
             WastelandMapTrackedBlipKind.LegionWarrior => new Color(0.70f, 0.16f, 0.12f, 1f),   // dark red
             WastelandMapTrackedBlipKind.LegionRecruit => new Color(0.62f, 0.32f, 0.12f, 1f),   // brown
+            WastelandMapTrackedBlipKind.GroupRallyPoint => new Color(0.97f, 0.78f, 0.18f, 1f),
             WastelandMapTrackedBlipKind.TribalHuntTarget => new Color(1f, 0.20f, 0.18f, 1f),
             // #Misfits Add - Followers dead body blip: pale white
             WastelandMapTrackedBlipKind.DeadBody => new Color(0.9f, 0.9f, 0.9f, 1f),
+            WastelandMapTrackedBlipKind.CriticalSoul => new Color(0.15f, 1f, 0.50f, 1f),
+            WastelandMapTrackedBlipKind.DeadSoul => new Color(0.68f, 0.80f, 0.72f, 1f),
+            WastelandMapTrackedBlipKind.TribeCritical => new Color(0.25f, 0.95f, 1f, 1f),
+            WastelandMapTrackedBlipKind.MaterialExtractor => new Color(1f, 0.55f, 0.08f, 1f),
             // End Misfits Add
             _ => new Color(0.98f, 0.84f, 0.15f, 0.95f),
         };

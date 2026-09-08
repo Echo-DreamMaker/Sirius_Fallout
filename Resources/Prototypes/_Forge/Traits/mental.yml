@@ -1,6 +1,6 @@
 - type: trait
   id: N14PetDogLegion
-  category: Pets # #Misfits Change - moved from Mental to Pets tab; job restriction (Houndmaster + Legion ranks) retained
+  category: PetsMedium # #Cythisiax Edited - pet size subcategory; #Misfits Change - moved from Mental to Pets tab; job restriction (Houndmaster + Legion ranks) retained
   points: -6
   requirements:
     - !type:CharacterJobRequirement

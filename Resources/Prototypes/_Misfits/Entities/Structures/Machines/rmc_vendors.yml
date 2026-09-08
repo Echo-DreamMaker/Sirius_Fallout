@@ -1,0 +1,67 @@
+# Shared RMC-style vendor machines. Faction catalogs live in the matching
+# rmc_vendors_<faction>.yml files so balance changes remain content-only.
+
+- type: entity
+  parent: N14BaseMachine
+  id: N14BaseRmcWeaponVendor
+  abstract: true
+  name: weapon requisitions vendor
+  description: An automated faction armory for weapons.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Structures/Vendors/weapon_vendor.rsi
+    state: base
+  - type: ActivatableUI
+    key: enum.CMAutomatedVendorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CMAutomatedVendorUiKey.Key:
+        type: CMAutomatedVendorBui
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+  - type: CMAutomatedVendor
+    maxAuthorityTier: 4
+    populateFromBlueprints: true
+    allocationCategories: [ Ballistic, Laser, Plasma, Energy, Melee, Other weapons ]
+    sharedEquipmentCategories: [ Ballistic, Laser, Plasma, Energy, Melee, Other weapons ]
+    defaultAllocationCategory: Other weapons
+    defaultSharedEquipmentCategory: Other weapons
+    storageWhitelist:
+      components:
+      - Gun
+      - MeleeWeapon
+
+- type: entity
+  parent: N14BaseMachine
+  id: N14BaseRmcEquipmentVendor
+  abstract: true
+  name: equipment requisitions vendor
+  description: An automated faction armory for armor and protective equipment.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Structures/Vendors/equipment_vendor.rsi
+    state: base
+  - type: ActivatableUI
+    key: enum.CMAutomatedVendorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CMAutomatedVendorUiKey.Key:
+        type: CMAutomatedVendorBui
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+  - type: CMAutomatedVendor
+    maxAuthorityTier: 4
+    populateFromBlueprints: true
+    allocationCategories: [ Helmet, Armor, Uniform, Gloves, Belt, Boots, Backpack, Pouches, Other equipment ]
+    sharedEquipmentCategories: [ Helmet, Armor, Uniform, Gloves, Belt, Boots, Backpack, Pouches, Other equipment ]
+    defaultAllocationCategory: Other equipment
+    defaultSharedEquipmentCategory: Other equipment
+    storageWhitelist:
+      components:
+      - Clothing
+      - UseDelay
+      - ActivatableUI
+    storageBlacklist:
+      components:
+      - Gun
+      - MeleeWeapon

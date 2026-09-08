@@ -1,0 +1,26 @@
+# #Misfits Add - NCR Ranger power armor helmet (sprite by PatoGrone).
+# Parent T-60 supplies PA HUD, eye protection, armor, sealing, and helmet sounds.
+# The supplied RSI intentionally has no light-overlay states, so the visual is
+# reduced to its available icon layer while retaining the inherited headlamp.
+- type: entity
+  parent: N14ClothingHeadHelmetPowerArmorT60
+  id: MisfitsClothingHeadHelmetPowerArmorRanger
+  name: NCR Ranger power armor helmet
+  description: A sealed Ranger-pattern helmet built onto a refitted T-60 power armor frame. Its reinforced mask and high collar were designed for close encounters with the Mojave's largest predators.
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _Misfits/Clothing/Head/PowerArmorHelmets/ranger_pa_helmet.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/PowerArmorHelmets/ranger_pa_helmet.rsi
+    # The supplied RSI has only the normal equipped state.
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: ToggleableLightVisuals
+    # Retain the physical inherited headlamp without requesting absent overlay states.
+    spriteLayer: null
+    inhandVisuals: {}
+    clothingVisuals: {}

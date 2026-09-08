@@ -67,7 +67,7 @@ namespace Content.IntegrationTests.Tests
             EntityUid pocketItem = default;
 
             InventorySystem invSystem = default!;
-            var mapMan = server.ResolveDependency<IMapManager>();
+            var mapMan = server.ResolveDependency<SharedMapSystem>();
             var entityMan = server.ResolveDependency<IEntityManager>();
 
             await server.WaitAssertion(() =>

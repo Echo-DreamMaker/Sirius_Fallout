@@ -305,7 +305,8 @@
             max: 1
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBase: base
+    stateBaseClosed: base
+    stateBaseOpen: base
     stateDoorOpen: base
     stateDoorClosed: door
   - type: LockVisuals

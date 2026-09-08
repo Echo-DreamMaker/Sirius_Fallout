@@ -90,3 +90,21 @@
     sprite: _Misfits/Clothing/Head/oldvaultteccap.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/Head/oldvaultteccap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadHatHelmetVaultScoutHelmet
+  name: prototype vault security helmet
+  description: The only thing standing between you and a gun that shoots extremely large, deadly knives.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/Helmets/vaultscouthelmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/Helmets/vaultscouthelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.85
+        Heat: 0.85

@@ -18,6 +18,28 @@ public sealed partial class PersistentCurrencyComponent : Component
     [DataField, AutoNetworkedField]
     public int Bottlecaps;
 
+    // #Cythisiax Add - Multi-currency balances for the free market
+    /// <summary>Persistent NCR Dollars balance (3 NCR = 1 cap).</summary>
+    [DataField, AutoNetworkedField]
+    public int NcrDollars;
+
+    /// <summary>Persistent Silver balance (4 silver = 1 cap).</summary>
+    [DataField, AutoNetworkedField]
+    public int Silver;
+
+    /// <summary>Persistent Gold balance (2 gold = 1 cap).</summary>
+    [DataField, AutoNetworkedField]
+    public int Gold;
+
+    // #Nuclear14 Add - Persistent Legion Denarii / pre-war money balances
+    /// <summary>Persistent Legion Denarii balance.</summary>
+    [DataField, AutoNetworkedField]
+    public int LegionDenarii;
+
+    /// <summary>Persistent Pre-War Money balance.</summary>
+    [DataField, AutoNetworkedField]
+    public int PrewarMoney;
+
     /// <summary>
     /// The user ID associated with this currency.
     /// </summary>

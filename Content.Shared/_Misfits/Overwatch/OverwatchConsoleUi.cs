@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Robust.Shared.Serialization;
 using Content.Shared.Mobs;
-using Robust.Shared.Network;
 
 namespace Content.Shared._Misfits.Overwatch;
 
@@ -24,7 +23,6 @@ public partial struct OverwatchConsoleEntry
     public MobState State;
     public float X;
     public float Y;
-    public bool IsCurrentTarget;
 
     public OverwatchConsoleEntry(
         uint number,
@@ -35,8 +33,7 @@ public partial struct OverwatchConsoleEntry
         float health,
         MobState state,
         float x,
-        float y,
-        bool isCurrentTarget)
+        float y)
     {
         Number = number;
         Name = name;
@@ -47,7 +44,6 @@ public partial struct OverwatchConsoleEntry
         State = state;
         X = x;
         Y = y;
-        IsCurrentTarget = isCurrentTarget;
     }
 }
 
@@ -55,31 +51,19 @@ public partial struct OverwatchConsoleEntry
 public sealed class OverwatchConsoleState : BoundUserInterfaceState
 {
     public readonly string MonitorTitle;
-    public readonly uint? WatchedNumber;
-    public readonly string? WatchedName;
-    public readonly NetEntity? WatchedEntity;
-    public readonly float? LastKnownX;
-    public readonly float? LastKnownY;
-    public readonly string? LastKnownTimestamp;
+
+    /// <summary>Display names of the operators currently viewing this console/feed.</summary>
+    public readonly List<string> Viewers;
+
     public readonly List<OverwatchConsoleEntry> Personnel;
 
     public OverwatchConsoleState(
         string monitorTitle,
-        uint? watchedNumber,
-        string? watchedName,
-        NetEntity? watchedEntity,
-        float? lastKnownX,
-        float? lastKnownY,
-        string? lastKnownTimestamp,
+        List<string> viewers,
         List<OverwatchConsoleEntry> personnel)
     {
         MonitorTitle = monitorTitle;
-        WatchedNumber = watchedNumber;
-        WatchedName = watchedName;
-        WatchedEntity = watchedEntity;
-        LastKnownX = lastKnownX;
-        LastKnownY = lastKnownY;
-        LastKnownTimestamp = lastKnownTimestamp;
+        Viewers = viewers;
         Personnel = personnel;
     }
 }

@@ -1,0 +1,31 @@
+- type: entity
+  id: ClothingBackpackBwonsamdiHarness
+  name: trophy harness
+  description: A weathered leather harness hung with tokens of the dead. It carries a few practical objects, but offers no protection.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Back/oldsatchel.rsi
+    state: icon
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: Storage
+    grid:
+    - 0,0,3,2
+    maxItemSize: Normal
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: UseDelay
+    delay: 0.5
+  - type: Tag
+    tags:
+    - BwonsamdiHarness

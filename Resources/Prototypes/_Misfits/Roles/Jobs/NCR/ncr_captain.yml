@@ -18,6 +18,17 @@
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 144000 # 40 hours
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterPlaytimeRequirement
+          tracker: NCRExecutiveOfficer
+          min: 28800 # 8 hours as Executive Officer
+        - !type:CharacterPlaytimeRequirement
+          tracker: NCRPlatoonLeader
+          min: 28800 # 8 hours as Platoon Leader
+        - !type:CharacterPlaytimeRequirement
+          tracker: NCRRO
+          min: 28800 # 8 hours as Requisition Officer
   weight: 120
   startingGear: NCRCommanderGear
   icon: "JobIconNcrLeader"
@@ -44,7 +55,7 @@
     head: N14ClothingHeadHatNCRBeretOfficer
     back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingOfficerUniformNCRDesert
-    outerClothing: N14ClothingOuterPowerArmorT51NCR
+    outerClothing: MisfitsClothingOuterNCRTrenchCoat
     shoes: N14ClothingBootsCombatFilled
     belt: ClothingBeltNCR
     eyes: ClothingEyesGlassesSunglasses

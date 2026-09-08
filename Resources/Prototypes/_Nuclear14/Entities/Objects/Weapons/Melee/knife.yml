@@ -3,6 +3,7 @@
   id: N14BaseKnife
   abstract: true
   components:
+  - type: StrengthRequirement
   - type: Tag
     tags:
     - Knife

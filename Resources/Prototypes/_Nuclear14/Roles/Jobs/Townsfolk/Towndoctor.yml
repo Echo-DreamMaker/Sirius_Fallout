@@ -1,6 +1,6 @@
 - type: job
   id: TownDoctor
-  setPreference: false # #Misfits Tweak - Town Doctor is disabled; FoTA now covers civilian medical play.
+  setPreference: true # #Misfits Tweak - Town Doctor is disabled; FoTA now covers civilian medical play.
   jobWhitelistBypassesRoleTimers: true
   weight: 60
   overrideConsoleVisibility: false
@@ -20,6 +20,7 @@
   startingGear: TownDoctorGear
   icon: "JobIconTownMedic" # Corvax-Change
   supervisors: job-supervisors-townsfolk
+  alwaysUseSpawner: true
   access:
   - TownieDoctor
   - TownsPerson # Corvax-Change

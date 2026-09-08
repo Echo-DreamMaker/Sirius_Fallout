@@ -16,6 +16,10 @@ department-Enclave-description = An isolated Enclave remnant cell relying on str
 department-C27Unit = C-27 Autonomous Unit
 department-C27Unit-description = Pre-war General Atomics humanoid robotics frames, retrofitted into autonomous Wasteland service units.
 
+# #Cythisiax Added - Brotherhood of Steel personal whitelist department locale.
+department-BoSPersonalWhitelist = Brotherhood of Steel - OC Whitelist
+department-BoSPersonalWhitelist-description = Private Brotherhood of Steel Roles
+
 # #Misfits Fix: duplicate — department-CaesarLegion and its description are already defined in
 # _Nuclear14/department.ftl (lines 36/38). Fluent errors [ERRO] on duplicate ids, so commented out here.
 # department-CaesarLegion = Caesar's Legion

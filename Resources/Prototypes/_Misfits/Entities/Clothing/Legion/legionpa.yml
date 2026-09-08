@@ -13,10 +13,6 @@
   # At 0 integrity the ArmorComponent is stripped and the wearer takes full damage.
   # Repair with a welder to restore the pool and re-enable absorption.
   - type: Damageable
-  - type: PowerArmorIntegrity
-    maxIntegrity: 300        # #Misfits Add - FAR lighter salvaged plating
-    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply (35% mitigation from plates alone)
-    disableServosLock: true       # #Misfits Add - no servo-lock speed debuff when armor breaks
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 10 # #Misfits Tweak - Legion salvaged PA is modified with leather and stripped. lower surface to weld makes it slightly faster to fix
@@ -79,6 +75,8 @@
       # #Misfits Tweak - Disable brace stance (servos stripped); slot mismatch prevents action from being granted.
   - type: PowerArmorBrace
     requiredSlot: BELT
+  - type: ClothingSpecialModifier
+    strengthModifier: -2
 
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMetal

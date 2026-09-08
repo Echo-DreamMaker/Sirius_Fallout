@@ -1,0 +1,60 @@
+# #Misfits Add - Flyable vertibird pilot action.
+- type: entity
+  id: ActionVertibirdTakeOff
+  name: action-name-vertibird-takeoff
+  description: action-description-vertibird-takeoff
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    useDelay: 1
+    icon:
+      sprite: Interface/Actions/flight.rsi
+      state: flight_on
+    event: !type:VertibirdFlightActionEvent
+
+- type: entity
+  id: ActionVertibirdLand
+  name: action-name-vertibird-land
+  description: action-description-vertibird-land
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    useDelay: 1
+    icon:
+      sprite: Interface/Actions/flight.rsi
+      state: flight_off
+    event: !type:VertibirdLandActionEvent
+
+- type: entity
+  id: ActionVertibirdMoveUp
+  name: action-name-vertibird-move-up
+  description: action-description-vertibird-move-up
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    useDelay: 1
+    icon:
+      sprite: _MultiZ/Actions/misc.rsi
+      state: z_up
+    event: !type:VertibirdMoveUpActionEvent
+
+- type: entity
+  id: ActionVertibirdMoveDown
+  name: action-name-vertibird-move-down
+  description: action-description-vertibird-move-down
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    useDelay: 1
+    icon:
+      sprite: _MultiZ/Actions/misc.rsi
+      state: z_down
+    event: !type:VertibirdMoveDownActionEvent

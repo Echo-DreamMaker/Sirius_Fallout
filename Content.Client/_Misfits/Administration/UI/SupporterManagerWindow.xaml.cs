@@ -13,8 +13,8 @@ namespace Content.Client._Misfits.Administration.UI;
 [GenerateTypedNameReferences]
 public sealed partial class SupporterManagerWindow : FancyWindow
 {
-    /// <summary>Fired when admin clicks Add/Update. Args: existingGuid (null for new), username, title, color.</summary>
-    public event Action<Guid?, string, string?, string?>? OnSetSupporter;
+    /// <summary>Fired when admin clicks Add/Update. Args: existingGuid (null for new), username, title, color, tier (null = keep current).</summary>
+    public event Action<Guid?, string, string?, string?, SupporterTier?>? OnSetSupporter;
     public event Action<Guid>? OnRemoveSupporter;
 
     private Guid? _editingGuid;
@@ -24,6 +24,16 @@ public sealed partial class SupporterManagerWindow : FancyWindow
         RobustXamlLoader.Load(this);
         AddButton.OnPressed += _ => TrySubmit();
         ClearFormButton.OnPressed += _ => ClearForm();
+
+        // #Cythisiax Added - populate Patreon tier dropdown.
+        // Must subscribe to OnItemSelected and call SelectId, otherwise the OptionButton's
+        // internal SelectedId/label never updates when an item is clicked (it only fires the event).
+        TierEdit.AddItem("None", (int) SupporterTier.None);
+        TierEdit.AddItem("Silver", (int) SupporterTier.Silver);
+        TierEdit.AddItem("Gold", (int) SupporterTier.Gold);
+        TierEdit.AddItem("Nuclear", (int) SupporterTier.Nuclear);
+        TierEdit.OnItemSelected += args => TierEdit.SelectId(args.Id);
+        TierEdit.SelectId((int) SupporterTier.None);
     }
 
     private void TrySubmit()
@@ -40,7 +50,12 @@ public sealed partial class SupporterManagerWindow : FancyWindow
         if (color != null && !color.StartsWith('#'))
             color = '#' + color;
 
-        OnSetSupporter?.Invoke(_editingGuid, username, title, color);
+        // #Cythisiax Added - read tier; null keeps the existing tier untouched on the server
+        var tier = _editingGuid.HasValue
+            ? (SupporterTier?) TierEdit.SelectedId
+            : (SupporterTier) TierEdit.SelectedId;
+
+        OnSetSupporter?.Invoke(_editingGuid, username, title, color, tier);
         StatusLabel.Text = "Saving…";
     }
 
@@ -50,6 +65,8 @@ public sealed partial class SupporterManagerWindow : FancyWindow
         UsernameEdit.Text = entry.Username;
         TitleEdit.Text = entry.Title ?? string.Empty;
         ColorEdit.Text = entry.NameColor ?? string.Empty;
+        // #Cythisiax Added - reflect stored Patreon tier when editing
+        TierEdit.SelectId((int) entry.Tier);
         StatusLabel.Text = $"Editing: {entry.Username}";
     }
 
@@ -59,6 +76,7 @@ public sealed partial class SupporterManagerWindow : FancyWindow
         UsernameEdit.Text = string.Empty;
         TitleEdit.Text = string.Empty;
         ColorEdit.Text = string.Empty;
+        TierEdit.SelectId((int) SupporterTier.None); // #Cythisiax Added
         StatusLabel.Text = string.Empty;
     }
 
@@ -86,7 +104,7 @@ public sealed partial class SupporterManagerWindow : FancyWindow
         // Color swatch
         var swatchColor = string.IsNullOrWhiteSpace(entry.NameColor)
             ? (Color?) null
-            : Color.TryFromHex(entry.NameColor);
+            : Color.TryFromHex(entry.NameColor, out var parsedColor) ? parsedColor : null;
 
         if (swatchColor.HasValue)
         {

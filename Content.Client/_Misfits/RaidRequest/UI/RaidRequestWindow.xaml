@@ -1,5 +1,5 @@
 <!-- #Misfits Add - Requester window for the /raid command. Mirrors FactionWarWindow's
-     layout: own faction header, target dropdown, optional location notes, required reason
+     layout: own faction header, target faction or group dropdown, optional location notes, required reason
      (5+ words), confirm-press Submit, and a list of the player's own requests this round. -->
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"

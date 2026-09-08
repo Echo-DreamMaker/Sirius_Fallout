@@ -149,7 +149,8 @@
     heavyStaminaCost: 0
     maxTargets: 1
   # Misfits Change - 2x multiplier on all outgoing melee damage (unarmed + wielded weapons).
-  - type: Oni
+  # Sirius Change - "Oni" ability renamed/reworked to "SuperMutant"; firearms handled separately.
+  - type: SuperMutant
     modifiers:
       coefficients:
         Blunt: 1.5

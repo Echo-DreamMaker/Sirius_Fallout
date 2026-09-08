@@ -41,7 +41,7 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14WeaponBlowback
+      - id: N14WeaponShotgunBlowback
       - id: MisfitsMagazineBox12GaugeBeanbag
       - id: BoxHandcuff
       - id: N14PoliceBaton

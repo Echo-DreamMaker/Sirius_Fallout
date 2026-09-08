@@ -299,13 +299,17 @@ public sealed class ClientClothingSystem : ClothingSystem
             if (sprite[index] is not Layer layer)
                 return;
 
-            // In case no RSI is given, use the item's base RSI as a default. This cuts down on a lot of unnecessary yaml entries.
+            // In case no RSI is given, use the clothing override before falling back to the item's base RSI.
+            // This matters for runtime reskins: power-armor helmets use explicit ClothingVisuals, whose
+            // layers otherwise keep resolving to the original SpriteComponent RSI.
             if (layerData.RsiPath == null
                 && layerData.TexturePath == null
-                && layer.RSI == null
-                && TryComp(equipment, out SpriteComponent? clothingSprite))
+                && layer.RSI == null)
             {
-                layer.SetRsi(clothingSprite.BaseRSI);
+                if (clothingComponent.Sprite != null)
+                    layer.SetRsi(_cache.GetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / clothingComponent.Sprite).RSI);
+                else if (TryComp(equipment, out SpriteComponent? clothingSprite))
+                    layer.SetRsi(clothingSprite.BaseRSI);
             }
 
             // Another "temporary" fix for clothing stencil masks.

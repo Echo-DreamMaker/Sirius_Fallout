@@ -236,7 +236,7 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14WeaponBlowback
+      - id: N14WeaponShotgunBlowback
       - id: ClothingBeltRope
       - id: MagazineBox12gauge
         amount: 2
@@ -533,7 +533,7 @@
   - type: SpawnItemsOnUse
     items:
       - id: N14LegionnaireShield
-      - id: N14WeaponBlowback
+      - id: N14WeaponShotgunBlowback
       - id: MagazineBox12gauge
         amount: 3
       - id: ClothingBeltRope

@@ -10,7 +10,7 @@ namespace Content.Shared.Random;
 
 public sealed class RulesSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
     [Dependency] private readonly AccessReaderSystem _reader = default!;
@@ -41,9 +41,16 @@ public sealed class RulesSystem : EntitySystem
                     var worldPos = _transform.GetWorldPosition(xform);
                     var gridRange = new Vector2(griddy.Range, griddy.Range);
 
-                    foreach (var _ in _mapManager.FindGridsIntersecting(
-                                 xform.MapID,
-                                 new Box2(worldPos - gridRange, worldPos + gridRange)))
+                    var foundGrid = false;
+                    _mapManager.FindGridsIntersecting(
+                        xform.MapID,
+                        new Box2(worldPos - gridRange, worldPos + gridRange),
+                        (uid, grid) =>
+                        {
+                            foundGrid = true;
+                            return false;
+                        });
+                    if (foundGrid)
                     {
                         return !griddy.Inverted;
                     }

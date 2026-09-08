@@ -108,3 +108,145 @@
               prototype: MaterialWoodPlank1
               amount: 9
             - !type:DeleteEntity
+
+# #Cythisiax Added - Crafting menu expansion: furniture graphs (bench, store)
+- type: constructionGraph
+  id: MisfitsWoodBench
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: WoodBench
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+
+    - node: WoodBench
+      entity: WoodenBench
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 4
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: MisfitsStoreDeliCounter
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: StoreDeliCounter
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 4
+          completed:
+            - !type:SnapToGrid
+
+    - node: StoreDeliCounter
+      entity: N14StoreDeliCounter
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 6
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:DeleteEntity
+
+- type: constructionGraph
+  id: MisfitsStoreFruitstand
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: StoreFruitstand
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+        - to: StoreFruitstand1
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+        - to: StoreFruitstand2
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+        - to: StoreFruitstand3
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+
+    - node: StoreFruitstand
+      entity: N14StoreFruitstand
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 4
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: StoreFruitstand1
+      entity: N14StoreFruitstand1
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 4
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: StoreFruitstand2
+      entity: N14StoreFruitstand2
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 4
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 4
+            - !type:DeleteEntity
+
+    - node: StoreFruitstand3
+      entity: N14StoreFruitstand3
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 4
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 4
+            - !type:DeleteEntity

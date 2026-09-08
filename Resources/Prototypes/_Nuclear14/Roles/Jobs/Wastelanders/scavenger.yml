@@ -12,6 +12,7 @@
   startingGear: ScavengerGear
   icon: "JobIconJanitor"
   supervisors: job-supervisors-wastelander
+  alwaysUseSpawner: true
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: GarbageDay

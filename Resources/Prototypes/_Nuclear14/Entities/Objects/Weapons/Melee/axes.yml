@@ -125,6 +125,8 @@
         Blunt: 10
         Slash: 10
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 4
   - type: IncreaseDamageOnWield
     damage:
       types:

@@ -1,0 +1,1403 @@
+- type: entity
+  id: N14ASRSAccountEnclave
+  parent: N14ASRSAccount
+  name: Enclave requisitions account
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RequisitionsAccount
+    group: Enclave
+    startingBalance: 10000
+    gain: 30
+
+- type: entity
+  parent: N14BaseCargoElevator
+  id: N14CargoElevatorEnclave
+  suffix: Enclave, Lowered
+  components:
+  - type: RequisitionsElevator
+    group: Enclave
+    accountProto: N14ASRSAccountEnclave
+  - type: WarpPoint
+    location: the Enclave ASRS pit
+
+- type: entity
+  parent: N14BaseRequisitionsConsole
+  id: N14ASRSConsoleEnclave
+  name: Enclave ASRS terminal
+  description: A hardened military logistics terminal. Automated Storage and Retrieval System, Enclave pattern.
+  suffix: Enclave
+  components:
+  - type: AccessReader
+    access: [ [ "EnclaveNCO" ] ]
+  - type: RequisitionsComputer
+    group: Enclave
+    accountProto: N14ASRSAccountEnclave
+    acceptedCurrency: PrewarMoney
+    sellEntries:
+    - item: N14ScrapElectronic
+      value: 10
+    - item: N14ScrapCopper
+      value: 5
+    - item: N14ScrapSteel
+      value: 3
+    # R&D collection jobs. Four are drawn at random from the pool defined in
+    # Requisitions/Bounties/enclave.yml, and each one is replaced as it is handed in.
+    # Hand-in is the normal delivery pass: items on the platform, then lower it.
+    bountyPool: Enclave
+    maxActiveBounties: 4
+    categories:
+    - name: n14-requisitions-category-security
+      entries:
+      - cost: 400
+        crate: N14CrateRequisitionsEnclaveSmoke
+      - cost: 500
+        crate: N14CrateRequisitionsEnclaveFlashbang
+      - cost: 800
+        crate: N14CrateRequisitionsEnclaveSidearm
+      - cost: 1000
+        crate: N14CrateRequisitionsEnclaveDeagle
+      - cost: 1000
+        crate: N14CrateRequisitionsEnclaveMagnetoPistol
+      - cost: 1000
+        crate: N14CrateRequisitionsEnclaveGrenades
+      - cost: 1000
+        stock: 3
+        crate: N14CrateRequisitionsEnclaveEMP
+      - cost: 1200
+        crate: N14CrateRequisitionsEnclaveDefender
+      - cost: 1200
+        crate: N14CrateRequisitionsEnclaveRechargerPistol
+      - cost: 1400
+        crate: N14CrateRequisitionsEnclaveDemolitions
+      - cost: 1600
+        crate: N14CrateRequisitionsEnclaveWattz2000
+      - cost: 1600
+        crate: N14CrateRequisitionsEnclaveRechargerRifle
+      - cost: 2000
+        crate: N14CrateRequisitionsEnclaveAER9Auto
+      - cost: 2200
+        crate: N14CrateRequisitionsEnclavePlasmaRifles
+      - cost: 2400
+        crate: N14CrateRequisitionsEnclavePlasmaUrban
+      - cost: 2400
+        crate: N14CrateRequisitionsEnclaveWattz3000
+      - cost: 2500
+        stock: 3
+        crate: N14CrateRequisitionsEnclavePulsePistol
+      - cost: 2800
+        crate: N14CrateRequisitionsEnclavePlasmaAuto
+      - cost: 3000
+        stock: 3
+        crate: N14CrateRequisitionsEnclaveGaussPistol
+      - cost: 3200
+        stock: 3
+        crate: N14CrateRequisitionsEnclaveRCW
+      - cost: 3450
+        stock: 3
+        crate: N14CrateRequisitionsEnclaveGauss
+      - cost: 3500
+        stock: 2
+        crate: N14CrateRequisitionsEnclavePulseCarbine
+      - cost: 3800
+        stock: 2
+        crate: N14CrateRequisitionsEnclaveAER15
+    - name: n14-requisitions-category-apparel
+      entries:
+      - cost: 200
+        crate: N14CrateRequisitionsEnclaveUniforms
+      # Peacekeeper is the only armour here that is strictly worse - 0.85 blunt/slash
+      # against everything else's 0.7, and its cap carries no Armor component at all.
+      - cost: 600
+        crate: N14CrateRequisitionsEnclavePeacekeeper
+      - cost: 800
+        crate: N14CrateRequisitionsEnclaveRadSuit
+      - cost: 900
+        crate: N14CrateRequisitionsEnclaveCovert
+      - cost: 1000
+        crate: N14CrateRequisitionsEnclaveOfficerKit
+      # Every suit below is mechanically identical - 0.7/0.7/0.6/0.65, explosion 0.75.
+      # The difference is purely cosmetic, so they all cost the same.
+      - cost: 1200
+        crate: N14CrateRequisitionsEnclaveLightArmor
+      - cost: 1200
+        crate: N14CrateRequisitionsEnclaveCombatArmor
+      - cost: 1200
+        crate: N14CrateRequisitionsEnclaveCombatArmorMK2
+      - cost: 1200
+        crate: N14CrateRequisitionsEnclaveZuluGrunt
+      - cost: 1200
+        stock: 3
+        crate: N14CrateRequisitionsEnclaveZuluArmor
+      - cost: 1200
+        crate: N14CrateRequisitionsEnclaveZuluMK2
+      - cost: 5000
+        stock: 2
+        crate: N14CrateRequisitionsEnclavePowerArmorX01
+    - name: n14-requisitions-category-ammunition
+      entries:
+      - cost: 300
+        crate: N14CrateRequisitionsEnclaveECP
+      - cost: 400
+        crate: N14CrateRequisitionsEnclaveMFCells
+      - cost: 400
+        crate: N14CrateRequisitionsEnclavePlasmaCells
+      - cost: 600
+        crate: N14CrateRequisitionsEnclave2mmEC
+    - name: n14-requisitions-category-equipment
+      entries:
+      - cost: 300
+        crate: N14CrateRequisitionsEnclaveComms
+      - cost: 400
+        crate: N14CrateRequisitionsEnclaveRadiosIds
+      - cost: 400
+        crate: N14CrateRequisitionsEnclaveField
+      - cost: 400
+        crate: N14CrateRequisitionsEnclavePowerCells
+      - cost: 800
+        crate: N14CrateRequisitionsEnclaveSignals
+      - cost: 1200
+        crate: N14CrateRequisitionsEnclaveMachineBoards
+      - cost: 2000
+        crate: N14CrateRequisitionsEnclavePATraining
+      - cost: 2500
+        stock: 1
+        crate: N14CrateRequisitionsEnclavePipboyOfficer
+      - cost: 2500
+        crate: N14CrateRequisitionsEnclaveChemWarfare
+      - cost: 4500
+        stock: 3
+        crate: N14CrateRequisitionsEnclavePipboy
+    - name: n14-requisitions-category-medical
+      entries:
+      - cost: 600
+        crate: N14CrateRequisitionsEnclaveChems
+      - cost: 800
+        crate: N14CrateRequisitionsEnclaveMedkits
+      - cost: 1000
+        crate: N14CrateRequisitionsEnclavePurge
+      - cost: 1200
+        crate: N14CrateRequisitionsEnclaveSurgical
+      - cost: 1400
+        crate: N14CrateRequisitionsEnclaveMedical
+      - cost: 1500
+        crate: N14CrateRequisitionsEnclaveChemVend
+    - name: n14-requisitions-category-maintenance
+      entries:
+      - cost: 300
+        crate: N14CrateRequisitionsEnclaveWelders
+      - cost: 300
+        crate: N14CrateRequisitionsEnclaveAdhesive
+      - cost: 400
+        crate: N14CrateRequisitionsEnclaveTools
+      - cost: 400
+        crate: N14CrateRequisitionsEnclaveMining
+      - cost: 3500
+        crate: N14CrateRequisitionsEnclaveIngots
+    - name: n14-requisitions-category-provisions
+      entries:
+      - cost: 200
+        crate: N14CrateRequisitionsEnclaveRations
+      - cost: 300
+        crate: N14CrateRequisitionsEnclaveSeeds
+      - cost: 300
+        crate: N14CrateRequisitionsEnclavePizza
+      - cost: 400
+        crate: N14CrateRequisitionsEnclaveNukaCola
+
+# Security
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveSmoke
+  name: smoke grenade crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: SmokeGrenade
+      amount: 6
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveDeagle
+  name: Enclave desert eagle crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponEnclaveDesertEagle44
+      amount: 2
+    - id: N14MagazinePistol44
+      amount: 4
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveMagnetoPistol
+  name: magneto laser pistol crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponLaserMagnetoPistol
+      amount: 2
+    - id: N14MicrofusionCellRed
+      amount: 4
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePulsePistol
+  name: pulse pistol crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponPulsePistol
+      amount: 2
+    - id: N14ElectronChargePack
+      amount: 4
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveWattz2000
+  name: Wattz 2000 laser rifle crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponLaserRifleWattz2000
+      amount: 2
+    - id: N14MicrofusionCell
+      amount: 6
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveWattz3000
+  name: Wattz 3000 laser rifle crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponLaserRifleWattz3000
+      amount: 2
+    - id: N14MicrofusionCell
+      amount: 6
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveAER9Auto
+  name: AER-9 auto laser rifle crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponLaserRifleAuto
+      amount: 2
+    - id: N14MicrofusionCell
+      amount: 6
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveRCW
+  name: laser RCW crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponLaserRCW
+      amount: 1
+    - id: N14ElectronChargePack
+      amount: 6
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePulseCarbine
+  name: pulse carbine crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponPulseCarbine
+      amount: 1
+    - id: N14ElectronChargePack
+      amount: 6
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePlasmaUrban
+  name: urban plasma rifle crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponPlasmaRifleUrban
+      amount: 2
+    - id: N14PlasmaCartridge
+      amount: 6
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePlasmaAuto
+  name: auto plasma rifle crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponPlasmaRifleAuto
+      amount: 2
+    - id: N14PlasmaCartridge
+      amount: 6
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveSidearm
+  name: plasma sidearm crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponPlasmaPistol
+      amount: 2
+    - id: N14PlasmaCartridge
+      amount: 4
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveDefender
+  name: plasma defender crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponPlasmaDefender
+      amount: 2
+    - id: N14PlasmaCartridge
+      amount: 4
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveGaussPistol
+  name: PPK-12 gauss pistol crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponGaussPistol
+      amount: 1
+    - id: N14MagazinePistol2mmEC
+      amount: 3
+
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePlasmaRifles
+  name: plasma rifle crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponPlasmaRifle
+      amount: 2
+    - id: N14PlasmaCartridge
+      amount: 6
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveGauss
+  name: M72 gauss rifle crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponGaussRifle
+      amount: 1
+    - id: N14MagazineRifle2mmEC
+      amount: 3
+
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveGrenades
+  name: advanced grenade crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14PlasmaGrenade
+      amount: 4
+    - id: N14CryoGrenade
+      amount: 4
+
+# Recharger weapons self-charge (BatterySelfRecharger), so no cells are issued.
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveRechargerPistol
+  name: recharger pistol crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponLaserPistolRecharger
+      amount: 2
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveDemolitions
+  name: demolitions crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: C4
+      amount: 4
+    - id: N14LandMine
+      amount: 4
+
+# Recharger weapons self-charge (BatterySelfRecharger), so no cells are issued.
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveRechargerRifle
+  name: recharger rifle crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponLaserRifleRecharger
+      amount: 2
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveAER15
+  name: AER-15 laser rifle crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14WeaponLaserRifleAER15
+      amount: 1
+    - id: N14MicrofusionCell
+      amount: 6
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveEMP
+  name: EMP grenade crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: EmpGrenade
+      amount: 4
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveFlashbang
+  name: flashbang crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: GrenadeFlashBang
+      amount: 6
+
+# Apparel
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveUniforms
+  name: Enclave uniform crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitEnclave
+      amount: 5
+    - id: N14ClothingUniformJumpsuitEnclaveBlue
+      amount: 5
+    - id: N14ClothingUniformJumpsuitEnclaveGrey
+      amount: 5
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveLightArmor
+  name: Enclave light armor crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingOuterEnclaveArmor
+    - id: N14ClothingHeadHatEnclaveHelmetMarine
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveRadSuit
+  name: Enclave rad suit crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingOuterRadSuitEnclave
+    - id: N14ClothingHeadHatHelmetRadHelmetEnclave
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveOfficerKit
+  name: Enclave officer dress crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingOuterEnclaverOfficerCoat
+    - id: N14ClothingHeadHatEnclaveOfficer
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePeacekeeper
+  name: Enclave peacekeeper armor crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingOuterEnclavePeacekeeper
+    - id: N14ClothingHeadHatEnclavePeacekeeperCap
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveZuluGrunt
+  name: Zulu grunt combat armor crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingOuterEnclaveZuluGruntCombatArmor
+    - id: N14ClothingHeadHatEnclaveHelmetHood
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveZuluMK2
+  name: Zulu combat armor MK2 crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingOuterEnclaveZuluCombatArmorMK2
+    - id: N14ClothingHeadHatEnclaveZuluCombatHelmet
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveCombatArmor
+  name: Enclave combat armor crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingOuterEnclaveCombatArmor
+    - id: N14ClothingHeadHatEnclaveCombatHelmet
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveCombatArmorMK2
+  name: Enclave combat armor MK2 crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingOuterEnclaveCombatArmorMK2
+    - id: N14ClothingHeadHatEnclaveHelmet
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveZuluArmor
+  name: Zulu advanced combat armor crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingOuterEnclaveZuluAdvancedCombatArmor
+    - id: N14ClothingHeadHatEnclaveZuluCombatHelmet
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePowerArmorX01
+  name: X-01 power armor crate
+  description: Advanced Powered Combat Infantry Armor. Requisition strictly logged.
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingOuterPowerArmorAdvanced1
+      amount: 2
+
+# Civilian cover for undercover work: wastelander dress, plain combat armor,
+# and wastelander dogtags (PresetIdCard job: Wastelander).
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveCovert
+  name: covert operations crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitSettlerRags
+      amount: 1
+    - id: N14ClothingUniformJumpsuitRags
+      amount: 1
+    - id: N14ClothingUniformJumpsuitMerc
+      amount: 1
+    - id: N14ClothingUniformJumpsuitTrader
+      amount: 1
+    - id: N14ClothingUniformJumpsuitCaravan
+      amount: 1
+    - id: N14ClothingOuterCombatArmor
+      amount: 2
+    - id: N14ClothingNeckDogtags
+      amount: 6
+    - id: MisfitsClothingHeadsetWastelandScrap
+      amount: 5
+    - id: BoxEncryptionKeyEnclave
+      amount: 1
+
+# Ammunition
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveECP
+  name: electron charge pack crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ElectronChargePack
+      amount: 10
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveMFCells
+  name: microfusion cell crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14MicrofusionCell
+      amount: 10
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePlasmaCells
+  name: plasma cartridge crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14PlasmaCartridge
+      amount: 10
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclave2mmEC
+  name: 2mm EC magazine crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14AmmoBox2mmEC
+      amount: 2
+    - id: N14MagazinePistol2mmEC
+      amount: 2
+    - id: N14MagazineRifle2mmEC
+      amount: 2
+
+# Equipment
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveComms
+  name: Enclave comms crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: BoxHeadsetEnclave
+    - id: BoxEncryptionKeyEnclave
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveRadiosIds
+  name: radio and holotag crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: RadioHandheld
+      amount: 4
+    - id: N14IDEnclaveTrooper
+      amount: 4
+    - id: N14IDEnclaveOfficer
+      amount: 2
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePipboy
+  name: Enclave Pip-Boy crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14EnclaveTrooperPipboy
+      amount: 4
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePipboyOfficer
+  name: Enclave officer Pip-Boy crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14EnclaveOfficerPipboy
+      amount: 1
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePATraining
+  name: power armor training manual crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: TrainingManualEnclavePowerArmorOperation
+      amount: 2
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveField
+  name: Enclave field kit crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14ClothingBackpackDuffelMilitary
+      amount: 2
+    - id: ClothingBeltEnclave
+      amount: 2
+    - id: N14ClothingHeadsetEnclave
+      amount: 2
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePowerCells
+  name: power cell crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14PowerCellSmall
+      amount: 5
+    - id: PowerCellMedium
+      amount: 3
+    - id: PowerCellHigh
+      amount: 3
+    - id: PowerCellHyper
+      amount: 2
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveMachineBoards
+  name: machine board crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: TurboItemRechargerCircuitboard
+      amount: 1
+    - id: CentrifugeMachineCircuitboard
+      amount: 1
+    - id: ReagentGrinderMachineCircuitboard
+      amount: 1
+    - id: HydroponicsTrayMachineCircuitboard
+      amount: 1
+    - id: MicrowaveMachineCircuitboard
+      amount: 1
+    - id: JukeboxCircuitBoard
+      amount: 1
+
+# Infiltration electronics. N14RemoteSignaller is a lathe recipe, not an
+# entity, so the upstream RemoteSignallerAdvanced is the correct id here.
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveSignals
+  name: signals kit crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: RadioJammer
+      amount: 1
+    - id: SignalTrigger
+      amount: 3
+    - id: RemoteSignallerAdvanced
+      amount: 3
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveChemWarfare
+  name: chemical warfare crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: DoubleEmergencyOxygenTankFilled
+      amount: 4
+    - id: ClothingMaskGasExplorer
+      amount: 4
+
+# Medical
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveChems
+  name: Enclave chems crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: RequisitionsCrate
+    reward: 0
+  - type: StorageFill
+    contents:
+    - id: N14Med-X
+      amount: 5
+    - id: N14RadXPill
+      amount: 5
+    - id: N14Antidote
+      amount: 4
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveMedical
+  name: Enclave medical crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14Stimpak
+      amount: 5
+    - id: N14SuperStimpak
+      amount: 3
+    - id: N14RadAwayBloodbag
+      amount: 3
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePurge
+  name: purge injector crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: GeneticsMutatorPurge
+      amount: 5
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveMedkits
+  name: medkit crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14MedkitFilled
+    - id: N14MedkitBruteFilled
+    - id: N14MedkitRadiationFilled
+
+# Mirrors the vanilla CrateMedicalSurgery loadout.
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveSurgical
+  name: surgical kit crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14Scalpel
+    - id: N14Retractor
+    - id: N14Cautery
+    - id: N14Drill
+    - id: N14SawElectric
+    - id: N14Hemostat
+    - id: N14BoneGel
+    - id: BoxLatexGloves
+    - id: BoxSterileMask
+    - id: SurgicalSterilanSpray
+      amount: 2
+    - id: SurgicalSterileWipe
+      amount: 4
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveChemVend
+  name: ChemVend restock crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: VendingMachineRestockChemVend
+      amount: 2
+
+# Maintenance
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveWelders
+  name: welder crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14Welder
+      amount: 6
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveTools
+  name: maintenance toolkit crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14Wrench
+    - id: N14Screwdriver
+    - id: N14Multitool
+    - id: N14Welder
+    - id: N14Flashlight
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveAdhesive
+  name: Wonderglue crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14JunkWonderglue
+      amount: 6
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveMining
+  name: mining kit crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: MiningDrill
+      amount: 3
+    - id: OreBag
+      amount: 3
+
+# Five of every N14 ingot type - each N14Ingot*5 prototype is a stack of five.
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveIngots
+  name: material ingot crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14IngotIron10
+      amount: 1
+    - id: N14IngotCopper10
+      amount: 1
+    - id: N14IngotLead10
+      amount: 1
+    - id: N14IngotAluminum10
+      amount: 1
+    - id: N14IngotBrass10
+      amount: 1
+    - id: N14IngotSilver10
+      amount: 1
+    - id: N14IngotGold10
+      amount: 1
+
+# Provisions
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveRations
+  name: Enclave field rations crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14FoodInstamash
+    - id: N14FoodCram
+    - id: N14FoodPorkBeans
+    - id: DrinkWaterBottleFull
+      amount: 4
+
+# Broc flower and xander root are the healing powder pair.
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveSeeds
+  name: seed clipping crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14FloraWildBrocFlowerClippingSeed
+      amount: 3
+    - id: N14FloraWildXanderRootClippingSeed
+      amount: 3
+    - id: N14FloraWildWhiteHorsenettleClippingSeed
+      amount: 3
+
+# Every flavour except Yellow, chilled. Three bottles each.
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveNukaCola
+  name: Ice Cold Nuka-Cola crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14DrinkNukaColaIceCold
+      amount: 3
+    - id: N14DrinkNukaColaCherryIceCold
+      amount: 3
+    - id: N14DrinkNukaColaGrapeIceCold
+      amount: 3
+    - id: N14DrinkNukaColaOrangeIceCold
+      amount: 3
+    - id: N14DrinkNukaColaQuantumIceCold
+      amount: 3
+    - id: N14DrinkNukaColaQuartzIceCold
+      amount: 3
+    - id: N14DrinkNukaColaVictoryIceCold
+      amount: 3
+    - id: N14DrinkNukaColaWildIceCold
+      amount: 3
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclavePizza
+  name: pizza crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: FoodPizzaMargherita
+      amount: 2
+    - id: FoodPizzaMeat
+      amount: 2
+    - id: FoodPizzaMushroom
+      amount: 2
+    - id: FoodPizzaVegetable
+      amount: 2

@@ -69,6 +69,14 @@
     #Misfits Change - use the structural-capable N14 explosion profile.
     explosionType: N14DefaultStructural
     totalIntensity: 20 # ~ 4 tile radius
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Spillable
+    solution: tank
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/handyfuel.rsi
     layers:
@@ -82,7 +90,7 @@
     # fillBaseName: fueltank-2-
   - type: Item
     size: Huge
-    
+
 - type: entity
   parent: N14FuelTankHandy
   id: N14FuelTankHandyRusty

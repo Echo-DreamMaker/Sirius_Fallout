@@ -2,7 +2,7 @@
   parent: SimpleMobBase
   id: N14MobBrahdo
   name: brahdo
-  description: "Neigh? That thing has too many legs... Think it bites? Might ride it. Might eat it."
+  description: "Mutated horses common as mounts and pack animals, they'll bite your fingers if you aren't careful."
   components:
   - type: Vehicle # for some reason this is the only comp that forces it to take just one hand.
   - type: Sprite
@@ -106,8 +106,8 @@
 - type: entity
   parent: N14MobBrahdo
   id: N14MobBrahdoLight
-  name: brahdo
-  description: "Neigh? That thing has too many legs... Think it bites? Might ride it. Might eat it."
+  name: saddled brahdo
+  description: "Mutated horses popular among couriers and scouts, treat it right and it'll never let you down."
   suffix: Light
   components:
   - type: Sprite
@@ -129,8 +129,8 @@
 - type: entity
   parent: N14MobBrahdo
   id: N14MobBrahdoArmor
-  name: brahdo
-  description: "Neigh? That thing has too many legs... Think it bites? Might ride it. Might eat it."
+  name: armored brahdo
+  description: "Mutated horses that have found purpose as cavalry, hopefully this protection keeps it from meeting its oblivion."
   suffix: Armor
   components:
   - type: Sprite
@@ -155,8 +155,8 @@
 - type: entity
   parent: N14MobBrahdoArmor
   id: N14MobBrahdoArmorNCR
-  name: brahdo
-  description: "Neigh? That thing has too many legs... Think it bites? Might ride it. Might eat it."
+  name: republic brahdo
+  description: "Mutated horses that have become extremely popular among couriers, ranchers, and soldiers of the NCR. Its the dream of many children to own a brahdo."
   suffix: NCR
   components:
   - type: Sprite
@@ -175,8 +175,8 @@
 - type: entity
   parent: N14MobBrahdoLight
   id: N14MobBrahdoLightLegion
-  name: brahdo
-  description: "Neigh? That thing has too many legs... Think it bites? Might ride it. Might eat it."
+  name: legion brahdo
+  description: "Mutated horses that have found use in the structure of Caesar's Legion, for raiding skirmishes and scouting missions. The Legion's mounts have a famous discipline."
   suffix: Legion
   components:
   - type: Sprite
@@ -195,8 +195,8 @@
 - type: entity
   parent: N14MobBrahdoLight
   id: N14MobBrahdoLighttribal
-  name: brahdo
-  description: "ehhoh cowboy! Jump on the brado and let's go chase the Brahmins"
+  name: tribal brahdo
+  description: "Mutated horses that have become an essential part of many tribes, allowing them to migrate with the seasons and outrun the approaching post-war nations and their borders."
   suffix: tribal
   components:
   - type: Sprite

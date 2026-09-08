@@ -522,8 +522,8 @@
 - type: entity
   parent: DecorFloorWorldBase
   id: DecorFloorFood1
-  name: food stuff
-  description: some old food stuff
+  name: old food debris
+  description: There's nothing left to eat here, not even a morsel of hope.
   components:
   - type: Sprite
     state: foodstuff_1

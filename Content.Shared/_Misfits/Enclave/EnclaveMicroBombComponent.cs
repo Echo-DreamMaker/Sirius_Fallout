@@ -13,12 +13,6 @@ namespace Content.Shared._Misfits.Enclave;
 public sealed partial class EnclaveMicroBombComponent : Component
 {
     /// <summary>
-    /// Saying this word in local IC chat triggers the implant.
-    /// </summary>
-    [DataField]
-    public string Keyword = "Enclave";
-
-    /// <summary>
     /// Played from the implanted body with every numeric countdown tick.
     /// </summary>
     [DataField]

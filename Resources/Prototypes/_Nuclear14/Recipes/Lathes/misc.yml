@@ -115,7 +115,7 @@
   materials:
     Steel: 10
     Wood: 20
-    N14Paper: 10
+#   N14Paper: 10
 
 #Misfits Remove: Blueprint entities deleted with Stalker14 crafting system
 #- type: latheRecipe

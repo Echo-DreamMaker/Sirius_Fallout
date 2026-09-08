@@ -10,6 +10,8 @@
       tags:
         - CigPack
         - N14AmmoCell
+        # #Cythisiax Added - every N14 belt can store the Wendover map (Document)
+        - Document
       components:
         - BallisticAmmoProvider
         - CartridgeAmmo
@@ -25,6 +27,17 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/Belt/boswebbing.rsi
   - type: Appearance
+  # #Cythisiax Added - classic BoS carrier carries a welder for field repairs
+  - type: Storage
+    whitelist:
+      tags:
+        - CigPack
+        - N14AmmoCell
+        - N14Welder
+        - Document
+      components:
+        - BallisticAmmoProvider
+        - CartridgeAmmo
 
 - type: entity
   parent: N14ClothingBeltStorageBase
@@ -54,6 +67,11 @@
         - SurgeryTool
         - CigPack
         - N14AmmoCell
+        # #Cythisiax Added - BoS webbing carries welders for field repairs (also covers Squire webbings)
+        - N14Welder
+        # #Cythisiax Added - tool sterilizers (Abraxo) & Wendover map (Document)
+        - Abraxo
+        - Document
       components:
         - Hypospray
         - Injector
@@ -73,6 +91,32 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/Belt/militarywebbing.rsi
   - type: Appearance
+  # #Cythisiax Added - military carrier boost: reuses the upstream salvage-rig sprite, so let it carry tools/meds/radio like other webbing, not just ammo
+  - type: Storage
+    whitelist:
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - N14AmmoCell
+        - Abraxo
+        - Document
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+        - BallisticAmmoProvider
+        - CartridgeAmmo
 
 - type: entity
   parent: N14ClothingBeltStorageBase
@@ -102,6 +146,11 @@
         - SurgeryTool
         - CigPack
         - N14AmmoCell
+        # #Cythisiax Added - NCR belt carries welders for field repairs
+        - N14Welder
+        # #Cythisiax Added - tool sterilizers (Abraxo) & Wendover map (Document)
+        - Abraxo
+        - Document
       components:
         - Hypospray
         - Injector
@@ -132,6 +181,33 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/Belt/ncrpouches.rsi
   - type: Appearance
+  # #Cythisiax Added - NCR pouches carry tools & field gear, not just ammo
+  - type: Storage
+    whitelist:
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - N14AmmoCell
+        - N14Welder
+        - Abraxo
+        - Document
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+        - BallisticAmmoProvider
+        - CartridgeAmmo
 
 - type: entity
   parent: N14ClothingBeltStorageBase
@@ -161,6 +237,9 @@
         - SurgeryTool
         - CigPack
         - N14AmmoCell
+        # #Cythisiax Added - tool sterilizers (Abraxo) & Wendover map (Document)
+        - Abraxo
+        - Document
       components:
         - Hypospray
         - Injector
@@ -223,7 +302,7 @@
   parent: N14ClothingBeltStorageBase
   id: ClothingBeltRevolver
   name: revolver holster
-  description: Can hold a revolver and speedloaders.
+  description: Can hold a revolver, speedloaders and cells.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Belt/revolverholster.rsi
@@ -234,6 +313,8 @@
       tags:
         - Sidearm
         - SpeedLoader
+        # #Cythisiax Added - revolver belt fits energy cells
+        - N14AmmoCell
       components:
         - BallisticAmmoProvider
   - type: Appearance
@@ -251,8 +332,8 @@
 - type: entity
   parent: N14ClothingBeltStorageBase
   id: ClothingBeltEnclave
-  name: Enclave belt
-  description: A leather belt designed by the Enclave.
+  name: U.S. Army belt
+  description: A leather belt designed by the U.S. Army.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Belt/enclavebelt.rsi

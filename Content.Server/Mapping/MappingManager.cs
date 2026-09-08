@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Content.Shared.Mapping;
+using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.ContentPack;
 using Robust.Shared.EntitySerialization;
@@ -73,9 +74,9 @@ public sealed class MappingManager : IPostInjectInit
                 return;
             }
 
-            var sys = _systems.GetEntitySystem<MapLoaderSystem>();
-            var data = sys.SerializeEntitiesRecursive([mapUid]).Node;
-            // Sirius edit end
+            var mapId = _systems.GetEntitySystem<TransformSystem>().GetMapCoordinates(session.AttachedEntity.Value).MapId;
+            var mapEntity = _systems.GetEntitySystem<SharedMapSystem>().GetMap(mapId);
+            var (data, _) = _systems.GetEntitySystem<MapLoaderSystem>().SerializeEntitiesRecursive(new HashSet<EntityUid> { mapEntity });
             var document = new YamlDocument(data.ToYaml());
             var stream = new YamlStream { document };
             var writer = new StringWriter();

@@ -1,0 +1,23 @@
+- type: stack
+  id: N14ZincOre
+  name: zinc ore
+  icon: { sprite: "/Textures/_Nuclear14/Objects/Misc/materials.rsi", state: lead }
+  spawn: N14ZincOre1
+  maxCount: 30
+  itemSize: 1
+
+- type: stack
+  id: N14BauxiteOre
+  name: bauxite ore
+  icon: { sprite: "/Textures/_Nuclear14/Objects/Misc/materials.rsi", state: copper }
+  spawn: N14BauxiteOre1
+  maxCount: 30
+  itemSize: 1
+
+- type: stack
+  id: Zinc
+  name: zinc
+  icon: { sprite: "/Textures/_Nuclear14/Objects/Misc/materials.rsi", state: ingot_aluminum }
+  spawn: N14IngotZinc1
+  maxCount: 30
+  itemSize: 1

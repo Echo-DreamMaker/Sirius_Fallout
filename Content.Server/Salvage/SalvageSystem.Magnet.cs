@@ -251,7 +251,7 @@ public sealed partial class SalvageSystem
         var seed = data.Comp.Offered[index];
 
         var offering = GetSalvageOffering(seed);
-        var salvMap = _mapManager.CreateMap();
+        _mapManager.CreateMap(out var salvMap);
 
         // Set values while awaiting asteroid dungeon if relevant so we can't double-take offers.
         data.Comp.ActiveSeed = seed;
@@ -262,7 +262,7 @@ public sealed partial class SalvageSystem
         switch (offering)
         {
             case AsteroidOffering asteroid:
-                var grid = _mapManager.CreateGrid(salvMap);
+                var grid = _mapManager.CreateGridEntity(salvMap);
                 await _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid.Owner, grid, Vector2i.Zero, seed);
                 break;
             case SalvageOffering wreck:
@@ -283,7 +283,7 @@ public sealed partial class SalvageSystem
         }
 
         Box2? bounds = null;
-        var mapXform = _xformQuery.GetComponent(_mapManager.GetMapEntityId(salvMap));
+        var mapXform = _xformQuery.GetComponent(_mapManager.GetMap(salvMap));
 
         if (mapXform.ChildCount == 0)
         {
@@ -347,7 +347,7 @@ public sealed partial class SalvageSystem
         {
             var salvXForm = _xformQuery.GetComponent(mapChild);
             var localPos = salvXForm.LocalPosition;
-            _transform.SetParent(mapChild, salvXForm, _mapManager.GetMapEntityId(spawnLocation.MapId));
+            _transform.SetParent(mapChild, salvXForm, _mapManager.GetMap(spawnLocation.MapId));
             _transform.SetWorldPositionRotation(mapChild, spawnLocation.Position + localPos, spawnAngle, salvXForm);
 
             data.Comp.ActiveEntities ??= new List<EntityUid>();
@@ -402,7 +402,13 @@ public sealed partial class SalvageSystem
 
             // This doesn't stop it from spawning on top of random things in space
             // Might be better like this, ghosts could stop it before
-            if (_mapManager.FindGridsIntersecting(finalCoords.MapId, box2Rot).Any())
+            var gridFound = false;
+            _mapManager.FindGridsIntersecting(finalCoords.MapId, box2Rot, (uid, grid) =>
+            {
+                gridFound = true;
+                return false;
+            });
+            if (gridFound)
             {
                 // Bump it further and further just in case.
                 fraction += 0.25f;

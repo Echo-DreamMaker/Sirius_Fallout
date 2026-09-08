@@ -1,7 +1,7 @@
 - type: entity
   id: AsteroidAltRock #It's 1994
   parent: BaseStructure
-  name: asteroid rock
+  name: ore rock # Misfits Change - renamed from "asteroid rock"
   suffix: Low Ore Yield
   description: A rocky asteroid.
   components:
@@ -10,12 +10,12 @@
     state: full
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageModifierSet: Rock # Misfits Change - was Metallic (blocked pickaxe structural damage, ~16 hits to break); Rock amplifies Structural so mining tools work like vanilla AsteroidRock
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 120 # Misfits Change - was 150; matches vanilla AsteroidRock / N14RockGrey
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -59,7 +59,7 @@
         acts: ["Destruction"]
   - type: OreVein
     oreChance: 0.20
-    oreRarityPrototypeId: RandomOreDistributionHigh
+    oreRarityPrototypeId: N14RandomOreDistributionHigh # #Cythisiax Fixed - vanilla gold/silver/plasma drops didn't stack with N14 ore sprites; use N14 distribution
 
 - type: entity
   id: MountainRock
@@ -102,7 +102,7 @@
 - type: entity
   id: AsteroidAltRockMining
   parent: AsteroidAltRock
-  name: asteroid rock
+  name: ore rock # Misfits Change - renamed from "asteroid rock" for consistency
   suffix: Higher Ore Yield
   description: A rocky asteroid.
   components:
@@ -117,7 +117,7 @@
 - type: entity
   id: AsteroidRockOreCrab
   parent: AsteroidAltRock
-  name: asteroid rock
+  name: ore rock # Misfits Change - renamed from "asteroid rock" for consistency
   suffix: Ore Crab
   description: A rocky asteroid.
   components:

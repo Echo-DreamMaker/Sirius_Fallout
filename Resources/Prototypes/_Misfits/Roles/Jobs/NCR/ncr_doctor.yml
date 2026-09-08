@@ -3,7 +3,7 @@
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
   jobWhitelistBypassesRoleTimers: true # #Misfits Change
-  weight: 100
+  weight: 49 # #Misfits Tweak - Medical Officer follows Squad Leader
   showBorder: true
   overrideConsoleVisibility: true
   canBeAntag: false
@@ -19,6 +19,9 @@
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T5 faction timelock (16h NCR)
       department: NCR
       min: 57600 # 16 hours
+    - !type:CharacterPlaytimeRequirement
+      tracker: NCRMedic
+      min: 28800 # 8 hours as Medic
   startingGear: NCRDoctorGear
   icon: "JobIconNcrMedic"
   supervisors: job-supervisors-ncr-commander
@@ -39,7 +42,7 @@
   id: NCRDoctorGear
   equipment:
     jumpsuit: N14ClothingUniformNCRDesert # Corvax-Change
-    outerClothing: N14ClothingOuterNCRPouchedVestDesert # Forge-Change
+    outerClothing: N14ClothingOuterCoatFollowersArmored
     back: N14ClothingBackpackNCR # Corvax-Change
     shoes: N14ClothingBootsLeatherFilled
     ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece

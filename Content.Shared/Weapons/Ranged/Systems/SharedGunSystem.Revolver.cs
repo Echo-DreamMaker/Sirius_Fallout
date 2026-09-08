@@ -3,18 +3,13 @@ using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Containers;
-using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
-using System;
-using System.Linq;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Wieldable;
-using Content.Shared.Wieldable.Components;
 using JetBrains.Annotations;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
-
+/*
+Pending refactor
+*/
 public partial class SharedGunSystem
 {
     protected const string RevolverContainer = "revolver-ammo";
@@ -100,7 +95,101 @@ public partial class SharedGunSystem
             return false;
 
         // If it's a speedloader try to get ammo from it.
-        if (EntityManager.HasComponent<SpeedLoaderComponent>(uid))
+        if (HasComp<SpeedLoaderComponent>(uid))
+        {
+            var freeSlots = 0;
+
+            for (var i = 0; i < component.Capacity; i++)
+            {
+                if (component.AmmoSlots[i] != null || component.Chambers[i] != null)
+                    continue;
+
+                freeSlots++;
+            }
+
+            if (freeSlots == 0)
+            {
+                Popup(Loc.GetString("gun-revolver-full"), revolverUid, user);
+                return false;
+            }
+
+            var xformQuery = GetEntityQuery<TransformComponent>();
+            var xform = xformQuery.GetComponent(uid);
+            var ammo = new List<(EntityUid? Entity, IShootable Shootable)>(freeSlots);
+            var ev = new TakeAmmoEvent(freeSlots, ammo, xform.Coordinates, user);
+            RaiseLocalEvent(uid, ev);
+
+            if (ev.Ammo.Count == 0)
+            {
+                Popup(Loc.GetString("gun-speedloader-empty"), revolverUid, user);
+                return false;
+            }
+
+            for (var i = 0; i < component.Capacity; i++)
+            {
+                if (ev.Ammo.Count == 0)
+                    break;
+                var index = (component.CurrentIndex + i) % component.Capacity;
+
+                if (component.AmmoSlots[index] != null ||
+                    component.Chambers[index] != null)
+                {
+                    continue;
+                }
+
+                var ent = ev.Ammo.Last().Entity;
+                ev.Ammo.RemoveAt(ev.Ammo.Count - 1);
+
+                if (ent == null)
+                {
+                    Log.Error($"Tried to load hitscan into a revolver which is unsupported");
+                    continue;
+                }
+
+                component.AmmoSlots[index] = ent.Value;
+                Containers.Insert(ent.Value, component.AmmoContainer);
+                SetChamber(index, component, uid);
+
+
+            }
+
+            DebugTools.Assert(ammo.Count == 0);
+            UpdateRevolverAppearance(revolverUid, component);
+            UpdateAmmoCount(revolverUid);
+            Dirty(revolverUid, component);
+
+            Audio.PlayPredicted(component.SoundInsert, revolverUid, user);
+            Popup(Loc.GetString("gun-revolver-insert"), revolverUid, user);
+            return true;
+        }
+
+        // Try to insert the entity directly.
+        for (var i = 0; i < component.Capacity; i++)
+        {
+            var index = (component.CurrentIndex + i) % component.Capacity;
+
+            if (component.AmmoSlots[index] != null ||
+                component.Chambers[index] != null)
+            {
+                continue;
+            }
+
+            component.AmmoSlots[index] = uid;
+            Containers.Insert(uid, component.AmmoContainer);
+            SetChamber(index, component, uid);
+            Audio.PlayPredicted(component.SoundInsert, revolverUid, user);
+            Popup(Loc.GetString("gun-revolver-insert"), revolverUid, user);
+            UpdateRevolverAppearance(revolverUid, component);
+            UpdateAmmoCount(revolverUid);
+            Dirty(revolverUid, component);
+            return true;
+        }
+
+        Popup(Loc.GetString("gun-revolver-full"), revolverUid, user);
+        return false;
+    }
+    /*
+        private bool TryInsertUseSpeedLoader(EntityUid revolverUid, RevolverAmmoProviderComponent component, EntityUid uid, EntityUid? user)
         {
             var freeSlots = 0;
 
@@ -155,44 +244,10 @@ public partial class SharedGunSystem
 
                 if (ev.Ammo.Count == 0)
                     break;
+                return false;
             }
-
-            DebugTools.Assert(ammo.Count == 0);
-            UpdateRevolverAppearance(revolverUid, component);
-            UpdateAmmoCount(revolverUid);
-            Dirty(revolverUid, component);
-
-            Audio.PlayPredicted(component.SoundInsert, revolverUid, user);
-            Popup(Loc.GetString("gun-revolver-insert"), revolverUid, user);
-            return true;
         }
-
-        // Try to insert the entity directly.
-        for (var i = 0; i < component.Capacity; i++)
-        {
-            var index = (component.CurrentIndex + i) % component.Capacity;
-
-            if (component.AmmoSlots[index] != null ||
-                component.Chambers[index] != null)
-            {
-                continue;
-            }
-
-            component.AmmoSlots[index] = uid;
-            Containers.Insert(uid, component.AmmoContainer);
-            SetChamber(index, component, uid);
-            Audio.PlayPredicted(component.SoundInsert, revolverUid, user);
-            Popup(Loc.GetString("gun-revolver-insert"), revolverUid, user);
-            UpdateRevolverAppearance(revolverUid, component);
-            UpdateAmmoCount(revolverUid);
-            Dirty(revolverUid, component);
-            return true;
-        }
-
-        Popup(Loc.GetString("gun-revolver-full"), revolverUid, user);
-        return false;
-    }
-
+    */
     private void SetChamber(int index, RevolverAmmoProviderComponent component, EntityUid uid)
     {
         if (TryComp<CartridgeAmmoComponent>(uid, out var cartridge) && cartridge.Spent)
@@ -283,7 +338,7 @@ public partial class SharedGunSystem
 
     public void EmptyRevolver(EntityUid revolverUid, RevolverAmmoProviderComponent component, EntityUid? user = null)
     {
-        var mapCoordinates = TransformSystem.GetMapCoordinates(revolverUid);
+        var mapCoordinates = _xform.GetMapCoordinates(revolverUid);
         var anyEmpty = false;
 
         for (var i = 0; i < component.Capacity; i++)
@@ -297,15 +352,17 @@ public partial class SharedGunSystem
                     continue;
 
                 // Too lazy to make a new method don't sue me.
-                if (!_netManager.IsClient)
-                {
-                    var uid = Spawn(component.FillPrototype, mapCoordinates);
+                //if (!_netManager.IsClient)
+                //{
+                var uid = Spawn(component.FillPrototype, mapCoordinates);
+                if (_netManager.IsClient) { FlagPredicted(uid); }
 
-                    if (TryComp<CartridgeAmmoComponent>(uid, out var cartridge))
-                        SetCartridgeSpent(uid, cartridge, !(bool) chamber);
-
-                    EjectCartridge(uid);
-                }
+                if (TryComp<CartridgeAmmoComponent>(uid, out var cartridge))
+                    SetCartridgeSpent(uid, cartridge, !(bool) chamber);
+                // misfit fix deuplicated spent carts
+                var sender = _player.TryGetSessionByEntity(user!.Value, out var session) ? session : _player.LocalSession;
+                EjectCartridge(uid, baseCoords: Transform(revolverUid).Coordinates, userSession: sender);
+                //}
 
                 component.Chambers[i] = null;
                 anyEmpty = true;
@@ -315,9 +372,12 @@ public partial class SharedGunSystem
                 component.AmmoSlots[i] = null;
                 Containers.Remove(slot.Value, component.AmmoContainer);
                 component.Chambers[i] = null;
+                // Misfit removed: if (!_netManager.IsClient)
+                //                 prediction handled in EjectCartridge
+                // msifit fix duplicated spent carts
+                var sender = _player.TryGetSessionByEntity(user!.Value, out var session) ? session : _player.LocalSession;
+                EjectCartridge(slot.Value, baseCoords: Transform(sender!.AttachedEntity!.Value).Coordinates, userSession: sender);
 
-                if (!_netManager.IsClient)
-                    EjectCartridge(slot.Value);
 
                 anyEmpty = true;
             }
@@ -348,7 +408,7 @@ public partial class SharedGunSystem
         Audio.PlayPredicted(component.SoundSpin, revolverUid, user);
         Popup(Loc.GetString("gun-revolver-spun"), revolverUid, user);
     }
-
+    // called for speedloaders
     private void OnRevolverTakeAmmo(EntityUid uid, RevolverAmmoProviderComponent component, TakeAmmoEvent args)
     {
         var currentIndex = component.CurrentIndex;
@@ -374,7 +434,7 @@ public partial class SharedGunSystem
                 {
                     // Pretend it's always been there.
                     ent = Spawn(component.FillPrototype, args.Coordinates);
-
+                    // looks like we put the bullet here as server
                     if (!_netManager.IsClient)
                     {
                         component.AmmoSlots[index] = ent;
@@ -415,7 +475,8 @@ public partial class SharedGunSystem
             // Delete the cartridge entity on client
             if (_netManager.IsClient)
             {
-                QueueDel(ent);
+                PredictedQueueDel(ent); //Misfit: does same thing(detaches to null space in client)
+                                        // but wont throw errors now
             }
         }
 

@@ -1,4 +1,5 @@
 using Robust.Shared.Map;
+using Robust.Shared.Random;
 
 namespace Content.Shared.Weapons.Ranged.Events;
 
@@ -21,11 +22,18 @@ public sealed class TakeAmmoEvent : EntityEventArgs
     /// </summary>
     public EntityCoordinates Coordinates;
 
-    public TakeAmmoEvent(int shots, List<(EntityUid? Entity, IShootable Shootable)> ammo, EntityCoordinates coordinates, EntityUid? user)
+    /// <summary>
+    /// is rng enabled for this event????????????
+    /// </summary>
+    public bool Rng;
+
+    public TakeAmmoEvent(int shots, List<(EntityUid? Entity, IShootable Shootable)> ammo,
+                        EntityCoordinates coordinates, EntityUid? user = null, bool rng = false)
     {
         Shots = shots;
         Ammo = ammo;
         Coordinates = coordinates;
         User = user;
+        Rng = rng;
     }
 }

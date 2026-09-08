@@ -17,6 +17,7 @@
         <BoxContainer Name="ModeBar" Orientation="Horizontal" SeparationOverride="4" Margin="10 4 10 4" Visible="False">
             <Button Name="MapTabButton" Text="Map" MinWidth="80"/>
             <Button Name="OverwatchTabButton" Text="Overwatch" MinWidth="110"/>
+            <Button Name="CommunicationsTabButton" Text="Communications" MinWidth="150" Visible="False"/>
         </BoxContainer>
 
         <BoxContainer Name="MapPanel" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
@@ -55,6 +56,7 @@
                 <Label Name="OverwatchSignalLabel" Text="UPLINK READY" StyleClasses="monospace" HorizontalAlignment="Right" />
             </BoxContainer>
             <PanelContainer Name="SepOverwatch" MinHeight="1" HorizontalExpand="True" />
+            <RichTextLabel Name="OverwatchViewersLabel" StyleClasses="monospace" HorizontalExpand="True" Visible="False" />
             <BoxContainer Orientation="Horizontal" VerticalExpand="True" SeparationOverride="8">
                 <BoxContainer Orientation="Vertical" MinWidth="300" MaxWidth="380" SeparationOverride="4">
                     <RichTextLabel Name="OverwatchRosterSummaryLabel" StyleClasses="monospace" HorizontalExpand="True" />
@@ -78,6 +80,20 @@
                     <RichTextLabel Name="OverwatchStatusLabel" StyleClasses="monospace" HorizontalExpand="True" />
                 </BoxContainer>
             </BoxContainer>
+        </BoxContainer>
+
+        <BoxContainer Name="CommunicationsPanel" Orientation="Vertical" VerticalExpand="True" SeparationOverride="6" Visible="False" Margin="10 4 10 8">
+            <BoxContainer Orientation="Horizontal" SeparationOverride="8" HorizontalExpand="True">
+                <Label Name="CommunicationsHeaderLabel" Text="COMMUNICATIONS" StyleClasses="monospace" HorizontalExpand="True" />
+                <Label Name="CommunicationsChannelLabel" Text="CHANNEL READY" StyleClasses="monospace" HorizontalAlignment="Right" />
+            </BoxContainer>
+            <PanelContainer MinHeight="1" HorizontalExpand="True" />
+            <RichTextLabel Name="CommunicationsSummaryLabel" StyleClasses="monospace" HorizontalExpand="True" />
+            <LineEdit Name="CommunicationsSearchBar" PlaceHolder="Search online faction personnel..." HorizontalExpand="True" />
+            <Label Name="CommunicationsNoPersonnelLabel" Text="No online faction personnel found." StyleClasses="monospace" />
+            <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+                <BoxContainer Name="CommunicationsPersonnelList" Orientation="Vertical" SeparationOverride="6" HorizontalExpand="True" />
+            </ScrollContainer>
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

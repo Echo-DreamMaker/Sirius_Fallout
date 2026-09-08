@@ -37,9 +37,11 @@ public sealed class MisfitsBanListAllEui : BaseEui
 
         _activeRoleBanControl = _window.ActiveRoleBanList;
         _activeRoleBanControl.LineIdsClicked += OnRoleLineIdsClicked;
+        _activeRoleBanControl.PardonRoleBans += ids => SendMessage(new PardonRoleBansMessage(ids));
 
         _allRoleBanControl = _window.AllRoleBanList;
         _allRoleBanControl.LineIdsClicked += OnRoleLineIdsClicked;
+        _allRoleBanControl.PardonRoleBans += ids => SendMessage(new PardonRoleBansMessage(ids));
     }
 
     private void OnClosed()

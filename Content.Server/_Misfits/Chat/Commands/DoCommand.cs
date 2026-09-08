@@ -10,9 +10,9 @@ namespace Content.Server.Chat.Commands;
 [AnyCommand]
 internal sealed class DoCommand : IConsoleCommand
 {
-    public string Command => ".do";
+    public string Command => "do";
     public string Description => "Perform environmental roleplay without a speaker name.";
-    public string Help => ".do <text>";
+    public string Help => "do <text>";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {

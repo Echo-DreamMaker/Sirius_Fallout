@@ -9,8 +9,8 @@ public enum RadialSelectorUiKey : byte
     Key,
 }
 
-[Serializable, NetSerializable]
-public sealed class RadialSelectorState(List<RadialSelectorEntry> entries, bool openCentered = false)
+[Serializable, NetSerializable, DataDefinition]
+public sealed partial class RadialSelectorState(List<RadialSelectorEntry> entries, bool openCentered = false)
     : BoundUserInterfaceState
 {
     [DataField(required: true)]

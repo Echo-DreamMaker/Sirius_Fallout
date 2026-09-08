@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from MS13",
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "woodenshelf",
+	  "directions": 4
+    },
+    {
+      "name": "woodenshelf_boxes",
+	  "directions": 4
+    },
+    {
+      "name": "woodenshelf_cases",
+	  "directions": 4
+    },
+    {
+      "name": "woodenshelf_metal",
+	  "directions": 4
+    },
+    {
+      "name": "woodenshelf_mix",
+	  "directions": 4
+    },
+    {
+      "name": "woodenshelf_small",
+	  "directions": 4
+    },
+    {
+      "name": "woodenshelf_small_boxes",
+	  "directions": 4
+    },
+    {
+      "name": "woodenshelf_small_cases",
+	  "directions": 4
+    },
+    {
+      "name": "woodenshelf_small_metal",
+	  "directions": 4
+    },
+    {
+      "name": "woodenshelf_smallalt",
+	  "directions": 4
+    },
+    {
+      "name": "woodenshelf_smallalt_boxes",
+	  "directions": 4
+    },
+    {
+      "name": "woodenshelf_smallalt_cases",
+	  "directions": 4
+    },
+    {
+      "name": "woodenshelf_smallalt_metal",
+	  "directions": 4
+    },
+    {
+      "name": "metalshelf",
+	  "directions": 4
+    },
+    {
+      "name": "metalshelf_cases",
+	  "directions": 4
+    },
+    {
+      "name": "metalshelf_filled1",
+	  "directions": 4
+    },
+    {
+      "name": "metalshelf_filled2",
+	  "directions": 4
+    },
+    {
+      "name": "metalshelf_metal",
+	  "directions": 4
+    },
+    {
+      "name": "metalshelfalt",
+	  "directions": 4
+    },
+    {
+      "name": "metalshelfalt_boxes",
+	  "directions": 4
+    },
+    {
+      "name": "metalshelfalt_cases",
+	  "directions": 4
+    },
+    {
+      "name": "metalshelfalt_metal",
+	  "directions": 4
+    },
+    {
+      "name": "metalshelfalt_mixed",
+	  "directions": 4
+    }
+  ]
+}

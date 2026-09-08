@@ -20,6 +20,13 @@
     mapConfigId: Wendover
     mapTitle: NCR Tactical Map
     tacticalFeed: NCR
+    communicationsJobs:
+    - NCRCommander
+    - NCRExecutiveOfficer
+    - NCRPlatoonLeader
+    - NCRRO
+    - NCRProvost
+    - NCRMilitaryPoliceCaptain
   - type: OverwatchConsole
     monitorTitle: overwatch-monitor-title-ncr
     trackedTags:
@@ -52,6 +59,13 @@
     mapConfigId: Wendover
     mapTitle: NCR Tactical Map
     tacticalFeed: NCR
+    communicationsJobs:
+    - NCRCommander
+    - NCRExecutiveOfficer
+    - NCRPlatoonLeader
+    - NCRRO
+    - NCRProvost
+    - NCRMilitaryPoliceCaptain
   - type: OverwatchConsole
     monitorTitle: overwatch-monitor-title-ncr
     trackedTags:
@@ -74,6 +88,16 @@
     mapConfigId: Wendover
     mapTitle: Followers Tactical Map
     tacticalFeed: Followers
+    communicationsJobs:
+    - FollowerDoctor
+    - SuperMutantFollowerDoctor
+  # #Misfits Fix - Override the OverwatchConsole inherited from N14BrotherhoodTacticalmap
+  # so this map's Overwatch tab only tracks Followers (IdCardFollowers), not Brotherhood
+  # members. The child component replaces the parent's trackedTags.
+  - type: OverwatchConsole
+    monitorTitle: overwatch-monitor-title-followers
+    trackedTags:
+    - IdCardFollowers
   - type: AccessReader
     access: [["FotA"]]
   - type: ActivatableUIRequiresAccess
@@ -102,6 +126,16 @@
     mapConfigId: Wendover
     mapTitle: Followers Tactical Map
     tacticalFeed: Followers
+    communicationsJobs:
+    - FollowerDoctor
+    - SuperMutantFollowerDoctor
+  # #Misfits Fix - Override the OverwatchConsole inherited from N14BrotherhoodTacticalmapBroken
+  # (which was repurposed as an NCR map) so this broken Followers map's Overwatch tab only
+  # tracks Followers (IdCardFollowers), not NCR personnel.
+  - type: OverwatchConsole
+    monitorTitle: overwatch-monitor-title-followers
+    trackedTags:
+    - IdCardFollowers
   - type: AccessReader
     access: [["FotA"]]
   - type: ActivatableUIRequiresAccess
@@ -120,6 +154,17 @@
     mapConfigId: Wendover
     mapTitle: Rangers Tactical Map
     tacticalFeed: NCR
+    communicationsJobs:
+    - NCRChiefRanger
+    - RangerChief
+    - NCRVeteranRanger
+  # #Misfits Fix - Override the BOS OverwatchConsole inherited from N14BrotherhoodTacticalmap
+  # so this map's Overwatch tab only tracks NCR Rangers (IdCardNCRRanger), NOT Brotherhood
+  # members and NOT the whole NCR. The child component replaces the parent's trackedTags.
+  - type: OverwatchConsole
+    monitorTitle: overwatch-monitor-title-ncr-rangers
+    trackedTags:
+    - IdCardNCRRanger
   - type: AccessReader
     access: [["NCRRanger"]]
   - type: ActivatableUIRequiresAccess
@@ -148,6 +193,17 @@
     mapConfigId: Wendover
     mapTitle: Rangers Tactical Map
     tacticalFeed: NCR
+    communicationsJobs:
+    - NCRChiefRanger
+    - RangerChief
+    - NCRVeteranRanger
+  # #Misfits Fix - Override the BOS OverwatchConsole inherited from N14BrotherhoodTacticalmapBroken
+  # so this map's Overwatch tab only tracks NCR Rangers (IdCardNCRRanger), NOT Brotherhood
+  # members and NOT the whole NCR. The child component replaces the parent's trackedTags.
+  - type: OverwatchConsole
+    monitorTitle: overwatch-monitor-title-ncr-rangers
+    trackedTags:
+    - IdCardNCRRanger
   - type: AccessReader
     access: [["NCRRanger"]]
   - type: ActivatableUIRequiresAccess

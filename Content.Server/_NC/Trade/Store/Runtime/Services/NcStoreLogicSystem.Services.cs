@@ -1,6 +1,7 @@
 using Content.Shared._NC.Trade;
 using Content.Shared._Misfits.Special;
 using Content.Shared._Misfits.Special.Components;
+using Content.Shared._Misfits.Talents.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Stacks;
 using Robust.Shared.Prototypes;
@@ -56,6 +57,11 @@ public sealed partial class NcStoreLogicSystem
             buying ? -tuning.CharismaTradeMultiplierPerPoint : tuning.CharismaTradeMultiplierPerPoint,
             special);
         var multiplier = MathF.Max(0.05f, 1f + modifier);
+
+        // #Misfits Add - talent tree: Educated improves buy/sell prices.
+        if (HasComp<TraitEducatedComponent>(user))
+            multiplier *= buying ? 0.95f : 1.05f;
+
         var adjusted = (int) Math.Round(amount * multiplier, MidpointRounding.AwayFromZero);
 
         return Math.Max(1, adjusted);

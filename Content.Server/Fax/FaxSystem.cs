@@ -478,7 +478,7 @@ public sealed class FaxSystem : EntitySystem
         TryComp<NameModifierComponent>(sendEntity, out var nameMod);
 
         // TODO: See comment in 'Send()' about not being able to copy whole entities
-        var printout = new FaxPrintout(paper.Content,
+        var printout = new FaxPrintout(paper.PaperContent,
                                        nameMod?.BaseName ?? metadata.EntityName,
                                        labelComponent?.CurrentLabel,
                                        metadata.EntityPrototype?.ID ?? DefaultPaperPrototypeId,
@@ -530,7 +530,7 @@ public sealed class FaxSystem : EntitySystem
         if (component.DestinationFaxAddress == FaxConstants.FaxCommandAddress)
         {
             var paperTitle = nameMod?.BaseName ?? metadata.EntityName;
-            NotifyAdminsCommand(component.FaxName, paperTitle, paper.Content, args.Actor);
+            NotifyAdminsCommand(component.FaxName, paperTitle, paper.PaperContent, args.Actor);
 
             // #Misfits Add - Keep a bounded LEADERSHIP inbox for the admin fax manager.
             var senderName = TryComp<MetaDataComponent>(args.Actor, out var actorMeta)
@@ -540,10 +540,10 @@ public sealed class FaxSystem : EntitySystem
                 FaxConstants.FaxCommandName,
                 senderName,
                 paperTitle,
-                paper.Content);
+                paper.PaperContent);
 
             // #Misfits Add - Also deliver command faxes to mapped LEADERSHIP fax machines as physical paper.
-            var printout = new FaxPrintout(paper.Content, paperTitle, labelComponent?.CurrentLabel,
+            var printout = new FaxPrintout(paper.PaperContent, paperTitle, labelComponent?.CurrentLabel,
                 metadata.EntityPrototype?.ID ?? OfficePaperPrototypeId, paper.StampState, paper.StampedBy);
             DeliverToLeadershipFaxes(uid, component.FaxName, printout);
 
@@ -551,7 +551,7 @@ public sealed class FaxSystem : EntitySystem
                 $"{ToPrettyString(args.Actor):actor} " +
                 $"sent fax from \"{component.FaxName}\" {ToPrettyString(uid):tool} " +
                 $"to COMMAND " +
-                $"of {ToPrettyString(sendEntity):subject}: {paper.Content}");
+                $"of {ToPrettyString(sendEntity):subject}: {paper.PaperContent}");
 
             component.SendTimeoutRemaining += component.SendTimeout;
             _audioSystem.PlayPvs(component.SendSound, uid);
@@ -564,7 +564,7 @@ public sealed class FaxSystem : EntitySystem
             { DeviceNetworkConstants.Command, FaxConstants.FaxPrintCommand },
             { FaxConstants.FaxPaperNameData, nameMod?.BaseName ?? metadata.EntityName },
             { FaxConstants.FaxPaperLabelData, labelComponent?.CurrentLabel },
-            { FaxConstants.FaxPaperContentData, paper.Content },
+            { FaxConstants.FaxPaperContentData, paper.PaperContent },
         };
 
         if (metadata.EntityPrototype != null)
@@ -588,7 +588,7 @@ public sealed class FaxSystem : EntitySystem
         // Skip if this fax was already sent directly to a LEADERSHIP target to prevent duplicate printouts.
         if (!string.Equals(faxName, FaxConstants.FaxCommandName, StringComparison.OrdinalIgnoreCase))
         {
-            var mirroredPrintout = new FaxPrintout(paper.Content,
+            var mirroredPrintout = new FaxPrintout(paper.PaperContent,
                 nameMod?.BaseName ?? metadata.EntityName,
                 labelComponent?.CurrentLabel,
                 metadata.EntityPrototype?.ID ?? OfficePaperPrototypeId,
@@ -605,13 +605,13 @@ public sealed class FaxSystem : EntitySystem
             faxName,
             normalSenderName,
             nameMod?.BaseName ?? metadata.EntityName,
-            paper.Content);
+            paper.PaperContent);
 
         _adminLogger.Add(LogType.Action, LogImpact.Low,
             $"{ToPrettyString(args.Actor):actor} " +
             $"sent fax from \"{component.FaxName}\" {ToPrettyString(uid):tool} " +
             $"to \"{faxName}\" ({component.DestinationFaxAddress}) " +
-            $"of {ToPrettyString(sendEntity):subject}: {paper.Content}");
+            $"of {ToPrettyString(sendEntity):subject}: {paper.PaperContent}");
 
         component.SendTimeoutRemaining += component.SendTimeout;
 

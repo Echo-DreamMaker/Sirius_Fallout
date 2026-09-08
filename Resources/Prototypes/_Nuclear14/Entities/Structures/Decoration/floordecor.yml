@@ -39,6 +39,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard1
   - type: Sprite
     state: boards_drought_ns-1
 
@@ -48,6 +51,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard2
   - type: Sprite
     state: boards_drought_ns-2
 
@@ -57,6 +63,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard3
   - type: Sprite
     state: boards_drought_ns-3
 
@@ -66,6 +75,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard4
   - type: Sprite
     state: boards_drought_ns-4
 
@@ -75,6 +87,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard5
   - type: Sprite
     state: boards_drought_ns-5
 
@@ -84,6 +99,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard6
   - type: Sprite
     state: boards_drought_ns-6
 
@@ -93,6 +111,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard7
   - type: Sprite
     state: boards_drought_we-1
 
@@ -102,6 +123,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard8
   - type: Sprite
     state: boards_drought_we-2
 
@@ -111,6 +135,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard9
   - type: Sprite
     state: boards_drought_we-3
 
@@ -120,6 +147,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard10
   - type: Sprite
     state: boards_drought_we-4
 
@@ -129,6 +159,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard11
   - type: Sprite
     state: boards_drought_we-5
 
@@ -138,6 +171,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard12
   - type: Sprite
     state: boards_drought_we-6
 
@@ -147,6 +183,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard13
   - type: Sprite
     state: boards_mammoth_ns-1
 
@@ -156,6 +195,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard14
   - type: Sprite
     state: boards_mammoth_ns-2
 
@@ -165,6 +207,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard15
   - type: Sprite
     state: boards_mammoth_ns-3
 
@@ -174,6 +219,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard16
   - type: Sprite
     state: boards_mammoth_ns-4
 
@@ -183,6 +231,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard17
   - type: Sprite
     state: boards_mammoth_ns-5
 
@@ -192,6 +243,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard18
   - type: Sprite
     state: boards_mammoth_ns-6
 
@@ -201,6 +255,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard19
   - type: Sprite
     state: boards_mammoth_we-1
 
@@ -210,6 +267,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard20
   - type: Sprite
     state: boards_mammoth_we-2
 
@@ -219,6 +279,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard21
   - type: Sprite
     state: boards_mammoth_we-3
 
@@ -228,6 +291,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard22
   - type: Sprite
     state: boards_mammoth_we-4
 
@@ -237,6 +303,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard23
   - type: Sprite
     state: boards_mammoth_we-5
 
@@ -246,6 +315,9 @@
   name: floor board
   description: Keep the mud off your feet.
   components:
+  - type: Construction
+    graph: DecorFloorBoards
+    node: floorboard24
   - type: Sprite
     state: boards_mammoth_we-6
 
@@ -395,6 +467,9 @@
   description: The great nations huffed, and puffed, and blew down the world.
   suffix: "6 states"
   components:
+  - type: Construction
+    graph: DecorFloorBrickrubble
+    node: brickrubble
   - type: Sprite
     state: brickrubble
 
@@ -416,6 +491,9 @@
   description: An old wooden pallet, riddled with termites. Its beyond useless now.
   suffix: "2 states"
   components:
+  - type: Construction
+    graph: DecorFloorPallets
+    node: pallet
   - type: Sprite
     state: pallet
         # add destruction drop for materials
@@ -427,6 +505,9 @@
   description: A stack of old wooden pallets, damp and moldy. Not even good enough to use as fuel.
   suffix: "2 states"
   components:
+  - type: Construction
+    graph: DecorFloorPallets
+    node: pallet_stack
   - type: Sprite
     state: pallet_stack
         # add destruction drop for materials
@@ -523,8 +604,8 @@
 - type: entity
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorFood1
-  name: food stuff
-  description: some old food stuff
+  name: old food debris
+  description: There's nothing left to eat here, not even a morsel of hope.
   components:
   - type: Sprite
     state: foodstuff_1

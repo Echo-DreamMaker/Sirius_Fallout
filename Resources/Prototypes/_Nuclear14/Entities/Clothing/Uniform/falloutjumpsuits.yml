@@ -62,7 +62,7 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitRDFormal
-  name: formal brown suit
+  name: formal brown outfit
   description: Formal attire for office workers and research personnel alike, in the safe neutral tones of beige and brown, it even has a clip-on tie included. This outfit has achieved true neutrality.
   components:
   - type: Sprite
@@ -120,8 +120,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitEnclave
-  name: enclave uniform
-  description: A uniform worn by members of the Enclave.
+  name: U.S. Army uniform
+  description: A uniform worn by members of the U.S. Army.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/enclaveuni.rsi

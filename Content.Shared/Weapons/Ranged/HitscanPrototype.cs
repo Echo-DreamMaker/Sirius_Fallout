@@ -30,8 +30,12 @@ public sealed partial class HitscanPrototype : IPrototype, IShootable
     [ViewVariables(VVAccess.ReadOnly), DataField("impactFlash")]
     public SpriteSpecifier? ImpactFlash;
 
+    // #Misfits Fix - Hitscan/laser rays must stop on glass like bullets do. Bullets use a
+    // BulletImpassable mask (see BaseBullet), and glass uses GlassLayer which has no Opaque,
+    // so the old Opaque-only mask made lasers fly straight through windows. Adding
+    // BulletImpassable makes lasers collide with exactly what bullets collide with.
     [DataField("collisionMask")]
-    public int CollisionMask = (int) CollisionGroup.Opaque;
+    public int CollisionMask = (int) (CollisionGroup.Opaque | CollisionGroup.BulletImpassable);
 
     /// <summary>
     /// What we count as for reflection.

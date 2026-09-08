@@ -1134,6 +1134,9 @@
   id: RCDConstructed
 
 - type: Tag
+  id: RadCube #new tag for replacing recipes later
+
+- type: Tag
   id: Radio
 
 - type: Tag
@@ -1480,3 +1483,9 @@
 
 - type: Tag # Corvax-Add
   id: Darts
+
+- type: Tag
+  id: Tourniquet # Storage whitelist: ClothingBeltMedical
+
+- type: Tag
+  id: SlowImmune

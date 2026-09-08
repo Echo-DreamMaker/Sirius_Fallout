@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -48,26 +49,10 @@ public sealed partial class TelepathyActionSystem : EntitySystem
         var user = args.Performer;
         var target = args.Target;
 
-        // using the action on yourself opens the long-range window with a list of
-        // everyone online, so you can reach minds you can't see.
+        // using the action on yourself opens the long-range window
         if (target == user)
         {
-            var players = new List<TelepathyFarEntry>();
-            foreach (var session in _player.Sessions)
-            {
-                if (session.AttachedEntity is not {} character ||
-                    character == user ||
-                    !HasComp<MobStateComponent>(character) ||
-                    !HasComp<MindContainerComponent>(character)) // match the action's own whitelist
-                    continue;
-
-                // Identity.Name, not Name: reaching out to a mind shouldn't tell you who is
-                // behind a mask or a forged ID.
-                players.Add(new TelepathyFarEntry(GetNetEntity(character), Identity.Name(character, EntityManager)));
-            }
-            players.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.OrdinalIgnoreCase));
-
-            _ui.SetUiState(ent.Owner, TelepathyUiKey.Far, new TelepathyFarState(players));
+            _ui.SetUiState(ent.Owner, TelepathyUiKey.Far, new TelepathyFarState(GetReachableMinds(ent, user)));
             if (!_ui.TryOpenUi(ent.Owner, TelepathyUiKey.Far, user))
                 Log.Error($"Failed to open far UI for {ToPrettyString(ent)} of {ToPrettyString(user)}");
             return;
@@ -79,6 +64,60 @@ public sealed partial class TelepathyActionSystem : EntitySystem
             Log.Error($"Failed to open UI for {ToPrettyString(ent)} of {ToPrettyString(user)}");
 
         // intentionally not handled, only start the cooldown after a message is sent
+    }
+
+    /// <summary>
+    /// Every mind this telepath can currently reach: ones they've touched in person, plus any
+    /// other telepath, who are always on the same wavelength.
+    /// </summary>
+    private List<TelepathyFarEntry> GetReachableMinds(Entity<TelepathyActionComponent> ent, EntityUid user)
+    {
+        var entries = new List<TelepathyFarEntry>();
+        var seen = new HashSet<EntityUid>();
+
+        foreach (var mind in GetOtherTelepaths(ent.Owner))
+        {
+            if (mind == user || !seen.Add(mind))
+                continue;
+
+            entries.Add(new TelepathyFarEntry(GetNetEntity(mind), Identity.Name(mind, EntityManager), true));
+        }
+
+        // minds contacted in person, dropping any that have since stopped existing
+        ent.Comp.KnownMinds.RemoveWhere(known => !Exists(known));
+        foreach (var known in ent.Comp.KnownMinds)
+        {
+            if (known == user || !seen.Add(known) || !HasComp<MindContainerComponent>(known))
+                continue;
+
+            entries.Add(new TelepathyFarEntry(GetNetEntity(known), Identity.Name(known, EntityManager), false));
+        }
+
+        entries.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.OrdinalIgnoreCase));
+        return entries;
+    }
+
+    /// <summary>
+    /// The mobs carrying any other telepathy action.
+    /// </summary>
+    private List<EntityUid> GetOtherTelepaths(EntityUid self)
+    {
+        var found = new List<EntityUid>();
+        var query = EntityQueryEnumerator<TelepathyActionComponent>();
+        while (query.MoveNext(out var actionUid, out _))
+        {
+            if (actionUid == self)
+                continue;
+
+            BaseActionComponent? action = null;
+            if (!_actions.ResolveActionData(actionUid, ref action) || action.AttachedEntity is not {} mob)
+                continue;
+
+            if (HasComp<MindContainerComponent>(mob) && HasComp<MobStateComponent>(mob))
+                found.Add(mob);
+        }
+
+        return found;
     }
 
     private void OnTelepathyChosen(Entity<TelepathyActionComponent> ent, ref TelepathyChosenMessage args)
@@ -98,8 +137,9 @@ public sealed partial class TelepathyActionSystem : EntitySystem
         if (!TryGetEntity(args.Target, out var target) || target == user)
             return;
 
-        // only allow reaching actual player characters, same filter as the list
-        if (!HasComp<MobStateComponent>(target.Value) || !HasComp<MindContainerComponent>(target.Value))
+        // has to still be someone we can actually reach - don't trust the client's pick
+        var wanted = args.Target; // can't capture a ref parameter in the lambda
+        if (!GetReachableMinds(ent, user).Any(entry => entry.Target == wanted))
             return;
 
         Deliver(ent, user, target.Value, args.Message);
@@ -111,14 +151,12 @@ public sealed partial class TelepathyActionSystem : EntitySystem
         if (msg.Length == 0 || msg.Length > ent.Comp.MaxLength) // no malf
             return;
 
-        // TODO: close it if the target leaves range
-
         // no prediction beyond here since client doesn't know other entities' ActorComponent
         if (_net.IsClient)
             return;
 
         var ident = Identity.Entity(target, EntityManager);
-        if (!HasComp<MetaDataComponent>(target))
+        if (!HasComp<MindContainerComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("MutationTelepathy-popup-mindless", ("target", ident)), user, user);
             return;
@@ -127,22 +165,20 @@ public sealed partial class TelepathyActionSystem : EntitySystem
         // start the delay now that a message is being sent
         _actions.StartUseDelay(ent.Owner);
 
+        // touching a mind directly means you can find it again later
+        if (ent.Comp.KnownMinds.Add(target))
+            _popup.PopupEntity(Loc.GetString("MutationTelepathy-popup-remembered", ("target", ident)), user, user);
+
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{user:user} sent a telepathic message to {target:target}: {msg}");
 
         // TODO: handle mind magic protection with -popup-blocked
-        // deliver the message into the target's mind - previously this was sent to the
-        // sender instead, so the target never saw anything.
-        Tell(target, msg);
+        // Delivery goes to the target's chat rather than a popup: popups don't render markup
+        // and fade on their own, which is no good for something you're meant to read and reply
+        // to. Chat needs the chat manager, so the server picks this up.
+        var ev = new TelepathyDeliverEvent(user, target, msg);
+        RaiseLocalEvent(ref ev);
+
         _popup.PopupEntity(Loc.GetString("MutationTelepathy-popup-sent", ("target", ident)), user, user);
         // TODO: send message for ghosts too
-    }
-
-    private void Tell(EntityUid target, string message)
-    {
-        _popup.PopupEntity(
-            Loc.GetString("MutationTelepathy-message-wrap", ("message", FormattedMessage.EscapeText(message))),
-            target,
-            target,
-            PopupType.Medium);
     }
 }

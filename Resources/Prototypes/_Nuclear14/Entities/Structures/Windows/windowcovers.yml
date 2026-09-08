@@ -54,6 +54,9 @@
   name: window bars
   description: Sturdy looking bars blocking access.
   components:
+    - type: Construction
+      graph: N14WindowBars
+      node: bars
     - type: MeleeSound
       soundGroups:
         Brute:

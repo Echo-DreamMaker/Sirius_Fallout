@@ -15,6 +15,8 @@
             </PanelContainer>
         </controls:StripeBack>
 
+        <Label Name="GroupNameLabel" Text="" Margin="10 4 10 2" Align="Center" Modulate="#D9C15C"/>
+
         <!-- ── Pending Invite Banner (hidden when no invite) ─────────── -->
         <PanelContainer Name="InvitePanel" HorizontalExpand="True" Margin="10 6 10 2">
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="4">
@@ -45,24 +47,54 @@
         <Button Name="CreateGroupButton" Text="{Loc group-create-button}"
                 Margin="10 4 10 4" HorizontalExpand="True"/>
 
-        <!-- ── Invite / Kick (visible when leader) ───────────────────── -->
+        <!-- ── Group Controls (visibility depends on role) ───────────── -->
         <BoxContainer Name="LeaderControls" Orientation="Vertical"
                       HorizontalExpand="True" SeparationOverride="4">
 
             <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 0"/>
 
+            <Label Text="{Loc group-name-header}" Margin="10 4 10 2" Modulate="#D9C15C"/>
+            <BoxContainer Name="RenameSection" Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="6">
+                <LineEdit Name="GroupNameEdit" PlaceHolder="{Loc group-rename-placeholder}" HorizontalExpand="True"/>
+                <Button Name="RenameButton" Text="{Loc group-rename-button}"/>
+            </BoxContainer>
+
             <Label Text="{Loc group-invite-header}" Margin="10 4 10 2" Modulate="#88CC88"/>
-            <BoxContainer Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="6">
-                <LineEdit Name="InviteNameEdit" PlaceHolder="{Loc group-invite-placeholder}"
-                          HorizontalExpand="True"/>
-                <Button Name="InviteButton" Text="{Loc group-invite-button}"/>
+            <BoxContainer Name="InviteSection" Orientation="Vertical" Margin="10 0 10 4" SeparationOverride="6">
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <LineEdit Name="InviteNameEdit" PlaceHolder="{Loc group-invite-placeholder}"
+                              HorizontalExpand="True"/>
+                    <Button Name="InviteButton" Text="{Loc group-invite-button}"/>
+                    <Button Name="InviteNearbyButton" Text="{Loc group-invite-nearby-button}"/>
+                </BoxContainer>
+                <Label Name="InviteHintLabel" Modulate="#7FAE7F"/>
+            </BoxContainer>
+
+            <Label Text="{Loc group-rally-header}" Margin="10 4 10 2" Modulate="#D9C15C"/>
+            <BoxContainer Name="RallySection" Orientation="Vertical" Margin="10 0 10 4" SeparationOverride="6">
+                <Label Name="RallyPointLabel" Modulate="#D9C15C"/>
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <Button Name="SetRallyButton" Text="{Loc group-rally-set-button}" HorizontalExpand="True"/>
+                    <Button Name="ClearRallyButton" Text="{Loc group-rally-clear-button}" HorizontalExpand="True"/>
+                </BoxContainer>
+            </BoxContainer>
+
+            <Label Text="{Loc group-role-header}" Margin="10 4 10 2" Modulate="#D9A85C"/>
+            <BoxContainer Name="RoleSection" Orientation="Vertical" Margin="10 0 10 4" SeparationOverride="6">
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <LineEdit Name="RoleNameEdit" PlaceHolder="{Loc group-role-placeholder}"
+                              HorizontalExpand="True"/>
+                    <Button Name="RoleToggleButton" Text="{Loc group-role-toggle-button}"/>
+                </BoxContainer>
             </BoxContainer>
 
             <Label Text="{Loc group-kick-header}" Margin="10 4 10 2" Modulate="#CC8888"/>
-            <BoxContainer Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="6">
-                <LineEdit Name="KickNameEdit" PlaceHolder="{Loc group-kick-placeholder}"
-                          HorizontalExpand="True"/>
-                <Button Name="KickButton" Text="{Loc group-kick-button}"/>
+            <BoxContainer Name="KickSection" Orientation="Vertical" Margin="10 0 10 4" SeparationOverride="6">
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <LineEdit Name="KickNameEdit" PlaceHolder="{Loc group-kick-placeholder}"
+                              HorizontalExpand="True"/>
+                    <Button Name="KickButton" Text="{Loc group-kick-button}"/>
+                </BoxContainer>
             </BoxContainer>
 
         </BoxContainer>

@@ -167729,7 +167729,7 @@ entities:
       canCollide: False
     - type: Fixtures
       fixtures: {}
-- proto: N14WeaponBlowback
+- proto: N14WeaponShotgunBlowback
   entities:
   - uid: 8682
     components:
@@ -168006,7 +168006,7 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: N14WeaponRevolver44Magnun
+- proto: N14WeaponRevolver44Magnum
   entities:
   - uid: 24928
     components:

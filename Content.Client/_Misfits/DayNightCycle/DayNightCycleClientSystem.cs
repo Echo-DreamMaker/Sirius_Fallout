@@ -25,10 +25,16 @@ public sealed class DayNightCycleClientSystem : EntitySystem
         {
             var cycleDurationSeconds = dayNight.CycleDurationMinutes * 60f;
 
-            // Offset by StartOffset so the world begins partway through the cycle
-            // (default 0.2 = "early morning") rather than always at midnight.
+            // #Misfits Change - Anchor the cycle to the round start time (set server-side on
+            // RoundStartedEvent) so each round begins at cycle time 0 = dawn, and the cycle lines
+            // up exactly with the round (4h cycle = 4h round, round end = dawn again).
+            // Offset by StartOffset afterwards so it still supports a startup phase shift.
+            var elapsedSeconds = (float) _timing.CurTime.TotalSeconds - dayNight.RoundStartTimeSeconds;
+            if (elapsedSeconds < 0f)
+                elapsedSeconds = 0f; // Before the first round start — no offset yet.
+
             var offsetSeconds = dayNight.StartOffset * cycleDurationSeconds;
-            var rawSeconds = (float) _timing.CurTime.TotalSeconds + offsetSeconds;
+            var rawSeconds = elapsedSeconds + offsetSeconds;
 
             var cycleTime = (rawSeconds % cycleDurationSeconds) / cycleDurationSeconds;
 

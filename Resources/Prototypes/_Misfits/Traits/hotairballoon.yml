@@ -1,0 +1,9 @@
+# #Misfits Add - Balloonist perk: unlocks flying hot air balloons (shares the aircraft pilot marker).
+- type: trait
+  id: N14BalloonPilotPerk
+  category: Mental
+  points: -10
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: VertibirdPilotPerk

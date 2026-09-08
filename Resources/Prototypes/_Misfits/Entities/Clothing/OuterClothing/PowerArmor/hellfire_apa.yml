@@ -1,5 +1,5 @@
-# #Misfits Add - Tribal APA: X-01 power armor reskin for the Ug-Qualtoth tribal faction.
-# Inherits ALL X-01 mechanics: Armor, ExplosionResistance, Reflect, PowerArmorIntegrity, ToggleableClothing.
+# #Misfits Add - Tribal APA: APA MK I power armor reskin for the Ug-Qualtoth tribal faction.
+# Inherits ALL APA MK I mechanics: Armor, ExplosionResistance, Reflect, PowerArmorIntegrity, ToggleableClothing.
 # Only Sprite/Clothing paths and the toggled head prototype are overridden.
 
 # --- Tribal APA Suit ---
@@ -7,7 +7,7 @@
   parent: N14ClothingOuterPowerArmorAdvanced2Hellfire
   id: N14ClothingOuterPowerArmorAdvanced2HellfireMisfit
   name: hellfire advanced power armor
-  description: Hellfire power armor suit, a reskin of the X-01 with a fiery motif. The removal of servo drives has made it less mobile but retains a high level of protection and partial hermetic sealing. Tribal markings and ceremonial bones coat the surface, but the heads-up display still functions beneath them.
+  description: Hellfire power armor suit, a reskin of the APA MK I with a fiery motif. The removal of servo drives has made it less mobile but retains a high level of protection and partial hermetic sealing. Tribal markings and ceremonial bones coat the surface, but the heads-up display still functions beneath them.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/PowerArmor/hellfire_apa.rsi
@@ -16,7 +16,7 @@
     equipDelay: 3
     unequipDelay: 6
   - type: ToggleableClothing
-    # Override only to point head at the tribal helmet; gloves/shoes/back unchanged from X-01
+    # Override only to point head at the tribal helmet; gloves/shoes/back unchanged from APA MK I
     clothingPrototypes:
       head: N14ClothingHeadHelmetPowerArmorHellfireMisfit
       gloves: N14ClothingPAGauntletsDark

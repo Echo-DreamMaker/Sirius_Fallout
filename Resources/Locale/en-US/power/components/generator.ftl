@@ -5,6 +5,7 @@ portable-generator-verb-start-msg-unreliable = Start the generator. This may tak
 portable-generator-verb-start-msg-reliable = Start the generator.
 portable-generator-verb-start-msg-unanchored = The generator must be anchored first!
 portable-generator-verb-stop = Stop generator
+portable-generator-verb-controls = Generator controls
 portable-generator-start-fail = You tug the cord, but it didn't start.
 portable-generator-start-success = You tug the cord, and it whirrs to life.
 

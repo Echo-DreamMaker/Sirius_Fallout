@@ -29,6 +29,8 @@
   - SuperMutantNCRRanger   # #Misfits Add - NCR-aligned supermutant ranger
   - SuperMutantNCRTrooper  # #Misfits Add - NCR-aligned supermutant trooper
   - SuperMutantTribal  # #Misfits Add - Tribe aligned supermutant trooper
+  - SentientDeathclawRegular # ordinary sentient Deathclaw whitelist
+  - SentientDeathclaw  # Bwonsamdi; original ID retained for whitelist compatibility
   # #Misfits Removed - generic variants hidden from department; NCR-specific ones take their place
   # - SuperMutantRanger
   # - SuperMutantTrooper
@@ -49,6 +51,7 @@
   - EnclaveSeniorOfficer
   - EnclaveCommunicationsOfficer # Sirius Add
   - EnclaveJuniorOfficer
+  - EnclaveVertibirdPilot # #Misfits Add - commissioned aviator, ranks 2LT → 1LT → Captain
   - EnclaveHeadScientist
   - EnclaveScientist
   - EnclaveJuniorScientist
@@ -56,6 +59,18 @@
   - EnclaveEnlisted
   - EnclaveRecruit       # #Misfits Add - hidden job for per-round recruitment playtime tracking
   # - SuperMutantEnclave
+
+# #Cythisiax Added - Brotherhood of Steel personal whitelist department.
+# Single-player whitelist postings styled after the Brotherhood faction so they
+# appear attached to the BoS in the Whitelist tab.
+- type: department
+  id: BoSPersonalWhitelist
+  description: department-BoSPersonalWhitelist-description
+  color: "#3B72BF" # Brotherhood of Steel blue
+  weight: -103
+  uiCategory: Whitelist
+  roles:
+  - BoSHonorGuard # #Cythisiax Added - HONOR GUARD | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_honor_guard.yml
 
 # #Misfits Add — Caesar's Legion department. Groups all Legion roles for the
 # character-creation screen and for department-based requirements/lookups.

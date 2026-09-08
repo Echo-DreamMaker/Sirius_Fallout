@@ -12,6 +12,7 @@
     removeSlotTime: 20
     selectSlotTime: 20
     changeSlotTime: 20
+    requireConfirm: true # #Cythisiax Added - barber scissors use an Apply button instead of auto-applying on every pick/slider tick
   - type: ActivatableUI
     key: enum.MagicMirrorUiKey.Key
     inHandsOnly: true

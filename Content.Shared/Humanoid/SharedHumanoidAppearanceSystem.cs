@@ -1,6 +1,8 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Decals;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Markings;
@@ -11,6 +13,7 @@ using Content.Shared._NC.Speech.Synthesis; // Corvax-Fallout-Barks
 using Content.Shared.Speech; // #Misfits Add - vocal style
 using Content.Shared._NC.Speech.Synthesis.Components;
 using Content.Shared._NC.TTS; // Corvax-Fallout-Barks
+using Content.Shared._Misfits.Prosthetics;
 using Content.Shared.Preferences;
 using Content.Shared.HeightAdjust;
 // Microsoft.Extensions.Configuration removed - using Robust.Shared.Configuration instead
@@ -45,6 +48,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly HeightAdjustSystem _heightAdjust = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
@@ -112,7 +116,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             return;
         }
 
-        // Do this first, because profiles currently do not support custom base layers
+        // Apply prototype defaults before loading the profile's roundstart replacements.
         foreach (var (layer, info) in startingSet.CustomBaseLayers)
             humanoid.CustomBaseLayers.Add(layer, info);
 
@@ -135,6 +139,51 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         if (component.DisplayPronouns != null)
             args.PushText(Loc.GetString("humanoid-appearance-component-examine-pronouns", ("user", identity), ("pronouns", component.DisplayPronouns)));
+
+        if (!args.IsInDetailsRange)
+            return;
+
+        var features = new List<string>();
+        foreach (var (category, markings) in component.MarkingSet.Markings)
+        {
+            if (category is MarkingCategories.Hair
+                or MarkingCategories.FacialHair
+                or MarkingCategories.UndergarmentTop
+                or MarkingCategories.UndergarmentBottom)
+                continue;
+
+            foreach (var marking in markings)
+            {
+                if (!_markingManager.TryGetMarking(marking, out var prototype) || prototype.Hidden)
+                    continue;
+
+                var localizationId = $"marking-{prototype.ID}";
+                var localized = Loc.GetString(localizationId);
+                features.Add(localized == localizationId ? prototype.ID : localized);
+            }
+        }
+
+        if (TryComp<BodyComponent>(uid, out var body))
+        {
+            foreach (var (partUid, _) in _body.GetBodyChildren(uid, body))
+            {
+                if (HasComp<ProstheticLimbComponent>(partUid))
+                    features.Add(MetaData(partUid).EntityName);
+            }
+        }
+
+        if (features.Count == 0)
+            return;
+
+        var message = new FormattedMessage();
+        message.AddMarkup(Loc.GetString("appearance-examine-header"));
+        foreach (var feature in features)
+        {
+            message.PushNewline();
+            message.AddMarkup(Loc.GetString("appearance-examine-entry", ("feature", feature)));
+        }
+
+        args.PushMessage(message, priority: -100);
     }
 
     /// <summary>
@@ -390,6 +439,11 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         SetSpecies(uid, profile.Species, false, humanoid);
         SetSex(uid, profile.Sex, false, humanoid);
+        var customBaseLayers = new Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo>(humanoid.CustomBaseLayers);
+        foreach (var (layer, info) in profile.Appearance.CustomBaseLayers)
+            customBaseLayers[layer] = info;
+
+        humanoid.CustomBaseLayers = customBaseLayers;
         humanoid.EyeColor = profile.Appearance.EyeColor;
         var ev = new EyeColorInitEvent();
         RaiseLocalEvent(uid, ref ev);

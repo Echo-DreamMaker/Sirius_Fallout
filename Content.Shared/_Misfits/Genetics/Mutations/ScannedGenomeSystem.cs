@@ -191,16 +191,14 @@ public sealed partial class ScannedGenomeSystem : EntitySystem
         if (count == 0)
             return;
 
-        // swap remove, great language
+        // ordered remove, the client indexes into this list by position
         for (var i = 0; i < count; i++)
         {
             var sequence = sequences[i];
             if (sequence.Mutation != id)
                 continue;
 
-            var last = count - 1;
-            sequences[i] = sequences[last];
-            sequences.RemoveAt(last);
+            sequences.RemoveAt(i);
             return;
         }
     }

@@ -107,7 +107,7 @@ public sealed partial class MutatorSystem : EntitySystem
         var userName = Identity.Name(user, EntityManager);
         var you = Loc.GetString("mutator-mutating-you", ("user", userName), ("item", ent));
         var others = Loc.GetString("mutator-mutating-others", ("user", userName), ("target", targetName), ("item", ent));
-        _popup.PopupEntity(you, target, target);
+        _popup.PopupPredicted(you, others, target, target);
     }
 
     private void OnDoAfter(Entity<MutatorComponent> ent, ref MutatorDoAfterEvent args)

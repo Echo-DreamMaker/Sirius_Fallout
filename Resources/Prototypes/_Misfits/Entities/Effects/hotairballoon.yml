@@ -1,0 +1,21 @@
+# #Misfits Add - Hot air balloon burner effect (reuses the vertibird flight-effect hook).
+- type: entity
+  id: HotAirBalloonBurnerEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    scale: 0.55, 0.55
+    layers:
+    - shader: unshaded
+      sprite: Effects/fire.rsi
+      state: fire
+      color: "#ffbb66cc"
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: AnimationPlayer

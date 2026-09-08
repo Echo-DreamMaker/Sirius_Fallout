@@ -290,7 +290,7 @@
 
 - type: stealTargetGroup
   id: FaxMachineCaptain
-  name: captain long range fax machine
+  name: military long range fax machine
   sprite:
     sprite: Structures/Machines/fax_machine.rsi
     state: icon

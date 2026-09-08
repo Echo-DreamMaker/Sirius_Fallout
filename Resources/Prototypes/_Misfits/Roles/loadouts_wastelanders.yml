@@ -1,0 +1,567 @@
+# #Misfits Add - Wastelander Exclusive wearable items for the loadout pool.
+# These items provide some armor and protection value for wastelanders and some items are allowed in factions but uniquely towards those factions and wastelanders.
+# At this moment this file is sorted by. Helmets, Armors/Outerwear and then Uniforms. When added another catagories please add it to this. Easier to sort.
+
+# Hats / Helmets
+
+- type: loadout
+  id: MisfitsLoadoutHeadHeadMarlowHat
+  category: Head
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - MisfitsClothingHeadMarlowHat
+
+- type: loadout
+  id: MisfitsLoadoutHeadHeadSchlimmHat
+  category: Head
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - MisfitsClothingHeadSchlimmHat
+
+- type: loadout
+  id: MisfitsLoadoutHeadHeadAHPhelmet
+  category: Head
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - MisfitsClothingHeadAHPhelmet
+
+- type: loadout
+  id: MisfitsLoadoutHeadKhanHelmet
+  category: Head
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+  items:
+    - MisfitsClothingHeadKhanHelmet
+
+- type: loadout
+  id: MisfitsLoadoutHeadKhanFullHelmet
+  category: Head
+  cost: 2 #following the N14ClothingHeadHatCombatHelmet loadout points
+  exclusive: true
+  requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+  items:
+    - MisfitsClothingHeadKhanFullHelmet
+
+# Armors / Outerwear
+
+- type: loadout
+  id: MisfitsLoadoutOuterKhansJacket
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+  items:
+    -  MisfitsClothingOuterKhansJacket
+
+- type: loadout
+  id: MisfitsLoadoutOuterKhansVest
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+  items:
+    -  MisfitsClothingOuterKhansVest
+
+- type: loadout
+  id: MisfitsLoadoutOuterKhansBattlecoatBlack
+  category: Outer
+  cost: 6
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+  items:
+    -  MisfitsClothingOuterKhansBattlecoatBlack
+
+
+#Timelocks are 5 hours PER faction on both Tribal & NCR variants of marked men armors. You are atleast somewhat expected to know what both of legion and ncr lore and up to the point of the divide. Timelocks for these might or might not get increased depends on how people RP with these. -Oli
+- type: loadout
+  id: MisfitsLoadoutOuterMarkedMenCombatTribalArmor
+  category: Outer
+  cost: 6
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Ghoul
+        - GhoulGlowing
+    - !type:CharacterDepartmentTimeRequirement # T6 faction timelock (20h NCR)
+      department: CaesarLegion
+      min: 18000 # 5 hours
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+  items:
+    -  M14ClothingOuterMarkedMenCombatTribalArmor
+
+- type: loadout
+  id: MisfitsLoadoutOuterMarkedMenCombatPatrolArmor
+  category: Outer
+  cost: 6
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Ghoul
+        - GhoulGlowing
+    - !type:CharacterDepartmentTimeRequirement # T6 faction timelock (20h NCR)
+      department: NCR
+      min: 18000 # 5 hours
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+  items:
+    -  M14ClothingOuterMarkedMenCombatPatrolArmor
+
+# === Outer: Wasteland jackets and coats ===
+
+- type: loadout
+  id: MisfitsLoadoutOuterHighwayPatrolJacket
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - M14ClothingOuterHighwayPatrolJacket
+
+- type: loadout
+  id: MisfitsLoadoutOuterMarlowGangOvercoat
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    -  M14ClothingOuterMarlowGangOvercoat
+
+- type: loadout
+  id: MisfitsLoadoutOuterGunfightersOvercoat
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    -  M14ClothingOuterGunfightersOvercoat
+
+- type: loadout
+  id: MisfitsLoadoutOuterVegabondsVest
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    -  M14ClothingOuterVegabondsVest
+
+# Two of the talon stuff is balanced around combat armors
+
+- type: loadout
+  id: MisfitsLoadoutOuterCombatTalon
+  category: Outer
+  cost: 6
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+  items:
+    -  M14ClothingOuterCombatTalon
+
+- type: loadout
+  id: MisfitsLoadoutOuterCombatTalonDuster
+  category: Outer
+  cost: 6
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+  items:
+    -  M14ClothingOuterCombatTalonDuster
+
+#Tribal Armors are balanced around White Leg Armors are guesstimate around 4 points as they are unique.
+
+- type: loadout
+  id: MisfitsLoadoutOuterDeadHorsesArmor
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    -  M14ClothingOuterDeadHorsesArmor
+
+- type: loadout
+  id: MisfitsLoadoutOuterDeadHorsesLightArmor
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    -  M14ClothingOuterDeadHorsesLightArmor
+
+- type: loadout
+  id: MisfitsLoadoutOuterSorrowsArmor
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    -  M14ClothingOuterSorrowsArmor
+
+- type: loadout
+  id: MisfitsLoadoutOuterRustwalkersArmor
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    -  M14ClothingOuterRustwalkersArmor
+
+- type: loadout
+  id: MisfitsLoadoutOuterRustwalkersLightArmor
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    -  M14ClothingOuterRustwalkersLightArmor
+
+- type: loadout
+  id: MisfitsLoadoutOuterWesternWayfarerArmor
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    -  M14ClothingOuterWesternWayfarerArmor
+
+- type: loadout
+  id: MisfitsLoadoutOuterWesternWayfarerHeavyArmor
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    -  M14ClothingOuterWesternWayfarerHeavyArmor
+
+- type: loadout
+  id: MisfitsLoadoutOuterWardenPlate
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    -  M14ClothingOuterWardenPlate
+
+#If this ever becomes a faction remove the armor from here.
+- type: loadout
+  id: MisfitsLoadoutOuterWhiteLegsArmor
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    -  MisfitsClothingOuterWhiteLegsArmor
+
+# Uniforms
+
+- type: loadout
+  id: MisfitsLoadoutUniformADPUniform
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - M14ClothingUniformADPUniform
+
+- type: loadout
+  id: MisfitsLoadoutUniformMarlowdudsUniform
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - M14ClothingUniformMarlowdudsUniform
+
+- type: loadout
+  id: MisfitsLoadoutUniformIkedudsUniform
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - M14ClothingUniformIkedudsUniform
+
+- type: loadout
+  id: MisfitsLoadoutUniformHelendudsUniform
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - M14ClothingUniformHelendudsUniform
+
+- type: loadout
+  id: MisfitsLoadoutUniformMasondudsUniform
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - M14ClothingUniformMasondudsUniform
+
+- type: loadout
+  id: MisfitsLoadoutUniformSchlimmUniform
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - M14ClothingUniformSchlimmUniform
+
+- type: loadout
+  id: MisfitsLoadoutUniformKhansUniform
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+  items:
+    - M14ClothingUniformKhansUniform
+
+- type: loadout
+  id: MisfitsLoadoutUniformKhansUniformShorts
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+  items:
+    - M14ClothingUniformKhansUniformShorts
+
+- type: loadout
+  id: MisfitsLoadoutUniformDeadHorsesUniform
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    - M14ClothingUniformDeadHorsesUniform
+
+- type: loadout
+  id: MisfitsLoadoutUniformSorrowsUniform
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    - M14ClothingUniformSorrowsUniform
+
+- type: loadout
+  id: MisfitsLoadoutUniformRustwalkersUniform
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    - M14ClothingUniformRustwalkersUniform
+
+#If this ever becomes a faction remove the uniform from here.
+- type: loadout
+  id: MisfitsLoadoutUniformWhiteLegsUniform
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Tribe
+  items:
+    - M14ClothingUniformWhiteLegsUniform

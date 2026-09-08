@@ -20,6 +20,7 @@
   startingGear: WastelandBartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-townsfolk
+  alwaysUseSpawner: true
   access:
   - WastelandBartender
   - TownsPerson # Corvax-Change

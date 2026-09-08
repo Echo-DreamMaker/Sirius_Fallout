@@ -65,7 +65,8 @@ public sealed partial class GeneticsConsoleSystem
             ent.Comp.ScanDelay,
             new ScanDoAfterEvent(GetNetEntity(mob)),
             eventTarget: ent,
-            target: mob,
+            // no target: the mob sits inside the linked scanner, so a reach check
+            // against it always hits the scanner's own body. OnScanCheck validates it instead.
             used: ent)
         {
             BreakOnMove = true,

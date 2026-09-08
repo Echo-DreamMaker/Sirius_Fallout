@@ -1,0 +1,66 @@
+# #Misfits Add - NCR Heavy Trooper Lead, the heavy-weapons leadership billet.
+
+- type: job
+  id: NCRHeavyTrooperLead
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false
+  jobWhitelistBypassesRoleTimers: true
+  weight: 46 # immediately above NCR Heavy Trooper, below the Squad Leader
+  showBorder: true
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-ncr-heavy-trooper-lead
+  overwatchCategory: OverwatchNcrEnlisted
+  description: job-description-ncr-heavy-trooper-lead
+  playTimeTracker: NCRHeavyTrooperLead
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+    - !type:CharacterDepartmentTimeRequirement
+      department: NCR
+      min: 57600 # 16 hours in the NCR
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterPlaytimeRequirement
+          tracker: NCRPlatoonLeader
+          min: 14400 # 4 hours as NCR Platoon Leader
+        - !type:CharacterPlaytimeRequirement
+          tracker: NCRHeavyTrooper
+          min: 14400 # 4 hours as NCR Heavy Trooper
+  startingGear: NCRHeavyTrooperLeadGear
+  icon: "JobIconNcrSpec"
+  supervisors: job-supervisors-ncr-sergeant
+  alwaysUseSpawner: true
+  access:
+  - NCR
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - NCR
+      - type: PowerArmorProficiency # #Misfits Add - Heavy Trooper Leads can operate their T-51 immediately.
+
+- type: playTimeTracker
+  id: NCRHeavyTrooperLead
+
+- type: startingGear
+  id: NCRHeavyTrooperLeadGear
+  equipment:
+    back: N14ClothingBackpackNCR
+    jumpsuit: N14ClothingOfficerUniformNCRDesert
+    outerClothing: MisfitsNCRHeavyTrooperLeadPowerArmorT51
+    shoes: N14ClothingBootsCombatFilled
+    ears: N14ClothingHeadsetNCR
+    belt: ClothingBeltNCR
+    pocket1: NCRHeavyTrooperLoadoutKits
+    pocket2: RadioHandheld
+    id: N14IDNCRDogtagWS
+  innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryNCR

@@ -11,7 +11,9 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Console;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Network;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Client._Misfits.Group;
@@ -84,7 +86,10 @@ public sealed class GroupClientSystem : EntitySystem
             msg.Members,
             msg.LeaderUserId,
             _playerManager.LocalSession?.UserId,
-            msg.PendingInviteFromName);
+            _playerManager.LocalSession?.AttachedEntity is { } localEnt ? GetNetEntity(localEnt) : (NetEntity?) null,
+            msg.GroupName,
+            msg.PendingInviteFromName,
+            msg.RallyPoint);
     }
 
     private void OnOverlayUpdate(GroupOverlayUpdateEvent msg)
@@ -169,6 +174,11 @@ public sealed class GroupClientSystem : EntitySystem
         _window.OnInvite += name =>
             RaiseNetworkEvent(new GroupInviteRequestEvent { TargetCharacterName = name });
 
+        _window.OnRename += name =>
+            RaiseNetworkEvent(new GroupRenameRequestEvent { NewName = name });
+
+        _window.OnInviteNearby += TryInviteNearbyPlayer;
+
         _window.OnAcceptInvite += () =>
         {
             if (_pendingInviteFromUserId.HasValue)
@@ -187,7 +197,61 @@ public sealed class GroupClientSystem : EntitySystem
         _window.OnKick += name =>
             RaiseNetworkEvent(new GroupKickRequestEvent { TargetCharacterName = name });
 
+        _window.OnChangeRole += (name, role) =>
+            RaiseNetworkEvent(new GroupRoleChangeRequestEvent { TargetCharacterName = name, TargetRole = role });
+
+        _window.OnSetRallyPoint += () =>
+        {
+            if (_playerManager.LocalSession?.AttachedEntity is not { } localEnt)
+                return;
+            var coords = _transform.GetMapCoordinates(localEnt);
+            RaiseNetworkEvent(new GroupSetRallyPointRequestEvent { Coordinates = coords });
+        };
+
+        _window.OnClearRallyPoint += () =>
+            RaiseNetworkEvent(new GroupClearRallyPointRequestEvent());
+
         _window.OnToggleOverlay += enabled =>
             RaiseNetworkEvent(new GroupToggleOverlayRequestEvent { Enabled = enabled });
+    }
+
+    private void TryInviteNearbyPlayer()
+    {
+        if (_playerManager.LocalSession?.AttachedEntity is not { } localEnt)
+            return;
+
+        var localPos = _transform.GetMapCoordinates(localEnt);
+        var bestDistance = float.MaxValue;
+        string? bestName = null;
+
+        var query = EntityQueryEnumerator<ActorComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var actor, out var xform))
+        {
+            if (uid == localEnt)
+                continue;
+
+            if (xform.MapID != localPos.MapId)
+                continue;
+
+            var otherPos = _transform.GetMapCoordinates(uid, xform).Position;
+            var distance = (otherPos - localPos.Position).LengthSquared();
+            if (distance > 36f * 36f)
+                continue;
+
+            if (distance >= bestDistance)
+                continue;
+
+            bestDistance = distance;
+            bestName = Name(uid);
+        }
+
+        if (string.IsNullOrWhiteSpace(bestName))
+        {
+            _window?.ShowResult(false, Loc.GetString("group-invite-nearby-none"));
+            return;
+        }
+
+        RaiseNetworkEvent(new GroupInviteRequestEvent { TargetCharacterName = bestName });
+        _window?.ShowResult(true, Loc.GetString("group-invite-nearby-sent", ("name", bestName)));
     }
 }

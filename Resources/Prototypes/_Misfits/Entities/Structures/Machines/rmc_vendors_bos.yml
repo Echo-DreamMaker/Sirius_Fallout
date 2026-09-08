@@ -1,0 +1,45 @@
+# Brotherhood catalog. Add per-item balance overrides under blueprintEntryOverrides.
+
+- type: entity
+  parent: N14BaseRmcWeaponVendor
+  id: N14BOSWeaponVendor
+  name: Brotherhood weapon requisitions vendor
+  suffix: Brotherhood
+  components:
+  - type: AccessReader
+    access: [[ "BOS" ]]
+  - type: CMAutomatedVendor
+    departmentName: Brotherhood of Steel
+    blueprintCategories: [ N14BlueprintBoSWeaponsT1, N14BlueprintBoSWeaponsT2, N14BlueprintBoSWeaponsT3, N14BlueprintBoSWeaponsT4 ]
+    authorityTierNames:
+      1: Tier 1 - Initiate allocation
+      2: Tier 2 - Knight allocation
+      3: Tier 3 - Paladin allocation
+      4: Tier 4 - Elder allocation
+    authorityTierAccess:
+      1: [ BOSInitiate ]
+      2: [ BOSKnight ]
+      3: [ BOSPaladin ]
+      4: [ BOSElder ]
+
+- type: entity
+  parent: N14BaseRmcEquipmentVendor
+  id: N14BOSEquipmentVendor
+  name: Brotherhood equipment requisitions vendor
+  suffix: Brotherhood
+  components:
+  - type: AccessReader
+    access: [[ "BOS" ]]
+  - type: CMAutomatedVendor
+    departmentName: Brotherhood of Steel
+    blueprintCategories: [ N14BlueprintBoSArmorT1, N14BlueprintBoSArmorT2, N14BlueprintBoSArmorT3, N14BlueprintBoSArmorT4 ]
+    authorityTierNames:
+      1: Tier 1 - Initiate allocation
+      2: Tier 2 - Knight allocation
+      3: Tier 3 - Paladin allocation
+      4: Tier 4 - Elder allocation
+    authorityTierAccess:
+      1: [ BOSInitiate ]
+      2: [ BOSKnight ]
+      3: [ BOSPaladin ]
+      4: [ BOSElder ]

@@ -12,5 +12,5 @@ public sealed partial class EntranceFlankPostGen : IPostDunGen
     public string Tile = "FloorSteel";
 
     [DataField("entities")]
-    public List<string?> Entities = new();
+    public List<string> Entities = new();
 }

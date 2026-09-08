@@ -1,17 +1,17 @@
 ## RoundEndSystem
 
-# Misfits Change - renamed "shuttle" to "train" for wasteland theme
+# Misfits Change - renamed "shuttle" to "train" for wasteland theme.  And in a later update, then renamed to a storm because there is no train present.
 round-end-system-shuttle-announcement-sender = Wasteland
 # round-end-system-shuttle-called-announcement = An emergency shuttle has been sent. ETA: {$time} {$units}.
-round-end-system-shuttle-called-announcement = A train has been dispatched. ETA: {$duration}. Board it or fall back to your bunkers.
-round-end-system-shuttle-countdown-announcement = The train is due in {$duration}. Board it or fall back to your bunkers.
+round-end-system-shuttle-called-announcement = A major dust storm is about to hit the area. ETA: {$duration}. Find shelter or perish in the storm's path.
+round-end-system-shuttle-countdown-announcement = The storm is due to arrive in {$duration}. Find shelter before it comes, or perish at its approach.
 # round-end-system-shuttle-already-called-announcement = An emergency shuttle has already been sent.
-round-end-system-shuttle-already-called-announcement = A train has already been dispatched.
+round-end-system-shuttle-already-called-announcement = A storm is already inbound.
 # round-end-system-shuttle-auto-called-announcement = An automatic crew shift change shuttle has been sent. ETA: {$time} {$units}. Recall the shuttle to extend the shift.
-round-end-system-shuttle-auto-called-announcement = An automatic outbound train has been dispatched. ETA: {$duration}. Recall the train to extend the shift, or fall back to your bunkers.
+round-end-system-shuttle-auto-called-announcement = A large storm is approaching the region. ETA: {$duration}. Unless the storm changes course, locate shelter or perish in the outdoors.
 # round-end-system-shuttle-recalled-announcement = The emergency shuttle has been recalled.
-round-end-system-shuttle-recalled-announcement = The train has been recalled.
-round-end-system-round-restart-eta-announcement = Restarting the round in {$duration}...
+round-end-system-shuttle-recalled-announcement = The storm has been temporarily diverted.
+round-end-system-round-restart-eta-announcement = Restarting reality in {$duration}...
 
 eta-units-minutes = minutes
 eta-units-seconds = seconds

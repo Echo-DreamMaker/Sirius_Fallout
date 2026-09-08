@@ -1,0 +1,78 @@
+# #Misfits Add - Enclave counterpart to the Vault-Tec vault door: the same gear door and the same
+# RobCo hacking minigame, wired to the Enclave raid flag instead of the Vault one.
+#
+# No C# is forked. VaultDoorConsoleSystem is already faction-parameterised (raidFaction) and finds
+# its door by AutoLink channel rather than by wiring, so a second faction is pure YAML plus the
+# flavour-string datafields. Forking the system would be actively wrong: it subscribes to
+# AutoLinkTransmitterComponent, a generic engine component, so a second copy would double-subscribe
+# and each copy's "is this my console?" guard would stop excluding the other faction's terminal.
+
+- type: entity
+  parent: N14DoorVault
+  id: MisfitsDoorVaultEnclave
+  name: enclave blast door
+  description: A pre-war Enclave blast door. The eagle stencilled across it has not faded.
+  suffix: Enclave
+  components:
+  # Its own channel, so Enclave panels can never drive the Vault-Tec door or the other way round,
+  # even if both ever end up on one grid.
+  - type: AutoLinkReceiver
+    channel: EnclaveVaultdoor
+  - type: BlockNetworkConfigurator
+    allowedSourcePrototypes:
+    - MisfitsDoorVaultEnclaveControls
+    - MisfitsDoorVaultEnclaveControlsLocked
+    - MisfitsDoorVaultEnclaveExteriorControls
+  # Decorative on this door, exactly as VaultOverseer is on the parent: it has clickOpen and
+  # bumpOpen false, and DoorSignalControlSystem opens with no user so signals skip the access check
+  # entirely. That is what lets a successful hack through. The real gate is the Lock on the panel.
+  - type: AccessReader
+    access: [["EnclaveNCO"]]
+
+# Inside panel, unlocked. Kept for mappers who want an open control room.
+- type: entity
+  parent: N14DoorVaultControls
+  id: MisfitsDoorVaultEnclaveControls
+  name: Enclave Blast Door Controls
+  description: A handy control panel for opening the Enclave blast door.
+  suffix: Enclave
+  components:
+  - type: AutoLinkTransmitter
+    channel: EnclaveVaultdoor
+
+# Inside panel, NCO and above. EnclaveNCO is held by the NCO, Junior Officer, Senior Officer,
+# Command and Head Scientist access groups, and by nobody below them - see
+# Resources/Prototypes/_Misfits/Access/enclave.yml.
+#
+# Lock is what actually enforces this. SignalSwitchSystem runs no access check of its own, so a bare
+# AccessReader here would do nothing; a locked panel eats the click in TryUnlock instead. Note the
+# inherited quirk: LockOnClick is false, so once someone with access unlocks it the panel stays
+# unlocked for everyone until it is re-locked with the alt-click verb. Same as the vault panel.
+- type: entity
+  parent: MisfitsDoorVaultEnclaveControls
+  id: MisfitsDoorVaultEnclaveControlsLocked
+  suffix: Enclave, NCO locked
+  components:
+  - type: Appearance
+  - type: Lock
+  - type: LockVisuals
+  - type: AccessReader
+    access: [["EnclaveNCO"]]
+
+# The outside terminal raiders hack. No AccessReader on purpose - the Pip-Boy check and the active
+# raid check in SharedVaultDoorConsoleSystem are the gate.
+- type: entity
+  parent: MisfitsDoorVaultExteriorControls
+  id: MisfitsDoorVaultEnclaveExteriorControls
+  name: enclave security terminal
+  description: A RobCo security terminal wired into the Enclave blast door's control network.
+  suffix: Enclave
+  components:
+  - type: AutoLinkTransmitter
+    channel: EnclaveVaultdoor
+  - type: VaultDoorConsole
+    raidFaction: Enclave
+    terminalTitle: Enclave Security Terminal
+    doorNoun: blast door
+  - type: VaultDoorConsoleGate
+    lockoutMessage: "SECURITY LOCKOUT: no active operation against this facility is on record."

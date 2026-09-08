@@ -12,6 +12,7 @@ using Content.Server.Stack;
 using Content.Shared.Atmos;
 using Content.Shared._Misfits.Special;
 using Content.Shared._Misfits.Special.Components;
+using Content.Shared._Misfits.Talents.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -41,26 +42,26 @@ using Robust.Shared.Timing;
 namespace Content.Server.Lathe
 {
     [UsedImplicitly]
-    public sealed class LatheSystem : SharedLatheSystem
+    public sealed partial class LatheSystem : SharedLatheSystem
     {
         // #Misfits Change Fix: Workbench lathes need to consume recipe costs from either
         // MaterialStorage or raw material stacks placed in the attached storage container.
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IPrototypeManager _proto = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly ContainerSystem _container = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSys = default!;
-        [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
-        [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly PuddleSystem _puddle = default!;
-        [Dependency] private readonly ReagentSpeedSystem _reagentSpeed = default!;
-        [Dependency] private readonly SharedSpecialSystem _special = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-        [Dependency] private readonly StackSystem _stack = default!;
-        [Dependency] private readonly TransformSystem _transform = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private IPrototypeManager _proto = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private AtmosphereSystem _atmosphere = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private ContainerSystem _container = default!;
+        [Dependency] private UserInterfaceSystem _uiSys = default!;
+        [Dependency] private MaterialStorageSystem _materialStorage = default!;
+        [Dependency] private PopupSystem _popup = default!;
+        [Dependency] private PuddleSystem _puddle = default!;
+        [Dependency] private ReagentSpeedSystem _reagentSpeed = default!;
+        [Dependency] private SharedSpecialSystem _special = default!;
+        [Dependency] private SharedSolutionContainerSystem _solution = default!;
+        [Dependency] private StackSystem _stack = default!;
+        [Dependency] private TransformSystem _transform = default!;
 
         /// <summary>
         /// Per-tick cache
@@ -354,8 +355,12 @@ namespace Content.Server.Lathe
 
             if (TryComp<BallisticAmmoProviderComponent>(crafted, out var ballistic))
             {
+
                 ballistic.UnspawnedCount = 0;
-                ballistic.Entities.Clear();
+                // #Misfit change: not sure if this is needed. Container should just be spawned empty
+                //                  Dunno what lathe system may doooo
+                _container.CleanContainer(ballistic.Container);
+                // ballistic.Entities.Clear();
                 Dirty(crafted, ballistic);
             }
 
@@ -611,6 +616,11 @@ namespace Content.Server.Lathe
 
         private bool CanUseLatheWithIntelligence(EntityUid user)
         {
+            // #Misfits Fix - Ghosts (admin ghosts included) never carry SPECIAL, so the
+            // intelligence gate would lock them out of every workbench.
+            if (!_special.UsesSpecialStats(user))
+                return true;
+
             return TryComp<SpecialComponent>(user, out var special) &&
                    _special.GetEffective(user, SpecialStat.Intelligence, special) > 3;
         }
@@ -625,6 +635,10 @@ namespace Content.Server.Lathe
             var delta = SharedSpecialSystem.GetCurvedEffectDelta(intelligence);
             var modifier = -delta * tuning.IntelligenceLatheTimeMultiplierPerPoint;
             var multiplier = 1f + modifier;
+
+            // #Misfits Add - talent tree: Swift Learner shaves production time.
+            if (HasComp<TraitSwiftLearnerComponent>(user.Value))
+                multiplier *= 0.90f;
 
             return baseTime * MathF.Max(0.1f, multiplier);
         }

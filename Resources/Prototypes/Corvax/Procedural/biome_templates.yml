@@ -36,6 +36,7 @@
     - N14WastelandFloraWildMesquite
     - N14WastelandFloraWildStarlightBerries
     - N14WastelandFloraWildBarrelCactus
+    - MisfitsWastelandFloraWildZoy
   - !type:BiomeDummyLayer
     id: Loot
   - !type:BiomeTileLayer
@@ -72,6 +73,7 @@
     - N14WastelandFloraWildOnion
     - N14WastelandFloraWildBlackberries
     - N14WastelandFloraWildCotton
+    - MisfitsWastelandFloraWildZoy
   - !type:BiomeDummyLayer
     id: Loot
   - !type:BiomeTileLayer

@@ -3,6 +3,7 @@
   abstract: true
   parent: BaseItem
   components:
+  - type: StrengthRequirement
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/water_pistol.rsi
   - type: Item

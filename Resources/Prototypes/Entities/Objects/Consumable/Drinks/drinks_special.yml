@@ -126,6 +126,12 @@
     canChangeTransferAmount: true
   - type: Spillable
     solution: drink
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
   - type: UserInterface
     interfaces:
       enum.TransferAmountUiKey.Key:
@@ -170,3 +176,4 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 75
+

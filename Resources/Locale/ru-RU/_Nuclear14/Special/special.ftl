@@ -17,3 +17,13 @@ clothing-luck-increase-equal-examine = [color=green]увеличивает[/colo
 clothing-luck-decrease-equal-examine = [color=red]уменьшается[/color] [color=yellow]Luck[/color] на [color=red]{ $luck }[/color]
 player-component-not-enough-strength-weild = Чтобы носить это, вам нужно иметь { $number } [color=yellow]Силы[/color].
 special-lucky-evasion = уклоняется от пули
+strength-requirement-too-weak = Вам нужно { $required } Силы, чтобы держать { $item } двумя руками.
+strength-requirement-unwield = Вы слишком слабы, чтобы удерживать { $item } (требуется { $required } Силы).
+strength-requirement-examine = Требуется [color=yellow]{ $required } Силы[/color], чтобы использовать.
+strength-requirement-cannot-apply = Вы слишком слабы, чтобы использовать { $item } (требуется { $required } Силы).
+action-toggle-special-aim-name = Прицеливание
+action-toggle-special-aim-description = Войдите в режим прицеливания: приближает обзор и повышает точность в зависимости от Восприятия.
+intelligence-requirement-examine = Требуется [color=yellow]{ $required } Интеллекта[/color] для надёжного использования. В противном случае энергооружие может дать осечку или выскользнуть из рук.
+intelligence-requirement-drop = { $item } выскальзывает из ваших рук!
+intelligence-requirement-misfire = { $item } даёт осечку!
+supermutant-cannot-fire-onehanded = { $item } слишком мал для вас – супермутанты не могут стрелять из одноручного оружия.

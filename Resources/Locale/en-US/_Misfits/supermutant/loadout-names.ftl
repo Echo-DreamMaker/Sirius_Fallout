@@ -15,6 +15,12 @@ loadout-name-ClothingSuperMutantTribalGloves = supermutant tribal gloves
 loadout-name-ClothingSuperMutantZootSuit = supermutant zoot suit
 loadout-name-ClothingSuperMutantZootHat = super mutant zoot hat
 loadout-name-ClothingSuperMutantZootBoot = supermutant zoot boots
+loadout-name-MisfitsLoadoutSuperMutantCustomizedCombatArmor = customized combat armor
+loadout-name-MisfitsLoadoutSuperMutantRangerHatAlt = supermutant ranger cowboy hat
+loadout-name-MisfitsLoadoutSuperMutantCustomDuster = supermutant customized duster
+loadout-name-MisfitsLoadoutSuperMutantLeatherBoots = supermutant leather boots
+loadout-name-MisfitsLoadoutSuperMutantBlackGloves = supermutant black gloves
+loadout-name-MisfitsLoadoutSuperMutantRangerGasmaskAlt = supermutant ranger gasmask
 
 # Misfits Add - Scavenged super mutant loadout names
 loadout-name-MisfitsLoadoutSuperMutantScavengedGloves = super mutant scavenged gloves

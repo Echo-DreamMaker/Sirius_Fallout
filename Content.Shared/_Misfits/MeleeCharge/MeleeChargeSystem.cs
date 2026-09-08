@@ -31,6 +31,9 @@ public sealed class MeleeChargeSystem : EntitySystem
 
     private void OnDash(MeleeChargeEvent ev)
     {
+        if (TryComp<MeleeChargeAudioComponent>(ev.Performer, out var audio))
+            _audio.PlayPredicted(audio.ActivationSound, ev.Performer, ev.Performer);
+
         PerformDash(ev.Performer, ev.Target, ev.Speed, ev.Range);
         _actions.StartUseDelay(ev.Action);
     }
@@ -47,6 +50,9 @@ public sealed class MeleeChargeSystem : EntitySystem
 
     private void OnLand(Entity<MeleeChargeComponent> ent, ref LandEvent args)
     {
+        if (TryComp<MeleeChargeAudioComponent>(ent, out var audio))
+            _audio.PlayPredicted(audio.ImpactSound, ent, args.User ?? ent.Owner);
+
         RemCompDeferred<MeleeChargeComponent>(ent);
     }
 
@@ -62,7 +68,6 @@ public sealed class MeleeChargeSystem : EntitySystem
     public void PerformDash(EntityUid ent, EntityCoordinates targetPosition, float speed = 10f, float maxDistance = 3.5f)
     {
         EnsureComp<MeleeChargeComponent>(ent, out var dash);
-        // _audio.PlayPredicted(dash.DashSound, ent, ent);
 
         var entMapPos = _transform.ToMapCoordinates(Transform(ent).Coordinates);
         var targetMapPos = _transform.ToMapCoordinates(targetPosition);

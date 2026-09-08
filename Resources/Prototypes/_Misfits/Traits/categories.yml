@@ -3,3 +3,18 @@
 - type: traitCategory
   id: Pets
   root: true
+  # #Cythisiax Added - pet size subcategories; the Pets tab renders one tree branch per size
+  # and enforces separate caps (1 large / 2 medium / 3 small / 3 total) on its own point pool.
+  subCategories:
+    - PetsSmall
+    - PetsMedium
+    - PetsLarge
+
+- type: traitCategory
+  id: PetsSmall
+
+- type: traitCategory
+  id: PetsMedium
+
+- type: traitCategory
+  id: PetsLarge

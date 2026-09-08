@@ -7,7 +7,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _Misfits\Structures\Decoration\statues.rsi
+    sprite: _Misfits/Structures/Decoration/statues.rsi
     state: bino_statue
     drawdepth: Mobs
     offset: "0.0,0.5"

@@ -263,14 +263,13 @@
       - id: N14WeaponRifle556Butchered
       - id: Magazine556Rifle
         amount: 3
-      - id: N14Scrap
-      - id: SheetGlass10
+      - id: SheetSteel
+      - id: MaterialWoodPlank
       - id: MaterialWoodPlank
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
-      - id: Torch
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -289,17 +288,18 @@
     items:
       - id: N14WeaponSMG9mm
       - id: N14MagazineSMG9mm
-        amount: 3
-      - id: N14WeaponShotgunShort
       - id: ClothingBeltNCRShotgunner
+      - id: N14WeaponShotgunShort
       - id: MagazineBox12gauge
+      - id: N14ShieldMetalHeavy
       - id: C4
+        amount: 3
       - id: N14ripper
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
-      - id: Torch
+      - id: N14ToolboxMechanical
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -317,7 +317,6 @@
     items:
       - id: N14WeaponShotgunAuto
       - id: N14MagazineShotgun12
-        amount: 3
       - id: N14ToolboxMechanical
       - id: N14WeaponPistol9mm
       - id: N14MagazinePistol9mm
@@ -327,7 +326,9 @@
       - id: N14Stimpak
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
-      - id: Torch
+      - id: N14TinNade
+        amount: 2
+      - id: N14Dynamite
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -754,6 +755,37 @@
     sound:
       path: /Audio/Effects/unwrap.ogg
 
+- type: entity
+  name: lieutenant's commissar kit
+  parent: KitBase
+  id: KitNCR_LTCommissar
+  description: A crate containing all an NCR Commissar needs to execute their tro- duties.
+  components:
+  - type: Sprite
+    state: pointman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: MisfitsClothingOuterNCRCommissarPlate
+      - id: ClothingBeltNCR
+      - id: NCRCommissarSabre
+      - id: MisfitsClothingNeckNCRCommissarJacket
+      - id: N14WeaponLaserdotDesertEagle44
+      - id: N14MagazinePistol44
+        amount: 4
+      - id: ClothingMaskCommissar
+      - id: N14ClothingHeadHatNCRCommissarHat
+      - id: N14BoxCardboardMREBoxCFilled
+      - id: N14Stimpak
+      - id: N14SuperStimpak
+      - id: N14RadAwayBloodbag
+      - id: N14CleanGauze10
+        amount: 2
+      - id: N14Flare
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
 #MARK: NCR Ranger Kits
 
 - type: entity
@@ -1145,7 +1177,7 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14WeaponRevolver44Magnun
+      - id: N14WeaponRevolver44Magnum
       - id: N14SpeedLoader44Magnum
         amount: 2
       - id: N14AmmoBox44Magnum
@@ -1743,7 +1775,7 @@
       - id: N14WeaponSniper45-70BrushGun
       - id: MagazineBox45-70
         amount: 3
-      - id: N14WeaponRevolver44Magnun
+      - id: N14WeaponRevolver44Magnum
       - id: SpeedLoader44
         amount: 2
       - id: N14CleanGauze10
@@ -1812,7 +1844,7 @@
     items:
       - id: N14ClothingHeadTownGuardBrodieCover
       - id: N14ClothingOuterTownGuardRiot
-      - id: N14WeaponBlowback
+      - id: N14WeaponShotgunBlowback
       - id: MagazineBox12gauge
       - id: N14WeaponPistolWebley
       - id: N14MagazinePistol9mm

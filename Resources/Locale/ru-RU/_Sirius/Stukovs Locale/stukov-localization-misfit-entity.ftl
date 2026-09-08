@@ -76,6 +76,9 @@ ent-ClothingNeckPinEnclaveSFC = знак отличия старшего сер�
 ent-ClothingNeckPinEnclaveMasterSergeant = знак отличия сержант-майора Анклава
     .desc = Знак отличия правительства Соединённых Штатов, указывающий на звание владельца.
 
+ent-ClothingNeckPinEnclaveSergeantMajor = знак отличия главного сержант-майора Анклава
+    .desc = Знак отличия правительства Соединённых Штатов, указывающий на звание владельца.
+
 ent-ClothingNeckPinEnclaveSecondLieutenant = знак отличия второго лейтенанта Анклава
     .desc = Знак отличия правительства Соединённых Штатов, указывающий на звание владельца.
 
@@ -287,13 +290,16 @@ ent-ClothingNeckPinNCRSergeant1st = знак отличия штаб-сержа�
 ent-ClothingNeckPinNCRMasterSergeant = знак отличия сержанта первого класса НКР
     .desc = Ношеный знак отличия Вооружённых сил Республики, указывающий на звание владельца.
 
+ent-ClothingNeckPinNCR1stSergeant = знак отличия первого сержанта НКР
+    .desc = Ношеный знак отличия Вооружённых сил Республики, указывающий на звание владельца.
+
 ent-ClothingNeckPinNCRSergeantMajor = знак отличия сержант-майора НКР
     .desc = Ношеный знак отличия Вооружённых сил Республики, указывающий на звание владельца.
 
 ent-ClothingNeckPinNCRSecondLieutenant = знак отличия второго лейтенанта НКР
     .desc = Ношеный знак отличия Вооружённых сил Республики, указывающий на звание владельца.
 
-ent-ClothingNeckPinNCRFirstlLieutenant = знак отличия первого лейтенанта НКР
+ent-ClothingNeckPinNCRFirstLieutenant = знак отличия первого лейтенанта НКР
     .desc = Ношеный знак отличия Вооружённых сил Республики, указывающий на звание владельца.
 
 ent-ClothingNeckPinNCRCaptain = знак отличия капитана НКР

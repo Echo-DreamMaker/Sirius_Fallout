@@ -12,10 +12,13 @@
       - Wastelander
     # #Misfits Add - innate stealth boy implant. cooldown = recharge after decloak.
     # still = fully invisible, slow walk = 0.1 whisper, running = normal 0.3 shimmer
+    # cloakPoison ticks while the implant is running, so long cloaks cost health
     - type: NightkinPassiveStealth
       cooldown: 30
       stillVisibility: -1
       walkVisibility: 0.1
+      cloakPoison: 0.1
+      cloakPoisonInterval: 5
     # #Misfits Add - the best shooters in the wasteland, big frame soaks the recoil.
     # 0.02 = 98% tighter spread, near pinpoint even one-handed. 0 = perfect accuracy
     - type: GunHandlingModifier

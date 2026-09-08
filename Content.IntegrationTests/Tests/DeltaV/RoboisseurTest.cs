@@ -19,7 +19,7 @@ public sealed class RoboisseurTest
         // Per RobustIntegrationTest.cs, wait until state is settled to access it.
         await server.WaitIdleAsync();
 
-        var mapManager = server.ResolveDependency<IMapManager>();
+        var mapManager = server.ResolveDependency<SharedMapSystem>();
         var prototypeManager = server.ResolveDependency<IPrototypeManager>();
         var entityManager = server.ResolveDependency<IEntityManager>();
         var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();

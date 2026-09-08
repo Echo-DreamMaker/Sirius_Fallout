@@ -120,7 +120,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }
         else
         {
-            coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, TransformSystem, EntityManager);
+            coordinates = EntityCoordinates.FromMap(MapManager.GetMap(mousePos.MapId), mousePos, TransformSystem, EntityManager);
         }
 
         // Heavy attack.

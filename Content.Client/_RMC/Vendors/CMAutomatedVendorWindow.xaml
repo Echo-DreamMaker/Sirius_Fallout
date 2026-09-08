@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DefaultWindow xmlns="https://spacestation14.io" Title="Armory Vendor" MinSize="1000 700" MaxSize="1000 700" Resizable="False">
+  <ScrollContainer Name="VendorContents" VerticalExpand="True" HorizontalExpand="True">
+    <BoxContainer Name="Sections" Orientation="Vertical" SeparationOverride="4" />
+  </ScrollContainer>
+</DefaultWindow>

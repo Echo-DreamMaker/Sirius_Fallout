@@ -128,6 +128,14 @@ namespace Content.Shared.Roles
         [DataField("jobEntity", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string? JobEntity = null;
 
+        /// <summary>
+        ///     When spawning a job entity, use the selected character species' body prototype instead
+        ///     of the fixed <see cref="JobEntity"/> when a character profile is available.
+        ///     This is intended for non-humanoid jobs with species-backed body variants.
+        /// </summary>
+        [DataField]
+        public bool UseProfileSpeciesPrototype { get; private set; }
+
         [DataField]
         public ProtoId<JobIconPrototype> Icon { get; private set; } = "JobIconUnknown";
 

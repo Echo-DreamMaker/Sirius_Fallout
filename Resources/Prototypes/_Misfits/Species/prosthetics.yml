@@ -3,39 +3,59 @@
 - type: humanoidBaseSprite
   id: MisfitsProstheticSimpleLeftHand
   baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_hand_simple }
+  allowsMarkings: false
+  matchSkin: false
 
 - type: humanoidBaseSprite
   id: MisfitsProstheticSimpleRightHand
   baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_hand_simple }
+  allowsMarkings: false
+  matchSkin: false
 
 - type: humanoidBaseSprite
   id: MisfitsProstheticVaultTecLeftHand
   baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_hand_vaulttec }
+  allowsMarkings: false
+  matchSkin: false
 
 - type: humanoidBaseSprite
   id: MisfitsProstheticVaultTecRightHand
   baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_hand_vaulttec }
+  allowsMarkings: false
+  matchSkin: false
 
 - type: humanoidBaseSprite
   id: MisfitsProstheticNCRLeftHand
   baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_hand_ncr }
+  allowsMarkings: false
+  matchSkin: false
 
 - type: humanoidBaseSprite
   id: MisfitsProstheticNCRRightHand
   baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_hand_ncr }
+  allowsMarkings: false
+  matchSkin: false
 
 - type: humanoidBaseSprite
   id: MisfitsProstheticSimpleLeftFoot
   baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_foot_simple }
+  allowsMarkings: false
+  matchSkin: false
 
 - type: humanoidBaseSprite
   id: MisfitsProstheticSimpleRightFoot
   baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_foot_simple }
+  allowsMarkings: false
+  matchSkin: false
 
 - type: humanoidBaseSprite
   id: MisfitsProstheticVaultTecLeftFoot
   baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: left_foot_vaulttec }
+  allowsMarkings: false
+  matchSkin: false
 
 - type: humanoidBaseSprite
   id: MisfitsProstheticVaultTecRightFoot
   baseSprite: { sprite: _Misfits/Mobs/Species/Human/Prosthetics/prosthetics.rsi, state: right_foot_vaulttec }
+  allowsMarkings: false
+  matchSkin: false

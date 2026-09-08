@@ -1,0 +1,67 @@
+# #Misfits Add - Bunker tunnel teleporter: a surface hatch that drops you somewhere in the tunnels,
+# and a sealed vault door down there that brings you back up. Press E on either, like a ladder.
+#
+# Neither of these parents BaseLadder or N14Airlock on purpose:
+#   - BaseLadder carries a Warper component, and YAML cannot remove an inherited component. An
+#     entity with both Warper and BunkerTeleporter would fire two systems on a single keypress.
+#   - N14Airlock is what makes a door open, close and crush people, which is exactly what the
+#     tunnel door must not do.
+
+- type: entity
+  id: N14BaseBunkerTeleporter
+  parent: BaseStructure
+  abstract: true
+  components:
+  - type: InteractionOutline
+
+- type: entity
+  parent: N14BaseBunkerTeleporter
+  id: N14BunkerHatchTunnel
+  name: bunker hatch
+  description: This hatch leads to a maze of tunnels.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Misc/laddersms13.rsi
+    state: enclave_open
+    drawdepth: FloorObjects
+    noRot: true
+    offset: 0, 0.25
+  # Walk-over, same as every other ladder top.
+  - type: Physics
+    canCollide: false
+  - type: BunkerTeleporter
+    isSurface: true
+
+- type: entity
+  parent: N14BaseBunkerTeleporter
+  id: N14BunkerTunnelDoor
+  name: bunker tunnel door
+  description: Leads to the maze of tunnels.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/FalloutDoors/vaultdoor.rsi
+    state: closed
+    drawdepth: Walls
+    noRot: true
+  - type: Icon
+    sprite: _Nuclear14/Structures/Doors/FalloutDoors/vaultdoor.rsi
+    state: closed
+  # Sealed shut: blocks movement, sight and air like a wall. You go through it by using it, not by
+  # opening it. Same fixture/occluder/airtight recipe as BaseWall.
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+  - type: Occluder
+  - type: Airtight
+  - type: BunkerTeleporter
+    isSurface: false

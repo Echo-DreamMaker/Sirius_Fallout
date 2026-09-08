@@ -61,7 +61,8 @@ public sealed class StandingStateSystem : EntitySystem
         StandingStateComponent? standingState = null,
         AppearanceComponent? appearance = null,
         HandsComponent? hands = null,
-        bool setDrawDepth = false)
+        bool setDrawDepth = false,
+        bool voluntary = false)
     {
         // TODO: This should actually log missing comps...
         if (!Resolve(uid, ref standingState, false))
@@ -78,7 +79,7 @@ public sealed class StandingStateSystem : EntitySystem
         // We do this BEFORE downing because something like buckle may be blocking downing but we want to drop hand items anyway
         // and ultimately this is just to avoid boilerplate in Down callers + keep their behavior consistent.
         if (dropHeldItems && hands != null)
-            RaiseLocalEvent(uid, new DropHandItemsEvent(), false);
+            RaiseLocalEvent(uid, new DropHandItemsEvent(voluntary), false);
 
         if (TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled)
             return false;
@@ -187,7 +188,20 @@ public sealed class StandingStateSystem : EntitySystem
 }
 
 
-public sealed class DropHandItemsEvent : EventArgs { }
+public sealed class DropHandItemsEvent : EventArgs
+{
+    /// <summary>
+    /// True when the entity deliberately lay down on its own, false when it was
+    /// knocked/forced down (stunned, slipped, etc.). Used to pick the Agility
+    /// threshold that lets a character keep their held weapon.
+    /// </summary>
+    public bool Voluntary { get; }
+
+    public DropHandItemsEvent(bool voluntary = false)
+    {
+        Voluntary = voluntary;
+    }
+}
 
 /// <summary>
 ///     Subscribe if you can potentially block a down attempt.

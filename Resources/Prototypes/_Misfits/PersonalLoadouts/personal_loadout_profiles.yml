@@ -1,0 +1,47 @@
+# One appearance profile per recipient. Each entry names jobs, not armor parents:
+# the system spawns the normal outer armor from that job's starting gear and changes
+# only the outer/helmet RSIs while preserving the armor's native mechanics.
+
+- type: personalLoadoutProfile
+  id: MisfitsPersonalLoadoutTombstone
+  accountNames:
+  - NekoMarbles
+  characterNames:
+  - Robb Wilkins
+  powerArmorSkins:
+  - jobs:
+    - BoSPaladin
+    - BoSMidPaladin
+    - BoSMidPaladinCommander
+    - BoSHonorGuard
+    - EnclaveEnlisted
+    - EnclaveNCO
+    - EnclaveJuniorOfficer
+    - EnclaveSeniorOfficer
+    - EnclaveCommander
+    - EnclaveReformer
+    outerSprite: _Misfits/Clothing/OuterClothing/PowerArmor/tombstone_pa.rsi
+    helmetSprite: _Misfits/Clothing/Head/PowerArmorHelmets/tombstone_helmet.rsi
+
+- type: personalLoadoutProfile
+  id: MisfitsPersonalLoadoutPenance
+  accountNames:
+  - southernsaint
+  characterNames:
+  - Jackson Townley
+  powerArmorSkins:
+  - jobs:
+    - NCRHeavyTrooper
+    - NCRCommander
+    - BoSPaladin
+    - BoSMidPaladin
+    - BoSMidPaladinCommander
+    - BoSHonorGuard
+    - EnclaveEnlisted
+    - EnclaveNCO
+    - EnclaveJuniorOfficer
+    - EnclaveSeniorOfficer
+    - EnclaveCommander
+    - EnclaveReformer
+    outerSprite: _Misfits/Clothing/OuterClothing/PowerArmor/jacksontownley_pa.rsi
+    helmetSprite: _Misfits/Clothing/Head/PowerArmorHelmets/jacksontownley_helmet.rsi

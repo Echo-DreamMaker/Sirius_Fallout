@@ -6,8 +6,8 @@
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" SizeFlagsStretchRatio="0.5" MinSize="190 0">
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                <LineEdit Name="SearchBar" PlaceHolder="Search..." HorizontalExpand="True"/> <!-- Corvax-Change -->
-                <OptionButton Name="Category" Access="Public" MinSize="100 0"/>
+                <LineEdit Name="SearchBar" PlaceHolder="Поиск..." HorizontalExpand="True"/> <!-- Corvax-Change -->
+                <OptionButton Name="Category" Access="Public" MinSize="130 0"/>
             </BoxContainer>
             <!-- #Misfits Add: "Craftable Now" shows material recipes the player can craft from items
                  currently in hands, bags, or on the ground — no scrolling required. -->

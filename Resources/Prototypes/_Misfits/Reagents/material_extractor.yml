@@ -1,0 +1,26 @@
+- type: material
+  id: RawZinc
+  stackEntity: N14ZincOre1
+  name: materials-raw-zinc
+  unit: materials-unit-chunk
+  icon: { sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi, state: lead }
+  color: "#9aa0a6"
+  price: 0.05
+
+- type: material
+  id: Zinc
+  stackEntity: N14IngotZinc1
+  name: materials-zinc
+  unit: materials-unit-bar
+  icon: { sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi, state: ingot_aluminum }
+  color: "#b0b7bd"
+  price: 0.02
+
+- type: material
+  id: RawBauxite
+  stackEntity: N14BauxiteOre1
+  name: materials-raw-bauxite
+  unit: materials-unit-chunk
+  icon: { sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi, state: copper }
+  color: "#a55b3f"
+  price: 0.05

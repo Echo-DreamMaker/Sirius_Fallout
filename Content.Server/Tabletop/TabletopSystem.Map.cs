@@ -48,9 +48,10 @@ namespace Content.Server.Tabletop
             if (TabletopMap != MapId.Nullspace && _mapManager.MapExists(TabletopMap))
                 return;
 
-            TabletopMap = _mapManager.CreateMap();
+            _mapManager.CreateMap(out var mapId);
+            TabletopMap = mapId;
             _tabletops = 0;
-            var mapUid = _mapManager.GetMapEntityId(TabletopMap);
+            var mapUid = _mapManager.GetMap(TabletopMap);
 
             var mapComp = EntityManager.GetComponent<MapComponent>(mapUid);
 

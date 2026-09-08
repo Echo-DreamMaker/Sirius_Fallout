@@ -11,7 +11,7 @@
     species: Oni
   - type: Sprite
     scale: 1.2, 1.2
-  - type: Oni
+  - type: SuperMutant
     modifiers:
       coefficients:
         Blunt: 1.35

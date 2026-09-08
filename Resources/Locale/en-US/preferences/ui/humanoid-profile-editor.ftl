@@ -28,6 +28,7 @@ humanoid-profile-editor-import-button = Import
 humanoid-profile-editor-export-button = Export
 humanoid-profile-editor-save-button = Save
 humanoid-profile-editor-reset-button = Reset
+humanoid-profile-editor-round-end-anonymity = Hide my characters from other players in the end-of-round report
 humanoid-profile-editor-clothing-label = Clothing:
 humanoid-profile-editor-backpack-label = Backpack:
 humanoid-profile-editor-spawn-priority-label = Spawn priority:
@@ -54,6 +55,7 @@ humanoid-profile-editor-antag-preference-yes-button = Yes
 humanoid-profile-editor-antag-preference-no-button = No
 
 humanoid-profile-editor-traits-tab = Perks
+humanoid-profile-editor-pets-tab = Pets
 humanoid-profile-editor-traits-header = You have {$points ->
     [1] 1 point
     *[other] {$points} points
@@ -84,6 +86,9 @@ humanoid-profile-editor-naming-rules-warning = Warning: Offensive or LRP IC name
 
 humanoid-profile-editor-loadouts-tab = Loadout
 humanoid-profile-editor-loadouts-points-label = You have {$points}/{$max} points
+# #Cythisiax Add - Patreon supporter-exclusive loadout tab
+humanoid-profile-editor-patreon-loadouts-tab = Patreon
+humanoid-profile-editor-patreon-loadouts-no-loadouts = No Patreon loadouts available for your tier.
 humanoid-profile-editor-loadouts-show-unusable-button = Show Unusable Loadouts
 humanoid-profile-editor-loadouts-show-unusable-button-tooltip =
     When enabled, loadouts that your current character setup cannot use will be highlighted in red.

@@ -15,7 +15,7 @@ public sealed class SupporterManagerEui : BaseEui
     {
         _window = new SupporterManagerWindow();
 
-        _window.OnSetSupporter += (guid, username, title, color) =>
+        _window.OnSetSupporter += (guid, username, title, color, tier) =>
         {
             SendMessage(new SupporterSetMessage
             {
@@ -23,6 +23,7 @@ public sealed class SupporterManagerEui : BaseEui
                 Username = username,
                 Title = title,
                 NameColor = color,
+                Tier = tier, // #Cythisiax Added - Patreon tier assignment
             });
         };
 

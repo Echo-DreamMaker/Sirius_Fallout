@@ -46,7 +46,12 @@ public sealed partial class TelepathyFarWindow : DefaultWindow
         SendButton.Disabled = false;
         for (var i = 0; i < players.Count; i++)
         {
-            PlayerSelect.AddItem(players[i].Name, i);
+            // mark fellow telepaths so it's clear who's reachable by nature rather than
+            // because you went and met them
+            var label = players[i].Telepath
+                ? Loc.GetString("MutationTelepathy-far-telepath-suffix", ("name", players[i].Name))
+                : players[i].Name;
+            PlayerSelect.AddItem(label, i);
         }
     }
 

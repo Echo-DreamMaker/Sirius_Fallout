@@ -24,7 +24,7 @@ public sealed class StationAiCameraHackSystem : EntitySystem
     private static readonly TimeSpan HackDelay = TimeSpan.FromSeconds(30);
     private static readonly SoundSpecifier HackSound = new SoundCollectionSpecifier("sparks");
 
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;

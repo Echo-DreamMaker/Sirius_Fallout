@@ -14,3 +14,7 @@ trait-category-Language = Language
 
 # #Misfits Add - Pets perk tree category
 trait-category-Pets = Pets
+# #Cythisiax Added - pet size subcategories for the separate Pets points system
+trait-category-PetsSmall = Small Pets
+trait-category-PetsMedium = Medium Pets
+trait-category-PetsLarge = Large Pets

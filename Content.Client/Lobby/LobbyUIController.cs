@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client._NC.Sponsor;
+using Content.Client._Misfits.Supporter; // #Cythisiax Add - Patreon supporter tier sync
 using Content.Client.Humanoid;
 using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
@@ -46,6 +47,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
     [Dependency] private readonly SponsorManager _sponsorMan = default!; // Forge-Change
+    [Dependency] private readonly SupporterManager _supporterMan = default!; // #Cythisiax Add - Patreon supporter tier sync
     [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
     [UISystemDependency] private readonly SharedLoadoutSystem _loadouts = default!;
@@ -137,6 +139,9 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
         if (obj.WasModified<LoadoutPrototype>())
             _profileEditor.UpdateLoadouts(null, true);
+
+        if (obj.WasModified<LoadoutPrototype>() || obj.WasModified<LoadoutCategoryPrototype>())
+            _profileEditor.UpdatePatreonLoadouts(null, true); // #Cythisiax Add - Patreon tab refresh on prototype reload
     }
 
 
@@ -213,7 +218,8 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
             _requirements,
             _markings,
             _random,
-            _sponsorMan); // Forge-Change
+            _sponsorMan, // Forge-Change
+            _supporterMan); // #Cythisiax Add - Patreon supporter tier sync
 
         _characterSetup = new CharacterSetupGui(EntityManager, _prototypeManager, _resourceCache, _preferencesManager, _profileEditor);
 

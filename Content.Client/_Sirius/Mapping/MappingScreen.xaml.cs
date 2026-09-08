@@ -205,11 +205,11 @@ public sealed partial class MappingScreen : InGameScreen
 
     private void OnDecalHexColorInput(LineEdit.LineEditEventArgs args)
     {
-        var color = Color.TryFromHex(args.Text);
-        if (!color.HasValue)
+        var color = Color.TryFromHex(args.Text, out var colorVal);
+        if (!color)
             return;
 
-        OnDecalColorPicked(color.Value);
+        OnDecalColorPicked(colorVal);
     }
 
     private void UpdateHexColorPreview(Color color)

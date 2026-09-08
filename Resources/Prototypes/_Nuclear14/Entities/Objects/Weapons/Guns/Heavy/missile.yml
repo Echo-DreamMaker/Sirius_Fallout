@@ -4,6 +4,7 @@
   id: N14WeaponLauncherMissile
   description: "An advanced pre-war shoulder-mounted missile launcher, it's kinda obvious what kind of ammo it uses."
   components:
+  - type: SuperMutantFitting
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/missilelauncher.rsi
     layers:
@@ -15,6 +16,8 @@
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/missilelauncher.rsi
   - type: Wieldable
     wieldedSpeedModifier: 0.7
+  - type: StrengthRequirement
+    requiredStrength: 7
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -104

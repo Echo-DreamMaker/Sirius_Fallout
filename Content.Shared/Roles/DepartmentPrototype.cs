@@ -5,7 +5,7 @@ namespace Content.Shared.Roles;
 // #Misfits Add - UI tab grouping for job selection screens (Late Join + Profile Editor)
 public enum DepartmentUICategory : byte
 {
-    Wasteland   = 0,
+    NoFaction   = 0,
     MinorFaction = 1,
     MajorFaction = 2,
     Whitelist   = 3,
@@ -53,7 +53,7 @@ public sealed partial class DepartmentPrototype : IPrototype
 
     // #Misfits Add - which tab this department appears under in the job selection UI
     [DataField("uiCategory")]
-    public DepartmentUICategory UICategory { get; private set; } = DepartmentUICategory.Wasteland;
+    public DepartmentUICategory UICategory { get; private set; } = DepartmentUICategory.NoFaction;
 }
 
 /// <summary>

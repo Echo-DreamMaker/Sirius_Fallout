@@ -1,0 +1,15 @@
+# #Misfits Add - Brotherhood of Steel power armor armament blueprint item. Placed in a
+# workbench to unlock the pre-war T-60 pattern weapons: the Heavy Assault Rifle, the
+# T-60 Pistol, and the 80-round heavy 5.56 magazine. Recipes live in
+# _Misfits/Recipes/Lathes/blueprint_recipes_bos_t60.yml.
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintBoSWeaponsT60
+  name: BoS Power Armor Armaments Schematics
+  description: Pre-war military manufacturing plans for the small arms issued alongside T-60 power armor — the heavy assault rifle, the T-60 sidearm, and the oversized magazines both were built around.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPBoSWeaponRifleHeavyAssault
+    - N14BPBoSWeaponPistolT60
+    - N14BPBoSAmmoMagHeavy556

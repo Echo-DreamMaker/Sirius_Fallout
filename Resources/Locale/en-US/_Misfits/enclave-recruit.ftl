@@ -2,6 +2,8 @@
 enclave-recruit-popup-target = {CAPITALIZE($user)} recruits you into the Enclave!
 enclave-recruit-popup-user = You recruit {CAPITALIZE($target)} into the Enclave.
 enclave-recruit-lost = You are no longer part of the Enclave's recruitment. Your accumulated time is saved.
+# #Cythisiax Added - auto-whitelist notification when a recruit hits the playtime threshold.
+enclave-recruit-unlocked = Your service has earned you a commission in the Enclave. Enlisted and Junior Scientist are now available to you.
 enclave-recruit-dialog-title = Join the Enclave?
 enclave-recruit-dialog-accept = Yes
 enclave-recruit-dialog-decline = No

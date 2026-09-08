@@ -61,7 +61,6 @@
     contentPool: []
   - type: ActivatableUIRequiresAccess
   - type: ActivatableUI
-    singleUser: true
   - type: OverwatchConsole
     monitorTitle: overwatch-monitor-title
 

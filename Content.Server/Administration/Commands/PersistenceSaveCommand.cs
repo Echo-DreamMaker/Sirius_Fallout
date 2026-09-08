@@ -15,7 +15,6 @@ public sealed class PersistenceSave : IConsoleCommand
 {
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IEntitySystemManager _system = default!;
-    [Dependency] private readonly IMapManager _map = default!;
 
     public string Command => "persistencesave";
     public string Description => "Saves server data to a persistence file to be loaded later.";
@@ -36,7 +35,7 @@ public sealed class PersistenceSave : IConsoleCommand
         }
 
         var mapId = new MapId(intMapId);
-        if (!_map.MapExists(mapId))
+        if (!_system.GetEntitySystem<SharedMapSystem>().MapExists(mapId))
         {
             shell.WriteError(Loc.GetString("cmd-savemap-not-exist"));
             return;

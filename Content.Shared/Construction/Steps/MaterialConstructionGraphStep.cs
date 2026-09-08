@@ -23,7 +23,7 @@ namespace Content.Shared.Construction.Steps
             var loc = IoCManager.Resolve<ILocalizationManager>();
             var materialName = loc.GetEntityData(material.Spawn).Name;
 
-            examinedEvent.PushMarkup(Loc.GetString("construction-insert-material-entity", ("amount", Amount),("materialName", materialName))); // Corvax-Change
+            examinedEvent.PushMarkup(Loc.GetString("construction-insert-material-entity", ("amount", Amount),("materialName", Loc.GetString($"ent-{material.Spawn}")))); // Corvax-Change
         }
 
         public override bool EntityValid(EntityUid uid, IEntityManager entityManager, IComponentFactory compFactory)
@@ -50,7 +50,7 @@ namespace Content.Shared.Construction.Steps
             return new ConstructionGuideEntry()
             {
                 Localization = "construction-presenter-material-step",
-                Arguments = new (string, object)[] { ("amount", Amount), ("material", materialName) }, // Corvax-Change
+                Arguments = new (string, object)[] { ("amount", Amount), ("material", Loc.GetString($"ent-{material.Spawn}")) }, // Corvax-Change
                 Icon = material.Icon,
             };
         }

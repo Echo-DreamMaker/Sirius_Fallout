@@ -2,8 +2,18 @@
                xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
                Title="{Loc 'magic-mirror-window-title'}"
                MinSize="600 400">
-    <BoxContainer>
-        <humanoid:SingleMarkingPicker Name="HairPicker" Category="Hair" />
-        <humanoid:SingleMarkingPicker Name="FacialHairPicker" Category="FacialHair" />
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer>
+            <humanoid:SingleMarkingPicker Name="HairPicker" Category="Hair" />
+            <humanoid:SingleMarkingPicker Name="FacialHairPicker" Category="FacialHair" />
+        </BoxContainer>
+        <!-- #Cythisiax Added - confirm-apply button, only shown when the item requires it (barber scissors). -->
+        <Button Name="ApplyButton"
+                Text="{Loc 'magic-mirror-apply-button'}"
+                HorizontalAlignment="Right"
+                Margin="0 8 8 8"
+                MinSize="120 32"
+                Visible="False"
+                Disabled="True" />
     </BoxContainer>
 </DefaultWindow>

@@ -40,6 +40,9 @@ namespace Content.Server.Forensics
 
         private void OnInteract(EntityUid uid, FingerprintComponent component, ContactInteractionEvent args)
         {
+            if (args.Handled) // Misfit add: prevent errors and code convention
+                return;       // like if a system deleted the ent
+
             ApplyEvidence(uid, args.Other);
         }
 
@@ -87,6 +90,9 @@ namespace Content.Server.Forensics
 
         private void OnMeleeHit(EntityUid uid, ForensicsComponent component, MeleeHitEvent args)
         {
+            if (args.Handled) //Misfit added: code convention
+                return;
+
             if ((args.BaseDamage.DamageDict.TryGetValue("Blunt", out var bluntDamage) && bluntDamage.Value > 0) ||
                 (args.BaseDamage.DamageDict.TryGetValue("Slash", out var slashDamage) && slashDamage.Value > 0) ||
                 (args.BaseDamage.DamageDict.TryGetValue("Piercing", out var pierceDamage) && pierceDamage.Value > 0))

@@ -1,0 +1,126 @@
+- type: entity
+  name: soap
+  id: N14SoapSirius
+  parent: Soap
+  description: A cheap bar of soap. Doesn't smell.
+  components:
+  - type: Tag
+    tags:
+    - Soap
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/soap.rsi
+    layers:
+    - state: oldsoap
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    fillBaseName: oldsoap
+    changeColor: false
+  - type: Appearance
+  - type: Item
+    heldPrefix: oldsoap
+    sprite: _Nuclear14/Objects/Misc/soap.rsi
+    storedRotation: -90
+  - type: Residue
+    residueAdjective: residue-slippery
+    residueColor: residue-green
+
+- type: entity
+  name: soap
+  id: N14SoapSiriusIsotopSirius
+  parent: N14SoapSirius
+  description: A Nanotrasen brand bar of soap. Smells of plasma.
+  components:
+  - type: Sprite
+    layers:
+    - state: sweatIsotopsoap
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    fillBaseName: sweatIsotopsoap
+  - type: Item
+    heldPrefix: sweatIsotopsoap
+  - type: SolutionContainerManager
+    solutions:
+      soap:
+        maxVol: 100
+        reagents:
+        - ReagentId: SoapReagent
+          Quantity: 100
+  - type: Residue
+    residueAdjective: residue-slippery
+    residueColor: residue-grey
+
+- type: entity
+  name: soap
+  id: N14SoapSiriusWildberrySirius
+  parent: N14SoapSirius
+  description: A Nanotrasen brand bar of soap. Smells of plasma.
+  components:
+  - type: Sprite
+    layers:
+    - state: wildberryssoap
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    fillBaseName: wildberryssoap
+  - type: Item
+    heldPrefix: wildberryssoap
+  - type: SolutionContainerManager
+    solutions:
+      soap:
+        maxVol: 100
+        reagents:
+        - ReagentId: SoapReagent
+          Quantity: 100
+  - type: Residue
+    residueAdjective: residue-slippery
+    residueColor: residue-grey
+
+- type: entity
+  name: soap
+  id: N14SoapSiriusLavandaSirius
+  parent: N14SoapSirius
+  description: A Nanotrasen brand bar of soap. Smells of plasma.
+  components:
+  - type: Sprite
+    layers:
+    - state: lavandasoap
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    fillBaseName: lavandasoap
+  - type: Item
+    heldPrefix: lavandasoap
+  - type: SolutionContainerManager
+    solutions:
+      soap:
+        maxVol: 100
+        reagents:
+        - ReagentId: SoapReagent
+          Quantity: 100
+  - type: Residue
+    residueAdjective: residue-slippery
+    residueColor: residue-grey
+
+- type: entity
+  name: soap
+  id: N14SoapSiriusBluelagoonSirius
+  parent: N14SoapSirius
+  description: A Nanotrasen brand bar of soap. Smells of plasma.
+  components:
+  - type: Sprite
+    layers:
+    - state: bluelagoonsoap
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    fillBaseName: bluelagoonsoap
+  - type: Item
+    heldPrefix: bluelagoonsoap
+  - type: SolutionContainerManager
+    solutions:
+      soap:
+        maxVol: 100
+        reagents:
+        - ReagentId: SoapReagent
+          Quantity: 100
+  - type: Residue
+    residueAdjective: residue-slippery
+    residueColor: residue-grey

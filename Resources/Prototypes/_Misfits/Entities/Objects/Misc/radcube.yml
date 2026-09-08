@@ -1,0 +1,42 @@
+﻿# lots of copy-pasted code here, Trying to make Misfits variant for monkey cubes
+# this will be the starting point for hopefully a bunch of cooking 'fixes'
+# pretty much just making N14 variants for everything and only using those
+# the sprites suck, I know. but I used the pallet at least
+# Amaster222 was here
+- type: entity
+  parent: BoxCardboard
+  name: rad cube box
+  id: RadCubeBox
+  description: A faded cardboard box, presumably filled with monkey cubes.
+  components:
+  - type: StorageFill
+    contents:
+    - id: RadCubeWrapped
+      amount: 6
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/radcube.rsi
+    state: box_rad
+
+- type: entity
+  parent: BaseItem
+  name: rad cube
+  suffix: Wrapped
+  id: RadCubeWrapped
+  description: Unwrap this yellowed packaging to get a monkey cube?
+  components:
+  - type: Item
+    size: Tiny
+  - type: SpawnItemsOnUse
+    items:
+    - id: RadCube
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/radcube.rsi
+    state: wrapper_rad
+  - type: Tag
+    tags:
+    - RadCube

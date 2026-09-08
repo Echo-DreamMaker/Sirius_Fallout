@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-3.0",
-  "copyright": "Taken from MS13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/aca39d820a24b8f3ca4850d49ba263f40f6a4a96, moneybag and moneypouch from Nukapop13, see storage.rsi",
+  "copyright": "Taken from MS13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/aca39d820a24b8f3ca4850d49ba263f40f6a4a96, moneybag and moneypouch from Nukapop13, see storage.rsi, Bawls taken from Desert Rose 2 & sprited by Rebelman0",
   "size": {
     "x": 32,
     "y": 32
@@ -72,6 +72,16 @@
     },
     {
       "name": "moneybag"
+    },
+    {
+      "name": "bawls"
+    },
+    {
+      "name": "bawls3"
+    },
+    {
+      "name": "bawls6"
     }
+
   ]
 }

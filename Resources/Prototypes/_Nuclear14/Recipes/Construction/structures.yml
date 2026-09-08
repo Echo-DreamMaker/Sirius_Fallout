@@ -363,6 +363,26 @@
   conditions:
     - !type:TileNotBlocked
 
+- type: construction
+  name: window bars
+  id: N14WindowBars
+  graph: N14WindowBars
+  startNode: start
+  targetNode: bars
+  category: construction-category-structures
+  description: Sturdy metal bars for blocking access through a window.
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Windows/windowbars.rsi
+    state: icon
+  conditions:
+    - !type:TileNotBlocked
+
+
+
 # #Misfits Add: Concrete and brick wall construction recipes
 
 - type: construction
@@ -432,6 +452,25 @@
   description: A hand-packed adobe wall made from sun-baked mud brick.
   icon:
     sprite: _Nuclear14/Structures/Walls/ms13/slanted/adobe.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  hide: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: tall adobe wall
+  id: N14WallAdobeTall
+  graph: N14AdobeWall
+  startNode: start
+  targetNode: AdobeWallTall
+  category: construction-category-structures
+  description: A tall hand-packed adobe wall made from sun-baked mud brick.
+  icon:
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/adobe.rsi
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -518,3 +557,5 @@
   hide: false
   conditions:
     - !type:TileNotBlocked
+
+

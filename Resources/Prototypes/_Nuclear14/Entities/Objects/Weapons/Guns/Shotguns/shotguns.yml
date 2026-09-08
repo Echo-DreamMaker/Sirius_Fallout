@@ -38,6 +38,8 @@
     backStrength: 5
   - type: Wieldable
     wieldedSpeedModifier: 0.82
+  - type: StrengthRequirement
+    requiredStrength: 5
   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
 
 - type: entity
@@ -396,7 +398,7 @@
 - type: entity
   name: blowback shotgun
   parent: N14WeaponShotgunBase
-  id: N14WeaponBlowback
+  id: N14WeaponShotgunBlowback
   description: A semi automatic combat shotgun with a integrated drum mag, uses 12 gauge shells.
   components:
   - type: Gun

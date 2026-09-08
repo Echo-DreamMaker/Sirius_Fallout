@@ -26,7 +26,7 @@
   access: # #Misfits Add - vault access for vault-assigned robot
   - VaultDweller
   spawnLoadout: false
-  applyTraits: false
+  applyTraits: true # #Misfits Fix - robot accent perks: apply selected accents at spawn
   requirements: # #Misfits Change: lock to species
   - !type:CharacterSpeciesRequirement
     species:
@@ -56,7 +56,7 @@
   access: # #Misfits Add - vault access for vault-assigned robot
   - VaultDweller
   spawnLoadout: false
-  applyTraits: false
+  applyTraits: true # #Misfits Fix - robot accent perks: apply selected accents at spawn
   requirements: # #Misfits Change: lock to species
   - !type:CharacterSpeciesRequirement
     species:
@@ -90,7 +90,7 @@
   access: # #Misfits Add - vault access for vault-assigned robot
   - VaultDweller
   spawnLoadout: false
-  applyTraits: false
+  applyTraits: true # #Misfits Fix - robot accent perks: apply selected accents at spawn
   requirements: # #Misfits Change: lock to species
   - !type:CharacterSpeciesRequirement
     species:
@@ -118,7 +118,7 @@
   hideWithoutWhitelist: true # #Misfits Change
   startingGear: SyntheticGear # #Misfits Fix - triggers EquipIdCard so job access is applied to nav card
   spawnLoadout: false
-  applyTraits: false
+  applyTraits: true # #Misfits Fix - robot accent perks: apply selected accents at spawn
   requirements: # #Misfits Change: lock to species
   - !type:CharacterSpeciesRequirement
     species:
@@ -158,7 +158,7 @@
   hideWithoutWhitelist: true
   startingGear: SyntheticGear # #Misfits Fix - triggers EquipIdCard so job access is applied to nav card
   spawnLoadout: false
-  applyTraits: false
+  applyTraits: true # #Misfits Fix - robot accent perks: apply selected accents at spawn
   requirements:
   - !type:CharacterSpeciesRequirement
     species:
@@ -190,7 +190,7 @@
   access: # #Misfits Add - vault access for vault-assigned robot
   - VaultDweller
   spawnLoadout: false
-  applyTraits: false
+  applyTraits: true # #Misfits Fix - robot accent perks: apply selected accents at spawn
   requirements:
   - !type:CharacterSpeciesRequirement
     species:
@@ -227,7 +227,7 @@
   access: # tribe access for the tribal bot
   - TribeMember
   spawnLoadout: false
-  applyTraits: false
+  applyTraits: true # #Misfits Fix - robot accent perks: apply selected accents at spawn
   requirements: # lock to species
   - !type:CharacterSpeciesRequirement
     species:

@@ -92,10 +92,12 @@ public sealed partial class ClothingComponent : Component
 public sealed class ClothingComponentState : ComponentState
 {
     public string? EquippedPrefix;
+    public string? Sprite;
 
-    public ClothingComponentState(string? equippedPrefix)
+    public ClothingComponentState(string? equippedPrefix, string? sprite)
     {
         EquippedPrefix = equippedPrefix;
+        Sprite = sprite;
     }
 }
 

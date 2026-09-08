@@ -21,7 +21,7 @@ namespace Content.Server._N14.Support
         [Dependency] private readonly ExplosionSystem _explosions = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
+        [Dependency] private readonly SharedMapSystem _mapManager = default!;
         [Dependency] private readonly SharedRoofSystem _roof = default!;
         [Dependency] private readonly SharedMapSystem _mapSystem = default!;
 

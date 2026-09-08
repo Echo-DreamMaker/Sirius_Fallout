@@ -416,7 +416,7 @@
 
 - type: latheRecipe
   id: N14BPNCRWeaponRevolver44Magnun
-  result: N14WeaponRevolver44Magnun
+  result: N14WeaponRevolver44Magnum
   category: N14BlueprintNCRWeaponsT3
   completetime: 10
   requiresBlueprint: true
@@ -1421,9 +1421,24 @@
   availableFaction:
   - CaesarLegion
   materials:
-    N14Iron: 15
+    N14Iron: 6
 
-    Leather: 7
+    Leather: 0.7
+
+    Wood: 3
+
+- type: latheRecipe
+  id: N14BPLegionWeaponGladius
+  result: N14Gladius
+  category: N14BlueprintLegionWeaponsT2
+  completetime: 6
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 15
+
+    Leather: 1
 
     Wood: 5
 
@@ -1437,11 +1452,11 @@
   availableFaction:
   - CaesarLegion
   materials:
-    Steel: 25
+    Steel: 6
 
-    N14Iron: 7
+    N14Iron: 3
 
-    Leather: 2
+    Leather: 0.2
 
 
 - type: latheRecipe
@@ -1453,11 +1468,11 @@
   availableFaction:
   - CaesarLegion
   materials:
-    N14Iron: 12
+    N14Iron: 6
 
-    Wood: 15
+    Wood: 7
 
-    Leather: 2
+    Leather: 0.2
 
 
 - type: latheRecipe
@@ -1469,9 +1484,9 @@
   availableFaction:
   - CaesarLegion
   materials:
-    N14Iron: 15
+    N14Iron: 8
 
-    Leather: 7
+    Leather: 3
 
     Cloth: 2
 
@@ -1550,7 +1565,7 @@
   availableFaction:
   - CaesarLegion
   materials:
-    Steel: 60
+    Steel: 45
 
     N14Iron: 15
 
@@ -1835,6 +1850,21 @@
 
     N14Iron: 5
 
+- type: latheRecipe
+  id: N14BPLegionArmorLightBaseballHelmet
+  result: N14ClothingHeadHatLightBaseballHelmet
+  category: N14BlueprintLegionArmorT2
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Leather: 5
+
+    Cloth: 5
+
+    Thread: 4
+
 
 - type: latheRecipe
   id: N14BPLegionArmorVexillariusArmor
@@ -1889,6 +1919,44 @@
     Thread: 17
 
     N14Iron: 10
+
+- type: latheRecipe
+  id: N14BPLegionArmorBaseballHelmet
+  result: N14ClothingHeadHatBaseballHelmet
+  category: N14BlueprintLegionArmorT3
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Leather: 4
+
+    Steel: 35
+
+    Cloth: 2
+
+    Thread: 2
+
+    N14Iron: 2
+
+- type: latheRecipe
+  id: N14BPLegionArmorDeanRecruitHelmet
+  result: N14ClothingHeadHatDeanRecruitHelmet
+  category: N14BlueprintLegionArmorT3
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Leather: 4
+
+    Steel: 35
+
+    Cloth: 2
+
+    Thread: 2
+
+    N14Iron: 2
 
 
 - type: latheRecipe

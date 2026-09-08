@@ -30,6 +30,7 @@
   startingGear: FollowerHeadGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-follower-head
+  alwaysUseSpawner: true
   accessGroups:
   - FollowersApocalypse
   - FotAHead
@@ -94,6 +95,7 @@
   startingGear: FollowerDoctorGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-follower-doctor
+  alwaysUseSpawner: true
   accessGroups:
   - FollowersApocalypse
   - FotADoctor
@@ -223,6 +225,7 @@
   startingGear: FollowerVolunteerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-follower-volunteer
+  alwaysUseSpawner: true
   accessGroups:
   - FollowersApocalypse
   - FotA

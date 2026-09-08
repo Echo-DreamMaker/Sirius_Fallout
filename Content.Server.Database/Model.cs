@@ -56,6 +56,10 @@ namespace Content.Server.Database
         public DbSet<HelpTicketEvent> HelpTicketEvent { get; set; } = default!; // #Misfits Change - Persistent help ticket audit log
         public DbSet<HelpTicketMessage> HelpTicketMessage { get; set; } = default!; // #Misfits Add - Persistent individual bwoink/mhelp chat messages for audit replay
         public DbSet<Supporter> Supporter { get; set; } = default!; // #Misfits Add - Persistent supporter color/title data
+        public DbSet<MarketListing> MarketListing { get; set; } = default!; // #Cythisiax Add - Free market player-to-player listings
+        public DbSet<MarketPriceHistory> MarketPriceHistory { get; set; } = default!; // #Cythisiax Add - Market supply/demand price history
+        public DbSet<MarketSale> MarketSale { get; set; } = default!; // #Cythisiax Add - Market completed-sale ledger
+        public DbSet<MarketSoldItem> MarketSoldItem { get; set; } = default!; // #Cythisiax Add - Sold-item anti-relist tags
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -171,6 +175,27 @@ namespace Content.Server.Database
             modelBuilder.Entity<Supporter>()
                 .HasIndex(s => s.UserId)
                 .IsUnique();
+
+            // #Cythisiax Add - Unique listing ID for market listings
+            modelBuilder.Entity<MarketListing>()
+                .HasIndex(l => l.ListingId)
+                .IsUnique();
+
+            // #Cythisiax Add - Index market listings by seller + status for "my listings" queries
+            modelBuilder.Entity<MarketListing>()
+                .HasIndex(l => new { l.SellerPlayerId, l.Status });
+
+            // #Cythisiax Add - Index market listings by expiry for the purge job
+            modelBuilder.Entity<MarketListing>()
+                .HasIndex(l => l.ExpiresAt);
+
+            // #Cythisiax Add - Index price history by prototype + time for graph queries
+            modelBuilder.Entity<MarketPriceHistory>()
+                .HasIndex(p => new { p.PrototypeId, p.Timestamp });
+
+            // #Cythisiax Add - Index sale ledger by time for recent-sales queries
+            modelBuilder.Entity<MarketSale>()
+                .HasIndex(s => s.SoldAt);
 
             modelBuilder.Entity<AdminLogPlayer>()
                 .HasOne(player => player.Player)
@@ -439,6 +464,7 @@ namespace Content.Server.Database
         public Guid UserId { get; set; }
         public int SelectedCharacterSlot { get; set; }
         public string AdminOOCColor { get; set; } = null!;
+        public bool AnonymousRoundEndReport { get; set; } // #Cythisiax Added - hide characters in round-end report
         public List<Profile> Profiles { get; } = new();
     }
 
@@ -469,6 +495,8 @@ namespace Content.Server.Database
         public float Height { get; set; } = 1f;
         public float Width { get; set; } = 1f;
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
+        // #Cythisiax Added - Persist roundstart prosthetic choices (CustomBaseLayers) so they survive round/server restarts
+        [Column(TypeName = "jsonb")] public JsonDocument? CustomBaseLayers { get; set; } = null!;
         public string HairName { get; set; } = null!;
         public string HairColor { get; set; } = null!;
         public string FacialHairName { get; set; } = null!;
@@ -1071,6 +1099,23 @@ namespace Content.Server.Database
         /// Persistent Bottle Caps balance.
         /// </summary>
         public int Bottlecaps { get; set; }
+
+        // #Cythisiax Add - Persistent multi-currency balances for the free market
+        /// <summary>Persistent NCR Dollars balance (3 NCR = 1 cap).</summary>
+        public int NcrDollars { get; set; }
+
+        /// <summary>Persistent Silver balance (4 silver = 1 cap).</summary>
+        public int Silver { get; set; }
+
+        /// <summary>Persistent Gold balance (2 gold = 1 cap).</summary>
+        public int Gold { get; set; }
+
+        // #Nuclear14 Add - Persistent Legion Denarii / pre-war money balances
+        /// <summary>Persistent Legion Denarii balance.</summary>
+        public int LegionDenarii { get; set; }
+
+        /// <summary>Persistent Pre-War Money balance.</summary>
+        public int PrewarMoney { get; set; }
     }
 
     // #Misfits Change - Persistent SPECIAL stats, kill/death/round counters, and history per character.
@@ -1489,6 +1534,136 @@ namespace Content.Server.Database
         public string? Title { get; set; }
 
         public string? NameColor { get; set; }
+
+        // #Cythisiax Added - Patreon tier (0 = not a supporter), gates supporter-exclusive features.
+        public int Tier { get; set; }
+    }
+
+    // #Cythisiax Add - Free market listing (player-to-player trade listing record)
+    [Table("market_listing")]
+    public sealed class MarketListing
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        /// <summary>Globally unique listing ID (Guid).</summary>
+        [Required]
+        public Guid ListingId { get; set; }
+
+        [Required]
+        public Guid SellerPlayerId { get; set; }
+
+        [Required]
+        public string SellerCharacterName { get; set; } = null!;
+
+        /// <summary>The entity prototype being sold.</summary>
+        [Required]
+        public string PrototypeId { get; set; } = null!;
+
+        /// <summary>Stack count or unit quantity.</summary>
+        public int Quantity { get; set; } = 1;
+
+        /// <summary>Stack count for stackable items.</summary>
+        public int StackCount { get; set; }
+
+        /// <summary>Currency: Barter, Bottlecaps, NCRDollars, Silver, Gold, PrewarMoney, LegionDenarii.</summary>
+        [Required]
+        public string Currency { get; set; } = null!;
+
+        /// <summary>Price per unit (for raw currency listings). 0 for barter.</summary>
+        public int PricePerUnit { get; set; }
+
+        /// <summary>For barter: the requested item prototype ID.</summary>
+        public string? RequestedItemId { get; set; }
+
+        /// <summary>For barter: the requested quantity.</summary>
+        public int RequestedQuantity { get; set; }
+
+        /// <summary>UTC timestamp when listed.</summary>
+        [Required]
+        public DateTime ListedAt { get; set; }
+
+        /// <summary>UTC timestamp when the listing expires and gets purged.</summary>
+        [Required]
+        public DateTime ExpiresAt { get; set; }
+
+        /// <summary>Status: Active, Sold, Purged.</summary>
+        [Required]
+        public string Status { get; set; } = "Active";
+
+        /// <summary>Who bought it (when Status=Sold).</summary>
+        public string? SoldToCharacter { get; set; }
+
+        /// <summary>When the sale completed.</summary>
+        public DateTime? SoldAt { get; set; }
+
+        /// <summary>Unique tag on the sold item entity to prevent re-listing.</summary>
+        public string? SoldItemTag { get; set; }
+    }
+
+    // #Cythisiax Add - Market price history for supply/demand graphs
+    [Table("market_price_history")]
+    public sealed class MarketPriceHistory
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required]
+        public string PrototypeId { get; set; } = null!;
+
+        [Required]
+        public DateTime Timestamp { get; set; }
+
+        /// <summary>The current market reference price for this item.</summary>
+        public int ReferencePrice { get; set; }
+
+        /// <summary>Total units currently listed (supply).</summary>
+        public int Supply { get; set; }
+
+        /// <summary>Completed sales + failed buy attempts in the window (demand).</summary>
+        public int Demand { get; set; }
+    }
+
+    // #Cythisiax Add - Market completed-sale ledger for cross-round stats and audit
+    [Table("market_sale")]
+    public sealed class MarketSale
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        /// <summary>The listing this sale completed.</summary>
+        public Guid ListingId { get; set; }
+
+        [Required]
+        public string ItemProto { get; set; } = null!;
+
+        public int Price { get; set; }
+
+        [Required]
+        public string Currency { get; set; } = null!;
+
+        [Required]
+        public Guid SellerId { get; set; }
+
+        [Required]
+        public string SellerName { get; set; } = null!;
+
+        [Required]
+        public Guid BuyerId { get; set; }
+
+        [Required]
+        public string BuyerName { get; set; } = null!;
+
+        [Required]
+        public DateTime SoldAt { get; set; }
+    }
+
+    // #Cythisiax Add - Unique sold-item tags that prevent re-listing of purchased market items
+    [Table("market_sold_item")]
+    public sealed class MarketSoldItem
+    {
+        [Required, Key]
+        public string SoldTag { get; set; } = null!;
     }
 
     /// A hardware ID value together with its <see cref="HwidType"/>.

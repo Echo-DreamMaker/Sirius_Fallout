@@ -1,0 +1,172 @@
+# Whitelisted ordinary sentient Deathclaw species. Bwonsamdi is deliberately a separate species/job/body below.
+
+- type: species
+  id: Deathclaw
+  name: species-name-deathclaw
+  roundStart: true # #Cythisiax - whitelisted players see it in the character editor species dropdown
+  order: 5 # #Cythisiax - sorts just after Nightkin/C-27, before Robot variants
+  whitelistRequired: true # #Cythisiax - full whitelist gate
+  restrictedCustomization: true # #Cythisiax - non-humanoid: no markings/antag tabs
+  allowedTraitCategories: # #Cythisiax - keep accent/language perks so they persist on save
+  - Uncategorized
+  - Auditory
+  - Mental
+  - Physical
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
+  - Visual
+  - Language
+  jobWhitelistUnlock: SentientDeathclawRegular
+  restrictedJobs:
+  - SentientDeathclawRegular
+  prototype: N14MobDeathclawSentient
+  dollPrototype: N14MobDeathclawSentient
+  skinColoration: Hues
+  defaultSkinTone: "#7a5a45"
+  # #Cythisiax Changed - ordinary Deathclaw is locked to standard sprite size (scale 1.0); the size sliders are hidden.
+  # Only Bwonsamdi (BwonsamdiDeathclaw below) keeps the height/width sliders.
+  minHeight: 1.0
+  defaultHeight: 1.0
+  maxHeight: 1.0
+  minWidth: 1.0
+  defaultWidth: 1.0
+  maxWidth: 1.0
+  averageHeight: 210
+  averageWidth: 95
+  sexes:
+  - Unsexed
+  markingLimits: DeathclawMarkingLimits # #Cythisiax - required valid points block (client MarkingSet indexes it; null crashes the lobby)
+  sprites: DeathclawSprites # #Cythisiax - empty sprite set so no humanoid layers overlay the deathclaw preview
+
+# Ordinary sentient Deathclaw life-stage variants. They share the regular whitelist and job;
+# the character editor exposes them through the Deathclaw variant picker rather than as separate species entries.
+- type: species
+  id: DeathclawAdolescent
+  name: species-name-deathclaw-adolescent
+  roundStart: true
+  order: 5
+  whitelistRequired: true
+  restrictedCustomization: true
+  allowedTraitCategories:
+  - Uncategorized
+  - Auditory
+  - Mental
+  - Physical
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
+  - Visual
+  - Language
+  jobWhitelistUnlock: SentientDeathclawRegular
+  restrictedJobs:
+  - SentientDeathclawRegular
+  prototype: N14MobDeathclawSentientAdolescent
+  dollPrototype: N14MobDeathclawSentientAdolescent
+  skinColoration: Hues
+  defaultSkinTone: "#7a5a45"
+  minHeight: 1.0
+  defaultHeight: 1.0
+  maxHeight: 1.0
+  minWidth: 1.0
+  defaultWidth: 1.0
+  maxWidth: 1.0
+  averageHeight: 170
+  averageWidth: 75
+  sexes:
+  - Unsexed
+  markingLimits: DeathclawMarkingLimits
+  sprites: DeathclawSprites
+
+- type: species
+  id: DeathclawHatchling
+  name: species-name-deathclaw-hatchling
+  roundStart: true
+  order: 5
+  whitelistRequired: true
+  restrictedCustomization: true
+  allowedTraitCategories:
+  - Uncategorized
+  - Auditory
+  - Mental
+  - Physical
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
+  - Visual
+  - Language
+  jobWhitelistUnlock: SentientDeathclawRegular
+  restrictedJobs:
+  - SentientDeathclawRegular
+  prototype: N14MobDeathclawSentientHatchling
+  dollPrototype: N14MobDeathclawSentientHatchling
+  skinColoration: Hues
+  defaultSkinTone: "#7a5a45"
+  minHeight: 1.0
+  defaultHeight: 1.0
+  maxHeight: 1.0
+  minWidth: 1.0
+  defaultWidth: 1.0
+  maxWidth: 1.0
+  averageHeight: 120
+  averageWidth: 55
+  sexes:
+  - Unsexed
+  markingLimits: DeathclawMarkingLimits
+  sprites: DeathclawSprites
+
+# Bwonsamdi's species gate is separate so an ordinary sentient Deathclaw whitelist never grants the loa role.
+- type: species
+  id: BwonsamdiDeathclaw
+  name: species-name-bwonsamdi-deathclaw
+  roundStart: true
+  order: 6
+  whitelistRequired: true
+  restrictedCustomization: true
+  allowedTraitCategories:
+  - Uncategorized
+  - Auditory
+  - Mental
+  - Physical
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
+  - Visual
+  - Language
+  jobWhitelistUnlock: SentientDeathclaw
+  restrictedJobs:
+  - SentientDeathclaw
+  prototype: N14MobDeathclawPlayer
+  dollPrototype: N14MobDeathclawPlayer
+  skinColoration: Hues
+  defaultSkinTone: "#7a5a45"
+  minHeight: 1.0
+  defaultHeight: 1.0
+  maxHeight: 1.6
+  minWidth: 0.9
+  defaultWidth: 1.0
+  maxWidth: 1.5
+  averageHeight: 210
+  averageWidth: 95
+  sexes:
+  - Unsexed
+  markingLimits: DeathclawMarkingLimits
+  sprites: DeathclawSprites
+
+# Shared marking limits — deathclaws have no body markings but need a valid points block.
+- type: markingPoints
+  id: DeathclawMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Chest:
+      points: 0
+      required: false
+
+# Shared sprite set — deathclaw uses its own Sprite component, so no humanoid layers needed.
+- type: speciesBaseSprites
+  id: DeathclawSprites
+  sprites: {}

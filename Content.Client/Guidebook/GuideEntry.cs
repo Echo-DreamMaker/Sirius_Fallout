@@ -5,7 +5,8 @@ using Robust.Shared.Utility;
 namespace Content.Client.Guidebook;
 
 [Virtual]
-public class GuideEntry
+[DataDefinition]
+public partial class GuideEntry
 {
     /// <summary>
     ///     The file containing the contents of this guide.

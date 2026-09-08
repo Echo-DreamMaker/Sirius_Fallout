@@ -71,6 +71,12 @@ public sealed partial class HealthAnalyzerComponent : Component
     public bool Silent;
 
     /// <summary>
+    /// Enables spoken scan results on fixed health-analyzer consoles.
+    /// </summary>
+    [DataField]
+    public bool HasSpeaker;
+
+    /// <summary>
     /// DeltaV Medical Records: the station record key for the scanned entity.
     /// </summary>
     [DataField]

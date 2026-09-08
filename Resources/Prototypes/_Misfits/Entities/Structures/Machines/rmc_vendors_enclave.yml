@@ -1,0 +1,64 @@
+# Enclave catalog. Weapon ammunition is deliberately absent: it remains blueprint-crafted.
+
+- type: entity
+  parent: N14BaseRmcWeaponVendor
+  id: N14EnclaveWeaponVendor
+  name: Enclave weapon requisitions vendor
+  suffix: Enclave
+  components:
+  - type: AccessReader
+    access: [[ "Enclave" ]]
+  - type: CMAutomatedVendor
+    departmentName: Enclave
+    blueprintCategories: [ N14BlueprintEnclaveWeapons ]
+    blueprintTierOverrides:
+      N14WeaponPlasmaPistol: 1
+      N14WeaponPlasmaDefender: 1
+      N14WeaponPlasmaRifle: 2
+      N14WeaponPlasmaRifleUrban: 2
+      N14WeaponPlasmaRifleAuto: 3
+      N14WeaponLaserMagnetoPistol: 2
+      N14WeaponPulsePistol: 2
+      N14WeaponLaserRCW: 3
+      N14WeaponPulseCarbine: 3
+      N14WeaponLaserRifleWattz2000: 3
+      N14WeaponLaserRifleWattz3000: 4
+      N14WeaponLaserRifleAuto: 4
+      N14WeaponLaserRifleAER12: 4
+    authorityTierNames:
+      1: Tier 1 - Personnel allocation
+      2: Tier 2 - NCO allocation
+      3: Tier 3 - Junior Officer allocation
+      4: Tier 4 - Senior Officer allocation
+    authorityTierAccess:
+      1: [ EnclaveRoleAll ]
+      2: [ EnclaveRoleNCO ]
+      3: [ EnclaveRoleJuniorOfficer ]
+      4: [ EnclaveRoleSeniorOfficer ]
+
+- type: entity
+  parent: N14BaseRmcEquipmentVendor
+  id: N14EnclaveEquipmentVendor
+  name: Enclave equipment requisitions vendor
+  suffix: Enclave
+  components:
+  - type: AccessReader
+    access: [[ "Enclave" ]]
+  - type: CMAutomatedVendor
+    departmentName: Enclave
+    blueprintCategories: [ N14BlueprintEnclaveArmor ]
+    blueprintTierOverrides:
+      N14ClothingOuterPowerArmorAdvanced1: 3
+      N14ClothingOuterPowerArmorAdvanced2Tesla: 4
+      N14ClothingOuterEnclaveZuluAdvancedCombatArmor: 3
+      N14ClothingHeadHatEnclaveZuluCombatHelmet: 3
+    authorityTierNames:
+      1: Tier 1 - Personnel allocation
+      2: Tier 2 - NCO allocation
+      3: Tier 3 - Junior Officer allocation
+      4: Tier 4 - Senior Officer allocation
+    authorityTierAccess:
+      1: [ EnclaveRoleAll ]
+      2: [ EnclaveRoleNCO ]
+      3: [ EnclaveRoleJuniorOfficer ]
+      4: [ EnclaveRoleSeniorOfficer ]

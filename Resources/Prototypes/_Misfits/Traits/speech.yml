@@ -29,7 +29,6 @@
     departments:
     - Tribe    # Tribe gets the language by default
     - Rangers  # Rangers get the discounted version
-    - Enclave
     - Vault
     - FollowersOfTheApocalypse  # FotA get the discounted version
   - !type:CharacterTraitRequirement

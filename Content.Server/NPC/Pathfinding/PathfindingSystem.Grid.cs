@@ -262,8 +262,15 @@ public sealed partial class PathfindingSystem
         if (xform.GridUid == null)
             return;
 
-        var aabb = _lookup.GetAABBNoContainer(ev.Body, xform.Coordinates.Position, xform.LocalRotation);
-        DirtyChunkArea(xform.GridUid.Value, aabb);
+        try
+        {
+            var aabb = _lookup.GetAABBNoContainer(ev.Body, xform.Coordinates.Position, xform.LocalRotation);
+            DirtyChunkArea(xform.GridUid.Value, aabb);
+        }
+        catch (Exception)
+        {
+            // #Misfits Fix - RTB v286: some entities may have uninitialized polygon shapes during physics init
+        }
     }
 
     private void OnBodyTypeChange(ref PhysicsBodyTypeChangedEvent ev)
@@ -271,8 +278,15 @@ public sealed partial class PathfindingSystem
         if (TryComp<TransformComponent>(ev.Entity, out var xform) &&
             xform.GridUid != null)
         {
-            var aabb = _lookup.GetAABBNoContainer(ev.Entity, xform.Coordinates.Position, xform.LocalRotation);
-            DirtyChunkArea(xform.GridUid.Value, aabb);
+            try
+            {
+                var aabb = _lookup.GetAABBNoContainer(ev.Entity, xform.Coordinates.Position, xform.LocalRotation);
+                DirtyChunkArea(xform.GridUid.Value, aabb);
+            }
+            catch (Exception)
+            {
+                // #Misfits Fix - RTB v286: some entities may have uninitialized polygon shapes during physics init
+            }
         }
     }
 

@@ -91,9 +91,13 @@ public sealed class SupporterManagerEui : BaseEui
             username = located.Username;
         }
 
-        await _supporters.SetSupporterAsync(userId, username, msg.Title, msg.NameColor);
+        // #Cythisiax Edited - preserve existing Patreon tier when the admin didn't pick one
+        var existingTier = _supporters.GetAll().FirstOrDefault(e => e.UserId == userId)?.Tier ?? SupporterTier.None;
+        var tier = msg.Tier ?? existingTier;
+
+        await _supporters.SetSupporterAsync(userId, username, msg.Title, msg.NameColor, tier);
         _adminLog.Add(LogType.AdminMessage, LogImpact.Medium,
-            $"{Player:actor} set supporter [{username}]: title='{msg.Title ?? "(none)"}', color='{msg.NameColor ?? "(none)"}'");
+            $"{Player:actor} set supporter [{username}]: title='{msg.Title ?? "(none)"}', color='{msg.NameColor ?? "(none)"}', tier='{tier}'");
         _pendingStatus = $"Saved: {username}";
         StateDirty();
     }

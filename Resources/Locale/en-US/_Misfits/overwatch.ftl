@@ -36,6 +36,11 @@ overwatch-monitor-title = PERSONNEL MONITOR
 overwatch-monitor-title-vault = VAULT PERSONNEL MONITOR
 overwatch-monitor-title-bos = BROTHERHOOD PERSONNEL MONITOR
 overwatch-monitor-title-ncr = NCR PERSONNEL MONITOR
+# #Misfits Add - titles for faction-specific Overwatch monitors on the Ranger/Enclave tacmaps
+overwatch-monitor-title-ncr-rangers = NCR RANGER PERSONNEL MONITOR
+overwatch-monitor-title-enclave = ENCLAVE PERSONNEL MONITOR
+# #Misfits Add - title for the Followers of the Apocalypse Overwatch monitor on the Followers tacmaps
+overwatch-monitor-title-followers = FOLLOWERS PERSONNEL MONITOR
 overwatch-category-command = COMMAND
 overwatch-category-security = SECURITY
 overwatch-category-medical = MEDICAL
@@ -59,3 +64,8 @@ overwatch-category-bos-knight = KNIGHT
 overwatch-category-bos-scribe = SCRIBE
 overwatch-category-bos-aspirant = ASPIRANTS
 overwatch-category-bos-support = SUPPORT
+
+# #Misfits Add - target-side notifications & HUD indicator
+overwatch-target-watched = You are being watched by {$name}.
+overwatch-target-unwatched = You are no longer being watched by {$name}.
+overwatch-target-hud = HUD VIEWED THROUGH OVERWATCH

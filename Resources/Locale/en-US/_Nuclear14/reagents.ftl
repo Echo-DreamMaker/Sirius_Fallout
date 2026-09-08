@@ -247,6 +247,9 @@ reagent-desc-robust-healing-mixture = A mixture of reagents that makes you heal 
 reagent-name-ultra-robust-healing-mixture = ultra stimpak
 reagent-desc-ultra-robust-healing-mixture = A mixture of reagents that make you heal faster than you can feel it, however it comes with hefty side effects.
 
+reagent-name-blue-stim = blue stimpak
+reagent-desc-blue-stim = An odd blue reagent that heals 10 health per unit.
+
 reagent-name-hydra = hydra
 reagent-desc-hydra = A mixture of fungi, scorpion tail and nightstalker blood that works like a wasteland Med-X, dulling incoming damage at the cost of addiction.
 

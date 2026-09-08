@@ -232,6 +232,75 @@ public sealed class SharedSpecialSystem : EntitySystem
         return baseDelay / GetIntelligenceMedicalActionSpeed(uid, component);
     }
 
+    /// <summary>
+    /// Returns the Agility action-speed multiplier applied to every timed do-after.
+    /// Values above 5 make actions faster (delay is divided by this), below 5 slower.
+    /// </summary>
+    public float GetAgilityActionSpeedMultiplier(EntityUid uid, SpecialComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return 1f;
+
+        var tuning = GetTuning();
+        return GetAgilityActionSpeedMultiplier(GetCurvedEffectDelta(uid, SpecialStat.Agility, component), tuning.AgilityActionDelayMultiplierPerPoint);
+    }
+
+    public static float GetAgilityActionSpeedMultiplier(float curvedDelta, float multiplierPerPoint)
+    {
+        // Clamp so actions never get absurdly fast or stall out at a tiny fraction.
+        return Math.Clamp(1f + curvedDelta * multiplierPerPoint, 0.4f, 1.6f);
+    }
+
+    /// <summary>
+    /// Returns the opacity of the motion-trace (infrared) afterimage for the given Perception.
+    /// The mechanic is disabled below <see cref="SpecialTuningPrototype.PerceptionTraceMinPerception"/>
+    /// (returning null), then grows clearer as Perception climbs above the threshold.
+    /// </summary>
+    public float? GetPerceptionTraceAlpha(EntityUid uid, SpecialComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return null;
+
+        var tuning = GetTuning();
+        return GetPerceptionTraceAlpha(GetEffective(uid, SpecialStat.Perception, component), tuning);
+    }
+
+    public static float? GetPerceptionTraceAlpha(int perception, SpecialTuningPrototype tuning)
+    {
+        if (perception < tuning.PerceptionTraceMinPerception)
+            return null;
+
+        var delta = perception - tuning.PerceptionTraceMinPerception;
+        return Math.Clamp(tuning.PerceptionTraceMinAlpha + delta * tuning.PerceptionTraceAlphaPerPoint, 0f, 1f);
+    }
+
+    /// <summary>
+    /// Returns the fraction of Poison/Radiation damage the character resists based on Endurance.
+    /// Above-average Endurance reduces damage; below-average increases it.
+    /// </summary>
+    public float GetEnduranceResistanceFraction(EntityUid uid, float resistancePerPoint, SpecialComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return 0f;
+
+        // Endurance protection applies off the Endurance stat for both poison and radiation.
+        var delta = GetCurvedEffectDelta(uid, SpecialStat.Endurance, component);
+        return Math.Clamp(delta * resistancePerPoint, -0.3f, 0.5f);
+    }
+
+    /// <summary>
+    /// Returns the flat disarm chance reduction granted by above-average Strength.
+    /// </summary>
+    public float GetStrengthDisarmProtection(EntityUid uid, SpecialComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return 0f;
+
+        var tuning = GetTuning();
+        var delta = GetCurvedEffectDelta(uid, SpecialStat.Strength, component);
+        return Math.Clamp(delta * tuning.StrengthDisarmProtectionPerPoint, -0.3f, 0.5f);
+    }
+
     public float GetIntelligenceTopicalHealingMultiplier(EntityUid uid, SpecialComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))
@@ -246,7 +315,7 @@ public sealed class SharedSpecialSystem : EntitySystem
     }
 
     /// <summary>
-    /// Applies the Intelligence lathe material discount to an existing material-use multiplier.
+    /// Returns the Intelligence lathe material discount to an existing material-use multiplier.
     /// The discount only rewards above-average Intelligence; low Intelligence is already gated elsewhere.
     /// </summary>
     public float GetIntelligenceLatheMaterialUseMultiplier(EntityUid uid, float baseMultiplier, SpecialComponent? component = null)

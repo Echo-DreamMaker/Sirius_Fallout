@@ -47,7 +47,7 @@
   result: N14CurrencyLegionAureus
   completetime: 1
   materials:
-    N14Gold: 20
+    N14Gold: 160 # Tytos change, makes each aureus cost 1.6 gold bars, thus costing 40 caps, ten times the value of denarius
 
 - type: latheRecipe
   id: N14CurrencyLegionDenarius

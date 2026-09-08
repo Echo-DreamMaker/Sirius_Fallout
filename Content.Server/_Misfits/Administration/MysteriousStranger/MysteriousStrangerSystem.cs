@@ -2,6 +2,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.GameTicking;
+using Content.Server.Ghost;
 using Content.Shared.Administration;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
@@ -24,6 +25,7 @@ public sealed class MysteriousStrangerSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
+    [Dependency] private readonly GhostSystem _ghost = default!; // #Misfits Add - apply aghost tint/preset colors
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedGodmodeSystem _godmode = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -148,6 +150,9 @@ public sealed class MysteriousStrangerSystem : EntitySystem
         {
             destination = Spawn(GameTicker.AdminObserverPrototypeName, Transform(stranger).Coordinates);
             _metaData.SetEntityName(destination, admin.Name);
+            // #Misfits Add - keep aghost tint/preset colors consistent when returning to observer
+            if (TryComp<GhostComponent>(destination, out var ghostComp))
+                _ghost.ApplyMisfitsGhostColor(destination, ghostComp, mind, Color.FromHex("#ff3333cc"));
         }
 
         _mind.TransferTo(mindId, destination, mind: mind);

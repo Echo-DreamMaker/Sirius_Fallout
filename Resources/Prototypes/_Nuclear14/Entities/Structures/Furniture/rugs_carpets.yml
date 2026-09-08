@@ -22,6 +22,9 @@
             acts: [ "Destruction" ]
 
 
+# #Cythisiax Fixed - Added missing Construction components (graph N14Rugs) to all craftable rug/mat entities.
+# The legacy G-menu craft path (ConstructionSystem.Construct) requires the target entity to have a
+# ConstructionComponent, otherwise crafting silently fails and the construction ghost stays behind.
 - type: entity
   parent: N14CarpetSingleBase
   id: N14RugMat
@@ -30,6 +33,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs.rsi
     state: mat_blank
+  - type: Construction
+    graph: N14Rugs
+    node: rugmat
 
 - type: entity
   parent: N14RugMat
@@ -38,6 +44,9 @@
   components:
   - type: Sprite
     state: mat_welcome
+  - type: Construction
+    graph: N14Rugs
+    node: rugwelcome
 
 - type: entity
   parent: N14RugMat
@@ -47,6 +56,9 @@
   components:
   - type: Sprite
     state: mat_vulgar
+  - type: Construction
+    graph: N14Rugs
+    node: rugvulgar1
 
 - type: entity
   parent: N14RugMatVulgar1
@@ -55,6 +67,9 @@
   components:
   - type: Sprite
     state: mat_vulgar_2
+  - type: Construction
+    graph: N14Rugs
+    node: rugvulgar2
 
 - type: entity
   parent: N14RugMatVulgar1
@@ -63,6 +78,9 @@
   components:
   - type: Sprite
     state: mat_town
+  - type: Construction
+    graph: N14Rugs
+    node: rugtown
 
 - type: entity
   parent: N14RugMatVulgar1
@@ -71,6 +89,9 @@
   components:
   - type: Sprite
     state: mat_ncr
+  - type: Construction
+    graph: N14Rugs
+    node: rugncr
 
 - type: entity
   parent: N14RugMatVulgar1
@@ -79,6 +100,9 @@
   components:
   - type: Sprite
     state: mat_bos
+  - type: Construction
+    graph: N14Rugs
+    node: rugbos
 
 # Rubber mats
 
@@ -90,6 +114,9 @@
   components:
   - type: Sprite
     state: rubber_single
+  - type: Construction
+    graph: N14Rugs
+    node: rubbersingle
 
 - type: entity
   parent: N14RugMatRubberSingle
@@ -97,6 +124,9 @@
   components:
   - type: Sprite
     state: rubber_1
+  - type: Construction
+    graph: N14Rugs
+    node: rubber1
 
 - type: entity
   parent: N14RugMatRubberSingle
@@ -104,6 +134,9 @@
   components:
   - type: Sprite
     state: rubber_2
+  - type: Construction
+    graph: N14Rugs
+    node: rubber2
 
 - type: entity
   parent: N14RugMatRubberSingle
@@ -111,6 +144,9 @@
   components:
   - type: Sprite
     state: rubber_3
+  - type: Construction
+    graph: N14Rugs
+    node: rubber3
 
 # 64x64 rugs
 - type: entity
@@ -122,6 +158,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_blue
+  - type: Construction
+    graph: N14Rugs
+    node: rugblue
 
 - type: entity
   parent: N14RugBlue
@@ -131,6 +170,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_blue_shag
+  - type: Construction
+    graph: N14Rugs
+    node: rugblueshag
 
 - type: entity
   parent: N14RugBlue
@@ -140,6 +182,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_fancy
+  - type: Construction
+    graph: N14Rugs
+    node: rugfancy
 
 - type: entity
   parent: N14RugBlue
@@ -149,6 +194,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_red
+  - type: Construction
+    graph: N14Rugs
+    node: rugred
 
 - type: entity
   parent: N14RugBlue
@@ -158,6 +206,9 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_yellow
+  - type: Construction
+    graph: N14Rugs
+    node: rugyellow
 
 - type: entity
   parent: N14RugBlue
@@ -168,3 +219,6 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
     state: rug_rubber
+  - type: Construction
+    graph: N14Rugs
+    node: rubberlarge

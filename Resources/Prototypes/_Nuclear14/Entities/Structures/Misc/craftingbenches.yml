@@ -78,12 +78,13 @@
     runningState: icon # change this
     staticRecipes: # Guns or melee weapons related only.
     # Guns
-    - BowImprovised
-    - N14WarBow # #Misfits Add
-    - N14RecurveBow # #Misfits Add
+    - N14TribalBow
+    - N14TribalWarBow # #Misfits Add
+    - N14TribalRecurveBow # #Misfits Add
     # Arrows
     - N14ArrowTribal # #Misfits Add
     - N14ArrowBroadHead # #Misfits Add
+    - ArrowRegular
     # Melee
     - N14ScrapMachete
     - N14WastelandSpear
@@ -768,6 +769,10 @@
     - N14SheetGlassSand # #Misfits Add: smelt sand into glass as an alternative to quartz
     - N14IngotLead
     - SulfurPowder
+    - N14IngotZinc
+    - N14IngotAluminumBauxite
+    - N14IngotBrassZinc
+    - N14SaltRefine
     # Scrap
     - SheetPlasticScrap
     - N14IngotBrassScrap

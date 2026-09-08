@@ -26,7 +26,6 @@ public sealed partial class GunSystem
             {
                 if (!autoShoot.Enabled)
                     continue;
-
                 AttemptShoot(uid, gun);
             }
             else if (gun.BurstActivated)
@@ -39,4 +38,5 @@ public sealed partial class GunSystem
             }
         }
     }
+
 }

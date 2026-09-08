@@ -6,7 +6,7 @@
   components:
   - type: Reflective # #Misfits Change Add: 5mm is sub-5.56mm; ricochets off power armor.
     reflective:
-      - SmallCaliber
+      - MediumCaliber # #Burger - changed to medium caliber; 5mm is sub-5.56 but is designed in lore as an AP round due to high velocity and small profile (was small caliber)
       - NonEnergy
   - type: Projectile
     damage:

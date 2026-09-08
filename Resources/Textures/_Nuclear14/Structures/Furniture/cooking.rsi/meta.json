@@ -23,7 +23,28 @@
       "name": "stove_fire1"
     },
     {
-      "name": "stove_fire2"
+      "name": "stove_fire2",
+      "delays":[
+        [
+           0.125, 0.125, 0.125
+        ]
+    ]
+    },
+    {
+      "name": "stove_fire3",
+      "delays":[
+        [
+           0.125, 0.125, 0.125
+        ]
+    ]
+    },
+    {
+      "name": "stove_fire5",
+      "delays":[
+        [
+           0.125, 0.125, 0.125, 0.125, 0.125, 0.125
+        ]
+    ]
     },
     {
       "name": "stove_embers"
@@ -104,10 +125,28 @@
       "name": "barrel_reclaimedwood"
     },
     {
-      "name": "barrel_fire1"
+      "name": "barrel_fire1",
+      "delays":[
+        [
+           0.125, 0.125, 0.125
+        ]
+    ]
     },
     {
-      "name": "barrel_fire2"
+      "name": "barrel_fire2",
+      "delays":[
+        [
+           0.125, 0.125, 0.125
+        ]
+    ]
+    },
+    {
+      "name": "barrel_fire3",
+      "delays":[
+        [
+           0.125, 0.125, 0.125
+        ]
+    ]
     },
     {
       "name": "barrel_embers"

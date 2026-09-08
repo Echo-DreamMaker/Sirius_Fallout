@@ -396,32 +396,16 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 continue;
             }
 
-            if (senderStation is not { } senderStationUid)
-                continue;
-
-            // Find any cartridges that have this card
+            // #Misfits Change - Pip-Boys reach each other anywhere in the wasteland, so delivery
+            // no longer compares the sender's and recipient's station. Requiring a match dropped
+            // every message to another z-level or another map, including anyone standing somewhere
+            // with no station entity at all. The sender still needs a powered telecomm server, which
+            // is what put us on this branch instead of peer-to-peer, and jammers still get their say
+            // through the receive attempt below.
             var cartridgeQuery = EntityQueryEnumerator<NanoChatCartridgeComponent, ActiveRadioComponent, CartridgeComponent>();
-            while (cartridgeQuery.MoveNext(out var receiverUid, out var receiverCart, out _, out var receiverCartridge))
+            while (cartridgeQuery.MoveNext(out var receiverUid, out var receiverCart, out _, out _))
             {
                 if (receiverCart.Card != recipient.Owner)
-                    continue;
-
-                // Resolve station from the PDA (loader) entity, not the cartridge itself.
-                // Cartridges are containerized inside PDA entities and have invalid GridUid.
-                var recipientEntity = receiverCartridge.LoaderUid ?? receiverUid;
-                var recipientStation = _station.GetOwningStation(recipientEntity);
-
-                // #Misfits Fix - Use HasValue guard so nullable flow analysis proves non-null UID.
-                if (!recipientStation.HasValue)
-                    continue;
-                var recipientStationUid = recipientStation.Value;
-
-                // Must be on same map/station unless long range allowed
-                if (!channel.LongRange && recipientStationUid != senderStationUid)
-                    continue;
-
-                // Needs telecomms
-                if (!HasActiveServer(senderStationUid) || !HasActiveServer(recipientStationUid))
                     continue;
 
                 // Check if recipient can receive

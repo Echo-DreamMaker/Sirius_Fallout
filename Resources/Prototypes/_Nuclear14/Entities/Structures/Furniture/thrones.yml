@@ -1,0 +1,29 @@
+- type: entity
+  parent: N14ChairMetalGreen
+  id: N14TrhoneBos
+  name: TrhoneBos
+  description: Trhone.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/gameofthrones.rsi
+    state: throne_bos
+
+- type: entity
+  parent: N14ChairMetalGreen
+  id: N14TrhoneRaider
+  name: TrhoneRaider
+  description: Trhone.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/gameofthrones.rsi
+    state: throne_raider
+
+- type: entity
+  parent: N14ChairMetalGreen
+  id: N14TrhoneTribal
+  name: TrhoneTribal
+  description: Trhone.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/gameofthrones.rsi
+    state: throne_tribal

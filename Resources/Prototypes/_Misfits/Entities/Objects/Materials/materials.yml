@@ -340,3 +340,11 @@
   components:
   - type: Stack
     count: 15
+
+- type: entity
+  parent: MaterialWoodPlank
+  id: MaterialWoodPlank2
+  suffix: 2
+  components:
+  - type: Stack
+    count: 2

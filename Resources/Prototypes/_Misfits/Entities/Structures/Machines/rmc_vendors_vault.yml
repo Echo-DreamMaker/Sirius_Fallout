@@ -1,0 +1,45 @@
+# Vault catalog. Weapon ammunition is deliberately absent: it remains blueprint-crafted.
+
+- type: entity
+  parent: N14BaseRmcWeaponVendor
+  id: N14VaultWeaponVendor
+  name: Vault weapon requisitions vendor
+  suffix: Vault
+  components:
+  - type: AccessReader
+    access: [[ "VaultDweller" ]]
+  - type: CMAutomatedVendor
+    departmentName: Vault
+    blueprintCategories: [ N14BlueprintVaultWeaponsT1, N14BlueprintVaultWeaponsT2, N14BlueprintVaultWeaponsT3, N14BlueprintVaultWeaponsT4 ]
+    authorityTierNames:
+      1: Tier 1 - Dweller allocation
+      2: Tier 2 - Security allocation
+      3: Tier 3 - Gatekeeper allocation
+      4: Tier 4 - Overseer allocation
+    authorityTierAccess:
+      1: [ VaultDweller ]
+      2: [ VaultSecurity ]
+      3: [ VaultGatekeeper ]
+      4: [ VaultOverseer ]
+
+- type: entity
+  parent: N14BaseRmcEquipmentVendor
+  id: N14VaultEquipmentVendor
+  name: Vault equipment requisitions vendor
+  suffix: Vault
+  components:
+  - type: AccessReader
+    access: [[ "VaultDweller" ]]
+  - type: CMAutomatedVendor
+    departmentName: Vault
+    blueprintCategories: [ N14BlueprintVaultArmorT1, N14BlueprintVaultArmorT2, N14BlueprintVaultArmorT3, N14BlueprintVaultArmorT4 ]
+    authorityTierNames:
+      1: Tier 1 - Dweller allocation
+      2: Tier 2 - Security allocation
+      3: Tier 3 - Gatekeeper allocation
+      4: Tier 4 - Overseer allocation
+    authorityTierAccess:
+      1: [ VaultDweller ]
+      2: [ VaultSecurity ]
+      3: [ VaultGatekeeper ]
+      4: [ VaultOverseer ]

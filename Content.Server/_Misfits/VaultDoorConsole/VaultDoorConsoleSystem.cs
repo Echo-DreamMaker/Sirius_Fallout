@@ -188,7 +188,7 @@ public sealed class VaultDoorConsoleSystem : EntitySystem
             comp.SolvedUntil = _timing.CurTime + comp.SuccessLockDuration;
             AppendLog(comp, $"> {HighlightGuess(word, comp.TargetWord)}", "ACCESS GRANTED",
                 $"DOOR BOLTED OPEN FOR {comp.SuccessLockDuration.TotalMinutes:0} MINUTES");
-            _popup.PopupEntity("ACCESS GRANTED. Unlocking vault door...", ent, actor);
+            _popup.PopupEntity($"ACCESS GRANTED. Unlocking {comp.DoorNoun}...", ent, actor);
             _deviceLink.InvokePort(ent, comp.SignalPort);
             MarkLinkedDoorsForBolting(ent);
             UpdateUi(ent);
@@ -255,6 +255,7 @@ public sealed class VaultDoorConsoleSystem : EntitySystem
 
         var hackLock = EnsureComp<VaultDoorHackLockComponent>(doorUid);
         hackLock.LockedUntil = comp.SolvedUntil ?? _timing.CurTime + comp.SuccessLockDuration;
+        hackLock.DoorNoun = comp.DoorNoun;
     }
 
     private void UnboltDoors(VaultDoorConsoleComponent comp)
@@ -292,7 +293,7 @@ public sealed class VaultDoorConsoleSystem : EntitySystem
 
             var remaining = hackLock.LockedUntil - _timing.CurTime;
             var minutes = Math.Max(0, Math.Ceiling(remaining.TotalMinutes));
-            _popup.PopupEntity($"The vault door is locked open by a security override. {minutes} minute(s) remaining.", uid, args.User);
+            _popup.PopupEntity($"The {hackLock.DoorNoun} is locked open by a security override. {minutes} minute(s) remaining.", uid, args.User);
             args.Handled = true;
             return;
         }
@@ -430,6 +431,7 @@ public sealed class VaultDoorConsoleSystem : EntitySystem
             : null;
 
         var state = new VaultDoorConsoleBoundUserInterfaceState(
+            comp.TerminalTitle,
             BuildDisplayColumn(comp, comp.ColumnA),
             BuildDisplayColumn(comp, comp.ColumnB),
             comp.AttemptsRemaining,

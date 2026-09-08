@@ -44,6 +44,11 @@
     worldBounds: "-517,-308,484,311"
     tacticalFeed: Brotherhood
     trackBrotherhoodHolotags: true
+    communicationsJobs:
+    - BoSWestElderCommander
+    - BoSMidPaladinCommander
+    - BoSHeadKnight
+    - BoSWestScribe
   - type: OverwatchConsole
     monitorTitle: overwatch-monitor-title-bos
     trackedTags:
@@ -95,6 +100,13 @@
     # #Misfits Fix - Use the corrected Wendover AABB so NCR blips align with the rendered map image.
     worldBounds: "-517,-308,484,311"
     tacticalFeed: NCR
+    communicationsJobs:
+    - NCRCommander
+    - NCRExecutiveOfficer
+    - NCRPlatoonLeader
+    - NCRRO
+    - NCRProvost
+    - NCRMilitaryPoliceCaptain
   - type: OverwatchConsole
     monitorTitle: overwatch-monitor-title-ncr
     trackedTags:

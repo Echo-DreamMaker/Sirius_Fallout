@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Clothing.Loadouts.Systems;
+using Content.Shared.Customization.Systems; // #Cythisiax Fixed - CharacterTraitRequirement for perk prerequisite pruning
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -600,22 +601,102 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         // players can select traits on a human, switch species to assaultron in char setup,
         // and have those traits carry over.
         if (speciesPrototype.RestrictedCustomization
-            && speciesPrototype.AllowedTraitCategories is not { Count: > 0 })
+            && speciesPrototype.AllowedTraitCategories is not { Count: > 0 }
+            && speciesPrototype.AllowedTraits is not { Count: > 0 }) // #Cythisiax Edited - also honor per-trait whitelist
         {
             traits.Clear();
         }
-        else if (speciesPrototype.AllowedTraitCategories is { Count: > 0 })
+        // #Cythisiax Added - per-trait whitelist (exact IDs) takes precedence over categories,
+        // so a restricted species can allow a single specific perk (e.g. Mr Handy + Italian Accent).
+        else if (speciesPrototype.AllowedTraits is { Count: > 0 })
         {
             traits = traits
+                .Where(t => speciesPrototype.AllowedTraits.Contains(t))
+                .ToList();
+        }
+        else if (speciesPrototype.AllowedTraitCategories is { Count: > 0 })
+        {
+            // #Cythisiax Fixed - resolve each trait's ROOT category before matching, so a species
+            // that allows a root category (e.g. "Pets") keeps traits in its subcategories
+            // (PetsSmall / PetsMedium / PetsLarge). The old exact-match check stripped every pet on
+            // save for restricted species (SuperMutant/Nightkin): the client editor compares against
+            // the ROOT category (GetRootTraitCategory) so pets showed as selectable, but the server
+            // stripped them because the pet's literal category wasn't in the allowed list.
+            var categoryRoots = BuildTraitCategoryRoots(prototypeManager);
+            traits = traits
                 .Where(t => speciesPrototype.AllowedTraitCategories.Contains(
-                    prototypeManager.Index<TraitPrototype>(t).Category))
+                    GetRootTraitCategory(categoryRoots, prototypeManager.Index<TraitPrototype>(t).Category)))
                 .ToList();
         }
 
+        // #Cythisiax Fixed - Talent-tree perk prerequisites (Swift Learner -> Scrounger ->
+        // Educated -> Nerd Rage -> Fortune's Favor): a perk whose required perk isn't selected
+        // can't be kept. Iteratively drop selected perks with an unmet non-inverted
+        // CharacterTraitRequirement so hand-edited / pre-fix profiles are normalized and the
+        // server never grants an orphaned perk (e.g. Fortune's Favor without Nerd Rage).
+        bool pruned;
+        do
+        {
+            pruned = false;
+            foreach (var t in traits.ToList())
+            {
+                var proto = prototypeManager.Index<TraitPrototype>(t);
+                foreach (var req in proto.Requirements)
+                {
+                    if (req is CharacterTraitRequirement { Inverted: false } ctr
+                        && ctr.Traits.Count > 0
+                        && !ctr.Traits.Any(pr => traits.Contains(pr.ToString())))
+                    {
+                        traits.Remove(t);
+                        pruned = true;
+                        break;
+                    }
+                }
+            }
+        } while (pruned);
+
+        // #Cythisiax Edited - pets have their own separate point pool and size caps
+        // (1 large / 2 medium / 3 small / 3 total), independent from perk points. Perk points
+        // and the perk slot count only cover non-pet traits.
         var maxTraits = configManager.GetCVar(CCVars.GameTraitsMax);
         var defaultPoints = configManager.GetCVar(CCVars.GameTraitsDefaultPoints);
-        var pointTotal = defaultPoints + traits.Sum(t => prototypeManager.Index<TraitPrototype>(t).Points);
-        if (traits.Count > maxTraits || pointTotal < 0)
+        var petBudget = configManager.GetCVar(CCVars.GamePetsDefaultPoints);
+        var petMaxSmall = configManager.GetCVar(CCVars.GamePetsMaxSmall);
+        var petMaxMedium = configManager.GetCVar(CCVars.GamePetsMaxMedium);
+        var petMaxLarge = configManager.GetCVar(CCVars.GamePetsMaxLarge);
+        var petMaxTotal = configManager.GetCVar(CCVars.GamePetsMaxTotal);
+
+        var pointTotal = defaultPoints;
+        var petPoints = petBudget;
+        int petSmall = 0, petMedium = 0, petLarge = 0, petTotal = 0, perkCount = 0;
+        foreach (var t in traits)
+        {
+            var proto = prototypeManager.Index<TraitPrototype>(t);
+            if (PetTraitHelpers.IsPet(proto))
+            {
+                petPoints += proto.Points;
+                petTotal++;
+                switch (PetTraitHelpers.GetPetSize(proto))
+                {
+                    case PetTraitHelpers.SizeSmall: petSmall++; break;
+                    case PetTraitHelpers.SizeMedium: petMedium++; break;
+                    case PetTraitHelpers.SizeLarge: petLarge++; break;
+                }
+            }
+            else
+            {
+                pointTotal += proto.Points;
+                perkCount++;
+            }
+        }
+
+        var petsInvalid = petPoints < 0
+            || petSmall > petMaxSmall
+            || petMedium > petMaxMedium
+            || petLarge > petMaxLarge
+            || petTotal > petMaxTotal;
+
+        if (perkCount > maxTraits || pointTotal < 0 || petsInvalid)
             traits.Clear();
 
         var loadouts = LoadoutPreferences
@@ -658,6 +739,31 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
         Special = special;
     }
+
+    // #Cythisiax Added - trait category hierarchy helpers (mirror the client editor's
+    // BuildTraitCategoryRoots / GetRootTraitCategory in Content.Client/.../HumanoidProfileEditor.xaml.cs)
+    // so the server-side EnsureValid species filter agrees with what the client shows as selectable.
+    private static Dictionary<string, string> BuildTraitCategoryRoots(IPrototypeManager prototypeManager)
+    {
+        var roots = new Dictionary<string, string>();
+        foreach (var root in prototypeManager.EnumeratePrototypes<TraitCategoryPrototype>().Where(c => c.Root))
+        {
+            void Walk(TraitCategoryPrototype category)
+            {
+                roots[category.ID] = root.ID;
+                foreach (var sub in category.SubCategories)
+                {
+                    if (prototypeManager.TryIndex<TraitCategoryPrototype>(sub, out var subCat))
+                        Walk(subCat);
+                }
+            }
+            Walk(root);
+        }
+        return roots;
+    }
+
+    private static string GetRootTraitCategory(Dictionary<string, string> roots, string categoryId)
+        => roots.GetValueOrDefault(categoryId, categoryId);
 
     // Corvax-TTS-Start
     // SHOULD BE NOT PUBLIC, BUT....

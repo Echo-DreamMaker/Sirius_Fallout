@@ -12,7 +12,7 @@ namespace Content.Client.Radiation.Overlays;
 public sealed class RadiationDebugOverlay : Overlay
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    private readonly SharedMapSystem _mapSystem;
     private readonly RadiationSystem _radiation;
 
     private readonly Font _font;
@@ -22,6 +22,7 @@ public sealed class RadiationDebugOverlay : Overlay
     public RadiationDebugOverlay()
     {
         IoCManager.InjectDependencies(this);
+        _mapSystem = _entityManager.System<SharedMapSystem>();
         _radiation = _entityManager.System<RadiationSystem>();
 
         var cache = IoCManager.Resolve<IResourceCache>();

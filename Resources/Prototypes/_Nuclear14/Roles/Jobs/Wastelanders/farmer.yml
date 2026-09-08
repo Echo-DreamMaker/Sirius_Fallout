@@ -10,6 +10,7 @@
   startingGear: FarmerGear
   icon: "JobIconWastelandFarmer" # Corvax-Change
   supervisors: job-supervisors-wastelander
+  alwaysUseSpawner: true
   requirements:
     - !type:CharacterSpeciesRequirement
       species:

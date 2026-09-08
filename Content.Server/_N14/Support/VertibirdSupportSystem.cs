@@ -27,7 +27,7 @@ namespace Content.Server._N14.Support
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
+        [Dependency] private readonly SharedMapSystem _mapManager = default!;
         [Dependency] private readonly SharedRoofSystem _roof = default!;
         [Dependency] private readonly SharedMapSystem _mapSystem = default!;
 

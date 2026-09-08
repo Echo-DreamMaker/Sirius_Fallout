@@ -179,6 +179,10 @@
     price: 10
   - type: Item
     size: Normal
+  - type: Butcherable # Misfits Addition
+    spawned:
+    - id: N14FoodMeatSupermutant
+      amount: 1
 
 - type: entity
   id: MisfitsRightArmSuperMutant
@@ -192,6 +196,10 @@
     price: 10
   - type: Item
     size: Normal
+  - type: Butcherable # Misfits Addition
+    spawned:
+    - id: N14FoodMeatSupermutant
+      amount: 1
 
 - type: entity
   id: MisfitsLeftHandSuperMutant
@@ -231,6 +239,10 @@
     price: 10
   - type: Item
     size: Normal
+  - type: Butcherable # Misfits Addition
+    spawned:
+    - id: N14FoodMeatSupermutant
+      amount: 2
 
 - type: entity
   id: MisfitsRightLegSuperMutant
@@ -244,6 +256,10 @@
     price: 10
   - type: Item
     size: Normal
+  - type: Butcherable # Misfits Addition
+    spawned:
+    - id: N14FoodMeatSupermutant
+      amount: 2
 
 - type: entity
   id: MisfitsLeftFootSuperMutant

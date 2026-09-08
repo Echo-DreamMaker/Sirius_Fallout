@@ -1,0 +1,102 @@
+- type: entity
+  parent: [BaseItem, ContentsExplosionResistanceBase]
+  id: N14Stickbag
+  name: stickbag
+  description: A clutch on a stick.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Stickbags/black.rsi
+    layers:
+    - state: closed
+  - type: Item
+    size: Huge
+  - type: Storage
+    grid:
+    - 0,0,4,3
+    maxItemSize: Huge
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  # to prevent bag open/honk spam
+  - type: UseDelay
+    delay: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: AllowsSleepInside # DeltaV - enable sleeping inside bags
+
+- type: entity
+  parent: N14Stickbag
+  id: N14StickbagBlue
+  name: A clutch on a stick.
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Stickbags/blue.rsi
+
+- type: entity
+  parent: N14Stickbag
+  id: N14StickbagGreen
+  name: A clutch on a stick.
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Stickbags/green.rsi
+
+- type: entity
+  parent: N14Stickbag
+  id: N14StickbagOrange
+  name: A clutch on a stick.
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Stickbags/orange.rsi
+
+- type: entity
+  parent: N14Stickbag
+  id: N14StickbagPink
+  name: A clutch on a stick.
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Stickbags/pink.rsi
+
+- type: entity
+  parent: N14Stickbag
+  id: N14StickbagPurple
+  name: A clutch on a stick.
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Stickbags/purple.rsi
+
+- type: entity
+  parent: N14Stickbag
+  id: N14StickbagRed
+  name: A clutch on a stick.
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Stickbags/red.rsi
+
+- type: entity
+  parent: N14Stickbag
+  id: N14StickbagWhite
+  name: A clutch on a stick.
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Stickbags/white.rsi
+
+- type: entity
+  parent: N14Stickbag
+  id: N14StickbagYellow
+  name: A clutch on a stick.
+  description: A large duffel bag for holding heavy equipment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Stickbags/yellow.rsi

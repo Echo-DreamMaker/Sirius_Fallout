@@ -1,0 +1,705 @@
+# EXCHANGE RATES FOR REFERENCE
+#GOLD BAR = 25 CAPS, 1.6 GOLD BARS = 1 AUREUS, 40 CAPS
+#SILVER BAR = 20 CAPS = 5 DENARIUS
+#1 DENARIUS = 4 CAPS
+#1 AUREUS = 40 CAPS
+#1 CAP = 2 NCR
+#IF I CATCH YOU CHANGING ONE VALUE WITHOUT ADJUSTING THE OTHERS, I WILL CROSS YOU - LEGATE TYTOS
+#'buy2' refers to what the PLAYER buys, 'sell2' refers to what the PLAYER sells.
+
+#NCR trade Caravan - ncr prices should be twice cap prices as their fiat is inflated and not trusted
+
+- type: entity
+  id: TrademachineNCR
+  parent: Trademachine
+  abstract: true
+  name: NCR Caravan Wagon
+  description: A caravan operated by NCR traders, offering goods from the west.
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: NcStoreStructuredBoundUi
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        density: 300
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/caravanwagon.rsi
+    layers:
+    - state: caravanwagon
+  - type: PointLight
+    enabled: false
+
+- type: entity
+  id: TrademachineNCRCity
+  parent: TrademachineNCR
+  name: NCR Caravan Wagon
+  description: A caravan operated by NCR traders, offering goods from the west.
+  suffix: vendor, normal
+  components:
+  - type: NcStore
+    buyPresets:
+    - NCR_buy2
+    sellPresets:
+    - NCR_sell2
+    contractPresets:
+    - PresetBazar
+  # #Misfits Change — restored TownieShopkeeper access restriction (players must be shopkeeper to use terminal)
+  # #Misfits Add — track Hall of Fame roster for the tier contract system
+  - type: AccessReader
+    access:
+    - [ "NCRTrader" ]
+  - type: NcContractRoster
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Materials
+  name: "Materials"
+  entries:
+  - proto: SheetSteel
+    amount: 30
+    price: 700 #reminder than ncr fiat is inflated and can be exchanged at 2:1 with caps, so all prices are doubled relative to caps
+  - proto: MaterialWoodPlank
+    amount: 30
+    price: 200
+  - proto: MaterialCloth
+    amount: 15
+    price: 400
+  - proto: N14ScrapElectronic
+    amount: 10
+    price: 500
+  - proto: N14MaterialCircuitry
+    amount: 10
+    price: 600
+  - proto: N14IngotCopper
+    amount: 10
+    price: 300
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Rifles
+  name: "Rifles"
+  entries:
+  - proto: N14WeaponLMGAutoRifle
+    price: 1500
+    count: 4
+  - proto: N14WeaponSniper50NCRRifle
+    price: 2500
+    count: 2
+  - proto: N14WeaponSniperEnfield
+    price: 500
+  - proto: N14WeaponSniper45-70BrushGun
+    price: 650
+  - proto: N14WeaponRifle10mmM1Carbine
+    price: 280
+  - proto: N14WeaponRifleM1Garand
+    price: 320
+  - proto: N14WeaponRifle762Fal
+    price: 950
+  - proto: N14WeaponRifle556Carbine
+    price: 800
+    count: 8
+  - proto: N14WeaponRifle762Marksman
+    price: 1200
+    count: 5
+  - proto: N14WeaponRifle556Service
+    price: 300
+  - proto: N14WeaponRifle556R91
+    price: 420
+  - proto: N14WeaponRifle556Scout
+    price: 900
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Smgs
+  name: "SMGs"
+  entries:
+  - proto: N14WeaponSMG45
+    price: 700
+  - proto: N14WeaponSMG12mm
+    price: 450
+  - proto: N14WeaponSMG10mm
+    price: 500
+  - proto: N14WeaponSMG10mmPipe
+    price: 340
+  - proto: N14WeaponSMGPPSh41
+    price: 1100
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Shotguns
+  name: "Shotguns"
+  entries:
+  - proto: N14WeaponShotgunRiot
+    price: 600
+  - proto: N14WeaponShotgunCaravan
+    price: 50
+  - proto: N14WeaponShotgunAuto
+    price: 600
+  - proto: N14WeaponShotgunTrench
+    price: 800
+  - proto: N14WeaponShotgunCanadian
+    price: 900
+    count: 4
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Pistols
+  name: "Pistols"
+  entries:
+  - proto: N14WeaponPistol9mm
+    price: 35
+  - proto: N14WeaponPistol10mm
+    price: 40
+  - proto: N14WeaponRevolver45-70Hunter
+    price: 520
+  - proto: N14WeaponRevolver9mm
+    price: 50
+  - proto: N14WeaponRevolver10mm
+    price: 60
+  - proto: N14WeaponRevolver44Magnum
+    price: 140
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Lasers
+  name: "Lasers"
+  entries:
+  - proto: N14WeaponLaserRevolver
+    price: 160
+  - proto: N14WeaponLaserRifleMakeshift
+    price: 150
+  - proto: N14WeaponLaserRifleCrude
+    price: 400
+  - proto: N14WeaponLaserPistol
+    price: 120
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Armor
+  name: "Armor"
+  entries:
+  - proto: N14ClothingOuterNCRPlateDesert
+    price: 800
+  - proto: N14ClothingOuterRangerCoat
+    price: 1400
+  - proto: N14ClothingOuterNCRPatrolRangerArmorVariant
+    price: 1300
+  - proto: N14ClothingOuterRangerFieldArmor
+    price: 1380
+  - proto: N14ClothingOuterRangerVest
+    price: 1000
+  - proto: N14ClothingOuterNCRPouchedVestSnow
+    price: 700
+  - proto: N14ClothingOuterNCRPouchedVestWoods
+    price: 700
+  - proto: N14ClothingOuterNCRPouchedVestDesert
+    price: 650
+  - proto: N14ClothingOuterNCRVestpaddedWebDesert
+    price: 700
+  - proto: N14ClothingOuterNCRCombatArmor
+    price: 1100
+  - proto: N14ClothingOuterNCRCombatArmorMK2
+    price: 1500
+    count: 3
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Headgear
+  name: "Headgear"
+  entries:
+  - proto: N14ClothingHeadHatNCRHelmetMetalSnow
+    price: 60
+  - proto: N14ClothingHeadHatNCRHelmetMetalWoods
+    price: 60
+  - proto: N14ClothingHeadHatNCRHelmetMetalDesert
+    price: 60
+  - proto: N14ClothingHeadHatNCRM1HelmetNoCover
+    price: 60
+  - proto: N14ClothingHeadHatNCRM1Helmet
+    price: 60
+  - proto: N14ClothingHeadHatNCRHelmetMetalMedic
+    price: 60
+  - proto: N14ClothingHeadHatNCRStetson
+    price: 35
+  - proto: N14ClothingHeadHatNCRSlouch
+    price: 35
+  - proto: N14ClothingHeadHatNCRBeretMedic
+    price: 35
+  - proto: N14ClothingHeadHatNCRBeretRecon
+    price: 50
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Ammo
+  name: "Ammo"
+  entries:
+  - proto: MagazineBox20gauge
+    price: 300
+  - proto: N14AmmoBox12gauge
+    price: 380
+  - proto: N14AmmoBox50
+    price: 600
+  - proto: N14AmmoBox556
+    price: 420
+  - proto: N14AmmoBox762
+    price: 460
+  - proto: N14AmmoBox9mm
+    price: 300
+  - proto: N14AmmoBox10mm
+    price: 375
+  - proto: N14AmmoBox45-70
+    price: 500
+  - proto: N14AmmoBox308
+    price: 420
+  - proto: N14AmmoBox44Magnum
+    price: 290
+  - proto: N14PowerCellSmall
+    price: 500
+  - proto: N14ElectronChargePack
+    price: 600
+  - proto: N14MicrofusionCell
+    price: 700
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Medicine
+  name: "Medicine"
+  entries:
+  - proto: ClothingBeltMedical
+    price: 200
+  - proto: N14Stimpak
+    price: 300
+  - proto: N14StimpakDirty
+    price: 120
+  - proto: N14Psycho # morale troopers get it, NCR LOVES giving its troops highly addictive chemicals!
+    price: 750
+  - proto: N14Ointment10
+    amount: 10
+    price: 300
+  - proto: Brutepack
+    amount: 10
+    price: 280
+  - proto: Gauze
+    amount: 10
+    price: 250
+  - proto: N14MedkitFilled
+    price: 500
+  - proto: N14RadAwayPhial
+    price: 650
+  - proto: N14RadXCanisterFilled
+    price: 380
+  - proto: N14BuffoutCanisterFilled
+    price: 800
+  - proto: ClothingBackpackDuffelSurgeryFilled
+    price: 580
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Cosmetics
+  name: "Cosmetics"
+  entries:
+  - proto: SprayPaintOrange
+    price: 50
+  - proto: SprayPaintGreen
+    price: 50
+  - proto: SprayPaintDesertTan
+    price: 50
+  - proto: N14ClothingNeckROmantleNCR
+    price: 200
+  - proto: N14ClothingNeckCloakNCRWoods
+    price: 120
+  - proto: N14ClothingNeckCloakNCRSnow
+    price: 120
+  - proto: N14ClothingNeckCloakNCR
+    price: 100
+  - proto: N14DecorationFlagpoleNCR2
+    price: 40
+  - proto: N14ClothingOuterNCRDressJacket
+    price: 150
+  - proto: N14ClothingUniformNCRShorts
+    price: 35
+  - proto: N14ClothingUniformNCRDesert
+    price: 35
+  - proto: N14ClothingUniformNCRReconLongSleeve
+    price: 35
+  - proto: N14ClothingUniformNCRMedicVariant
+    price: 35
+  - proto: N14ClothingUniformNCRFatiguePants
+    price: 35
+  - proto: PlushieCatOrange # Garf's secret supply
+    price: 200
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Melee
+  name: "Melee"
+  entries:
+  - proto: N14SledgeHammer
+    price: 400
+  - proto: N14CombatKnife
+    price: 40
+  - proto: N14WastelandFlagSpear
+    price: 300
+  - proto: NCRCommissarSabre
+    price: 1200
+    count: 2
+  - proto: N14Hatchet
+    price: 250
+  - proto: N14BaseAxe
+    price: 240
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Storage
+  name: "Storage"
+  entries:
+  - proto: ClothingBeltNCR
+    price: 180
+  - proto: ClothingBeltRevolver
+    price: 180
+  - proto: ClothingBeltNCRShotgunner
+    price: 150
+  - proto: ClothingBeltNCRHarness
+    price: 180
+  - proto: ClothingBeltHolster
+    price: 200
+  - proto: N14ClothingBackpackSatchelNCR
+    price: 150
+
+- type: storeCategoryStructured # IF YOU CHANGE ONE EXCHANGE RATE, YOU MUST CHANGE ALL OTHERS ACROSS ALL FOUR FILES TO MATCH, OR YOU WILL CREATE AN INFINITE MONEY GLITCH
+  id: NCRBuy2_Currency
+  name: "Currency"
+  entries:
+  - proto: N14CurrencyCap
+    amount: 1
+    price: 2
+
+- type: storePresetStructured #list of categories
+  id: NCR_buy2
+  currency: NCRDollar
+  categories:
+  - NCRBuy2_Rifles
+  - NCRBuy2_Smgs
+  - NCRBuy2_Shotguns
+  - NCRBuy2_Pistols
+  - NCRBuy2_Lasers
+  - NCRBuy2_Armor
+  - NCRBuy2_Headgear
+  - NCRBuy2_Ammo
+  - NCRBuy2_Medicine
+  - NCRBuy2_Materials
+  - NCRBuy2_Cosmetics
+  - NCRBuy2_Currency
+  - NCRBuy2_Melee
+  - NCRBuy2_Storage
+
+- type: storeCategoryStructured
+  id: NCRSell2_Ammo
+  name: "Ammo"
+  entries:
+  - proto: N14PowerCellSmall
+    price: 250
+  - proto: N14ElectronChargePack
+    price: 300
+  - proto: N14MicrofusionCell
+    price: 350
+
+- type: storeCategoryStructured
+  id: NCRSell2_Materials
+  name: "Materials"
+  entries:
+  - proto: SheetSteel
+    price: 8
+  - proto: MaterialWoodPlank
+    price: 4
+  - proto: MaterialCloth
+    price: 12
+  - proto: N14ScrapElectronic
+    price: 25
+  - proto: N14MaterialCircuitry
+    price: 30
+  - proto: N14IngotCopper
+    price: 15
+
+- type: storeCategoryStructured
+  id: NCRSell2_Medicine
+  name: "Medicine"
+  entries:
+  - proto: N14Stimpak
+    price: 15
+  - proto: N14Psycho
+    price: 25
+  - proto: N14Med-X
+    price: 10
+  - proto: N14Ointment1
+    price: 10
+  - proto: Brutepack
+    price: 14
+  - proto: Gauze
+    price: 2
+
+
+- type: storeCategoryStructured
+  id: NCRSell2_Lasers
+  name: "Lasers"
+  entries:
+  - proto: N14WeaponLaserRevolver
+    price: 80
+  - proto: N14WeaponLaserRifleMakeshift
+    price: 75
+  - proto: N14WeaponLaserRifleCrude
+    price: 200
+  - proto: N14WeaponLaserPistol
+    price: 60
+
+- type: storeCategoryStructured
+  id: NCRSell2_Pistols
+  name: "Pistols"
+  entries:
+  - proto: N14WeaponPistol9mm
+    price: 18
+  - proto: N14WeaponPistol10mm
+    price: 20
+  - proto: N14WeaponRevolver45-70Hunter
+    price: 260
+  - proto: N14WeaponRevolver9mm
+    price: 25
+  - proto: N14WeaponRevolver10mm
+    price: 30
+  - proto: N14WeaponRevolver44Magnum
+    price: 70
+
+- type: storeCategoryStructured
+  id: NCRSell2_Rifles
+  name: "Rifles"
+  entries:
+  - proto: N14WeaponLMGAutoRifle
+    price: 300
+  - proto: N14WeaponSniper50NCRRifle
+    price: 1250
+  - proto: N14WeaponSniperEnfield
+    price: 200
+  - proto: N14WeaponSniper45-70BrushGun
+    price: 325
+  - proto: N14WeaponRifle10mmM1Carbine
+    price: 140
+  - proto: N14WeaponRifleM1Garand
+    price: 160
+  - proto: N14WeaponRifle762Fal
+    price: 350
+  - proto: N14WeaponRifle556Carbine
+    price: 400
+  - proto: N14WeaponRifle762Marksman
+    price: 425
+  - proto: N14WeaponRifle556Service
+    price: 150
+  - proto: N14WeaponRifle556R91
+    price: 210
+  - proto: N14WeaponRifle556Scout
+    price: 190
+
+- type: storeCategoryStructured
+  id: NCRSell2_Shotguns
+  name: "Shotguns"
+  entries:
+  - proto: N14WeaponShotgunRiot
+    price: 300
+  - proto: N14WeaponShotgunCaravan
+    price: 25
+  - proto: N14WeaponShotgunAuto
+    price: 300
+  - proto: N14WeaponShotgunTrench
+    price: 400
+  - proto: N14WeaponShotgunCanadian
+    price: 450
+
+- type: storeCategoryStructured
+  id: NCRSell2_SMGs
+  name: "SMGs"
+  entries:
+  - proto: N14WeaponSMG45
+    price: 150
+  - proto: N14WeaponSMG12mm
+    price: 225
+  - proto: N14WeaponSMG10mm
+    price: 250
+  - proto: N14WeaponSMG10mmPipe
+    price: 170
+  - proto: N14WeaponSMGPPSh41
+    price: 275
+
+- type: storeCategoryStructured
+  id: NCRSell2_Storage
+  name: "Storage"
+  entries:
+  - proto: ClothingBeltNCR
+    price: 90
+  - proto: ClothingBeltRevolver
+    price: 90
+  - proto: ClothingBeltNCRShotgunner
+    price: 75
+  - proto: ClothingBeltNCRHarness
+    price: 90
+  - proto: ClothingBeltHolster
+    price: 100
+  - proto: N14ClothingBackpackSatchelNCR
+    price: 75
+
+- type: storeCategoryStructured
+  id: NCRSell2_Armor
+  name: "Armor"
+  entries:
+  - proto: N14ClothingOuterNCRPlateDesert
+    price: 400
+  - proto: N14ClothingOuterRangerCoat
+    price: 700
+  - proto: N14ClothingOuterNCRPatrolRangerArmorVariant
+    price: 650
+  - proto: N14ClothingOuterRangerFieldArmor
+    price: 690
+  - proto: N14ClothingOuterRangerVest
+    price: 500
+  - proto: N14ClothingOuterNCRPouchedVestSnow
+    price: 350
+  - proto: N14ClothingOuterNCRPouchedVestWoods
+    price: 350
+  - proto: N14ClothingOuterNCRPouchedVestDesert
+    price: 325
+  - proto: N14ClothingOuterNCRVestpaddedWebDesert
+    price: 350
+  - proto: N14ClothingOuterNCRCombatArmor
+    price: 640
+  - proto: N14ClothingOuterNCRCombatArmorMK2
+    price: 825
+    count: 3
+
+- type: storeCategoryStructured
+  id: NCRSell2_Headgear
+  name: "Headgear"
+  entries:
+  - proto: N14ClothingHeadHatNCRHelmetMetalSnow
+    price: 30
+  - proto: N14ClothingHeadHatNCRHelmetMetalWoods
+    price: 30
+  - proto: N14ClothingHeadHatNCRM1HelmetNoCover
+    price: 30
+  - proto: N14ClothingHeadHatNCRM1Helmet
+    price: 30
+  - proto: N14ClothingHeadHatNCRHelmetMetalMedic
+    price: 30
+  - proto: N14ClothingHeadHatNCRStetson
+    price: 18
+  - proto: N14ClothingHeadHatNCRSlouch
+    price: 18
+  - proto: N14ClothingHeadHatNCRBeretMedic
+    price: 18
+  - proto: N14ClothingHeadHatNCRBeretRecon
+    price: 25
+  - proto: N14ClothingHeadHatNCRHelmetMetalDesert
+    price: 30
+
+- type: storeCategoryStructured
+  id: NCRSell2_Cosmetics
+  name: "Cosmetics"
+  entries:
+  - proto: SprayPaintOrange
+    price: 25
+  - proto: SprayPaintGreen
+    price: 25
+  - proto: SprayPaintDesertTan
+    price: 25
+  - proto: N14ClothingNeckROmantleNCR
+    price: 100
+  - proto: N14ClothingNeckCloakNCRWoods
+    price: 60
+  - proto: N14ClothingNeckCloakNCRSnow
+    price: 60
+  - proto: N14ClothingNeckCloakNCR
+    price: 50
+  - proto: N14DecorationFlagpoleNCR2
+    price: 20
+  - proto: N14ClothingOuterNCRDressJacket
+    price: 75
+  - proto: N14ClothingUniformNCRShorts
+    price: 18
+  - proto: N14ClothingUniformNCRDesert
+    price: 18
+  - proto: N14ClothingUniformNCRReconLongSleeve
+    price: 18
+  - proto: N14ClothingUniformNCRMedicVariant
+    price: 18
+  - proto: N14ClothingUniformNCRFatiguePants
+    price: 18
+  - proto: PlushieCatOrange
+    price: 100
+
+- type: storeCategoryStructured
+  id: NCRSell2_Melee
+  name: "Melee"
+  entries:
+  - proto: N14SledgeHammer
+    price: 200
+  - proto: N14CombatKnife
+    price: 20
+  - proto: N14WastelandFlagSpear
+    price: 150
+  - proto: NCRCommissarSabre
+    price: 600
+  - proto: N14Hatchet
+    price: 125
+  - proto: N14BaseAxe
+    price: 120
+
+- type: storeCategoryStructured
+  id: NCRSell2_Currency # IF YOU CHANGE ONE EXCHANGE RATE, YOU MUST CHANGE ALL OTHERS ACROSS ALL FOUR FILES TO MATCH, OR YOU WILL CREATE AN INFINITE MONEY GLITCH
+  name: "Currency"
+  entries:
+  - proto: N14CurrencyCap
+    amount: 1
+    price: 2
+  - proto: N14CurrencyLegionDenarius
+    amount: 1
+    price: 4 # prices of coins are the same as when sold to bazaar for caps despite ncr dollar being worth less because ncr wont pay full price for legion coins. yuck!
+  - proto: N14CurrencyLegionAureus
+    amount: 1
+    price: 40 # prices of coins are the same as when sold to bazaar for caps despite ncr dollar being worth less because ncr wont pay full price for legion coins. yuck!
+    #the only reason ncr buys legion coins at all is because they can be melted down, gold is gold.
+  - proto: N14IngotGold1
+    price: 50
+  - proto: N14IngotSilver1
+    price: 40
+  - proto: N14IngotCopper1
+    price: 20
+  - proto: N14IngotAluminum1
+    price: 20
+  - proto: N14IngotIron1
+    price: 20
+  - proto: N14IngotBrass1
+    price: 80
+  - proto: N14IngotLead1
+    price: 10
+
+
+- type: storePresetStructured #list of categories
+  id: NCR_sell2
+  currency: NCRDollar
+  categories:
+  - NCRSell2_Rifles
+  - NCRSell2_SMGs
+  - NCRSell2_Shotguns
+  - NCRSell2_Pistols
+  - NCRSell2_Lasers
+  - NCRSell2_Armor
+  - NCRSell2_Headgear
+  - NCRSell2_Ammo
+  - NCRSell2_Medicine
+  - NCRSell2_Materials
+  - NCRSell2_Cosmetics
+  - NCRSell2_Currency
+  - NCRSell2_Melee
+  - NCRSell2_Storage

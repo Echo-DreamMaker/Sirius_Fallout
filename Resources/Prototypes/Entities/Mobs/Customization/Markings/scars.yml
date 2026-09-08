@@ -2,50 +2,130 @@
   id: ScarEyeRight
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Arachne, Lamia, Tajaran] # Delta V - Felinid, Oni, Harpy; Einstein Engines - Tajaran
-  followSkinColor: true
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Arachne, Lamia, Tajaran]
+  coloring:
+    default:
+      type: !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
-  - sprite: Mobs/Customization/scars.rsi
+  - sprite: /Textures/Mobs/Customization/scars.rsi
     state: scar_eye_right
 
 - type: marking
   id: ScarEyeLeft
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Arachne, Lamia, Tajaran] # Delta V - Felinid, Oni, Harpy; Einstein Engines - Tajaran
-  followSkinColor: true
+  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Arachne, Lamia, Tajaran]
+  coloring:
+    default:
+      type: !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
-  - sprite: Mobs/Customization/scars.rsi
+  - sprite: /Textures/Mobs/Customization/scars.rsi
     state: scar_eye_left
 
 - type: marking
   id: ScarTopSurgeryShort
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Arachne, Lamia, Tajaran] # Einstein Engines - Tajaran
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Arachne, Lamia, Tajaran]
   sexRestriction: [Male]
-  followSkinColor: true
+  coloring:
+    default:
+      type: !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
-  - sprite: Mobs/Customization/scars.rsi
+  - sprite: /Textures/Mobs/Customization/scars.rsi
     state: scar_top_surgery_short
 
 - type: marking
   id: ScarTopSurgeryLong
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid,  Oni, Arachne, Lamia, Tajaran] # Einstein Engines - Tajaran
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Arachne, Lamia, Tajaran]
   sexRestriction: [Male]
-  followSkinColor: true
+  coloring:
+    default:
+      type: !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
-  - sprite: Mobs/Customization/scars.rsi
+  - sprite: /Textures/Mobs/Customization/scars.rsi
     state: scar_top_surgery_long
 
 - type: marking
   id: ScarChest
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Arachne, Lamia, Tajaran] # Einstein Engines - Tajaran
-  followSkinColor: true
+  speciesRestriction: [Human, Dwarf, Felinid, Oni, Arachne, Lamia, Tajaran]
+  coloring:
+    default:
+      type: !type:TattooColoring
+      fallbackColor: "#666666"
   sprites:
-  - sprite: Mobs/Customization/scars.rsi
+  - sprite: /Textures/Mobs/Customization/scars.rsi
     state: scar_chest
+
+- type: marking
+  id: ScarNeck
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Human, Dwarf]
+  coloring:
+    default:
+      type: !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: /Textures/Mobs/Customization/scars.rsi
+    state: scar_neck
+
+- type: marking
+  id: ScarChestBullets
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf]
+  coloring:
+    default:
+      type: !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: /Textures/Mobs/Customization/scars.rsi
+    state: scar_chest_bullets
+
+- type: marking
+  id: ScarStomachBullets
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Human, Dwarf]
+  coloring:
+    default:
+      type: !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: /Textures/Mobs/Customization/scars.rsi
+    state: scar_stomach_bullets
+
+- type: marking
+  id: ScarFace1
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Human, Dwarf]
+  coloring:
+    default:
+      type: !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: /Textures/Mobs/Customization/scars.rsi
+    state: scar_face_1
+
+- type: marking
+  id: ScarFace2
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Human, Dwarf]
+  coloring:
+    default:
+      type: !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: /Textures/Mobs/Customization/scars.rsi
+    state: scar_face_2

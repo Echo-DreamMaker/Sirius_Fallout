@@ -1,4 +1,4 @@
-# For directional 64x64 sprites below there is an entity for each main direction (south, east, west). 
+# For directional 64x64 sprites below there is an entity for each main direction (south, east, west).
 # If bounding boxes improve in future these can be simplified. For now this is required as rotating the sprite ruins the bounding box. - Peptide
 
 # Bookshelf bookshelves
@@ -55,7 +55,7 @@
     containers:
       storagebase: !type:Container
   - type: InteractionOutline
-  
+
 - type: entity
   id: N14Bookshelf
   parent: N14BookshelfDirty
@@ -82,18 +82,18 @@
           book-4: ""
       - enum.DamageStateVisualLayers.Base:
           book-5: ""
-          
+
 - type: entity
   id: N14BookshelfDestroyed
   parent: N14BookshelfDirty
   name: "bookshelf"
-  description: A broken old shelf.
+  description: A broken down bookcase, it can still stubbornly do its job.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Furniture/bookshelf.rsi
     layers:
       - state: bookshelf_3
-      
+
 # Normal Shelves
 - type: entity
   id: N14ShelfWood1
@@ -158,7 +158,7 @@
     containers:
       storagebase: !type:Container
   - type: InteractionOutline
-      
+
 - type: entity
   parent: [ N14ShelfWood1, N14StorageFillDomestic ]
   id: N14LootShelfWood1
@@ -184,7 +184,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,0.2,1.1,-0.3"
+          bounds: "-0.1,-0.3,1.1,0.2"
         density: 60
         mask:
         - MachineMask
@@ -194,7 +194,7 @@
   - type: Transform
     anchored: true
     noRot: false
-        
+
 - type: entity
   parent: N14ShelfWood
   id: N14ShelfWoodAlt
@@ -202,7 +202,7 @@
   components:
   - type: Sprite
     state: wood_shelf-alt
-    
+
 - type: entity
   parent: N14ShelfWood
   id: N14ShelfWoodBig
@@ -210,7 +210,7 @@
   components:
   - type: Sprite
     state: wood_shelf_big
-    
+
 - type: entity
   parent: N14ShelfWood
   id: N14ShelfWoodShowcase
@@ -236,7 +236,7 @@
         layer:
         - MidImpassable
         - LowImpassable
-    
+
 - type: entity
   parent: N14ShelfWood
   id: N14ShelfWoodStand
@@ -253,14 +253,14 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,0.2,1.1,-0.2"
+          bounds: "-0.1,-0.2,1.1,0.2"
         density: 60
         mask:
         - MachineMask
         layer:
         - MidImpassable
         - LowImpassable
-    
+
 - type: entity
   parent: N14ShelfWood
   id: N14ShelfWoodStandSmall
@@ -277,14 +277,14 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "0.1,-0.05,0.9,0.2"  
+          bounds: "0.1,-0.05,0.9,0.2"
         density: 60
         mask:
         - MachineMask
         layer:
         - MidImpassable
         - LowImpassable
-    
+
 - type: entity
   parent: N14ShelfWood
   id: N14ShelfWoodClothesRack
@@ -296,7 +296,7 @@
   - type: Construction
     graph: ShelvesWood
     node: ShelfWoodClothesRack
-    
+
 # Metal Shelves
 - type: entity
   parent: N14ShelfWood
@@ -334,8 +334,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-        
-        
+
+
 - type: entity
   parent: N14ShelfMetal
   id: N14ShelfMetalShop
@@ -350,7 +350,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.2,0.2,1.2,-0.2"
+          bounds: "-0.2,-0.2,1.2,0.2"
         density: 60
         mask:
         - MachineMask

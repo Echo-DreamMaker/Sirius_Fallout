@@ -1,0 +1,17 @@
+- type: entity
+  id: BwonsamdiSoulFire
+  name: soul-fire
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Effects/fire.rsi
+    state: green_3
+    noRot: true
+    drawdepth: Effects
+  - type: PointLight
+    radius: 2
+    energy: 1.2
+    color: "#2aff5e"
+    castShadows: false
+  - type: TimedDespawn
+    lifetime: 8

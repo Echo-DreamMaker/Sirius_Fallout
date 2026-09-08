@@ -1,0 +1,176 @@
+# #Misfits Add - Hot air balloon reusing the vertibird aircraft mechanics (VertibirdComponent).
+
+- type: entity
+  parent: BaseStructure
+  id: N14VehicleHotAirBalloonWreck
+  name: grounded hot air balloon
+  description: A collapsed post-war hot air balloon, its torn envelope draped over a bus that was cut in half.
+  suffix: Mapping
+  components:
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/legionballoon.rsi
+    state: balloon
+    drawdepth: Mobs
+    noRot: true
+    offset: 0, 1.8
+    scale: 0.6, 0.6
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.2,1.5,1.2"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BaseStructureDynamic
+  id: N14VehicleHotAirBalloon
+  name: hot air balloon
+  description: A pre-War hot air balloon, its patched envelope ready to catch the wasteland winds.
+  suffix: Flyable, Wendover
+  components:
+  - type: Vertibird
+    mapConfigId: Wendover
+    startupDuration: 45
+    hoverAltitude: 1.0
+    verticalSpeed: 0.4
+    thrustAcceleration: 1.6
+    reverseAcceleration: 0.6
+    maxFlightSpeed: 4
+    flightDrag: 1.1
+    turnSpeedDegrees: 30
+    altitudeTransitionDuration: 5
+    fuelSolution: balloonFuel
+    fuelUsePerSecond: 1.0
+    minimumTakeoffFuel: 30
+    seatCount: 6
+    groundedSpriteState: legionballoon-open
+    flyingSpriteState: legionballoon
+    flightEffectPrototype: HotAirBalloonBurnerEffect
+    flightEffectOffsets:
+    - "0, 0.4"
+    flightEffectInterval: 0.35
+    startupSound: null
+    flightLoopSound:
+      path: /Audio/Effects/fire.ogg
+      params:
+        volume: -4
+        loop: true
+        maxDistance: 15
+    landingSound: null
+    startupEmote: balloon-rp-startup
+    startupProgressEmotes:
+    - balloon-rp-startup-switches
+    - balloon-rp-startup-avionics
+    - balloon-rp-startup-rotors
+    - balloon-rp-startup-throttle
+    takeoffEmote: balloon-rp-takeoff
+    landingEmote: balloon-rp-landing
+    zUpEmote: balloon-rp-z-up
+    zDownEmote: balloon-rp-z-down
+    fuelEmergencyEmote: balloon-rp-fuel-emergency
+    pilotDisconnectedEmote: balloon-rp-pilot-disconnected
+    windowTitleLocId: balloon-window-title
+  - type: SolutionContainerManager
+    solutions:
+      balloonFuel:
+        maxVol: 200
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 200
+  - type: RefillableSolution
+    solution: balloonFuel
+  - type: ExaminableSolution
+    solution: balloonFuel
+  - type: MZPhysics
+    bounciness: 0.05
+  - type: AircraftImpactDamage
+    minimumSpeed: 1.5
+    damage:
+      types:
+        Structural: 15
+    speedDamageFactor: 0.8
+    velocityRetention: 0.1
+    damageCooldown: 0.8
+  - type: Appearance
+  - type: CanMoveInAir
+  - type: MovementAlwaysTouching
+  - type: InteractionOutline
+  - type: UserInterface
+    interfaces:
+      enum.VertibirdUiKey.Key:
+        type: VertibirdBoundUserInterface
+  - type: ActivatableUI
+    key: enum.VertibirdUiKey.Key
+  - type: Sprite
+    sprite: _Misfits/N14/Objects/Vehicles/legionballoon.rsi
+    drawdepth: Mobs
+    # Keep the balloon visually upright while its hidden heading changes for steering.
+    noRot: true
+    offset: 0, 1.8
+    scale: 0.6, 0.6
+    layers:
+    - sprite: _Nuclear14/Mobs/Robots/eyebot.rsi
+      state: shadow_eyebot
+      map: [ enum.VertibirdVisualLayers.Shadow ]
+      offset: 0, -1.8
+      scale: 8, 4
+      color: "#00000055"
+      visible: false
+    - state: legionballoon-open
+      map: [ enum.VertibirdVisualLayers.Base ]
+  - type: Strap
+    position: Stand
+    size: 900
+    # Occupants are hidden while boarded. Keep their interaction origin on the
+    # craft so the standard self-unbuckle action remains within buckle range.
+    buckleOffset: 0, 0
+    lockToBuckleOffset: true
+    selfUnBuckleDelay: 5
+    unbuckleDoafterTime: 5
+    rotation: 0
+    buckleOnInteractHand: false
+    whitelist:
+      requireAll: true
+      components:
+      - HumanoidAppearance
+  - type: MovementSpeedModifier
+    acceleration: 0
+    friction: 5
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.2,1.5,1.2"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Damageable
+    damageContainer: AircraftStructural

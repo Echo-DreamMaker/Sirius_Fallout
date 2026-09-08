@@ -35,6 +35,7 @@
                         <Button Name="ResetButton" Disabled="True" Text="Reset"/>
                         <Button Name="ExportImageButton" Text="Export Image"/> <Button Name="OpenImagesButton" Text="Open Folder"/> </BoxContainer>
                 </prefUi:HighlightedContainer>
+                <CheckBox Name="RoundEndAnonymityCheckBox" Text="{Loc humanoid-profile-editor-round-end-anonymity}" HorizontalAlignment="Right" />
             </BoxContainer>
         </BoxContainer>
         <Control MinHeight="10" />
@@ -51,7 +52,7 @@
                                 <OptionButton Name="SpeciesButton" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer Name="RobotModelContainer" HorizontalExpand="True" Visible="False">
-                                <Label Text="Robot Model:" />
+                                <Label Text="Variant:" />
                                 <Control HorizontalExpand="True"/>
                                 <OptionButton Name="RobotModelButton" HorizontalAlignment="Right" />
                             </BoxContainer>
@@ -150,7 +151,7 @@
             <!-- #Misfits Add - job tab strip + filtered list -->
             <BoxContainer Name="Jobs" HorizontalExpand="True" Orientation="Vertical">
                 <BoxContainer Name="JobTabStrip" Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 2">
-                    <Button Name="JobTabWasteland"     Text="{Loc job-tab-wasteland}"      HorizontalExpand="True" ToggleMode="True" />
+                    <Button Name="JobTabWasteland"     Text="{Loc job-tab-no-faction}"      HorizontalExpand="True" ToggleMode="True" />
                     <Button Name="JobTabMinorFactions" Text="{Loc job-tab-minor-factions}" HorizontalExpand="True" ToggleMode="True" />
                     <Button Name="JobTabMajorFactions" Text="{Loc job-tab-major-factions}" HorizontalExpand="True" ToggleMode="True" />
                     <Button Name="JobTabWhitelist"     Text="{Loc job-tab-whitelist}"      HorizontalExpand="True" ToggleMode="True" />
@@ -189,7 +190,22 @@
                         StyleClasses="OpenLeft" />
                 </BoxContainer>
 
-                <ui:NeoTabContainer Name="TraitsTabs" VerticalExpand="True" SeparatorMargin="0" />
+                <ScrollContainer HorizontalExpand="True" HScrollEnabled="True" VerticalExpand="True" VScrollEnabled="True">
+                    <prefUi:TalentTreeView Name="TalentTree" Access="Public" HorizontalExpand="True" VerticalExpand="True" Margin="0 0 12 0" />
+                </ScrollContainer>
+            </BoxContainer>
+            <!-- #Misfits Add - PETS tab: pet/mount traits in their own top-level tab.
+                 #Cythisiax Edited - pets now have their own separate point pool (independent from
+                 perk points) and render as a talent tree grouped into Small / Medium / Large nodes,
+                 with caps of 1 large, 2 medium, 3 small, and 3 total pets. -->
+            <BoxContainer Name="PetsTab" HorizontalExpand="True" Orientation="Vertical" Margin="10">
+                <Label Name="PetPointsLabel" HorizontalAlignment="Stretch" Align="Center" />
+                <ProgressBar Name="PetPointsBar" MaxValue="1" Value="1" MaxHeight="8" Margin="0 5" />
+                <Label Name="PetCapsLabel" HorizontalAlignment="Stretch" Align="Center" FontColorOverride="#808080" Margin="0 0 0 5" />
+
+                <ScrollContainer HorizontalExpand="True" HScrollEnabled="True" VerticalExpand="True" VScrollEnabled="True">
+                    <prefUi:TalentTreeView Name="PetsTalentTree" Access="Public" HorizontalExpand="True" VerticalExpand="True" Margin="0 0 12 0" />
+                </ScrollContainer>
             </BoxContainer>
             <BoxContainer Name="LoadoutsTab" HorizontalExpand="True" Orientation="Vertical" Margin="10">
                 <Label Name="LoadoutPointsLabel" HorizontalAlignment="Stretch" Align="Center" />
@@ -215,7 +231,54 @@
 
                 <ui:NeoTabContainer Name="LoadoutsTabs" VerticalExpand="True" SeparatorMargin="0" />
             </BoxContainer>
+            <!-- #Cythisiax Add - Patreon supporter-exclusive loadout tab (hidden unless the player is a Patreon supporter) -->
+            <BoxContainer Name="PatreonLoadoutsTab" HorizontalExpand="True" Orientation="Vertical" Margin="10">
+                <Label Name="PatreonLoadoutsPointsLabel" HorizontalAlignment="Stretch" Align="Center" />
+                <ProgressBar Name="PatreonLoadoutsPointsBar" MaxValue="1" Value="1" MaxHeight="8" Margin="0 5" />
+
+                <BoxContainer HorizontalExpand="True" Margin="0 0 0 5">
+                    <Button
+                        Name="PatreonLoadoutsShowUnusableButton"
+                        Text="Show Unusable"
+                        ToolTip="{Loc humanoid-profile-editor-loadouts-show-unusable-button-tooltip}"
+                        ToggleMode="True"
+                        HorizontalAlignment="Stretch"
+                        HorizontalExpand="True"
+                        StyleClasses="OpenRight" />
+                    <Button
+                        Name="PatreonLoadoutsRemoveUnusableButton"
+                        Text="Remove Unusable"
+                        ToolTip="{Loc humanoid-profile-editor-loadouts-remove-unusable-button-tooltip}"
+                        HorizontalAlignment="Stretch"
+                        HorizontalExpand="True"
+                        StyleClasses="OpenLeft" />
+                </BoxContainer>
+
+                <ScrollContainer Name="PatreonLoadoutsScroll" VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Name="PatreonLoadoutsList" Orientation="Vertical" HorizontalExpand="True" />
+                </ScrollContainer>
+            </BoxContainer>
             <BoxContainer Name="MarkingsTab" HorizontalExpand="True" Orientation="Vertical" Margin="10">
+                <BoxContainer Name="ProstheticsPanel" Orientation="Vertical" HorizontalExpand="True" Margin="0 0 0 8">
+                    <Label Text="{Loc humanoid-profile-editor-prosthetics-title}" />
+                    <Label Text="{Loc humanoid-profile-editor-prosthetics-description}" FontColorOverride="#aaaaaa" />
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                        <Label Text="{Loc humanoid-profile-editor-prosthetic-left-hand}" MinWidth="130" />
+                        <OptionButton Name="ProstheticLeftHand" HorizontalExpand="True" />
+                    </BoxContainer>
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                        <Label Text="{Loc humanoid-profile-editor-prosthetic-right-hand}" MinWidth="130" />
+                        <OptionButton Name="ProstheticRightHand" HorizontalExpand="True" />
+                    </BoxContainer>
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                        <Label Text="{Loc humanoid-profile-editor-prosthetic-left-foot}" MinWidth="130" />
+                        <OptionButton Name="ProstheticLeftFoot" HorizontalExpand="True" />
+                    </BoxContainer>
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                        <Label Text="{Loc humanoid-profile-editor-prosthetic-right-foot}" MinWidth="130" />
+                        <OptionButton Name="ProstheticRightFoot" HorizontalExpand="True" />
+                    </BoxContainer>
+                </BoxContainer>
                 <ScrollContainer HorizontalExpand="True" HScrollEnabled="True" VerticalExpand="True" VScrollEnabled="True">
                     <humanoid:MarkingPicker Name="Markings" IgnoreCategories="Hair,FacialHair" />
                 </ScrollContainer>

@@ -8,6 +8,8 @@
     - type: NpcFactionMember
       factions:
       - Wastelander
+    - type: MZPhysics
+    - type: MZViewer
 
 #Syndie
 - type: entity

@@ -3,18 +3,18 @@
 # in the player's hand based on their playtime in the tracker or department.
 #
 # Tracker quick-reference (use with: playtime_addrole <user> <tracker> <time>)
-#   NCRCommander         — NCR Commander
-#   NCRMedicalDoctor     — NCR Medical Doctor
-#   NCRExecutiveOfficer  — NCR Executive Officer
-#   NCRPlatoonLeader     — NCR Platoon Leader
-#   NCRSquadLeader       — NCR Squad Leader (all 4 map slots share this tracker)
-#   NCREngineer          — NCR Engineer
-#   NCRMedic             — NCR Medic
-#   NCRWeaponSpecialist  — NCR Weapon Specialist
-#   NCRHeavyTrooper      — NCR Heavy Trooper
-#   NCRTrooper           — NCR Trooper
+#   NCRCommander         вЂ” NCR Commander
+#   NCRMedicalDoctor     вЂ” NCR Medical Doctor
+#   NCRExecutiveOfficer  вЂ” NCR Executive Officer
+#   NCRPlatoonLeader     вЂ” NCR Platoon Leader
+#   NCRSquadLeader       вЂ” NCR Squad Leader (all 4 map slots share this tracker)
+#   NCREngineer          вЂ” NCR Engineer
+#   NCRMedic             вЂ” NCR Medic
+#   NCRWeaponSpecialist  вЂ” NCR Weapon Specialist
+#   NCRHeavyTrooper      вЂ” NCR Heavy Trooper
+#   NCRTrooper           вЂ” NCR Trooper
 
-# Command Officers: Captain (O-3) → Major (O-4) at 20h NCR dept time  → LTC (O-5) at 35h NCR dept time → Colonel (O-6) at 50h NCR dept time → General Major (O-7) at 100h NCR dept time
+# Command Officers: Captain (O-3) в†’ Major (O-4) at 20h NCR dept time  в†’ LTC (O-5) at 35h NCR dept time в†’ Colonel (O-6) at 50h NCR dept time в†’ General Major (O-7) at 100h NCR dept time
 - type: ncrRankPinProgression
   id: NCRCommandOfficerPins
   jobs:
@@ -33,7 +33,7 @@
     - min: 360000   # 100 hours
       entity: ClothingNeckPinNCRGeneralMajor
 
-# Executive Officer: 2LT (O-1) → 1LT (O-2) at 20h → Captain (O-3) at 35h → Major (O-4) at 50h
+# Executive Officer: 2LT (O-1) в†’ 1LT (O-2) at 20h в†’ Captain (O-3) at 35h в†’ Major (O-4) at 50h
 - type: ncrRankPinProgression
   id: NCRExecutiveOfficerPins
   jobs:
@@ -44,13 +44,13 @@
     - min: 0
       entity: ClothingNeckPinNCRSecondLieutenant
     - min: 72000   # 20 hours
-      entity: ClothingNeckPinNCRFirstlLieutenant
+      entity: ClothingNeckPinNCRFirstLieutenant
     - min: 126000   # 35 hours
       entity: ClothingNeckPinNCRCaptain
     - min: 180000   # 50 hours
       entity: ClothingNeckPinNCRMajor
 
-# Medical Officers: 2LT (O-1) → 1LT (O-2) at 20h
+# Medical Officers: 2LT (O-1) в†’ 1LT (O-2) at 20h
 - type: ncrRankPinProgression
   id: NCRMedicalOfficerPins
   jobs:
@@ -61,9 +61,9 @@
     - min: 0
       entity: ClothingNeckPinNCRSecondLieutenant
     - min: 72000   # 20 hours
-      entity: ClothingNeckPinNCRFirstlLieutenant
+      entity: ClothingNeckPinNCRFirstLieutenant
 
-# Junior Officers: 2LT (O-1) → 1LT (O-2) at 20h NCR dept time → Captain (O-3) at 50h NCR dept time
+# Junior Officers: 2LT (O-1) в†’ 1LT (O-2) at 20h NCR dept time в†’ Captain (O-3) at 50h NCR dept time
 - type: ncrRankPinProgression
   id: NCRJuniorOfficerPins
   jobs:
@@ -75,11 +75,11 @@
     - min: 0
       entity: ClothingNeckPinNCRSecondLieutenant
     - min: 72000   # 20 hours
-      entity: ClothingNeckPinNCRFirstlLieutenant
+      entity: ClothingNeckPinNCRFirstLieutenant
     - min: 180000   # 50 hours
       entity: ClothingNeckPinNCRCaptain
 
-# Military Police Chief: 2LT (O-1) → 1LT (O-2) at 30h → Captain (O-3) at 60h → Major (O-4) at 100h
+# Military Police Chief: 2LT (O-1) в†’ 1LT (O-2) at 30h в†’ Captain (O-3) at 60h в†’ Major (O-4) at 100h
 - type: ncrRankPinProgression
   id: NCRMPChiefPins
   jobs:
@@ -90,13 +90,13 @@
     - min: 0
       entity: ClothingNeckPinNCRSecondLieutenant
     - min: 108000   # 30 hours
-      entity: ClothingNeckPinNCRFirstlLieutenant
+      entity: ClothingNeckPinNCRFirstLieutenant
     - min: 216000  # 60 hours
       entity: ClothingNeckPinNCRCaptain
     - min: 360000   # 100 hours
       entity: ClothingNeckPinNCRMajor
 
-# Military Police Operative: SSG (E-7) → SFC (E-8) at 30h → SGM (E-9) at 60h
+# Military Police Operative: SSG (E-7) в†’ SFC (E-8) at 30h в†’ SGM (E-9) at 60h
 - type: ncrRankPinProgression
   id: NCRMPOperativePins
   jobs:
@@ -111,7 +111,7 @@
     - min: 216000  # 60 hours
       entity: ClothingNeckPinNCRSergeantMajor
 
-# Military Police Cadet: PFC (E-3) → CPL (E-4) at 10h → SPC (E-5) at 20h → SGT (E-6) at 40h
+# Military Police Cadet: PFC (E-3) в†’ CPL (E-4) at 10h в†’ SPC (E-5) at 20h в†’ SGT (E-6) at 40h
 - type: ncrRankPinProgression
   id: NCRMPCadetPins
   jobs:
@@ -128,7 +128,7 @@
     - min: 144000  # 40 hours
       entity: ClothingNeckPinNCRSergeant
 
-# Squad Leaders: SGT (E-6) → SSG (E-7) at 20h → SFC (E-8) at 40h → SGM (E-9) at 60h
+# Squad Leaders: SGT (E-6) в†’ SSG (E-7) at 20h в†’ SFC (E-8) at 40h в†’ SGM (E-9) at 60h
 # All 4 map slots share the NCRSquadLeader tracker so time accumulates across slots.
 - type: ncrRankPinProgression
   id: NCRNCOPins
@@ -146,7 +146,7 @@
     - min: 216000  # 60 hours
       entity: ClothingNeckPinNCRSergeantMajor
 
-# Medic: PFC (E-3) → CPL (E-4) at 10h NCR dept → SPC (E-5) at 20h NCR dept → SGT (E-6) at 40h
+# Medic: PFC (E-3) в†’ CPL (E-4) at 10h NCR dept в†’ SPC (E-5) at 20h NCR dept в†’ SGT (E-6) at 40h
 - type: ncrRankPinProgression
   id: NCRMedicPins
   jobs:
@@ -163,7 +163,7 @@
     - min: 144000  # 40 hours
       entity: ClothingNeckPinNCRSergeant
 
-# Specialists: PVT (E-2) → PFC (E-3) at 20h NCR dept → CPL (E-4) at 40h NCR dept → SCP (E-5) at 60h NCR dept
+# Specialists: PVT (E-2) в†’ PFC (E-3) at 20h NCR dept в†’ CPL (E-4) at 40h NCR dept в†’ SCP (E-5) at 60h NCR dept
 - type: ncrRankPinProgression
   id: NCRSpecialistPins
   jobs:
@@ -184,7 +184,7 @@
     - min: 216000  # 60 hours
       entity: ClothingNeckPinNCRCorporal
 
-# Troopers: Recruit (E-1) → PV2 at 20h NCR dept → PFC at 40h NCR dept → SPC at 60h NCR dept
+# Troopers: Recruit (E-1) в†’ PV2 at 20h NCR dept в†’ PFC at 40h NCR dept в†’ SPC at 60h NCR dept
 - type: ncrRankPinProgression
   id: NCRTrooperPins
   jobs:
@@ -201,90 +201,4 @@
     - min: 216000  # 60 hours
       entity: ClothingNeckPinNCRCorporal
 
-### Enclave
 
-# Enclave Commander
-- type: ncrRankPinProgression
-  id: EnclaveCommanderPins
-  jobs:
-    - EnclaveCommander
-  tracker: EnclaveCommander
-  departmentTracker: false
-  thresholds:
-    - min: 0
-      entity: ClothingNeckPinEnclaveLtColonel
-    - min: 72000  # 20 hours
-      entity: ClothingNeckPinEnclaveColonel
-    - min: 144000  # 40 hours
-      entity: ClothingNeckPinEnclaveGeneral
-
-# Enclave Senior Officer
-- type: ncrRankPinProgression
-  id: EnclaveSrOfficerPins
-  jobs:
-    - EnclaveSeniorOfficer
-  tracker: EnclaveSeniorOfficer
-  departmentTracker: false
-  thresholds:
-    - min: 0
-      entity: ClothingNeckPinEnclaveCaptain
-    - min: 72000   # 20 hours
-      entity: ClothingNeckPinEnclaveMajor
-
-# Enclave Communications Officer
-- type: ncrRankPinProgression
-  id: EnclaveCommunicationsOfficerPins
-  jobs:
-    - EnclaveCommunicationsOfficer
-  tracker: EnclaveCommunicationsOfficer
-  departmentTracker: false
-  thresholds:
-    - min: 0
-      entity: ClothingNeckPinEnclaveFirstLieutenant
-    - min: 72000   # 20 hours
-      entity: ClothingNeckPinEnclaveCaptain
-
-# Enclave Junior Officer
-- type: ncrRankPinProgression
-  id: EnclaveJrOfficerPins
-  jobs:
-    - EnclaveJuniorOfficer
-  tracker: EnclaveJuniorOfficer
-  departmentTracker: false
-  thresholds:
-    - min: 0
-      entity: ClothingNeckPinEnclaveSecondLieutenant
-    - min: 72000   # 20 hours
-      entity: ClothingNeckPinEnclaveFirstLieutenant
-
-# Enclave NCO
-- type: ncrRankPinProgression
-  id: EnclaveSergeantPins
-  jobs:
-    - EnclaveNCO
-  tracker: EnclaveNCO
-  departmentTracker: false
-  thresholds:
-    - min: 0
-      entity: ClothingNeckPinEnclaveSergeant
-    - min: 72000   # 20 hours
-      entity: ClothingNeckPinEnclaveStaffSergeant
-    - min: 144000  # 40 hours
-      entity: ClothingNeckPinEnclaveSFC
-    - min: 216000  # 60 hours
-      entity: ClothingNeckPinEnclaveMasterSergeant
-
-# Enclave Enlisted
-- type: ncrRankPinProgression
-  id: EnclaveEnlistedPins
-  jobs:
-    - EnclaveEnlisted
-  tracker: EnclaveEnlisted
-  departmentTracker: false
-  thresholds:
-    - min: 0
-      entity: ClothingNeckPinEnclavePrivate
-    - min: 72000   # 20 hours
-      entity: ClothingNeckPinEnclavePFC
-    - min: 144000  # 40 hours
-      entity: ClothingNeckPinEnclaveSpecialist

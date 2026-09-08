@@ -312,7 +312,7 @@ public sealed partial class DungeonJob
                 {
                     var coords = _maps.GridTileToLocal(gridUid, grid, tile);
                     var protos = EntitySpawnCollection.GetSpawns(gen.Contents, random);
-                    _entManager.SpawnEntities(coords, protos);
+                    _entManager.SpawnEntities(coords, protos.Select(x => (string?) x).ToList());
                 }
 
                 break;
@@ -488,7 +488,7 @@ public sealed partial class DungeonJob
                     var gridCoords = _maps.GridTileToLocal(gridUid, grid, tile);
                     // Need to offset the spawn to avoid spawning in the room.
 
-                    _entManager.SpawnEntities(gridCoords, gen.Entities);
+                    _entManager.SpawnEntities(gridCoords, gen.Entities.Select(x => (string?) x).ToList());
 
                     // Clear out any biome tiles nearby to avoid blocking it
                     foreach (var nearTile in _maps.GetTilesIntersecting(gridUid, grid, new Circle(gridCoords.Position, 1.5f), false))
@@ -609,7 +609,7 @@ public sealed partial class DungeonJob
             var gridPos = _maps.GridTileToLocal(gridUid, grid, tile.Item1);
 
             index += gen.Entities.Count;
-            _entManager.SpawnEntities(gridPos, gen.Entities);
+            _entManager.SpawnEntities(gridPos, gen.Entities.Select(x => (string?) x).ToList());
 
             if (index > 20)
             {
@@ -697,7 +697,7 @@ public sealed partial class DungeonJob
                     var gridPos = _maps.GridTileToLocal(gridUid, grid, tile);
                     _maps.SetTile(gridUid, grid, tile, _tile.GetVariantTile((ContentTileDefinition) tileDef, random));
 
-                    _entManager.SpawnEntities(gridPos, gen.Entities);
+                    _entManager.SpawnEntities(gridPos, gen.Entities.Select(x => (string?) x).ToList());
                 }
 
                 if (validTiles.Count > 0)
@@ -736,7 +736,7 @@ public sealed partial class DungeonJob
         {
             foreach (var entrance in room.Entrances)
             {
-                _entManager.SpawnEntities(_maps.GridTileToLocal(gridUid, grid, entrance), gen.Entities);
+                _entManager.SpawnEntities(_maps.GridTileToLocal(gridUid, grid, entrance), gen.Entities.Select(x => (string?) x).ToList());
             }
         }
     }
@@ -933,7 +933,7 @@ public sealed partial class DungeonJob
 
         foreach (var entrance in spawnPositions)
         {
-            _entManager.SpawnEntities(_maps.GridTileToLocal(gridUid, grid, entrance), gen.Entities);
+            _entManager.SpawnEntities(_maps.GridTileToLocal(gridUid, grid, entrance), gen.Entities.Select(x => (string?) x).ToList());
         }
     }
 
@@ -1037,7 +1037,7 @@ public sealed partial class DungeonJob
                         _maps.SetTile(gridUid, grid, weh, _tile.GetVariantTile((ContentTileDefinition) tileDef, random));
 
                         var coords = _maps.GridTileToLocal(gridUid, grid, weh);
-                        _entManager.SpawnEntities(coords, gen.Entities);
+                        _entManager.SpawnEntities(coords, gen.Entities.Select(x => (string?) x).ToList());
                     }
 
                     break;
@@ -1156,14 +1156,14 @@ public sealed partial class DungeonJob
 
                     if (gen.EdgeEntities != null && nodeDistances.Count - i <= 2)
                     {
-                        _entManager.SpawnEntities(gridPos, gen.EdgeEntities);
+                        _entManager.SpawnEntities(gridPos, gen.EdgeEntities.Select(x => (string?) x).ToList());
                     }
                     else
                     {
                         // Iterate neighbors and check for blockers, if so bulldoze
                         ClearDoor(dungeon, grid, node);
 
-                        _entManager.SpawnEntities(gridPos, gen.Entities);
+                        _entManager.SpawnEntities(gridPos, gen.Entities.Select(x => (string?) x).ToList());
                     }
 
                     if (width == 0)
@@ -1242,7 +1242,7 @@ public sealed partial class DungeonJob
             var gridPos = _maps.GridTileToLocal(gridUid, grid, neighbor);
             var protoNames = EntitySpawnCollection.GetSpawns(gen.Spawns, random);
 
-            _entManager.SpawnEntities(gridPos, protoNames);
+            _entManager.SpawnEntities(gridPos, protoNames.Select(x => (string?) x).ToList());
             count += protoNames.Count;
 
             if (count > 20)

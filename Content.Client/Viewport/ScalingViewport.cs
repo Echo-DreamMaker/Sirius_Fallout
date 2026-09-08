@@ -19,7 +19,7 @@ namespace Content.Client.Viewport
     /// <summary>
     ///     Viewport control that has a fixed viewport size and scales it appropriately.
     /// </summary>
-    public sealed class ScalingViewport : Control, IViewportControl
+    public sealed partial class ScalingViewport : Control, IViewportControl
     {
         [Dependency] private readonly IClyde _clyde = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
@@ -27,6 +27,7 @@ namespace Content.Client.Viewport
 
         // Internal viewport creation is deferred.
         private IClydeViewport? _viewport;
+        private IRenderTexture? _mzBlurBuffer;
         private IEye? _eye;
         private Vector2i _viewportSize;
         private int _curRenderScale;
@@ -150,7 +151,10 @@ namespace Content.Client.Viewport
 
             DebugTools.AssertNotNull(_viewport);
 
-            _viewport!.Render();
+            MultiZBeforeRender();
+
+            if (!_mzSkipNormalRender)
+                _viewport!.Render();
 
             if (_queuedScreenshots.Count != 0)
             {
@@ -222,6 +226,9 @@ namespace Content.Client.Viewport
         {
             DebugTools.AssertNull(_viewport);
 
+            _mzBlurBuffer?.Dispose();
+            _mzBlurBuffer = null;
+
             var vpSizeBase = ViewportSize;
             var ourSize = PixelSize;
             var (ratioX, ratioY) = ourSize / (Vector2) vpSizeBase;
@@ -255,6 +262,11 @@ namespace Content.Client.Viewport
             _viewport.RenderScale = new Vector2(renderScale, renderScale);
 
             _viewport.Eye = _eye;
+
+            _mzBlurBuffer = _clyde.CreateRenderTarget(
+                _viewport.RenderTarget.Size,
+                new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb),
+                name: "multiz-sky-blur-buffer");
         }
 
         protected override void Resized()
@@ -268,6 +280,9 @@ namespace Content.Client.Viewport
         {
             _viewport?.Dispose();
             _viewport = null;
+
+            _mzBlurBuffer?.Dispose();
+            _mzBlurBuffer = null;
         }
 
         public MapCoordinates ScreenToMap(Vector2 coords)

@@ -20,6 +20,11 @@ public sealed class CurrencyWalletStateMessage : EntityEventArgs
 {
     public int Bottlecaps;
 
+    // #Misfits Add - track NCR Dollars, Legion Denarii, and Pre-War Money alongside Bottlecaps -Tytos
+    public int NcrDollars;
+    public int LegionDenarii;
+    public int PrewarMoney;
+
     /// <summary>
     /// When true the client should open/focus the wallet window.
     /// When false the client only updates the balance if the window is already visible.

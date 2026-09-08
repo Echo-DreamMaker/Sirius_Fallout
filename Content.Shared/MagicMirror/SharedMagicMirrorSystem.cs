@@ -70,7 +70,8 @@ public abstract class SharedMagicMirrorSystem : EntitySystem
             hair,
             humanoid.MarkingSet.PointsLeft(MarkingCategories.Hair) + hair.Count,
             facialHair,
-            humanoid.MarkingSet.PointsLeft(MarkingCategories.FacialHair) + facialHair.Count);
+            humanoid.MarkingSet.PointsLeft(MarkingCategories.FacialHair) + facialHair.Count,
+            component.RequireConfirm); // #Cythisiax Added - expose confirm-apply mode to the client
 
         // TODO: Component states
         component.Target = targetUid;
@@ -162,13 +163,14 @@ public sealed class MagicMirrorAddSlotMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public sealed class MagicMirrorUiState : BoundUserInterfaceState
 {
-    public MagicMirrorUiState(string species, List<Marking> hair, int hairSlotTotal, List<Marking> facialHair, int facialHairSlotTotal)
+    public MagicMirrorUiState(string species, List<Marking> hair, int hairSlotTotal, List<Marking> facialHair, int facialHairSlotTotal, bool requireConfirm = false)
     {
         Species = species;
         Hair = hair;
         HairSlotTotal = hairSlotTotal;
         FacialHair = facialHair;
         FacialHairSlotTotal = facialHairSlotTotal;
+        RequireConfirm = requireConfirm; // #Cythisiax Added
     }
 
     public NetEntity Target;
@@ -180,6 +182,27 @@ public sealed class MagicMirrorUiState : BoundUserInterfaceState
 
     public List<Marking> FacialHair;
     public int FacialHairSlotTotal;
+
+    // #Cythisiax Added - whether the client must press an "Apply" button to commit style/color changes.
+    public bool RequireConfirm;
+}
+
+// #Cythisiax Added - combined style + color change, sent when the user presses the Apply button.
+[Serializable, NetSerializable]
+public sealed class MagicMirrorApplyMessage : BoundUserInterfaceMessage
+{
+    public MagicMirrorApplyMessage(MagicMirrorCategory category, int slot, string? marking, List<Color>? colors)
+    {
+        Category = category;
+        Slot = slot;
+        Marking = marking;
+        Colors = colors;
+    }
+
+    public MagicMirrorCategory Category { get; }
+    public int Slot { get; }
+    public string? Marking { get; }
+    public List<Color>? Colors { get; }
 }
 
 [Serializable, NetSerializable]
@@ -213,5 +236,16 @@ public sealed partial class MagicMirrorChangeColorDoAfterEvent : DoAfterEvent
     public override DoAfterEvent Clone() => this;
     public MagicMirrorCategory Category;
     public int Slot;
+    public List<Color> Colors = new List<Color>();
+}
+
+// #Cythisiax Added - DoAfter for the combined "Apply" button change (style + color in one action).
+[Serializable, NetSerializable]
+public sealed partial class MagicMirrorApplyDoAfterEvent : DoAfterEvent
+{
+    public override DoAfterEvent Clone() => this;
+    public MagicMirrorCategory Category;
+    public int Slot;
+    public string? Marking;
     public List<Color> Colors = new List<Color>();
 }

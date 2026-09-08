@@ -1,0 +1,414 @@
+# Ordinary sentient Deathclaw. Player interaction and natural Deathclaw traits only;
+# every loa/soul/StructureBreaker/Bwonsamdi feature belongs on N14MobDeathclawPlayer below.
+- type: entity
+  name: sentient deathclaw
+  id: N14MobDeathclawSentient
+  parent: N14MobDeathclaw
+  description: An unusually intelligent deathclaw, watchful and capable of speech.
+  components:
+  - type: HumanoidAppearance
+    species: Deathclaw
+  - type: LanguageKnowledge
+    speaks:
+    - English
+    - Tribal
+    understands:
+    - English
+    - Tribal
+    - N14Dog
+  - type: Accentless
+    removes:
+    - type: ReplacementAccent
+      accent: genericAggressive
+  - type: ReplacementAccent
+    accent: misfitsDeathclaw
+  - type: Speech
+    speechSounds: MisfitsDeathclaw
+    speechVerb: LargeMob
+    allowedEmotes:
+    - MisfitsDeathclawGrowl
+    - MisfitsDeathclawRoar
+  - type: Vocal
+    sounds:
+      Male: MisfitsDeathclawEmotes
+      Female: MisfitsDeathclawEmotes
+      Unsexed: MisfitsDeathclawEmotes
+    screamId: MisfitsDeathclawRoar
+  - type: Emoting
+  - type: Tag
+    tags:
+    - Deathclaw
+    - FootstepSound
+  - type: NpcFactionMember
+    factions:
+    - PlayerSuperMutant
+    - Wastelander
+  - type: LayingDown
+  - type: BorgHands
+    handCount: 2
+  - type: ComplexInteraction
+  - type: Puller
+    needsHands: false
+  - type: Sharp
+  - type: SentientDeathclaw
+  - type: ActionGrant
+    actions:
+    - MisfitsActionMeleeCharge
+  - type: MeleeChargeAudio
+    activationSound:
+      path: /Audio/_Misfits/Mobs/Deathclaw/aggro1.ogg
+      params:
+        volume: 1
+        maxDistance: 18
+    impactSound:
+      path: /Audio/Effects/Footsteps/largethud.ogg
+      params:
+        volume: 4
+        maxDistance: 20
+
+# Temporary life-stage bodies for the regular Sentient Deathclaw species variants.
+# These inherit only ordinary Deathclaw gameplay; Bwonsamdi remains a separate entity below.
+- type: entity
+  name: adolescent sentient deathclaw
+  id: N14MobDeathclawSentientAdolescent
+  parent: N14MobDeathclawSentient
+  description: An intelligent young deathclaw, not yet fully grown.
+  components:
+  - type: HumanoidAppearance
+    species: DeathclawAdolescent
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: deathclaw
+      sprite: _Misfits/Mobs/Animals/deathclawadolescent.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: deathclaw
+      Critical:
+        Base: crit
+      Dead:
+        Base: dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+            radius: 0.35
+        density: 75
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      320: Critical
+      410: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      80: 1.05
+      120: 1.1
+      160: 1.15
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 11
+        Slash: 18
+        Piercing: 4
+    range: 1.75
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.25
+    baseSprintSpeed: 6.25
+
+- type: entity
+  name: hatchling sentient deathclaw
+  id: N14MobDeathclawSentientHatchling
+  parent: N14MobDeathclawSentient
+  description: An intelligent Deathclaw hatchling, small but still dangerous.
+  components:
+  - type: HumanoidAppearance
+    species: DeathclawHatchling
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: deathclaw
+      sprite: _Misfits/Mobs/Animals/deathclawhatchling.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: deathclaw
+      Critical:
+        Base: crit
+      Dead:
+        Base: dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+            radius: 0.3
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      210: Critical
+      280: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      55: 1.05
+      85: 1.1
+      110: 1.15
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 7
+        Slash: 11
+        Piercing: 3
+    range: 1.5
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 6.5
+
+# #Cythisiax Added - Sentient deathclaw (Bwonsamdi) player body.
+# Whitelist boss creature under FEV Mutants. Spawned via the SentientDeathclaw job's jobEntity.
+# Uses a dedicated Bwonsamdi RSI; damage-state frames remain compatible with the base deathclaw states.
+
+- type: entity
+  name: Bwonsamdi
+  id: N14MobDeathclawPlayer
+  parent: N14MobDeathclaw
+  description: A deathclaw of unnatural size and strength, bound to the loa of death and marked with strange, restless designs.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: deathclaw
+      sprite: _Misfits/Mobs/Animals/deathclawbwonsamdi.rsi
+  - type: HumanoidAppearance # #Cythisiax - mirrors player robots: required so the lobby doll/preview can resolve it (no humanoid layers via empty species sprites)
+    species: BwonsamdiDeathclaw
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: N14DeathclawHide # #Cythisiax - 50% damage taken across the board
+  - type: Physics # #Cythisiax - mech-style: kinematic controller so others can't shove it around
+    bodyType: KinematicController
+  - type: Fixtures # #Cythisiax - mech-style: near-full-tile body so others can't walk through or around it
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 21390 # ~15 tonnes, like a mech
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1300: Critical
+      1000000: Dead # #Cythisiax - effectively immortal: enters Critical but can never actually die
+  - type: PassiveDamage # #Cythisiax - slow self-regeneration (~60 per type per minute); tune the negative values below
+    allowedStates:
+    - Alive
+    - Critical
+    damage:
+      groups:
+        Brute: -1.0
+      types:
+        Heat: -1.0
+        Shock: -1.0
+        Cold: -1.0
+        Poison: -1.0
+        Cellular: -1.0
+        Caustic: -1.0
+        Bloodloss: -1.0
+        Radiation: -1.0
+  - type: Reflect # #Cythisiax - 50% reflect chance on all caliber weapons
+    reflects:
+      - SmallCaliber
+      - MediumCaliber
+    reflectProb: 0.5
+    innate: true
+  - type: LanguageKnowledge # #Cythisiax - speaks/understands Common, Latin, Spanish, Tribal, Dog, and Cat
+    speaks:
+    - English
+    - Latin
+    - Spanish
+    - Tribal
+    - N14Dog
+    - Cat
+    understands:
+    - English
+    - Latin
+    - Spanish
+    - Tribal
+    - N14Dog
+    - Cat
+  - type: Accentless # Strip the inherited genericAggressive accent before applying the shared Deathclaw speech.
+    removes:
+    - type: ReplacementAccent
+      accent: genericAggressive
+  - type: ReplacementAccent
+    accent: misfitsDeathclaw
+  - type: Speech # #Misfits Add - replace the inherited squeak with Deathclaw vocals and growling speech verbs
+    speechSounds: MisfitsDeathclaw
+    speechVerb: LargeMob
+    allowedEmotes:
+    - MisfitsDeathclawGrowl
+    - MisfitsDeathclawRoar
+  - type: Vocal
+    sounds:
+      Male: MisfitsDeathclawEmotes
+      Female: MisfitsDeathclawEmotes
+      Unsexed: MisfitsDeathclawEmotes
+    screamId: MisfitsDeathclawRoar
+  - type: Emoting
+  - type: ActiveRadio # #Cythisiax - intrinsic radio: listens to ALL radio channels (overrides the channel list)
+    receiveAllChannels: true
+  - type: IntrinsicRadioReceiver # #Cythisiax - translates received radio transmissions into chat
+  - type: IntrinsicRadioTransmitter # #Cythisiax - can also transmit on every channel
+    channels:
+    - WastelandGlobal
+    - Eighties
+    - VaultCommon
+    - VaultCommand
+    - VaultEngineering
+    - VaultMedical
+    - VaultScience
+    - VaultSecurity
+    - CaravanCompany
+    - BrotherhoodOfSteel
+    - Enclave
+    - NCR
+    - OSI
+    - NCRRangers
+    - Legion
+    - PBS
+    - FollowersOfApocalypse
+    - Townsfolk
+    - Common
+    - CentCom
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Syndicate
+    - Handheld
+    - Binary
+    - Freelance
+    - ZAXBinary
+    - Justice
+    - Prison
+  - type: Tag # #Cythisiax - keep Deathclaw tag; add FootstepSound (required gate for ANY footstep audio in SharedMoverController.TryGetSound)
+    tags:
+    - Deathclaw
+    - FootstepSound
+  - type: FootstepModifier # #Cythisiax - heavy stomp footsteps (largethud), louder + wider radius than normal
+    footstepSoundCollection:
+      collection: FootstepThud
+      params:
+        volume: 6
+        maxDistance: 30
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: deathclaw
+      Critical:
+        Base: crit
+      Dead:
+        Base: dead
+  - type: LayingDown # #Cythisiax - enables the R key (ToggleStanding) so the deathclaw can lay down / fall over
+  - type: RobotDownedVisuals # #Cythisiax - show the crit frame while lying down (same mechanism as the player robots)
+    standingState: deathclaw
+    downedState: crit
+  - type: NpcFactionMember # Bwonsamdi is accepted by the Willowers while retaining his wasteland alliances.
+    factions:
+    - PlayerSuperMutant
+    - Wastelander
+    - Tribal
+  - type: MeleeWeapon # #Cythisiax - massive structural damage on top of the inherited claw damage
+    altDisarm: false
+    hidden: true
+    attackRate: 0.3 # #Cythisiax - one claw swing every 0.3s (attackRate is seconds between attacks)
+    soundHit:
+      collection: N14DeathclawAttack
+    angle: 60
+    animation: WeaponArcClaw
+    wideAnimation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 15
+        Slash: 25
+        Piercing: 5
+        Structural: 300
+    range: 2
+  - type: Sharp # #Cythisiax - claws are sharp: can butcher corpses without a knife
+  - type: ActionGrant # #Cythisiax - grants the Charge! dash action
+    actions:
+    - MisfitsActionMeleeCharge
+    - ActionBwonsamdiDreadRoar
+    - ActionBwonsamdiSoulCompass
+    - ActionBwonsamdiRitualClaim
+    - ActionBwonsamdiMercy
+  - type: MeleeChargeAudio # #Misfits Add - recognizable Deathclaw warning vocal followed by a heavy landing
+    activationSound:
+      path: /Audio/_Misfits/Mobs/Deathclaw/aggro1.ogg
+      params:
+        volume: 3
+        maxDistance: 25
+    impactSound:
+      path: /Audio/Effects/Footsteps/largethud.ogg
+      params:
+        volume: 8
+        maxDistance: 30
+  - type: Mutatable # #Cythisiax - innate mutations granted at spawn (chance 1 = always)
+    defaultMutations:
+      MutationFireBreath: 1
+      MutationHypermetabolicBlood: 1
+      MutationMindReader: 1
+      MutationRadioactivity: 1
+      MutationTelepathy: 1
+  - type: ThermalVision # #Cythisiax - innate thermal vision: sees heat signatures through walls, always on
+    isActive: true
+    lightRadius: 15
+    color: "#F84742"
+    activateSound: null
+    deactivateSound: null
+  - type: PointLight # #Cythisiax - ambient low green glow (Bwonsamdi theme)
+    radius: 3
+    energy: 1.5
+    color: "#2aff5e"
+    castShadows: false
+  - type: BorgHands # #Cythisiax - real hand slots so the deathclaw can hold and use items (guns, tools, etc.)
+    handCount: 2
+  - type: Inventory # #Misfits Add - one harness-only slot; does not enable ordinary humanoid clothing
+    speciesId: Deathclaw
+    templateId: bwonsamdi
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.WastelandMapUiKey.Key:
+        type: WastelandMapBoundUserInterface
+  - type: ComplexInteraction # #Cythisiax - full object manipulation (click doors, containers, etc.)
+  - type: Puller # #Cythisiax - can drag anything regardless of weight (any unanchored Pullable); no hands needed
+    needsHands: false
+  - type: StructureBreaker # #Cythisiax - can smash through "indestructible" structures (no Damageable) on melee hit
+  - type: SentientDeathclaw # common speech/emote/butchering marker; grants no loa abilities
+  - type: Bwonsamdi # #Misfits Add - map-wide death sense and once-per-round atmospheric announcements
+  - type: WastelandMap # Bwonsamdi-only Soul Compass feed, opened by ActionBwonsamdiSoulCompass
+    mapTexturePath: _Misfits/Maps/wendover_map.png
+    mapTitle: Bwonsamdi's Soul Compass
+    worldBounds: "-517,-308,484,311"
+    tacticalFeed: Bwonsamdi

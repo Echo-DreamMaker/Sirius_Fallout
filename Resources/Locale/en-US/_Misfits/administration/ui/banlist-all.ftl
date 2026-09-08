@@ -11,6 +11,9 @@ banlistall-tab-all-role-bans = All Role Bans
 
 # Column header: player name column (others reuse ban-list-header-* keys)
 banlistall-header-player = Player
+banlistall-roleban-pardon-active = Pardon active role bans
+banlistall-roleban-pardon-confirm = Click again to pardon all
+banlistall-roleban-active-count = {$count} active role bans
 
 # Command locale
 cmd-banlistall-desc = Opens a GUI listing all active (and historical) bans on the server.

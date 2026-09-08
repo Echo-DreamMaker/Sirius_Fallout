@@ -47,8 +47,16 @@ public abstract class SharedMouseRotatorSystem : EntitySystem
 
     private void OnRequestRotation(RequestMouseRotatorRotationEvent msg, EntitySessionEventArgs args)
     {
-        if (args.SenderSession.AttachedEntity is not { } ent
-            || !TryComp<MouseRotatorComponent>(ent, out var rotator))
+        if (args.SenderSession.AttachedEntity is not { } ent)
+        {
+            Log.Error($"User {args.SenderSession.Name} ({args.SenderSession.UserId}) tried setting local rotation directly without a valid mouse rotator component attached!");
+            return;
+        }
+
+        if (TryComp<Content.Shared.Mech.Components.MechPilotComponent>(ent, out var pilot))
+            ent = pilot.Mech;
+
+        if (!TryComp<MouseRotatorComponent>(ent, out var rotator))
         {
             Log.Error($"User {args.SenderSession.Name} ({args.SenderSession.UserId}) tried setting local rotation directly without a valid mouse rotator component attached!");
             return;

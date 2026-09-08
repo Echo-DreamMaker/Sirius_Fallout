@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._Misfits.Wielding;
+using Content.Shared._N14.SuperMutant;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -199,6 +200,16 @@ public sealed class WieldableSystem : EntitySystem
             args.Handled = TryUnwield(uid, component, args.User);
     }
 
+    /// <summary>
+    /// Super mutants can wield a gun with a single hand, so no additional free hand is required.
+    /// </summary>
+    private int GetEffectiveFreeHandsRequired(EntityUid user, EntityUid used, WieldableComponent component)
+    {
+        if (HasComp<GunComponent>(used) && HasComp<SuperMutantComponent>(user))
+            return 0;
+        return component.FreeHandsRequired;
+    }
+
     public bool CanWield(EntityUid uid, WieldableComponent component, EntityUid user, bool quiet = false)
     {
         // Do they have enough hands free?
@@ -218,12 +229,13 @@ public sealed class WieldableSystem : EntitySystem
         }
 
         // #Misfits Change /Fix/ - Wielding must reserve actually empty hands, not auto-drop occupied or pull-blocked hands.
-        if (_handsSystem.EnumerateHands(user, hands).Count(hand => hand.IsEmpty) < component.FreeHandsRequired)
+        var requiredHands = GetEffectiveFreeHandsRequired(user, uid, component);
+        if (_handsSystem.EnumerateHands(user, hands).Count(hand => hand.IsEmpty) < requiredHands)
         {
             if (!quiet)
             {
                 var message = Loc.GetString("wieldable-component-not-enough-free-hands",
-                    ("number", component.FreeHandsRequired), ("item", uid));
+                    ("number", requiredHands), ("item", uid));
                 _popupSystem.PopupClient(message, user, user);
             }
             return false;
@@ -239,20 +251,23 @@ public sealed class WieldableSystem : EntitySystem
     /// <returns>True if the attempt wasn't blocked.</returns>
     public bool TryWield(EntityUid used, WieldableComponent component, EntityUid user)
     {
+        // Super mutants wield guns with a single hand - no extra free hand, no virtual item.
+        var requiredHands = GetEffectiveFreeHandsRequired(user, used, component);
+
         // #Misfits Add - Auto-drop off-hand items when wielding a weapon that requires a free hand.
         // If the other hand contains a non-virtual item and we don't have enough free hands, drop it
         // so the player can wield without needing to manually clear their off-hand first.
         if (_netManager.IsServer
-            && component.FreeHandsRequired > 0
+            && requiredHands > 0
             && TryComp<HandsComponent>(user, out var handsForDrop)
             && _handsSystem.IsHolding(user, used, out var wieldHand, handsForDrop))
         {
             var freeCount = _handsSystem.EnumerateHands(user, handsForDrop).Count(h => h.IsEmpty);
-            if (freeCount < component.FreeHandsRequired)
+            if (freeCount < requiredHands)
             {
                 foreach (var hand in _handsSystem.EnumerateHands(user, handsForDrop))
                 {
-                    if (freeCount >= component.FreeHandsRequired)
+                    if (freeCount >= requiredHands)
                         break;
                     if (hand == wieldHand || hand.IsEmpty)
                         continue;
@@ -293,7 +308,7 @@ public sealed class WieldableSystem : EntitySystem
         if (_netManager.IsServer)
         {
             var virtuals = new List<EntityUid>();
-            for (var i = 0; i < component.FreeHandsRequired; i++)
+            for (var i = 0; i < requiredHands; i++)
             {
                 if (_virtualItemSystem.TrySpawnVirtualItemInHand(used, user, out var virtualItem, true))
                 {

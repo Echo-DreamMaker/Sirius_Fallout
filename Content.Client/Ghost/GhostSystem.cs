@@ -130,7 +130,15 @@ namespace Content.Client.Ghost
         private void OnGhostState(EntityUid uid, GhostComponent component, ref AfterAutoHandleStateEvent args)
         {
             if (TryComp<SpriteComponent>(uid, out var sprite))
+            {
+                // #Misfits Fixed - neutralize the prototype sprite tint (e.g. AdminObserver's
+                // red) whenever a custom ghost color is set, so preset colors render at full
+                // strength instead of being multiplied into red for aghost users.
+                if (component.color != Color.White)
+                    sprite.Color = Color.White;
+
                 sprite.LayerSetColor(0, component.color);
+            }
 
             if (uid != _playerManager.LocalEntity)
                 return;

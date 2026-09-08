@@ -8,6 +8,7 @@ using Content.Server.NPC.Pathfinding;
 using Content.Shared.CCVar;
 using Content.Shared.Climbing.Systems;
 using Content.Shared.CombatMode;
+using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
@@ -233,10 +234,20 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
     /// <summary>
     /// Stops the steering behavior for the AI and cleans up.
     /// </summary>
-    public void Unregister(EntityUid uid, NPCSteeringComponent? component = null)
+    public void Unregister(EntityUid uid, NPCSteeringComponent? component = null, bool force = false)
     {
         if (!Resolve(uid, ref component, false))
             return;
+
+        // HTN movement tasks normally unregister their steering when their short-lived plan
+        // finishes.  Do not tear down the steering state while it owns an obstacle DoAfter:
+        // the replacement plan would otherwise resume movement and cancel a climb/pry action
+        // that explicitly breaks on movement.
+        if (!force && component.DoAfterId is { } doAfterId &&
+            _doAfter.GetStatus(doAfterId) == DoAfterStatus.Running)
+        {
+            return;
+        }
 
         if (EntityManager.TryGetComponent(uid, out InputMoverComponent? controller))
         {
@@ -494,7 +505,9 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
             return;
         }
 
-        steering.PathfindToken = new CancellationTokenSource();
+        var pathfindToken = new CancellationTokenSource();
+        var pathfindTarget = steering.Coordinates;
+        steering.PathfindToken = pathfindToken;
         // #Misfits Fix — Reset the stuck clock when we start a new path request.
         // This ensures the anti-stuck window only measures time the NPC spends
         // truly immobile *after* pathfinding completes, not queue-wait time.
@@ -505,10 +518,23 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         var result = await _pathfindingSystem.GetPathSafe(
             uid,
             xform.Coordinates,
-            steering.Coordinates,
+            pathfindTarget,
             steering.Range,
-            steering.PathfindToken.Token,
+            pathfindToken.Token,
             flags);
+
+        // The target may have changed or this steering component may have been removed
+        // while the path request was queued. Never let an old completion overwrite the
+        // current route (or clear the current request's cancellation token).
+        if (!Exists(uid) ||
+            !TryComp<NPCSteeringComponent>(uid, out var currentSteering) ||
+            !ReferenceEquals(currentSteering, steering) ||
+            steering.PathfindToken != pathfindToken ||
+            pathfindToken.IsCancellationRequested ||
+            !steering.Coordinates.Equals(pathfindTarget))
+        {
+            return;
+        }
 
         steering.PathfindToken = null;
 
@@ -530,6 +556,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
 
         PrunePath(uid, ourPos, targetPos.Position - ourPos.Position, result.Path);
         steering.CurrentPath = new Queue<PathPoly>(result.Path);
+        steering.FailedPathCount = 0;
     }
 
     // TODO: Move these to movercontroller

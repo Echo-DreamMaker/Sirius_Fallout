@@ -6,6 +6,16 @@
   - type: Pda
     id: N14IDBrotherhoodHolotagCommander
 
+# #Cythisiax Commented - Paladin Commander Pip-Boy no longer used: the Brotherhood Deserter
+# retired HT Instructor slot used NCR prisoner dogtags instead of a BoS Pip-Boy.
+#- type: entity
+#  parent: N14BasePipboy
+#  id: N14PaladinCommander_PipBoy
+#  suffix: Paladin Commander
+#  components:
+#  - type: Pda
+#    id: N14IDBrotherhoodOfSteelHolotagPaladinCommander
+
 - type: entity
   parent: N14BasePipboy
   id: N14HeadScribe_PipBoy
@@ -21,3 +31,21 @@
   components:
   - type: Pda
     id: N14IDBrotherhoodOfSteelHolotagHeadKnight
+
+# #Cythisiax Fixed - Dedented Lancer Pip-Boy entities (4-space indent broke YAML parsing)
+# #Cythisiax Renamed (player-facing) - suffixes show Knight-Captain / Knight-Lancer; entity IDs kept stable.
+- type: entity
+  parent: N14BasePipboy
+  id: N14LancerKnight_PipBoy
+  suffix: Knight-Lancer
+  components:
+  - type: Pda
+    id: N14IDBrotherhoodOfSteelHolotagKnight
+
+- type: entity
+  parent: N14BasePipboy
+  id: N14LancerCaptain_PipBoy
+  suffix: Knight-Captain
+  components:
+  - type: Pda
+    id: N14IDBrotherhoodOfSteelHolotagSeniorKnight

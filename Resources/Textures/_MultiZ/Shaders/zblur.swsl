@@ -1,0 +1,14 @@
+// Origin: ColonialMarinesUniverse (AU-14) — Multi Z system
+//   PR #1058 "Multi Z addition" & #1119 "Multi z fixes" by TheHellFireo
+//   Based on Crystall Edge (crystallpunk-14) Multi-Z system
+// Ported to misfits-14 _MultiZ/
+// #Cythisiax Ported — Multi-Z level support for misfits-14
+
+// Z-level blur shader — applied as an overlay when looking between Z-levels.
+// SWSL shader format for RobustToolbox.
+
+void fragment(in vec2 uv, out vec4 color)
+{
+    // Passthrough placeholder — blur effect to be implemented.
+    color = vec4(0.0, 0.0, 0.0, 0.2);
+}

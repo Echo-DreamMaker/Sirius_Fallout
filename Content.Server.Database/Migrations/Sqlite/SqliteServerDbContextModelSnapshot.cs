@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Sqlite
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.0");
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
@@ -256,8 +256,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("expiration_time");
 
-                    b.Property<DateTime?>("LastEditedAt")
-                        .IsRequired()
+                    b.Property<DateTime>("LastEditedAt")
                         .HasColumnType("TEXT")
                         .HasColumnName("last_edited_at");
 
@@ -385,8 +384,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("expiration_time");
 
-                    b.Property<DateTime?>("LastEditedAt")
-                        .IsRequired()
+                    b.Property<DateTime>("LastEditedAt")
                         .HasColumnType("TEXT")
                         .HasColumnName("last_edited_at");
 
@@ -483,6 +481,45 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("assigned_user_id", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.AtmPlacement", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("atm_placement_id");
+
+                    b.Property<string>("MapName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("map_name");
+
+                    b.Property<string>("PlacementKey")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("placement_key");
+
+                    b.Property<string>("PrototypeId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("prototype_id");
+
+                    b.Property<int>("TileX")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("tile_x");
+
+                    b.Property<int>("TileY")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("tile_y");
+
+                    b.HasKey("Id")
+                        .HasName("PK_atm_placement");
+
+                    b.HasIndex("PlacementKey")
+                        .IsUnique();
+
+                    b.ToTable("atm_placement", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.BanTemplate", b =>
                 {
                     b.Property<int>("Id")
@@ -539,6 +576,129 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("blacklist", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.CharacterCurrency", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("character_currency_id");
+
+                    b.Property<int>("Bottlecaps")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("bottlecaps");
+
+                    b.Property<string>("CharacterName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("character_name");
+
+                    b.Property<int>("Gold")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("gold");
+
+                    b.Property<int>("LegionDenarii")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("legion_denarii");
+
+                    b.Property<int>("NcrDollars")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("ncr_dollars");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.Property<int>("PrewarMoney")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("prewar_money");
+
+                    b.Property<int>("Silver")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("silver");
+
+                    b.HasKey("Id")
+                        .HasName("PK_character_currency");
+
+                    b.HasIndex("PlayerId", "CharacterName")
+                        .IsUnique();
+
+                    b.ToTable("character_currency", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.CharacterPlayerData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("character_player_data_id");
+
+                    b.Property<int>("Agility")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("agility");
+
+                    b.Property<string>("CharacterName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("character_name");
+
+                    b.Property<int>("Charisma")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("charisma");
+
+                    b.Property<int>("Deaths")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("deaths");
+
+                    b.Property<int>("Endurance")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("endurance");
+
+                    b.Property<string>("HistoryLog")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("history_log");
+
+                    b.Property<int>("Intelligence")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("intelligence");
+
+                    b.Property<int>("Luck")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("luck");
+
+                    b.Property<int>("MobKills")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("mob_kills");
+
+                    b.Property<int>("Perception")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("perception");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.Property<int>("RoundsPlayed")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("rounds_played");
+
+                    b.Property<bool>("StatsConfirmed")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("stats_confirmed");
+
+                    b.Property<int>("Strength")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("strength");
+
+                    b.HasKey("Id")
+                        .HasName("PK_character_player_data");
+
+                    b.HasIndex("PlayerId", "CharacterName")
+                        .IsUnique();
+
+                    b.ToTable("character_player_data", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Property<int>("Id")
@@ -589,6 +749,103 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.HasIndex("UserId");
 
                     b.ToTable("connection_log", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.HelpTicketEvent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("help_ticket_event_id");
+
+                    b.Property<Guid?>("AdminId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("admin_id");
+
+                    b.Property<string>("AdminName")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("admin_name");
+
+                    b.Property<int>("EventType")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("event_type");
+
+                    b.Property<DateTime>("OccurredAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("occurred_at");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.Property<string>("PlayerName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_name");
+
+                    b.Property<int>("TicketId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("ticket_id");
+
+                    b.Property<int>("TicketType")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("ticket_type");
+
+                    b.HasKey("Id")
+                        .HasName("PK_help_ticket_event");
+
+                    b.HasIndex("OccurredAt");
+
+                    b.HasIndex("PlayerId");
+
+                    b.ToTable("help_ticket_event", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.HelpTicketMessage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("help_ticket_message_id");
+
+                    b.Property<string>("MessageText")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("message_text");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.Property<bool>("SenderIsStaff")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("sender_is_staff");
+
+                    b.Property<string>("SenderName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("sender_name");
+
+                    b.Property<DateTime>("SentAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("sent_at");
+
+                    b.Property<int>("TicketId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("ticket_id");
+
+                    b.Property<int>("TicketType")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("ticket_type");
+
+                    b.HasKey("Id")
+                        .HasName("PK_help_ticket_message");
+
+                    b.HasIndex("PlayerId");
+
+                    b.HasIndex("TicketId", "TicketType");
+
+                    b.ToTable("help_ticket_message", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Job", b =>
@@ -667,6 +924,338 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("loadout", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.MarketListing", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("market_listing_id");
+
+                    b.Property<string>("Currency")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("currency");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("expires_at");
+
+                    b.Property<DateTime>("ListedAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("listed_at");
+
+                    b.Property<Guid>("ListingId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("listing_id");
+
+                    b.Property<int>("PricePerUnit")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("price_per_unit");
+
+                    b.Property<string>("PrototypeId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("prototype_id");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("quantity");
+
+                    b.Property<string>("RequestedItemId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("requested_item_id");
+
+                    b.Property<int>("RequestedQuantity")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("requested_quantity");
+
+                    b.Property<string>("SellerCharacterName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("seller_character_name");
+
+                    b.Property<Guid>("SellerPlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("seller_player_id");
+
+                    b.Property<DateTime?>("SoldAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("sold_at");
+
+                    b.Property<string>("SoldItemTag")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("sold_item_tag");
+
+                    b.Property<string>("SoldToCharacter")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("sold_to_character");
+
+                    b.Property<int>("StackCount")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("stack_count");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("status");
+
+                    b.HasKey("Id")
+                        .HasName("PK_market_listing");
+
+                    b.HasIndex("ExpiresAt");
+
+                    b.HasIndex("ListingId")
+                        .IsUnique();
+
+                    b.HasIndex("SellerPlayerId", "Status");
+
+                    b.ToTable("market_listing", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.MarketPriceHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("market_price_history_id");
+
+                    b.Property<int>("Demand")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("demand");
+
+                    b.Property<string>("PrototypeId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("prototype_id");
+
+                    b.Property<int>("ReferencePrice")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("reference_price");
+
+                    b.Property<int>("Supply")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("supply");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("timestamp");
+
+                    b.HasKey("Id")
+                        .HasName("PK_market_price_history");
+
+                    b.HasIndex("PrototypeId", "Timestamp");
+
+                    b.ToTable("market_price_history", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.MarketSale", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("market_sale_id");
+
+                    b.Property<Guid>("BuyerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("buyer_id");
+
+                    b.Property<string>("BuyerName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("buyer_name");
+
+                    b.Property<string>("Currency")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("currency");
+
+                    b.Property<string>("ItemProto")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("item_proto");
+
+                    b.Property<Guid>("ListingId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("listing_id");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("price");
+
+                    b.Property<Guid>("SellerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("seller_id");
+
+                    b.Property<string>("SellerName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("seller_name");
+
+                    b.Property<DateTime>("SoldAt")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("sold_at");
+
+                    b.HasKey("Id")
+                        .HasName("PK_market_sale");
+
+                    b.HasIndex("SoldAt");
+
+                    b.ToTable("market_sale", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.MarketSoldItem", b =>
+                {
+                    b.Property<string>("SoldTag")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("sold_tag");
+
+                    b.HasKey("SoldTag")
+                        .HasName("PK_market_sold_item");
+
+                    b.ToTable("market_sold_item", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PersistentDecal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("persistent_decal_id");
+
+                    b.Property<bool>("Cleanable")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("cleanable");
+
+                    b.Property<int>("ColorArgb")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("color_argb");
+
+                    b.Property<string>("DecalId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("decal_id");
+
+                    b.Property<string>("PersistenceId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("persistence_id");
+
+                    b.Property<float>("Rotation")
+                        .HasColumnType("REAL")
+                        .HasColumnName("rotation");
+
+                    b.Property<string>("SpawnedBy")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("spawned_by");
+
+                    b.Property<float>("X")
+                        .HasColumnType("REAL")
+                        .HasColumnName("x");
+
+                    b.Property<float>("Y")
+                        .HasColumnType("REAL")
+                        .HasColumnName("y");
+
+                    b.Property<int>("ZIndex")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("z_index");
+
+                    b.HasKey("Id")
+                        .HasName("PK_persistent_decal");
+
+                    b.HasIndex("PersistenceId")
+                        .IsUnique();
+
+                    b.ToTable("persistent_decal", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PersistentEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("persistent_entity_id");
+
+                    b.Property<string>("PersistenceId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("persistence_id");
+
+                    b.Property<string>("PrototypeId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("prototype_id");
+
+                    b.Property<double>("RotationDegrees")
+                        .HasColumnType("REAL")
+                        .HasColumnName("rotation_degrees");
+
+                    b.Property<string>("SpawnedBy")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("spawned_by");
+
+                    b.Property<float>("X")
+                        .HasColumnType("REAL")
+                        .HasColumnName("x");
+
+                    b.Property<float>("Y")
+                        .HasColumnType("REAL")
+                        .HasColumnName("y");
+
+                    b.HasKey("Id")
+                        .HasName("PK_persistent_entity");
+
+                    b.HasIndex("PersistenceId")
+                        .IsUnique();
+
+                    b.ToTable("persistent_entity", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.PersistentTile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("persistent_tile_id");
+
+                    b.Property<string>("PersistenceId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("persistence_id");
+
+                    b.Property<int>("RotationMirroring")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("rotation_mirroring");
+
+                    b.Property<string>("SpawnedBy")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("spawned_by");
+
+                    b.Property<string>("TileDefName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("tile_def_name");
+
+                    b.Property<float>("X")
+                        .HasColumnType("REAL")
+                        .HasColumnName("x");
+
+                    b.Property<float>("Y")
+                        .HasColumnType("REAL")
+                        .HasColumnName("y");
+
+                    b.HasKey("Id")
+                        .HasName("PK_persistent_tile");
+
+                    b.HasIndex("PersistenceId")
+                        .IsUnique();
+
+                    b.ToTable("persistent_tile", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.PlayTime", b =>
                 {
                     b.Property<int>("Id")
@@ -703,6 +1292,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("player_id");
 
+                    b.Property<string>("DiscordId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("discord_id");
+
                     b.Property<DateTime>("FirstSeenTime")
                         .HasColumnType("TEXT")
                         .HasColumnName("first_seen_time");
@@ -710,10 +1303,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<DateTime?>("LastReadRules")
                         .HasColumnType("TEXT")
                         .HasColumnName("last_read_rules");
-
-                    b.Property<string>("DiscordId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("discord_id");
 
                     b.Property<string>("LastSeenAddress")
                         .IsRequired()
@@ -762,6 +1351,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("admin_ooc_color");
 
+                    b.Property<bool>("AnonymousRoundEndReport")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("anonymous_round_end_report");
+
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("INTEGER")
                         .HasColumnName("selected_character_slot");
@@ -809,6 +1402,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("clothing");
+
+                    b.Property<byte[]>("CustomBaseLayers")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("custom_base_layers");
 
                     b.Property<string>("CustomSpecieName")
                         .IsRequired()
@@ -892,20 +1489,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("spawn_priority");
 
-                    b.Property<string>("Species")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("species");
-
-                    b.Property<string>("StationAiName")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("station_ai_name");
-
-                    b.Property<string>("SpeechVerbPreference")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("speech_verb_preference");
-
                     b.Property<int>("SpecialAgility")
                         .HasColumnType("INTEGER")
                         .HasColumnName("special_agility");
@@ -933,6 +1516,20 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<int>("SpecialStrength")
                         .HasColumnType("INTEGER")
                         .HasColumnName("special_strength");
+
+                    b.Property<string>("Species")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("species");
+
+                    b.Property<string>("SpeechVerbPreference")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("speech_verb_preference");
+
+                    b.Property<string>("StationAiName")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("station_ai_name");
 
                     b.Property<string>("Voice")
                         .IsRequired()
@@ -1285,6 +1882,43 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("server_unban", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.Supporter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("supporter_id");
+
+                    b.Property<string>("NameColor")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("name_color");
+
+                    b.Property<int>("Tier")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("tier");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("title");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("username");
+
+                    b.HasKey("Id")
+                        .HasName("PK_supporter");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("supporter", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.Property<int>("Id")
@@ -1371,426 +2005,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasDatabaseName("IX_player_round_rounds_id");
 
                     b.ToTable("player_round", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.CharacterCurrency", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("character_currency_id");
-
-                    b.Property<int>("Bottlecaps")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("bottlecaps");
-
-                    b.Property<string>("CharacterName")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("character_name");
-
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_character_currency");
-
-                    b.HasIndex("PlayerId", "CharacterName")
-                        .IsUnique();
-
-                    b.ToTable("character_currency", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.CharacterPlayerData", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("character_player_data_id");
-
-                    b.Property<int>("Agility")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("agility");
-
-                    b.Property<int>("Charisma")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("charisma");
-
-                    b.Property<string>("CharacterName")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("character_name");
-
-                    b.Property<int>("Deaths")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("deaths");
-
-                    b.Property<int>("Endurance")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("endurance");
-
-                    b.Property<string>("HistoryLog")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("history_log");
-
-                    b.Property<int>("Intelligence")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("intelligence");
-
-                    b.Property<int>("Luck")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("luck");
-
-                    b.Property<int>("MobKills")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("mob_kills");
-
-                    b.Property<int>("Perception")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("perception");
-
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_id");
-
-                    b.Property<int>("RoundsPlayed")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("rounds_played");
-
-                    b.Property<bool>("StatsConfirmed")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("stats_confirmed");
-
-                    b.Property<int>("Strength")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("strength");
-
-                    b.HasKey("Id")
-                        .HasName("PK_character_player_data");
-
-                    b.HasIndex("PlayerId", "CharacterName")
-                        .IsUnique();
-
-                    b.ToTable("character_player_data", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.PersistentEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("persistent_entity_id");
-
-                    b.Property<string>("PersistenceId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("persistence_id");
-
-                    b.Property<string>("PrototypeId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("prototype_id");
-
-                    b.Property<double>("RotationDegrees")
-                        .HasColumnType("REAL")
-                        .HasColumnName("rotation_degrees");
-
-                    b.Property<string>("SpawnedBy")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("spawned_by");
-
-                    b.Property<float>("X")
-                        .HasColumnType("REAL")
-                        .HasColumnName("x");
-
-                    b.Property<float>("Y")
-                        .HasColumnType("REAL")
-                        .HasColumnName("y");
-
-                    b.HasKey("Id")
-                        .HasName("PK_persistent_entity");
-
-                    b.HasIndex("PersistenceId")
-                        .IsUnique();
-
-                    b.ToTable("persistent_entity", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.PersistentTile", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("persistent_tile_id");
-
-                    b.Property<string>("PersistenceId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("persistence_id");
-
-                    b.Property<int>("RotationMirroring")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("rotation_mirroring");
-
-                    b.Property<string>("SpawnedBy")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("spawned_by");
-
-                    b.Property<string>("TileDefName")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("tile_def_name");
-
-                    b.Property<float>("X")
-                        .HasColumnType("REAL")
-                        .HasColumnName("x");
-
-                    b.Property<float>("Y")
-                        .HasColumnType("REAL")
-                        .HasColumnName("y");
-
-                    b.HasKey("Id")
-                        .HasName("PK_persistent_tile");
-
-                    b.HasIndex("PersistenceId")
-                        .IsUnique();
-
-                    b.ToTable("persistent_tile", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.PersistentDecal", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("persistent_decal_id");
-
-                    b.Property<bool>("Cleanable")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("cleanable");
-
-                    b.Property<int>("ColorArgb")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("color_argb");
-
-                    b.Property<string>("DecalId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("decal_id");
-
-                    b.Property<string>("PersistenceId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("persistence_id");
-
-                    b.Property<float>("Rotation")
-                        .HasColumnType("REAL")
-                        .HasColumnName("rotation");
-
-                    b.Property<string>("SpawnedBy")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("spawned_by");
-
-                    b.Property<float>("X")
-                        .HasColumnType("REAL")
-                        .HasColumnName("x");
-
-                    b.Property<float>("Y")
-                        .HasColumnType("REAL")
-                        .HasColumnName("y");
-
-                    b.Property<int>("ZIndex")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("z_index");
-
-                    b.HasKey("Id")
-                        .HasName("PK_persistent_decal");
-
-                    b.HasIndex("PersistenceId")
-                        .IsUnique();
-
-                    b.ToTable("persistent_decal", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.AtmPlacement", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("atm_placement_id");
-
-                    b.Property<string>("MapName")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("map_name");
-
-                    b.Property<string>("PlacementKey")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("placement_key");
-
-                    b.Property<string>("PrototypeId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("prototype_id");
-
-                    b.Property<int>("TileX")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("tile_x");
-
-                    b.Property<int>("TileY")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("tile_y");
-
-                    b.HasKey("Id")
-                        .HasName("PK_atm_placement");
-
-                    b.HasIndex("PlacementKey")
-                        .IsUnique();
-
-                    b.ToTable("atm_placement", (string)null);
-                });
-
-            // #Misfits Add — Help ticket lifecycle audit log (cross-round, append-only).
-            modelBuilder.Entity("Content.Server.Database.HelpTicketEvent", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("help_ticket_event_id");
-
-                    b.Property<Guid?>("AdminId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("admin_id");
-
-                    b.Property<string>("AdminName")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("admin_name");
-
-                    b.Property<int>("EventType")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("event_type");
-
-                    b.Property<DateTime>("OccurredAt")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("occurred_at");
-
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_id");
-
-                    b.Property<string>("PlayerName")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_name");
-
-                    b.Property<int>("TicketId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("ticket_id");
-
-                    b.Property<int>("TicketType")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("ticket_type");
-
-                    b.HasKey("Id")
-                        .HasName("PK_help_ticket_event");
-
-                    b.HasIndex("OccurredAt")
-                        .HasDatabaseName("IX_help_ticket_event_occurred_at");
-
-                    b.HasIndex("PlayerId")
-                        .HasDatabaseName("IX_help_ticket_event_player_id");
-
-                    b.ToTable("help_ticket_event", (string)null);
-                });
-
-            // #Misfits Add — Individual bwoink/mhelp chat messages (persistent, cross-round).
-            modelBuilder.Entity("Content.Server.Database.HelpTicketMessage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("help_ticket_message_id");
-
-                    b.Property<string>("MessageText")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("message_text");
-
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_id");
-
-                    b.Property<bool>("SenderIsStaff")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("sender_is_staff");
-
-                    b.Property<string>("SenderName")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("sender_name");
-
-                    b.Property<DateTime>("SentAt")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("sent_at");
-
-                    b.Property<int>("TicketId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("ticket_id");
-
-                    b.Property<int>("TicketType")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("ticket_type");
-
-                    b.HasKey("Id")
-                        .HasName("PK_help_ticket_message");
-
-                    b.HasIndex("PlayerId")
-                        .HasDatabaseName("IX_help_ticket_message_player_id");
-
-                    b.HasIndex("TicketId", "TicketType")
-                        .HasDatabaseName("IX_help_ticket_message_ticket_id_ticket_type");
-
-                    b.ToTable("help_ticket_message", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.Supporter", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("supporter_id");
-
-                    b.Property<string>("NameColor")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("name_color");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("title");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("user_id");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("username");
-
-                    b.HasKey("Id")
-                        .HasName("PK_supporter");
-
-                    b.HasIndex("UserId")
-                        .IsUnique()
-                        .HasDatabaseName("IX_supporter_user_id");
-
-                    b.ToTable("supporter", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>

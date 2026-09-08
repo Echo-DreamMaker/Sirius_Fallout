@@ -1,5 +1,6 @@
 using Content.Client._NC.DiscordAuth;
 using Content.Client._Misfits.DiscordLink; // #Misfits Add - player Discord account linking
+using Content.Client._Misfits.Supporter; // #Cythisiax Add - Patreon supporter tier sync
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -29,6 +30,7 @@ using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
 using Content.Client._NC.Sponsor; // Forge-Change
 using Content.Shared._NC.Sponsor; // Forge-Change
+using Content.Shared._Misfits.Supporter; // #Cythisiax Add - Patreon supporter tier sync
 
 namespace Content.Client.IoC
 {
@@ -62,6 +64,8 @@ namespace Content.Client.IoC
             collection.Register<JoinQueueManager>();
             collection.Register<DiscordAuthManager>();
             collection.Register<MisfitsDiscordLinkManager>(); // #Misfits Add
+            collection.Register<SupporterManager>(); // #Cythisiax Add - Patreon supporter tier sync
+            collection.Register<ISharedSupporterManager, SupporterManager>(); // #Cythisiax Add
             collection.Register<PlayerRateLimitManager>();
             collection.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             collection.Register<NanoChatSystem>();

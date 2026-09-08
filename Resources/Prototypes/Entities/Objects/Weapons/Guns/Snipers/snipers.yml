@@ -5,6 +5,9 @@
   description: A rooty tooty point and shooty.
   abstract: true
   components:
+  - type: Tag
+    tags:
+    - Sniper
   - type: Sprite
     layers:
     - state: base
@@ -21,6 +24,8 @@
   - type: Appearance # Corvax-Change
   - type: Wieldable
     wieldedSpeedModifier: 0.8
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunRequiresWield
   - type: Gun
     fireRate: 0.75

@@ -29,6 +29,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared._Misfits.Grab; // #Misfits Add - grab intent integration
 using Content.Shared._Misfits.MartialArts; // #Misfits Add - combo attack event integration
+using Content.Shared._Misfits.Deathclaw; // #Cythisiax Add - allow explicit non-Damageable structure targets
 using Content.Shared.Movement.Pulling.Components; // #Misfits Add - check if puller is attacking pulled target
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
@@ -47,7 +48,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] protected readonly SharedCombatModeSystem   CombatMode      = default!;
     [Dependency] protected readonly DamageableSystem         Damageable      = default!;
     [Dependency] protected readonly SharedInteractionSystem  Interaction     = default!;
-    [Dependency] protected readonly IMapManager              MapManager      = default!;
+    [Dependency] protected readonly SharedMapSystem              MapManager      = default!;
     [Dependency] protected readonly SharedPopupSystem        PopupSystem     = default!;
     [Dependency] protected readonly IGameTiming              Timing          = default!;
     [Dependency] protected readonly SharedTransformSystem    TransformSystem = default!;
@@ -472,11 +473,22 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     protected bool CanDoLightAttack(EntityUid user, [NotNullWhen(true)] EntityUid? target, MeleeWeaponComponent component, [NotNullWhen(true)] out TransformComponent? targetXform, ICommonSession? session = null, GameTick? lastRealTick = null)
     {
         targetXform = null;
-        return !Deleted(target) &&
-            HasComp<DamageableComponent>(target) &&
-            TryComp<TransformComponent>(target, out targetXform) &&
+        if (Deleted(target) ||
+            !TryComp<TransformComponent>(target, out targetXform) ||
             // Not in LOS.
-            InRange(user, target.Value, component.Range, session, lastRealTick);
+            !InRange(user, target.Value, component.Range, session, lastRealTick))
+        {
+            return false;
+        }
+
+        if (HasComp<DamageableComponent>(target))
+            return true;
+
+        // #Cythisiax Add - let narrowly scoped innate weapons opt into targets that
+        // intentionally lack Damageable (Bwonsamdi's indestructible structures).
+        var attempt = new MeleeNonDamageableTargetAttemptEvent(target.Value);
+        RaiseLocalEvent(user, ref attempt);
+        return attempt.Allowed;
     }
 
     protected virtual void DoLightAttack(EntityUid user, LightAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)

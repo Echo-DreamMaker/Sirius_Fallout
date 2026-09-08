@@ -19,7 +19,6 @@ namespace Content.Server.Maps;
 public sealed class ResaveCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IResourceManager _res = default!;
 
     public override string Command => "resave";
@@ -53,7 +52,7 @@ public sealed class ResaveCommand : LocalizedCommands
                 loader.TrySaveGrid(child, fn);
             }
 
-            _mapManager.DeleteMap(mapId);
+            _entManager.System<SharedMapSystem>().DeleteMap(mapId);
         }
     }
 }

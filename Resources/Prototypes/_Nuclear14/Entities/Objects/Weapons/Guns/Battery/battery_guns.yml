@@ -5,6 +5,7 @@
   parent: BaseItem
   abstract: true
   components:
+  - type: SuperMutantFitting
   - type: Sprite
   - type: Item
     size: Large
@@ -25,13 +26,15 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        startingItem: N14MicrofusionCellRed
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
           tags:
             - N14MicrofusionCell
   - type: Appearance
+  - type: IntelligenceRequirement
+    requiredIntelligence: 4
   - type: StaticPrice
     price: 25
   - type: ContainerContainer
@@ -146,15 +149,12 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        startingItem: N14PowerCellSmall
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
           tags:
-            - N14MicrofusionCell
-  # #Misfits Add - Red beam override; weapon controls its own beam color
-  - type: GunDamageBonus
-    hitscanProtoOverride: N14MFLaserRed
+            - N14PowerCellSmall
   - type: Item
     size: Small
     shape:
@@ -262,6 +262,8 @@
   description: The first model for a self-charging laser rifle, its low energy consumption and advanced internal battery lets this gun last for centuries without recharging.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -24
     maxAngle: -53
@@ -290,7 +292,7 @@
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
-    fireCost: 50
+    fireCost: 100
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice
@@ -317,7 +319,7 @@
       collection: N14RechargerPistolGunshot
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
-    fireCost: 50
+    fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 20
@@ -345,6 +347,8 @@
   description: A jury-rigged AER-9 with a rotating barrel assembly for full-auto fire. Fires a red laser beam — inaccurate but devastating in volume.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -23 # #Misfits Tweak - wielded spread 2°/20°; fast fire. fast spread.
     maxAngle: -46
@@ -370,7 +374,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        startingItem: N14MicrofusionCellRed
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -383,9 +387,9 @@
     selectedMode: FullAuto
     availableModes:
     - FullAuto
-  # #Misfits Add - Red beam override; weapon controls its own beam color
+  # Higher efficiency: 1200-charge red MFC provides 26 shots.
   - type: GunDamageBonus
-    hitscanProtoOverride: N14MFLaserRed
+    fireCostMultiplier: 0.92
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice
@@ -398,6 +402,8 @@
   description: A highly advanced automatic plasma rifle in pristine condition.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -56
@@ -451,6 +457,8 @@
   description: A cutting-edge pre-war prototype laser rifle with experimental green-spectrum optics. Extremely powerful — the enhanced focusing lenses produce a distinctive green beam with significantly higher damage output.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -24 # #Misfits Tweak - wielded spread 1°/3°; full-auto weapons keep 1° minimum
     maxAngle: -57
@@ -476,7 +484,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        startingItem: N14MicrofusionCellRed
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -489,9 +497,9 @@
     selectedMode: FullAuto
     availableModes:
     - FullAuto
-  # #Misfits Add - Green beam override ; AER-14 prototype with unique green optics
+  # Higher efficiency: 1200-charge red MFC provides 30 shots.
   - type: GunDamageBonus
-    hitscanProtoOverride: N14MFLaserGreen
+    fireCostMultiplier: 0.8
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice
@@ -505,6 +513,8 @@
   description: An advanced pre-war laser rifle featuring upgraded amber-spectrum focusing optics. Higher rate of fire and slightly increased damage over the standard AER-9 — a significant step up in energy weapon technology.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -25 # #Misfits Tweak - wielded spread 0°/10° post-wield
     maxAngle: -45
@@ -530,7 +540,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: N14MicrofusionCell
+        startingItem: N14MicrofusionCellRed
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -545,9 +555,9 @@
     selectedMode: FullAuto
     availableModes:
     - FullAuto
-  # Amber beam override — weapon controls its own beam color
+  # Higher efficiency: 1200-charge red MFC provides 28 shots.
   - type: GunDamageBonus
-    hitscanProtoOverride: N14MFLaserAmber
+    fireCostMultiplier: 0.85
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice
@@ -561,6 +571,8 @@
   description: The pinnacle of pre-war laser rifle technology. Experimental blue-spectrum focusing crystals produce the highest damage output of any man-portable laser weapon. Extremely rare — only a handful survived the war, and the manufacturing knowledge is lost.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -25 # #Misfits Tweak - wielded spread 0°/2°; best accuracy, 0° min for rifles
     maxAngle: -58
@@ -586,7 +598,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: N14MicrofusionCell
+        startingItem: N14MicrofusionCellRed
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -599,9 +611,9 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  # Blue beam override (40 Heat) — highest damage laser weapon; T5 blueprint item
+  # Highest efficiency: 1200-charge red MFC provides 32 shots.
   - type: GunDamageBonus
-    hitscanProtoOverride: N14MFLaserBlue
+    fireCostMultiplier: 0.75
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice
@@ -616,6 +628,8 @@
   description: A sturdy pre-war laser rifle. Fires a standard red laser beam — reliable, well-understood technology that remains the backbone of energy weapon armories.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -24 # #Misfits Tweak - wielded spread 1°/10°; 0° min for rifles
     maxAngle: -50
@@ -641,7 +655,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        startingItem: N14MicrofusionCellRed
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -654,9 +668,9 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  # #Misfits Add - Red beam override; weapon controls its own beam color
+  # Baseline efficiency: 1200-charge red MFC provides 24 shots.
   - type: GunDamageBonus
-    hitscanProtoOverride: N14MFLaserRed
+    fireCostMultiplier: 1.0
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice
@@ -669,6 +683,8 @@
   description: A crude laser rifle, a cheap imitation of the pre-war AER-9. Fires a red laser beam — inaccurate and prone to overheating.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -45
@@ -690,7 +706,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        startingItem: N14MicrofusionCellRed
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -713,6 +729,8 @@
   description: A makeshift laser rifle cobbled from scrap. Fires a red laser beam — unreliable but gets the job done.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -34
     maxAngle: -63
@@ -738,7 +756,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        startingItem: N14MicrofusionCellRed
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -751,9 +769,6 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  # #Misfits Add - Red beam override; weapon controls its own beam color
-  - type: GunDamageBonus
-    hitscanProtoOverride: N14MFLaserRed
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice
@@ -766,6 +781,8 @@
   description: An advanced plasma rifle in almost pristine condition.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -53
@@ -819,6 +836,8 @@
   description: A cheap knock-off of a much more advanced plasma rifle.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -50
@@ -866,6 +885,8 @@
   description: A mass-produced pre-war plasma rifle designed for close quarters combat in urban environments.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -21
     maxAngle: -53
@@ -926,6 +947,8 @@
   description: A modified urban plasma rifle, it sacrifices accuracy to instead spread the plasma into multiple projectiles.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -56
@@ -979,6 +1002,8 @@
   description: Wattz 3000 Laser Rifle. Military-grade focusing optics produce a wide, bright yellow beam with devastating damage output. The most powerful laser rifle in the Wattz line — drains cells fast but hits like a truck.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -24
     maxAngle: -58
@@ -1004,7 +1029,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        startingItem: N14MicrofusionCellRed
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -1036,6 +1061,8 @@
   description: Wattz 2000 Laser Rifle. Precision focusing optics produce a wide yellow beam with heavy damage per shot. Slower rate of fire but each hit packs a serious punch at the cost of higher cell drain.
   components:
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -24
     maxAngle: -58
@@ -1061,7 +1088,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        startingItem: N14MicrofusionCellRed
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -1160,6 +1187,21 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: ItemToggle
+    onUse: false
+    soundActivate:
+      path: /Audio/Weapons/spinon.ogg
+      params:
+        volume: 1
+    soundDeactivate:
+      path: /Audio/Weapons/spinoff.ogg
+      params:
+        volume: 1
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/spinloop.ogg
+  - type: UseDelay
+    delay: 1.5
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_gatling.rsi
     quickEquip: false
@@ -1182,6 +1224,9 @@
         whitelist:
           tags:
             - N14FusionCore # #Misfits Change - Gatling now only accepts fusion cores, not standard MFCs
+  - type: MinigunToggle
+    ActivatedFireRate: 8
+    InactiveWeaponFireRate: 1
   - type: Gun
     minAngle: 2
     maxAngle: 12
@@ -1238,7 +1283,7 @@
     slots:
       gun_magazine:
         name: Power Cell
-        startingItem: N14ElectronChargePack # #Misfits Change - They abused my good will and now they lose their giga yummy shit fuck these BOS players man.
+        startingItem: N14ElectronChargePack
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
@@ -1250,6 +1295,8 @@
     - 0,0,2,1
     - 0,1,0,1
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -7 # #Misfits Tweak - wielded spread 1°/5°; rapid-fire weapons keep 1° minimum
     maxAngle: -20
@@ -1264,9 +1311,6 @@
     - Fullauto
     soundGunshot:
       collection: N14LaserAutoRifleGunshot
-  # #Misfits Add - Red beam override; weapon controls its own beam color
-  - type: GunDamageBonus
-    hitscanProtoOverride: N14PulseRed
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice
@@ -1296,12 +1340,12 @@
     slots:
       gun_magazine:
         name: Power Cell
-        startingItem: N14ElectronChargePack # #Misfits Change - consolidated to single generic ECP
+        startingItem: N14PulseEnergyCell
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
           tags:
-            - N14ElectronChargePack
+            - N14PulseEnergyCell
   - type: Item
     size: Small
     shape:
@@ -1315,9 +1359,6 @@
     angleDecay: 8
     soundGunshot:
       collection: N14LaserPistolGunshot
-  # #Misfits Add - Red pulse beam override; weapon controls its own beam color
-  - type: GunDamageBonus
-    hitscanProtoOverride: N14PulseRed
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice
@@ -1351,18 +1392,20 @@
     slots:
       gun_magazine:
         name: Power Cell
-        startingItem: N14ElectronChargePack # #Misfits Change - consolidated to single generic ECP
+        startingItem: N14PulseMicrofusionCell
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
           tags:
-            - N14ElectronChargePack
+            - N14PulseMicrofusionCell
   - type: Item
     size: Large
     shape:
     - 0,0,2,1
     - 0,1,0,1
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -18
     maxAngle: -50
@@ -1374,9 +1417,6 @@
     angleDecay: 12
     soundGunshot:
       collection: N14LaserAutoRifleGunshot
-  # #Misfits Add - Red pulse beam override; weapon controls its own beam color
-  - type: GunDamageBonus
-    hitscanProtoOverride: N14PulseRed
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice
@@ -1410,18 +1450,20 @@
     slots:
       gun_magazine:
         name: Power Cell
-        startingItem: N14ElectronChargePack # #Misfits Change - consolidated to single generic ECP
+        startingItem: N14PulseMicrofusionCell
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
           tags:
-            - N14ElectronChargePack
+            - N14PulseMicrofusionCell
   - type: Item
     size: Large
     shape:
     - 0,0,2,1
     - 0,2,0,2
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 5
   - type: GunWieldBonus
     minAngle: -22
     maxAngle: -65
@@ -1433,9 +1475,6 @@
     angleDecay: 14
     soundGunshot:
       collection: N14LaserAutoRifleGunshot
-  # #Misfits Add - Red pulse beam override; weapon controls its own beam color
-  - type: GunDamageBonus
-    hitscanProtoOverride: N14PulseRed
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice

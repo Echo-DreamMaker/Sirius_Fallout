@@ -49,6 +49,16 @@ public sealed partial class NightkinPassiveStealthComponent : Component
     [DataField, AutoNetworkedField]
     public string DeactivateMessage = "Your Stealth Boy implant powers down.";
 
+    // poison the implant leaks while it is running
+    [DataField, AutoNetworkedField]
+    public float CloakPoison = 0.1f;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan CloakPoisonInterval = TimeSpan.FromSeconds(5);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    public TimeSpan NextCloakPoison;
+
     // recharge time after the cloak drops
     [DataField, AutoNetworkedField]
     public TimeSpan Cooldown = TimeSpan.FromSeconds(30);

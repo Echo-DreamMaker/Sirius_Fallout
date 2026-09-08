@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Mech.Components;
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
@@ -90,6 +91,9 @@ public abstract class SharedCombatModeSystem : EntitySystem
 
     private void SetMouseRotatorComponents(EntityUid uid, bool value)
     {
+        if (TryComp<MechPilotComponent>(uid, out var pilot))
+            uid = pilot.Mech;
+
         if (value)
         {
             EnsureComp<MouseRotatorComponent>(uid);

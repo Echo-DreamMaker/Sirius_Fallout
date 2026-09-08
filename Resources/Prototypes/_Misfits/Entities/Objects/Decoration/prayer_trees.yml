@@ -61,29 +61,45 @@
   description: The glowing strands sway gently in the still air.
   components:
     - type: Sprite
-      sprite: _Misfits/Structures/Decoration/Flora/mutant_trees.rsi
-      state: tribal-tree
+      sprite: _Misfits/Structures/Decoration/Flora/tribal_tree_large.rsi
+      state: tribal-tree-large
     - type: Fixtures
       fixtures:
         fix1:
           shape:
             !type:PhysShapeAabb
-            bounds: "-0.5,-0.65,0.5,0.2"
+            bounds: "-0.66,-0.87,0.66,0.27"
           density: 1000
           layer:
             - WallLayer
-    - type: PointLight
-      color: "#c0faef"
+    - type: PointLight # #Misfits Tweak - subtle cyan ambient glow, matching Bwonsamdi's non-shadowed aura.
+      color: "#a8f6ff"
       radius: 5
-      power: 4
-    # #Misfits Add - Willower leadership-only Tree announcement.
+      energy: 1.5
+      castShadows: false
+    # #Misfits Add - restores living players who remain close to the Tree of Life.
+    - type: TreeOfLifeHealing
+      range: 8
+      healingCooldown: 3
+      healing:
+        groups:
+          Brute: -1
+        types:
+          Heat: -1
+          Shock: -1
+          Caustic: -1
+    # #Misfits Add - warns the Tribe when a stranger reaches the sacred roots.
+    - type: TreeOfLifeWatch
+      range: 4
+      entryCooldown: 60
+    - type: TreeOfLifeRites
+    # #Misfits Add - permanent Tribe message relay, matching campfire access/cooldown.
     - type: SmokeSignal
-      cooldown: 0 # #Misfits Change - the Tree of Life can announce without a cooldown.
+      cooldown: 600
       maxMessageLength: 128
       targetDepartment: Tribe
       nearbyRange: 0
       openOnActivate: false
-      activatorJobs: [ TribalShaman, TribalElder ]
       verb: willower-tree-announce-verb
       broadcastMessage: willower-tree-announcement
       cooldownMessage: willower-tree-announcement-cooldown
@@ -93,6 +109,8 @@
           type: SmokeSignalBoundUserInterface
         enum.WastelandMapUiKey.Key:
           type: WastelandMapBoundUserInterface
+        enum.TreeOfLifeRitesUiKey.Key:
+          type: TreeOfLifeRitesBoundUserInterface
     # #Misfits Add - Willower leadership pendant-tracking TacMap.
     - type: WastelandMap
       mapTitle: Willowers Tree of Life

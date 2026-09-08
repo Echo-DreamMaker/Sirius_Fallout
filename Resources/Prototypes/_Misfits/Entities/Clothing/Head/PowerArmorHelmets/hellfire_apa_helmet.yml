@@ -1,12 +1,12 @@
-# #Misfits Add - Tribal APA helmet: X-01 helmet reskin with Ug-Qualtoth art.
-# Inherits all X-01 helmet behaviours: HUD, EyeProtection, Armor, ToggleableLight, equip sounds.
+# #Misfits Add - Tribal APA helmet: APA MK I helmet reskin with Ug-Qualtoth art.
+# Inherits all APA MK I helmet behaviours: HUD, EyeProtection, Armor, ToggleableLight, equip sounds.
 # Only the Sprite path is overridden; the RSI provides all required state names.
 
 - type: entity
   parent: N14ClothingHeadHelmetPowerArmorHellfire
   id: N14ClothingHeadHelmetPowerArmorHellfireMisfit
   name: hellfire power armor helmet
-  description: Hellfire power armor helmet, a reskin of the X-01 helmet with a fiery motif. The heads-up display still functions beneath the blazing design, providing the same level of protection and functionality as the original.
+  description: Built around a lightweight Duraframe alloy chassis, Hellfire trades the sleek, insectoid lines of traditional Advanced Power Armor for massive, heat-dissipating segmented plates capable of withstanding incinerator backfire and heavy kinetic bombardment.
   components:
   - type: Sprite
     netsync: false

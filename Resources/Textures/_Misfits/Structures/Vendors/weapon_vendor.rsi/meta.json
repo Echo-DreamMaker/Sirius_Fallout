@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "All Rights Reserved",
+  "copyright": "RMC vendor sprite supplied for Misfits",
+  "size": {
+    "x": 64,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    }
+  ]
+}

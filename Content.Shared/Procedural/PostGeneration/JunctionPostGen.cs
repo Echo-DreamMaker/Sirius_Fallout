@@ -20,7 +20,7 @@ public sealed partial class JunctionPostGen : IPostDunGen
     public string Tile = "FloorSteel";
 
     [DataField("entities", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
-    public List<string?> Entities = new()
+    public List<string> Entities = new()
     {
         "CableApcExtension",
         "AirlockGlass"

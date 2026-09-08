@@ -1,8 +1,16 @@
+# EXCHANGE RATES FOR REFERENCE
+#GOLD BAR = 25 CAPS, 1.6 GOLD BARS = 1 AUREUS, 40 CAPS
+#SILVER BAR = 20 CAPS = 5 DENARIUS
+#1 DENARIUS = 4 CAPS
+#1 AUREUS = 40 CAPS
+#1 CAP = 2 NCR
+#IF I CATCH YOU CHANGING ONE VALUE WITHOUT ADJUSTING THE OTHERS, I WILL CROSS YOU - LEGATE TYTOS
+#'buy2' refers to what the PLAYER buys, 'sell2' refers to what the PLAYER sells.
 - type: entity
   id: Trademachine
   abstract: true
-  name: City Trading Terminal
-  description: Quick supply - it's right nearby. Choose, pay, take.
+  name: Caravan Network Terminal
+  description: Trade terminal of the Caravan Network, their reach goes from the West Coast to the Midwest. Buy, sell, take contracts and grow your legend.
   suffix: vendor, normal
   components:
   - type: UserInterface
@@ -47,8 +55,8 @@
 - type: entity
   id: TrademachineCity
   parent: Trademachine
-  name: City Trading Terminal
-  description: Quick supply - it's right nearby. Choose, pay, take.
+  name: Caravan Network Terminal
+  description: Trade terminal of the Caravan Network, their reach goes from the West Coast to the Midwest. Buy, sell, take contracts and grow your legend.
   suffix: vendor, normal
   components:
   - type: NcStore
@@ -72,14 +80,16 @@
   description: A specialized trading terminal that accepts caravan vouchers in exchange for quality equipment.
   suffix: vendor, Tickets
   components:
-  - type: NcStore
-    buyPresets:
-    - caravan_storetickets
-    sellPresets:
-    - caravan_storetickets_sell
-  - type: AccessReader
-    access:
-    - [ "TownieShopkeeper" ]
+  # #Cythisiax Edit - Free Market Exchange: overrides inherited NcStoreStructuredBoundUi
+  - type: UserInterface
+    interfaces:
+      enum.MarketUiKey.Key:
+        type: MarketBoundUi
+  - type: ActivatableUI
+    key: enum.MarketUiKey.Key
+  - type: MarketTerminal
+  # #Cythisiax Removed - The player market is public; listings are no longer
+  # restricted to TownieShopkeeper access.
   - type: Sprite
     sprite: _NF/Structures/Machines/VendingMachines/yarrrdrobe.rsi
     layers:
@@ -733,8 +743,6 @@
   - proto: N14CleanGauze10
     amount: 10
     price: 15
-  - proto: N14RadAwayPhial
-    price: 30
   - proto: N14RadAwayBloodbag
     price: 50
   - proto: N14Antidote
@@ -743,9 +751,6 @@
     price: 50
   - proto: N14Stimpak
     price: 75
-  - proto: N14AloeSalve
-    amount: 10
-    price: 100
   - proto: N14Ointment10
     amount: 10
     price: 150
@@ -762,15 +767,18 @@
   - proto: SheetSteel
     amount: 30
     price: 350
+  - proto: MaterialWoodPlank
+    amount: 30
+    price: 100
   - proto: SheetPlastic
     amount: 30
     price: 350
-  - proto: N14IngotLead20
-    amount: 20
-    price: 400
   - proto: N14Gunpowder10
     amount: 10
     price: 350
+  - proto: N14IngotLead
+    amount: 10
+    price: 200
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Alcohol
@@ -880,6 +888,23 @@
     price: 5
 
 - type: storeCategoryStructured
+  id: CaravanBuy2_Currency # IF YOU CHANGE ONE EXCHANGE RATE, YOU MUST CHANGE ALL OTHERS ACROSS ALL FOUR FILES TO MATCH, OR YOU WILL CREATE AN INFINITE MONEY GLITCH
+  name: "Currency"
+  entries:
+  - proto: N14CurrencyLegionDenarius
+    amount: 1
+    price: 4
+  - proto: N14CurrencyLegionAureus
+    amount: 1
+    price: 40
+  - proto: N14CurrencyNCRDollar2
+    amount: 2
+    price: 1
+
+
+
+
+- type: storeCategoryStructured
   id: CaravanBuy2_Plushies
   name: "Plushies"
   entries:
@@ -927,6 +952,7 @@
   - CaravanBuy2_Misc
   - CaravanBuy2_Plushies
   - CaravanBuy2_Sprouts
+  - CaravanBuy2_Currency
 
 # ----------------------------
 # caravan_sell2 categories
@@ -1314,10 +1340,10 @@
   - proto: N14IngotIron1
     price: 10
   - proto: N14IngotBrass1
-    price: 10
+    price: 40
   - proto: N14IngotLead1
     price: 10
-  - proto: N14IngotSilver1
+  - proto: N14IngotSilver1 # if you fuck with the price of one currency, silver, or gold you need to change all the others to match
     price: 20
   - proto: N14IngotGold1
     price: 25
@@ -1334,6 +1360,20 @@
     price: 3
   - proto: DrinkCognacBottleFull
     price: 3
+
+- type: storeCategoryStructured
+  id: CaravanSell2_Currency # IF YOU CHANGE ONE EXCHANGE RATE, YOU MUST CHANGE ALL OTHERS ACROSS ALL FOUR FILES TO MATCH, OR YOU WILL CREATE AN INFINITE MONEY GLITCH
+  name: "Currency"
+  entries:
+  - proto: N14CurrencyLegionDenarius
+    price: 4
+  - proto: N14CurrencyLegionAureus
+    price: 40
+  - proto: N14CurrencyNCRDollar2
+    amount: 2
+    price: 1
+
+
 
 - type: storePresetStructured
   id: caravan_sell2

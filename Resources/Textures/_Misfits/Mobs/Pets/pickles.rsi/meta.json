@@ -1,0 +1,21 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from goonstation https://github.com/goonstation/goonstation/commit/c98666f47a90d106c7a154cedffc747b3769e933, edited for Misfits Nuclear Wasteland",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "pickles",
+            "directions": 4,
+            "delays": [[1],[1],[1],[1]]
+        },
+        {
+            "name": "pickles_dead",
+            "directions": 1,
+            "delays": [[1]]
+        }
+    ]
+}

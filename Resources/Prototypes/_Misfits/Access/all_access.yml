@@ -97,6 +97,7 @@
   - NCRRanger
   - NCRCaptain
   - NCRMajor
+  - OSI
   # ── N14: Vault ──
   - VaultOverseer
   - VaultGatekeeper
@@ -119,6 +120,7 @@
   - CaesarLegionLegionnaireVeteran
   - CaesarLegionDean
   - CaesarLegionVeteranDecanus
+  - CaesarLegionOptio
   - CaesarLegionCenturion
   - CaesarLegionLegate
   # ── N14: BoS Washington ──

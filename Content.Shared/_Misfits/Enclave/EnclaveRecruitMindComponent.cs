@@ -21,4 +21,11 @@ public sealed partial class EnclaveRecruitMindComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<JobPrototype>? PreviousJob;
+
+    /// <summary>
+    /// True once the Enclave entry jobs have been whitelisted for this recruit,
+    /// so the unlock system does not re-process the mind on every poll.
+    /// </summary>
+    [DataField]
+    public bool JobsGranted; // #Cythisiax Added - tracks auto-whitelist at 4h unlock
 }

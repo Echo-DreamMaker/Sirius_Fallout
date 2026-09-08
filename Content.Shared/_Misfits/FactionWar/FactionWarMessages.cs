@@ -48,6 +48,15 @@ public enum WarPhase : byte
     Active,
 }
 
+/// <summary>Target category for a war declaration.</summary>
+[Serializable, NetSerializable]
+public enum WarTargetKind : byte
+{
+    Faction,
+    Group,
+    Wastelander,
+}
+
 /// <summary>
 /// A single active player-vs-player war, transmitted as part of <see cref="FactionWarStateUpdatedEvent"/>.
 /// Wars are character-bound: participants are tracked by their character entity, not account.
@@ -141,6 +150,9 @@ public sealed class PlayerWarPanelDataEvent : EntityEventArgs
     public string? MyCharacterName;
     public List<PlayerWarEntry> ActiveWars = new();
     public List<OnlinePlayerInfo> OnlinePlayers = new();
+    public List<WarTargetInfo> FactionTargets = new();
+    public List<WarTargetInfo> GroupTargets = new();
+    public List<WarTargetInfo> WastelanderTargets = new();
     public string? StatusMessage;
 
     /// <summary>Wars where this player is a participant.</summary>
@@ -159,6 +171,15 @@ public sealed class OnlinePlayerInfo
     public string JobName = string.Empty;
 }
 
+/// <summary>One selectable war target, grouped by kind in the UI.</summary>
+[Serializable, NetSerializable]
+public sealed class WarTargetInfo
+{
+    public WarTargetKind Kind;
+    public string Id = string.Empty;
+    public string DisplayName = string.Empty;
+}
+
 /// <summary>
 /// Client → server. Player submits the Declare War form.
 /// Server validates and responds with <see cref="FactionWarCommandResultEvent"/>.
@@ -166,7 +187,8 @@ public sealed class OnlinePlayerInfo
 [Serializable, NetSerializable]
 public sealed class PlayerWarDeclareRequestEvent : EntityEventArgs
 {
-    public NetUserId TargetPlayer;
+    public WarTargetKind TargetKind;
+    public string TargetId = string.Empty;
     public string Reason = string.Empty;
     public string SideName1 = string.Empty;  // Declarer's side name
 }

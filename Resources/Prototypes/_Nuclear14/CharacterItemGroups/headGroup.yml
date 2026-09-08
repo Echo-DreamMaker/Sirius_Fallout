@@ -187,7 +187,9 @@
       id: MisfitsLoadoutHeadHeadAHPhelmet
     - type: loadout
       id: MisfitsLoadoutHeadKhanHelmet
-
+    - type: loadout
+      id: MisfitsLoadoutHeadKhanFullHelmet
    # Sirius
     - type: loadout
       id: ClothingLoadoutHeadHatHoodMothFluffy
+

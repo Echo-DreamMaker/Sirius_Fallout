@@ -24,4 +24,12 @@ public sealed partial class MobThresholdMutationComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public FixedPoint2? OldThreshold;
+
+    /// <summary>
+    /// Whether the state was actually taken out of the mob's allowed states.
+    /// Tracked separately from <see cref="OldThreshold"/>, a mob can allow a state
+    /// without having a threshold for it.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool RemovedState;
 }

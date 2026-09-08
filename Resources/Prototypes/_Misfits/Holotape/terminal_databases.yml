@@ -5,13 +5,12 @@
 # Tier model:
 #   accessRead     (tag)    Tier 5  - View tab + folder list.
 #   accessWrite    (tag)    Tier 6  - Add subfolders / docs UNDER existing root entries.
-#   leadershipJobs (jobId)  Tier 7  - Create root entries; delete/restore non-Admin
-#                                     entries; rollback revisions; MAY also tick the
+#   leadershipJobs (jobId)  Tier 7  - Create root entries; rollback revisions; MAY tick the
 #                                     "Admin" checkbox to protect their own docs/folders
-#                                     from peer leaders. Job-gated so spawned ID cards
-#                                     cannot grant deletion power.
-#   adminJobs      (jobId)  Tier 8  - Delete/restore/edit Admin-marked entries;
-#                                     everything Leadership can do.
+#                                     from peer leaders.
+#   adminJobs      (jobId)  Tier 8  - Highest faction rank. Delete/restore any entry,
+#                                     edit Admin-marked entries, and use all Leadership powers.
+#                                     Job-gated so spawned ID cards cannot grant structural power.
 #   adminLabel     (string) Faction-themed label for the Admin checkbox in the UI.
 
 # -- Followers of the Apocalypse: Open Archive --------------------------------
@@ -48,6 +47,7 @@
   leadershipJobs:
   - BoSHeadKnight
   - BoSMidPaladinCommander # "Head Paladin" job id
+  - BoSHonorGuard          # #Cythisiax Added - "Honor Guard" job id
   - BoSWestScribe          # "Head Scribe" job id
   adminJobs:
   - BoSWestElderCommander  # "Elder Commander" job id
@@ -69,6 +69,9 @@
   - NCRExecutiveOfficer
   - NCRPlatoonLeader
   - NCRFirstSergeant
+  # #Cythisiax Added - OSI Chief Scientist already carries NCR terminal access; treat them
+  # as NCR leadership so they can use the "move" (tidying) power on the Salt Dogs DB too.
+  - OSIChiefScientist
   adminJobs:
   - NCRMajor
 
@@ -139,10 +142,20 @@
   displayName: Mayoral Notice
   accentColor: "#33FF33"
   adminLabel: MAYORAL SEAL
+  # #Cythisiax Fixed - Whole Townie department (not just the Mayor) can read/write the town
+  # notice board now. The Mayor keeps Admin (delete / MAYORAL SEAL) as before.
   accessRead:
+  - TownieLaw
   - TownieMayor
+  - TownieShopkeeper
+  - TownieDoctor
+  - TownieMechanic
   accessWrite:
+  - TownieLaw
   - TownieMayor
+  - TownieShopkeeper
+  - TownieDoctor
+  - TownieMechanic
   leadershipJobs: []
   adminJobs:
   - TownMayor

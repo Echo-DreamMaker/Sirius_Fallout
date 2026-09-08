@@ -11,6 +11,27 @@
     job: EightiesRoadRash
 
 - type: entity
+  parent: MisfitsEightiesIDCard
+  id: MisfitsEightiesIDCardCylinders
+  components:
+  - type: PresetIdCard
+    job: EightiesCylinders
+
+- type: entity
+  parent: MisfitsEightiesIDCard
+  id: MisfitsEightiesIDCardPistons
+  components:
+  - type: PresetIdCard
+    job: EightiesPistons
+
+- type: entity
+  parent: MisfitsEightiesIDCard
+  id: MisfitsEightiesIDCardOilers
+  components:
+  - type: PresetIdCard
+    job: EightiesOilers
+
+- type: entity
   parent: N14IDCard
   id: MisfitsEightiesIDCardHead
   name: 80's head ID card

@@ -83,6 +83,8 @@ public sealed partial class NPCSteeringSystem
             var isDoor = (poly.Data.Flags & PathfindingBreadcrumbFlag.Door) != 0x0;
             var isAccessRequired = (poly.Data.Flags & PathfindingBreadcrumbFlag.Access) != 0x0;
             var isClimbable = (poly.Data.Flags & PathfindingBreadcrumbFlag.Climb) != 0x0;
+            var destructibleQuery = GetEntityQuery<DestructibleComponent>();
+            var hasDestructibleObstacle = obstacleEnts.Exists(destructibleQuery.HasComponent);
 
             // Just walk into it stupid
             if (isDoor && !isAccessRequired)
@@ -130,40 +132,11 @@ public sealed partial class NPCSteeringSystem
                 if (obstacleEnts.Count == 0)
                     return SteeringObstacleStatus.Completed;
             }
-            // Try climbing obstacles
-            else if ((component.Flags & PathFlags.Climbing) != 0x0 && isClimbable)
-            {
-                if (TryComp<ClimbingComponent>(uid, out var climbing))
-                {
-                    if (climbing.IsClimbing)
-                    {
-                        return SteeringObstacleStatus.Completed;
-                    }
-                    else if (climbing.NextTransition != null)
-                    {
-                        return SteeringObstacleStatus.Continuing;
-                    }
-
-                    var climbableQuery = GetEntityQuery<ClimbableComponent>();
-
-                    // Get the relevant obstacle
-                    foreach (var ent in obstacleEnts)
-                    {
-                        if (climbableQuery.TryGetComponent(ent, out var table) &&
-                            _climb.CanVault(table, uid, uid, out _) &&
-                            _climb.TryClimb(uid, uid, ent, out id, table, climbing))
-                        {
-                            component.DoAfterId = id;
-                            return SteeringObstacleStatus.Continuing;
-                        }
-                    }
-                }
-
-                if (obstacleEnts.Count == 0)
-                    return SteeringObstacleStatus.Completed;
-            }
-            // Try smashing obstacles.
-            else if ((component.Flags & PathFlags.Smashing) != 0x0)
+            // Smash destructible blockers before considering a vault.  This is the
+            // intended hostile-mob behaviour for railings, fences, and barricades:
+            // those entities are both climbable and destructible, but a smasher should
+            // clear the route instead of repeatedly starting a movement-breaking climb.
+            else if ((component.Flags & PathFlags.Smashing) != 0x0 && hasDestructibleObstacle)
             {
                 // Resolve the melee weapon to use for smashing.
                 // TryGetWeapon short-circuits when holding a non-melee item, so fall back
@@ -184,8 +157,6 @@ public sealed partial class NPCSteeringSystem
                         return SteeringObstacleStatus.Continuing;
 
                     _combat.SetInCombatMode(uid, true, combatMode);
-                    var destructibleQuery = GetEntityQuery<DestructibleComponent>();
-
                     // TODO: This is a hack around grilles and windows.
                     _random.Shuffle(obstacleEnts);
                     var attackResult = false;
@@ -211,6 +182,38 @@ public sealed partial class NPCSteeringSystem
 
                     return SteeringObstacleStatus.Continuing;
                 }
+            }
+            // Try climbing obstacles only when the entity can actually perform the
+            // climb.  Without this guard a stale NavClimb flag prevents smash fallback.
+            else if ((component.Flags & PathFlags.Climbing) != 0x0 &&
+                     isClimbable &&
+                     TryComp<ClimbingComponent>(uid, out var climbing))
+            {
+                if (climbing.IsClimbing)
+                {
+                    return SteeringObstacleStatus.Completed;
+                }
+                else if (climbing.NextTransition != null)
+                {
+                    return SteeringObstacleStatus.Continuing;
+                }
+
+                var climbableQuery = GetEntityQuery<ClimbableComponent>();
+
+                // Get the relevant obstacle
+                foreach (var ent in obstacleEnts)
+                {
+                    if (climbableQuery.TryGetComponent(ent, out var table) &&
+                        _climb.CanVault(table, uid, uid, out _) &&
+                        _climb.TryClimb(uid, uid, ent, out id, table, climbing))
+                    {
+                        component.DoAfterId = id;
+                        return SteeringObstacleStatus.Continuing;
+                    }
+                }
+
+                if (obstacleEnts.Count == 0)
+                    return SteeringObstacleStatus.Completed;
             }
 
             return SteeringObstacleStatus.Failed;

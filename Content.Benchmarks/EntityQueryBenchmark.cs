@@ -40,7 +40,7 @@ public class EntityQueryBenchmark
             var success = _entMan.System<MapLoaderSystem>().TryLoadMapWithId(_mapId, new Robust.Shared.Utility.ResPath(Map), out _, out _);
             if (!success)
                 throw new Exception("Map load failed");
-            _pair.Server.MapMan.DoMapInitialize(_mapId);
+            _pair.Server.System<SharedMapSystem>().InitializeMap(_mapId);
         }).GetAwaiter().GetResult();
 
         _clothingQuery = _entMan.GetEntityQuery<ClothingComponent>();

@@ -1,0 +1,19 @@
+# #Misfits Add - Destination marker for the bunker tunnel teleporter.
+#
+# Place these around the tunnels in the map editor. Each bunker hatch picks one at random the first
+# time someone uses it and then always comes out there, so a hatch stays predictable for the round
+# while different hatches lead to different places. Adding another way out of the maze means placing
+# another marker — no code change.
+#
+# Like every marker it is anchored and hidden during normal play.
+
+- type: entity
+  parent: MarkerBase
+  id: N14BunkerTunnelExit
+  name: bunker tunnel exit
+  suffix: bunker hatch destination
+  description: Somewhere a bunker hatch can drop you.
+  components:
+  - type: Sprite
+    state: green
+  - type: BunkerTunnelExit

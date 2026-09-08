@@ -57,7 +57,7 @@ public sealed partial class GeneticsConsoleSystem
             ent.Comp.ApplyDuration,
             new ApplyEnzymesDoAfterEvent(GetNetEntity(mob)),
             eventTarget: ent,
-            target: mob,
+            // see OnScan, reaching the mob inside the scanner is never unobstructed
             used: ent)
         {
             BreakOnMove = true,

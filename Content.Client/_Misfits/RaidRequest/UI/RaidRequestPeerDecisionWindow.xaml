@@ -1,5 +1,5 @@
 <!-- #Misfits Add - Peer-approval popup shown to the highest-ranking online member of a
-     target faction when an opposing faction submits a /raid request. The leader can
+     target faction or group when an opposing faction submits a /raid request. The leader can
      YES/NO directly, bypassing admin review while still publishing into RaidRequest history. -->
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"

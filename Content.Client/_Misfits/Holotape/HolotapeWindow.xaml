@@ -137,6 +137,12 @@
                         <Button Name="DatabaseEditorCancelButton" Text="[ CANCEL ]" MinWidth="100" />
                     </BoxContainer>
                 </BoxContainer>
+                <!-- Directory footer occupies the browser's otherwise empty lower region. -->
+                <PanelContainer Name="SepDatabaseStatus" MinHeight="1" HorizontalExpand="True" />
+                <Label Name="DatabaseStatusLabel"
+                       StyleClasses="monospace"
+                       HorizontalExpand="True"
+                       HorizontalAlignment="Center" />
                 <!-- Action bar (rebuilt per view in code-behind) -->
                 <PanelContainer Name="SepDatabaseActions" MinHeight="1" HorizontalExpand="True" />
                 <BoxContainer Name="DatabaseActionsBar" Orientation="Horizontal" SeparationOverride="6" />
@@ -157,6 +163,10 @@
                            HorizontalAlignment="Right" />
                 </BoxContainer>
                 <PanelContainer Name="SepOverwatch" MinHeight="1" HorizontalExpand="True" />
+                <RichTextLabel Name="OverwatchViewersLabel"
+                               StyleClasses="monospace"
+                               HorizontalExpand="True"
+                               Visible="False" />
                 <BoxContainer Orientation="Horizontal" VerticalExpand="True" SeparationOverride="8">
                     <BoxContainer Orientation="Vertical" MinWidth="360" MaxWidth="420" SeparationOverride="4">
                         <RichTextLabel Name="OverwatchRosterSummaryLabel"

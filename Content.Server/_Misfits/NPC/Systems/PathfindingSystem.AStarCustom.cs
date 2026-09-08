@@ -45,8 +45,11 @@ public sealed partial class PathfindingSystem
                                 out bool arrived, out bool timeOut);
 
 
-        if (!arrived) { return PathResult.NoPath; }
-        if (timeOut) { return PathResult.Continuing; }
+        if (timeOut || (!arrived && request.Frontier.Count > 0))
+            return PathResult.Continuing;
+
+        if (!arrived)
+            return PathResult.NoPath;
 
         var route = ReconstructPath(request.CameFrom, currentNode!);
         // #Misfits Change: path commented out. Was prolly a debug value
@@ -141,7 +144,7 @@ public sealed partial class PathfindingSystem
         var count = 0;
         arrived = false;
 
-        while (request.Frontier.Count > 0 && count < NodeLimit)
+        while (request.Frontier.Count > 0 && count < request.Comp.NodeLimit)
         {
             // Handle whether we need to pause if we've taken too long
             if (count % 20 == 0 && count > 0 && request.Stopwatch.Elapsed > PathTime)
@@ -225,13 +228,13 @@ public sealed partial class PathfindingSystem
 
             // TODO: Handling power + door prying
             // Door we should be able to open
-            // Misfit Fix: isAccess seemed to be done backwards lol
-            if (isDoor && isAccess && (request.Flags & PathFlags.Interact) != 0x0)
+            // Unlocked doors can be opened normally; access-locked doors require prying.
+            if (isDoor && !isAccess && (request.Flags & PathFlags.Interact) != 0x0)
             {
                 baseModifier += custValues.DoorOpenCost;
             }
             // Door we can force open one way or another
-            else if (isDoor && !isAccess && (request.Flags & PathFlags.Prying) != 0x0)
+            else if (isDoor && isAccess && (request.Flags & PathFlags.Prying) != 0x0)
             {
                 baseModifier += custValues.DoorPryCost;
             }

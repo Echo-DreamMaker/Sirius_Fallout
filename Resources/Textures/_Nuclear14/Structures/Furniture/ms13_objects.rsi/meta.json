@@ -1,0 +1,132 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from MS13 by Peptide90",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "candles",
+			"directions": 4
+        },
+        {
+            "name": "deadplant",
+			"directions": 4
+        },
+        {
+            "name": "drip0"
+        },
+        {
+            "name": "drip1"
+        },
+        {
+            "name": "drip2"
+        },
+        {
+            "name": "dripfill_25"
+        },
+        {
+            "name": "dripfill_50"
+        },
+        {
+            "name": "dripfill_75"
+        },
+        {
+            "name": "dripfill_100"
+        },
+        {
+            "name": "off"
+        },
+        {
+            "name": "on"
+        },
+        {
+            "name": "medicalbedred"
+        },
+        {
+            "name": "medicalbedtan"
+        },
+        {
+            "name": "medicaltrolley"
+        },
+        {
+            "name": "microscope"
+        },
+        {
+            "name": "operating_light_off"
+        },
+        {
+            "name": "operating_light_on"
+        },
+        {
+            "name": "oxygenstand"
+        },
+        {
+            "name": "oxygenstand_bottle"
+        },
+        {
+            "name": "oxygenstand_maskoff"
+        },
+        {
+            "name": "oxygenstand_maskon"
+        },
+        {
+            "name": "phone_black"
+        },
+        {
+            "name": "phone_red"
+        },
+        {
+            "name": "pinboard"
+        },
+        {
+            "name": "pinboard_filled"
+        },
+        {
+            "name": "pinboard_filled-0"
+        },
+        {
+            "name": "pinboard_filled-1"
+        },
+        {
+            "name": "privacyscreen"
+        },
+        {
+            "name": "radio_black"
+        },
+        {
+            "name": "radio_brown"
+        },
+        {
+            "name": "robodoc"
+        },
+        {
+            "name": "robodoc_on"
+        },
+        {
+            "name": "rollerbed_down"
+        },
+        {
+            "name": "rollerbed_up"
+        },
+        {
+            "name": "typewriter"
+        },
+        {
+      "name": "select",
+	  "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+		  0.1,
+		  0.1,
+		  0.1
+        ]
+      ]
+    }
+  ]
+}

@@ -63,12 +63,12 @@ public sealed class CurrencyWalletSystem : EntitySystem
         if (msg.OpenWindow)
         {
             EnsureWindow();
-            _window!.UpdateState(msg.Bottlecaps);
+            _window!.UpdateState(msg.Bottlecaps, msg.NcrDollars, msg.LegionDenarii, msg.PrewarMoney);
             _window.OpenCentered();
         }
         else if (_window is { Disposed: false, IsOpen: true })
         {
-            _window.UpdateState(msg.Bottlecaps);
+            _window.UpdateState(msg.Bottlecaps, msg.NcrDollars, msg.LegionDenarii, msg.PrewarMoney);
         }
     }
 

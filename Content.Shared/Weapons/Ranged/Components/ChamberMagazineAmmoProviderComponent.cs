@@ -26,6 +26,17 @@ public sealed partial class ChamberMagazineAmmoProviderComponent : MagazineAmmoP
     [ViewVariables(VVAccess.ReadWrite), DataField("canRack"), AutoNetworkedField]
     public bool CanRack = true;
 
+    // #Misfits Fixed - M1 Garand en-bloc clip must stay in while a round is chambered (bolt holds
+    // the clip in until the chamber runs dry). Previously the clip auto-ejected the moment its last
+    // round was chambered, which with a +1 round loaded forced a double bolt on reload.
+    /// <summary>
+    /// If true, an empty magazine/clip is retained while a round is still in the chamber
+    /// (e.g. the M1 Garand en-bloc clip is held by the bolt). Auto-eject (and its sound)
+    /// only fires once the chamber is empty too.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("retainEmptyWhenChambered"), AutoNetworkedField]
+    public bool RetainEmptyWhenChambered = false;
+
     [ViewVariables(VVAccess.ReadWrite), DataField("soundBoltClosed"), AutoNetworkedField]
     public SoundSpecifier? BoltClosedSound = new SoundPathSpecifier("/Audio/Weapons/Guns/Bolt/rifle_bolt_closed.ogg");
 

@@ -1,0 +1,79 @@
+#Misfits exclusive barks
+
+- type: bark
+  id: BarksBangHowdyKeytyped
+  name: Typewriter (Bang! Howdy)
+  roundStart: true
+  soundFiles:
+    - "/Audio/_Misfits/Voice/Barks/Bang-Howdy/voice_key_typed.ogg"
+
+- type: bark
+  id: BarksMiddensGingivaRing
+  name: Ring (Middens/Gingiva)
+  roundStart: true
+  soundFiles:
+    - "/Audio/_Misfits/Voice/Barks/Middens-Gingiva/voice_ring.ogg"
+
+- type: bark
+  id: BarksMiddensGingivaVoice
+  name: Voice (Middens/Gingiva)
+  roundStart: true
+  soundFiles:
+    - "/Audio/_Misfits/Voice/Barks/Middens-Gingiva/voice_voice.ogg"
+
+- type: bark
+  id: BarksWhirledCorpseCraftBook
+  name: Book (Whirled | Corpse Craft)
+  roundStart: true
+  soundFiles:
+    - "/Audio/_Misfits/Voice/Barks/Whirled/voice_book.ogg"
+
+- type: bark
+  id: BarksWhirledSteelStringA3
+  name: Steel String A3 (Whirled | Red Rover The Game)
+  roundStart: true
+  soundFiles:
+    - "/Audio/_Misfits/Voice/Barks/Whirled/voice_steelstringa3.ogg"
+
+- type: bark
+  id: BarksWhirledSteelStringB3
+  name: Steel String B3 (Whirled | Red Rover The Game)
+  roundStart: true
+  soundFiles:
+    - "/Audio/_Misfits/Voice/Barks/Whirled/voice_steelstringb3.ogg"
+
+- type: bark
+  id: BarksWhirledSteelStringC3
+  name: Steel String C3 (Whirled | Red Rover The Game)
+  roundStart: true
+  soundFiles:
+    - "/Audio/_Misfits/Voice/Barks/Whirled/voice_steelstringc3.ogg"
+
+- type: bark
+  id: BarksWhirledSteelStringD3
+  name: Steel String D3 (Whirled | Red Rover The Game)
+  roundStart: true
+  soundFiles:
+    - "/Audio/_Misfits/Voice/Barks/Whirled/voice_steelstringd3.ogg"
+
+- type: bark
+  id: BarksWhirledSteelStringE3
+  name: Steel String E3 (Whirled | Red Rover The Game)
+  roundStart: true
+  soundFiles:
+    - "/Audio/_Misfits/Voice/Barks/Whirled/voice_steelstringe3.ogg"
+
+- type: bark
+  id: BarksWhirledSteelStringF3
+  name: Steel String F3 (Whirled | Red Rover The Game)
+  roundStart: true
+  soundFiles:
+    - "/Audio/_Misfits/Voice/Barks/Whirled/voice_steelstringf3.ogg"
+
+- type: bark
+  id: BarksWhirledSteelStringG3
+  name: Steel String G3 (Whirled | Red Rover The Game)
+  roundStart: true
+  soundFiles:
+    - "/Audio/_Misfits/Voice/Barks/Whirled/voice_steelstringg3.ogg"
+

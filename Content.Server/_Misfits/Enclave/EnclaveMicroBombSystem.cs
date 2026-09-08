@@ -1,8 +1,9 @@
 using System.Linq;
-using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
+using Content.Server.Emp;
 using Content.Shared._Misfits.Enclave;
+using Content.Shared.Emp;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
@@ -21,8 +22,8 @@ using Robust.Shared.Timing;
 namespace Content.Server._Misfits.Enclave;
 
 /// <summary>
-/// Implants Enclave personnel, handles the local-speech failsafe, and services
-/// the Enclave remote detonator UI.
+/// Implants Enclave personnel and services the Enclave remote detonator UI.
+/// The implant grants no action and can only be set off by the detonator.
 /// </summary>
 public sealed class EnclaveMicroBombSystem : EntitySystem
 {
@@ -49,9 +50,8 @@ public sealed class EnclaveMicroBombSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
-        SubscribeLocalEvent<ImplantedComponent, EntitySpokeEvent>(OnEntitySpoke);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<EnclaveMicroBombComponent, ActivateImplantEvent>(OnImplantActivated);
+        SubscribeLocalEvent<EnclaveMicroBombComponent, EmpPulseEvent>(OnEmpPulse);
 
         Subs.BuiEvents<EnclaveDetonatorComponent>(EnclaveDetonatorUiKey.Key, subs =>
         {
@@ -76,33 +76,20 @@ public sealed class EnclaveMicroBombSystem : EntitySystem
         Implant(args.Mob);
     }
 
-    private void OnEntitySpoke(EntityUid uid, ImplantedComponent component, EntitySpokeEvent args)
-    {
-        // EntitySpokeEvent is also raised for whispers and radio speech. The
-        // failsafe is deliberately limited to ordinary local IC speech.
-        if (args.IsWhisper || args.Channel != null)
-            return;
-
-        if (!TryGetImplant(uid, out var implant, out var enclaveBomb) ||
-            !ContainsWord(args.Message, enclaveBomb.Keyword))
-        {
-            return;
-        }
-
-        BeginCountdown(implant, enclaveBomb, uid);
-        UpdateAllDetonators();
-    }
-
     private void OnMobStateChanged(MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead && TryGetImplant(args.Target, out _, out _))
             UpdateAllDetonators();
     }
 
-    private void OnImplantActivated(EntityUid uid, EnclaveMicroBombComponent component, ActivateImplantEvent args)
+    private void OnEmpPulse(Entity<EnclaveMicroBombComponent> ent, ref EmpPulseEvent args)
     {
-        BeginCountdown(uid, component, args.Performer);
-        args.Handled = true;
+        // EmpDisabledComponent is added by EmpSystem after this event and
+        // expires automatically using the EMP pulse duration. Cancelling an
+        // active countdown lets the EMP interrupt a pending detonation too.
+        args.Affected = true;
+        args.Disabled = true;
+        ent.Comp.CountdownActive = false;
     }
 
     private void OnDetonatorOpened(Entity<EnclaveDetonatorComponent> ent, ref BoundUIOpenedEvent args)
@@ -119,6 +106,12 @@ public sealed class EnclaveMicroBombSystem : EntitySystem
     {
         if (!TryGetEntity(args.Target, out var target) ||
             !TryGetImplant(target.Value, out var implant, out _))
+        {
+            UpdateDetonator(ent.Owner);
+            return;
+        }
+
+        if (HasComp<EmpDisabledComponent>(implant))
         {
             UpdateDetonator(ent.Owner);
             return;
@@ -285,24 +278,4 @@ public sealed class EnclaveMicroBombSystem : EntitySystem
         }
     }
 
-    private static bool ContainsWord(string message, string keyword)
-    {
-        if (string.IsNullOrWhiteSpace(keyword))
-            return false;
-
-        var index = 0;
-        while ((index = message.IndexOf(keyword, index, StringComparison.OrdinalIgnoreCase)) >= 0)
-        {
-            var beforeIsWord = index > 0 && char.IsLetterOrDigit(message[index - 1]);
-            var afterIndex = index + keyword.Length;
-            var afterIsWord = afterIndex < message.Length && char.IsLetterOrDigit(message[afterIndex]);
-
-            if (!beforeIsWord && !afterIsWord)
-                return true;
-
-            index = afterIndex;
-        }
-
-        return false;
-    }
 }

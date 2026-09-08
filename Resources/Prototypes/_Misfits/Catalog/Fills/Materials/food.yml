@@ -133,7 +133,7 @@
   - type: StorageFill
     contents:
     - id: FoodContainerEgg
-    - id: FoodMeatChicken
+    - id: N14FoodMeatRadchicken
       amount: 4
     - id: N14FoodMeatBrahmin
       amount: 4

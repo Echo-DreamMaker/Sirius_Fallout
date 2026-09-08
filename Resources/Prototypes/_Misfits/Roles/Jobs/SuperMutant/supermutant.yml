@@ -10,6 +10,7 @@
   playTimeTracker: SuperMutant
   icon: JobIconBorg
   supervisors: job-supervisors-supermutant
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -51,6 +52,7 @@
   playTimeTracker: Nightkin
   icon: JobIconBorg
   supervisors: job-supervisors-supermutant
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true # #Misfits Change - re-enabled, gated by the nightkin whitelist
   overrideConsoleVisibility: true
@@ -91,6 +93,7 @@
   playTimeTracker: SuperMutantGladiator
   icon: JobIconLegionSlave
   supervisors: job-supervisor-caesar-legion-slaves
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -139,6 +142,7 @@
   playTimeTracker: SuperMutantRanger
   icon: JobIconBorg
   supervisors: job-supervisors-supermutant
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -181,6 +185,7 @@
   playTimeTracker: SuperMutantTrooper
   icon: JobIconBorg
   supervisors: job-supervisors-supermutant
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -224,6 +229,7 @@
   playTimeTracker: SuperMutantNCRRanger
   icon: JobIconSecurityOfficer
   supervisors: job-supervisors-ncr-ranger
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -258,7 +264,7 @@
     shoes: ClothingSuperMutantGladiatorBoots # Placeholder untill we get NCR boots
     jumpsuit: ClothingSuperMutantRangerShirt
     outerClothing: ClothingSuperMutantRangerArmor
-    ears: N14ClothingHeadsetNCR
+    ears: MisfitsClothingHeadsetNCRRanger
     id: N14IDBadgeNCRRanger
     back: N14ClothingBackpackMilitary
 
@@ -276,6 +282,7 @@
   playTimeTracker: SuperMutantNCRTrooper
   icon: JobIconNcrSerg
   supervisors: job-supervisors-ncr
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -325,6 +332,7 @@
   playTimeTracker: SuperMutantTribal
   icon: JobIconTribal
   supervisors: job-supervisors-tribal
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   access:
@@ -401,6 +409,7 @@
   playTimeTracker: SuperMutantFollowerDoctor
   icon: JobIconPassenger
   supervisors: job-supervisors-follower-doctor
+  alwaysUseSpawner: true
   accessGroups:
   - FollowersApocalypse
   - FotADoctor
@@ -455,11 +464,12 @@
 - type: job
   id: SuperMutantEnclave
   jobWhitelistBypassesRoleTimers: true
-  name: job-name-supermutant-enclave
-  description: job-description-supermutant-enclave
+  name: job-name-supermutant-enclave # #Cythisiax Fixed - plain-text name triggered "Unknown messageId" loc warnings
+  description: job-description-supermutant-enclave # #Cythisiax Fixed - plain-text description triggered "Unknown messageId" loc warnings
   playTimeTracker: SuperMutantEnclave
   icon: "JobIconEnclaveEnlisted"
   supervisors: job-supervisors-enclave
+  alwaysUseSpawner: true
   canBeAntag: false
   setPreference: true
   overrideConsoleVisibility: true
@@ -481,15 +491,15 @@
           factions:
             - PlayerSuperMutant
             - Enclave
+        - type: ReplacementAccent
+          accent: n14Enclave
         - type: PowerArmorProficiency
-- type: startingGear
+- type: startingGear # Enclave will give the Enlisted mutant their weapons
   id: SuperMutantEnclaveGear
   equipment:
     outerClothing: MisfitsEnclavePowerArmor
-    jumpsuit: ClothingSuperMutantLabcoat
+    jumpsuit: ClothingSuperMutantJumpsuit
     ears: N14ClothingHeadsetEnclave
     id: N14EnclaveTrooperPipboy
-    belt: ClothingBeltMilitary
-    pocket1: EnclaveSoldierloadoutkits
 - type: playTimeTracker
   id: SuperMutantEnclave

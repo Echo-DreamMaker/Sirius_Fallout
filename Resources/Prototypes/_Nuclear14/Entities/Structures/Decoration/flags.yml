@@ -255,3 +255,94 @@
   - type: Construction
     graph: DecorationFlagChurch
     node: FlagChurch
+
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: N14DecorationFlagBloodraiders
+  name: DecorationFlagBloodraiders
+  description: The banner raiders
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/sirius_flags.rsi
+    state: flag_bloodraiders
+  - type: Construction
+    graph: DecorationFlagChurch
+    node: FlagChurch
+
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: N14FlagFishmancity
+  name: FlagFishmancity
+  description: The banner raiders
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/sirius_flags.rsi
+    state: flag_fishmancity
+  - type: Construction
+    graph: DecorationFlagChurch
+    node: FlagChurch
+
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: N14DecorationFlagOasisNew
+  name: Flag_oasisnew
+  description: The banner raiders
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/sirius_flagstall.rsi
+    state: flag_oasisnew
+  - type: Construction
+    graph: DecorationFlagChurch
+    node: FlagChurch
+
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: N14DecorationFlagRaiderSlayers
+  name: Flag_raiderslayers
+  description: The banner raiders
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/sirius_flags.rsi
+    state: flag_raiderslayers
+  - type: Construction
+    graph: DecorationFlagChurch
+    node: FlagChurch
+
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: N14DecorationFlagChurchRaiderSlayersBlood
+  name: Flag_raiderslayers
+  description: The banner raiders
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/sirius_flags.rsi
+    state: flag_raidersslayersblood
+  - type: Construction
+    graph: DecorationFlagChurch
+    node: FlagChurch
+
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: N14DecorationFlagRaiderSlayersClean
+  name: Flag_raiderslayers
+  description: The banner raiders
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/sirius_flags.rsi
+    state: flag_raidersslayersclean
+  - type: Construction
+    graph: DecorationFlagChurch
+    node: FlagChurch
+
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: N14DecorationFlagVaultTribe
+  name: Flag_vaulttribe
+  description: The banner raiders
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/sirius_flagstall.rsi
+    state: flag_vaulttribe
+  - type: Construction
+    graph: DecorationFlagChurch
+    node: FlagChurch

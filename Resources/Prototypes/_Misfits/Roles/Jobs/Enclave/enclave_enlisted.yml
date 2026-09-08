@@ -3,7 +3,6 @@
 - type: job
   id: EnclaveEnlisted
   setPreference: true
-  hideWithoutJobWhitelist: true
   jobWhitelistBypassesRoleTimers: true # #Misfits Change
   weight: 100
   displayWeight: 122
@@ -18,7 +17,7 @@
       - Human
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T2 faction timelock (4h Enclave)
       department: Enclave
-      min: 36000 # 10 hours
+      min: 14400 # #Cythisiax Edited - 10h -> 4h: recruited players unlock Enlisted in 4 hours
   startingGear: EnclaveEnlistedGear
   icon: "JobIconEnclaveEnlisted"
   supervisors: job-supervisors-enclave
@@ -31,6 +30,9 @@
       - type: NpcFactionMember
         factions:
           - Enclave
+          - Wastelander
+      - type: ReplacementAccent
+        accent: n14Enclave
       - type: PowerArmorProficiency
 
 - type: startingGear

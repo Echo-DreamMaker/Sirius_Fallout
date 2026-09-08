@@ -13,6 +13,19 @@
       - state: green
       - state: wastelander
 
+- type: entity
+  parent: SpawnPointJobBase
+  id: N14SpawnPointWasterTrader
+  name: wasteland Trader
+  components:
+  - type: SpawnPoint
+    job_id: WasterTrader
+  - type: Sprite
+    sprite: _Nuclear14/Markers/Jobs/wastelanders.rsi
+    layers:
+      - state: green
+      - state: wastelander
+
 # BOS Midwest
 - type: entity
   id: N14SpawnPointBoSMidPaladinCommander
@@ -398,6 +411,19 @@
       - state: green
       - state: lt # Misfits Change - shutting up an error, TODO: we should get a platoonlead sprite for this
 
+# #Misfits Add - Vertibird Pilot spawn point.
+- type: entity
+  id: N14SpawnPointNCRVertibirdPilot
+  parent: N14SpawnPointNCRCadet
+  name: vertibird pilot
+  components:
+  - type: SpawnPoint
+    job_id: NCRVertibirdPilot
+  - type: Sprite
+    layers:
+      - state: green
+      - state: lt # TODO: replace with a dedicated aviator sprite when one exists
+
 # Tribals
 - type: entity
   id: N14SpawnPointTribal
@@ -447,6 +473,19 @@
     layers:
       - state: green
       - state: healer
+
+# #Misfits Add - "Yuma" Elder spawn point, reuses the base tribal marker.
+- type: entity
+  id: N14SpawnPointSuperElder
+  parent: N14SpawnPointTribal
+  name: Willowed Elder
+  components:
+  - type: SpawnPoint
+    job_id: SuperElder
+  - type: Sprite
+    layers:
+      - state: green
+      - state: tribal
 
 # Vault
 - type: entity

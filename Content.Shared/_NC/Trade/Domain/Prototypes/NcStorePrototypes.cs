@@ -166,7 +166,8 @@ public enum PrototypeMatchMode : byte
 }
 
 [Serializable]
-public sealed class ListingConditionPrototype
+[DataDefinition]
+public sealed partial class ListingConditionPrototype
 {
     [DataField("condition")]
     public object? Condition;

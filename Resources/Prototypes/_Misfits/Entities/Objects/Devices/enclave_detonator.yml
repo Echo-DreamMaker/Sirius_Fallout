@@ -4,14 +4,12 @@
   parent: BaseSubdermalImplant
   id: EnclaveMicroBombImplant
   name: micro-bomb implant
-  description: This implant detonates the user on command or when its programmed failsafe word is spoken.
+  description: This implant detonates on remote command.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
     permanent: true
-    implantAction: ActionActivateMicroBomb
   - type: EnclaveMicroBomb
-    keyword: Enclave
     beepSound:
       path: /Audio/Effects/beep1.ogg
   - type: ExplodeOnTrigger

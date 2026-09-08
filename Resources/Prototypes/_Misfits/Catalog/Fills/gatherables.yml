@@ -1,0 +1,15 @@
+﻿- type: entityLootTable
+  id: WildZoyAll
+  entries:
+  - id: MisfitsFloraProduceWildZoybeans
+    prob: 0.75
+    amount: 1
+    maxAmount: 3
+
+- type: entityLootTable
+  id: WildZoyClippers
+  entries:
+  - id: ZoybeanSeeds
+    prob: 1
+    amount: 1
+    maxAmount: 1

@@ -14,6 +14,8 @@
       types:
         Blunt: 15
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 6
   - type: IncreaseDamageOnWield
     damage:
       types:

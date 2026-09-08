@@ -38,7 +38,7 @@ public sealed partial class RaidRequestPeerDecisionWindow : FancyWindow
         RequestId = entry.Id;
 
         var requesterFaction = RaidRequestConfig.FactionDisplayName(entry.RequesterFaction);
-        var targetFaction    = RaidRequestConfig.FactionDisplayName(entry.TargetFaction);
+        var targetFaction    = GetTargetDisplayName(entry);
 
         HeaderLabel.SetMarkup(
             $"[color=#FF6655][bold]{FormattedMessage.EscapeText(Loc.GetString("raid-request-peer-header", ("faction", requesterFaction), ("target", targetFaction)))}[/bold][/color]");
@@ -55,6 +55,16 @@ public sealed partial class RaidRequestPeerDecisionWindow : FancyWindow
             $"[color=#CCCCCC]{FormattedMessage.EscapeText(entry.Reason)}[/color]");
 
         StatusLabel.SetMarkup(string.Empty);
+    }
+
+    private static string GetTargetDisplayName(RaidRequestEntry entry)
+    {
+        if (!string.IsNullOrWhiteSpace(entry.TargetDisplayName))
+            return entry.TargetDisplayName;
+
+        return entry.TargetKind == RaidRequestTargetKind.Faction
+            ? RaidRequestConfig.FactionDisplayName(entry.TargetId)
+            : $"Group {entry.TargetId}";
     }
 
     public void ShowFailure(string message)

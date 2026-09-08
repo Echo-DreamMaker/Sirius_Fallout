@@ -28,7 +28,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IConsoleHost _console = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IMapManager _map = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly RadiationSystem _radiation = default!;
     [Dependency] private readonly IRobustRandom _random = default!;

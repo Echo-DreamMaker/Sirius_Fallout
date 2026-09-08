@@ -203,59 +203,17 @@ undecided-loadout-category-ranger-cqb-description =
     Includes 1 NCR pouches bandolier, 1 combat shotgun, 2 12 gauge drum magazines,
     1 box of 12 gauge shells, 2 combat knives, 2 stimpaks, and 1 K ration MRE.
 
-undecided-loadout-category-ranger-trailman-name = Комплект рейнджера-трейлера
-undecided-loadout-category-ranger-trailman-description =
-    Includes 1 NCR pouches bandolier, 1 lever-action carbine, 3 boxes of .44 ammo,
-    2 stimpaks, 1 K ration MRE, and 1 combat knife.
-
-undecided-loadout-category-ranger-sniper-name = Снайперский комплект рейнджера
-undecided-loadout-category-ranger-sniper-description =
-    Includes 1 NCR pouches bandolier, 1 sniper rifle, 3 sniper magazines,
-    1 box of .308 ammo, 2 stimpaks, 1 K ration MRE, and 1 combat knife.
-
-undecided-loadout-category-veteran-ranger-service-name = Сервисный комплект ветерана-рейнджера
-undecided-loadout-category-veteran-ranger-service-description =
-    Includes 1 NCR belt, 1 scout rifle, 4 long scout rifle magazines,
-    1 box of 5.56 ammo, 2 stimpaks, 1 K ration MRE, and 1 combat knife.
-
-undecided-loadout-category-veteran-ranger-precision-rifle-name = Комплект высокоточной винтовки Veteran Ranger
-undecided-loadout-category-veteran-ranger-precision-rifle-description =
-    Includes 1 NCR pouches bandolier, 1 brush gun, 4 speedloader tubes,
-    1 box of 45-70 ammo, 2 stimpaks, 1 K ration MRE, and 1 combat knife.
-
-undecided-loadout-category-veteran-ranger-heavy-sniper-name = Тяжелый снайперский комплект ветерана-рейнджера
-undecided-loadout-category-veteran-ranger-heavy-sniper-description =
-    Includes 1 NCR pouches bandolier, 1 anti-materiel rifle,
-    4 anti-materiel magazines, 1 box of .50 ammo, 2 stimpaks,
-    1 K ration MRE, and 1 combat knife.
-
-undecided-loadout-category-veteran-ranger-assault-name = Штурмовой комплект рейнджера-ветерана
-undecided-loadout-category-veteran-ranger-assault-description =
-    Includes 1 NCR belt, 1 assault carbine, 4 long carbine magazines,
-    1 box of 5.56 ammo, 2 stimpaks, 1 K ration MRE, and 1 combat knife.
-
-undecided-loadout-category-veteran-ranger-marksman-name = Комплект стрелка-ветерана-рейнджера
-undecided-loadout-category-veteran-ranger-marksman-description =
-    Includes 1 NCR belt, 1 marksman rifle, 4 7.62 rifle magazines,
-    1 box of 7.62 ammo, 2 stimpaks, 1 K ration MRE, and 1 combat knife.
-
-
-# Brotherhood Kits
-
-# Misfits Change /Tweak/: Initiate kit simplified to wattz pistol only + stimpak.
-# Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
-undecided-loadout-category-mbos-init-las-name = Комплект пистолета
+undecided-loadout-category-mbos-init-las-name = Набор послушника (лазеры)
 undecided-loadout-category-mbos-init-las-description =
-    A cache containing belongings of a Brotherhood chapter member.
-    Includes 1 AEP-7, 2 energy cells, 1 roll of gauze, 1 stimpak,
-    and 1 K ration MRE.
+    Тайник с вещами послушника Среднезападного Братства.
+    Содержит: 1 самодельную лазерную винтовку, 3 микрофьюжн-ячейки, 1 12.7мм пистолет,
+    2 магазина 12.7мм, 1 рулон бинтов и сухпаёк типа K.
 
-# Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
-undecided-loadout-category-mbos-init-bal-name = Карабин Комплект
+undecided-loadout-category-mbos-init-bal-name = Набор послушника (баллистика)
 undecided-loadout-category-mbos-init-bal-description =
-    A cache containing belongings of a Brotherhood chapter member.
-    Includes 1 old carbine, 3 5.56 magazines, 1 AEP-7, 2 energy
-    cells, 1 roll of gauze, and 1 K ration MRE.
+    Тайник с вещами послушника Среднезападного Братства.
+    Содержит: 1 старый карабин, 3 магазина 5.56, 1 AEP-7, 2 энергоячейки,
+    1 рулон бинтов и сухпаёк типа K.
 
 # Misfits Change /Tweak/: Knight kits now include stimpak.
 # Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
@@ -330,80 +288,17 @@ undecided-loadout-category-mbos-pal-pla-description =
     and 1 K ration MRE.
 
 
-# Misfits Change /Comment-out/: Washington BoS kit locale removed — will create new prototypes.
-## Washington Kits
-#
-# undecided-loadout-category-wbos-init-pla-name = Initiate Laser Kit
-# undecided-loadout-category-wbos-init-pla-description =
-#    A cache containing belongings of a Brotherhood Initiate.
-#    Includes 1 crude laser rifle, 3 microfusion cells, 1 Webley pistol,
-#    2 9mm pistol magazines, 1 roll of gauze, and 1 K ration MRE.
-#
-# undecided-loadout-category-wbos-init-bal-name = Initiate Ballistic Kit
-# undecided-loadout-category-wbos-init-bal-description =
-#    A cache containing belongings of a Brotherhood Initiate.
-#    Includes 1 old carbine, 3 5.56 magazines, 1 AEP-7, 2
-#    energy cells, 1 roll of gauze, and 1 K ration MRE.
-#
-# undecided-loadout-category-wbos-kni-pla-name = Knight Laser Kit
-# undecided-loadout-category-wbos-kni-pla-description =
-#    A cache containing belongings of a Brotherhood Knight.
-#    Includes 1 laser rifle, 3 microfusion cells, 1 Webley pistol,
-#    2 9mm pistol magazines, 1 roll of gauze, 1 K ration MRE.
-#
-# undecided-loadout-category-wbos-kni-bal-name = Knight Ballistic Kit
-# undecided-loadout-category-wbos-kni-bal-description =
-#    A cache containing belongings of a Brotherhood Knight.
-#    Includes 1 assault carbine, 3 5.56 magazines, 1 AEP-7,
-#    2 energy cells, 1 roll of gauze, and 1 K ration MRE.
-#
-# undecided-loadout-category-wbos-scribe-medic-name = Scribe Medical Kit
-# undecided-loadout-category-wbos-scribe-medic-description =
-#    A cache containing belongings of a Brotherhood Scribe.
-#    Includes 1 AEP-7, 2 energy cells, 1 pair of nitrile gloves,
-#    1 medical robe, 1 filled medical belt, 1 stack of ointment, 1
-#    super stimpak, 1 sterile mask, 1 roll of gauze, and 1 K ration MRE.
-#
-# undecided-loadout-category-wbos-scribe-field-name = Scribe Field Kit
-# undecided-loadout-category-wbos-scribe-field-description =
-#    A cache containing belongings of a Brotherhood Scribe.
-#    Includes 1 AEP-7, 2 energy cells, 1 pair of combat gloves,
-#    1 field coat, 1 Brotherhood webbing, 1 stack of ointment,
-#    1 roll of gauze, and 1 K ration MRE.
-#
-# undecided-loadout-category-wbos-scribe-engineer-name = Scribe Engineer Kit
-# undecided-loadout-category-wbos-scribe-engineer-description =
-#    A cache containing belongings of a Brotherhood Scribe.
-#    Includes 1 AEP-7, 2 energy cells, 1 pair of insulated gloves,
-#    1 technical vest, 1 filled utility belt, 1 stack of ointment,
-#    1 welding goggles, 1 roll of gauze, and 1 K ration MRE.
-#
-# undecided-loadout-category-wbos-pal-pla-name = Paladin Automatic Laser Kit
-# undecided-loadout-category-wbos-pal-pla-description =
-#    A cache containing belongings of a Brotherhood Paladin.
-#    Includes 1 automatic laser rifle, 3 high-capacity power cells,
-#    1 Webley pistol, 2 9mm pistol magazines, 1 roll of gauze,
-#    1 stimpak and 1 K ration MRE.
-#
-# undecided-loadout-category-wbos-pal-bal-name = Paladin Ballistic Kit
-# undecided-loadout-category-wbos-pal-bal-description =
-#    A cache containing belongings of a Brotherhood Paladin.
-#    Includes 1 assault carbine, 3 5.56 magazines, 1 AEP-7,
-#    2 energy cells, 1 roll of gauze, 1 stimpak, and 1 K ration MRE.
-#
-# undecided-loadout-category-wbos-pal-sni-name = Paladin Sniper Kit
-# undecided-loadout-category-wbos-pal-sni-description =
-#    A cache containing belongings of a Brotherhood Paladin.
-#    Includes 1 F2 marksman rifle, 3 7.62 short magazines,
-#    1 AEP-7, 2 energy cells, 1 roll of gauze,
-#    1 stimpak, and 1 K ration MRE.
-#
-# undecided-loadout-category-wbos-pal-las-name = Paladin Laser Kit
-# undecided-loadout-category-wbos-pal-las-description =
-#    A cache containing belongings of a Brotherhood Paladin.
-#    Includes 1 AER-9, 3 microfusion cells, 1 AEP-7,
-#    2 energy cells, 1 roll of gauze, 1 stimpak, and 1 K ration MRE.
+undecided-loadout-category-wbos-init-pla-name = Набор послушника (плазма)
+undecided-loadout-category-wbos-init-pla-description =
+    Тайник с вещами послушника Вашингтонского Братства.
+    Содержит: 1 самодельную плазменную винтовку, 3 плазменных картриджа, 1 пистолет Webley,
+    2 пистолетных магазина (9mm Parabellum), 1 рулон бинтов и сухпаёк типа K.
 
+undecided-loadout-category-wbos-init-bal-name = Набор послушника (баллистика)
+undecided-loadout-category-wbos-init-bal-description =
+    Тайник с вещами послушника Вашингтонского Братства.
+    Содержит: 1 старый карабин, 3 магазина 5.56, 1 плазменный пистолет, 2
+    плазменные ячейки, 1 рулон бинтов и сухпаёк типа K.
 
 # Tribal Kits
 
@@ -479,7 +374,120 @@ undecided-loadout-category-town-brea-description =
 
 undecided-loadout-category-town-riot-name = Комплект для борьбы с беспорядками
 undecided-loadout-category-town-riot-description =
-    Let me solo them! I mean send them home, peacefully!
-    Includes 1 spear, 1 heavy metal shield, 1 hunting revolver,
-    2 .45-70 speedloaders, 1 old cloak, 1 stack of gauze,
-    and basic ration supplies.
+    Дайте мне разобраться с ними! В смысле, мирно отправить их домой!
+    Содержит: 1 копьё, 1 тяжёлый металлический щит, 1 охотничий револьвер,
+    2 револьверных спидлоадера .45-70 (Gov't), 1 старый плащ, 1 рулон бинтов,
+    и базовый сухпаёк.
+
+# Наборы ЗБС
+
+undecided-loadout-category-elder-rifle-name = Ящик  Старейшены
+undecided-loadout-category-elder-rifle-description =
+    Достал. Приказал. Убил.
+    Содержит : 1 Ак-112РП, 2 барабанных магазина (5.45mm), 1 коробку патронов (5.45mm),
+    1 пистолет .45, 3 магазина (.45 ACP), 1 бинт, 1 стимпак, 1 осколочная граната.
+
+undecided-loadout-category-elder-laser-name = Ящик лазерного снаряжения Старейшены
+undecided-loadout-category-elder-laser-description =
+    Идеальный набор для талантливого Старейшены!
+    Содержит : 1 Импульсное ружьё YK42B, 3 батареи *УТОЧНИТЬ*,
+    1 магнитно-лазерный пистолет, 2 источника питания *УТОЧНИТЬ*,
+    1 бинт, 1 стимпак, 1 плазменная граната.
+
+undecided-loadout-category-paladin-rifle-name = Ящик огнестрельного снаряжения Паладина
+undecided-loadout-category-paladin-rifle-description =
+    Эффективно. Быстро. Надежно.
+    Содержит: 1 Ак-112РП, 2 барабанных магазина (5.45mm), 1 коробку патронов (5.45mm)
+    1 пистолет .45, 3 пистолетных магазина (.45 ACP), 1 бинт, 1 стимпак.
+
+undecided-loadout-category-paladin-laser-name = Ящик лазерного снаряжения Паладина
+undecided-loadout-category-paladin-laser-description =
+    Простой и эффективный способ решить проблемы,Точность не обязательна
+    Содержит : 1 автоматическую лазерную винтовку, 3 микроядерные батареи,
+    1 лазерный пистолет, 2 энергобатареи, 1 бинт, 1 стимпак.
+
+undecided-loadout-category-paladin-plasma-name = Ящик плазменого снаряжения Паладина
+undecided-loadout-category-paladin-plasma-description =
+    Самое страшное попасть по союзнику. А в прочем. . .
+    Содержит : 1 плазменаная винтовка, 3 плазменных магазина,
+    1 магнитно-лазерный пистолет, 2 источника питания *УТОЧНИТЬ*, 1 бинт, 1 стимпак.
+
+undecided-loadout-category-knight-rifle-name = Ящик огнестрельного снаряжения Рыцаря
+undecided-loadout-category-knight-rifle-description =
+    Снаряжение главное боевой единицы западного Братства
+    1 Ак-112, 3 магазина (5.45mm), 1 коробку патронов (5.45mm),
+    1 пистолет .45, 3 пистолетных магазина (.45 ACP), 1 бинт, 1 стимпак,
+    полный набор элементов комплекта MA-72 BoS.
+
+undecided-loadout-category-knight-laser-name = Ящик лазерного снаряжения Рыцаря
+undecided-loadout-category-knight-laser-description =
+    Набор для ведения лазерного боя. Стильно. Мощно
+    1 Лазерная винтовка , 3 Микроядерныебатареи , 1 лазерный пистолет,
+    2 энергобатареи , Бинты , 1 стимпак
+    Полный набор элементов комплекта MB-72 BoS
+
+undecided-loadout-category-knight-plasma-name = Ящик плазменого снаряжения Рыцаря
+undecided-loadout-category-knight-plasma-description =
+    Набор для любителей легкости, и радиации
+    1 Плазменный карабин, 3 плазменные Батареи , 1 пистолет 12.7,
+    2 магазина 12.7 , 1 Нюка-Граната , Бинты , 1 стимпак
+    Полный набор элементов комплекта MV-72 BoS
+
+undecided-loadout-category-squire-rifle-name = Ящик огнестрельного снаряжения Оруженосца
+undecided-loadout-category-squire-rifle-description =
+    Основной набор оруженосца . Стандарт качества
+    1 Ак-112 , 3 магазина 5.45 , 1 коробку патронов 5.45
+    Бинты , 1 стимпак
+    Полный набор элементов комплекта SQ-22 BoS
+
+undecided-loadout-category-squire-laser-name = Ящик лазерного снаряжения Оруженосца
+undecided-loadout-category-squire-laser-description =
+    Удобный набор на все случаи жизни и не жизни
+    1 Лазерная винтовка образца А, 2 Микроядерныебатареи
+    Бинты ,Стимпак
+    Полный набор элементов комплекта SQ-4 BoS
+
+undecided-loadout-category-squire-plasma-name = Ящик плазменого снаряжения Оруженосца
+undecided-loadout-category-squire-plasma-description =
+    Легкий в освоении и простой в начале набор, Осторожно : Радиоактивен
+    1 Плазменный пистолет, 2 плазменные Батареи ,
+    2 Нюка-Гранаты , Бинты , 1 стимпак
+    Полный набор элементов комплекта SQ-5 BoS
+
+undecided-loadout-category-scribe-rifle-name = Ящик огнестрельного снаряжения Скриптера
+undecided-loadout-category-scribe-rifle-description =
+    Набор Скриптера-Оружейника
+    1 Обрез , Коробка патрон 12 калибра ,10 пороха , 1 cтимпак
+    Разгрузка , Бинты , Свинец
+
+undecided-loadout-category-scribe-laser-name = Ящик лазерного снаряжения Скриптера
+undecided-loadout-category-scribe-laser-description =
+    Набор Скриптера-Медика
+    1 Магнитно-Лазерный пистолет, 2 источника питания к нему
+    Анализатор организма ,Стимпак , Аптечка , Пояс медика
+
+undecided-loadout-category-scribe-plasma-name = Ящик плазменого снаряжения Скриптера
+undecided-loadout-category-scribe-plasma-description =
+    Набор Скриптера-Инженера , Реактор не ждет
+    1 Плазменный пистолет, 2 плазменные Батареи ,
+    Сталь , Стекло , Бинты , 1 стимпак , Пояс инструментов
+    Полный набор элементов Радио-Защиты
+
+# Инквизитор СЗБС
+undecided-loadout-category-inquisitorinspector-name = Набор Инспектора
+undecided-loadout-category-inquisitorinspector-description =
+    Набор того кто всегда на страже порядке, Инспектора СЗБС.
+    В комплект входит: Охотничий револьвер и кобура к нему, 2 спидлоадера револьверных (.45-70 Gov't),
+    Коробка патрон (.45-70 Gov't), боевая аптечка, сухпаек, набор бинтов, 2 стимпака, церемониальный меч.
+
+undecided-loadout-category-inquisitorcrusader-name = Набор Крестоносца
+undecided-loadout-category-inquisitorcrusader-description =
+    Набор Крестоносца, всегда готового к защите Братства от дезертиров.
+    В комплект входит: Штурмовая винтовка с 3 магазинами, коробка патрон 5.56,
+    Разгрузочный жилет, сухпаек, 2 стимпака.
+
+undecided-loadout-category-inquisitorplasma-name = Плазменный Набор
+undecided-loadout-category-inquisitorplasma-description =
+    Плазменный набор, для самых жестоких Инквизиторов Братства.
+    В комплект входит: автоматическая плазменная винтовка с 3 батареями,
+    сухпаек, набор бинтов, набор мазей, 2 стимпака и 1 супер-стимпак, а так-же разгрузочный жилет.

@@ -40,6 +40,9 @@ public partial struct VaultDoorConsoleSegment
 [Serializable, NetSerializable]
 public sealed class VaultDoorConsoleBoundUserInterfaceState : BoundUserInterfaceState
 {
+    // #Misfits Add - Window title, so a second faction's console is not branded Vault-Tec.
+    public readonly string Title;
+
     public readonly List<List<VaultDoorConsoleSegment>> ColumnA;
     public readonly List<List<VaultDoorConsoleSegment>> ColumnB;
 
@@ -56,6 +59,7 @@ public sealed class VaultDoorConsoleBoundUserInterfaceState : BoundUserInterface
     public readonly TimeSpan? LockedOutRemaining;
 
     public VaultDoorConsoleBoundUserInterfaceState(
+        string title,
         List<List<VaultDoorConsoleSegment>> columnA,
         List<List<VaultDoorConsoleSegment>> columnB,
         int attemptsRemaining,
@@ -66,6 +70,7 @@ public sealed class VaultDoorConsoleBoundUserInterfaceState : BoundUserInterface
         bool lockedOut,
         TimeSpan? lockedOutRemaining)
     {
+        Title = title;
         ColumnA = columnA;
         ColumnB = columnB;
         AttemptsRemaining = attemptsRemaining;

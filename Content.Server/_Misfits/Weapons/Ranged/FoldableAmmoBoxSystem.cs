@@ -21,7 +21,7 @@ public sealed class FoldableAmmoBoxSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract || args.Hands == null)
             return;
 
-        if (!TryComp<BallisticAmmoProviderComponent>(ent, out var ammoProvider) || ammoProvider.Count > 0)
+        if (!TryComp<BallisticAmmoProviderComponent>(ent, out var ammoProvider) || ammoProvider.AmmoCount > 0)
             return;
 
         args.Verbs.Add(new AlternativeVerb
@@ -38,7 +38,7 @@ public sealed class FoldableAmmoBoxSystem : EntitySystem
         if (Deleted(ent))
             return;
 
-        if (TryComp<BallisticAmmoProviderComponent>(ent, out var ammoProvider) && ammoProvider.Count > 0)
+        if (TryComp<BallisticAmmoProviderComponent>(ent, out var ammoProvider) && ammoProvider.AmmoCount > 0)
             return;
 
         _materialStorage.SpawnMultipleFromMaterial(ent.Comp.RefundAmount, ent.Comp.RefundMaterial, Transform(ent).Coordinates);

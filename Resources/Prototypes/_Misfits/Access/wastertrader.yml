@@ -1,0 +1,8 @@
+- type: accessLevel
+  id: WasterTrader
+  name: id-card-access-level-waster-trader
+
+- type: accessGroup
+  id: WasterTrader
+  tags:
+  - WasterTrader

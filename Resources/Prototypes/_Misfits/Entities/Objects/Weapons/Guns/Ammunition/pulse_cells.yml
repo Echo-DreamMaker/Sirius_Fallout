@@ -1,34 +1,26 @@
-# Legacy dedicated battery cells — replaced by tiered microfusion cell and ECP system in Battery.yml.
+# Dedicated pulse cells for pulse weapons other than the RCW.
 # Tesla electron charge pack is kept active because the Tesla Cannon fires projectiles (TeslaGunBullet),
 # not hitscan, so it cannot share ammo with pulse weapon ECPs.
 
-# #Misfits Remove — replaced by N14ElectronChargePackRed/Green/Blue/Violet
-# - type: entity
-#   name: pulse energy cell
-#   id: N14PulseEnergyCell
-#   suffix: Full
-#   parent: N14BasePowerCell
-#   components:
-#   - type: Sprite
-#     sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Battery/EC.rsi
-#     layers:
-#       - map: [ "enum.PowerCellVisualLayers.Base" ]
-#         state: empty
-#         scale: 0.5, 0.5
-#       - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
-#         state: o2
-#         shader: unshaded
-#         scale: 0.5, 0.5
-#   - type: Tag
-#     tags:
-#       - N14PowerCellSmall
-#       - N14AmmoCell
-#   - type: Battery
-#     maxCharge: 600
-#     startingCharge: 600
-#   - type: HitscanBatteryAmmoProvider
-#     proto: N14PulseShotLight
-#     fireCost: 50
+- type: entity
+  name: pulse energy cell
+  description: A compact pulse cell for small pulse weapons.
+  id: N14PulseEnergyCell
+  suffix: Full
+  parent: N14BasePowerCell
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Battery/EC.rsi
+  - type: Tag
+    tags:
+    - N14PulseEnergyCell
+    - N14AmmoCell
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
+  - type: HitscanBatteryAmmoProvider
+    proto: N14PulseRed
+    fireCost: 50
 
 # #Misfits Remove — replaced by N14ElectronChargePackRed/Green/Blue/Violet
 # - type: entity
@@ -88,31 +80,26 @@
     proto: TeslaGunBullet
     fireCost: 250
 
-# #Misfits Remove — replaced by N14MicrofusionCellGreen
-# - type: entity
-#   name: green microfusion cell
-#   id: N14GreenMicrofusionCell
-#   suffix: Full
-#   parent: N14BasePowerCell
-#   components:
-#   - type: Sprite
-#     sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Battery/microfusion.rsi
-#     layers:
-#       - map: [ "enum.PowerCellVisualLayers.Base" ]
-#         state: empty
-#       - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
-#         state: o2
-#         shader: unshaded
-#   - type: Tag
-#     tags:
-#       - N14PowerCellHigh
-#       - N14AmmoCell
-#   - type: Battery
-#     maxCharge: 1200
-#     startingCharge: 1200
-#   - type: HitscanBatteryAmmoProvider
-#     proto: N14GreenMediumLaser
-#     fireCost: 50
+- type: entity
+  name: pulse microfusion cell
+  description: A high-capacity pulse cell for medium and large pulse weapons.
+  id: N14PulseMicrofusionCell
+  suffix: Full
+  parent: N14BasePowerCell
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Battery/microfusion.rsi
+  - type: Tag
+    tags:
+    - N14PulseMicrofusionCell
+    - N14AmmoCell
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: HitscanBatteryAmmoProvider
+    proto: N14PulseRed
+    fireCost: 50
+
 
 # #Misfits Remove — replaced by N14MicrofusionCellBlue
 # - type: entity

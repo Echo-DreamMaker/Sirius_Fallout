@@ -14,7 +14,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: Corvax/Objects/Weapons/Guns/Ammunition/Boxes/5-45box.rsi
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Boxes/5-45box.rsi
     netsync: false
   - type: MagazineVisuals
     magState: mag

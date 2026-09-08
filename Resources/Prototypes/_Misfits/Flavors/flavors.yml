@@ -1,0 +1,11 @@
+﻿# custom misfits food flavors
+
+- type: flavor
+  id: zoy
+  flavorType: Base
+  description: flavor-base-zoy
+
+- type: flavor
+  id: zilk
+  flavorType: Complex
+  description: flavor-complex-zilk

@@ -1,0 +1,17 @@
+# #Cythisiax Add - Hidden per-player market deposit storage entity
+# Spawned by MarketSystem, parented to the terminal. Invisible, provides storage grid UI.
+
+- type: entity
+  id: MarketDepositStorage
+  name: Market Deposit Storage
+  components:
+  - type: Transform
+    noRot: true
+  - type: Storage
+    grid:
+    - 0,0,19,9   # 20x10 grid
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  # No sprite — invisible, parented to terminal

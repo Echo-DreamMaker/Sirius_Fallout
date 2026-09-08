@@ -97,7 +97,6 @@
     LeftHand:
       points: 3
       required: false
-
 - type: humanoidBaseSprite
   id: MobHumanoidEyes
   baseSprite:

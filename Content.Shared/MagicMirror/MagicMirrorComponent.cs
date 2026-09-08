@@ -48,4 +48,13 @@ public sealed partial class MagicMirrorComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier? ChangeHairSound = new SoundPathSpecifier("/Audio/Items/scissors.ogg");
+
+    /// <summary>
+    /// #Cythisiax Added - When true, hair style / color changes are NOT applied the moment the
+    /// user clicks a style or moves a color slider. Instead the user must press an "Apply" button
+    /// in the window to start the change (single DoAfter for both style + color). The instant wall
+    /// mirror leaves this false to preserve its current behavior.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool RequireConfirm;
 }

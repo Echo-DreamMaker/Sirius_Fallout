@@ -53,6 +53,7 @@
       - Ghost
       - Normal
       - Ethereal
+  - type: MZGhostMover
   - type: Input
     context: "ghost"
   - type: Examiner

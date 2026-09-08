@@ -10,6 +10,46 @@ namespace Content.Server.Chat.Systems;
 public sealed partial class ChatSystem
 {
     /// <summary>
+    ///     Sends a nameless orange ambient emote to a caller-specified local range.
+    ///     This is the system-authored counterpart to <c>/aemote</c> and never creates a speech bubble.
+    /// </summary>
+    public void SendAreaEmote(EntityUid source, string action, float recipientRange)
+    {
+        if (string.IsNullOrWhiteSpace(action))
+            return;
+
+        var formatted = FormatRoleplayActionMarkup(action);
+        var wrappedMessage = Loc.GetString(
+            "chat-system-area-emote-wrap-message",
+            ("message", formatted));
+
+        foreach (var (session, data) in GetRecipients(source, Transform(source).GridUid == null ? 0.3f : recipientRange))
+        {
+            if (session.AttachedEntity != null
+                && Transform(session.AttachedEntity.Value).GridUid != Transform(source).GridUid
+                && !CheckAttachedGrids(source, session.AttachedEntity.Value))
+                continue;
+
+            var entRange = MessageRangeCheck(session, data, ChatTransmitRange.Normal);
+            if (entRange == MessageRangeCheckResult.Disallowed)
+                continue;
+
+            _chatManager.ChatMessageToOne(
+                ChatChannel.Emotes,
+                action,
+                wrappedMessage,
+                EntityUid.Invalid,
+                entRange == MessageRangeCheckResult.HideChat,
+                session.Channel);
+        }
+
+        _replay.RecordServerMessage(
+            new ChatMessage(ChatChannel.Emotes, action, wrappedMessage, default, null, false));
+
+        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"System area-emote from {ToPrettyString(source):user}: {action}");
+    }
+
+    /// <summary>
     ///     Sends a green-coloured nameless ambient emote to all players in normal voice range
     ///     of <paramref name="source"/> (like /do but green).  Admin-only; no action-blocker
     ///     or rate-limit checks are applied.

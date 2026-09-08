@@ -21,6 +21,7 @@
   startingGear: TownShopkeeperGear
   icon: "JobIconTownShopKeeper" # Corvax-Change
   supervisors: job-supervisors-townsfolk
+  alwaysUseSpawner: true
   access:
   - TownieShopkeeper
   - TownsPerson # Corvax-Change

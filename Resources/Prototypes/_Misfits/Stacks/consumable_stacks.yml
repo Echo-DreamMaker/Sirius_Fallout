@@ -1,0 +1,6 @@
+﻿- type: stack
+  id: ZoyBeans
+  name: zoy beans
+  icon: { sprite: _Misfits/Objects/Specific/Hydroponics/zoybeans.rsi, state: produce }
+  spawn: MisfitsFloraProduceWildZoybeans
+  maxCount: 4

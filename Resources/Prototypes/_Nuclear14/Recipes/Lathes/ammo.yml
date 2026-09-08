@@ -92,10 +92,10 @@
   result: N14MagazineMinigun5mm
   category: N14AmmoMagazine
   completetime: 5
-  materials:
+  materials: # #Burger - Decreased cost of ammo boxes to make up for larger size in bag the less use cases that causes.
     Lead: 500
-    Steel: 1100
-    N14Gunpowder: 1000
+    Steel: 800 # #Burger - Decreased (was 1100)
+    N14Gunpowder: 600 # #Burger - Decreased (was 1000)
 
 # 7.62
 - type: latheRecipe

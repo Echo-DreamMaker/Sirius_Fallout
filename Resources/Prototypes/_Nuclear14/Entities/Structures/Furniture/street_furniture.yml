@@ -59,7 +59,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-            bounds: "2.1,-1.5,2,-3"
+            bounds: "2.0,-3.0,2.1,-1.5"
         density: 1000
         mask:
         - FullTileMask
@@ -68,7 +68,7 @@
       fix2:
         shape:
           !type:PhysShapeAabb
-            bounds: "-2,-1.5,-2.2,-3"
+            bounds: "-2.2,-3.0,-2.0,-1.5"
         density: 1000
         mask:
         - FullTileMask
@@ -185,7 +185,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "0.3,0.1,-1,-1"
+          bounds: "-1.0,-1.0,0.3,0.1"
         density: 1000
         mask:
         - FullTileMask
@@ -767,8 +767,8 @@
 - type: entity
   parent: N14DecorStreetMailbox
   id: N14DecorStreetTrashbin
-  name: trashbin
-  description: An old trashbin
+  name: trash bin
+  description: You get the feeling it hasn't been changed in awhile.
   components:
   - type: Sprite
     state: trashbin

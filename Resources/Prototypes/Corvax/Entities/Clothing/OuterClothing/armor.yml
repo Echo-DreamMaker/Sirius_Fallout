@@ -17,8 +17,8 @@
         Heat: 0.2
   - type: ExplosionResistance
     damageCoefficient: 0.3
-#  - type: ClothingSpecialModifier
-#    strengthModifier: 10
+  - type: ClothingSpecialModifier
+    strengthModifier: 10
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -44,8 +44,8 @@
     damageCoefficient: 0.60
   - type: StaminaDamageResistance
     coefficient: 0.85 # 15%
-#  - type: ClothingSpecialModifier
-#    strengthModifier: 2
+  - type: ClothingSpecialModifier
+    strengthModifier: 2
 
 #Misfits Add — Paladin-Slayer Centurion: specialised for engaging Brotherhood of Steel forces.
 # High laser/energy resistance from looted pre-war power armor polymer plating. Stats from SS13 Big-Iron (melee=35,bullet=50,laser=55,energy=35,bomb=35).
@@ -124,8 +124,8 @@
         Heat: 0.65 # legion should not have heat protection over Blunt/slash. >:(
   - type: ExplosionResistance
     damageCoefficient: 0.65
-#  - type: ClothingSpecialModifier
-#    strengthModifier: 2
+  - type: ClothingSpecialModifier
+    strengthModifier: 2
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -149,8 +149,8 @@
         Heat: 0.60 # light 5% buff.
   - type: ExplosionResistance
     damageCoefficient: 0.65
-#  - type: ClothingSpecialModifier
-#    strengthModifier: 2
+  - type: ClothingSpecialModifier
+    strengthModifier: 2
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -174,8 +174,8 @@
         Heat: 0.70
   - type: ExplosionResistance
     damageCoefficient: 0.65 # Heavy leather absorbs blasts and acts as padding
-#  - type: ClothingSpecialModifier
-#    strengthModifier: 2
+  - type: ClothingSpecialModifier
+    strengthModifier: 2
 
 - type: entity
   parent: N14FalloutArmorBase

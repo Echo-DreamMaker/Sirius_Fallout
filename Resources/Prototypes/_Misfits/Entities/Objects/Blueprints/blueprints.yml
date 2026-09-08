@@ -47,6 +47,9 @@
     - N14BPNCRWeaponShotgun
     - N14BPNCRWeaponShotgunLever
     - N14BPNCRWeaponSniper556Varmint
+    # #Misfits Add - mediocre surplus kinetic guns (T1)
+    - N14BPNCRWeaponPistol9mmChinese
+    - N14BPNCRWeaponShotgunSawedOff
 
 - type: entity
   parent: N14BlueprintBase
@@ -67,6 +70,14 @@
     - N14BPNCRWeaponSMG10mm
     - N14BPNCRWeaponSMG12mm
     - N14BPNCRWeaponRevolver44Magnun
+    # #Misfits Add - mediocre surplus kinetic guns (T2)
+    - N14BPNCRWeaponPistolM1911
+    - N14BPNCRWeaponRifle10mmM1Carbine
+    - N14BPNCRWeaponRifle762M14
+    - N14BPNCRWeaponRifle762Rangemaster
+    - N14BPNCRWeaponShotgunTrench
+    - N14BPNCRWeaponSMG10mmChinese
+    - N14BPNCRWeaponSMGPPSh41
 
 - type: entity
   parent: N14BlueprintBase
@@ -170,6 +181,8 @@
     - N14BPNCRArmorRangerHelmetOld
     # #Misfits Add - Added Field Ranger sidegrade recipe
     - N14BPNCRArmorRangerFieldArmor
+    # #Misfits Add - Added Recruit Ranger sidegrade recipe
+    - N14BPNCRArmorRangerFlakVest
 
 - type: entity
   parent: N14BlueprintBase
@@ -200,6 +213,8 @@
     - N14BPNCRAmmoBox22lr
     - N14BPNCRAmmoMag9mmPistol
     - N14BPNCRAmmoMag10mmPistol
+    # #Misfits Add - .45 pistol mag for M1911
+    - N14BPNCRAmmoMag45Pistol
 
 - type: entity
   parent: N14BlueprintBase
@@ -215,6 +230,9 @@
     - N14BPNCRAmmoMag556Rifle
     - N14BPNCRAmmoMag45SMG
     - N14BPNCRAmmoMag9mmSMG
+    # #Misfits Add - mags for M14 / PPSh-41
+    - N14BPNCRAmmoMag762Short
+    - N14BPNCRAmmoMag9mmSMGDrum
 
 - type: entity
   parent: N14BlueprintBase
@@ -248,6 +266,7 @@
     - N14BPNCRAmmoMag308LMG
     - N14BPNCRAmmoOverMag308
     - N14BPNCRAmmoMagTopSMG12mm
+    - N14BPNCRAmmoVertibirdGunBelt # #Misfits Add - vertibird turret belt
 
 # =====================================================================
 # CAESAR'S LEGION BLUEPRINTS
@@ -265,6 +284,10 @@
     - N14BPLegionWeaponTribalKnife
     - N14BPLegionWeaponTribalClub
     - N14BPLegionWeaponWastelandSpear
+    # #Misfits Add - mediocre scavenged kinetic guns (T1)
+    - N14BPLegionWeaponPistol9mmChinese
+    - N14BPLegionWeaponShotgunSawedOff
+    - N14BPLegionWeaponRevolver357Detective
 
 - type: entity
   parent: N14BlueprintBase
@@ -285,6 +308,13 @@
     - N14BPLegionWeaponTribalBigClub
     - N14BPLegionWeaponSMGGreaseGun #Misfits Add - .45 ACP SMG
     - N14BPLegionnaireShield
+    # #Misfits Add - mediocre scavenged kinetic guns (T2)
+    - N14BPLegionWeaponPistolM1911
+    - N14BPLegionWeaponSMGPPSh41
+    - N14BPLegionWeaponRifle10mmM1Carbine
+    - N14BPLegionWeaponSMG10mmChinese
+    - N14BPLegionWeaponSniper44LeverShortCarbine
+    - N14BPLegionWeaponSniper308Ross
 
 - type: entity
   parent: N14BlueprintBase
@@ -358,6 +388,7 @@
     # #Misfits Add - paired legionnaire hoods
     - N14BPLegionArmorHelmetTribalHood
     - N14BPLegionArmorHelmetTribalOutcastHood
+    - N14BPLegionArmorLightBaseballHelmet
 
 - type: entity
   parent: N14BlueprintBase
@@ -373,6 +404,8 @@
     - N14BPLegionArmorHelmetTribalHunterHood
     - N14BPLegionArmorHelmetHeadtakerwraps
     - N14BPLegionArmorHelmetMuffaloskull
+    - N14BPLegionArmorDeanRecruitHelmet
+    - N14BPLegionArmorBaseballHelmet
 
 - type: entity
   parent: N14BlueprintBase
@@ -399,6 +432,10 @@
     - N14BPLegionAmmoBox44Magnum
     - N14BPLegionAmmoBox10mm
     - N14BPLegionAmmoSpeedLoader44
+    # #Misfits Add - ammo for T1 mediocre guns (.45 mag / .357)
+    - N14BPLegionAmmoMag45Pistol
+    - N14BPLegionAmmoBox357
+    - N14BPLegionAmmoSpeedLoader357
 
 - type: entity
   parent: N14BlueprintBase
@@ -411,6 +448,10 @@
     - N14BPLegionAmmoBox12gauge
     - N14BPLegionAmmoMag44Pistol
     - N14BPLegionAmmoBox9mm
+    # #Misfits Add - ammo for T2 mediocre guns (9mm drum / 10mm SMG mag / .308)
+    - N14BPLegionAmmoMag9mmSMGDrum
+    - N14BPLegionAmmoMag10mmSMG
+    - N14BPLegionAmmoBox308
 
 - type: entity
   parent: N14BlueprintBase
@@ -458,6 +499,10 @@
     - N14BPBoSWeaponLaserPistol
     - N14BPBoSWeaponLaserRevolver
     - N14BPBoSWeaponPistol10mm
+    # #Misfits Add - mediocre kinetic guns (T1)
+    - N14BPBoSWeaponPistol9mmChinese
+    - N14BPBoSWeaponPistolM1911
+    - N14BPBoSWeaponShotgunSawedOff
 
 - type: entity
   parent: N14BlueprintBase
@@ -472,6 +517,11 @@
     - N14BPBoSWeaponLaserRifle
     - N14BPBoSWeaponPlasmaPistol
     - N14BPBoSWeaponPlasmaDefender
+    # #Misfits Add - mediocre kinetic surplus rifles (T2)
+    - N14BPBoSWeaponRifle762M14
+    - N14BPBoSWeaponShotgunTrench
+    - N14BPBoSWeaponRifle10mmM1Carbine
+    - N14BPBoSWeaponRifleAk112
 
 - type: entity
   parent: N14BlueprintBase
@@ -587,6 +637,12 @@
     - N14BPBoSAmmoPowerCellSmall
     - N14BPBoSAmmoElectronChargePackRed
     - N14BPBoSAmmoBox10mm
+    # #Misfits Add - kinetic ammo for T1 mediocre guns (9mm / .45 / 12ga)
+    - N14BPBoSAmmoBox9mm
+    - N14BPBoSAmmoMag9mmPistol
+    - N14BPBoSAmmoBox45
+    - N14BPBoSAmmoMag45Pistol
+    - N14BPBoSAmmoBox12gauge
 
 - type: entity
   parent: N14BlueprintBase
@@ -596,8 +652,14 @@
   components:
   - type: Blueprint
     recipes:
-    # #Misfits Change - MFC/ECP recipes removed; consolidated to single generic cells at T1
+    - N14BPBoSAmmoPowerCellHigh
+    - N14BPBoSAmmoElectronChargePackGreen
     - N14BPBoSAmmoPlasmaCartridge
+    # #Misfits Add - kinetic ammo for T2 mediocre guns (7.62 M14 / 5.45 AK-112)
+    - N14BPBoSAmmoBox762
+    - N14BPBoSAmmoMag762Short
+    - N14BPBoSAmmoBox545
+    - N14BPBoSAmmoMag545Rifle
 
 - type: entity
   parent: N14BlueprintBase
@@ -607,7 +669,8 @@
   components:
   - type: Blueprint
     recipes:
-    # #Misfits Change - MFC/ECP recipes removed; consolidated to single generic cells at T1
+    - N14BPBoSAmmoPowerCellAdvanced
+    - N14BPBoSAmmoElectronChargePackBlue
     - N14BPBoSAmmoPlasmaShell
     - N14BPBoSAmmoPlasmaCartridgeMultiplas
 
@@ -621,19 +684,18 @@
     recipes:
     - N14BPBoSAmmoFusionCoreRed
     # #Misfits Change - duplicate FC recipe removed; consolidated to single generic fusion core
+    - N14BPBoSAmmoVertibirdGunBelt # #Misfits Add - vertibird turret belt
 
-# #Misfits Removed - T5 ammo blueprint entity commented out; all T5 energy cells consolidated to generic types at T1
-# - type: entity
-#   parent: N14BlueprintBase
-#   id: N14BlueprintBoSAmmoT5
-#   name: BoS Experimental Violet-Spectrum Cell Plans
-#   description: No longer relevant — all energy cells consolidated to single generic types.
-#   components:
-#   - type: Blueprint
-#     recipes:
-#     - N14BPBoSAmmoMicrofusionViolet
-#     - N14BPBoSAmmoElectronChargePackViolet
-#     - N14BPBoSAmmoFusionCoreViolet
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintBoSAmmoT5
+  name: BoS Experimental Violet-Spectrum Cell Plans
+  description: Highly classified experimental schematics for violet-spectrum energy cells. Tier 5 ammo.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPBoSAmmoMicrofusionViolet
+    - N14BPBoSAmmoElectronChargePackViolet
 
 # =====================================================================
 # TOWNSFOLK BLUEPRINTS
@@ -656,6 +718,14 @@
     - N14BPTownWeaponShotgunDoubleBarrel
     - N14BPTownWeaponShotgun
     - N14BPTownWeaponSniperHunting
+    # #Misfits Add - mediocre civilian-market kinetic guns (T1)
+    - N14BPTownWeaponPistol9mmChinese
+    - N14BPTownWeaponPistolM1911
+    - N14BPTownWeaponPistol12mm
+    - N14BPTownWeaponShotgunSawedOff
+    - N14BPTownWeaponSMGAmerican180
+    - N14BPTownWeaponRevolver357Detective
+    - N14BPTownWeaponSniperCowboyRepeater
 
 - type: entity
   parent: N14BlueprintBase
@@ -674,6 +744,16 @@
     - N14BPTownWeaponShotgunCaravan
     - N14BPTownWeaponSMG9mm
     - N14BPTownWeaponSniper44LeverCarbine
+    # #Misfits Add - mediocre civilian-market kinetic guns (T2)
+    - N14BPTownWeaponRifle10mmM1Carbine
+    - N14BPTownWeaponRifle762M14
+    - N14BPTownWeaponRifle762Rangemaster
+    - N14BPTownWeaponShotgunTrench
+    - N14BPTownWeaponSMG10mmChinese
+    - N14BPTownWeaponSMGPPSh41
+    - N14BPTownWeaponRifleAk112
+    - N14BPTownWeaponSniper308Ross
+    - N14BPTownWeaponSniper44LeverShortCarbine
 
 - type: entity
   parent: N14BlueprintBase
@@ -788,6 +868,12 @@
     - N14BPTownAmmoBox22lr
     - N14BPTownAmmoMag9mmPistol
     - N14BPTownAmmoMag10mmPistol
+    # #Misfits Add - ammo for T1 mediocre guns (.45 / 12mm / .22 drum / .357)
+    - N14BPTownAmmoMag45Pistol
+    - N14BPTownAmmoMagPistol12mm
+    - N14BPTownAmmoMagAmerican180Drum
+    - N14BPTownAmmoBox357
+    - N14BPTownAmmoSpeedLoader357
 
 - type: entity
   parent: N14BlueprintBase
@@ -802,6 +888,11 @@
     - N14BPTownAmmoBox12gauge
     - N14BPTownAmmoMag556Rifle
     - N14BPTownAmmoMag9mmSMG
+    # #Misfits Add - ammo for T2 mediocre guns (7.62 short / 9mm drum / 5.45)
+    - N14BPTownAmmoMag762Short
+    - N14BPTownAmmoMag9mmSMGDrum
+    - N14BPTownAmmoBox545
+    - N14BPTownAmmoMag545Rifle
 
 - type: entity
   parent: N14BlueprintBase
@@ -846,6 +937,11 @@
     - N14BPVaultWeaponPistol10mm
     - N14BPVaultWeaponPoliceBaton
     - N14BPVaultWeaponLaserPistol
+    # #Misfits Add - mediocre kinetic security guns (T1)
+    - N14BPVaultWeaponPistol9mmChinese
+    - N14BPVaultWeaponPistolM1911
+    - N14BPVaultWeaponShotgunSawedOff
+    - N14BPVaultWeaponSMGAmerican180
 
 - type: entity
   parent: N14BlueprintBase
@@ -857,6 +953,10 @@
     recipes:
     - N14BPVaultWeaponSMG10mm
     - N14BPVaultWeaponCombatKnife
+    # #Misfits Add - mediocre kinetic security guns (T2)
+    - N14BPVaultWeaponRifle10mmM1Carbine
+    - N14BPVaultWeaponShotgunTrench
+    - N14BPVaultWeaponSMG10mmChinese
 
 - type: entity
   parent: N14BlueprintBase
@@ -882,6 +982,7 @@
     - N14BPVaultWeaponLaserRifleWattz2000
     - N14BPVaultWeaponLaserRifleAuto
     - N14BPVaultWeaponLaserRCW
+    - N14BPVaultWeaponPlasmaCaster
 
 # --- Vault Armor ---
 - type: entity
@@ -938,6 +1039,7 @@
     - N14BPVaultArmorHelmetCombatMK2
     - N14BPVaultArmorHelmetMarine
     - M14BPVaultPaintCombatHelmet
+    - N14BPVaultArmorScoutSuit
 
 # --- Vault Ammo ---
 - type: entity
@@ -950,6 +1052,14 @@
     recipes:
     - N14BPVaultAmmoBox10mm
     - N14BPVaultAmmoMag10mmPistol
+    # #Misfits Add - ammo for T1 mediocre security guns (9mm / .45 / 12ga / .22)
+    - N14BPVaultAmmoBox9mm
+    - N14BPVaultAmmoMag9mmPistol
+    - N14BPVaultAmmoBox45
+    - N14BPVaultAmmoMag45Pistol
+    - N14BPVaultAmmoBox12gauge
+    - N14BPVaultAmmoBox22lr
+    - N14BPVaultAmmoMagAmerican180Drum
 
 - type: entity
   parent: N14BlueprintBase
@@ -982,6 +1092,7 @@
   - type: Blueprint
     recipes:
     - N14BPVaultAmmoPlasmaCartridge
+    - N14BPVaultAmmoElectronChargePack
     # #Misfits Change - MFC recipe removed; consolidated to single generic cell at T2
 
 # =====================================================================
@@ -1002,6 +1113,12 @@
     - N14BPTribeWeaponWastelandSpear
     - N14BPTribeWeaponRevolver44Tribal
     - N14BPTribeWeaponBrokenPipe
+    # #Misfits Add - mediocre scavenged kinetic guns (T1)
+    - N14BPTribeWeaponPistol9mmChinese
+    - N14BPTribeWeaponPistol12mm
+    - N14BPTribeWeaponShotgunSawedOff
+    - N14BPTribeWeaponSniperCowboyRepeater
+    - N14BPTribeWeaponRevolver357Detective
 
 - type: entity
   parent: N14BlueprintBase
@@ -1017,6 +1134,11 @@
     - N14BPTribeWeaponRevolver44TribalUpgraded
     - N14BPTribeWeaponPistol10mmPipe
     - N14BPTribeWeaponShotgunPipe
+    # #Misfits Add - mediocre scavenged kinetic guns (T2)
+    - N14BPTribeWeaponSMGPPSh41
+    - N14BPTribeWeaponRifle10mmM1Carbine
+    - N14BPTribeWeaponSniper308Ross
+    - N14BPTribeWeaponSniper44LeverShortCarbine
 
 - type: entity
   parent: N14BlueprintBase
@@ -1119,6 +1241,12 @@
     - N14BPTribeAmmoBox44Magnum
     - N14BPTribeAmmoBox10mm
     - N14BPTribeAmmoSpeedLoader44
+    # #Misfits Add - ammo for T1 mediocre guns (9mm / 12mm / .357)
+    - N14BPTribeAmmoBox9mm
+    - N14BPTribeAmmoMag9mmPistol
+    - N14BPTribeAmmoMagPistol12mm
+    - N14BPTribeAmmoBox357
+    - N14BPTribeAmmoSpeedLoader357
 
 - type: entity
   parent: N14BlueprintBase
@@ -1131,6 +1259,8 @@
     - N14BPTribeAmmoBox12gauge
     - N14BPTribeAmmoBox556
     - N14BPTribeAmmoMag10mmPipe
+    # #Misfits Add - ammo for T2 mediocre guns (9mm drum; .308 box already at T3)
+    - N14BPTribeAmmoMag9mmSMGDrum
 
 - type: entity
   parent: N14BlueprintBase

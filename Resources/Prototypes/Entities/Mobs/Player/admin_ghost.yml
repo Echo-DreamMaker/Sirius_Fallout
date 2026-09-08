@@ -4,9 +4,8 @@
   name: admin observer
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite # #Misfits Change — override ghost sprite to red so admins are visually distinct from regular observers
+  - type: Sprite # #Misfits Change - admin tint is applied in code via GhostComponent.color (ApplyMisfitsGhostColor) so it doesn't multiply with per-user preset layer colors
     sprite: Mobs/Ghosts/ghost_human.rsi
-    color: "#ff3333cc" # vivid red at ~80% opacity; visible while ghosted
     layers:
     - state: animated
       shader: unshaded

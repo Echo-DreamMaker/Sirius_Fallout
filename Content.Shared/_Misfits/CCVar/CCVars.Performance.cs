@@ -29,7 +29,7 @@ public sealed class PerformanceCVars : CVars
     /// Enables client side gun projectile prediction and the matching server side validation path.
     /// </summary>
     public static readonly CVarDef<bool> GunPrediction =
-        CVarDef.Create("misfits.gun_prediction", true, CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("misfits.gun_prediction", false, CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
     /// Rejects authoritative projectile collisions that are implausible against a target's lag compensated history.

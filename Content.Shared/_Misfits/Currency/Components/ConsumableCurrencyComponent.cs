@@ -30,5 +30,8 @@ public enum CurrencyType : byte
     Bottlecaps,
     NCRDollars,
     LegionDenarii,
-    PrewarMoney
+    PrewarMoney,
+    // #Cythisiax Add - Free market multi-currency
+    Silver,
+    Gold
 }

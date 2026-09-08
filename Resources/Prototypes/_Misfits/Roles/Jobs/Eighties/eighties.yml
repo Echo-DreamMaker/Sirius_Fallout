@@ -276,7 +276,7 @@
     - GhoulGlowing
   - !type:CharacterPlaytimeRequirement
     tracker: Wastelander
-    min: 7000
+    min: 28800 # 8 hours
   startingGear: EightiesRoadRashGear
   alwaysUseSpawner: true
   icon: "JobIconEighties"
@@ -290,8 +290,6 @@
           - Eighties
           - PlayerRaider
           - Wastelander
-  - !type:AddTraitSpecial
-    traits: [ N14RidingPerk ]
 - type: startingGear
   id: EightiesRoadRashGear
   equipment:
@@ -305,7 +303,6 @@
     ears: MisfitsClothingHeadsetEighties
     back: N14ClothingBackpackMilitary
     pocket1: EightiesRoadRashloadoutkits
-    pocket2: VehicleKeyMotorbike
     belt: ClothingBeltMilitary
     id: SiriusID80sDogtagRoadRash
   storage:

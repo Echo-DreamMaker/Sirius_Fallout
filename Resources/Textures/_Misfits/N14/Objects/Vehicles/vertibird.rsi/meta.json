@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Extracted by #Misfits Change from LoneStar vertibird.dmi at https://github.com/Cythisiax/LoneStar",
+  "copyright": "Extracted by #Misfits Change from LoneStar vertibird.dmi at https://github.com/Cythisiax/LoneStar commit e17ecd3ce12780e4e1424d5f2764ea5baa542441 (vertibird and vb-fast states)",
   "size": {
     "x": 300,
     "y": 300
@@ -9,6 +9,19 @@
   "states": [
     {
       "name": "vertibird"
+    },
+    {
+      "name": "vertibird_flying",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
     }
   ]
 }

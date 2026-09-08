@@ -288,3 +288,6 @@ MutationWeakPerception-removed = The shadows retreat...
 
 MutationFelinized-mutated = You feel so kawaii...
 MutationFelinized-removed = Ugh... disgusting!
+
+MutationTelepathy-popup-remembered = You will be able to find {$target}'s mind again.
+MutationTelepathy-far-telepath-suffix = {$name} (telepath)

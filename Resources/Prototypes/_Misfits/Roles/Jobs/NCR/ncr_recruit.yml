@@ -16,8 +16,6 @@
       species:
       - Human
       - Ghoul
-    #- !type:CharacterOverallTimeRequirement # TEMP REMOVED
-    #  min: 0
   startingGear: NCRCadetGear
   icon: "JobIconNcrCadet" # Corvax-Change
   supervisors: job-supervisors-ncr

@@ -1,0 +1,47 @@
+# Origin: ColonialMarinesUniverse (AU-14) — Multi Z system
+#   PR #1058 "Multi Z addition" & #1119 "Multi z fixes" by TheHellFireo
+#   Based on Crystall Edge (crystallpunk-14) Multi-Z system
+# Ported to misfits-14 _MultiZ/
+# #Cythisiax Ported — Multi-Z level support for misfits-14
+
+# Toggle look-up action for MZViewerComponent
+- type: entity
+  id: ActionToggleMultiZLookUp
+  name: "Toggle Look Up"
+  description: "Toggle looking through Z-level openings at the level above."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MultiZ/Actions/misc.rsi
+      state: look_up
+    event: !type:MZToggleLookUpAction
+
+# Ghost Z-level up action
+- type: entity
+  id: ActionMultiZGhostUp
+  name: "Move Up (Z-Level)"
+  description: "Move to the Z-level above."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MultiZ/Actions/misc.rsi
+      state: z_up
+    event: !type:MZGhostActionUp
+
+# Ghost Z-level down action
+- type: entity
+  id: ActionMultiZGhostDown
+  name: "Move Down (Z-Level)"
+  description: "Move to the Z-level below."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MultiZ/Actions/misc.rsi
+      state: z_down
+    event: !type:MZGhostActionDown

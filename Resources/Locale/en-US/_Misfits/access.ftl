@@ -13,6 +13,7 @@ id-card-access-level-enclave-science = Enclave Science Access
 id-card-access-level-enclave-role-all = Enclave Role All Access
 id-card-access-level-enclave-role-scientist = Enclave Scientist Access
 id-card-access-level-enclave-role-head-scientist = Enclave Head Scientist Access
+id-card-access-level-osi = OSI Access
 id-card-access-level-enclave-role-nco = Enclave Role NCO Access
 id-card-access-level-enclave-role-junior-officer = Enclave Junior Officer Access
 id-card-access-level-enclave-role-senior-officer = Enclave Senior Officer Access

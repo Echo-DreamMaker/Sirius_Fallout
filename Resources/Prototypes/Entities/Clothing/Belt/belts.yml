@@ -32,6 +32,11 @@
         - JawsOfLife
         - GPS
         - WeldingMask
+        # #Cythisiax Added - utility belt can store torches & welding goggles
+        - Torch
+        - WeldingGoggles
+        # #Cythisiax Added - belt can store the Wendover map (Document)
+        - Document
       components:
         - SprayPainter
         - NetworkConfigurator
@@ -111,6 +116,11 @@
         - HolofanProjector
         - Multitool
         - AppraisalTool
+        # #Cythisiax Added - CE toolbelt can store torches & welding goggles
+        - Torch
+        - WeldingGoggles
+        # #Cythisiax Added - belt can store the Wendover map (Document)
+        - Document
       components:
         - SprayPainter
         - NetworkConfigurator
@@ -175,6 +185,10 @@
       tags:
         - CigPack
         - Taser
+        # #Cythisiax Added - assault belt fits energy cells
+        - N14AmmoCell
+        # #Cythisiax Added - belt can store the Wendover map (Document)
+        - Document
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -223,6 +237,8 @@
         - WetFloorSign
         - HolosignProjector
         - Plunger
+        # #Cythisiax Added - belt can store the Wendover map (Document)
+        - Document
       components:
         - LightReplacer
         - SmokeOnTrigger
@@ -270,6 +286,9 @@
         - DiscreteHealthAnalyzer
         - N14Bandage # Corvax-Change
         - N14TribalMedicine # #Misfits Fix: allows tribal medicines (powder, poultice) in the medical belt
+        # #Cythisiax Added - medical belt can store tool sterilizers (Abraxo) & the Wendover map (Document)
+        - Abraxo
+        - Document
       components:
         - SurgeryTool # Shitmed Change
         - Hypospray
@@ -345,6 +364,8 @@
         - Bottle
         - Syringe
         - CigPack
+        # #Cythisiax Added - belt can store the Wendover map (Document)
+        - Document
       components:
         - Seed
         - Smokable
@@ -406,6 +427,8 @@
         - Skewer
         - MonkeyCube
         - Mayo
+        # #Cythisiax Added - belt can store the Wendover map (Document)
+        - Document
       components:
         - Mousetrap
         - Smokable
@@ -477,6 +500,8 @@
         - MagazineMagnum
         - CombatKnife
         - Truncheon
+        # #Cythisiax Added - belt can store the Wendover map (Document)
+        - Document
       components:
         - Stunbaton
         - FlashOnTrigger

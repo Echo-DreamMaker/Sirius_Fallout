@@ -136,6 +136,49 @@
     items:
     - N14BorgWeaponFlamer
 
+# Integrated stun baton for Police Protectron — self-recharging internal cell. # #Misfits Fix
+# The base Stunbaton's internal battery can only be recharged by docking the baton in a recharger,
+# which is impossible while the baton is welded into a borg module's hands (UnremoveableComponent).
+- type: entity
+  id: N14BorgWeaponStunbaton
+  parent: Stunbaton
+  name: integrated stun baton
+  description: A stun baton integrated into a Protectron chassis. Its internal cell draws from the robot's power reserves and recharges automatically.
+  suffix: borg, integrated
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20 # ~50s to refill from empty (1000 charge = 20 stuns)
+
+# Self-recharging high-capacity cell used by borg-integrated lights. # #Misfits Fix
+- type: entity
+  id: N14BorgPowerCellHigh
+  parent: PowerCellHigh
+  name: borg microreactor power cell
+  description: A high-capacity power cell with an integrated microreactor. Recharges itself slowly over time.
+  suffix: Full, borg
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 18 # ~1 minute to refill from empty
+
+# Integrated security flashlight for Police Protectron — self-recharging cell. # #Misfits Fix
+- type: entity
+  id: N14BorgWeaponSeclite
+  parent: FlashlightSeclite
+  name: integrated security flashlight
+  description: A robust security flashlight integrated into a Protectron chassis. Its microreactor cell recharges automatically.
+  suffix: borg, integrated
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: N14BorgPowerCellHigh
+
 # Security module — provides stun baton, handcuffs, and a flashlight for Police Protectrons.
 - type: entity
   id: N14BorgModuleSecurity
@@ -149,9 +192,9 @@
     - state: security
   - type: ItemBorgModule
     items:
-    - Stunbaton
+    - N14BorgWeaponStunbaton # #Misfits Fix: self-recharging integrated baton
     - Handcuffs
-    - FlashlightSeclite
+    - N14BorgWeaponSeclite # #Misfits Fix: self-recharging integrated flashlight
 
 # Integrated laser weapon for Robobrain laser variant — eyebot-class laser.
 - type: entity
@@ -186,6 +229,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+    - FullAuto #Misfits Change — added full-auto mode for borg laser
   - type: FollowDistance
     backStrength: 5
 

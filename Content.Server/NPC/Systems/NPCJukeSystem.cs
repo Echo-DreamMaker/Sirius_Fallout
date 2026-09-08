@@ -4,6 +4,7 @@ using Content.Server.NPC.Events;
 using Content.Server.NPC.HTN.PrimitiveTasks.Operators.Combat;
 using Content.Server.Weapons.Melee;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.NPC;
 using Content.Shared.Weapons.Melee;
@@ -24,6 +25,7 @@ public sealed class NPCJukeSystem : EntitySystem
     [Dependency] private readonly MeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     private EntityQuery<NPCMeleeCombatComponent> _npcMeleeQuery;
     private EntityQuery<NPCRangedCombatComponent> _npcRangedQuery;
@@ -43,6 +45,16 @@ public sealed class NPCJukeSystem : EntitySystem
 
     private void OnJukeSteering(EntityUid uid, NPCJukeComponent component, ref NPCSteeringEvent args)
     {
+        // Climbing and prying DoAfters break on movement.  Their owning steering component
+        // keeps the path alive, so juking must not inject a competing movement direction.
+        if (_steeringQuery.TryGetComponent(uid, out var activeSteering) &&
+            activeSteering.DoAfterId is { } doAfterId &&
+            _doAfter.GetStatus(doAfterId) == DoAfterStatus.Running)
+        {
+            component.TargetTile = null;
+            return;
+        }
+
         // Ranged NPC retreat: runs every frame (no cooldown) — back away when target is too close.
         if (component.JukeType == JukeType.Away && _npcRangedQuery.TryGetComponent(uid, out var retreatRanged))
         {
@@ -80,6 +92,7 @@ public sealed class NPCJukeSystem : EntitySystem
         }
 
         component.NextJuke = _timing.CurTime + TimeSpan.FromSeconds(component.JukeCooldown);
+        component.JukeEnd = _timing.CurTime + TimeSpan.FromSeconds(component.JukeDuration);
 
         if (component.JukeType == JukeType.AdjacentTile)
         {
@@ -170,10 +183,8 @@ public sealed class NPCJukeSystem : EntitySystem
                 component.TargetTile ??= targetTile;
             }
 
-            var elapsed = _timing.CurTime - component.NextJuke;
-
             // Finished juke.
-            if (elapsed.TotalSeconds > component.JukeDuration
+            if (_timing.CurTime >= component.JukeEnd
                 || currentTile == component.TargetTile)
             {
                 component.TargetTile = null;

@@ -1,0 +1,69 @@
+# #Misfits Add - Pickles, the Enclave possum companion.
+# Parented to MobPossum (vanilla SimpleMobBase animal) rather than N14MobPetBasic,
+# for the same reason N14MobPetCat parents to MobCat: N14MobPetBasic hard-codes
+# MisfitsPetNoPickup, and YAML inheritance can override a component but cannot
+# remove one, so inheriting it would permanently block Pickles from holding items.
+# MobPossum already supplies Carriable, InventorySlots, Strippable, the stripping
+# UserInterface, Butcherable, RandomBark and LanguageKnowledge.
+- type: entity
+  name: Pickles
+  id: MisfitsMobPetPickles
+  parent: MobPossum
+  description: A heavyset wasteland opossum, genetically enhanced into a cuddly, domesticated companion. Truly patriotic.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Misfits/Mobs/Pets/pickles.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pickles
+  - type: DamageStateVisuals # MobPossum has no Critical entry, so it must be redeclared here
+    states:
+      Alive:
+        Base: pickles
+      Critical:
+        Base: pickles_dead
+      Dead:
+        Base: pickles_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+    allowRevives: true # so medics can bring Pickles back, same as every other N14 pet
+  - type: Mutatable # #Misfits Add - lets geneticists scan and mutate Pickles
+    defaultMutations:
+      MutationTelepathy: 1 # chance 0-1, so 1 = always spawns telepathic
+  - type: Inventory
+    speciesId: possum
+    templateId: pickles
+  - type: Hands # on its own this only allows dragging - BorgHands is what makes real slots
+  - type: BorgHands # #Misfits Add - AddHand on MapInit, gives Pickles actual holdable hand slots
+    handCount: 2
+  - type: ComplexInteraction # #Misfits Add - allows click-opening doors and other complex hand interactions
+  - type: Puller
+    needsHands: false
+  - type: Grammar
+    attributes:
+      gender: epicene
+      proper: true
+  - type: LanguageKnowledge # #Misfits Add - Pickles only ever hisses, but follows the wasteland's tongues.
+    speaks:
+    - Hissing
+    understands:
+    # human factions
+    - English # the common tongue in this fork (Freespeak modified)
+    - Spanish
+    - Chinese
+    - Tribal
+    - Latin # Legion
+    # machine and dog talk the fork added
+    - N14Robot
+    - N14BrotherBeep
+    - N14Dog
+    # its own voice, plus the cult tongue
+    - Hissing
+    - Eldritch
+  - type: NpcFactionMember
+    factions:
+      - Enclave

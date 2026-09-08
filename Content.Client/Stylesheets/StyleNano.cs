@@ -124,6 +124,21 @@ namespace Content.Client.Stylesheets
         public static readonly Color ButtonColorDangerPressed = Color.FromHex("#C12525");
         public static readonly Color ButtonColorDangerDisabled = Color.FromHex("#2F2020");
 
+        // RobCo archive browser palette. Kept in the shared stylesheet so archive
+        // controls do not bake per-control colors into their code-behind.
+        public static readonly Color TerminalFolderButtonDefault = Color.FromHex("#163E1E");
+        public static readonly Color TerminalFolderButtonHovered = Color.FromHex("#205A2C");
+        public static readonly Color TerminalFolderButtonPressed = Color.FromHex("#2E7D3F");
+        public static readonly Color TerminalFolderButtonDisabled = Color.FromHex("#10240F");
+        public static readonly Color TerminalCautionButtonDefault = Color.FromHex("#8F6A33");
+        public static readonly Color TerminalCautionButtonHovered = Color.FromHex("#C0934E");
+        public static readonly Color TerminalCautionButtonPressed = Color.FromHex("#E49F35");
+        public static readonly Color TerminalCautionButtonDisabled = Color.FromHex("#28251F");
+        public static readonly Color TerminalDangerButtonDefault = Color.FromHex("#7B2D2D");
+        public static readonly Color TerminalDangerButtonHovered = Color.FromHex("#BD524B");
+        public static readonly Color TerminalDangerButtonPressed = Color.FromHex("#C12525");
+        public static readonly Color TerminalDangerButtonDisabled = Color.FromHex("#2F2020");
+
         public static readonly Color ButtonColorGoodDefault = Color.FromHex("#3E6C45");
         public static readonly Color ButtonColorGoodHovered = Color.FromHex("#31843E");
         public static readonly Color ButtonColorGoodDisabled = Color.FromHex("#164420");
@@ -756,6 +771,47 @@ namespace Content.Client.Stylesheets
                 Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonDanger)
                     .Pseudo(ContainerButton.StylePseudoClassDisabled)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorDangerDisabled),
+
+                // RobCo archive browser buttons: green folders, amber soft delete,
+                // and red irreversible delete.
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonTerminalFolder)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, TerminalFolderButtonDefault),
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonTerminalFolder)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, TerminalFolderButtonHovered),
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonTerminalFolder)
+                    .Pseudo(ContainerButton.StylePseudoClassPressed)
+                    .Prop(Control.StylePropertyModulateSelf, TerminalFolderButtonPressed),
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonTerminalFolder)
+                    .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                    .Prop(Control.StylePropertyModulateSelf, TerminalFolderButtonDisabled),
+
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonTerminalCaution)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, TerminalCautionButtonDefault),
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonTerminalCaution)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, TerminalCautionButtonHovered),
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonTerminalCaution)
+                    .Pseudo(ContainerButton.StylePseudoClassPressed)
+                    .Prop(Control.StylePropertyModulateSelf, TerminalCautionButtonPressed),
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonTerminalCaution)
+                    .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                    .Prop(Control.StylePropertyModulateSelf, TerminalCautionButtonDisabled),
+
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonTerminalDanger)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, TerminalDangerButtonDefault),
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonTerminalDanger)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, TerminalDangerButtonHovered),
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonTerminalDanger)
+                    .Pseudo(ContainerButton.StylePseudoClassPressed)
+                    .Prop(Control.StylePropertyModulateSelf, TerminalDangerButtonPressed),
+                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonTerminalDanger)
+                    .Pseudo(ContainerButton.StylePseudoClassDisabled)
+                    .Prop(Control.StylePropertyModulateSelf, TerminalDangerButtonDisabled),
 
                 // Colors for the Pip-Boy terminal buttons (lobby + character selection).
                 Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(StyleClassPipBoyButton)

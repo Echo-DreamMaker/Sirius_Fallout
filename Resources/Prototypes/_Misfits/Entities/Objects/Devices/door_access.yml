@@ -26,3 +26,65 @@
   - type: AccessReader
     access: [["FotA"]]
 
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsEnclaveRoleAll
+  suffix: Vault Doctor Locked
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AccessReader
+    access: [["EnclaveRoleAll"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsEnclaveRoleScientist
+  suffix: Vault Engineer Locked
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AccessReader
+    access: [["EnclaveRoleScientist"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsEnclaveRoleHeadScientist
+  suffix: Vault Security Locked
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AccessReader
+    access: [["EnclaveRoleHeadScientist"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsEnclaveRoleNCO
+  suffix: Vault Doctor Locked
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AccessReader
+    access: [["EnclaveRoleNCO"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsEnclaveRoleJuniorOfficer
+  suffix: Vault Engineer Locked
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AccessReader
+    access: [["EnclaveRoleJuniorOfficer"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsEnclaveRoleSeniorOfficer
+  suffix: Vault Security Locked
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AccessReader
+    access: [["EnclaveRoleSeniorOfficer"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsEnclaveRoleCommander
+  suffix: Vault Security Locked
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: AccessReader
+    access: [["EnclaveRoleCommander"]]

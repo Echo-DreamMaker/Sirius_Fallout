@@ -52,3 +52,47 @@
       slowness: 0
       scale: "1, 1"
       shader: ""
+
+- type: parallax
+  id: WaterMedium
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: /Textures/_Nuclear14/Tiles/ms13/Water.rsi/water_medium.png
+      slowness: 0
+      scale: "0.5, 0.5"
+      scrolling: "0.05, 0.05"
+      shader: ""
+
+- type: parallax
+  id: WaterShallow
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: /Textures/_Nuclear14/Tiles/ms13/Water.rsi/water_shallow.png
+      slowness: 1
+      scale: "0.5, 0.5"
+      scrolling: "0.05, 0.05"
+      shader: ""
+
+- type: parallax
+  id: WaterDeep
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: /Textures/_Nuclear14/Tiles/ms13/Water.rsi/water_deep.png
+      slowness: 0
+      scale: "1, 1"
+      scrolling: "0.05, 0.05"
+      shader: ""
+
+- type: parallax
+  id: rofl
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: /Textures/_Nuclear14/Tiles/rofl.png
+      slowness: 0
+      scale: "1, 1"
+      scrolling: "0.1, 0.1"
+      shader: ""

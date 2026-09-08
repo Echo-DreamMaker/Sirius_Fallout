@@ -14,9 +14,9 @@ namespace Content.Shared.Tag;
 /// if you need to use them often, it's better to make a proper implementation,
 /// you can read more <a href="https://github.com/space-wizards/space-station-14/pull/28272">HERE</a>.
 /// </summary>
-public sealed class TagSystem : EntitySystem
+public sealed partial class TagSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private EntityQuery<TagComponent> _tagQuery;
 
@@ -66,7 +66,7 @@ public sealed class TagSystem : EntitySystem
     /// </exception>
     public bool AddTags(EntityUid entityUid, params ProtoId<TagPrototype>[] tags)
     {
-        return AddTags(entityUid,  (IEnumerable<ProtoId<TagPrototype>>)tags);
+        return AddTags(entityUid, (IEnumerable<ProtoId<TagPrototype>>) tags);
     }
 
     /// <summary>
@@ -111,7 +111,7 @@ public sealed class TagSystem : EntitySystem
     /// </exception>
     public bool TryAddTags(EntityUid entityUid, params ProtoId<TagPrototype>[] tags)
     {
-        return TryAddTags(entityUid, (IEnumerable<ProtoId<TagPrototype>>)tags);
+        return TryAddTags(entityUid, (IEnumerable<ProtoId<TagPrototype>>) tags);
     }
 
     /// <summary>
@@ -563,7 +563,7 @@ public sealed class TagSystem : EntitySystem
     /// </exception>
     public bool RemoveTags(EntityUid entityUid, params ProtoId<TagPrototype>[] tags)
     {
-        return RemoveTags(entityUid, (IEnumerable<ProtoId<TagPrototype>>)tags);
+        return RemoveTags(entityUid, (IEnumerable<ProtoId<TagPrototype>>) tags);
     }
 
     /// <summary>
@@ -613,7 +613,7 @@ public sealed class TagSystem : EntitySystem
     /// </exception>
     public bool AddTags(Entity<TagComponent> entity, params ProtoId<TagPrototype>[] tags)
     {
-        return AddTags(entity, (IEnumerable<ProtoId<TagPrototype>>)tags);
+        return AddTags(entity, (IEnumerable<ProtoId<TagPrototype>>) tags);
     }
 
     /// <summary>
@@ -677,7 +677,7 @@ public sealed class TagSystem : EntitySystem
     /// </exception>
     public bool RemoveTags(Entity<TagComponent> entity, params ProtoId<TagPrototype>[] tags)
     {
-        return RemoveTags(entity, (IEnumerable<ProtoId<TagPrototype>>)tags);
+        return RemoveTags(entity, (IEnumerable<ProtoId<TagPrototype>>) tags);
     }
 
     /// <summary>

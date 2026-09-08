@@ -312,7 +312,7 @@
 - type: trait
   id: N14SittingDuck
   category: Physical
-  points: 2
+  points: 4
   requirements:
     - !type:CharacterTraitRequirement
       inverted: true
@@ -449,6 +449,9 @@
         - BoSMidPaladinCommander
         - BoSMidPaladin
         - BoSMidKnight
+        - BoSLancerCaptain
+        - BoSLancerKnight
+        # #Cythisiax Removed - Lancer rank folded into Lancer-Knight
         #- BoSWashingtonCommander #Misfits Change /Comment-out/: Washington BoS removed
         #- BoSWashingtonPaladin
         #- BoSWashingtonKnight
@@ -489,6 +492,8 @@
         - BoSMidPaladinCommander
         - BoSMidPaladin
         - BoSMidKnight
+        - BoSLancerCaptain
+        - BoSHeadKnight # #Cythisiax Added - Head Knight can take the cheaper Dermal Armor perk
         #- BoSWashingtonCommander #Misfits Change /Comment-out/: Washington BoS removed
         #- BoSWashingtonPaladin
         #- BoSWashingtonKnight
@@ -519,6 +524,10 @@
         - BoSMidPaladinCommander
         - BoSMidPaladin
         - BoSMidKnight
+        - BoSLancerCaptain
+        - BoSHeadKnight # #Cythisiax Added - Head Knight can take the Phoenix Armor perk
+        - BoSLancerKnight
+        # #Cythisiax Removed - Lancer rank folded into Lancer-Knight
     - !type:CharacterTraitRequirement
       inverted: true
       traits:

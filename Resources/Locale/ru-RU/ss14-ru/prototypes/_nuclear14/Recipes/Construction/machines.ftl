@@ -1,0 +1,16 @@
+recipe-N14TallMachineFrame-name = { ent-N14MachineFrameTall }
+recipe-N14TallMachineFrame-desc = { ent-N14MachineFrameTall.desc }
+recipe-N14RackElectronics-name = { ent-N14BaseMachinePowered }
+recipe-N14RackElectronics-desc = { ent-N14BaseMachinePowered.desc }
+recipe-N14ServerRack-name = { ent-N14MachineRackServer }
+recipe-N14ServerRack-desc = { ent-N14MachineRackServer.desc }
+recipe-N14Terminal-name = { ent-N14MachineRackRecorder }
+recipe-N14Terminal-desc = { ent-N14MachineRackRecorder.desc }
+recipe-N14WorkbenchMetal-name = { ent-N14WorkbenchMetal }
+recipe-N14WorkbenchMetal-desc = { ent-N14WorkbenchMetal.desc }
+recipe-N14WorkbenchAmmobench-name = { ent-N14WorkbenchAmmobench }
+recipe-N14WorkbenchAmmobench-desc = { ent-N14WorkbenchAmmobench.desc }
+recipe-N14WorkbenchChemistryset-name = { ent-N14WorkbenchChemistryset }
+recipe-N14WorkbenchChemistryset-desc = { ent-N14WorkbenchChemistryset.desc }
+recipe-N14WorkbenchForge-name = { ent-N14WorkbenchForge }
+recipe-N14WorkbenchForge-desc = { ent-N14WorkbenchForge.desc }

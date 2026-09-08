@@ -1,0 +1,63 @@
+# #Misfits Add - Co-pilot turret actions.
+- type: entity
+  id: ActionVertibirdEnterTurret
+  name: action-name-vertibird-enter-turret
+  description: action-description-vertibird-enter-turret
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    useDelay: 2
+    icon:
+      sprite: _MultiZ/Actions/misc.rsi
+      state: z_down
+    event: !type:VertibirdEnterTurretActionEvent
+
+- type: entity
+  id: ActionVertibirdExitTurret
+  name: action-name-vertibird-exit-turret
+  description: action-description-vertibird-exit-turret
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    useDelay: 1
+    icon:
+      sprite: _MultiZ/Actions/misc.rsi
+      state: z_up
+    event: !type:VertibirdExitTurretActionEvent
+
+- type: entity
+  id: ActionVertibirdFireTurret
+  name: action-name-vertibird-fire-turret
+  description: action-description-vertibird-fire-turret
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    checkCanAccess: false
+    range: 32
+    useDelay: 4
+    icon:
+      sprite: Interface/Actions/flight.rsi
+      state: flight_on
+    event: !type:VertibirdFireTurretActionEvent
+
+# #Misfits Add - Power armour combat drop.
+- type: entity
+  id: ActionVertibirdCombatDrop
+  name: action-name-vertibird-combat-drop
+  description: action-description-vertibird-combat-drop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    useDelay: 5
+    icon:
+      sprite: _MultiZ/Actions/misc.rsi
+      state: z_down
+    event: !type:VertibirdCombatDropActionEvent

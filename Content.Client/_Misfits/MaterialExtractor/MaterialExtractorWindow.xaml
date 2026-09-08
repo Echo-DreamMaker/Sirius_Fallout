@@ -1,0 +1,20 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      MinSize="360 220"
+                      SetSize="360 220"
+                      Resizable="False"
+                      Title="Material Extractor">
+    <BoxContainer Orientation="Vertical" Margin="8">
+        <Label Name="StatusLabel" Text="Stopped" />
+        <Label Name="DetailLabel" Text="Ready" />
+        <BoxContainer Orientation="Horizontal" Margin="0 8 0 0">
+            <ProgressBar Name="FuelBar" HorizontalExpand="True" MinValue="0" MaxValue="1" />
+            <Label Name="FuelLabel" Margin="8 0 0 0" Text="Fuel: 0" />
+            <Button Name="EjectButton" Margin="8 0 0 0" Text="Eject" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" Margin="0 12 0 0">
+            <Button Name="StartButton" Text="Start" HorizontalExpand="True" />
+            <Button Name="StopButton" Text="Stop" HorizontalExpand="True" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -1,7 +1,9 @@
-job-name-caesar-legion = obey Caesar.
-job-name-caesar-legion-supervisors = obey Caesar, the Legate, and the Centurion.
-job-name-caesar-legion-other = obey Caesar, the Legate, the Centurion and the Decani.
-job-supervisors-caesar-legion-slave = obey Caesar, the Legate, the Centurion, the Decani and any Legionary.
+job-name-caesar-legion = obey The Augustus.
+job-name-caesar-legion-supervisors = obey The Augustus, the Legate, and the Centurion.
+job-name-caesar-legion-other = obey The Augustus, the Legate, the Centurion and the Decani.
+job-name-caesar-legion-female = obey The Augustus, the Legate, the Centurion, and the Priestess.
+job-supervisors-caesar-legion-slave = obey The Augustus, the Legate, the Centurion, and all other members of the Legion.
+# changed 'caesar' to 'augustus' as in the lore caesar is dead and vera is lead by augustus caldius -tytos
 
 # Misfits Change /Comment-out/: Western BoS chapter removed.
 # # Western BoS

@@ -11,14 +11,13 @@
 - type: vendingMachineInventory
   id: NukaInventory
   startingInventory:
-    N14DrinkNukaColaBroken: 6
-    N14DrinkNukaCola: 4
-    N14DrinkNukaColaCherry: 3
-    N14DrinkNukaColaGrape: 1
-    N14DrinkNukaColaOrange: 2
-    N14DrinkNukaColaQuantum: 1
-    N14DrinkNukaColaQuartz: 1
-    N14DrinkNukaColaVictory: 1
-    N14DrinkNukaColaWild: 1
+    N14DrinkNukaCola: 6
+    N14DrinkNukaColaCherry: 4
+    N14DrinkNukaColaGrape: 3
+    N14DrinkNukaColaOrange: 3
+    N14DrinkNukaColaQuantum: 2
+    N14DrinkNukaColaQuartz: 2
+    N14DrinkNukaColaVictory: 2
+    N14DrinkNukaColaWild: 2
 
 # higher number higher chances (also maximum amount)

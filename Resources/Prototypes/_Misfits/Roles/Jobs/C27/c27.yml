@@ -39,7 +39,7 @@
   hideWithoutWhitelist: true
   jobWhitelistBypassesRoleTimers: true
   spawnLoadout: true # #Misfits Tweak (Phase H revised) - loadout tab re-enabled via allowedLoadoutCategories on species
-  applyTraits: false # #Misfits Fix - C-27 robots should not receive traits (matches other synthetic robot jobs)
+  applyTraits: true # #Misfits Fix - robot accent perks: apply selected accents at spawn (matches synthetic jobs)
   startingGear: C27GearGeneric # #Misfits Change - was C27Gear (subGear dispatch); now per-job direct gear
   requirements:
   - !type:CharacterSpeciesRequirement
@@ -67,7 +67,7 @@
   hideWithoutWhitelist: true
   jobWhitelistBypassesRoleTimers: true
   spawnLoadout: true
-  applyTraits: false # #Misfits Fix - C-27 robots should not receive traits
+  applyTraits: true # #Misfits Fix - robot accent perks: apply selected accents at spawn
   access: # #Misfits Fix - stamp NCR door access onto the spawned dogtag for the NCR C-27 variant.
   - NCR
   startingGear: C27GearNCR
@@ -100,7 +100,7 @@
   hideWithoutWhitelist: true
   jobWhitelistBypassesRoleTimers: true
   spawnLoadout: true
-  applyTraits: false # #Misfits Fix - C-27 robots should not receive traits
+  applyTraits: true # #Misfits Fix - robot accent perks: apply selected accents at spawn
   accessGroups: # #Misfits Fix - stamp Brotherhood door access onto the spawned holotag for the BoS C-27 variant.
   - BOSInitiate
   startingGear: C27GearBoS
@@ -131,7 +131,7 @@
   hideWithoutWhitelist: true
   jobWhitelistBypassesRoleTimers: true
   spawnLoadout: true
-  applyTraits: false
+  applyTraits: true # #Misfits Fix - robot accent perks: apply selected accents at spawn
   startingGear: C27GearZAX
   requirements:
   - !type:CharacterSpeciesRequirement

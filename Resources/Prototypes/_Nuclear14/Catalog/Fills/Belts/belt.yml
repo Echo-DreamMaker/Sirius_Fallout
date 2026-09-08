@@ -5,7 +5,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: N14WeaponRevolver44Magnun
+        - id: N14WeaponRevolver44Magnum
         - id: SpeedLoader44
         - id: SpeedLoader44
         - id: SpeedLoader44

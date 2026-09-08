@@ -17,9 +17,12 @@
   requirements:
     # Priestess is a senior officer — requires meaningful Legion service.
     # CaesarLegionSlave is the female-accessible entry rank, so hours gate placed there.
-    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h Legion)
+    - !type:CharacterDepartmentTimeRequirement # Legion total timelock (minimum branch total)
       department: CaesarLegion
       min: 72000 # 20 hours
+    - !type:CharacterPlaytimeRequirement
+      tracker: CaesarLegionAcolyteOfMars
+      min: 28800 # 8 hours
     - !type:CharacterSpeciesRequirement
       species:
         - Human
