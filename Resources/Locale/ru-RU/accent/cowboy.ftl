@@ -1,110 +1,110 @@
-accent-cowboy-words-1 = alcohol
-accent-cowboy-replacement-1 = firewater
+accent-cowboy-words-1 = алкоголь
+accent-cowboy-replacement-1 = огненная вода
 
-accent-cowboy-words-2 = alien
-accent-cowboy-replacement-2 = space critter
+accent-cowboy-words-2 = пришелец
+accent-cowboy-replacement-2 = космический мудак
 
-accent-cowboy-words-3 = aliens
-accent-cowboy-replacement-3 = space critters
+accent-cowboy-words-3 = пришельцы
+accent-cowboy-replacement-3 = космические мудаки
 
-accent-cowboy-words-4 = ambush
-accent-cowboy-replacement-4 = bush whack
+accent-cowboy-words-4 = бухло
+accent-cowboy-replacement-4 = огненная вода
 
-accent-cowboy-words-5 = angry
-accent-cowboy-replacement-5 = fit to be tied
+accent-cowboy-words-5 = злой
+accent-cowboy-replacement-5 = вскипает
 
-accent-cowboy-words-6 = animal
-accent-cowboy-replacement-6 = critter
+accent-cowboy-words-6 = животное
+accent-cowboy-replacement-6 = тварь
 
-accent-cowboy-words-7 = animals
-accent-cowboy-replacement-7 = critters
+accent-cowboy-words-7 = животные
+accent-cowboy-replacement-7 = твари
 
-accent-cowboy-words-8 = arrest
-accent-cowboy-replacement-8 = lasso
+accent-cowboy-words-8 = арестовать
+accent-cowboy-replacement-8 = лассировать
 
-accent-cowboy-words-9 = arrested
-accent-cowboy-replacement-9 = lassoed
+accent-cowboy-words-9 = арестованный
+accent-cowboy-replacement-9 = лассированный
 
-accent-cowboy-words-10 = bomb
-accent-cowboy-replacement-10 = dynamite
+accent-cowboy-words-10 = бомба
+accent-cowboy-replacement-10 = динамит
 
-accent-cowboy-words-11 = borg
-accent-cowboy-replacement-11 = tin man
+accent-cowboy-words-11 = граната
+accent-cowboy-replacement-11 = динамит
 
-accent-cowboy-words-12 = bye
-accent-cowboy-replacement-12 = so long
+accent-cowboy-words-12 = с-27
+accent-cowboy-replacement-12 = стальной мудак
 
-accent-cowboy-words-13 = cell
-accent-cowboy-replacement-13 = pokey
+accent-cowboy-words-13 = тюрьма
+accent-cowboy-replacement-13 = тюряга
 
-accent-cowboy-words-14 = chef
-accent-cowboy-replacement-14 = cookie
+accent-cowboy-words-14 = повар
+accent-cowboy-replacement-14 = куховар
 
-accent-cowboy-words-15 = coffee
-accent-cowboy-replacement-15 = black water
+accent-cowboy-words-15 = кофе
+accent-cowboy-replacement-15 = чёрная вода
 
-accent-cowboy-words-16 = confused
-accent-cowboy-replacement-16 = stumped
+accent-cowboy-words-16 = удивлён
+accent-cowboy-replacement-16 = в тупике
 
-accent-cowboy-words-17 = cool
-accent-cowboy-replacement-17 = slick
+accent-cowboy-words-17 = крутой
+accent-cowboy-replacement-17 = скользкий тип
 
-accent-cowboy-words-18 = corpse
-accent-cowboy-replacement-18 = dead meat
+accent-cowboy-words-18 = труп
+accent-cowboy-replacement-18 = мясо
 
-accent-cowboy-words-19 = cow
-accent-cowboy-replacement-19 = dogie
+accent-cowboy-words-19 = оружие
+accent-cowboy-replacement-19 = пушка
 
-accent-cowboy-words-20 = cows
-accent-cowboy-replacement-20 = dogies
+accent-cowboy-words-20 = крутые
+accent-cowboy-replacement-20 = скользкие типы
 
-accent-cowboy-words-21 = crazy
-accent-cowboy-replacement-21 = cracked
+accent-cowboy-words-21 = лошадь
+accent-cowboy-replacement-21 = кляча
 
-accent-cowboy-words-22 = cyborg
-accent-cowboy-replacement-22 = tin man
+accent-cowboy-words-22 = брадо
+accent-cowboy-replacement-22 = кляча
 
-accent-cowboy-words-23 = dad
-accent-cowboy-replacement-23 = pappy
+accent-cowboy-words-23 = дед
+accent-cowboy-replacement-23 = дядюшка
 
-accent-cowboy-words-24 = drunk
-accent-cowboy-replacement-24 = soaked
+accent-cowboy-words-24 = пьяный
+accent-cowboy-replacement-24 = бухой
 
-accent-cowboy-words-25 = explosive
-accent-cowboy-replacement-25 = dynamite
+accent-cowboy-words-25 = пьян
+accent-cowboy-replacement-25 = бухой
 
-accent-cowboy-words-26 = fast
-accent-cowboy-replacement-26 = lickety split
+accent-cowboy-words-26 = быстрый
+accent-cowboy-replacement-26 = прыткий
 
-accent-cowboy-words-27 = fight
-accent-cowboy-replacement-27 = scrap
+accent-cowboy-words-27 = битва
+accent-cowboy-replacement-27 = дуэль
 
-accent-cowboy-words-28 = food
-accent-cowboy-replacement-28 = grub
+accent-cowboy-words-28 = бой
+accent-cowboy-replacement-28 = дуэль
 
-accent-cowboy-words-29 = friend
-accent-cowboy-replacement-29 = partner
+accent-cowboy-words-29 = выстрелы
+accent-cowboy-replacement-29 = пальба
 
-accent-cowboy-words-30 = goodbye
-accent-cowboy-replacement-30 = so long
+accent-cowboy-words-30 = досвидания
+accent-cowboy-replacement-30 = прощай
 
-accent-cowboy-words-31 = greytide
-accent-cowboy-replacement-31 = varmints
+accent-cowboy-words-31 = друг
+accent-cowboy-replacement-31 = дружище
 
-accent-cowboy-words-32 = greytider
-accent-cowboy-replacement-32 = varmint
+accent-cowboy-words-32 = НКР
+accent-cowboy-replacement-32 = медвежатники
 
-accent-cowboy-words-33 = greytiders
-accent-cowboy-replacement-33 = varmints
+accent-cowboy-words-33 = легион
+accent-cowboy-replacement-33 = юбочники
 
-accent-cowboy-words-34 = group
-accent-cowboy-replacement-34 = possee
+accent-cowboy-words-34 = группа
+accent-cowboy-replacement-34 = отряд
 
-accent-cowboy-words-35 = guess
-accent-cowboy-replacement-35 = reckon
+accent-cowboy-words-35 = пистолет
+accent-cowboy-replacement-35 = пушка
 
-accent-cowboy-words-36 = gun
-accent-cowboy-replacement-36 = big iron
+accent-cowboy-words-36 = автомат
+accent-cowboy-replacement-36 = большая пушка
 
 accent-cowboy-words-37 = handcuff
 accent-cowboy-replacement-37 = hog tie
@@ -118,17 +118,17 @@ accent-cowboy-replacement-39 = tarnation
 accent-cowboy-words-40 = hello
 accent-cowboy-replacement-40 = howdy
 
-accent-cowboy-words-41 = hey
-accent-cowboy-replacement-41 = howdy
+accent-cowboy-words-41 = ку
+accent-cowboy-replacement-41 = здарово
 
-accent-cowboy-words-42 = hi
-accent-cowboy-replacement-42 = howdy
+accent-cowboy-words-42 = привет
+accent-cowboy-replacement-42 = здарово
 
 accent-cowboy-words-43 = hungry
 accent-cowboy-replacement-43 = peckish
 
-accent-cowboy-words-44 = idiot
-accent-cowboy-replacement-44 = dunderhead
+accent-cowboy-words-44 = идиот
+accent-cowboy-replacement-44 = придурок
 
 accent-cowboy-words-45 = intending
 accent-cowboy-replacement-45 = fixing
@@ -253,29 +253,29 @@ accent-cowboy-replacement-84 = much obliged
 accent-cowboy-words-85 = thanks
 accent-cowboy-replacement-85 = much obliged
 
-accent-cowboy-words-86 = thief
-accent-cowboy-replacement-86 = rustler
+accent-cowboy-words-86 = рейдер
+accent-cowboy-replacement-86 = грабитель
 
-accent-cowboy-words-87 = thieves
-accent-cowboy-replacement-87 = rustlers
+accent-cowboy-words-87 = рейдеры
+accent-cowboy-replacement-87 = грабители
 
-accent-cowboy-words-88 = think
-accent-cowboy-replacement-88 = reckon
+accent-cowboy-words-88 = рейдерам
+accent-cowboy-replacement-88 = грабителям
 
-accent-cowboy-words-89 = tired
-accent-cowboy-replacement-89 = dragged out
+accent-cowboy-words-89 = рейдеру
+accent-cowboy-replacement-89 = грабителю
 
-accent-cowboy-words-90 = toilet
-accent-cowboy-replacement-90 = outhouse
+accent-cowboy-words-90 = шериф
+accent-cowboy-replacement-90 = законник
 
-accent-cowboy-words-91 = totally
-accent-cowboy-replacement-91 = plumb
+accent-cowboy-words-91 = шерифа
+accent-cowboy-replacement-91 = законника
 
-accent-cowboy-words-92 = traitor
-accent-cowboy-replacement-92 = outlaw
+accent-cowboy-words-92 = шерифу
+accent-cowboy-replacement-92 = законнику
 
-accent-cowboy-words-93 = traitors
-accent-cowboy-replacement-93 = outlaws
+accent-cowboy-words-93 = помощники
+accent-cowboy-replacement-93 = законники
 
 accent-cowboy-words-94 = very
 accent-cowboy-replacement-94 = mighty
