@@ -5,3 +5,11 @@ bloodstream-component-strong-bleeding = [color=#d10a0a]{ CAPITALIZE(SUBJECT($tar
 bloodstream-component-massive-bleeding = [color=#d4003c]Кровь льётся из { GENITIVE($target) } тела![/color]
 
 bloodstream-component-wounds-cauterized = С болью вы ощущаете, как ваши раны прижигаются!
+
+bloodstream-component-profusely-bleeding = [color=crimson]{ CAPITALIZE(SUBJECT($target)) } обильно { CONJUGATE-BASIC($target, "истекают", "истекает") } кровью![/color]
+
+bloodstream-component-selfaware-looks-pale = [color=bisque]Вы чувствуете головокружение из-за кровопотери.[/color]
+
+bloodstream-component-selfaware-bleeding = [color=red]У вас кровотечение.[/color]
+
+bloodstream-component-selfaware-profusely-bleeding = [color=crimson]Вы обильно истекаете кровью![/color]

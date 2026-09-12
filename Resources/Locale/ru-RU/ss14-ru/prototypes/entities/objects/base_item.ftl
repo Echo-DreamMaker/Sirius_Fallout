@@ -10,3 +10,6 @@ ent-PowerCellSlotMediumItem = { "" }
     .desc = { "" }
 ent-PowerCellSlotHighItem = { "" }
     .desc = { "" }
+
+ent-CMCorrodible = корродируемая конструкция
+    .desc = Конструкция, способная разрушаться от коррозии.

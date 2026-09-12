@@ -66,3 +66,7 @@ gun-speedloader-empty = Спидлоадер пуст
 # GunSpreadModifier
 examine-gun-spread-modifier-reduction = Разброс снижен на [color=yellow]{ $percentage }%[/color].
 examine-gun-spread-modifier-increase = Разброс повышен на [color=yellow]{ $percentage }%[/color].
+
+gun-clumsy = Оружие взрывается у вас в руках!
+
+gun-general-empty = { $entName } пуст

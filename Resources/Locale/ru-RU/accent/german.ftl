@@ -197,3 +197,78 @@ accent-german-words-replace-61 = kugelblitz
 
 accent-german-words-62 = авто
 accent-german-words-replace-62 = auto
+
+accent-n14-german-words-1 = да
+accent-n14-german-words-replace-1 = ja
+
+accent-n14-german-words-2 = нет
+accent-n14-german-words-replace-2 = nein
+
+accent-n14-german-words-3 = привет
+accent-n14-german-words-replace-3 = hallo
+
+accent-n14-german-words-4 = пока
+accent-n14-german-words-replace-4 = tschüss
+
+accent-n14-german-words-5 = до свидания
+accent-n14-german-words-replace-5 = auf wiedersehen
+
+accent-n14-german-words-6 = друг
+accent-n14-german-words-replace-6 = freund
+
+accent-n14-german-words-7 = друзья
+accent-n14-german-words-replace-7 = freunde
+
+accent-n14-german-words-8 = господин
+accent-n14-german-words-replace-8 = herr
+
+accent-n14-german-words-9 = госпожа
+accent-n14-german-words-replace-9 = fräulein
+
+accent-n14-german-words-10 = хорошо
+accent-n14-german-words-replace-10 = gut
+
+accent-n14-german-words-11 = очень
+accent-n14-german-words-replace-11 = sehr
+
+accent-n14-german-words-12 = чудесно
+accent-n14-german-words-replace-12 = wunderbar
+
+accent-n14-german-words-13 = потрясающе
+accent-n14-german-words-replace-13 = wunderbar
+
+accent-n14-german-words-14 = спасибо
+accent-n14-german-words-replace-14 = danke
+
+accent-n14-german-words-15 = один
+accent-n14-german-words-replace-15 = ein
+
+accent-n14-german-words-16 = два
+accent-n14-german-words-replace-16 = zwei
+
+accent-n14-german-words-17 = три
+accent-n14-german-words-replace-17 = drei
+
+accent-n14-german-words-18 = пиво
+accent-n14-german-words-replace-18 = bier
+
+accent-n14-german-words-19 = бог
+accent-n14-german-words-replace-19 = gott
+
+accent-n14-german-words-20 = чёрт
+accent-n14-german-words-replace-20 = verdammt
+
+accent-n14-german-words-21 = дерьмо
+accent-n14-german-words-replace-21 = scheisse
+
+accent-n14-german-words-22 = внимание
+accent-n14-german-words-replace-22 = achtung
+
+accent-n14-german-words-23 = быстро
+accent-n14-german-words-replace-23 = schnell
+
+accent-n14-german-words-24 = точно
+accent-n14-german-words-replace-24 = genau
+
+accent-n14-german-words-25 = мой
+accent-n14-german-words-replace-25 = mein

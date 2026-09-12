@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: N14ClothingSlashGaunlets
-  name: кастет кротокрыса
-  description: Смертоносные кастеты, способные вызвать глубокие порезы.
+  name: mole rat knuckledusters
+  description: Deadly knuckledusters capable of leaving deep gashes.
   components:
   - type: Appearance
   - type: Sprite

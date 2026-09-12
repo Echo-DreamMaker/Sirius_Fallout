@@ -87,3 +87,5 @@ spellbook-upgrade-fireball-description = Позволяет улучшить О�
 
 spellbook-upgrade-jaunt-name = Улучшение Эфирной прогулки
 spellbook-upgrade-jaunt-description = Позволяет улучшить Эфирную прогулку до максимального 3-го уровня!
+
+spellbook-polymoprh-spider-name = Полиморф-паук

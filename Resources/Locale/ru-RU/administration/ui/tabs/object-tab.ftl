@@ -11,3 +11,11 @@ object-tab-refresh-button = Обновить
 
 object-tab-entity-teleport = Телепортироваться
 object-tab-entity-delete = Удалить
+
+object-tab-object-type-entities = Сущности
+
+object-tab-object-type-mobs = Мобы
+
+object-tab-object-type-weapons = Оружие
+
+object-tab-object-type-armor = Броня

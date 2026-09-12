@@ -44,7 +44,7 @@ pipboy-hub-location-on = ЛОК:ВКЛ.
 pipboy-hub-location-off = ЛОК: ВЫКЛ.
 
 # ── Contact Notes ──
-pipboy-hub-note-btn = None
+pipboy-hub-note-btn = ✎
 pipboy-hub-note-tooltip = Редактировать личные заметки для этого контакта
 pipboy-hub-note-placeholder = Личные заметки...
 pipboy-hub-note-save = Сохранять

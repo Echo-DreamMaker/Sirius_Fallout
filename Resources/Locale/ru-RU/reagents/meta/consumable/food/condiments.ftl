@@ -42,3 +42,7 @@ reagent-desc-table-salt = Хлорид натрия, широко известн
 
 reagent-name-syrup = сироп
 reagent-desc-syrup = Вкуснейший сироп, получаемый из древесного сока, и который по своим свойствам липче клея.
+
+reagent-name-frostoil = ледяное масло
+
+reagent-desc-frostoil = Оставляет язык онемевшим при прохождении.

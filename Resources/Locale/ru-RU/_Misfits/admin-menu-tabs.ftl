@@ -5,12 +5,18 @@ misfits-admin-menu-whitelisting-tab = Белый список
 misfits-admin-menu-staff-tab = Персонал
 # #Misfits Change - LoreMaster tab for faction objective management
 misfits-admin-menu-loremaster-tab = Хранитель мудрости
+# #Misfits Change - Door Logs tab
+misfits-admin-menu-door-logs-tab = Журналы
+
 # #Misfits Change - Ticket stats tab showing per-round admin and mentor ticket statistics
 misfits-admin-menu-ticket-stats-tab = Статистика билетов
 
 ## Fax Manager shortcut
 loremaster-tab-fax-manager = Факс-менеджер
 loremaster-tab-fax-manager-hint = Откройте панель факсов администратора, чтобы читать факсы игроков и отвечать на них.
+loremaster-tab-upload-local-audio = Воспроизвести локальное аудио
+loremaster-tab-local-audio-hint = Загрузите .ogg для воспроизведения поблизости на безопасной громкости
+loremaster-tab-upload-map = Загрузить файл карты
 
 ## LoreMaster tab UI strings
 loremaster-tab-faction-label = Фракция:
@@ -79,7 +85,7 @@ misfits-staff-stats-no-activity = В этом раунде активности 
 # Staff tab — ticket history section
 misfits-staff-tab-ticket-history-title = Журнал заявок
 misfits-staff-tab-ticket-refresh = Обновить
-misfits-staff-tab-ticket-col-id = None
+misfits-staff-tab-ticket-col-id = #
 misfits-staff-tab-ticket-col-player = Игрок
 misfits-staff-tab-ticket-col-status = Статус
 misfits-staff-tab-ticket-col-claimed = Заявлено
@@ -158,6 +164,8 @@ misfits-round-tab-extend-round-desc = Остановите приближающ�
 misfits-server-tab-shutdown-desc = Выключите игровой сервер.
 misfits-server-restart = Перезапустить сервер
 misfits-server-tab-restart-desc = Полностью перезапустите серверный процесс (watchdog/systemd перезапустится).
+misfits-server-deploy = Развернуть опубликованную сборку
+misfits-server-tab-deploy-desc = Попросить watchdog подготовить последнюю сборку, опубликованную на GitHub.
 misfits-server-tab-ooc-desc = Включите или выключите чат OOC (нестандартный).
 misfits-server-tab-looc-desc = Включите или выключите LOOC (локальный нехарактерный) чат.
 
@@ -191,7 +199,7 @@ misfits-server-tab-population-adjust-desc = Live-поднимите ограни
 # Whitelisting tab button descriptions
 misfits-whitelisting-tab-role-whitelists-btn = Меню белых списков ролей
 misfits-whitelisting-tab-role-whitelists-desc = Ищите игроков и управляйте их белыми списками должностей/ролей.
-misfits-whitelisting-tab-job-slots-btn = Job Slots Menu
+misfits-whitelisting-tab-job-slots-btn = Меню слотов должностей
 
 misfits-whitelisting-tab-job-slots-desc = Ищите игроков и управляйте конфигурацией слотов для заданий на станции.
 misfits-whitelisting-tab-view-whitelist-btn = Посмотреть белый список
@@ -226,3 +234,11 @@ misfits-server-restart-announcement-update = Сервер перезапуска
 misfits-server-restart-shutdown-reason = Перезапуск сервера по запросу администратора.
 # Admin-only chat notification when the watchdog signals a new build is staged and ready
 misfits-server-update-pending-admin = [UPDATE] Новая сборка сервера подготовлена ​​и готова. Используйте «Перезапустить сервер» на вкладке «Сервер F7», чтобы развернуть его.
+
+# Logs tab button descriptions
+misfits-logs-tab-open-logs-btn = Журналы
+misfits-logs-tab-open-logs-desc = Откройте обычный просмотрщик журналов администратора.
+misfits-logs-tab-open-door-logs-btn = Журналы дверей
+misfits-logs-tab-open-door-logs-desc = Просмотрите журнал уничтожения дверей — какие двери были уничтожены и кем.
+misfits-logs-tab-open-whitelist-logs-btn = Журналы белого списка
+misfits-logs-tab-open-whitelist-logs-desc = Просмотрите выдачи и отзывы белого списка в специальном журнале.

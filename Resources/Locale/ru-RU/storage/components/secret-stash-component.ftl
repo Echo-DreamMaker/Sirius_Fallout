@@ -24,3 +24,9 @@ secret-stash-plant = растение
 secret-stash-toilet = туалетный бачок
 secret-stash-plushie = плюшевая игрушка
 secret-stash-cake = торт
+
+comp-secret-stash-secret-part-name = { THE($item) }
+
+secret-stash-part-plant = растение
+secret-stash-part-toilet = бачок унитаза
+secret-stash-part-vent = вентиляционное отверстие

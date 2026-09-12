@@ -38,3 +38,7 @@ ghost-roles-window-rules-footer = Кнопка станет доступна ч�
 
 ghost-return-to-body-title = Вернуться в тело
 ghost-return-to-body-text = Вас воскрешают! Вернуться в своё тело?
+
+ghost-gui-return-to-round-button = Вернуться в раунд
+ghost-gui-toggle-ghost-visibility-popup = Видимость призраков переключена.
+ghost-gui-toggle-lighting-manager-popup = Всё освещение переключено.

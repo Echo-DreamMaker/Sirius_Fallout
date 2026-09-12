@@ -38,3 +38,7 @@ power-switchable-voltage = { $voltage ->
 power-switchable-switch-voltage = Переключить на { $voltage }
 
 fuel-generator-verb-disable-on = Сначала выключите генератор!
+
+portable-generator-verb-controls = Управление генератором
+portable-generator-ui-power-switch = Питание:
+portable-generator-ui-switch = Выход:

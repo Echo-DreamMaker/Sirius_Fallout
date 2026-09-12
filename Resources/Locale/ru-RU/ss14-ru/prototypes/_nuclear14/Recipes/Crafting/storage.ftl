@@ -6,3 +6,8 @@ recipe-N14SackFertilizer-name = { ent-N14SackFertilizer }
 recipe-N14SackFertilizer-desc = { ent-N14SackFertilizer.desc }
 recipe-N14Wallet-name = { ent-N14Wallet }
 recipe-N14Wallet-desc = { ent-N14Wallet.desc }
+
+ent-N14Sack = мешок
+    .desc = Плетёный мешок для хранения вещей.
+ent-N14SackCompost = мешок для компоста
+    .desc = Мешок для хранения компоста или навоза.

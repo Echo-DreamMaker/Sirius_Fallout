@@ -16,3 +16,15 @@ health-examinable-silicon-Heat-50 = [color=orange]{ CAPITALIZE(POSS-ADJ($target)
 health-examinable-silicon-Heat-75 = [color=orange]{ CAPITALIZE(POSS-ADJ($target)) } шасси частично расплавилось![/color]
 
 health-examinable-silicon-Shock-50 = [color=lightgoldenrodyellow]{ CAPITALIZE(POSS-ADJ($target)) } микросхемы, похоже, неплохо поджарились![/color]
+
+health-examinable-silicon-Blunt-25 = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } небольшие вмятины на шасси.[/color]
+
+health-examinable-silicon-Blunt-75 = [color=crimson]{ CAPITALIZE(POSS-ADJ($target)) } шасси почти полностью раздавлено![/color]
+
+health-examinable-silicon-Slash-10 = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } несколько мелких царапин.[/color]
+
+health-examinable-silicon-Slash-25 = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } значительные царапины на шасси.[/color]
+
+health-examinable-silicon-Slash-50 = [color=crimson]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } глубокие борозды по всей обшивке![/color]
+
+health-examinable-silicon-Heat-25 = [color=orange]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } поверхностные ожоги на шасси.[/color]

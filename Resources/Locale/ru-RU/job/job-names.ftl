@@ -118,3 +118,21 @@ JobTechnicalAssistant = технический ассистент
 JobVisitor = посетитель
 JobWarden = смотритель
 JobZookeeper = зоотехник
+
+job-name-senior-researcher = мистик
+
+job-name-senior-engineer = старший инженер
+
+job-name-senior-physician = старший врач
+
+job-name-senior-officer = старший офицер
+
+JobRoboticist = големант
+
+JobSeniorResearcher = мистик
+
+JobSeniorEngineer = старший инженер
+
+JobSeniorPhysician = старший врач
+
+JobSeniorOfficer = старший офицер

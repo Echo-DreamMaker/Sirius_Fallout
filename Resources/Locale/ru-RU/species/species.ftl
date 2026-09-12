@@ -14,3 +14,11 @@ species-name-gingerbread = вкуснейшая выпечка
 ## Misc species things
 
 snail-hurt-by-salt-popup = Солевой раствор жжёт как кислота!
+
+species-name-arachne = Арахна
+
+species-name-ipc = ИПС
+
+species-name-shadowkin = Тенекин
+
+species-name-plasmaman = Плазмамен

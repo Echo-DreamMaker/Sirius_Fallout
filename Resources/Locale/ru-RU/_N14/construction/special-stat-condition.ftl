@@ -1,0 +1,1 @@
+construction-step-condition-special-stat = Требуется: { $stat } { $minimum }.

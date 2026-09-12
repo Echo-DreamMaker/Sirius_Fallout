@@ -1,0 +1,269 @@
+N14BedMattress0 | Y | mattress | N14Bed | _Nuclear14\Recipes\Construction\furniture.yml
+N14HydroponicsPlanter | Y | planter | N14Planter | _Nuclear14\Recipes\Construction\hydroponics.yml
+N14DoorMakeshift | Y | wooden door | N14DoorGraph | _Nuclear14\Recipes\Construction\structures.yml
+N14DoorWoodSlanted | Y | wooden door | N14DoorGraph | _Nuclear14\Recipes\Construction\structures.yml
+N14WallWoodHalf | Y | wooden half wall | N14HalfWall | _Nuclear14\Recipes\Construction\structures.yml
+N14WallWoodLog | Y | log wall | N14WoodWall | _Nuclear14\Recipes\Construction\structures.yml
+N14WindowSlanted | Y | window pane | N14WindowPane | _Nuclear14\Recipes\Construction\structures.yml
+N14LightSmallEmpty | Y | small light | N14Lightbulb | _Nuclear14\Recipes\Construction\utilities.yml
+N14TorchWall | Y | wall torch | WallTorch | _Nuclear14\Recipes\Construction\utilities.yml
+N14ClothingHandsGlovesCloth | Y | cloth gloves | GlovesClothGraph | _Nuclear14\Recipes\Crafting\clothing.yml
+N14ClothingHeadHatNightstalker | Y | nightstalker hat | NightstalkerhatGraph | _Nuclear14\Recipes\Crafting\clothing.yml
+N14ClothingMaskBlackMask | Y | black bandana | blackbandana | _Nuclear14\Recipes\Crafting\clothing.yml
+N14ClothingMaskBrownMask | Y | brown bandana | brownbandana | _Nuclear14\Recipes\Crafting\clothing.yml
+N14ClothingMaskDesertMask | Y | grey bandana | greybandana | _Nuclear14\Recipes\Crafting\clothing.yml
+N14ClothingNeckCloakLeather | Y | leather cloak | LeatherCloakGraph | _Nuclear14\Recipes\Crafting\clothing.yml
+N14ClothingNeckCloakYaoguai | Y | Yao Guai cloak | YaoguaiCloakGraph | _Nuclear14\Recipes\Crafting\clothing.yml
+N14ClothingNeckMantleLeather | Y | leather mantle | LeatherMantleGraph | _Nuclear14\Recipes\Crafting\clothing.yml
+N14ClothingOuterCoatFollowersArmored | Y | Followers armored coat | CoatFollowersArmoredGraph | _Nuclear14\Recipes\Crafting\clothing.yml
+N14ClothingUniformJumpsuitRags | Y | wastelander rags | WastelanderRagsGraph | _Nuclear14\Recipes\Crafting\clothing.yml
+MaterialCardboard | Y | cardboard | N14Cardboard | _Nuclear14\Recipes\Crafting\materials.yml
+N14MortarpestleGrinder | Y | mortar & pestle | N14MortarPestle | _Nuclear14\Recipes\Crafting\medical.yml
+N14LegionnaireBuckler | Y | legionnaire buckler | N14LegionnaireBuckler | _Nuclear14\Recipes\Crafting\shields.yml
+N14ShieldMetalHeavy | Y | heavy shield | N14HeavyShield | _Nuclear14\Recipes\Crafting\shields.yml
+N14ShieldMetalLight | Y | light shield | N14LightShield | _Nuclear14\Recipes\Crafting\shields.yml
+N14DecorationFlagBearerEmpty | Y | NO NAME | DecorationFlagEmpty | Corvax\Recipes\Crafting\Construction\flags.yml
+N14DecorationFlagBrotherhoodMidwest | Y | Flag of the Brotherhood of Steel | DecorationFlagBrotherhoodMidwest | Corvax\Recipes\Crafting\Construction\flags.yml
+N14DecorationFlagFollowers | Y | Flag of the Followers of the Apocalypse | DecorationFlagFollowers | Corvax\Recipes\Crafting\Construction\flags.yml
+N14DecorationFlagGunner | Y | Flag of the Gunner Mercenary Corps | DecorationFlagGunner | Corvax\Recipes\Crafting\Construction\flags.yml
+N14DecorationFlagLegion | Y | Flag of Caesar's Legion | DecorationFlagLegion | Corvax\Recipes\Crafting\Construction\flags.yml
+N14DecorationFlagLocust | Y | Flag of the Locust Tribe | DecorationFlagLocust | Corvax\Recipes\Crafting\Construction\flags.yml
+N14DecorationFlagNCR | Y | Flag of the New California Republic | DecorationFlagNCR | Corvax\Recipes\Crafting\Construction\flags.yml
+AltarChaos | Y | chaos altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarConvert | Y | convert altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarConvertBlue | Y | blue altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarConvertBurden | Y | burden altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarConvertFestival | Y | festival altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarConvertMaint | Y | maint altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarConvertOrange | Y | orange altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarConvertRed | Y | red altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarConvertWhite | Y | white altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarConvertYellow | Y | yellow altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarDruid | Y | druid altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarFangs | Y | fanged altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarHeaven | Y | heaven altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarNanotrasen | Y | nanotrasen altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarSatana | Y | satanic altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarSpaceChristian | Y | space-christian altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarTechnology | Y | technology altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+AltarToolbox | Y | toolbox altar | Altar | Nyanotrasen\Recipes\Construction\furniture.yml
+ShuttleWindow | Y | shuttle window | Window | Nyanotrasen\Recipes\Construction\structures.yml
+ClothingBeltQuiver | Y | quiver | Quiver | Recipes\Construction\clothing.yml
+ClothingEyesHudMedSec | Y | medsec hud | HudMedSec | Recipes\Construction\clothing.yml
+ClothingShoeSlippersDuck | Y | ducky slippers | ClothingShoeSlippersDuck | Recipes\Construction\clothing.yml
+Bed | Y | bed | bed | Recipes\Construction\furniture.yml
+Bookshelf | Y | bookshelf | Bookshelf | Recipes\Construction\furniture.yml
+Chair | Y | chair | Seat | Recipes\Construction\furniture.yml
+ChairBrass | Y | brass chair | Seat | Recipes\Construction\furniture.yml
+ChairFolding | Y | folding chair | Seat | Recipes\Construction\furniture.yml
+ChairMeat | Y | meat chair | Seat | Recipes\Construction\furniture.yml
+ChairOfficeDark | Y | dark office chair | Seat | Recipes\Construction\furniture.yml
+ChairOfficeLight | Y | office chair | Seat | Recipes\Construction\furniture.yml
+ChairRitual | Y | ritual chair | RitualSeat | Recipes\Construction\furniture.yml
+ChairWood | Y | wooden chair | Seat | Recipes\Construction\furniture.yml
+CurtainsBlack | Y | black curtains | Curtains | Recipes\Construction\furniture.yml
+CurtainsBlue | Y | blue curtains | Curtains | Recipes\Construction\furniture.yml
+CurtainsCyan | Y | cyan curtains | Curtains | Recipes\Construction\furniture.yml
+CurtainsGreen | Y | green curtains | Curtains | Recipes\Construction\furniture.yml
+CurtainsOrange | Y | orange curtains | Curtains | Recipes\Construction\furniture.yml
+CurtainsPink | Y | pink curtains | Curtains | Recipes\Construction\furniture.yml
+CurtainsPurple | Y | purple curtains | Curtains | Recipes\Construction\furniture.yml
+CurtainsRed | Y | red curtains | Curtains | Recipes\Construction\furniture.yml
+CurtainsWhite | Y | white curtains | Curtains | Recipes\Construction\furniture.yml
+DogBed | Y | dog bed | bed | Recipes\Construction\furniture.yml
+Dresser | Y | dresser | Dresser | Recipes\Construction\furniture.yml
+MedicalBed | Y | medical bed | bed | Recipes\Construction\furniture.yml
+NoticeBoard | Y | notice board | NoticeBoard | Recipes\Construction\furniture.yml
+Rack | Y | rack | Rack | Recipes\Construction\furniture.yml
+Stool | Y | stool | Seat | Recipes\Construction\furniture.yml
+StoolBar | Y | bar stool | Seat | Recipes\Construction\furniture.yml
+Table | Y | steel table | Table | Recipes\Construction\furniture.yml
+TableBrass | Y | brass table | Table | Recipes\Construction\furniture.yml
+TableCarpet | Y | poker table | Table | Recipes\Construction\furniture.yml
+TableCounterMetal | Y | metal counter | Table | Recipes\Construction\furniture.yml
+TableCounterWood | Y | wood counter | Table | Recipes\Construction\furniture.yml
+TableFancyBlack | Y | fancy black table | Table | Recipes\Construction\furniture.yml
+TableFancyBlue | Y | fancy blue table | Table | Recipes\Construction\furniture.yml
+TableFancyCyan | Y | fancy cyan table | Table | Recipes\Construction\furniture.yml
+TableFancyGreen | Y | fancy green table | Table | Recipes\Construction\furniture.yml
+TableFancyOrange | Y | fancy orange table | Table | Recipes\Construction\furniture.yml
+TableFancyPink | Y | fancy pink table | Table | Recipes\Construction\furniture.yml
+TableFancyPurple | Y | fancy purple table | Table | Recipes\Construction\furniture.yml
+TableFancyRed | Y | fancy red table | Table | Recipes\Construction\furniture.yml
+TableFancyWhite | Y | fancy white table | Table | Recipes\Construction\furniture.yml
+TableGlass | Y | glass table | Table | Recipes\Construction\furniture.yml
+TablePlasmaGlass | Y | plasma glass table | Table | Recipes\Construction\furniture.yml
+TableReinforced | Y | reinforced steel table | Table | Recipes\Construction\furniture.yml
+TableReinforcedGlass | Y | reinforced glass table | Table | Recipes\Construction\furniture.yml
+TableWood | Y | wood table | Table | Recipes\Construction\furniture.yml
+ToiletEmpty | Y | toilet | Toilet | Recipes\Construction\furniture.yml
+MachineFrame | Y | machine frame | Machine | Recipes\Construction\machines.yml
+SignalButtonRecipe | Y | signal button | SignalButtonGraph | Recipes\Construction\machines.yml
+TwoWayLeverRecipe | Y | two-way lever | LeverGraph | Recipes\Construction\machines.yml
+MaterialDurathread | Y | durathread | Durathread | Recipes\Construction\materials.yml
+SheetClockworkGlass | Y | clockwork glass | Glass | Recipes\Construction\materials.yml
+SheetPGlass | Y | plasma glass | Glass | Recipes\Construction\materials.yml
+SheetRGlass | Y | reinforced glass | Glass | Recipes\Construction\materials.yml
+SheetRPGlass | Y | reinforced plasma glass | Glass | Recipes\Construction\materials.yml
+SheetRPGlass1 | Y | reinforced plasma glass | Glass | Recipes\Construction\materials.yml
+SheetRUGlass | Y | reinforced uranium glass | Glass | Recipes\Construction\materials.yml
+SheetRUGlass1 | Y | reinforced uranium glass | Glass | Recipes\Construction\materials.yml
+SheetUGlass | Y | uranium glass | Glass | Recipes\Construction\materials.yml
+ShelfBar | Y | bar shelf | Shelf | Recipes\Construction\storage.yml
+ShelfChemistry | Y | chemical shelf | Shelf | Recipes\Construction\storage.yml
+ShelfGlass | Y | glass shelf | Shelf | Recipes\Construction\storage.yml
+ShelfKitchen | Y | cooking shelf | Shelf | Recipes\Construction\storage.yml
+ShelfMetal | Y | metal shelf | Shelf | Recipes\Construction\storage.yml
+ShelfRGlass | Y | sturdy glass shelf | Shelf | Recipes\Construction\storage.yml
+ShelfRMetal | Y | sturdy metal shelf | Shelf | Recipes\Construction\storage.yml
+ShelfRWood | Y | sturdy wooden shelf | Shelf | Recipes\Construction\storage.yml
+ShelfWood | Y | wooden shelf | Shelf | Recipes\Construction\storage.yml
+Airlock | Y | airlock | Airlock | Recipes\Construction\structures.yml
+AirlockGlass | Y | glass airlock | Airlock | Recipes\Construction\structures.yml
+AirlockGlassShuttle | Y | glass shuttle airlock | AirlockShuttle | Recipes\Construction\structures.yml
+AirlockShuttle | Y | shuttle airlock | AirlockShuttle | Recipes\Construction\structures.yml
+BananiumDoor | Y | bananium door | DoorGraph | Recipes\Construction\structures.yml
+BlastDoor | Y | blast door | BlastDoor | Recipes\Construction\structures.yml
+Catwalk | Y | catwalk | Catwalk | Recipes\Construction\structures.yml
+ClockworkGirder | Y | wall gear | ClockworkGirder | Recipes\Construction\structures.yml
+ClockworkGrilleDiagonal | Y | diagonal clockwork grille | GrilleDiagonal | Recipes\Construction\structures.yml
+ClockworkWindow | Y | clockwork window | Window | Recipes\Construction\structures.yml
+ClockworkWindowDiagonal | Y | diagonal clockwork window | WindowDiagonal | Recipes\Construction\structures.yml
+ConveyorBelt | Y | conveyor belt | ConveyorGraph | Recipes\Construction\structures.yml
+FenceMetalCorner | Y | chain link fence corner | FenceMetal | Recipes\Construction\structures.yml
+FenceMetalEnd | Y | chain link fence end-piece | FenceMetal | Recipes\Construction\structures.yml
+FenceMetalGate | Y | chain link fence gate | FenceMetal | Recipes\Construction\structures.yml
+Firelock | Y | firelock | Firelock | Recipes\Construction\structures.yml
+FirelockEdge | Y | Thin firelock | Firelock | Recipes\Construction\structures.yml
+FirelockGlass | Y | glass firelock | Firelock | Recipes\Construction\structures.yml
+Girder | Y | girder | Girder | Recipes\Construction\structures.yml
+GoldDoor | Y | gold door | DoorGraph | Recipes\Construction\structures.yml
+Grille | Y | grille | Grille | Recipes\Construction\structures.yml
+GrilleDiagonal | Y | diagonal grille | GrilleDiagonal | Recipes\Construction\structures.yml
+MetalDoor | Y | metal door | DoorGraph | Recipes\Construction\structures.yml
+PaperDoor | Y | paper door | DoorGraph | Recipes\Construction\structures.yml
+PinionAirlock | Y | pinion airlock | PinionAirlock | Recipes\Construction\structures.yml
+PinionAirlockGlass | Y | glass pinion airlock | PinionAirlock | Recipes\Construction\structures.yml
+PlasmaDoor | Y | plasma door | DoorGraph | Recipes\Construction\structures.yml
+PlasmaReinforcedWindowDirectional | Y | directional reinforced plasma window | WindowDirectional | Recipes\Construction\structures.yml
+PlasmaWindow | Y | plasma window | Window | Recipes\Construction\structures.yml
+PlasmaWindowDiagonal | Y | diagonal plasma window | WindowDiagonal | Recipes\Construction\structures.yml
+PlasmaWindowDirectional | Y | directional plasma window | WindowDirectional | Recipes\Construction\structures.yml
+PlasticFlapsClear | Y | plastic flaps | PlasticFlapsGraph | Recipes\Construction\structures.yml
+PlasticFlapsOpaque | Y | opaque plastic flaps | PlasticFlapsGraph | Recipes\Construction\structures.yml
+ReinforcedGirder | Y | reinforced girder | Girder | Recipes\Construction\structures.yml
+ReinforcedPlasmaWindow | Y | reinforced plasma window | Window | Recipes\Construction\structures.yml
+ReinforcedPlasmaWindowDiagonal | Y | diagonal reinforced plasma window | WindowDiagonal | Recipes\Construction\structures.yml
+ReinforcedUraniumWindow | Y | reinforced uranium window | Window | Recipes\Construction\structures.yml
+ReinforcedUraniumWindowDiagonal | Y | diagonal reinforced uranium window | WindowDiagonal | Recipes\Construction\structures.yml
+ReinforcedWindow | Y | reinforced window | Window | Recipes\Construction\structures.yml
+ReinforcedWindowDiagonal | Y | diagonal reinforced window | WindowDiagonal | Recipes\Construction\structures.yml
+ShuttersRadiation | Y | radiation shutter | Shutters | Recipes\Construction\structures.yml
+ShuttersWindow | Y | glass shutter | Shutters | Recipes\Construction\structures.yml
+SilverDoor | Y | silver door | DoorGraph | Recipes\Construction\structures.yml
+SolidSecretDoor | Y | solid secret door | SecretDoor | Recipes\Construction\structures.yml
+TintedWindow | Y | tinted window | Window | Recipes\Construction\structures.yml
+UraniumReinforcedWindowDirectional | Y | directional reinforced uranium window | WindowDirectional | Recipes\Construction\structures.yml
+UraniumWindow | Y | uranium window | Window | Recipes\Construction\structures.yml
+UraniumWindowDiagonal | Y | diagonal uranium window | WindowDiagonal | Recipes\Construction\structures.yml
+UraniumWindowDirectional | Y | directional uranium window | WindowDirectional | Recipes\Construction\structures.yml
+WallClock | Y | clock wall | ClockworkGirder | Recipes\Construction\structures.yml
+Windoor | Y | windoor | Windoor | Recipes\Construction\structures.yml
+Window | Y | window | Window | Recipes\Construction\structures.yml
+WindowClockworkDirectional | Y | directional clockwork window | WindowDirectional | Recipes\Construction\structures.yml
+WindowDiagonal | Y | diagonal window | WindowDiagonal | Recipes\Construction\structures.yml
+WindowDirectional | Y | directional window | WindowDirectional | Recipes\Construction\structures.yml
+WindowReinforcedDirectional | Y | directional reinforced window | WindowDirectional | Recipes\Construction\structures.yml
+WoodDoor | Y | wooden door | DoorGraph | Recipes\Construction\structures.yml
+EdgeDetector | Y | edge detector | LogicGate | Recipes\Construction\tools.yml
+PowerSensor | Y | power sensor | LogicGate | Recipes\Construction\tools.yml
+Torch | Y | torch | LightTorch | Recipes\Construction\tools.yml
+AirSensor | Y | air sensor | AirSensor | Recipes\Construction\utilities.yml
+BrigTimer | Y | brig timer | Timer | Recipes\Construction\utilities.yml
+CableTerminal | Y | cable terminal | CableTerminal | Recipes\Construction\utilities.yml
+DisposalBend | Y | disposal bend | DisposalPipe | Recipes\Construction\utilities.yml
+DisposalJunction | Y | disposal junction | DisposalPipe | Recipes\Construction\utilities.yml
+DisposalPipe | Y | disposal pipe | DisposalPipe | Recipes\Construction\utilities.yml
+DisposalRouter | Y | disposal router | DisposalPipe | Recipes\Construction\utilities.yml
+DisposalSignalRouter | Y | disposal signal router | DisposalPipe | Recipes\Construction\utilities.yml
+DisposalTagger | Y | disposal tagger | DisposalPipe | Recipes\Construction\utilities.yml
+DisposalTrunk | Y | disposal trunk | DisposalPipe | Recipes\Construction\utilities.yml
+DisposalUnit | Y | disposal unit | DisposalMachine | Recipes\Construction\utilities.yml
+DisposalYJunction | Y | disposal Y junction | DisposalPipe | Recipes\Construction\utilities.yml
+FireAlarm | Y | fire alarm | FireAlarm | Recipes\Construction\utilities.yml
+GasDualPortVentPump | Y | dual-port air vent | GasBinary | Recipes\Construction\utilities.yml
+GasFilter | Y | gas filter | GasTrinary | Recipes\Construction\utilities.yml
+GasMixer | Y | gas mixer | GasTrinary | Recipes\Construction\utilities.yml
+GasOutletInjector | Y | air injector | GasUnary | Recipes\Construction\utilities.yml
+GasPassiveGate | Y | passive gate | GasBinary | Recipes\Construction\utilities.yml
+GasPassiveVent | Y | passive vent | GasUnary | Recipes\Construction\utilities.yml
+GasPipeBend | Y | gas pipe bend | GasPipe | Recipes\Construction\utilities.yml
+GasPipeFourway | Y | gas pipe fourway | GasPipe | Recipes\Construction\utilities.yml
+GasPipeHalf | Y | gas pipe half | GasPipe | Recipes\Construction\utilities.yml
+GasPipeSensor | Y | gas pipe sensor | GasPipeSensor | Recipes\Construction\utilities.yml
+GasPipeStraight | Y | gas pipe straight | GasPipe | Recipes\Construction\utilities.yml
+GasPipeTJunction | Y | gas pipe T junction | GasPipe | Recipes\Construction\utilities.yml
+GasPort | Y | connector port | GasBinary | Recipes\Construction\utilities.yml
+GasPressurePump | Y | gas pump | GasBinary | Recipes\Construction\utilities.yml
+GasValve | Y | manual valve | GasBinary | Recipes\Construction\utilities.yml
+GasVentPump | Y | air vent | GasUnary | Recipes\Construction\utilities.yml
+GasVentScrubber | Y | air scrubber | GasUnary | Recipes\Construction\utilities.yml
+GasVolumePump | Y | volumetric gas pump | GasBinary | Recipes\Construction\utilities.yml
+HeatExchanger | Y | radiator | GasBinary | Recipes\Construction\utilities.yml
+IntercomAssembly | Y | intercom | Intercom | Recipes\Construction\utilities.yml
+MailingUnit | Y | mailing unit | DisposalMachine | Recipes\Construction\utilities.yml
+PressureControlledValve | Y | pneumatic valve | GasTrinary | Recipes\Construction\utilities.yml
+ScreenTimer | Y | screen timer | Timer | Recipes\Construction\utilities.yml
+SignalControlledValve | Y | signal valve | GasBinary | Recipes\Construction\utilities.yml
+SignalTimer | Y | signal timer | Timer | Recipes\Construction\utilities.yml
+SolarPanel | Y | solar assembly | SolarPanel | Recipes\Construction\utilities.yml
+StationMap | Y | station map | StationMap | Recipes\Construction\utilities.yml
+WallmountTelescreen | Y | telescreen | WallmountTelescreen | Recipes\Construction\utilities.yml
+BladedFlatcapBrown | Y | brown bladed flatcap | BladedFlatcapBrown | Recipes\Construction\weapons.yml
+BladedFlatcapGrey | Y | grey bladed flatcap | BladedFlatcapGrey | Recipes\Construction\weapons.yml
+Bola | Y | makeshift bola | Bola | Recipes\Construction\weapons.yml
+MakeshiftShield | Y | makeshift shield | MakeshiftShield | Recipes\Construction\weapons.yml
+PlasmaShiv | Y | plasma shiv | PlasmaShiv | Recipes\Construction\weapons.yml
+ReinforcedShiv | Y | reinforced shiv | ReinforcedShiv | Recipes\Construction\weapons.yml
+Shiv | Y | glass shiv | Shiv | Recipes\Construction\weapons.yml
+Spear | Y | crude spear | Spear | Recipes\Construction\weapons.yml
+SpearBone | Y | bone spear | SpearBone | Recipes\Construction\weapons.yml
+SpearPlasma | Y | crude plasma spear | SpearPlasma | Recipes\Construction\weapons.yml
+SpearReinforced | Y | crude reinforced spear | SpearReinforced | Recipes\Construction\weapons.yml
+SpearUranium | Y | crude uranium spear | SpearUranium | Recipes\Construction\weapons.yml
+UraniumShiv | Y | uranium shiv | UraniumShiv | Recipes\Construction\weapons.yml
+WoodenBuckler | Y | wooden buckler | WoodenBuckler | Recipes\Construction\weapons.yml
+ChairWeb | Y | web chair | WebStructures | Recipes\Construction\web.yml
+CrateWeb | Y | web crate | WebStructures | Recipes\Construction\web.yml
+TableWeb | Y | web table | WebStructures | Recipes\Construction\web.yml
+WallWeb | Y | web wall | WebStructures | Recipes\Construction\web.yml
+WebBed | Y | web bed | WebStructures | Recipes\Construction\web.yml
+WebDoor | Y | web door | WebStructures | Recipes\Construction\web.yml
+BigBox | Y | cardboard box | BaseBigBox | Recipes\Crafting\crates.yml
+BoxCardboard | Y | cardboard box | BoxCardboard | Recipes\Crafting\crates.yml
+CrateCoffin | Y | coffin | CrateCoffin | Recipes\Crafting\crates.yml
+CrateGenericSteel | Y | steel crate | CrateGenericSteel | Recipes\Crafting\crates.yml
+CrateLivestock | Y | livestock crate | CrateLivestock | Recipes\Crafting\crates.yml
+CratePlastic | Y | plastic crate | CratePlastic | Recipes\Crafting\crates.yml
+CrateSecure | Y | secure crate | CrateSecure | Recipes\Crafting\crates.yml
+ShellShotgunImprovised | Y | improvised shotgun shell | ImprovisedShotgunShellGraph | Recipes\Crafting\improvised.yml
+PotatoAI | Y | potato artificial intelligence | PotatoAI | Recipes\Crafting\potato.yml
+PotatoAIChip | Y | supercompact AI chip | PotatoAIChip | Recipes\Crafting\potato.yml
+PowerCellPotato | Y | potato battery | PowerCellPotato | Recipes\Crafting\potato.yml
+ClosetWall | Y | wall closet | ClosetWall | Recipes\Crafting\tallbox.yml
+ClothingOuterSuitIan | Y | ian suit | ClothingOuterSuitIan | Recipes\Crafting\toys.yml
+PlushieGhostRevenant | Y | revenant plushie | PlushieGhostRevenant | Recipes\Crafting\toys.yml
+ClothingOuterWinterWeb | Y | web winter coat | WebObjects | Recipes\Crafting\web.yml
+ClothingShoesBootsWinterWeb | Y | web winter boots | WebObjects | Recipes\Crafting\web.yml
+ClothingUniformJumpskirtWeb | Y | web jumpskirt | WebObjects | Recipes\Crafting\web.yml
+ClothingUniformJumpsuitWeb | Y | web jumpsuit | WebObjects | Recipes\Crafting\web.yml
+WebShield | Y | web shield | WebObjects | Recipes\Crafting\web.yml
+
+TOTAL_CANDIDATES_CONSIDERED = 675
+SKIPPED_ABSTRACT = 0
+SKIPPED_HIDE = 23
+TOTAL_REAL_CONSTRUCTION = 652
+HAVE_RECIPE_KEY = 392
+LACK_RECIPE_KEY_BUT_HAVE_ENT = 260
+LACK_BOTH_RECIPE_AND_ENT = 0
+FTL_FILES_SCANNED = 3060

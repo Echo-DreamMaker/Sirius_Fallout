@@ -39,3 +39,15 @@ materials-raw-uranium = руда урана
 materials-raw-bananium = руда бананиума
 materials-raw-salt = каменная соль
 materials-raw-diamond = необработанные алмазы
+
+materials-legendary-tribal-leather = легендарная племенная кожа
+
+materials-bluespace = блюспейс
+
+materials-normality = нормальность
+
+materials-raw-bluespace = необработанный блюспейс
+
+materials-raw-normality = необработанная нормальность
+
+material-reclaimer-upgrade-process-rate = скорость обработки

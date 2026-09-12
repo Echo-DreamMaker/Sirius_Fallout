@@ -39,3 +39,11 @@ marking-TattooEyeVoxRight = Right Eye
 
 marking-TattooEyeVoxLeft-tattoo_eye_vox_l = Left Eye
 marking-TattooEyeVoxLeft = Left Eye
+
+marking-TattooEyeArachneLeft-tattoo_eye_arachne_l = Левый глаз арахны
+
+marking-TattooEyeArachneLeft = Левый глаз арахны
+
+marking-TattooEyeArachneRight-tattoo_eye_arachne_r = Правый глаз арахны
+
+marking-TattooEyeArachneRight = Правый глаз арахны

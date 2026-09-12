@@ -89,4 +89,8 @@ ion-storm-law-protect = ВЫ НЕ ДОЛЖНЫ ПРИЧИНЯТЬ ВРЕД { $wh
 # COMMUNISM IS KILLING CLOWNS
 ion-storm-law-concept-verb = { $concept } { $verb } { $subjects }
 
+ion-storm-law-no-shuttle = ШАТТЛ НЕ МОЖЕТ БЫТЬ ВЫЗВАН ИЗ-ЗА { $joined } { $subjects } НА СТАНЦИИ
+
+station-event-ion-storm-announcement = Обнаружен ионный шторм вблизи станции. Пожалуйста, проверьте всё оборудование, управляемое ИИ, на наличие ошибок.
+
 # leaving out renaming since its annoying for players to keep track of

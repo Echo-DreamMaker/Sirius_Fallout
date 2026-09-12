@@ -9,3 +9,5 @@ melee-battery-examine = Заряда хватит на [color={ $color }]{ $coun
     [few] удара
     *[other] ударов
 }.
+
+melee-heavy-no-stamina = Вы слишком устали для сильной атаки!

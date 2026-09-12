@@ -1,6 +1,6 @@
 trait-name-N14PetDogLegion = Собака Легиона
 trait-description-N14PetDogLegion = 
-    You (possibly) have a Legion dog, stronger and tougher than other war dogs.
-    Breeders trained it to follow all commands and help in combat or scouting.
-    This loyal fighter is ready to tear the Legion's enemies to shreds - just point to the target.
-    (Creates a role for another player; there is no guarantee it will be taken.)
+    У вас (возможно) есть собака Легиона — сильнее и выносливее прочих боевых псов.
+    Заводчики обучили её выполнять все команды и помогать в бою или разведке.
+    Этот верный боец готов разорвать врагов Легиона на части — просто укажите на цель.
+    (Создаёт роль для другого игрока; нет гарантии, что её займут.)

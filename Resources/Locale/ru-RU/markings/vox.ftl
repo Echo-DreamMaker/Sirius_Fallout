@@ -45,3 +45,23 @@ marking-VoxScarEyeRightSmall = Small Eye Scar (Right)
 
 marking-VoxScarEyeLeftSmall-vox_scar_eye_left_small = Left Eye Scar (Small)
 marking-VoxScarEyeLeftSmall = Small Eye Scar (Left)
+
+marking-VoxBeak = Вокс, клюв
+
+marking-VoxLArmScales = Вокс, левая рука
+
+marking-VoxLFootScales = Вокс, левая ступня
+
+marking-VoxLHandScales = Вокс, левая кисть
+
+marking-VoxLLegScales = Вокс, левая нога
+
+marking-VoxRArmScales = Вокс, правая рука
+
+marking-VoxRFootScales = Вокс, правая ступня
+
+marking-VoxRHandScales = Вокс, правая кисть
+
+marking-VoxRLegScales = Вокс, правая нога
+
+marking-VoxTail = Вокс, хвост

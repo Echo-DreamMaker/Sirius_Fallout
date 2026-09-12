@@ -11,3 +11,5 @@ admin-manager-stealthed-message = Теперь вы спрятавшийся а�
 admin-manager-unstealthed-message = Вы больше не прячетесь.
 admin-manager-self-enable-stealth = { $stealthAdminName } спрятался.
 admin-manager-self-disable-stealth = { $exStealthAdminName } больше не прячется.
+
+admin-manager-admin-data-fallback-title = Админ

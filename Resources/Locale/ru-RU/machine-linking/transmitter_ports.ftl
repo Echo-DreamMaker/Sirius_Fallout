@@ -72,3 +72,7 @@ signal-port-description-power-discharging = Этот порт задейству
 
 signal-port-name-item-detected = Обнаружение
 signal-port-description-item-detected = Этот порт задействуется когда передатчик обнаруживает предмет.
+
+signal-port-name-material-silo = Хранилище материалов
+
+signal-port-description-material-silo = Блюспейс-хранилище для материалов станции

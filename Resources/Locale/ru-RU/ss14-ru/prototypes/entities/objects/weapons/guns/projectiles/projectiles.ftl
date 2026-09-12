@@ -112,3 +112,6 @@ ent-BulletLaserSpreadNarrow = узкий лазерный залп
     .desc = { ent-BulletLaser.desc }
 ent-BulletDisablerSmgSpread = оглушающий лазерный залп
     .desc = { ent-BulletDisablerSmg.desc }
+
+ent-RMCProjectileRocket84mm = ракета 84 мм
+    .desc = 84-мм ракета.

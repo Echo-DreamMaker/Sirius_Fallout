@@ -190,3 +190,25 @@ chatsan-replacement-66 = something
 
 chatsan-word-67 = allg
 chatsan-replacement-67 = all good
+
+chatsan-word-11 = idk
+
+chatsan-replacement-11 = i don't know
+
+chatsan-word-117 = bbt
+
+chatsan-replacement-117 = I'm a moron
+
+chatsan-replacement-21 = please
+
+chatsan-replacement-22 = please
+
+chatsan-replacement-23 = please
+
+chatsan-word-33 = gl
+
+chatsan-replacement-33 = good luck
+
+chatsan-replacement-39 = etcetera
+
+chatsan-replacement-40 = etcetera

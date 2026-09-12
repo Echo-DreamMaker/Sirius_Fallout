@@ -100,3 +100,7 @@ anomaly-behavior-inconstancy = [color=crimson]Обнаружено непост�
 anomaly-behavior-fast = [color=crimson]Частота импульсов значительно повышена.[/color]
 anomaly-behavior-strenght = [color=crimson]Мощность импульсов значительно повышена.[/color]
 anomaly-behavior-moving = [color=crimson]Обнаружена координатная нестабильность.[/color]
+
+anomaly-vessel-component-upgrade-output = выработка очков
+
+anomaly-scanner-scan-copied = Данные сканирования аномалии скопированы!

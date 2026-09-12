@@ -3,3 +3,6 @@ survival-description = Внутренние угрозы отсутствуют,
 
 kessler-syndrome-title = Синдром Кесслера
 kessler-syndrome-description = Внутренних угроз нет, но станция быстро движется в пояс метеоров!
+
+hellshift-title = Адская смена
+hellshift-description = Станция провалила проверку удачи. Сможет ли экипаж дожить до конца?

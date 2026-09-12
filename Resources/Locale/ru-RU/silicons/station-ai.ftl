@@ -44,3 +44,9 @@ station-ai-hologram-male = Мужской образ
 station-ai-hologram-face = Бестелесная голова
 station-ai-hologram-cat = Форма кота
 station-ai-hologram-dog = Форма корги
+
+station-ai-npc-command-selection-full = Выбор команд NPC переполнен.
+
+zax-linked-units-warp-failed = Не удалось перенаправить глаз З.А.К.С к этому модулю.
+
+zax-linked-units-warped = Глаз З.А.К.С перенаправлен к { $unit }.

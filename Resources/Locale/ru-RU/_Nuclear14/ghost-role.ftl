@@ -38,3 +38,25 @@ ghost-role-information-n14pet-mirelurk-name = Болотник-компаньо�
 ghost-role-information-n14pet-radchicken-name = Радкурица-компаньон
 ghost-role-information-n14pet-cat-name = Кот-компаньон
 ghost-role-information-n14pet-centaur-name = Кентавр-компаньон
+
+ghost-role-information-n14pet-cat-black-name = Чёрный кот-компаньон
+ghost-role-information-n14pet-cat-browntabby-name = Коричневый полосатый кот-компаньон
+ghost-role-information-n14pet-cat-calico-name = Трёхцветная кошка-компаньон
+ghost-role-information-n14pet-cat-gingertabby-name = Рыжий полосатый кот-компаньон
+ghost-role-information-n14pet-cat-graytabby-name = Серый полосатый кот-компаньон
+ghost-role-information-n14pet-cat-mela-name = Кошка-компаньон (мела)
+ghost-role-information-n14pet-cat-ocicat-name = Оцикет-компаньон
+ghost-role-information-n14pet-cat-siamese-name = Сиамский кот-компаньон
+ghost-role-information-n14pet-cat-sphinx-name = Сфинкс-компаньон
+ghost-role-information-n14pet-cat-spoon-name = Спун-компаньон
+ghost-role-information-n14pet-cat-tortie-name = Черепаховая кошка-компаньон
+ghost-role-information-n14pet-cat-white-name = Белая кошка-компаньон
+
+ghost-role-information-n14pet-companion-request-title = Запрос на компаньона от {$requester} для {$role}
+ghost-role-information-n14pet-companion-approve-button = Одобрить
+ghost-role-information-n14pet-companion-deny-button = Отклонить
+ghost-role-information-n14pet-companion-request-pending = Этот запрос на компаньона уже ожидает одобрения.
+ghost-role-information-n14pet-companion-request-owner-unavailable = Владелец питомца сейчас не может одобрить этот запрос.
+ghost-role-information-n14pet-companion-request-approved = Вы одобрили запрос на компаньона.
+ghost-role-information-n14pet-companion-request-denied = Ваш запрос на компаньона был отклонён.
+ghost-role-information-n14pet-companion-request-expired = Срок действия этого запроса на компаньона истёк до того, как он был одобрен.

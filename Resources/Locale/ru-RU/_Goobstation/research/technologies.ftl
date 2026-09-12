@@ -7,3 +7,4 @@ research-technology-durand = Дюран
 research-technology-explosive-mech-ammunition = Взрывоопасные боеприпасы для меха
 research-technology-honk-weapons = Банановое оружие
 research-technology-modsuits = Модульные технологии
+research-technology-radio-music-communication = Радиомузыкальные коммуникации

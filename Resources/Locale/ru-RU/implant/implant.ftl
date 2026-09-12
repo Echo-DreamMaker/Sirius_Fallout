@@ -34,3 +34,6 @@ scramble-implant-activated-popup = Ваша внешность преображ�
 
 deathrattle-implant-dead-message = Зафиксирована смерть { $user } { $position }.
 deathrattle-implant-critical-message = Жизненные показатели { $user } критические, требуется немедленная помощь { $position }.
+
+implanter-label = [color=green]{ $implantName }[/color]
+    Режим: [color=white]{ $modeString }[/color]

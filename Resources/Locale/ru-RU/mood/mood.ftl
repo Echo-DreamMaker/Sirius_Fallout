@@ -85,3 +85,27 @@ mood-effect-PlasmamanIngestPlasma =
 
 mood-effect-PlasmamanIngestMilk = 
     I can feel the milk's calcium repairing my bones. This is dairy-lightful!
+
+# N14: наркозависимость и ломка
+mood-effect-JetBenefit =
+    Время ускоряется! Я вижу мир во всех его мгновениях!
+mood-effect-JetWithdrawal =
+    Тьма давит на меня. Как же мне нужен Винт...
+mood-effect-PsychoBenefit =
+    Боль уходит. Остаётся только ярость!
+mood-effect-PsychoWithdrawal =
+    Без Психо я лишь дрожащая тень. Страх грызёт меня изнутри!
+mood-effect-HydraWithdrawal =
+    Мои раны ноют, а тело требует Гидру...
+mood-effect-BuffoutWithdrawal =
+    Силы покидают меня. Как же хочется Баффаута...
+mood-effect-BufftatsWithdrawal =
+    Я стал медлительным и неуклюжим. Мне нужны Бафф-таты!
+mood-effect-BuffjetWithdrawal =
+    Без Бафф-винта я снова ощущаю каждый удар своего тела. Это невыносимо!
+mood-effect-DaytripperWithdrawal =
+    Реальность вокруг такая серая и унылая. Подарите мне Дейтриппер...
+mood-effect-CateyeWithdrawal =
+    В темноте я теперь почти слеп. Как же не хватает Кошеглаза...
+mood-effect-MentatsWithdrawal =
+    Мысли путаются, в голове туман. Мне нужны Ментаты!

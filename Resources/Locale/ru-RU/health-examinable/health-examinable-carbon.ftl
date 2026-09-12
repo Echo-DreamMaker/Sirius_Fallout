@@ -75,3 +75,23 @@ health-examinable-carbon-Caustic-200 = [color=yellowgreen]Большая час�
 
 health-examinable-carbon-Radiation-50 = [color=orange]На { POSS-ADJ($target) } коже образовались большие волдыри.[/color]
 health-examinable-carbon-Radiation-100 = [color=orange]{ CAPITALIZE(POSS-ADJ($target)) } кожа покрыта язвами и отслаивается кусками.[/color]
+
+health-examinable-carbon-Starvation-25 = [color=bisque]{ CAPITALIZE(SUBJECT($target)) } {CONJUGATE-BASIC($target, "look", "looks")} худым.[/color]
+
+health-examinable-carbon-Starvation-50 = [color=khaki]{ CAPITALIZE(SUBJECT($target)) } {CONJUGATE-BE($target)} очень худым, а { POSS-ADJ($target) } щёки впалые.[/color]
+
+health-examinable-carbon-Starvation-75 = [color=darkgoldenrod]{ CAPITALIZE(POSS-ADJ($target)) } глаза впали, а { POSS-ADJ($target) } кожа обвисла на { POSS-ADJ($target) } костях![/color]
+
+health-examinable-carbon-Dehydration-25 = [color=bisque]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } потрескавшиеся, обветренные губы.[/color]
+
+health-examinable-carbon-Dehydration-50 = [color=lightblue]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } потрескавшиеся губы и сухую, пятнистую кожу.[/color]
+
+health-examinable-carbon-Dehydration-75 = [color=deepskyblue]{ CAPITALIZE(POSS-ADJ($target)) } глаза впали, а { POSS-ADJ($target) } кожа бледная и морщинистая![/color]
+
+health-examinable-carbon-Blunt-25 = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } лёгкие ушибы по всему телу.[/color]
+
+health-examinable-carbon-Slash-10 = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } несколько мелких порезов.[/color]
+
+health-examinable-carbon-Slash-25 = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } рваные раны по всему телу.[/color]
+
+health-examinable-carbon-Heat-25 = [color=orange]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } лёгкие ожоги по всему телу.[/color]

@@ -77,3 +77,31 @@ research-technology-bluespace-cargo-transport = Блюспейс-транспо�
 research-technology-clowning-utilities = Клоунские принадлежности
 research-technology-quantum-fiber-weaving = Плетение квантового волокна
 research-technology-bluespace-chemistry = Блюспейс-химия
+
+research-technology-basic-weapons = Базовое оружие
+
+research-technology-advanced-weapons = Продвинутое оружие
+
+research-technology-prototype-weapons = Прототипное оружие
+
+research-technology-advanced-tacsuits = Продвинутые такт-костюмы
+
+research-technology-prototype-tacsuits = Такт-костюмы-прототипы
+
+research-technology-basic-cybernetics = Основы кибернетики
+
+research-technology-basic-electronics = Основы электроники
+
+research-technology-basic-life-improvements = Базовые улучшения жизни
+
+research-technology-advanced-life-improvements = Продвинутые улучшения жизни
+
+research-technology-mechanized-salvaging = Механизированная утилизация
+
+research-technology-portable-fission = Портативный ядерный распад
+
+research-technology-night-vision = Ночное зрение
+
+research-technology-thermal-vision = Тепловое зрение
+
+research-technology-advanced-bluespace = Продвинутые блюспейс-исследования

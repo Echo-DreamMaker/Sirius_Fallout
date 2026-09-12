@@ -39,3 +39,43 @@ analysis-console-extract-none = [font="Monospace" size=11][color=orange] У ра
 analysis-console-extract-sum = [font="Monospace" size=11][color=orange]Всего изучено: { $value }[/color][/font]
 
 analyzer-artifact-extract-popup = Поверхность артефакта мерцает энергией!
+
+analysis-console-scan-button = Сканировать
+
+analysis-console-scan-tooltip-info = Сканируйте артефакты, чтобы получить информацию об их структуре.
+
+analysis-console-print-button = Печать
+
+analysis-console-print-tooltip-info = Распечатать текущую информацию об артефакте.
+
+analysis-console-extract-button-info = Извлечь очки из артефакта на основе вновь изученных узлов.
+
+analysis-console-bias-up = Вверх
+
+analysis-console-bias-down = Вниз
+
+analysis-console-bias-button-info-up = Переключает предпочтение артефакта при перемещении между узлами. Вверх — к узлам с меньшей глубиной.
+
+analysis-console-bias-button-info-down = Переключает предпочтение артефакта при перемещении между узлами. Вниз — к узлам с большей глубиной.
+
+analysis-console-info-depth = ГЛУБИНА: { $depth }
+
+analysis-console-info-triggered-false = АКТИВИРОВАН: НЕТ
+
+analysis-console-info-triggered-true = АКТИВИРОВАН: ДА
+
+analysis-console-info-edges = СВЯЗИ: { $edges }
+
+analysis-console-info-value = НЕИЗВЛЕЧЁННОЕ_ЗНАЧЕНИЕ: { $value }
+
+analysis-console-no-artifact-placed = На анализаторе нет артефакта.
+
+analysis-console-no-points-to-extract = Нет очков для извлечения.
+
+analysis-console-no-server-connected = Невозможно извлечь. Сервер не подключён.
+
+analysis-console-print-popup = Консоль распечатала отчёт.
+
+analysis-report-title = Отчёт об артефакте: Узел { $id }
+
+analyzer-artifact-component-upgrade-analysis = длительность анализа

@@ -431,3 +431,42 @@ reagent-effect-guidebook-plant-seeds-remove =
         [1] Убирает
         *[other] убирают
     } семена из растения
+
+reagent-effect-guidebook-activate-artifact =
+    { $chance ->
+        [1] Пытается
+        *[other] пытаются
+    } активировать артефакт
+
+reagent-effect-guidebook-add-moodlet =
+    изменяет настроение на { $amount }
+    { $timeout ->
+        [0] бессрочно
+        *[other] на { $timeout } секунд
+    }
+
+reagent-effect-guidebook-change-glimmer-reaction-effect =
+    { $chance ->
+        [1] Изменяет
+        *[other] изменяют
+    } уровень глаймера на { $count } очков
+
+reagent-effect-guidebook-chem-remove-psionic =
+    { $chance ->
+        [1] Удаляет
+        *[other] удаляют
+    } псионические способности
+
+reagent-effect-guidebook-chem-reroll-psionic =
+    { $chance ->
+        [1] Даёт
+        *[other] дают
+    } шанс получить другую псионическую способность
+
+reagent-effect-guidebook-missing =
+    { $chance ->
+        [1] Вызывает
+        *[other] вызывают
+    } неизвестный эффект, поскольку никто ещё не описал этот эффект
+
+reagent-effect-guidebook-purify-evil = Очищает силы зла

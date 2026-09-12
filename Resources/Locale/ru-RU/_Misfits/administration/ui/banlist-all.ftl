@@ -12,6 +12,12 @@ banlistall-tab-all-role-bans = Все ролевые баны
 # Column header: player name column (others reuse ban-list-header-* keys)
 banlistall-header-player = Игрок
 
+banlistall-roleban-active-count = {$count} активных ролевых банов
+
+banlistall-roleban-pardon-active = Помиловать активные ролевые баны
+
+banlistall-roleban-pardon-confirm = Нажмите еще раз, чтобы помиловать все
+
 # Command locale
 cmd-banlistall-desc = Открывает графический интерфейс со списком всех активных (и исторических) банов на сервере.
 cmd-banlistall-help = Использование: банлисталл

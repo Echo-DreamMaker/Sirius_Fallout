@@ -44,3 +44,4 @@ cmd-replay-spectate-desc = Прикрепляет или открепляет л
 cmd-replay-spectate-hint = Опциональный EntityUid
 
 cmd-replay-toggleui-desc = Переключение пользовательского интерфейса управления воспроизведением.
+cmd-replay-toggleui-help = replay_toggleui

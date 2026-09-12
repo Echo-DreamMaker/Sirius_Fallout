@@ -22,3 +22,23 @@ admin-ui-panic-bunker-is-enabled = Бункер в данный момент в�
 
 admin-ui-panic-bunker-enabled-admin-alert = Бункер был включён.
 admin-ui-panic-bunker-disabled-admin-alert = Бункер был выключен.
+
+admin-ui-panic-bunker-min-overall-hours = Мин. общее время игры (ч)
+
+misfits-panic-bunker-section = Бункер
+
+misfits-baby-jail-section = Детсад
+
+misfits-panic-bunker-toggle-desc = Переключает ограничения бункера для новых аккаунтов или аккаунтов с низким временем игры.
+
+misfits-panic-bunker-disable-auto-desc = Автоматически отключать бункер, когда подключается администратор.
+
+misfits-panic-bunker-enable-auto-desc = Автоматически включать бункер, когда администраторов нет онлайн.
+
+misfits-panic-bunker-count-deadmin-desc = Учитывать deadmin администраторов при решении об автоматическом переключении бункера.
+
+misfits-panic-bunker-show-reason-desc = Показывать заблокированным игрокам причину, по которой бункер отклонил их подключение.
+
+misfits-panic-bunker-min-age-desc = Минимальный возраст аккаунта, необходимый для подключения при включённом бункере.
+
+misfits-panic-bunker-min-hours-desc = Минимальное общее время игры на сервере, необходимое для подключения при включённом бункере.

@@ -7,3 +7,7 @@ station-event-meteor-cow-start-announcement = Станция столкнула�
 station-event-meteor-clown-start-announcement = Станция столкнулась с неидентифицированным облаком обломков. ХОНК! Немедленно эвакуируйте запасы веселящего газа.
 station-event-meteor-potato-start-announcement = Станция столкнулась с неидентифицированным облаком обломков. Обнаружен высокое содержание крахмала.
 station-event-fun-swarm-start-announcement = Станция столкнулась с неидентифицированным облаком обломков. Пожалуйста, паникуйте соответствующе.
+
+station-event-meteor-swarm-announcement = Метеориты движутся по курсу столкновения со станцией. Примите меры для столкновения.
+
+station-event-meteor-swarm-complete-announcement = Метеорный рой миновал. Пожалуйста, вернитесь на свои рабочие места.

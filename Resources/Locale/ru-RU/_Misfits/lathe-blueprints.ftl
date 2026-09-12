@@ -7,7 +7,7 @@ lathe-blueprint-insufficient-materials = Недостаточно материа
 lathe-blueprint-queue-failed = Этот рецепт чертежа сейчас нельзя поставить в очередь.
 
 # Blueprint category names
-lathe-category-blueprint-ncr-weapons-t1 = NCR Weapons - Tier 1
+lathe-category-blueprint-ncr-weapons-t1 = Оружие НКР — уровень 1
 
 lathe-category-blueprint-ncr-weapons-t2 = Оружие НКР — уровень 2
 lathe-category-blueprint-ncr-weapons-t3 = Оружие НКР — уровень 3
@@ -28,10 +28,10 @@ lathe-category-blueprint-legion-weapons-t4 = Оружие Легиона — у�
 lathe-category-blueprint-legion-weapons-t5 = Оружие Легиона — уровень 5
 lathe-category-blueprint-legion-armor-t1 = Броня Легиона — уровень 1
 lathe-category-blueprint-legion-armor-t2 = Броня Легиона — уровень 2
-lathe-category-blueprint-legion-armor-t3 = Legion Armor - Tier 3
+lathe-category-blueprint-legion-armor-t3 = Броня Легиона — уровень 3
 
 lathe-category-blueprint-legion-armor-t4 = Броня Легиона — уровень 4
-lathe-category-blueprint-legion-ammo-t1 = Legion Ammo - Tier 1
+lathe-category-blueprint-legion-ammo-t1 = Боеприпасы Легиона — уровень 1
 
 lathe-category-blueprint-legion-ammo-t2 = Боеприпасы Легиона — уровень 2
 lathe-category-blueprint-legion-ammo-t3 = Боеприпасы Легиона — уровень 3
@@ -94,3 +94,7 @@ lathe-category-blueprint-mmi = Схема ММИ
 lathe-category-blueprint-c27-armor-generic = Броня C-27 (Общая)
 lathe-category-blueprint-c27-armor-ncr = С-27 Броня (НКР)
 lathe-category-blueprint-c27-armor-bos = C-27 Броня (Братство)
+
+lathe-category-blueprint-c27-combat = Боевая броня C-27
+lathe-category-blueprint-zax-equipment = Оборудование Z.A.X.
+lathe-category-blueprint-eighties-motorbikes = Восьмидесятые — мотоциклы (упакованные)

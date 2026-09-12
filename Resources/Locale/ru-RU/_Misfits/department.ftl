@@ -16,6 +16,10 @@ department-Enclave-description = Изолированная оставшаяся
 department-C27Unit = Автономный отряд С-27
 department-C27Unit-description = Довоенные робототехнические роботы General Atomics, модернизированные в автономные сервисные подразделения Пустоши.
 
+# #Cythisiax Added - Brotherhood of Steel personal whitelist department locale.
+department-BoSPersonalWhitelist = Братство Стали - Белый список ОК
+department-BoSPersonalWhitelist-description = Приватные роли Братства Стали
+
 # #Misfits Fix: duplicate — department-CaesarLegion and its description are already defined in
 # _Nuclear14/department.ftl (lines 36/38). Fluent errors [ERRO] on duplicate ids, so commented out here.
 # department-CaesarLegion = Caesar's Legion
@@ -30,5 +34,5 @@ department-FollowersOfTheApocalypse-description = Ученые-гуманита�
 Eighties = Восьмидесятые
 department-Eighties = Восьмидесятые
 department-Eighties-description = 
-    A highway raider gang born on Interstate 80. They wear road signs as armor, ambush caravans from the old highway,
-    and enforce their own brutal law across every mile of asphalt they claim.
+    Уличная банда грабителей с трассы, рождённая на межштатной магистрали 80. Они носят дорожные знаки в качестве брони, устраивают засады на караваны со старого шоссе
+    и устанавливают свою жестокую власть на каждой миле асфальта, которую считают своей.

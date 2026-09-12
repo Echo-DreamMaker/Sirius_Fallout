@@ -28,3 +28,7 @@ forensics-verb-message = Счистить отпечатки пальцев и �
 forensics-cleaning = Вы начинаете счищать улики с { $target }...
 
 forensics-cleaning-cannot-clean = Ничего нельзя счистить с { $target }!
+
+forensic-pad-fingerprint-name = отпечатки { $entity }
+forensic-pad-gloves = { CAPITALIZE($target) } в перчатках.
+forensic-pad-gloves-name = волокна с { $entity }

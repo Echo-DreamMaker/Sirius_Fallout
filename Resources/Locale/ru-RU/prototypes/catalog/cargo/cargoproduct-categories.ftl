@@ -14,3 +14,5 @@ cargoproduct-category-name-science = Наука
 cargoproduct-category-name-security = Охрана
 cargoproduct-category-name-service = Сервис
 cargoproduct-category-name-shuttle = Шаттл
+
+cargoproduct-category-name-hardsuits = Скафандры

@@ -1,6 +1,7 @@
 # Chat window radio wrap (prefix and postfix)
 chat-radio-message-wrap = [color={ $color }][font={ $fontType } size={ $fontSize }]{ $channel } [bold]{ $name }[/bold] { $verb }, "{ $message }"[/font][/color]
 chat-radio-message-wrap-bold = [color={ $color }][font={ $fontType } size={ $fontSize }]{ $channel } [bold]{ $name }[/bold] { $verb }, [bold]"{ $message }"[/bold][/font][/color]
+chat-radio-emote-wrap = [color={ $color }]{ $channel } [bold]{ $name }[/bold] { $emote }[/color]
 
 examine-headset-default-channel = Канал по умолчанию этой гарнитуры [color={ $color }]{ $channel }[/color].
 

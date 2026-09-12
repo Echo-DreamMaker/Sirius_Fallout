@@ -35,3 +35,9 @@ verb-common-close = Закрыть
 verb-common-open = Открыть
 verb-common-close-ui = Закрыть UI
 verb-common-open-ui = Открыть UI
+
+verb-categories-select-faction = Выбрать фракцию
+
+verb-categories-interaction = Взаимодействие
+
+verb-categories-blood-cult = Кровавый культ

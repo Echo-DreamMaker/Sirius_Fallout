@@ -14,3 +14,7 @@ player-tab-is-antag-no = НЕТ
 player-tab-character-name-antag-symbol = { $symbol } { $name }
 
 player-tab-antag-prefix = 🗡
+
+player-tab-antagonist = Антагонист
+
+player-tab-players = Игроки

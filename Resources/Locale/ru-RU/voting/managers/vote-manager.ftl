@@ -33,3 +33,38 @@ ui-vote-votekick-success = Голосование за кик { $target } про
 ui-vote-votekick-failure = Голосование за кик { $target } провалилось. Причина кика: { $reason }
 ui-vote-votekick-not-enough-eligible = Недостаточное количество подходящих голосующих онлайн для начала голосования: { $voters }/{ $requirement }
 ui-vote-votekick-server-cancelled = Голосование за кик { $target } отменено сервером.
+
+ui-round-countdown-15 = Внимание: До конца раунда остаётся примерно пятнадцать минут. Начинается голосование за судьбу раунда.
+
+ui-round-countdown-30 = Внимание: До конца раунда остаётся примерно тридцать минут.
+
+ui-round-countdown-60 = Внимание: До конца раунда остаётся примерно шестьдесят минут.
+
+ui-round-timer-label = Конец раунда
+    { $time }
+
+ui-vote-extend-abstain = Воздержаться
+
+ui-vote-extend-failed = Голосование за продление раунда провалено: { $yes }/{ $total } проголосовали за (необходимо { $needed } для большинства).
+
+ui-vote-extend-no = Нет
+
+ui-vote-extend-succeeded = Голосование за продление раунда прошло — раунд продлён на { $minutes } минут. Поезд отозван.
+
+ui-vote-extend-title = Продлить раунд
+
+ui-vote-extend-yes = Да
+
+ui-vote-restart-failed-majority = Голосование за перезапуск раунда провалено: { $yes }/{ $total } проголосовали за (необходимо { $needed } для большинства).
+
+ui-vote-round-decision-no = Нет
+
+ui-vote-round-decision-no-won = Голосование за продление раунда: { $yesVotes } за продление, { $noVotes } за завершение (всего { $total } подключено). Раунд продолжается!
+
+ui-vote-round-decision-tie = Голосование за продление раунда: ничья: { $yesVotes } за продление, { $noVotes } за завершение (всего { $total } подключено). По умолчанию раунд продлевается.
+
+ui-vote-round-decision-title = Продлить раунд?
+
+ui-vote-round-decision-yes = Да
+
+ui-vote-round-decision-yes-won = Голосование за продление раунда: { $yesVotes } за продление, { $noVotes } за завершение (всего { $total } подключено). Вызывается поезд.

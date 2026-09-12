@@ -32,3 +32,5 @@ gas-entry-info = { $gasName }: { $gasAmount } моль
 gas-analyzer-window-text-inlet = Вход
 gas-analyzer-window-text-outlet = Выход
 gas-analyzer-window-text-filter = Фильтр
+
+gas-analyzer-component-player-cannot-reach-message = Вы не можете туда дотянуться.

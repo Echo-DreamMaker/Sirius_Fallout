@@ -16,3 +16,12 @@ lathe-category-weapons-rifles = Винтовки
 lathe-category-weapons-smgs = Пистолеты-пулемёты
 lathe-category-identification = Идентификация
 lathe-category-blueprints = Чертежи
+
+construction-category-intelligence = Интеллект
+
+ent-MeatSpikeConstruction = Мясной шип
+    .desc = Мясной шип для кулинарных нужд. Требуется сталь.
+
+hand-craft-intell-too-low-intelligence = Вы недостаточно умны, чтобы изготовить это вручную.
+hand-craft-intell-insufficient-materials = У вас недостаточно материалов, чтобы изготовить это вручную.
+hand-craft-intell-leftover-materials-title = Оставшиеся материалы

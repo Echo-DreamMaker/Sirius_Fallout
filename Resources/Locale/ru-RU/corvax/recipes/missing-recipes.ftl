@@ -1,0 +1,23 @@
+# Missing ru-RU translations for Corvax construction recipes
+recipe-FishingRodMakeshift-name = { ent-FishingRodMakeshift }
+recipe-FloorTilesItemMS13WoodCommon-name = { ent-FloorTilesItemMS13WoodCommon }
+recipe-FloorTilesItemMS13WoodFancy-name = { ent-FloorTilesItemMS13WoodFancy }
+recipe-FloorTilesItemMS13WoodMosaic-name = { ent-FloorTilesItemMS13WoodMosaic }
+recipe-FloorTilesItemMS13WoodWide-name = { ent-FloorTilesItemMS13WoodWide }
+recipe-N14APCBreaker-name = { ent-N14APCBreaker }
+recipe-N14DoorMetalBlueAltSlanted-name = { ent-N14DoorMetalBlueAltSlanted }
+recipe-N14DoorMetalBlueAltSlantedLoced-name = { ent-N14DoorMetalBlueAltSlantedLoced }
+recipe-N14DoorMetalBlueSlanted-name = { ent-N14DoorMetalBlueSlanted }
+recipe-N14DoorMetalBlueSlantedLoced-name = { ent-N14DoorMetalBlueSlantedLoced }
+recipe-N14DoorMetalBlueWindowSlanted-name = { ent-N14DoorMetalBlueWindowSlanted }
+recipe-N14DoorMetalBlueWindowSlantedLoced-name = { ent-N14DoorMetalBlueWindowSlantedLoced }
+recipe-N14DoorMetalRedSlanted-name = { ent-N14DoorMetalRedSlanted }
+recipe-N14DoorMetalRedSlantedLoced-name = { ent-N14DoorMetalRedSlantedLoced }
+recipe-N14SubstationBasicEmpty-name = { ent-N14SubstationBasicEmpty }
+recipe-N14DecorationFlagBearerEmpty-name = { ent-N14DecorationFlagBearerEmpty }
+recipe-N14DecorationFlagBrotherhoodMidwest-name = { ent-N14DecorationFlagBrotherhoodMidwest }
+recipe-N14DecorationFlagFollowers-name = { ent-N14DecorationFlagFollowers }
+recipe-N14DecorationFlagGunner-name = { ent-N14DecorationFlagGunner }
+recipe-N14DecorationFlagLegion-name = { ent-N14DecorationFlagLegion }
+recipe-N14DecorationFlagLocust-name = { ent-N14DecorationFlagLocust }
+recipe-N14DecorationFlagNCR-name = { ent-N14DecorationFlagNCR }

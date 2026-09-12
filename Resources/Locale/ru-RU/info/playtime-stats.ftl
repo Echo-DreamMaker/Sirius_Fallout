@@ -7,3 +7,5 @@ ui-playtime-first-time = Первый раз
 ui-playtime-roles = Игровое время по должностям
 ui-playtime-header-role-type = Должность
 ui-playtime-header-role-time = Время
+
+ui-playtime-time-format = { $hours }ч { $minutes }м

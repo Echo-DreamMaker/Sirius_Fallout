@@ -133,3 +133,21 @@ ent-N14DoorBunkerLockedBoSWashingtonElderTall = { ent-N14DoorAirlockTall }
 ent-N14DoorBunkerGlassLockedBoSWashingtonElderTall = { ent-N14DoorBunkerGlass }
     .suffix = ВБС, Закрытый, Командный, Стеклянный
     .desc = { ent-N14DoorBunkerGlass.desc }
+
+# Базовые ключи высоких дверей (перевод по talldoors.yml)
+ent-N14DoorAirlockTall = шлюз
+    .desc = Старый бункерный шлюз.
+ent-N14DoorMetalBarTall = решётчатая дверь
+    .desc = Дверь из металлических прутьев.
+ent-N14DoorMetalBlueAltTall = металлическая дверь
+    .desc = Старая синяя металлическая дверь.
+ent-N14DoorMetalRedTall = металлическая дверь
+    .desc = Старая красная металлическая дверь.
+ent-N14DoorWoodBlueTall = деревянная дверь
+    .desc = Деревянная дверь.
+ent-N14DoorWoodGreenTall = деревянная дверь
+    .desc = Деревянная дверь.
+ent-N14DoorWoodTall = деревянная дверь
+    .desc = Деревянная дверь.
+ent-N14DoorWoodWhiteTall = деревянная дверь
+    .desc = Белая деревянная дверь.

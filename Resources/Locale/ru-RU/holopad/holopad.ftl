@@ -159,3 +159,5 @@ holopad-station-cargo-bay = Станция — Грузовой отсек
 
 # CentComm
 holopad-centcomm-evac = Центком — Эвакуационный шаттл
+
+holopad-use-as-holopad-verb = Использовать как голопад

@@ -24,3 +24,9 @@ permissions-eui-edit-admin-window-remove-flag-button = Удалить
 
 cmd-permissions-desc = Открывает меню прав администрации.
 cmd-permissions-help = Использование: permissions
+
+permissions-eui-edit-admin-window-search-empty = Введите не менее 2 символов для поиска игроков.
+
+permissions-eui-rank-perms-count = { $count } прав
+
+permissions-eui-perms-badge = [{ $count } прав]

@@ -44,6 +44,8 @@ command-description-stations-rerollBounties =
     Clears all the current bounties for the station and gets a new selection.
 command-description-stationevent-lsprob =
     Lists the probability of different station events occuring out of the entire pool.
+command-description-stationevent-lsprobtime =
+    Lists the probability of different station events occuring based on the specified length of a round.
 command-description-stationevent-lsprobtheoretical =
     Given a BasicStationEventScheduler prototype, player count, and round time, lists the probability of different station events occuring based on the specified number of players and round time.
 command-description-stationevent-prob =

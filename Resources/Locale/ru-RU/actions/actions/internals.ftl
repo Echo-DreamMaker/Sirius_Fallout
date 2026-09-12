@@ -12,3 +12,11 @@ internals-other-no-breath-tool = { $ent } не { GENDER($ent) ->
 } дыхательный аппарат
 internals-self-no-tank = У вас нет газового баллона
 internals-other-no-tank = У { $ent } нет газового баллона
+
+action-name-internals-toggle = Переключить подачу воздуха
+
+action-description-internals-toggle = Дышите из экипированного газового баллона. Для этого потребуется дыхательная маска.
+
+internals-no-breath-tool = Вы не надели дыхательный аппарат
+
+internals-no-tank = У вас нет газового баллона

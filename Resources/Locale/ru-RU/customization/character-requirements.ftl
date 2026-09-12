@@ -1,152 +1,152 @@
 ## Job
 character-job-requirement = Вы должны{$inverted ->
-    [true]{" "}not
+    [true]{" "}не
     *[other]{""}
-} be one of these roles: {$jobs}
+} быть одной из этих ролей: {$jobs}
 
 character-department-requirement = Вы должны{$inverted ->
-    [true]{" "}not
+    [true]{" "}не
     *[other]{""}
-} be in one of these factions: {$departments}
+} быть в одной из этих фракций: {$departments}
 
-character-timer-department-insufficient = Вам требуется еще [color=yellow]{TOSTRING($time, "0")}[/color] минут [color=__PH0__]{$department}[/color] игрового времени за фракцию.
-character-timer-department-too-high = Вам потребуется на [color=yellow]{TOSTRING($time, "0")}[/color] меньше минут во фракции [color=__PH0__]{$department}[/color].
+character-timer-department-insufficient = Вам требуется ещё [color=yellow]{TOSTRING($time, "0")}[/color] минут за фракцию [color={$departmentColor}]{$department}[/color]
+character-timer-department-too-high = Вам требуется на [color=yellow]{TOSTRING($time, "0")}[/color] минут меньше во фракции [color={$departmentColor}]{$department}[/color]
 
-character-timer-overall-insufficient = Вам требуется на [color=yellow]{TOSTRING($time, "0")}[/color] больше минут игрового времени.
-character-timer-overall-too-high = Вам потребуется на [color=yellow]{TOSTRING($time, "0")}[/color] меньше минут игрового времени.
+character-timer-overall-insufficient = Вам требуется ещё [color=yellow]{TOSTRING($time, "0")}[/color] минут игрового времени
+character-timer-overall-too-high = Вам требуется на [color=yellow]{TOSTRING($time, "0")}[/color] минут меньше игрового времени
 
-character-timer-role-insufficient = Вам требуется на [color=yellow]{TOSTRING($time, "0")}[/color] больше минут с [color=__PH0__]{$job}[/color].
-character-timer-role-too-high = Вам потребуется[color=yellow] {TOSTRING($time, "0")}[/color] меньше минут с [color=__PH0__]{$job}[/color]
+character-timer-role-insufficient = Вам требуется ещё [color=yellow]{TOSTRING($time, "0")}[/color] минут в роли [color={$departmentColor}]{$job}[/color]
+character-timer-role-too-high = Вам требуется на [color=yellow]{TOSTRING($time, "0")}[/color] минут меньше в роли [color={$departmentColor}]{$job}[/color]
 
 
 ## Logic
-character-logic-and-requirement-listprefix = None
-    {$indent}[color = серый]&[/color]{" "}
+character-logic-and-requirement-listprefix = {""}
+    {$indent}[color=gray]&[/color]{" "}
 character-logic-and-requirement = Вы должны{$inverted ->
-    [true]{" "}not
+    [true]{" "}не
     *[other]{""}
-} fit [color = красный]все[/color] из [color=gray]этих[/color]: {$options}
+} соответствовать [color=red]всем[/color] из [color=gray]этих[/color]: {$options}
 
-character-logic-or-requirement-listprefix = None
-    {$indent}[color = белый]O[/color]{" "}
+character-logic-or-requirement-listprefix = {""}
+    {$indent}[color=white]O[/color]{" "}
 character-logic-or-requirement = Вы должны{$inverted ->
-    [true]{" "}not
+    [true]{" "}не
     *[other]{""}
-} fit [color = красный]хотя бы один[/color] из [color=white]этих[/color]: {$options}
+} соответствовать [color=red]хотя бы одному[/color] из [color=white]этих[/color]: {$options}
 
-character-logic-xor-requirement-listprefix = None
-    {$indent}[color = белый]X[/color]{" "}
+character-logic-xor-requirement-listprefix = {""}
+    {$indent}[color=white]X[/color]{" "}
 character-logic-xor-requirement = Вы должны{$inverted ->
-    [true]{" "}not
+    [true]{" "}не
     *[other]{""}
-} fit [color = красный]только один[/color] из [color=white]этих[/color]: {$options}
+} соответствовать [color=red]только одному[/color] из [color=white]этих[/color]: {$options}
 
 
 ## Profile
 character-age-requirement = Вы должны{$inverted ->
-    [true]{" "}not
+    [true]{" "}не
     *[other]{""}
-} be within [color = желтый]{$min}[/color] и [color=yellow]{$max}[/color] лет
+} быть в возрасте от [color = желтый]{$min}[/color] до [color=yellow]{$max}[/color] лет
 
 character-backpack-type-requirement = Вы должны {$inverted ->
-    [true] not use
-    *[other] use
-} a [color = коричневый]{$type}[/color] в качестве сумки
+    [true] не использовать
+    *[other] использовать
+} [color = коричневый]{$type}[/color] в качестве сумки
 
 character-clothing-preference-requirement = Вы должны {$inverted ->
-    [true] not wear
-    *[other] wear
-} a [color = белый]{$type}[/color]
+    [true] не носить
+    *[other] носить
+} [color = белый]{$type}[/color]
 
 character-gender-requirement = Вы должны {$inverted ->
-    [true] not have
-    *[other] have
-} the pronouns [color = белый]{$gender}[/color]
+    [true] не использовать
+    *[other] использовать
+} местоимения [color = белый]{$gender}[/color]
 
 character-sex-requirement = Вы должны{$inverted ->
-    [true]{" "}not
+    [true]{" "}не
     *[other]{""}
-} be [color = белый]{$sex ->
-    [None] unsexed
+} быть [color = белый]{$sex ->
+    [None] без пола
     *[other] {$sex}
 }[/color]
 character-species-requirement = Вы должны{$inverted ->
-    [true]{" "}not
+    [true]{" "}не
     *[other]{""}
-} be a {$species}
+} быть представителем вида {$species}
 
 character-species-job-restriction = Недоступно для {$species}
 
 character-height-requirement = Вы должны{$inverted ->
-    [true]{" "}not
+    [true]{" "}не
     *[other]{""}
-} be {$min ->
+} быть {$min ->
     [-2147483648]{$max ->
         [2147483648]{""}
-        *[other] shorter than [color = {$color}]{$max}[/color]см
+        *[other] ниже [color = {$color}]{$max}[/color]см
     }
     *[other]{$max ->
-        [2147483648] taller than [color = {$color}]{$min}[/color]см
-        *[other] between [color = {$color}]{$min}[/color] и [color=__PH0__]{$max}[/color]см в высоту
+        [2147483648] выше [color = {$color}]{$min}[/color]см
+        *[other] ростом от [color = {$color}]{$min}[/color] до [color=__PH0__]{$max}[/color]см
     }
 }
 
 character-width-requirement = Вы должны{$inverted ->
-    [true]{" "}not
+    [true]{" "}не
     *[other]{""}
-} be {$min ->
+} быть {$min ->
     [-2147483648]{$max ->
         [2147483648]{""}
-        *[other] skinnier than [color = {$color}]{$max}[/color]см
+        *[other] уже [color = {$color}]{$max}[/color]см
     }
     *[other]{$max ->
-        [2147483648] wider than [color = {$color}]{$min}[/color]см
-        *[other] between [color = {$color}]{$min}[/color] и [color=__PH0__]{$max}[/color]см в ширину
+        [2147483648] шире [color = {$color}]{$min}[/color]см
+        *[other] шириной от [color = {$color}]{$min}[/color] до [color=__PH0__]{$max}[/color]см
     }
 }
 
 character-weight-requirement = Вы должны{$inverted ->
-    [true]{" "}not
+    [true]{" "}не
     *[other]{""}
-} be {$min ->
+} быть {$min ->
     [-2147483648]{$max ->
         [2147483648]{""}
-        *[other] lighter than [color = {$color}]{$max}[/color]кг
+        *[other] легче [color = {$color}]{$max}[/color]кг
     }
     *[other]{$max ->
-        [2147483648] heavier than [color = {$color}]{$min}[/color]кг
-        *[other] between [color = {$color}]{$min}[/color] и [color=__PH0__]{$max}[/color]кг
+        [2147483648] тяжелее [color = {$color}]{$min}[/color]кг
+        *[other] весом от [color = {$color}]{$min}[/color] до [color=__PH0__]{$max}[/color]кг
     }
 }
 
 
 character-trait-requirement = Вы должны {$inverted ->
-    [true] not have
-    *[other] have
-} one of these perks: {$traits}
+    [true] не иметь
+    *[other] иметь
+} одну из этих особенностей: {$traits}
 
 character-loadout-requirement = Вы должны {$inverted ->
-    [true] not have
-    *[other] have
-} one of these loadouts: {$loadouts}
+    [true] не иметь
+    *[other] иметь
+} один из этих наборов снаряжения: {$loadouts}
 
 
 character-item-group-requirement = Вы должны {$inverted ->
-    [true] have {$max} or more
-    *[other] have {$max} or less
-} items from the group [color = белый]{$group}[/color]
+    [true] иметь {$max} или больше
+    *[other] иметь {$max} или меньше
+} предметов из группы [color = белый]{$group}[/color]
 
 
 ## Whitelist
 character-whitelist-requirement = Вы должны{$inverted ->
-    [true]{" "}not
+    [true]{" "}не
     *[other]{""}
-} be whitelisted
+} быть в вайтлисте
 
 ## CVar
 
 character-cvar-requirement = 
-    The server must{$inverted ->
-    [true]{" "}not
+    Сервер должен{$inverted ->
+    [true]{" "}не
     *[other]{""}
-} have [color = {$color}]{$cvar}[/color] установлен на [color=__PH0__]{$value}[/color].
+} иметь [color={$color}]{$cvar}[/color] установленным на [color={$color}]{$value}[/color].

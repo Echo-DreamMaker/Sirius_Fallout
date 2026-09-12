@@ -81,9 +81,9 @@ corvax-chatsan-replacement-25 = предатель
 
 
 
-corvax-chatsan-replacement-32 = None
+corvax-chatsan-replacement-32 = { "" }
 
-corvax-chatsan-replacement-33 = None
+corvax-chatsan-replacement-33 = { "" }
 
 
 

@@ -25,6 +25,10 @@ paracusia-whisper-8 = ...за тобой...
 
 trait-name-TraitParacusia = Паракузия
 trait-description-TraitParacusia = 
-    You hear things that aren't there. Whispers, footsteps, voices calling your name —
-    sometimes even snippets of conversations that never happened. Harmless to your body,
-    but it grows worse the longer you stay conscious.
+    Вы слышите вещи, которых нет. Шёпот, шаги, голоса, зовущие вас по имени —
+    иногда даже обрывки разговоров, которых никогда не было. Безвредно для тела,
+    но становится всё хуже, чем дольше вы остаётесь в сознании.
+
+paracusia-hallucination-0 = Шаги по металлу. Приближаются. Затем тишина.
+
+paracusia-whisper-0 = ...за тобой...

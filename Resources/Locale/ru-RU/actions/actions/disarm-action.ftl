@@ -3,3 +3,7 @@ disarm-action-popup-message-other-clients = { CAPITALIZE($performerName) } об�
 disarm-action-popup-message-cursor = { CAPITALIZE($targetName) } обезоружен!
 disarm-action-shove-popup-message-other-clients = { CAPITALIZE($performerName) } толкает { $targetName }!
 disarm-action-shove-popup-message-cursor = Вы толкаете { $targetName }!
+
+disarm-action-emote = обезоруживает {THE($targetName)}!
+
+disarm-action-shove-emote = толкает {THE($targetName)}!

@@ -14,6 +14,7 @@ changelog-button-new-entries = Обновления (!)
 changelog-tab-title-Changelog = Список изменений
 changelog-tab-title-Admin = Админское
 changelog-tab-title-Maps = Карты
+changelog-tab-title-Nuclear14 = Nuclear14
 
 cmd-changelog-desc = Открыть историю обновлений.
 cmd-changelog-help = Использование: changelog

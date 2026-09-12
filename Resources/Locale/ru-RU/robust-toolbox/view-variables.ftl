@@ -13,7 +13,7 @@ view-variable-instance-entity-add-window-client-components = Добавить к
 
 
 ## SoundSpecifier
-vv-sound-none = None
+vv-sound-none = Нет
 vv-sound-path = Path
 vv-sound-collection = Collection
 

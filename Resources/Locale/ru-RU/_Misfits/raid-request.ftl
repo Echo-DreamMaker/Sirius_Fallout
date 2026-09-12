@@ -56,3 +56,9 @@ raid-request-peer-comment-label = Ваши замечания (отправле�
 raid-request-peer-comment-placeholder = Необязательный. Будет дословно показано другой фракции.
 raid-request-peer-approve-button = Разрешить рейд
 raid-request-peer-deny-button = Мусор
+
+raid-concluded-window-title = Рейд окончен
+raid-concluded-header = РЕЙД №{ $id } ЗАВЕРШЁН
+raid-concluded-parties = { $from } против { $to }
+raid-concluded-warning = Боевое разрешение аннулировано. Немедленно прекратите все враждебные действия в рамках рейда.
+raid-concluded-acknowledge = Я подтверждаю

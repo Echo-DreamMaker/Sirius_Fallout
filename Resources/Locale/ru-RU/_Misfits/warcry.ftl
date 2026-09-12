@@ -40,3 +40,18 @@ warcry-popup-nearby = {$user} издает боевой клич!
 warcry-popup-buffed-legion = Боевой клич {$user} гонит вас вперед.
 warcry-popup-buffed-tribal = Боевой клич {$user} ускоряет ваш шаг.
 warcry-popup-buffed-mars = Обращение {$user} к Марсу ускоряет ваш шаг.
+
+action-name-brotherhood-warcry = Боевой клич Братства
+action-desc-brotherhood-warcry = Издайте вдохновляющий клич ради своих братьев.
+
+chat-speech-verb-name-brotherhood-warcry = Клич верности
+chat-speech-verb-brotherhood-warcry = издаёт боевой клич
+
+warcry-message-brotherhood-1 = СТАЛЬ ЗАЩИЩАЕТ!
+warcry-message-brotherhood-2 = МЫ НЕЖЕМСЯ В СВЕТЕ ОСНОВАТЕЛЕЙ!
+warcry-message-brotherhood-3 = ДА ПРЕБУДЕТ С ТОБОЙ СТАЛЬ!
+warcry-message-brotherhood-4 = ПЛОТЬ СЛАБА! НО СТАЛЬ ВЫСТОИТ!
+warcry-message-brotherhood-5 = ПО ВОЛЕ ОСНОВАТЕЛЕЙ!
+warcry-message-brotherhood-6 = ПОМНИТЕ HELIOS ONE!
+
+warcry-popup-buffed-brotherhood = Боевой клич {$user} закаляет вашу решимость.

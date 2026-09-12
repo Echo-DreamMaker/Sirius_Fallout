@@ -26,3 +26,6 @@ fax-machine-ui-paper-not-inserted = Нет бумаги
 fax-machine-chat-notify = Получено новое сообщение с "{ $fax }" факса
 
 fax-machine-printed-paper-name = распечатанная бумага
+
+fax-machine-chat-notify-command = ФАКС ДЛЯ РУКОВОДСТВА с "{ $fax }" факса — бумага "{ $paper }" отправлена { $actor }. Используйте faxui для ответа.
+fax-machine-popup-received-leadership = Факс { $fax } оживает — входящая корреспонденция от руководства.

@@ -1,5 +1,5 @@
 # Gondola
-accent-words-gondola-1 = None
+accent-words-gondola-1 = ...
 
 # Ohio
 accent-ohio-prefix-1 = Гьятт, черт возьми,

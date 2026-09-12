@@ -14,3 +14,6 @@ fold-unzip-verb = Расстегнуть
 
 fold-strap-verb = Пристегнуть ремнем
 fold-unstrap-verb = Отстегнуть ремень
+
+fold-rollsleeves-verb = закатать рукава
+fold-unrollsleeves-verb = опустить рукава

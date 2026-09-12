@@ -2812,7 +2812,7 @@ namespace Content.Client.Lobby.UI
                 FontColorOverride = StyleNano.PipBoyGreen,
                 Margin = new Thickness(0, 4, 0, 0),
             });
-            foreach (var metric in SplitEffectMetrics(GetSpecialEffectDetails(stat, value)))
+            foreach (var metric in GetSpecialEffectDetails(stat, value))
             {
                 details.AddChild(new Label
                 {
@@ -2823,40 +2823,6 @@ namespace Content.Client.Lobby.UI
             }
 
             return details;
-        }
-
-        /// <summary>
-        /// Splits a comma-joined effect detail sentence (e.g. "melee damage 0%, carry/pull speed 0%.")
-        /// into individual trimmed metrics for line-by-line display. Commas inside parentheses
-        /// (e.g. "medical action speed +50% (CPR, healing, surgery, scans)") are not split on.
-        /// </summary>
-        private static IEnumerable<string> SplitEffectMetrics(string details)
-        {
-            var trimmed = details.TrimEnd('.', ' ');
-            var depth = 0;
-            var start = 0;
-            for (var i = 0; i < trimmed.Length; i++)
-            {
-                switch (trimmed[i])
-                {
-                    case '(':
-                        depth++;
-                        break;
-                    case ')':
-                        depth = Math.Max(0, depth - 1);
-                        break;
-                    case ',' when depth == 0:
-                        var part = trimmed[start..i].Trim();
-                        if (part.Length > 0)
-                            yield return part;
-                        start = i + 1;
-                        break;
-                }
-            }
-
-            var last = trimmed[start..].Trim();
-            if (last.Length > 0)
-                yield return last;
         }
 
         /// <summary>
@@ -2891,7 +2857,7 @@ namespace Content.Client.Lobby.UI
             return gauge;
         }
 
-        private string GetSpecialEffectDetails(SpecialStat stat, int value)
+        private IReadOnlyList<string> GetSpecialEffectDetails(SpecialStat stat, int value)
         {
             var tuning = GetSpecialTuning();
 
@@ -2904,7 +2870,7 @@ namespace Content.Client.Lobby.UI
                 SpecialStat.Intelligence => GetIntelligenceEffectDetails(value, tuning),
                 SpecialStat.Agility => GetAgilityEffectDetails(value, tuning),
                 SpecialStat.Luck => GetLuckEffectDetails(value, tuning),
-                _ => "Neutral baseline.",
+                _ => new List<string> { Loc.GetString("special-effect-neutral-baseline") },
             };
         }
 
@@ -2915,7 +2881,7 @@ namespace Content.Client.Lobby.UI
                 : SpecialTuningPrototype.Fallback;
         }
 
-        private static string GetStrengthEffectDetails(int value, SpecialTuningPrototype tuning)
+        private static List<string> GetStrengthEffectDetails(int value, SpecialTuningPrototype tuning)
         {
             var delta = SharedSpecialSystem.GetCurvedEffectDelta(value);
             var melee = delta * tuning.StrengthMeleeDamageMultiplierPerPoint;
@@ -2926,14 +2892,24 @@ namespace Content.Client.Lobby.UI
             var throwSpeed = SharedSpecialSystem.GetCurvedEffectModifier(
                 delta,
                 tuning.StrengthThrowSpeedMultiplierPerPoint);
-            var duffel = value >= 7
-                ? ", ignores duffel bag slowdown"
-                : string.Empty;
+            var disarm = Math.Clamp(delta * tuning.StrengthDisarmProtectionPerPoint, -0.3f, 0.5f);
 
-            return $"melee damage {FormatSignedPercent(melee)}, unarmed damage {FormatSignedPercent(unarmed)}, carry/pull speed {FormatSignedPercent(carry)}, throw speed {FormatSignedPercent(throwSpeed)}{duffel}.";
+            var metrics = new List<string>
+            {
+                Loc.GetString("special-effect-strength-melee-damage", ("value", FormatSignedPercent(melee))),
+                Loc.GetString("special-effect-strength-unarmed-damage", ("value", FormatSignedPercent(unarmed))),
+                Loc.GetString("special-effect-strength-carry-speed", ("value", FormatSignedPercent(carry))),
+                Loc.GetString("special-effect-strength-throw-speed", ("value", FormatSignedPercent(throwSpeed))),
+                Loc.GetString("special-effect-strength-disarm-protection", ("value", FormatSignedPercent(disarm))),
+            };
+
+            if (value >= 7)
+                metrics.Add(Loc.GetString("special-effect-strength-duffel-slowdown"));
+
+            return metrics;
         }
 
-        private static string GetPerceptionEffectDetails(int value, SpecialTuningPrototype tuning)
+        private static List<string> GetPerceptionEffectDetails(int value, SpecialTuningPrototype tuning)
         {
             var delta = SharedSpecialSystem.GetCurvedEffectDelta(value);
             var spread = SharedSpecialSystem.GetCurvedEffectModifier(
@@ -2948,11 +2924,33 @@ namespace Content.Client.Lobby.UI
             var mineDelay = SharedSpecialSystem.GetCurvedEffectModifier(
                 delta,
                 -tuning.PerceptionMineDelayMultiplierPerPoint);
+            var aimZoom = delta * tuning.PerceptionAimZoomMultiplierPerPoint;
+            var aimSpread = delta * tuning.PerceptionAimSpreadMultiplierPerPoint;
+            var aimSniperSpread = delta * tuning.PerceptionAimSpreadSniperMultiplierPerPoint;
 
-            return $"gun spread/recoil {FormatSignedPercent(spread)}, heavy gun spread/recoil {FormatSignedPercent(heavyGun)}, gun fire delay {FormatSignedPercent(fireDelay)}, mine arm/disarm delay {FormatSignedPercent(mineDelay)}.";
+            var metrics = new List<string>
+            {
+                Loc.GetString("special-effect-perception-gun-spread", ("value", FormatSignedPercent(spread))),
+                Loc.GetString("special-effect-perception-heavy-gun-spread", ("value", FormatSignedPercent(heavyGun))),
+                Loc.GetString("special-effect-perception-fire-delay", ("value", FormatSignedPercent(fireDelay))),
+                Loc.GetString("special-effect-perception-mine-delay", ("value", FormatSignedPercent(mineDelay))),
+                Loc.GetString("special-effect-perception-aim-zoom", ("value", FormatSignedPercent(aimZoom))),
+                Loc.GetString("special-effect-perception-aim-spread", ("value", FormatSignedPercent(aimSpread))),
+                Loc.GetString("special-effect-perception-aim-sniper-spread", ("value", FormatSignedPercent(aimSniperSpread))),
+            };
+
+            if (value >= tuning.PerceptionTraceMinPerception)
+            {
+                metrics.Add(Loc.GetString("special-effect-perception-motion-trace",
+                    ("min", tuning.PerceptionTraceMinPerception),
+                    ("range", tuning.PerceptionTraceRange),
+                    ("time", tuning.PerceptionTracePersistenceTime)));
+            }
+
+            return metrics;
         }
 
-        private static string GetEnduranceEffectDetails(int value, SpecialTuningPrototype tuning)
+        private static List<string> GetEnduranceEffectDetails(int value, SpecialTuningPrototype tuning)
         {
             var delta = SharedSpecialSystem.GetCurvedEffectDelta(value);
             var health = SharedSpecialSystem.GetCurvedEffectModifier(
@@ -2967,11 +2965,21 @@ namespace Content.Client.Lobby.UI
             var toxin = SharedSpecialSystem.GetCurvedEffectModifier(
                 delta,
                 -tuning.EnduranceToxinDamageMultiplierPerPoint);
+            var poisonResist = Math.Clamp(delta * tuning.EndurancePoisonResistancePerPoint, -0.3f, 0.5f);
+            var radResist = Math.Clamp(delta * tuning.EnduranceRadiationResistancePerPoint, -0.3f, 0.5f);
 
-            return $"health thresholds {FormatSignedNumber(health)}, hunger/thirst decay {FormatSignedPercent(needs)}, stamina recovery {FormatSignedPercent(stamina)}, poison/rad damage {FormatSignedPercent(toxin)}.";
+            return new List<string>
+            {
+                Loc.GetString("special-effect-endurance-health", ("value", FormatSignedNumber(health))),
+                Loc.GetString("special-effect-endurance-need-decay", ("value", FormatSignedPercent(needs))),
+                Loc.GetString("special-effect-endurance-stamina-recovery", ("value", FormatSignedPercent(stamina))),
+                Loc.GetString("special-effect-endurance-toxin-damage", ("value", FormatSignedPercent(toxin))),
+                Loc.GetString("special-effect-endurance-poison-resistance", ("value", FormatSignedPercent(poisonResist))),
+                Loc.GetString("special-effect-endurance-radiation-resistance", ("value", FormatSignedPercent(radResist))),
+            };
         }
 
-        private static string GetCharismaEffectDetails(int value, SpecialTuningPrototype tuning)
+        private static List<string> GetCharismaEffectDetails(int value, SpecialTuningPrototype tuning)
         {
             var delta = SharedSpecialSystem.GetCurvedEffectDelta(value);
             var loadout = SharedSpecialSystem.GetCharismaLoadoutPointModifier(value);
@@ -2981,39 +2989,82 @@ namespace Content.Client.Lobby.UI
             var sellPayouts = SharedSpecialSystem.GetCurvedEffectModifier(
                 delta,
                 tuning.CharismaTradeMultiplierPerPoint);
+            var warcryRange = delta * tuning.CharismaWarcryRangeMultiplierPerPoint;
+            var warcryDuration = delta * tuning.CharismaWarcryDurationMultiplierPerPoint;
+            var warcrySpeed = delta * tuning.CharismaWarcrySpeedMultiplierPerPoint;
+
             var social = value switch
             {
-                <= 2 => "awkward examine text and speech quirks",
-                < 5 => "awkward examine text",
-                >= 7 => "larger chat font",
-                _ => "no social penalty",
+                <= 2 => Loc.GetString("special-effect-charisma-social-awkward-full"),
+                < 5 => Loc.GetString("special-effect-charisma-social-awkward"),
+                >= 7 => Loc.GetString("special-effect-charisma-social-large-font"),
+                _ => Loc.GetString("special-effect-charisma-social-none"),
             };
 
-            return $"loadout points {FormatSignedInt(loadout)}, buy prices {FormatSignedPercent(buyPrices)}, sell payouts {FormatSignedPercent(sellPayouts)}, {social}.";
-        }
-
-        private static string GetIntelligenceEffectDetails(int value, SpecialTuningPrototype tuning)
-        {
-            var handCraft = value <= SpecialProfile.Minimum
-                ? "hand crafting blocked"
-                : $"hand crafting delay {FormatSignedPercent(GetIntelligenceConstructionDelayModifier(value))}";
-            var lathe = value <= 3
-                ? "lathes locked"
-                : $"lathe production time {FormatSignedPercent(GetIntelligenceLatheTimeModifier(value, tuning))}";
-            var medical = $"medical action speed {FormatSignedPercent(SharedSpecialSystem.GetIntelligenceMedicalActionSpeed(value) - 1f)} (CPR, healing, surgery, scans), topical healing {FormatSignedPercent(SharedSpecialSystem.GetIntelligenceTopicalHealingMultiplier(value) - 1f)}";
-            var extra = value switch
+            var metrics = new List<string>
             {
-                <= 1 => ", low-intelligence accent",
-                >= 10 => ", solution examine on all containers, medical HUD",
-                >= 8 => ", solution scan verb",
-                >= 7 => ", hand craft workbench recipes",
-                _ => string.Empty,
+                Loc.GetString("special-effect-charisma-loadout-points", ("value", FormatSignedInt(loadout))),
+                Loc.GetString("special-effect-charisma-buy-prices", ("value", FormatSignedPercent(buyPrices))),
+                Loc.GetString("special-effect-charisma-sell-payouts", ("value", FormatSignedPercent(sellPayouts))),
+                social,
+                Loc.GetString("special-effect-charisma-warcry-range", ("value", FormatSignedPercent(warcryRange))),
+                Loc.GetString("special-effect-charisma-warcry-duration", ("value", FormatSignedPercent(warcryDuration))),
+                Loc.GetString("special-effect-charisma-warcry-speed", ("value", FormatSignedPercent(warcrySpeed))),
             };
 
-            return $"{handCraft}, {lathe}, {medical}{extra}.";
+            if (value >= tuning.CharismaNeutralFollowerMinimum)
+            {
+                metrics.Add(Loc.GetString("special-effect-charisma-neutral-followers",
+                    ("min", tuning.CharismaNeutralFollowerMinimum)));
+            }
+
+            return metrics;
         }
 
-        private static string GetAgilityEffectDetails(int value, SpecialTuningPrototype tuning)
+        private static List<string> GetIntelligenceEffectDetails(int value, SpecialTuningPrototype tuning)
+        {
+            var metrics = new List<string>();
+
+            metrics.Add(value <= SpecialProfile.Minimum
+                ? Loc.GetString("special-effect-intelligence-hand-craft-blocked")
+                : Loc.GetString("special-effect-intelligence-hand-craft-delay",
+                    ("value", FormatSignedPercent(GetIntelligenceConstructionDelayModifier(value)))));
+
+            metrics.Add(value <= 3
+                ? Loc.GetString("special-effect-intelligence-lathe-locked")
+                : Loc.GetString("special-effect-intelligence-lathe-time",
+                    ("value", FormatSignedPercent(GetIntelligenceLatheTimeModifier(value, tuning)))));
+
+            metrics.Add(Loc.GetString("special-effect-intelligence-lathe-material",
+                ("value", FormatSignedPercent(GetIntelligenceLatheMaterialCostModifier(value, tuning)))));
+
+            metrics.Add(Loc.GetString("special-effect-intelligence-medical-speed",
+                ("value", FormatSignedPercent(SharedSpecialSystem.GetIntelligenceMedicalActionSpeed(value) - 1f))));
+
+            metrics.Add(Loc.GetString("special-effect-intelligence-topical-healing",
+                ("value", FormatSignedPercent(SharedSpecialSystem.GetIntelligenceTopicalHealingMultiplier(value) - 1f))));
+
+            switch (value)
+            {
+                case <= 1:
+                    metrics.Add(Loc.GetString("special-effect-intelligence-accent"));
+                    break;
+                case >= 10:
+                    metrics.Add(Loc.GetString("special-effect-intelligence-solution-examine"));
+                    metrics.Add(Loc.GetString("special-effect-intelligence-medical-hud"));
+                    break;
+                case >= 8:
+                    metrics.Add(Loc.GetString("special-effect-intelligence-solution-scan"));
+                    break;
+                case >= 7:
+                    metrics.Add(Loc.GetString("special-effect-intelligence-workbench-recipes"));
+                    break;
+            }
+
+            return metrics;
+        }
+
+        private static List<string> GetAgilityEffectDetails(int value, SpecialTuningPrototype tuning)
         {
             var delta = SharedSpecialSystem.GetCurvedEffectDelta(value);
             var move = SharedSpecialSystem.GetCurvedEffectModifier(
@@ -3023,10 +3074,14 @@ namespace Content.Client.Lobby.UI
                 delta,
                 -tuning.AgilityActionDelayMultiplierPerPoint);
 
-            return $"movement speed {FormatSignedPercent(move)}, melee attack delay {FormatSignedPercent(actionDelay)}.";
+            return new List<string>
+            {
+                Loc.GetString("special-effect-agility-movement-speed", ("value", FormatSignedPercent(move))),
+                Loc.GetString("special-effect-agility-melee-delay", ("value", FormatSignedPercent(actionDelay))),
+            };
         }
 
-        private static string GetLuckEffectDetails(int value, SpecialTuningPrototype tuning)
+        private static List<string> GetLuckEffectDetails(int value, SpecialTuningPrototype tuning)
         {
             var delta = SharedSpecialSystem.GetCurvedEffectDelta(value);
             var shotCrit = Math.Clamp(delta * tuning.LuckSingleShotCriticalChancePerPoint, 0f, 1f);
@@ -3040,10 +3095,21 @@ namespace Content.Client.Lobby.UI
                 4 => 0.01f,
                 _ => 0f,
             };
-
             var unluckyDamage = 1f - Math.Clamp(tuning.LuckUnluckyDamageMultiplier, 0f, 1f);
+            var dodge = Math.Clamp(delta * tuning.LuckDodgeChancePerPoint, 0f, 0.5f);
+            var critMultiplier = tuning.LuckCriticalDamageMultiplier;
 
-            return $"crit chance per hit {FormatUnsignedPercent(shotCrit)} (revolvers {FormatUnsignedPercent(revolverCrit)}), unlucky hit chance {FormatUnsignedPercent(unlucky)} for {FormatSignedPercent(-unluckyDamage)} damage, lucky loot chance {FormatUnsignedPercent(luckyLoot)}, clumsy chance {FormatUnsignedPercent(clumsy)}.";
+            return new List<string>
+            {
+                Loc.GetString("special-effect-luck-crit-chance", ("value", FormatUnsignedPercent(shotCrit))),
+                Loc.GetString("special-effect-luck-revolver-crit", ("value", FormatUnsignedPercent(revolverCrit))),
+                Loc.GetString("special-effect-luck-unlucky-hit", ("value", FormatUnsignedPercent(unlucky))),
+                Loc.GetString("special-effect-luck-unlucky-damage", ("value", FormatSignedPercent(-unluckyDamage))),
+                Loc.GetString("special-effect-luck-lucky-loot", ("value", FormatUnsignedPercent(luckyLoot))),
+                Loc.GetString("special-effect-luck-clumsy", ("value", FormatUnsignedPercent(clumsy))),
+                Loc.GetString("special-effect-luck-dodge", ("value", FormatUnsignedPercent(dodge))),
+                Loc.GetString("special-effect-luck-crit-multiplier", ("value", $"{critMultiplier:0.#}")),
+            };
         }
 
         private static float GetIntelligenceConstructionDelayModifier(int value)

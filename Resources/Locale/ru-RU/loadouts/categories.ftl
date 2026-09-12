@@ -94,3 +94,5 @@ loadout-category-Shoes = Обувь
 loadout-category-Species = Разновидность
 loadout-category-Uniform = Униформа
 loadout-category-Weapons = Оружие
+
+entity-category-name-mutations = Мутации

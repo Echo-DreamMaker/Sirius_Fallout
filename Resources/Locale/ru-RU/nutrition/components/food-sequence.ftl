@@ -167,3 +167,15 @@ food-sequence-taco-gen = тако с { $content }
 # SKEWER
 
 food-sequence-skewer-gen = шашлык с { $content }
+
+food-sequence-standart-gen = { $prefix }{ $content }{ $suffix }
+
+food-sequence-burger-suffix = бургер
+
+food-sequence-burger-content-cheese = сыро
+food-sequence-burger-content-brain = мозго
+food-sequence-burger-content-tongue = языко
+food-sequence-burger-content-appendix = аппендо
+food-sequence-burger-content-ears = ухо
+food-sequence-burger-content-stomach = желудо
+food-sequence-burger-content-liver = печёнко
