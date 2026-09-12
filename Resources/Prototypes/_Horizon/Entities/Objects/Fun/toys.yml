@@ -1,0 +1,160 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieDemocracyEagle
+  name: плюшевый орлёнок
+  description: Пушистый источник яркой и великой демократий!
+  suffix: StarHorizon
+  components:
+  - type: StaticPrice
+    price: 50
+  - type: Sprite
+    sprite: _StarHorizon/Objects/Fun/plushiedemocracyeagle.rsi
+    state: eagle
+  - type: Item
+    size: Small
+    sprite: _StarHorizon/Objects/Fun/plushiedemocracyeagle.rsi
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_StarHorizon/Objects/Fun/Toys/WHATTHEFUCKISTHEKILOMETER.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_StarHorizon/Objects/Fun/Toys/WHATTHEFUCKISTHEKILOMETER.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_StarHorizon/Objects/Fun/Toys/WHATTHEFUCKISTHEKILOMETER.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_StarHorizon/Objects/Fun/Toys/WHATTHEFUCKISTHEKILOMETER.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_StarHorizon/Objects/Fun/Toys/WHATTHEFUCKISTHEKILOMETER.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieAmmaYakiama
+  name: плюшевый комиссар
+  description: Плюшевая игрушка комиссара. Выглядит мило. От неё пахнет розами и дешёвым вином.
+  suffix: StarHorizon
+  components:
+  - type: StaticPrice
+    price: 50
+  - type: Sprite
+    sprite: _StarHorizon/Objects/Fun/plushieammayakiama.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _StarHorizon/Objects/Fun/plushieammayakiama.rsi
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_StarHorizon/Objects/Fun/Toys/nya1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_StarHorizon/Objects/Fun/Toys/nya1.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_StarHorizon/Objects/Fun/Toys/nya1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_StarHorizon/Objects/Fun/Toys/nya1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_StarHorizon/Objects/Fun/Toys/nya1.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/_StarHorizon/Objects/Fun/Toys/nya1.ogg
+  - type: PointLight
+    netsync: false
+    radius: 1.5
+    energy: 2.0
+    color: "#8A2BE2"
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBunnyx
+  name: плюшевый банникс
+  description: Милый плюшевый кролик.
+  suffix: StarHorizon
+  components:
+    - type: StaticPrice
+      price: 50
+    - type: Sprite
+      sprite: _StarHorizon/Objects/Fun/plushbunnyx.rsi
+      state: icon
+    - type: Item
+      size: Small
+      sprite: _StarHorizon/Objects/Fun/plushbunnyx.rsi
+
+- type: entity
+  parent: BaseItem
+  id: PlushieLemird
+  name: плюшевая Лемирд
+  description: Хотите обнимашек и милоты? Новая серия игрушек "Lemird"! Лучшие вайфу на станций! *На обратной стороне игрушки написано, что она может издавать странные фразы и стоны.*
+  suffix: StarHorizon
+  components:
+  - type: Sprite
+    sprite: _StarHorizon/Objects/Fun/plushielemird.rsi
+    state: icon
+  - type: Item
+    sprite: _StarHorizon/Objects/Fun/plushielemird.rsi
+  - type: EmitSoundOnUse
+    sound:
+      collection: PlushieLemird
+  - type: UseDelay
+    delay: 6.5
+  - type: StaticPrice
+    price: 1500
+  - type: PointLight
+    netsync: false
+    radius: 1.5
+    energy: 1.0
+    color: "#FF69B4"
+  - type: EmitSoundOnLand
+    sound:
+      collection: PlushieLemird
+  - type: EmitSoundOnActivate
+    sound:
+      collection: PlushieLemird
+  - type: Clothing
+    quickEquip: false
+    sprite: _StarHorizon/Objects/Fun/plushielemird.rsi
+    slots:
+    - HEAD
+
+- type: entity
+  parent: PlushieLemird
+  id: PlushieLemirdSchoolGirl
+  name: плюшевая школьница Лемирд
+  description: Вы яростно обучаетесь и хотите познать гранит науки? Тогда... Попросите купить эту школьную милую игрушку! С ней у вас будут лишь положительные эмоции на учёбе!
+  suffix: StarHorizon
+  components:
+  - type: Sprite
+    sprite: _StarHorizon/Objects/Fun/plushielemirdschoolgirl.rsi
+    state: icon
+  - type: Item
+    sprite: _StarHorizon/Objects/Fun/plushielemirdschoolgirl.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: _StarHorizon/Objects/Fun/plushielemirdschoolgirl.rsi
+    slots:
+    - HEAD
+
+- type: entity
+  parent: PlushieLemird
+  id: PlushieLemird3
+  name: плюшевая Лемирда
+  description: Новая ограниченная серия игрушек Лемирд на отдыхе. Вы буквально чувствуете эту ауру муррчания и хорни!!!
+  suffix: StarHorizon
+  components:
+  - type: Sprite
+    sprite: _StarHorizon/Objects/Fun/plushielemird3.rsi
+    state: icon
+  - type: Item
+    size: Small
+    sprite: _StarHorizon/Objects/Fun/plushielemird3.rsi
+  - type: StaticPrice
+    price: 1500
+  - type: PointLight
+    netsync: false
+    radius: 1.5
+    energy: 1.0
+    color: "#fce8e4"
