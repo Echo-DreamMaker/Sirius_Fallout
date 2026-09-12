@@ -28,3 +28,23 @@ markings-category-Arms = Руки
 markings-category-Legs = Ноги
 markings-category-Tail = Хвост
 markings-category-Overlay = Наложение
+
+markings-category-Face = Лицо
+
+markings-category-RightArm = Правая рука
+
+markings-category-RightHand = Правая кисть
+
+markings-category-LeftArm = Левая рука
+
+markings-category-LeftHand = Левая кисть
+
+markings-category-RightLeg = Правая нога
+
+markings-category-RightFoot = Правая ступня
+
+markings-category-LeftLeg = Левая нога
+
+markings-category-LeftFoot = Левая ступня
+
+markings-category-Eyes = Глаза

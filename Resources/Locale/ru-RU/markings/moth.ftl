@@ -395,3 +395,5 @@ marking-MothLArmWitchwing = Моль, Левая рука (Ведьмино кр
 
 marking-MothRArmWitchwing-witchwing_r_arm = Правая Рука
 marking-MothRArmWitchwing = Моль, Правая рука (Ведьмино крыло)
+
+marking-MothWingsMaple-maple = Крыло

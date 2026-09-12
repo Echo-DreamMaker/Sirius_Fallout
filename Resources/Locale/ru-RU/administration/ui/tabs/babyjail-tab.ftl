@@ -14,3 +14,13 @@ admin-ui-baby-jail-is-enabled = [font size=20][bold]Детсад в настоя
 
 admin-ui-baby-jail-enabled-admin-alert = Детсад был включён.
 admin-ui-baby-jail-disabled-admin-alert = Детсад был выключён.
+
+admin-ui-baby-jail-max-overall-hours = Макс. общее время игры
+
+misfits-baby-jail-toggle-desc = Переключает ограничения детсада для возрастных аккаунтов или аккаунтов с большим временем игры.
+
+misfits-baby-jail-show-reason-desc = Показывать заблокированным игрокам причину, по которой детсад отклонил их подключение.
+
+misfits-baby-jail-max-age-desc = Максимальный возраст аккаунта, которому разрешено подключиться при включённом детсаде.
+
+misfits-baby-jail-max-hours-desc = Максимальное общее время игры на сервере, с которым разрешено подключиться при включённом детсаде.

@@ -11,3 +11,7 @@ character-item-group-N14LoadoutNeck = Галстуки
 character-item-group-N14LoadoutOuter = Верхняя одежда
 character-item-group-N14LoadoutShoes = Обувь
 character-item-group-N14LoadoutBelt = Пояс
+
+character-item-group-N14LoadoutAmmoBig = Крупные боеприпасы
+character-item-group-N14LoadoutAmmoBox = Коробки с патронами
+character-item-group-N14LoadoutGunsBig = Тяжёлое оружие

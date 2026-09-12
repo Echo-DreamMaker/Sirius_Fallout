@@ -163,3 +163,15 @@ ent-N14DoorWoodSecureLockedCaravanGuard = { ent-N14DoorWoodSecure }
 ent-N14DoorCellMetalLockedCaravanGuard = { ent-N14DoorMetalBar }
     .suffix = Караван, Закрыто, Охранник
     .desc = { ent-N14DoorMetalBar.desc }
+
+# Базовые ключи дверей (перевод по doors.yml/_Misfits doors)
+ent-N14DoorCellMetal = тюремная дверь
+    .desc = Дверь, за которой запирают преступников.
+ent-N14DoorMetalBar = решётчатая дверь
+    .desc = Дверь, сделанная из металлических прутьев.
+ent-N14DoorMetalSecure = надёжная дверь
+    .desc = Надёжная дверь, сделанная из стали.
+ent-N14DoorWoodSecure = надёжная дверь
+    .desc = Надёжная дверь, сделанная из дерева.
+ent-N14DoorWoodSecureNCR = надёжная дверь
+    .desc = Надёжная дверь, сделанная из дерева и несущая эмблему НКР.

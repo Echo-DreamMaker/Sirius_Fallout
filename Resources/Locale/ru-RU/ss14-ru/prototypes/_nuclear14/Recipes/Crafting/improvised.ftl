@@ -14,3 +14,6 @@ recipe-blindfold-name = { ent-ClothingEyesBlindfold }
 recipe-blindfold-desc = { ent-ClothingEyesBlindfold.desc }
 recipe-rag-name = { ent-RagItem }
 recipe-rag-desc = { ent-RagItem.desc }
+
+ent-N14BaseBallBat = бейсбольная бита
+    .desc = Крепкая бейсбольная бита.

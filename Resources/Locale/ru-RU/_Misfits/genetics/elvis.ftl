@@ -1,0 +1,17 @@
+accent-elvis-words-1 = я не
+accent-elvis-words-2 = девушка
+accent-elvis-words-3 = мужик
+accent-elvis-words-4 = из
+accent-elvis-words-5-a = спасибо
+accent-elvis-words-5-b = благодарю
+accent-elvis-words-6 = что ты
+accent-elvis-words-7 = да
+accent-elvis-words-8 = мои валиды
+accent-elvis-words-replace-1 = я неа
+accent-elvis-words-replace-2 = милашка
+accent-elvis-words-replace-3 = дружок
+accent-elvis-words-replace-4 = изз
+accent-elvis-words-replace-5 = спасибо, спасибо большое
+accent-elvis-words-replace-6 = чё ты
+accent-elvis-words-replace-7 = ага
+accent-elvis-words-replace-8 = мои кеды

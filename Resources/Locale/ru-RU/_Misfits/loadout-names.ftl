@@ -983,3 +983,170 @@ loadout-name-MisfitsLoadoutClothingOuterPowerArmorT51BC = силовая бро�
 loadout-name-MisfitsLoadoutBoSMidwestCommanderPowerArmor = силовая броня командира Братства (СЗБС)
 loadout-name-N14LoadoutClothingOuterPowerArmorAdvanced1 = улучшенная силовая броня (Adv.1)
 loadout-name-MisfitsLoadoutClothingOuterPowerArmorT60 = силовая броня T-60
+
+loadout-name-ClothingSuperMutantSkullHelmetTribal = череп муффало супермутанта
+
+loadout-name-ClothingSuperMutantTribalGloves = племенные перчатки супермутанта
+
+loadout-name-ClothingSuperMutantZootBoot = ботинки-зут супермутанта
+
+loadout-name-ClothingSuperMutantZootHat = шляпа-зут супермутанта
+
+loadout-name-ClothingSuperMutantZootSuit = костюм-зут супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantCustomDuster = кастомизированный пыльник супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantCustomizedCombatArmor = кастомизированная боевая броня
+
+loadout-name-MisfitsLoadoutSuperMutantGladiatorArmor = броня гладиатора супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantGladiatorBoots = сапоги гладиатора супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantGladiatorHelmet = шлем гладиатора супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantGladiatorLoincloth = набедренная повязка гладиатора супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantLeatherBoots = кожаные сапоги супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantNeckCapeTribal = племенная накидка супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantNeckGuard = нашейник супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantNeckTrinket = ожерелье из черепов супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantOutfitC = боевая накидка супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantRangerArmor = пыльник рейнджера супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantRangerGasmaskAlt = противогаз рейнджера супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantRangerHatAlt = ковбойская шляпа рейнджера супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantScavengedArmor = трофейная броня супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantScavengedBoots = трофейные ботинки супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantScavengedGloves = трофейные перчатки супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantScavengedHelmet = трофейный шлем супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantTribalLoincloth = племенная набедренная повязка супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantTrooperArmor = броня солдата супермутанта
+
+loadout-name-MisfitsLoadoutSuperMutantVaultSuit = комбинезон Убежища супермутанта
+
+loadout-category-Patreon = Patreon
+loadout-name-LoadoutPatreonSilverUniformVaultJumpsuit = комбинезон Убежища (Patreon)
+loadout-name-LoadoutPatreonGoldCombatBoots = боевые ботинки (Patreon)
+loadout-name-LoadoutPatreonNuclearPistol10mm = пистолет 10 мм (Patreon)
+loadout-name-LoadoutPatreonBondholderHat = шляпа держателя облигаций (Patreon)
+loadout-name-LoadoutPatreonEquityPartnerHat = шляпа партнёра-совладельца (Patreon)
+loadout-name-LoadoutPatreonVentureCapitalistHat = шляпа венчурного капиталиста (Patreon)
+loadout-name-LoadoutPatreonShareholderHat = шляпа акционера (Patreon)
+loadout-name-LoadoutPatreonPrincipalShareholderHat = шляпа главного акционера (Patreon)
+
+loadout-name-Cane = трость
+loadout-name-CaneBlade = трость-клинок
+
+loadout-name-LoadoutBoS509ElderT51BC = Силовая броня T-51bc старейшины 509-го Братства
+
+loadout-name-LoadoutEnclavePinSergeantMajor = значок сержант-майора Анклава
+loadout-name-LoadoutEnclaveSMPinPrivate = значок рядового Анклава (супермутант)
+loadout-name-LoadoutEnclaveSMPinPFC = значок ефрейтора Анклава (супермутант)
+loadout-name-LoadoutEnclaveSMPinSpecialist = значок специалиста Анклава (супермутант)
+loadout-name-LoadoutEnclaveSMPinSergeant = значок сержанта Анклава (супермутант)
+loadout-name-LoadoutEnclaveSMPinStaffSergeant = значок штаб-сержанта Анклава (супермутант)
+loadout-name-LoadoutEnclaveSMPinSFC = значок старшего сержанта Анклава (супермутант)
+loadout-name-LoadoutEnclaveSMPinMasterSergeant = значок мастер-сержанта Анклава (супермутант)
+loadout-name-LoadoutEnclaveSMPinSergeantMajor = значок сержант-майора Анклава (супермутант)
+
+loadout-name-LoadoutN14ClothingHatTheDevoutMask = противогаз для подавления бунтов «Набожный»
+loadout-name-LoadoutN14ClothingHeadHardCaseRangerHelmet = шлем рейнджера «Крепкий орешек»
+loadout-name-LoadoutN14ClothingHeadDemoExpertRangerHelmet = шлем рейнджера-подрывника
+loadout-name-LoadoutN14ClothingHeadTheDevoutRangerHelmet = шлем рейнджера «Набожный»
+loadout-name-LoadoutN14ClothingHeadCanOpenerRangerHelmet = шлем рейнджера «Открывалка»
+loadout-name-LoadoutN14ClothingOuterCaliforniaGirlVetRangerRiotArmor = броня калифорнийской девушки для подавления бунтов
+loadout-name-LoadoutN14ClothingOuterTheDevoutVetRangerRiotArmor = броня для подавления бунтов «Набожный»
+loadout-name-LoadoutN14ClothingOuterDemoExpertVetRangerRiotArmor = броня подрывника для подавления бунтов
+loadout-name-LoadoutN14ClothingOuterCanOpenerVetRangerRiotArmor = броня для подавления бунтов «Открывалка»
+
+loadout-name-MisfitsLoadoutHeadKhanFullHelmet = полный шлем Ханов
+loadout-name-MisfitsLoadoutOuterKhansJacket = куртка Великого Хана
+loadout-name-MisfitsLoadoutOuterKhansVest = жилет Великого Хана
+loadout-name-MisfitsLoadoutOuterKhansBattlecoatRed = красный боевой мундир Великого Хана
+loadout-name-MisfitsLoadoutOuterKhansBattlecoatBlack = чёрный боевой мундир Великого Хана
+loadout-name-MisfitsLoadoutOuterMarkedMenCombatTribalArmor = племенная боевая броня Меченых
+loadout-name-MisfitsLoadoutOuterMarkedMenCombatPatrolArmor = патрульная боевая броня Меченых
+loadout-name-MisfitsLoadoutOuterWhiteLegsArmor = племенная броня Белоногих
+
+loadout-name-MisfitsLoadoutSquireWebbingBlack = чёрная портупея оруженосца
+loadout-name-MisfitsLoadoutSquireWebbingBrown = коричневая портупея оруженосца
+
+loadout-name-MisfitsLoadoutOuterCombatTalon = боевая броня «Коготь»
+loadout-name-MisfitsLoadoutOuterCombatTalonDuster = боевой пыльник «Коготь»
+loadout-name-MisfitsLoadoutOuterDeadHorsesArmor = броня Мёртвых Лошадей
+loadout-name-MisfitsLoadoutOuterDeadHorsesLightArmor = лёгкая броня Мёртвых Лошадей
+loadout-name-MisfitsLoadoutOuterSorrowsArmor = броня Скорбящих
+loadout-name-MisfitsLoadoutOuterRustwalkersArmor = броня Пылеходов
+loadout-name-MisfitsLoadoutOuterRustwalkersLightArmor = лёгкая броня Пылеходов
+loadout-name-MisfitsLoadoutOuterWesternWayfarerArmor = броня западного странника
+loadout-name-MisfitsLoadoutOuterWesternWayfarerHeavyArmor = тяжёлая броня западного странника
+loadout-name-MisfitsLoadoutOuterWardenPlate = надзирательский нагрудник
+
+loadout-name-MisfitsLoadoutUniformDeadHorsesUniform = одеяние Мёртвых Лошадей
+loadout-name-MisfitsLoadoutUniformSorrowsUniform = одеяние Скорбящих
+loadout-name-MisfitsLoadoutUniformRustwalkersUniform = униформа Пылеходов
+loadout-name-MisfitsLoadoutUniformWhiteLegsUniform = одеяние Белоногих
+
+loadout-name-N14WeaponShotgunBlowback = дробовик «Блоубэк»
+loadout-name-N14WeaponRevolver44Magnum = револьвер .44 Magnum
+
+loadout-name-N14LoadoutMagazineShotgun20 = магазин для дробовика 20 калибра
+loadout-name-N14LoadoutMagazineSMG10mm = магазин для ПП 10 мм
+loadout-name-N14LoadoutTopMagazineSMG12mm = верхний магазин для ПП 12 мм
+loadout-name-LoadoutMagazine308Rifle = магазин для винтовки .308
+loadout-name-LoadoutMagazine762AmmoShort = короткий магазин для винтовки 7.62
+loadout-name-LoadoutMagazine545Rifle = магазин для винтовки 5.45
+loadout-name-LoadoutMagazine308M60Box = коробчатый магазин .308 для M60
+loadout-name-N14LoadoutMagazineMinigun5mm = магазин для минигана 5 мм
+loadout-name-LoadoutMagazineDrum545Rifle = барабанный магазин для винтовки 5.45
+loadout-name-LoadoutMagazine308RifleLong = длинный магазин для винтовки .308
+loadout-name-LoadoutMagazine762AmmoBelt = патронная лента 7.62
+loadout-name-LoadoutMagazineBox12 = коробка патронов 12 калибра
+loadout-name-LoadoutMagazineBox20gauge = коробка патронов 20 калибра
+loadout-name-LoadoutMagazineBox308 = коробка патронов .308
+
+loadout-name-MisfitsLoadoutClothingHeadHatBrotherhoodMidwestHelmetRecon = разведывательный шлем Братства (Средний Запад)
+loadout-name-MisfitsClothingHeadRedBandana = красная бандана
+
+loadout-name-N14LoadoutOuterRobeHubologist = мантия хабулогиста
+loadout-name-ClothingOuterMothFluffy = пушистое пальто мотылька
+loadout-name-MisfitsClothingOuterKhansVest = жилет Великих Ханов
+
+loadout-name-N14LoadoutOuterDressAsymmetric = асимметричное платье
+
+loadout-name-N14LoadoutWeaponRevolver45-70Hunter = револьвер «Охотник» .45-70
+loadout-name-N14LoadoutWeaponShotgunRiot = дробовик для подавления бунтов
+loadout-name-N14LoadoutWeaponShotgunChinese = китайский дробовик
+loadout-name-N14LoadoutWeaponShotgunCanadian = канадский дробовик
+loadout-name-N14LoadoutWeaponSMG12mmAdvancedChinese = усовершенствованный китайский ПП 12 мм
+loadout-name-N14LoadoutWeaponSMG12mmAdvancedCanadian = усовершенствованный канадский ПП 12 мм
+loadout-name-N14LoadoutWeaponSMG12mmAdvanced = усовершенствованный ПП 12 мм
+loadout-name-N14LoadoutWeaponSMG10mmChinese = китайский ПП 10 мм
+loadout-name-N14LoadoutWeaponSMG10mmPipe = самодельный ПП 10 мм
+loadout-name-N14LoadoutWeaponSMG12mmPipe = самодельный ПП 12 мм
+loadout-name-N14LoadoutWeaponSMG9mmCanadian = канадский ПП 9 мм
+loadout-name-N14LoadoutWeaponRifle762Canadian = канадская винтовка 7.62
+loadout-name-N14LoadoutWeaponRifle762SKS = SKS
+loadout-name-N14LoadoutWeaponLMGchinese = китайский ручной пулемёт
+loadout-name-N14LoadoutWeaponUSHMG = тяжёлый пулемёт США
+loadout-name-N14LoadoutWeaponLMGBren = ручной пулемёт «Брэн»
+loadout-name-N14LoadoutWeaponSniper308Ross = снайперская винтовка Росса .308
+loadout-name-N14LoadoutWeaponRifle762MarksmanChinese = китайская марксманская винтовка 7.62
+loadout-name-N14LoadoutWeaponSniper308Canadian = канадская снайперская винтовка .308
+loadout-name-N14LoadoutWeaponRifle762MarksmanCanadian = канадская марксманская винтовка 7.62
+loadout-name-N14LoadoutWeaponPistol2mmECPPK12Sirius = пистолет PPK-12 2ммEC (Сириус)
+loadout-name-N14LoadoutWeaponLaserRifleMakeshift = самодельная лазерная винтовка
+loadout-name-N14LoadoutWeaponLaserRifleYk42b = лазерная винтовка YK42B
+loadout-name-N14LoadoutWeaponPlasmaRifleCrude = самодельная плазменная винтовка

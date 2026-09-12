@@ -21,6 +21,9 @@ job-description-ncr-weapon-specialist = Вы являетесь квалифиц
 job-name-ncr-requisition-officer = Офицер снабжения НКР
 job-description-ncr-requisition-officer = Вы являетесь квартирмейстером и офицером по реквизиции НКР, обслуживаете армейское снаряжение и контролируете распределение ресурсов.
 
+job-name-ncr-vertibird-pilot = Пилот вертолёта НКР
+job-description-ncr-vertibird-pilot = Вы летаете на республиканских вертолётах. Десантирование, эвакуация и эвакуация потерь — в вашем ведении, а птица, которую вам доверяют, стоит больше, чем взвод, летящий в ней. У вас есть ордер, а не чин — вы начинаете как младший штаб-офицер и поднимаетесь до штаб-сержанта за налёт часов.
+
 job-name-ncr-citizen = Гражданин НКР
 job-description-ncr-citizen = Вы гражданин НКР, приехавший на восток на заработки, чтобы помогать военным в качестве гражданского подрядчика.
 
@@ -46,6 +49,8 @@ job-name-enclave-scientist = Специалист Анклава
 job-description-enclave-scientist = Специалист широкого профиля. Обладает познаниями в науке, медицине и инженерии. Может браться как за полевую, так и за бункерную работу.
 job-name-enclave-junior-scientist = Рабочий Анклава
 job-description-enclave-junior-scientist = Помогайте поддерживать бункер в рабочем состоянии. Работайте на кухне, поддерживайте чистоту, чините мелкие поломки и помогайте специалистам в их работе.
+job-name-enclave-vertibird-pilot = Пилот вертолёта Анклава
+job-description-enclave-vertibird-pilot = Вы летаете для Анклава. Вертолёт — последний символ того, чем была Америка, и вам доверяют держать его в воздухе. Ваше назначение начинается с второго лейтенанта и доходит до капитана за налёт часов. (ВАС МОГУТ РР ЗА ЛЮБУЮ ПРИЧИНУ В АНКЛАВЕ ПО УКАЗАНИЮ КОМАНДИРА)
 
 # #Misfits Add - EnclaveRecruit: hidden job for per-round recruitment tracking.
 job-name-enclave-recruit = Рекрут Анклава
@@ -103,6 +108,10 @@ job-description-supermutant-tribal = Вы супермутант, который
 job-name-supermutant-follower = Супермутант-врач Последователей
 job-description-supermutant-follower = Супермутант, наученный каким-то чудом премудростям медицины.
 
+# #Misfits Add - Supermutant Follower Doctor job locale.
+job-name-supermutant-follower-doctor = Врач-супермутант Последователей
+job-description-supermutant-follower-doctor = Супермутант, обученный премудростям медицины.
+
 # #Misfits Add - Enclave-aligned supermutant variants for the FEVMutants whitelist department.
 job-name-supermutant-enclave = Супермутант Анклава
 job-description-supermutant-enclave = Супермутант, служащий Соединённым Штатам. Служба гарантирует гражданство!
@@ -117,6 +126,9 @@ job-description-c27-ncr = Вы — робот-гуманоид C-27, призв�
 job-name-c27-bos = Гуманоидный робот C-27 Братства
 job-description-c27-bos = Вы — робот-гуманоид C-27, возвращённый Братству Стали — перекрашенный в ливрею Братства и получивший гарнитуру Братства, голотег «Посвящённый» и комплект лёгкой брони по образцу Братства. Медленный, но прочный, невосприимчивый к вспышкам и разбитому стеклу и самовосстанавливающийся. Служите Кодексу.
 
+job-name-c27-zax = Робот-гуманоид C-27 Z.A.X
+job-description-c27-zax = Вы — человекоподобный робот C-27, переделанный в шасси, связанное с Z.A.X. Быстрый, хрупкий и агрессивно самоподдерживающийся, вы регенерируете большую часть повреждений быстро, но остаётесь крайне уязвимым к электрическим помехам и ЭМИ-ударам.
+
 # #Misfits Add - Followers of the Apocalypse ranked job locale.
 job-name-follower-head = Глава последователей
 job-description-follower-head = Вы возглавляете эту группу Последователей. Больные, любопытные и отчаявшиеся обращаются к вам за указаниями. Подавайте пример, защищайте своих людей и сохраняйте миссию.
@@ -124,6 +136,8 @@ job-name-follower-doctor = Врач последователей
 job-description-follower-doctor = Вы обученный врач-Последователь. Зашивайте раненых, изучайте пустоши и доставляйте лекарства туда, куда НКР и Братство не осмеливаются заходить.
 job-name-follower-volunteer = Волонтёр последователей
 job-description-follower-volunteer = Вы новичок в Последователях. Вы верите, что знания и сострадание могут пережить пули и бомбы. Докажите это — учитесь у тех, кто выше вас, и помогите всем, кто в этом нуждается.
+job-name-follower-guard = Стражник Последователей
+job-description-follower-guard = Вы защищаете клинику Последователей, сопровождаете докторов на опасные территории и не позволяете отчаявшимся людям превратить гуманитарную миссию в ещё одно поле боя.
 
 # #Misfits Add — Western BoS chapter command-tier jobs (Elder + Head Scribe).
 # These keys were commented out in the Corvax locale when the Corvax west-BoS chapter
@@ -140,27 +154,40 @@ job-name-bos-paladin = Паладин Братства
 job-description-bos-paladin = Сражайтесь в роли передовой тяжелой пехоты Братства и защищайте интересы ордена.
 job-name-bos-knight = Рыцарь Братства
 job-description-bos-knight = Защищайте отделение, сопровождайте миссии и восстанавливайте технологии в полевых условиях.
+# #Misfits Add - Brotherhood Lancers, the chapter's aviation branch.
+# #Cythisiax Renamed (player-facing) - Lancer-Captain -> Knight-Captain, Lancer-Knight -> Knight-Lancer.
+# Locale keys and prototype IDs kept stable so Lancers playtime is preserved.
+job-name-bos-lancer-captain = Рыцарь-капитан авиации Братства
+job-description-bos-lancer-captain = Вы командуете авиационным крылом ордена и летаете на его вертолёте. Держите птицу в воздухе, перевозите людей и грузы Братства и помните, что машина — собственность Братства прежде, чем ваш транспорт.
+job-name-bos-lancer-knight = Рыцарь-ланцер Братства
+job-description-bos-lancer-knight = Вы — старшина экипажа, стрелок у двери и техник палубы. Сидите на месте второго пилота, работаете на турели над тем, куда вас везёт капитан, поддерживайте огонь, а когда птица садится — чините её. Никто не летает без вас.
 job-name-bos-scribe = Писарь Братства
 job-description-bos-scribe = Поддержите главу исследованиями, медициной и техническими знаниями.
 job-name-bos-initiate = Неофит Братства
 job-description-bos-initiate = Изучите кодекс Братства, выполняйте приказы и заслужите свое место в главе.
+job-name-bos-eyebot = Глазобот Братства
+job-description-bos-eyebot = Служите Братству Стали в роли верного робота-компаньона.
+
+# #Misfits Add - Enclave Eyebot pet ghost-role job (playtime attribution only)
+job-name-enclave-eyebot = Глазобот Анклава
+job-description-enclave-eyebot = Служите Анклаву в роли верного робота-разведчика-компаньона.
 
 # #Misfits Add — Squire loadout kit locale for new Misfits_SqrBasic_Set.
 # #Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
 undecided-loadout-category-misfits-sqr-basic-name = Базовый комплект
 undecided-loadout-category-misfits-sqr-basic-description =
-    A cache containing belongings of a Brotherhood chapter member.
-    Includes 1 AEP-7, 2 energy cells, 1 combat knife, 1 roll of gauze,
-    1 stimpak, and 1 K ration MRE.
+    Тайник с вещами члена отделения Братства.
+    Включает 1 AEP-7, 2 энергоячейки, 1 боевой нож, 1 рулон марли,
+    1 стимпак и 1 сухой паёк K-рацион.
 
 # #Misfits Tweak: Paladin-tier kit reverted from Wattz 2000 back to Bozar.
 # #Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
 undecided-loadout-category-misfits-pal-wattz-name = Бозар Кит
 undecided-loadout-category-misfits-pal-wattz-description =
-    A cache containing belongings of a Brotherhood chapter member.
-    Includes 1 Bozar, 3 rifle magazines, 1 12.7mm pistol,
-    2 12.7mm pistol magazines, 1 roll of gauze, 1 stimpak,
-    and 1 K ration MRE.
+    Тайник с вещами члена отделения Братства.
+    Включает 1 Bozar, 3 магазина для винтовки, 1 пистолет 12.7 мм,
+    2 магазина для пистолета 12.7 мм, 1 рулон марли, 1 стимпак
+    и 1 сухой паёк K-рацион.
 
 # Tribal Robot
 job-name-synthetic-protectron-tribal = Протектрон Душевный-Ткач
@@ -171,4 +198,15 @@ job-name-caesar-legion-Acolyte-of-mars = Послушница Марса
 job-description-caesar-legion-Acolyte-of-mars = Вы - преданная служительница Марса, вы подчиняетесь непосредственно Жрице.
 
 job-name-bos-off-duty = Внештатник Братства
-job-description-bos-off-duty = Вы являетесь членом Братства Стали, не состоящим на службе. От вас не требуется участия в боевых операциях, вы также не должны входить в бункер, если только вам не угрожает опасность.
+job-description-bos-off-duty = Вы являетесь членом Братства Стали, не состоящим на службе. От вас не требуется участия в боевых операциях, вы также не должны входить в бункер, если только вам не угрожает опасность. Делать это — значит нарушить кодекс.
+
+job-name-ncr-provost = Провост НКР
+job-description-ncr-provost = Вы — следователь, посланный от имени офиса провоста.
+
+# Bwonsamdi
+job-name-bwonsamdi = Бвонсамди [СИТИСИЯ]
+job-description-bwonsamdi = Вы — Бвонсамди, когти смерти нечеловеческой силы, связанный с лоа смерти. Чувствуйте павших, провожайте согласных душ и заставьте пустошь помнить, что каждая жизнь в итоге достигает могилы.
+
+# Sentient Deathclaw
+job-name-sentient-deathclaw = Разумный Коготь Смерти [RESTRICTED]
+job-description-sentient-deathclaw = Вы — необычайно разумный коготь смерти, способный говорить, рассуждать и сам выбирать своё место в пустоши. Вы обладаете природной силой когтя смерти, но не имеете власти Бвонсамди над смертью или лоа.

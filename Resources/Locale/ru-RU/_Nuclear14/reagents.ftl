@@ -370,3 +370,31 @@ reagent-desc-scorpiontail = хвост скорпиона. Скупой.
 
 compost-mixing-success = компост смешанный
 mixing-verb-composting = смешать компост
+
+reagent-name-tiring-solution = утомляющий раствор
+
+reagent-desc-tiring-solution = Биохимический раствор, приводящий организм в состояние сильного истощения.
+
+flavor-base-tiredness = усталость
+
+entity-effect-popup-tiredness = Вы чувствуете непреодолимую усталость.
+
+reagent-name-milk-zoy = зойское молоко
+
+reagent-desc-milk-zoy = Растительное, с ноткой лайма.
+
+reagent-name-zilk = зойский пилк
+
+reagent-desc-zilk = Скорее газировка, чем молоко.
+
+reagent-name-cleansing-powder = очищающий порошок
+reagent-desc-cleansing-powder = Племенное средство от радиации, созданное травниками пустоши. Действует медленно, неэффективно и вызывает сонливость, но это лучше, чем альтернатива.
+
+reagent-name-bloatflymilk = молоко вздувшейся мухи
+reagent-desc-bloatflymilk = Молоко из мешка вздувшейся мухи.
+
+reagent-name-epoetine = эпоэтин
+reagent-desc-epoetine = Лекарство, стимулирующее лёгкие и улучшающее кровоток.
+
+reagent-name-beta-epoetine = бета-эпоэтин
+reagent-desc-beta-epoetine = Более мощное лекарство, стимулирующее лёгкие и улучшающее кровоток.

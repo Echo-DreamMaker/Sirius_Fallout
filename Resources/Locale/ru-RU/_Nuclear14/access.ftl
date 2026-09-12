@@ -74,3 +74,8 @@ id-card-access-level-legion-legate = Легат Легиона
 # id-card-access-level-washington-knight = WBoS Armory
 # id-card-access-level-washington-scribe = WBoS Labs
 # id-card-access-level-washington-initiate = WBoS Gates
+
+id-card-access-level-vault-cargo = Грузовой отсек Убежища
+id-card-access-level-vault-courier = Погрузочный док Убежища
+id-card-access-level-vault-salvage = Отсек утилизации Убежища
+id-card-access-level-legion-optio = Опцион Легиона

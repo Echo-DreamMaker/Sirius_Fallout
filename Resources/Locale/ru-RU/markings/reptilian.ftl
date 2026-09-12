@@ -117,3 +117,11 @@ marking-LizardChestFin = Рептилия, плавник
 marking-LizardSnoutSplotch = Рептилия, морда лица (Пятно)
 marking-LizardSnoutSplotch-snout_splotch_primary = Морда
 marking-LizardSnoutSplotch-snout_splotch_secondary = Нос
+
+marking-LizardTailDTigerAnimated = Рептилия, хвост (Тёмные тигриные полоски) (Анимированный)
+
+marking-LizardTailLTigerAnimated = Рептилия, хвост (Светлые тигриные полоски) (Анимированный)
+
+marking-LizardTailSmoothAnimated = Рептилия, хвост (Гладкий) (Анимированный)
+
+marking-LizardTailSpikesAnimated = Рептилия, хвост (Шипастый) (Анимированный)

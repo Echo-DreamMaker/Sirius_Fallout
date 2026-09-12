@@ -27,3 +27,6 @@ ent-ActionPetAttackCancel = Attack
     .desc = Toggle attack mode on/off. Click a target while in attack mode to attack.
 ent-ActionPetRelease = Release
     .desc = Release your pet back into the wild.
+
+ent-N14ClothingSlashGaunlets = mole rat knuckledusters
+    .desc = Deadly knuckledusters capable of leaving deep gashes.

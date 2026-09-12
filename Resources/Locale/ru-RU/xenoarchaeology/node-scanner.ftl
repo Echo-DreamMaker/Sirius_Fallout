@@ -7,3 +7,5 @@ node-scanner-artifact-state-unlocking = Артефакт резонирует с
 node-scanner-artifact-state-cooldown = Артефакт отдыхает
 node-scanner-artifact-connected = Сканирование артефакта
 node-scanner-artifact-non-connected = Артефакт не найден или вне зоны доступа
+
+node-scan-popup = ID узла: { $id }

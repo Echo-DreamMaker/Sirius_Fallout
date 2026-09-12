@@ -30,3 +30,17 @@ lathe-menu-silo-linked-message = Хранилище связано
 lathe-menu-fabricating-message = Производится...
 lathe-menu-materials-title = Материалы
 lathe-menu-queue-title = Очередь производства
+
+lathe-menu-all-items-title = Все предметы
+
+lathe-menu-craftable-title = Можно создать
+
+lathe-menu-blueprints-title = Чертежи
+
+lathe-menu-connected-to-silo-message = Подключено к хранилищу материалов.
+
+lathe-menu-material-raw-amount = { $amount } { $material }
+
+lathe-menu-material-raw-amount-missing = { $amount } { $material } ([color=red]не хватает { $missingAmount }[/color])
+
+lathe-menu-search-blueprints = Поиск чертежей

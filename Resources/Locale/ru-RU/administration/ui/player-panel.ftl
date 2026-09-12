@@ -22,3 +22,9 @@ player-panel-rejuvenate = Вылечить
 player-panel-false = Нет
 player-panel-true = Да
 player-panel-follow = Следовать
+
+player-panel-job-whitelists = Вайтлист должностей
+
+player-panel-aghost = Админ-призрак к игроку
+
+player-panel-respawn = Респаун/Деспаун

@@ -131,3 +131,8 @@ accent-words-tomato-2 = Тощита
 accent-words-tomato-3 = Мастет?
 accent-words-tomato-4 = Готат!
 accent-words-tomato-5 = Вада...
+
+accent-words-mothroach-2 = Чирик!
+accent-words-mothroach-3 = Пиип!
+accent-words-mothroach-4 = Ииии!
+accent-words-mothroach-5 = Иип!

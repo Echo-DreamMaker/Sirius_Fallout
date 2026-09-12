@@ -30,3 +30,5 @@ fibers-silver = серебряные
 fibers-gold = золотые
 fibers-maroon = бордовые
 fibers-pink = розовые
+
+fibers-dyed = окрашенные волокна

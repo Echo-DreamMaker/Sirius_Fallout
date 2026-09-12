@@ -339,3 +339,37 @@ trait-description-N14PowerArmorTraining =
     Вы прошли формальную подготовку по работе с костюмами силовой брони.
     Без этой подготовки распределение веса, сервоприводы конечностей и интегрированные системы силовой брони
     будут слишком сложными для безопасной эксплуатации. [color=yellow]Необходим для ношения любой силовой брони.[/color]
+
+character-item-group-N14SpecialPerks = S.P.E.C.I.A.L.
+
+trait-name-N14FrenchieAccent = Французский акцент
+trait-description-N14FrenchieAccent =
+    Да здравствуют гули!
+
+trait-name-N14SpecialStrength = Сила
+trait-description-N14SpecialStrength =
+    Бейте сильнее и замахивайтесь быстрее оружием ближнего боя. Вы получаете небольшую устойчивость к выносливости, но дальнобойное оружие становится немного слабее.
+
+trait-name-N14SpecialPerception = Восприятие
+trait-description-N14SpecialPerception =
+    Дальнобойное оружие бьёт сильнее, но атаки в ближнем бою немного слабее.
+
+trait-name-N14SpecialEndurance = Выносливость
+trait-description-N14SpecialEndurance =
+    Получите 20 здоровья и большую устойчивость к выносливости, но двигайтесь немного медленнее.
+
+trait-name-N14SpecialCharisma = Харизма
+trait-description-N14SpecialCharisma =
+    Уверенно ведите людей за собой. Вы ходите и бегаете немного быстрее.
+
+trait-name-N14SpecialIntelligence = Интеллект
+trait-description-N14SpecialIntelligence =
+    Энергетическое оружие бьёт сильнее, но остальное оружие немного слабее и менее стабильно.
+
+trait-name-N14SpecialAgility = Ловкость
+trait-description-N14SpecialAgility =
+    Ходите и бегайте быстрее, но теряете 10 здоровья и наносите немного меньше урона в дальнем и ближнем бою.
+
+trait-name-N14SpecialLuck = Удача
+trait-description-N14SpecialLuck =
+    Наносите немного больше урона в дальнем и ближнем бою, но теряете часть устойчивости к выносливости.

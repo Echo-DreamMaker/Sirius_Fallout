@@ -1,29 +1,29 @@
 trait-name-SiikMaas = Сиик'маас
 trait-description-SiikMaas = 
-    Siik'maas is theorized to be the ancient religious tongue of the Tajara, once universally shared among them.
-    Though religious devotion waned over time, it became the lingua franca and remains the primary educational and most widely spoken language on Adhomai since the Migration Age.
-    Humans can learn to speak Siik'maas, as it relies less on body language than other Tajaran languages, but biological differences make certain inflections and subtle movements challenging, often resulting in slower, imprecise speech.
+    Предполагается, что сиик'маас был древним священным языком таджара, некогда общим для всех них.
+    Хотя религиозное рвение со временем угасло, он стал лингва-франка и остаётся основным учебным и самым распространённым языком на Адхомаи с эпохи Великого переселения.
+    Люди могут научиться говорить на сиик'маас, поскольку он меньше полагается на язык тела, чем другие языки таджара, однако биологические различия делают некоторые интонации и едва заметные движения сложными, что часто приводит к медленной, неточной речи.
 
 trait-name-NalRasan = Нал'расан (язык жестов Таджара)
 trait-description-NalRasan = 
-    A body-focused language created by M'sai, Nal'rasan was developed to communicate discreetly between parties.
-    Because the mrowling and vocal expressions of Siik'maas could sometimes alert prey to hunter presence and drive them away, hunting parties adopted this language to prevent such a thing from occurring.
-    Rebel sects saw the use of this language and made use of it for covert discussions and the transmission of highly classified information before and during the Great War. 
+    Созданный М'сай язык, ориентированный на язык тела, нал'расан был разработан для конфиденциального общения между сторонами.
+    Поскольку мурлыканье и голосовые выражения сиик'маас иногда могли выдать охотников добыче и спугнуть её, охотничьи отряды переняли этот язык, чтобы этого не происходило.
+    Повстанческие секты заметили использование этого языка и применяли его для тайных переговоров и передачи строго засекреченной информации до и во время Великой войны.
 
 trait-name-SiikTajr = Сиик'таджр
 trait-description-SiikTajr = 
-    Siik’tajr, unlike Siik’maas, is a modern language developed during the overthrow of the plutocracy to allow revolutionaries to communicate secretly.
-    Combining Siik’maas with the body-language-heavy Nal’rasan, it gained prominence during the Great War for covert operations.
-    While not commonly used in daily life due to its complexity, it remains a secondary language for many families with ties to the war.
+    Сиик'таджр, в отличие от сиик'маас, — современный язык, разработанный во время свержения плутократии, чтобы революционеры могли общаться втайне.
+    Сочетая сиик'маас с нал'расаном с его насыщенным языком тела, он приобрёл известность во время Великой войны для тайных операций.
+    Хотя из-за своей сложности он нечасто используется в повседневной жизни, он остаётся вторым языком для многих семей, связанных с войной.
 
 trait-name-YaSsa = Ясса
 trait-description-YaSsa = 
-    Ya'ssa is a dialect of Siik'maas, widely spoken by Njarir Tajara.
-    Presumed to be the traditional tongue of the nobility, it uses a more refined alphabet and speech pattern believed to have evolved from a less-used ancient dialect.
-    Hadii members have been recorded to still use Ya'ssa, though ultimately with the widespread annihilation of noble families, this language has fallen into disuse until its revival by the New Kingdom of Adhomai. 
+    Я'сса — диалект сиик'маас, широко распространённый среди таджара-нджарир.
+    Предположительно являясь традиционным языком знати, он использует более изысканный алфавит и образцы речи, которые, как считается, произошли от редко используемого древнего диалекта.
+    Зафиксировано, что члены хади до сих пор используют я'сса, однако после массового истребления знатных семей этот язык вышел из употребления вплоть до его возрождения Новым Королевством Адхомаи.
 
 trait-name-Delvahii = Делвахии
 trait-description-Delvahii = 
-    Delvahhi is a language closely related to the Zhan-Khazan Tajara.
-    It is still widely used in religious ceremonies dedicated to Ma'take and amongst settlements comprised mostly of Zhan-Khazan.
-    It is also the favored language of farmers, who have adopted it in the wake of government intrusions into the agricultural industry of Adhomai.
+    Делваххи — язык, близкий к таджара из клана Жан-Хазан.
+    Он всё ещё широко используется в религиозных церемониях, посвящённых Ма'так, и в поселениях, состоящих в основном из Жан-Хазан.
+    Это также излюбленный язык фермеров, которые переняли его после вторжений правительства в сельскохозяйственную промышленность Адхомаи.

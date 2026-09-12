@@ -49,6 +49,21 @@ accent-latin-words-replace-24 = ливор
 accent-latin-words-25 = синяк
 accent-latin-words-replace-25 = ливор
 
+accent-latin-words-26 = Мутант
+accent-latin-words-replace-26 = Монструм
+accent-latin-words-27 = Легион
+accent-latin-words-replace-27 = Легио
+accent-latin-words-28 = Бог
+accent-latin-words-replace-28 = Деус
+accent-latin-words-29 = Друг
+accent-latin-words-replace-29 = Амикус
+accent-latin-words-30 = Смерть
+accent-latin-words-replace-30 = Морс
+accent-latin-words-31 = Мёртв
+accent-latin-words-replace-31 = Мортуус
+accent-latin-words-32 = Раб
+accent-latin-words-replace-32 = Сервус
+
 
 
 

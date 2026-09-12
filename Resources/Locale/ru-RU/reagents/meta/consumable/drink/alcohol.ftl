@@ -357,3 +357,7 @@ reagent-desc-zombiecocktail = It gets in your head. Your he-eyeh-ead.
 
 reagent-name-bacchus-blessing = благословение бахуса
 reagent-desc-bacchus-blessing = Вы не думали, что жидкость может быть настолько отвратительной. Вы уверены в этом?...
+
+reagent-name-irish-car-bomb = ирландская кар-бомба
+
+reagent-desc-irish-car-bomb = Проблемная смесь ирландских сливок и эля.

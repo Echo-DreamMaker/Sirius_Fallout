@@ -97,3 +97,21 @@ reagent-physical-desc-slimy = склизкое
 reagent-physical-desc-neural = нейронное
 reagent-physical-desc-unidentifiable = неидентифицируемое
 reagent-physical-desc-non-newtonian = non-newtonian
+
+reagent-physical-desc-enraging = приводящее в ярость
+
+reagent-physical-desc-ethereal = эфемерное
+
+reagent-physical-desc-fortifying = укрепляющее
+
+reagent-physical-desc-gleaming = блестящее
+
+reagent-physical-desc-glittery = мерцающее
+
+reagent-physical-desc-scary = пугающее
+
+reagent-physical-desc-scouring = очищающее
+
+reagent-physical-desc-skunky = скунсовое
+
+reagent-physical-desc-swirling = закручивающееся

@@ -59,3 +59,5 @@ shell-argument-number-invalid = Аргумент { $index } должен быт�
 # Hints
 shell-argument-username-hint = <username>
 shell-argument-username-optional-hint = [username]
+
+shell-server-cannot = Сервер не может сделать это.

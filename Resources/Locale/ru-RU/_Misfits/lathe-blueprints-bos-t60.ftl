@@ -1,0 +1,1 @@
+lathe-category-blueprint-bos-weapons-t60 = Вооружение силовой брони БС

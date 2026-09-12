@@ -2,41 +2,231 @@
 
 trait-name-N14PetDogCompanion = Собака-компаньон
 trait-description-N14PetDogCompanion = 
-    You have a loyal dog companion that follows and obeys you.
-    A dog from the wastes has taken a liking to you. Whether you found it wandering the ruins or raised it yourself, it'll stay by your side no matter what.
-    (The trait creates a ghost role for another player. There is no guarantee that someone takes it.)
+    У вас есть верный пёс-компаньон, который следует за вами и подчиняется вам.
+    Бродячей пёс из пустошей проникся к вам симпатией. Неважно, нашли ли вы его среди руин или вырастили сами — он останется рядом, что бы ни случилось.
+    (Черта создаёт роль-призрак для другого игрока. Нет гарантии, что кто-то её займёт.)
 
 trait-name-N14PetBrahmin = Брамин
 trait-description-N14PetBrahmin = 
-    You have a brahmin that follows you into the wastes.
-    Two-headed and stubborn, this beast of burden plods loyally at your heels. Won't win any beauty contests, but it'll carry what needs carrying.
-    (The trait creates a ghost role for another player. There is no guarantee that someone takes it.)
+    У вас есть брамин, который следует за вами в пустоши.
+    Двуглавый и упрямый зверь верно трусит за вами по пятам. Красавцем его не назвать, но он понесёт всё, что нужно понести.
+    (Черта создаёт роль-призрак для другого игрока. Нет гарантии, что кто-то её займёт.)
 
 trait-name-N14PetMirelurk = Болотник
 trait-description-N14PetMirelurk = 
-    You have a mirelurk that follows and (mostly) obeys you.
-    How you tamed this irradiated crustacean is anyone's guess. It snaps at everyone else, but not you. Useful.
-    (The trait creates a ghost role for another player. There is no guarantee that someone takes it.)
+    У вас есть болотник, который следует за вами и (в основном) подчиняется.
+    Как вы приручили этого облучённого ракообразного — загадка. Он щёлкает на всех остальных, но не на вас. Полезно.
+    (Черта создаёт роль-призрак для другого игрока. Нет гарантии, что кто-то её займёт.)
 
-trait-name-N14PetRadChicken = Рад-цыпленок
+trait-name-N14PetRadChicken = Рад-курица
 trait-description-N14PetRadChicken = 
-    You have a rad chicken that follows you around.
-    Clucks, pecks, glows faintly. A loyal, if useless, companion. Don't eat it.
-    (The trait creates a ghost role for another player. There is no guarantee that someone takes it.)
+    У вас есть рад-курица, которая ходит за вами по пятам.
+    Квохчет, клюётся, слабо светится. Верный, хоть и бесполезный компаньон. Не ешьте её.
+    (Черта создаёт роль-призрак для другого игрока. Нет гарантии, что кто-то её займёт.)
 
 trait-name-N14PetCat = Кот
 trait-description-N14PetCat = 
-    You have a cat that tolerates your presence.
-    It doesn't listen, it doesn't help, but it's yours and that's enough.
-    (The trait creates a ghost role for another player. There is no guarantee that someone takes it.)
+    У вас есть кот, который терпит ваше присутствие.
+    Он не слушается, не помогает, но он ваш, и этого достаточно.
+    (Черта создаёт роль-призрак для другого игрока. Нет гарантии, что кто-то её займёт.)
 
 trait-name-N14PetCentaur = Кентавр (только для супермутантов)
 trait-description-N14PetCentaur = 
-    You have a centaur that follows you. (Work in Progress)
-    A grotesque FEV-warped creature bonded to you through mutation and misery. Only another mutant could earn such trust.
-    (The trait creates a ghost role for another player. There is no guarantee that someone takes it.)
+    У вас есть кентавр, который следует за вами. (В работе)
+    Гротескное создание, искажённое ВПЭ, связанное с вами мутацией и страданиями. Только другой мутант мог бы заслужить такое доверие.
+    (Черта создаёт роль-призрак для другого игрока. Нет гарантии, что кто-то её займёт.)
 
 trait-name-N14RidingPerk = Верховая езда
 trait-description-N14RidingPerk = 
-    You know how to saddle up wasteland pack animals.
-    Brahmin and brahdo will let you ride them instead of throwing a fit the moment you reach for the straps.
+    Вы умеете седлать вьючных животных пустошей.
+    Брамины и браддо позволят вам на них ездить, вместо того чтобы устраивать скандал, стоило вам потянуться к седлу.
+
+character-item-group-N14SpeechAccents = Акценты
+
+trait-description-FiremanCarry = Вы можете поднимать людей и таскать их на плече, не теряя скорость.
+
+trait-description-LanguageTribalGeneral = Вы понимаете и говорите на местном племенном языке. Вы были из племени?
+
+trait-description-MisfitsPetDogEnclave =
+    У вас есть выданный Анклавом киберпёс, который следует за вами.
+    Раскроенный, но исправный кибернетический пёс в оливковой расцветке Анклава, верный своему хозяину-учёному.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-MisfitsPetEyebotEnclave =
+    У вас есть выданный Анклавом глазбот, который следует за вами.
+    Стандартный довоенный военный глазбот в чёрной обшивке Анклава, выдаваемый учёным Анклава для разведки и поддержки.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-MisfitsPetEyebotTribe =
+    У вас есть глазбот, которого вы «доработали» для племени.
+    Военный глазбот с черепом животного. Его лазер давно проржавел, но вы примотали к нему нож.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-N14BalloonPilotPerk =
+    Вы умеете поднять довоенный воздушный шар в небо и вернуть его на землю, не выронив гондолу.
+    Вы достаточно хорошо управляете горелкой, балластом и дрейфом, чтобы летать.
+
+trait-description-N14CowboyAccent =
+    Здорово, партнёр. Приехали ли вы с пастбищ или выросли на старых вестерн-гололентах — говорите вы так, будто фронтир никогда не заканчивался.
+
+trait-description-N14GermanAccent =
+    Старая отчизна живёт в вашей семье, так? Каким-то образом они сохранили этот акцент целых двести лет после падения бомб.
+
+trait-description-N14GhoulRaspAccent =
+    Два века радиации не пошли на пользу вашим голосовым связкам, гладкокожий. Речь выходит хриплой, шипящей и свистящей.
+
+trait-description-N14ItalianAccent =
+    Мамма мия! Где-то между старой родиной и пустошью ваша семья так и не растеряла колорит.
+
+trait-description-N14LegionLatinAccent =
+    Верность Цезарю! Ваша речь пересыпана классической латынью Легиона. Ave, amice.
+
+trait-description-N14MisterHandyAccent =
+    Ваши протоколы этикета пережили апокалипсис в полной сохранности. Невероятно вежливо, безупречно по-британски и всегда готовы предложить чашечку чая, мэм.
+
+trait-description-N14MobsterAccent =
+    У тебя отличный язычок, понял? В самый раз для жизни из рэкета, рулетки и «защиты».
+
+trait-description-N14OldTimerAccent =
+    Чёрт побери, ты бродишь по этой пустоши с тех пор, как эти молокососы ещё не родились, и говоришь соответственно.
+
+trait-description-N14PetCatBlack =
+    У вас есть чёрная кошка, которая терпит ваше присутствие.
+    Кошачья цвета самой тьмы — держится в тени и одинаково судит всех вокруг.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-N14PetCatBrownTabby =
+    У вас есть коричневая полосатая кошка, которая терпит ваше присутствие.
+    Пыльная полосатая кошка пустоши, которая выглядит так, будто повидала каждую руину на карте.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-N14PetCatCalico =
+    У вас есть ситцевая кошка, которая терпит ваше присутствие.
+    Лоскутная шерсть, упрямый нрав и ноль уважения к вашему авторитету.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-N14PetCatGingerTabby =
+    У вас есть рыжая полосатая кошка, которая терпит ваше присутствие.
+    Тёплого окраса, громкая и, наверное, уже замышляет что-то гадкое.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-N14PetCatGrayTabby =
+    У вас есть серая полосатая кошка, которая терпит ваше присутствие.
+    Потрёпанная маленькая выживальщица с мордочкой, говорящей, что она видела слишком многое.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-N14PetCatMela =
+    У вас есть кошка Мела, которая терпит ваше присутствие.
+    Меланистичная кошка с гладкой шерстью и привычкой исчезать в темноте.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-N14PetCatOcicat =
+    У вас есть оцикет, который терпит ваше присутствие.
+    Дикие полосы, домашний нрав и ровно столько угрозы, чтобы быть интересным.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-N14PetCatSiamese =
+    У вас есть сиамская кошка, которая терпит ваше присутствие.
+    Стройная, болтливая и уверенная, что именно она заправляет поселением.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-N14PetCatSphinx =
+    У вас есть кошка-сфинкс, которая терпит ваше присутствие.
+    Без шерсти, странная и тревожно тёплая на ощупь.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-N14PetCatTortoiseshell =
+    У вас есть черепаховая кошка, которая терпит ваше присутствие.
+    Пёстрая проказница с репутацией той, что всегда получает желаемое.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-N14PetCatWhite =
+    У вас есть белая кошка, которая терпит ваше присутствие.
+    Бледная шерсть, яркие глаза и та невинность, что вызывает подозрения.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)
+
+trait-description-N14RadioAnnouncerAccent =
+    У вас голос, созданный для радио, и вы это знаете. Каждая фраза звучит так, будто идёт в живой эфир на всю пустошь, народ.
+
+trait-description-N14RussianAccent =
+    Ваша семья хранила язык старой родины два столетия и один апокалипсис. Как ни странно, его трудно понять.
+
+trait-description-N14SouthernAccent =
+    Вы ж ни в жисть не поверите, но здешний люд балаболит так с незапамятных времён — задолго до того, как бомбы-то упали.
+
+trait-description-N14TribalAccent =
+    Ты быть, али, видать, был из племя. Племя птиц не возьмёт в толк твоя языка.
+
+trait-description-N14VaultDwellerAccent =
+    Божечки, ёлки-палки, вот это да! Двести лет укрытой жизни в Убежище сохранили ваш словарный запас чистеньким, как брошюра Vault-Tec.
+
+trait-description-N14VertibirdPilotPerk =
+    Вы знаете о довоенных винтокрылых машинах достаточно, чтобы поднять вертибёрд в воздух и снова посадить его.
+
+trait-name-FiremanCarry = Перенос на плече
+
+trait-name-LanguageTribalGeneral = Племенной язык
+
+trait-name-MisfitsPetDogEnclave = Киберпёс Анклава
+
+trait-name-MisfitsPetEyebotEnclave = Глазбот Анклава
+
+trait-name-MisfitsPetEyebotTribe = Трайбот
+
+trait-name-N14BalloonPilotPerk = Воздухоплаватель
+
+trait-name-N14CowboyAccent = Ковбойский акцент
+
+trait-name-N14GermanAccent = Немецкий акцент
+
+trait-name-N14GhoulRaspAccent = Хрип гуля
+
+trait-name-N14ItalianAccent = Итальянский акцент
+
+trait-name-N14LegionLatinAccent = Латынь Легиона
+
+trait-name-N14MisterHandyAccent = Этикет мистера Хэнди
+
+trait-name-N14MobsterAccent = Акцент мафиози
+
+trait-name-N14OldTimerAccent = Старожил
+
+trait-name-N14PetCatBlack = Чёрная кошка
+
+trait-name-N14PetCatBrownTabby = Коричневая полосатая кошка
+
+trait-name-N14PetCatCalico = Ситцевая кошка
+
+trait-name-N14PetCatGingerTabby = Рыжая полосатая кошка
+
+trait-name-N14PetCatGrayTabby = Серая полосатая кошка
+
+trait-name-N14PetCatMela = Кошка Мела
+
+trait-name-N14PetCatOcicat = Оцикет
+
+trait-name-N14PetCatSiamese = Сиамская кошка
+
+trait-name-N14PetCatSphinx = Кошка-сфинкс
+
+trait-name-N14PetCatTortoiseshell = Черепаховая кошка
+
+trait-name-N14PetCatWhite = Белая кошка
+
+trait-name-N14RadioAnnouncerAccent = Радиоведущий
+
+trait-name-N14RussianAccent = Русский акцент
+
+trait-name-N14SouthernAccent = Южный говор
+
+trait-name-N14TribalAccent = Племенной акцент
+
+trait-name-N14VaultDwellerAccent = Говор жителя Убежища
+
+trait-name-N14VertibirdPilotPerk = Пилот вертибёрда
+
+trait-name-MisfitsPetEyebotOSI = Глазбот OSI
+trait-description-MisfitsPetEyebotOSI =
+    У вас есть глазбот OSI, который следует за вами.
+    Довоенный разведывательный глазбот, переданный Управлением науки и промышленности для своих учёных.
+    (Черта создаёт роль-призрака для другого игрока. Нет гарантии, что кто-то её займёт.)

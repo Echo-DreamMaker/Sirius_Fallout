@@ -8,3 +8,5 @@ comp-gas-pump-ui-pump-set-max = Макс.
 comp-gas-pump-ui-pump-output-pressure = Выходное давление (кПа):
 
 comp-gas-pump-ui-pump-transfer-rate = Скорость подачи (Л/сек):
+
+comp-gas-pump-ui-needs-anchor = Сначала закрепите его!

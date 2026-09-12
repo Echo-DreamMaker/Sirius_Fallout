@@ -345,3 +345,8 @@ flavor-complex-punishment = как наказание
 flavor-complex-artifact-glue = like crushed artifacts
 flavor-weh = как вех
 flavor-hew = как хев
+
+flavor-base-bad = плохо
+flavor-base-sludgy = илисто
+flavor-complex-irish-car-bomb = как крепкий поплавок из колы
+flavor-complex-plasma = как плазма

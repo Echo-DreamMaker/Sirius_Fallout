@@ -10,7 +10,9 @@ faction-war-active-wars-header = Активные войны
 faction-war-no-active-wars = Никаких активных войн.
 
 faction-war-declare-header = Объявить войну
-faction-war-target-label = Целевая фракция
+faction-war-target-faction-label = Целевая фракция
+faction-war-target-group-label = Целевая группа
+faction-war-target-wastelander-label = Целевой обитатель пустоши
 faction-war-casus-belli-label = Casus Belli (минимум 5 слов)
 faction-war-casus-belli-placeholder = Назовите свое оправдание войны...
 faction-war-declare-button = Объявить войну

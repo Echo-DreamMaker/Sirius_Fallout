@@ -13,3 +13,5 @@ magic-mirror-change-color-target = { CAPITALIZE($user) } меняет цвет �
 
 magic-mirror-blocked-by-hat-self = Прежде чем менять причёску, вам необходимо снять шляпу.
 magic-mirror-blocked-by-hat-self-target = Вы пытаетесь изменить { POSS-ADJ($target) } причёску, но { POSS-ADJ($target) } одежда вам мешает.
+
+magic-mirror-apply-button = Применить

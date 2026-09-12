@@ -427,3 +427,26 @@ ent-HighSecArmoryLocked = { ent-HighSecDoor }
 ent-AirlockHatchSyndicate = { ent-AirlockHatch }
     .desc = { ent-AirlockHatch.desc }
     .suffix = Синдикат, Закрыт
+
+id-card-access-level-fota = FotA
+id-card-access-level-fota-doctor = Доктор FotA
+id-card-access-level-fota-head = Глава FotA
+id-card-access-level-80s = 80s
+id-card-access-level-80s-head = Лидер 80s
+id-card-access-level-80s-slave = Раб 80s
+
+id-card-access-level-enclave = Доступ Анклава
+id-card-access-level-enclave-nco = Доступ сержантского состава Анклава
+id-card-access-level-enclave-officer = Доступ офицеров Анклава
+id-card-access-level-enclave-command = Доступ командования Анклава
+id-card-access-level-enclave-science = Доступ научного отдела Анклава
+id-card-access-level-enclave-role-all = Полный доступ Анклава
+id-card-access-level-enclave-role-scientist = Доступ учёного Анклава
+id-card-access-level-enclave-role-head-scientist = Доступ главного учёного Анклава
+id-card-access-level-osi = Доступ ОСИ
+id-card-access-level-enclave-role-nco = Доступ сержанта Анклава
+id-card-access-level-enclave-role-junior-officer = Доступ младшего офицера Анклава
+id-card-access-level-enclave-role-senior-officer = Доступ старшего офицера Анклава
+id-card-access-level-enclave-role-commander = Доступ командира Анклава
+
+id-card-access-level-genetics = Генетика

@@ -98,3 +98,51 @@ station-beacon-escape-pod-SW = Спасательная капсула ЮЗ
 station-beacon-escape-pod-W = Спасательная капсула З
 station-beacon-escape-pod-NW = Спасательная капсула СЗ
 station-beacon-vox = Вокс-комната
+
+station-beacon-epistemics = Эпистемика
+
+station-beacon-mystagogue = Мистагог
+
+station-beacon-logistics = Логистика
+
+station-beacon-logistics-reception = Логистика
+
+station-beacon-lo = ЛО
+
+station-beacon-conference-room = Конференц-зал
+
+station-beacon-virology = Вирусология
+
+station-beacon-metempsychosis = Метемпсихоз
+
+station-beacon-exam = Осмотр
+
+station-beacon-med-outpost = Медицинский форпост
+
+station-beacon-psych = Психиатрия
+
+station-beacon-glimmer-prober = Пробер
+
+station-beacon-forensic-mantis = Мантис
+
+station-beacon-mailroom = Почта
+
+station-beacon-engi-outpost = Инженерный форпост
+
+station-beacon-janitor-office = Кабинет уборщика
+
+station-beacon-janitor-closet = Коморка уборщика
+
+station-beacon-camera-servers = Камеры
+
+station-beacon-boxing-ring = Бокс
+
+station-beacon-park = Парк
+
+station-beacon-corpsman = Санинструктор
+
+station-beacon-justice = Юстиция
+
+station-beacon-chiefjustice = Главный судья
+
+station-beacon-prosecutor = Прокурор

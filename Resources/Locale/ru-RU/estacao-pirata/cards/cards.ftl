@@ -4,9 +4,9 @@ card-verb-shuffle-success = Карты перетасованы
 cards-verb-draw = Вытянуть карту
 cards-verb-flip = Перевернутые карты
 card-verb-join = Присоединяйтесь к картам
-card-verb-organize-success = Карты перевернуты лицом {$face_down ->
-    [true]   down
-    *[false] up
+card-verb-organize-success = Карты перевернуты лицом {$facedown ->
+    [true]   вниз
+    *[false] вверх
 }
 cards-verb-organize-up = Переверните карты лицевой стороной вверх
 cards-verb-organize-down = Переверните карты лицевой стороной вниз

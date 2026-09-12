@@ -6,13 +6,13 @@
 # Prospector's Journal
 holotape-prospector-title = ЗАМЕЧАНИЯ ПО ОБСЛЕДОВАНИЮ – БАССЕЙН ВЕНДОВЕР
 holotape-prospector-content = 
-    FIELD LOG - DATE UNKNOWN
+    ЖУРНАЛ ПОЛЕВЫХ РАБОТ - ДАТА НЕИЗВЕСТНА
     
-    Mapped out the old salt flats west of Wendover today. Water table is shallow near the rail yard but the stuff coming up tastes like battery acid. Probably irradiated.
+    Сегодня осмотрел старые соляные пустоши к западу от Уэндовера. Вода у железнодорожного двора близко к поверхности, но то, что выходит, на вкус как аккумуляторная кислота. Вероятно, облучено.
     
-    Found a clean-ish spring two klicks south of the overpass. Marked it on my map with a red X. Geckos nest nearby so bring something loud.
+    Нашёл более-менее чистый источник в двух километрах к югу от эстакады. Отметил его на карте красным крестом. Рядом гнездятся гекконы, так что захвати что-нибудь громкое.
     
-    The old Bonneville Speedway is crawling with molerats. Big ones. Saw burrow entrances the size of a man. Not worth the salvage unless you bring a team.
+    Старая трасса Бонневилль кишит молокрысами. Крупными. Видел входы в норы размером с человека. Сломать их не стоит — разве что пойдёшь командой.
     
     Note to self: avoid the highway after dark. Heard gunfire three nights running. Raiders or worse.
     
@@ -21,182 +21,182 @@ holotape-prospector-content =
 # Vault Overseer's Log
 holotape-overseer-title = ЖУРНАЛ НАДЗОРНИКА – ПОСЛЕДНЯЯ ЗАПИСЬ
 holotape-overseer-content = 
-    VAULT-TEC INDUSTRIES
-    OVERSEER PERSONAL LOG - ENTRY 1,247
+    КОРПОРАЦИЯ ВАУЛТ-ТЕК
+    ЛИЧНЫЙ ЖУРНАЛ НАДЗОРНИКА - ЗАПИСЬ 1247
     
-    The water recycler failed again this morning. Third time this quarter. Martinez says we have parts for maybe one more repair. After that we are drinking whatever the geological survey team can pump from below.
+    Водяной рециклер снова вышел из строя сегодня утром. Третий раз за квартал. Мартинес говорит, что у нас есть запчасти максимум на ещё один ремонт. После этого будем пить то, что геологи смогут выкачать из-под земли.
     
-    The vote passed 34 to 12. We open the door in seventy-two hours.
+    Голосование прошло 34 против 12. Мы открываем дверь через семьдесят два часа.
     
-    I want it on record that I opposed this. The surface readings are still well above safe thresholds. But the people have spoken and I will not be the tyrant my predecessor was.
+    Хочу зафиксировать, что я был против. Показатели на поверхности всё ещё заметно выше безопасного порога. Но люди высказались, и я не стану тем тираном, каким был мой предшественник.
     
-    To whoever reads this after we are gone: we tried. Two hundred years sealed underground and we kept the lights on, kept the children fed, kept some fragment of the old world alive.
+    Тем, кто прочитает это после нас: мы пытались. Двести лет запечатаны под землёй, и мы поддерживали свет, кормили детей и сохранили частицу старого мира живой.
     
-    God help us out there.
+    Да помоги нам Бог там, наверху.
     
-    - Overseer Chen, Vault 26
+    - Надзор Чен, Убежище 26
 
 # NCR Recon Report
 holotape-ncr-recon-title = РАЗВЕДКА НКР — ВЕНДОВЕРСКИЙ КОРИДОР
 holotape-ncr-recon-content = 
-    NEW CALIFORNIA REPUBLIC - ARMY INTELLIGENCE
-    FIELD REPORT: WENDOVER FORWARD OPERATING AREA
-    CLASSIFICATION: RESTRICTED
+    НОВАЯ КАЛИФОРНИЙСКАЯ РЕСПУБЛИКА - ВОЕННАЯ РАЗВЕДКА
+    ПОЛЕВОЙ ОТЧЁТ: РАЙОН ПЕРЕДОВЫХ ОПЕРАЦИЙ УЭНДОВЕР
+    СТЕПЕНЬ СЕКРЕТНОСТИ: ОГРАНИЧЕННЫЙ ДОСТУП
     
-    Sergeant Vasquez reporting. Arrived at the Wendover junction three days ago with a four-person scout team.
+    Рапортует сержант Васкес. Прибыл на уэндоверский перекрёсток три дня назад с командой из четырёх разведчиков.
     
-    The town is partially occupied. Mix of settlers, scavengers, and at least one organized group running protection rackets out of the old casino district. No confirmed Legion presence but we found bull iconography scratched into walls near the eastern approach.
+    Город частично занят. Смесь поселенцев, скутерщиков и как минимум одной организованной группы, что крышует торговлю в старом казино-квартале. Подтверждённого присутствия Легиона нет, но мы нашли выцарапанные на стенах бычьи знаки у восточного подхода.
     
-    Strategic assessment: the I-80 corridor through Wendover is the fastest overland route between our western holdings and the Utah interior. Whoever controls this chokepoint controls supply lines for a hundred miles in either direction.
+    Стратегическая оценка: коридор I-80 через Уэндовер — самый быстрый наземный маршрут между нашими западными владениями и внутренними районами Юты. Кто контролирует этот узел, контролирует линии снабжения на сто миль в обе стороны.
     
-    Recommend we establish a garrison before Legion scouts do the same. The old truck stop north of town has intact walls and sight lines on both highway approaches.
+    Рекомендую разместить гарнизон, прежде чем легионерские разведчики сделают то же самое. У старой автостоянки к северу от города целые стены и обзор обеих подходов к шоссе.
     
-    Water is the problem. Always is out here.
+    Проблема — вода. Как всегда здесь.
     
-    Sgt. R. Vasquez, 3rd Recon
+    Сержант Р. Васкес, 3-я разведгруппа
 
 # Legion Centurion's Orders
 holotape-legion-orders-title = ПРИКАЗЫ ЛЕГАТА
 holotape-legion-orders-content = 
-    AVE, TRUE TO CAESAR
+    СЛАВА, ВЕРЕН ЦЕЗАРЮ
     
-    Centurion. You will take your century west along the I-80. The town the profligates call Wendover sits at the mouth of the pass. Take it. Hold it.
+    Центурион. Ты поведешь свою центурию на запад по I-80. Город, который распутники зовут Уэндовером, лежит в устье перевала. Возьми его. Удержи его.
     
-    The dissolute rabble who shelter there are to be given one chance to submit and serve. Those who resist become examples. Crucifixes along the highway will remind travelers who rules this road.
+    Распутной черни, что укрывается там, будет дана одна возможность подчиниться и служить. Те, кто воспротивятся, станут примером. Распятия вдоль шоссе напомнят путешественникам, кто правит этой дорогой.
     
-    The NCR dogs have been spotted running patrols in the area. They are few. They are far from their supply lines. They will break as they always do when faced with the strength of the Legion.
+    Псы НКР замечены на патрулировании в округе. Их мало. Они далеки от своих линий снабжения. Они сломаются, как всегда ломаются перед мощью Легиона.
     
-    Do not waste ammunition on the wildlife. Machetes are sufficient for the beasts of the wasteland. Save your bullets for enemies worthy of them.
+    Не трать патроны на дичь. Мачете достаточно для зверья пустоши. Береги пули для врагов, достойных их.
     
-    Report by runner when the town is secured. Do not use radio. The Brotherhood listens.
+    Докладывай через связного, когда город будет взят. Не пользуйся радио. Братство слушает.
     
-    Mars favors the bold.
+    Марс благоволит смелым.
     
-    By order of the Legate
+    По приказу Легата
 
 # Brotherhood of Steel Field Notes
 holotape-bos-field-title = ПОЛЕВОЙ ОТЧЕТ BOS – ТЕХНИЧЕСКОЕ ОБСЛЕДОВАНИЕ
 holotape-bos-field-content = 
-    BROTHERHOOD OF STEEL - WESTERN CHAPTER
-    TECHNOLOGY RECOVERY SURVEY
+    БРАТСТВО СТАЛИ - ЗАПАДНОЕ ОТДЕЛЕНИЕ
+    ОБСЛЕДОВАНИЕ ПО ПОИСКУ ТЕХНОЛОГИЙ
     
-    Knight-Sergeant Aldrich reporting from Wendover AO.
+    Рыцарь-сержант Олдрич рапортует из района операций у Уэндовера.
     
-    Confirmed pre-war military installation at the old airfield south of town. Most surface structures are collapsed or stripped but subsurface readings indicate intact basement levels. Possible sealed storage.
+    Подтверждена довоенная военная база на старом аэродроме к югу от города. Большинство наземных сооружений разрушены или разобраны, но подземные показания указывают на intact basement levels. Возможно запечатанное хранилище.
     
-    The airfield was used for bomber training and weapons testing before the Great War. If any ordnance caches survived, they would be in underground magazines beneath the main hangar complex.
+    До Большой войны аэродром использовался для тренировки бомбардировщиков и испытаний вооружений. Если какие-то склады боеприпасов уцелели, они будут в подземных магазинах под главным ангарным комплексом.
     
-    Warning: radiation levels spike near the southern runway. Bring rad protection or do not bother.
+    Предупреждение: уровень радиации резко растёт у южной взлётной полосы. Возьмите защиту от радиации или не суйтесь.
     
-    Also picked up an energy signature from the old broadcast tower east of the salt flats. Could be a functioning fusion generator or could be a trap. Recommend a full squad for investigation.
+    Также зафиксировал энергетический сигнал от старой радиовышки к востоку от соляных пустошей. Может быть действующий датчик-генератор синтеза, а может быть ловушка. Рекомендую полный отряд для разведки.
     
-    Locals are wary of us but not hostile. Traded some purified water for information about raider movements. The wastelanders here know the terrain better than our maps do.
+    Местные настороженно относятся к нам, но не враждебно. Обменял немного очищенной воды на сведения о передвижениях рейдеров. Жители пустоши знают эту местность лучше наших карт.
     
-    Ad Victoriam.
+    К Победе. (Ad Victoriam)
 
 # Enclave Directive
 holotape-enclave-directive-title = ДИРЕКТИВА АНКЛАВА – АЛЬФА-ДОПУСК
 holotape-enclave-directive-content = 
-    UNITED STATES GOVERNMENT - ENCLAVE COMMAND
-    DIRECTIVE 7714-W: WENDOVER RECOVERY
-    CLASSIFICATION: ALPHA
+    ПРАВИТЕЛЬСТВО СОЕДИНЁННЫХ ШТАТОВ - КОМАНДОВАНИЕ АНКЛАВА
+    ДИРЕКТИВА 7714-W: ВОЗВРАТ В УЭНДОВЕРЕ
+    СТЕПЕНЬ СЕКРЕТНОСТИ: АЛЬФА
     
-    PRIORITY: The Wendover Air Force Base housed Project AUTUMN HARVEST during the final years before the conflict. Records indicate a sealed research wing beneath Hangar 4 containing prototype atmospheric processors.
+    ПРИОРИТЕТ: На авиабазе ВВС Уэндовер в последние годы перед конфликтом размещался проект «ОСЕННИЙ УРОЖАЙ». Записи указывают на запечатанное исследовательское крыло под ангаром 4, содержащее прототипы атмосферных процессоров.
     
-    These units, if operational, could restore breathable air quality across a significant radius. Recovery is essential to Phase 3 settlement operations.
+    Эти агрегаты, если они работоспособны, способны восстановить пригодный для дыхания воздух на значительном радиусе. Их возврат критически важен для операций этапа 3.
     
-    Local population is to be considered non-essential. Avoid engagement where possible. We do not need attention from the Brotherhood or the NCR at this time.
+    Местное население считать несущественным. Избегать контактов, где возможно. Нам сейчас не нужно внимание ни Братства, ни НКР.
     
-    If the facility is compromised or the prototypes are damaged beyond recovery, sanitize the site. Nothing is to fall into unauthorized hands.
+    Если объект будет скомпрометирован или прототипы повреждены без возможности восстановления — стерилизовать площадку. Ничто не должно попасть в чужие руки.
     
-    Embedded agent reports that a group of vault dwellers recently emerged in the area. Monitor but do not engage without authorization. They may lead us to additional pre-war installations.
+    Внедрённый агент докладывает, что группа обитателей Убежища недавно вышла на поверхность в этом районе. Наблюдать, но без санкции не вступать в контакт. Они могут привести нас к дополнительным довоенным объектам.
     
-    For God and Country. For the Enclave.
+    За Бога и Отечество. За Анклав.
 
 # Settler's Diary
 holotape-settler-diary-title = ЛИЧНЫЙ ДНЕВНИК - МАРИ
 holotape-settler-diary-content = 
-    Day 1 in Wendover. Or what is left of it.
+    День 1 в Уэндовере. Вернее, в том, что от него осталось.
     
-    The caravan dropped us off at the old gas station on the main road. Paid them everything we had for the ride from out west. Tommy cried the whole last day of the trip. Cannot blame him. He is only six.
+    Караван высадил нас у старой заправки на главной дороге. Отдали им всё, что у нас было, за путь с запада. Томми проплакал весь последний день пути. Не виню его. Ему всего шесть.
     
-    The town is bigger than I expected. People actually live here. They have walls of a sort. Sheet metal and old cars stacked up. Better than nothing.
+    Город больше, чем я ожидала. Люди тут реально живут. У них есть что-то вроде стен. Листовой металл и старые машины, сложенные в штабеля. Лучше, чем ничего.
     
-    Day 12. Found work helping patch the north wall. Pay is one meal a day and a corner to sleep in. Tommy made a friend. A girl named Boots who lost her family to raiders last year. She showed him how to catch lizards. He thinks this is an adventure.
+    День 12. Нашла работу — помогаю латать северную стену. Платят одной едой в день и углом для сна. У Томми появился друг. Девочка по имени Боутс, потерявшая семью от рейдеров в прошлом году. Она показала ему, как ловить ящериц. Он думает, что это приключение.
     
-    Day 30. Heard shooting last night. South side. Nobody talks about it in the morning. That is how it works here. You mind your own.
+    День 30. Ночью слышала стрельбу. Южная сторона. Утром никто об этом не говорит. Так здесь устроено. Не лезь не в своё дело.
     
-    Day 45. Tommy asked me if we could stay forever. I told him maybe. Did not have the heart to say I have been thinking the same thing. For the first time in a long while this feels like it could be home.
+    День 45. Томми спросил, можем ли мы остаться навсегда. Я ответила, что может быть. Не хватило духу сказать, что я думала о том же. Впервые за долгое время это место кажется домом.
 
 # Pre-War Military Memo
 holotape-military-memo-title = ПАМЯТКА ВВС США - авиабаза ВЕНДОВЕР
 holotape-military-memo-content = 
-    UNITED STATES AIR FORCE
-    WENDOVER AIR FORCE BASE
-    INTERNAL MEMORANDUM
+    ВОЕННО-ВОЗДУШНЫЕ СИЛЫ США
+    АВИАБАЗА ВВС ВЕНДОВЕР
+    ВНУТРЕННЯЯ СЛУЖЕБНАЯ ЗАПИСКА
     
-    FROM: Col. Harrison Webb, Base Commander
-    TO: All Department Heads
-    DATE: October 19, 2077
+    ОТ: полковника Харрисона Уэбба, командира базы
+    КОМУ: всем начальникам отделов
+    ДАТА: 19 октября 2077 года
     
-    Effective immediately, security condition is elevated to DEFCON 2. All leave is cancelled. All personnel report to duty stations.
+    С этого момента уровень безопасности повышен до DEFCON 2. Все отпуска отменяются. Весь личный состав прибыть на боевые посты.
     
-    The situation in Anchorage has deteriorated beyond projections. Command has authorized full dispersal of strategic assets to secondary storage. Wendover is receiving four additional shipments this week. I need Hangar 4 cleared and sealed by Friday.
+    Ситуация в Анкоридже ухудшилась сверх всех прогнозов. Командование санкционировало полное рассредоточение стратегических активов по резервным хранилищам. На этой неделе Уэндовер получает четыре дополнительных груза. К пятнице ангар 4 должен быть очищен и опечатан.
     
-    Dependents evacuation plan BRAVO is now active. Family housing is to be vacated within 48 hours. Buses to Salt Lake City depart 0600 daily.
+    Вступает в действие план эвакуации семей BRAVO. Жилые дома подлежат выселению в течение 48 часов. Автобусы до Солт-Лейк-Сити отправляются ежедневно в 06:00.
     
-    I know tensions are high. I know the news is grim. What I need from each of you is professionalism. We trained for this. We prepared for this.
+    Я знаю, что напряжение высокое. Я знаю, что новости мрачные. Мне от каждого из вас нужен профессионализм. Мы тренировались к этому. Мы готовились к этому.
     
-    Let us pray we never have to use what we are storing in those hangars.
+    Будем молиться, чтобы нам никогда не пришлось использовать то, что мы храним в этих ангарах.
     
-    Col. Harrison Webb
-    Base Commander, Wendover AFB
+    Полковник Харрисон Уэбб
+    Командир базы ВВС Уэндовер
 
 # Raider Boss's Warning
 holotape-raider-boss-title = ЗАЯВЛЕНИЕ НА ТЕРРИТОРИЮ – НЕ ДЕРЖАТЬСЯ
 holotape-raider-boss-content = 
-    This is Skullcap talking to whoever finds this tape.
+    Говорит Скалкап с тем, кто найдёт эту ленту.
     
-    The highway between mile marker 4 and the old rest stop is MINE. My crew runs this stretch. You want to pass through, you pay. Five caps a head. Ten if you are hauling cargo.
+    Шоссе между 4-й милей и старой придорожной стоянкой — МОЁ. Моя команда крышует этот участок. Хочешь пройти — плати. Пять крышек с носа. Десять, если тащишь груз.
     
-    You do not pay, you do not pass. Simple.
+    Не платишь — не проходишь. Всё просто.
     
-    Last month some idiots from out east tried to sneak through at night. Found them in the morning. Left what was left of them hanging off the overpass as a reminder.
+    В прошлом месяце какие-то идиоты с востока пытались ночью прошмыгнуть. Нашли их утром. Оставили то, что от них осталось, висеть на эстакаде как напоминание.
     
-    Do not test me. I have twenty guns and enough ammunition to make it rain brass for a week.
+    Не испытывай меня. У меня двадцать стволов и достаточно патронов, чтобы неделю лить свинец.
     
-    And to Hatchet Mike specifically: I know you have been poaching from my turf. The water pump at the rail yard is MINE. You touch it again and I will personally feed you to the radscorpions.
+    И отдельно для Майка-Тесака: я знаю, что ты браконьерствуешь на моей территории. Водяной насос у железнодорожного двора — МОЙ. Ещё раз тронешь — лично скормлю тебя рад-скорпионам.
     
-    We clear? Good.
+    Всё ясно? Отлично.
     
-    - Skullcap
+    - Скалкап
 
 # Caravan Trader's Ledger
 holotape-caravan-ledger-title = ЖУРНАЛ ТОРГОВЛИ — МАРШРУТ ВЕНДОВЕРА
 holotape-caravan-ledger-content = 
-    RED ROCK CARAVAN COMPANY
-    ROUTE 7: WENDOVER CIRCUIT
+    КОМПАНИЯ «КРАСНАЯ СКАЛА» - КАРАВАНЫ
+    МАРШРУТ 7: УЭНДОВЕРСКИЙ КРУГ
     
-    Prices current as of last season. Subject to change based on who is shooting at who this week.
+    Цены актуальны на прошлый сезон. Могут меняться в зависимости от того, кто на кого стреляет на этой неделе.
     
-    WENDOVER GENERAL STORE
-    - Purified water: 5 caps per bottle (expensive but only reliable source)
-    - Canned food: 3 caps (mostly pre-war stuff, check for bloat)
-    - 10mm ammo: 2 caps per round
-    - Stimpaks: 30 caps (when available, usually sold out)
+    УЭНДОВЕРСКИЙ УНИВЕРСАЛЬНЫЙ МАГАЗИН
+    - Очищенная вода: 5 крышек за бутылку (дорого, но надёжно)
+    - Консервы: 3 крышки (в основном довоенные, проверяйте на вздутие)
+    - Патроны 10 мм: 2 крышки за штуку
+    - Стимпаки: 30 крышек (когда есть в наличии, обычно всё распродано)
     
-    ROUTE NOTES
-    - The I-80 west approach is mostly safe during daylight. Raiders own the night.
-    - Salt flats shortcut saves half a day but no cover if you get caught in a rad storm.
-    - Gecko population spikes near water sources. The big ones are worth avoiding. The small ones are decent eating if you cook them right.
-    - Avoid the southern rail line. Heard reports of something big nesting in the old tunnel. Nobody who went to check came back.
+    ЗАМЕТКИ ПО МАРШРУТУ
+    - Западный подход по I-80 в основном безопасен днём. Рейдеры владеют ночью.
+    - Срез по соляным пустошам экономит полдня, но там нет укрытий, если попадёшь в радиационную бурю.
+    - Популяция гекконов резко растёт у источников воды. Крупных лучше избегать. Мелкие вполне съедобны, если правильно приготовить.
+    - Избегайте южной железнодорожной ветки. Слышал сообщения, что в старом туннеле гнездится что-то большое. Никто из проверявших не вернулся.
     
-    CONTACTS
-    - For armed escort: ask for Jennings at the truck stop. Not cheap but reliable.
-    - For medical supplies: Doc Whelan runs a clinic out of the old pharmacy. Barters.
-    - For repairs: the vault people have a mechanic who works on generators. Charges fair.
+    КОНТАКТЫ
+    - За вооружённый эскорт: спросите Дженнингса на автостоянке. Дорого, но надёжно.
+    - За медикаменты: Док Уилан держит клинику в старой аптеке. Принимает обмен.
+    - За ремонт: люди из Убежища имеют механика, который чинит генераторы. Берёт честно.
     
-    Profit margin on this route: slim. But steady if you do not get killed.
+    Маржа на этом маршруте: тонкая. Но стабильная, если тебя не убьют.
 # ─────────────────────────────────────────────────────────────────────────────
 # #Misfits Add - Quest holotape lore entries (Wendover / Vault-specific content)
 # ─────────────────────────────────────────────────────────────────────────────
@@ -204,129 +204,129 @@ holotape-caravan-ledger-content =
 # GECK Asset Status File (Vault-Tec records on the G.E.C.K. in Vault 26)
 holotape-quest-geck-title = ВАУЛТ-ТЕК РЕКОРДС - Г.Е.К.К. СТАТУС
 holotape-quest-geck-content = 
-    VAULT-TEC CORPORATION
-    INTERNAL DISTRIBUTION - OVERSEER ACCESS ONLY
-    GARDEN OF EDEN CREATION KIT - ASSET STATUS
-    VAULT 26 ALLOCATION FILE
+    КОРПОРАЦИЯ ВАУЛТ-ТЕК
+    ВНУТРЕННЕЕ РАСПРЕДЕЛЕНИЕ - ТОЛЬКО ДЛЯ НАДЗОРНОГО ПЕРСОНАЛА
+    НАБОР ДЛЯ СОТВОРЕНИЯ ЭДЕМСКОГО САДА - СТАТУС АКТИВА
+    ДОСЬЕ РАСПРЕДЕЛЕНИЯ - УБЕЖИЩЕ 26
     
-    Standard allotment: 2 units per vault.
-    Vault 26 received: 1 unit (allocation reduced per Memorandum 34-G - wartime resource constraints).
+    Стандартная норма: 2 единицы на убежище.
+    Убежище 26 получило: 1 единицу (норма сокращена распоряжением 34-G - ограниченные ресурсы военного времени).
     
-    UNIT STATUS: SEALED - OMEGA LAB - SUBLEVEL 4
-    Unit serial: GECK-26-001
-    Condition: UNKNOWN - last inspection October 22, 2077
-    
-    ---
-    
-    SPECIFICATIONS SUMMARY (CLASSIFIED - OVERSEER EYES ONLY)
-    
-    The Garden of Eden Creation Kit is a self-contained terraforming apparatus manufactured
-    by Future-Tec, a Vault-Tec subsidiary, under contract with the United States Department
-    of Agriculture. Standard contents per unit:
-    
-    - Cold fusion power generator
-      (designed to serve as the founding community's permanent power source
-       after the GECK disassembles and distributes its materials)
-    - Compressed seed and soil supplements
-      (rapid-growth agricultural starter package, 40-crop variety)
-    - Matter-energy replication array
-      (food and material synthesis, requires stable power - see above)
-    - Atmospheric chemical stabilizers
-      (air quality normalization, effective radius approximately 2 km)
-    - Water purification system (portable, rated for 500 persons)
-    - Library of Congress archive, compressed
-      (500 TB. Literature, science, law, history.)
+    СТАТУС ЕДИНИЦЫ: ОПЕЧАТАНА - ЛАБОРАТОРИЯ ОМЕГА - УРОВЕНЬ 4
+    Серийный номер: GECK-26-001
+    Состояние: НЕИЗВЕСТНО - последний осмотр 22 октября 2077 года
     
     ---
     
-    OPERATIONAL NOTE
+    СВОДКА ТЕХНИЧЕСКИХ ХАРАКТЕРИСТИК (СОВЕРШЕННО СЕКРЕТНО - ТОЛЬКО ДЛЯ ГЛАЗ НАДЗОРНОГО ПЕРСОНАЛА)
     
-    The GECK is a one-time device. Activation initiates a cascade disassembly sequence:
-    the unit breaks itself apart and distributes components throughout the surrounding area
-    as raw materials for settlement construction. The cold fusion generator separates first
-    and can be extracted before activation to preserve it as a standalone power source.
+    Набор для сотворения Эдемского сада - автономное устройство терраформирования, произведённое
+    компанией Future-Tec, дочерним предприятием Vault-Tec, по контракту с Министерством сельского
+    хозяйства США. Стандартное содержимое каждой единицы:
     
-    Deployment requires Overseer authorization code ALPHA-ZETA-9. Full community assembly
-    and vote is strongly recommended before initiation. This cannot be undone.
+    - Генератор на холодном синтезе
+      (спроектирован как постоянный источник питания для будущего сообщества,
+       после того как GECK разберёт и распределит свои материалы)
+    - Компрессированные семена и почвенные добавки
+      (стартовый сельскохозяйственный пакет ускоренного роста, 40 сортов)
+    - Матрица репликации материя-энергия
+      (синтез пищи и материалов, требует стабильного питания - см. выше)
+    - Атмосферные химические стабилизаторы
+      (нормализация качества воздуха, эффективный радиус примерно 2 км)
+    - Система очистки воды (портативная, рассчитана на 500 человек)
+    - Архив Библиотеки Конгресса, сжатый
+      (500 ТБ. Литература, наука, право, история.)
     
-    GECK-26-001 represents the vault's only remaining terraforming asset.
+    ---
     
-    This unit is the difference between a community and a grave.
+    ЭКСПЛУАТАЦИОННАЯ ЗАМЕТКА
     
-    Handle accordingly.
+    GECK - одноразовое устройство. Активация запускает каскадную последовательность разборки:
+    устройство разбирает само себя и распределяет компоненты по окружающей территории
+    в качестве сырья для строительства поселения. Генератор холодного синтеза отделяется первым
+    и может быть извлечён до активации, чтобы сохранить его как самостоятельный источник питания.
     
-    - Overseer Chen, Vault 26
-    Pre-War Addendum: Vault-Tec Support, 2073
+    Развёртывание требует кода авторизации надзорного персонала ALPHA-ZETA-9. Полное собрание
+    и голосование сообщества настоятельно рекомендуется до начала. Это необратимо.
+    
+    GECK-26-001 - единственный оставшийся актив терраформирования убежища.
+    
+    Эта единица - разница между сообществом и могилой.
+    
+    Обращайтесь соответственно.
+    
+    - Надзор Чен, Убежище 26
+    Довоенное дополнение: служба поддержки Vault-Tec, 2073
 
 # NCR Ranger Survey (Bonneville sector - Nevada-Utah border)
 holotape-quest-ncr-plans-title = ОБСЛЕДОВАНИЕ NCR - СЕКТОР БОНВИЛЛЯ
 holotape-quest-ncr-plans-content = 
-    NEW CALIFORNIA REPUBLIC
-    1ST RECON - FORWARD OPERATIONS
-    FIELD SURVEY: BONNEVILLE SECTOR
-    CLASSIFICATION: RESTRICTED
+    НОВАЯ КАЛИФОРНИЙСКАЯ РЕСПУБЛИКА
+    1-Я РАЗВЕДГРУППА - ПЕРЕДОВЫЕ ОПЕРАЦИИ
+    ПОЛЕВОЕ ОБСЛЕДОВАНИЕ: СЕКТОР БОННЕВИЛЛЬ
+    ГРИФ: ОГРАНИЧЕННЫЙ ДОСТУП
     
-    Survey Party: Ranger Vasquez, Ranger Okonkwo, Pvt. Reyes, Pvt. Tang
-    Date: [illegible] 2281
-    Area: Nevada-Utah border, Bonneville Salt Flats corridor
-    
-    ---
-    
-    TERRAIN ASSESSMENT
-    
-    The Bonneville Salt Flats run approximately 30 miles along the old I-80 corridor east
-    of the Nevada border. Flat, stable, usable for vehicle and foot traffic. No cover at all.
-    No water. Brutal in summer heat. Radiation nominal across most of the surface.
-    
-    The old town of Wendover straddles the state line. Nevada side partially inhabited.
-    Utah side mostly ruins but some structures salvageable. Combined population estimate:
-    200 to 400 civilians. Local faction controls food and water trade through the main
-    strip. Not hostile to NCR on contact. Not welcoming either. They are watching.
+    Группа обследования: Рейнджер Васкес, Рейнджер Оконкво, ряд. Рейес, ряд. Танг
+    Дата: [неразборчиво] 2281
+    Район: граница Невады и Юты, коридор соляных пустошей Бонневилль
     
     ---
     
-    STRATEGIC RESOURCE NOTES
+    ОЦЕНКА МЕСТНОСТИ
     
-    Salt. The flats have it in quantities that would fund a small army.
+    Соляные пустоши Бонневилль тянутся примерно на 30 миль вдоль старого коридора I-80 к востоку
+    от границы Невады. Ровная, стабильная, пригодная для техники и пешего хода. Укрытий нет вообще.
+    Воды нет. Летом пекло. Радиация по большей части поверхности в пределах нормы.
     
-    Post-war, salt preserves meat for months without refrigeration. A controlled salt
-    extraction operation here, with a secure escort route west on I-80 back to our Nevada
-    holdings, is a strategic asset. It is worth more than the town.
-    
-    Secondary resource: Wendover Air Force Base ruins, south of town. Pre-war military
-    installation - heavy bomber training, possibly nuclear ordinance staging. Brotherhood
-    of Steel has previously expressed interest in this site. We should establish presence
-    before they arrive in force.
+    Старый город Уэндовер стоит на границе штатов. Невадская сторона частично заселена.
+    Ютская сторона в основном руины, но часть построек можно спасти. Суммарная оценка населения:
+    от 200 до 400 гражданских. Местная фракция контролирует торговлю едой и водой через главную
+    улицу. При контакте к НКР не враждебна. Но и не приветствует. Они наблюдают.
     
     ---
     
-    THREATS
+    ЗАМЕТКИ О СТРАТЕГИЧЕСКИХ РЕСУРСАХ
     
-    Legion scouts confirmed at mile marker 34, I-80 heading west. Moving slowly but
-    moving. We have perhaps three weeks before they reach Wendover in strength.
+    Соль. Пустошей её столько, что хватило бы профинансировать небольшую армию.
     
-    Energy readings from a vault entrance northeast of the main settlement. Recent emergence
-    activity. Vault dwellers are wildcards. Recommend contact and negotiation over conflict.
-    If they can be brought into alignment with NCR interests, they are a net positive.
-    If they side with Legion, they are a problem.
+    После войны соль хранит мясо месяцами без холодильников. Контролируемая добыча соли
+    здесь, с охраняемым маршрутом эскорта на запад по I-80 обратно в наши невадские владения, -
+    стратегический актив. Это стоит больше, чем сам город.
     
-    Three sensor nodes identified on elevated positions surrounding the town, two-mile
-    spacing, triangulating. Not Brotherhood hardware. Not NCR surplus. Pre-war design,
-    possibly Enclave-pattern. Old but receiving power. Something is watching this town
-    from the hills. We have not identified the observing party.
+    Вторичный ресурс: руины авиабазы ВВС Уэндовер к югу от города. Довоенный военный
+    объект - обучение тяжёлых бомбардировщиков, возможно, складирование ядерных боеприпасов.
+    Братство Стали ранее выражало интерес к этому объекту. Мы должны создать присутствие
+    до того, как они прибудут крупными силами.
     
     ---
     
-    RECOMMENDATION
+    УГРОЗЫ
     
-    Establish a forward operating base at the old truck stop on the north approach off I-80.
-    Defensible walls, sightlines both directions on the highway.
+    Разведчики Легиона подтверждены у 34-й мили на I-80, движутся на запад. Медленно, но
+    движутся. У нас есть, возможно, три недели, прежде чем они достигнут Уэндовера крупными силами.
     
-    Open salt trade negotiations with town leadership before Legion arrives.
-    They will work with whoever makes the better offer. Make us that offer.
+    Энергетические показания от входа в Убежище к северо-востоку от основного поселения. Недавняя
+    активность выхода на поверхность. Обитатели Убежища - тёмные лошадки. Рекомендую контакт
+    и переговоры вместо конфликта. Если удастся выровнять их по интересам НКР - это чистый плюс.
+    Если они встанут на сторону Легиона - это проблема.
     
-    Request: one full rifle squad, six months of supplies, and authorization to negotiate
-    trade agreements in the Republic's name.
+    Три сенсорных узла выявлены на возвышенностях вокруг города, с шагом в две мили,
+    триангуляция. Не аппаратура Братства. Не армейская техника НКР. Довоенная конструкция,
+    возможно, анклавовского образца. Старая, но получает питание. Кто-то наблюдает за этим городом
+    с холмов. Наблюдающую сторону выявить не удалось.
+    
+    ---
+    
+    РЕКОМЕНДАЦИЯ
+    
+    Развернуть передовую операционную базу на старой автостоянке на северном подходе от I-80.
+    Обороняемые стены, обзор в обе стороны по шоссе.
+    
+    Начать переговоры о торговле солью с руководством города до прибытия Легиона.
+    Они будут работать с тем, кто предложит больше. Сделайте это предложение за нас.
+    
+    Запрос: полный стрелковый взвод, припасы на шесть месяцев и разрешение заключать
+    торговые соглашения от имени Республики.
     
     This is frontier worth holding.
     
@@ -336,217 +336,217 @@ holotape-quest-ncr-plans-content =
 # Enclave multi-site assessment (N14HolotapeEnclave - non-quest general enclave holotape)
 holotape-enclave-base-title = ОБЗОР ПОЛЕЙ АНКЛАВА – ВЕНДОВЕРСКИЙ КЛАСТЕР
 holotape-enclave-base-content = 
-    UNITED STATES GOVERNMENT
-    ENCLAVE TACTICAL ASSESSMENT
-    DOCUMENT CLASS: SECURED - DELTA CLEARANCE
+    ПРАВИТЕЛЬСТВО СОЕДИНЁННЫХ ШТАТОВ
+    ТАКТИЧЕСКАЯ ОЦЕНКА АНКЛАВА
+    КЛАСС ДОКУМЕНТА: СЕКРЕТНО - ДОПУСК ДЕЛЬТА
     
-    SITE: WENDOVER INSTALLATION CLUSTER
-    STATUS: ACTIVE
-    
-    ---
-    
-    PRIMARY FACILITY
-    Location: Subsurface, northeast sector. Coordinates on file with Command only.
-    Previously: Vault 26, Vault-Tec civilian shelter complex.
-    Current function: Monitoring station, signal intercept, access to Vault-Tec
-    experimental archives. Staffed.
+    ОБЪЕКТ: УЭНДОВЕРСКИЙ КЛАСТЕР УСТАНОВОК
+    СТАТУС: АКТИВЕН
     
     ---
     
-    FIREBASE SOUTH
-    Location: Old industrial zone, southern perimeter of inhabited area.
-    Personnel: Four field staff.
-    Function: Observation post and response staging. Armed. Standing orders to avoid
-    civilian contact unless directly threatened or compromised.
+    ОСНОВНОЙ ОБЪЕКТ
+    Расположение: подземный, северо-восточный сектор. Координаты только у командования.
+    Ранее: Убежище 26, гражданский комплекс-укрытие Vault-Tec.
+    Текущая функция: станция наблюдения, перехват сигналов, доступ к экспериментальным
+    архивaм Vault-Tec. Укомплектована персоналом.
     
     ---
     
-    EASTERN OBSERVATION POST
-    Location: High ground east of the salt flats. Former cellular relay tower.
-    Personnel: Two field staff.
-    Function: Passive long-range surveillance of I-80 approach corridor.
-    Monitors NCR and Legion movement. EMP-hardened receiver array.
+    ОГНЕВАЯ ТОЧКА «ЮГ»
+    Расположение: старая промышленная зона, южный периметр населённой территории.
+    Персонал: четыре полевых сотрудника.
+    Функция: наблюдательный пост и площадка реагирования. Вооружена. Постоянный приказ - избегать
+    контакта с гражданскими, кроме случаев прямой угрозы или раскрытия.
     
     ---
     
-    THREAT SUMMARY
-    
-    NCR: forward scouts confirmed. Timeline to garrison-strength NCR presence: 90 days.
-    Legion: minor scout activity only. Not yet a command-level priority.
-    Brotherhood of Steel: no confirmed presence in sector. Maintain low signature.
-    Vault population: emerged recently. Variable threat. Do not provoke. Do not reveal
-    installation positions. Monitor and report.
+    ВОСТОЧНЫЙ НАБЛЮДАТЕЛЬНЫЙ ПОСТ
+    Расположение: высота к востоку от соляных пустошей. Бывшая башня сотовой ретрансляции.
+    Персонал: два полевых сотрудника.
+    Функция: пассивное дальнее наблюдение за коридором подхода I-80.
+    Следит за передвижениями НКР и Легиона. Приёмный массив с защитой от ЭМИ.
     
     ---
     
-    OPERATIONAL PRIORITY
+    СВОДКА УГРОЗ
     
-    Phase 3 of AUTUMN HARVEST requires all three Wendover installations to remain
-    covert for a minimum of 60 additional days. Compromise of any site triggers
-    full sanitization protocol across all three locations simultaneously.
+    НКР: подтверждены передовые разведчики. Срок до присутствия НКР на уровне гарнизона: 90 дней.
+    Легион: только второстепенная разведактивность. Пока не приоритет уровня командования.
+    Братство Стали: подтверждённого присутствия в секторе нет. Сохранять низкий профиль.
+    Население Убежища: вышло недавно. Переменная угроза. Не провоцировать. Не раскрывать
+    позиции установок. Наблюдать и докладывать.
     
-    Do not leave recoverable equipment.
+    ---
     
-    For God and Country. For the Enclave.
-    Signed: Field Coordinator Wexley
+    ОПЕРАЦИОННЫЙ ПРИОРИТЕТ
+    
+    Фаза 3 операции «ОСЕННИЙ УРОЖАЙ» требует, чтобы все три уэндоверские установки оставались
+    скрытыми не менее 60 дополнительных дней. Раскрытие любого объекта запускает
+    полный протокол санитарной зачистки всех трёх локаций одновременно.
+    
+    Не оставлять восстанавливаемое оборудование.
+    
+    За Бога и Отечество. За Анклав.
+    Подпись: полевой координатор Уэксли
 
 # Enclave operational orders (N14HolotapeQuestEnclaveplans)
 holotape-quest-enclave-plans-title = ОПЕРАЦИЯ ОСЕННИЙ УРОЖАЙ - ЗАКАЗЫ
 holotape-quest-enclave-plans-content = 
-    UNITED STATES GOVERNMENT
-    ENCLAVE COMMAND - EYES ONLY
-    OPERATION: AUTUMN HARVEST
-    CLASSIFIED: ALPHA CLEARANCE
+    ПРАВИТЕЛЬСТВО СОЕДИНЁННЫХ ШТАТОВ
+    КОМАНДОВАНИЕ АНКЛАВА - ТОЛЬКО ДЛЯ ГЛАЗ
+    ОПЕРАЦИЯ: ОСЕННИЙ УРОЖАЙ
+    СЕКРЕТНО: ДОПУСК АЛЬФА
     
     ---
     
-    MISSION STATEMENT
+    ФОРМУЛИРОВКА МИССИИ
     
-    Operation Autumn Harvest is authorized to recover, restore, and redeploy prototype
-    atmospheric processing units in storage at the sealed research wing beneath Wendover
-    Air Force Base Hangar 4. Successful recovery enables Phase 3 settlement operations
-    within 18 months.
-    
-    ---
-    
-    PHASE 1 - RECONNAISSANCE (COMPLETE)
-    
-    All three site installations: active and uncompromised. Surveillance of vault emergence
-    activity, NCR forward scouts, and Legion movement is ongoing. No civilian contact
-    incidents. No detected surveillance of our positions.
+    Операция «Осенний урожай» санкционирована для извлечения, восстановления и повторного
+    развёртывания прототипов атмосферных очистительных установок, хранящихся в запечатанном
+    исследовательском крыле под ангаром 4 авиабазы ВВС Уэндовер. Успешное извлечение позволит
+    провести операции этапа 3 по заселению в течение 18 месяцев.
     
     ---
     
-    PHASE 2 - EXTRACTION (IN PROGRESS)
+    ЭТАП 1 - РАЗВЕДКА (ЗАВЕРШЕН)
     
-    Hangar 4 is sealed with pre-war USAF security systems. Access team is en route, ETA
-    72 hours. Procurement lead: Agent Bishop.
-    
-    WARNING: Brotherhood-pattern radio signal detected on 118.5 MHz two days ago. Source
-    unknown. Possible Brotherhood observer element operating in the region. Expedite
-    Phase 2 before they identify the site.
+    Все три установки на объекте: активны и не раскрыты. Наблюдение за выходом населения
+    Убежища, передовыми разведчиками НКР и передвижениями Легиона продолжается. Инцидентов
+    с контактом с гражданскими нет. Слежки за нашими позициями не обнаружено.
     
     ---
     
-    PHASE 3 - REDEPLOYMENT
+    ЭТАП 2 - ИЗВЛЕЧЕНИЕ (В ПРОЦЕССЕ)
     
-    Atmospheric processors transport to primary facility. Calibration phase: 3 days.
-    Deployment radius: 3 km from primary facility.
-    Timeline to full normalization: 14 days post-activation.
+    Ангар 4 запечатан довоенными системами безопасности ВВС США. Группа доступа в пути, расчётное
+    время прибытия - 72 часа. Ответственный за снабжение: агент Бишоп.
     
-    All Enclave personnel will shelter inside primary facility during deployment window.
-    Civilian population within the deployment radius will experience atmospheric adjustment.
-    This is classified under Protocol 9-Epsilon as an acceptable operational parameter.
-    
-    ---
-    
-    PHASE 4 - CONSOLIDATION
-    
-    Following Phase 3, the Wendover sector is designated Enclave Zone 7-W.
-    Local population assessment for genetic compliance will begin immediately.
-    Non-compliant individuals: Protocol 9-Epsilon applies.
-    Compliant population: retained for labor and resource support.
+    ПРЕДУПРЕЖДЕНИЕ: два дня назад на частоте 118.5 МГц обнаружен радиосигнал образца Братства. Источник
+    неизвестен. Возможный элемент наблюдения Братства в регионе. Ускорить
+    Этап 2 до того, как они идентифицируют объект.
     
     ---
     
-    PERSONNEL ASSIGNMENTS
+    ЭТАП 3 - ПОВТОРНОЕ РАЗВЁРТЫВАНИЕ
     
-    Field Coordinator: Wexley
-    Extraction Lead: Agent Bishop
-    Firebase South Command: Lt. Torres
-    Eastern OP: Specialist Graves, Specialist Rand
+    Атмосферные очистители транспортируются в основной объект. Фаза калибровки: 3 дня.
+    Радиус развёртывания: 3 км от основного объекта.
+    Срок до полной нормализации: 14 дней после активации.
+    
+    Весь персонал Анклава укрывается внутри основного объекта на время развёртывания.
+    Гражданское население в радиусе развёртывания испытает атмосферную корректировку.
+    Это классифицируется по Протоколу 9-Эпсилон как приемлемый операционный параметр.
     
     ---
     
-    ABORT CONDITIONS
+    ЭТАП 4 - КОНСОЛИДАЦИЯ
     
-    If NCR establishes a battalion-strength position within 15 km before Phase 2 completes,
-    abort all surface operations and withdraw to primary facility.
-    Sanitize Firebase South and Eastern OP. Leave nothing recoverable.
+    После Этапа 3 сектор Уэндовера назначается Зоной 7-W Анклава.
+    Оценка местного населения на генетическое соответствие начнётся немедленно.
+    Несоответствующие особи: применяется Протокол 9-Эпсилон.
+    Соответствующее население: сохраняется для трудовой и ресурсной поддержки.
     
-    For God and Country. For the Enclave.
-    Authorization Code: DELTA-ECHO-7
+    ---
+    
+    НАЗНАЧЕНИЯ ПЕРСОНАЛА
+    
+    Полевой координатор: Уэксли
+    Руководитель извлечения: агент Бишоп
+    Командование огневой точки «Юг»: лейтенант Торрес
+    Восточный наблюдательный пост: специалист Грейвс, специалист Рэнд
+    
+    ---
+    
+    УСЛОВИЯ ОТМЕНЫ
+    
+    Если НКР развернёт позицию на уровне батальона в пределах 15 км до завершения Этапа 2,
+    отменить все наземные операции и отступить в основной объект.
+    Провести санитарную зачистку огневой точки «Юг» и восточного поста. Не оставлять ничего восстанавливаемого.
+    
+    За Бога и Отечество. За Анклав.
+    Код авторизации: DELTA-ECHO-7
 
 # Fusion power plant research notes (N14HolotapeQuestFusionplans)
 holotape-quest-fusion-plans-title = ПРОЕКТ FUSION – ТЕХНИЧЕСКИЕ ДАННЫЕ
 holotape-quest-fusion-plans-content = 
-    WENDOVER AIR FORCE BASE
-    CLASSIFIED RESEARCH DIVISION
-    PROJECT FUSION - TECHNICAL DOCUMENTATION
-    DATE: OCTOBER 7, 2077
+    АВИАБАЗА ВВС ВЕНДОВЕР
+    СЕКРЕТНОЕ ИССЛЕДОВАТЕЛЬСКОЕ ПОДРАЗДЕЛЕНИЕ
+    ПРОЕКТ FUSION - ТЕХНИЧЕСКАЯ ДОКУМЕНТАЦИЯ
+    ДАТА: 7 ОКТЯБРЯ 2077 ГОДА
     
     ---
     
-    EXECUTIVE SUMMARY
+    КРАТКАЯ СВОДКА
     
-    Project Fusion is the continuation of pre-war cold fusion research originally conducted
-    by Future-Tec Corporation (Vault-Tec division) and transferred to USAF Wendover in
-    September 2077 under Emergency Research Directive 4412-W.
+    Проект Fusion — продолжение довоенных исследований холодного синтеза, первоначально
+    проводившихся корпорацией Future-Tec (подразделение Vault-Tec) и переданных ВВС США Уэндовер
+    в сентябре 2077 года согласно чрезвычайной исследовательской директиве 4412-W.
     
-    Transferred technology includes:
-    - Cold fusion catalytic core assembly (3 units, sealed in transport cases)
-    - Reaction chamber schematics (Future-Tec proprietary, copy on file here)
-    - Annotated field notes from original research, researcher name redacted
-    
-    ---
-    
-    TECHNICAL SPECIFICATIONS
-    
-    The cold fusion process achieved in Future-Tec's research laboratory differs from all
-    prior attempts in its use of a proprietary palladium-lattice diode configuration.
-    Once initiated, the reaction is self-sustaining and produces approximately 47 megawatts
-    from a unit the size of a standard footlocker.
-    
-    No radiation byproduct. No moving parts. Estimated operational lifespan before core
-    replacement: 200 years minimum under continuous load.
-    
-    Primary application at Wendover AFB: grid conversion. This facility's aging fission
-    reactor could be fully replaced by cold fusion Unit 1 alone. Secondary application:
-    the combined output of all three units could power the town of Wendover and all
-    underground facilities in the region indefinitely.
+    Переданные технологии включают:
+    - Сборочный узел каталитического ядра холодного синтеза (3 шт., опечатаны в транспортных кейсах)
+    - Схемы реакционной камеры (запатентованы Future-Tec, копия хранится здесь)
+    - Аннотированные полевые заметки из оригинального исследования, имя исследователя вымарано
     
     ---
     
-    ASSEMBLY NOTES
-    (Handwritten in margin, different ink)
+    ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ
     
-    Unit 2 is damaged. Three of the six alignment pins are bent. Do NOT force the housing
-    or you will crack the lattice and render the whole assembly inert.
+    Процесс холодного синтеза, достигнутый в исследовательской лаборатории Future-Tec, отличается
+    от всех прежних попыток использованием фирменной конфигурации диодов на палладиевой решётке.
+    После запуска реакция самоподдерживающаяся и вырабатывает примерно 47 мегаватт
+    из устройства размером со стандартный армейский сундук.
     
-    Whoever put the original device together did something I cannot replicate with the
-    equipment we have here. The diode fabrication process is not documented anywhere in
-    these notes. If Unit 1 fails, we have nothing left.
+    Побочного радиационного излучения нет. Движущихся частей нет. Расчётный срок службы до замены
+    ядра: не менее 200 лет при постоянной нагрузке.
     
-    I have not told Command about Unit 2. They would pull the project.
-    
-    - TB
-    
-    ---
-    
-    POWER GRID CONVERSION SCHEDULE
-    
-    Week 1: Fission reactor shutdown, cold fusion Unit 1 online
-    Week 2: Load testing at 25% capacity, calibration
-    Week 3: Increase to full capacity
-    Week 4 through 6: All base functions transferred to cold fusion grid
-    
-    If conversion succeeds, we estimate a 40-year operational horizon on existing fuel
-    reserves for the fission backup. The cold fusion units have no such limit.
+    Основное применение на авиабазе Уэндовер: перевод энергосети. Стареющий ядерный
+    реактор объекта можно полностью заменить блоком 1 холодного синтеза. Второе применение:
+    суммарная мощность всех трёх блоков может питать город Уэндовер и все подземные
+    сооружения региона бессрочно.
     
     ---
     
-    POST-WAR NOTE
-    (Different handwriting, date unknown)
+    ЗАМЕТКИ ПО СБОРКЕ
+    (Написано от руки на полях, другими чернилами)
     
-    Found this file in Hangar 4 storage, sealed. The war came before they finished.
+    Блок 2 повреждён. Три из шести установочных штифтов погнуты. НЕ прикладывайте усилие к корпусу,
+    иначе треснет решётка и весь узел станет инертным.
     
-    Units 1 and 3 are still in sealed containers below, as far as I can tell. Unit 2 was
-    already useless before the bombs dropped, per the margin notes above.
+    Тот, кто собрал оригинальное устройство, сделал то, чего я не могу повторить на
+    имеющемся здесь оборудовании. Процесс производства диодов нигде в этих заметках не описан.
+    Если блок 1 выйдет из строя, у нас ничего не останется.
     
-    If you understand what cold fusion is - and can actually use it - you are holding
-    the key to powering this entire region for the next two centuries.
+    Я не рассказал командованию про блок 2. Они бы закрыли проект.
     
-    The Enclave has been sniffing around Hangar 4. Do not let them get here first.
+    - ТБ
+    
+    ---
+    
+    ГРАФИК ПЕРЕВОДА ЭНЕРГОСЕТИ
+    
+    Неделя 1: отключение реактора деления, ввод в строй блока 1 холодного синтеза
+    Неделя 2: нагрузочные испытания на 25% мощности, калибровка
+    Неделя 3: повышение до полной мощности
+    Недели 4-6: перевод всех функций базы на сеть холодного синтеза
+    
+    Если конверсия удастся, мы оцениваем 40-летний операционный горизонт на имеющихся запасах
+    топлива для резервного реактора деления. Блоки холодного синтеза не имеют такого ограничения.
+    
+    ---
+    
+    ЗАМЕТКА ПОСЛЕ ВОЙНЫ
+    (Другой почерк, дата неизвестна)
+    
+    Нашёл этот файл в хранилище ангара 4, запечатанным. Война началась прежде, чем они закончили.
+    
+    Блоки 1 и 3, насколько я могу судить, всё ещё в запечатанных контейнерах внизу. Блок 2 был
+    уже бесполезен до бомбардировок, согласно заметкам на полях выше.
+    
+    Если вы понимаете, что такое холодный синтез — и действительно можете его использовать —, в ваших руках
+    ключ к электроснабжению всего региона на следующие два столетия.
+    
+    Анклав рыщет вокруг ангара 4. Не дайте им добраться сюда первыми.
 
 # ─────────────────────────────────────────────────────────────────────────────
 # #Misfits Add - Random wanderer holotape pool entries (MisfitsHolotapeWanderer dataset)
@@ -557,468 +557,468 @@ holotape-quest-fusion-plans-content =
 # 001 - Dying wastelander last words with cache location
 holotape-wanderer-001-title = ПОСЛЕДНИЕ СЛОВА — МАРКЕР КЕША
 holotape-wanderer-001-content = 
-    If you found this thing you probably found what is left of me too.
+    Если ты нашёл эту штуку, то, вероятно, нашёл и то, что от меня осталось.
     
-    Radscorpion got me two days ago. Stinger got through the jacket near the hip.
-    I cleaned it. Did not help.
+    Рад-скорпион добрался до меня два дня назад. Жало прошло сквозь куртку в районе бедра.
+    Я обработал это. Не помогло.
     
-    Do not let the stuff in my pack go to waste. Antibiotics, two full water bottles,
-    a 10mm pistol with one clip, and a hand-drawn map of the water sources between
-    here and the salt flats.
+    Не дай тому, что в моём рюкзаке, пропасть зря. Антибиотики, две полные бутылки воды,
+    пистолет 10 мм с одним магазином и самодельная карта источников воды между
+    этим местом и соляными пустошами.
     
-    The map is more valuable than the gun.
+    Карта ценнее ружья.
     
-    My name was Decker. I had a brother in Primm. Not worth making a trip.
+    Меня звали Деккер. У меня был брат в Примме. Не стоит ехать туда ради этого.
     
-    Take the pack. Use the map. Stay off the highway at night.
+    Забери рюкзак. Пользуйся картой. Держись подальше от шоссе по ночам.
     
-    Good luck out there.
-
+    Удачи там.
+    
 # 002 - Settler community meeting notes
 holotape-wanderer-002-title = ВСТРЕЧА СООБЩЕСТВА – ПРИМЕЧАНИЯ
 holotape-wanderer-002-content = 
-    NORTH WALL SETTLEMENT
-    GENERAL ASSEMBLY MINUTES - [DATE NOT RECORDED]
+    ПОСЕЛЕНИЕ У СЕВЕРНОЙ СТЕНЫ
+    ПРОТОКОЛ ОБЩЕГО СОБРАНИЯ - [ДАТА НЕ ЗАПИСАНА]
     
-    Present: 23 residents (full count, first time in three months)
+    Присутствовали: 23 жителя (полный состав, впервые за три месяца)
     
-    AGENDA
+    ПОВЕСТКА
     
-    1. Water rationing. Current supply: 12 days at present usage. Motion to cut daily
-       allowance by one third. Passed 19 to 4.
+    1. Рационирование воды. Текущий запас: 12 дней при нынешнем расходе. Предложение урезать
+       дневную норму на треть. Принято 19 против 4.
     
-    2. The southern fence. Four posts are rotted through. Tomas and Ellery volunteered
-       for repairs. Required materials: we do not have them. Council to investigate trading
-       the old generator parts in storage. Discussion tabled.
+    2. Южный забор. Четыре столба прогнили насквозь. Томас и Эллери вызвались
+       на ремонт. Необходимые материалы: у нас их нет. Совет рассмотрит вопрос о торговле
+       старыми запчастями от генератора из хранилища. Обсуждение отложено.
     
-    3. Stranger who arrived Tuesday. Goes by Mace. Offered cap payment for room and board.
-       Council voted to allow 30-day trial period. If trouble follows, Mace goes.
+    3. Незнакомец, прибывший во вторник. Называет себя Мейс. Предложил плату крышками за жильё и стол.
+       Совет проголосовал за 30-дневный испытательный срок. Если за ним потянется беда, Мейс уйдёт.
     
-    4. Children's patrol rotation. Kids over 12 assigned to daytime fence watch. Younger
-       children restricted to the interior after sundown. No exceptions.
+    4. График детских патрулей. Дети старше 12 назначаются на дневное наблюдение за забором. Младшим
+       детям после заката разрешается находиться только внутри. Без исключений.
     
-    5. Any other business: Lenora asked about the lights east of the flats. Nobody knows
-       what they are. Consensus: leave them alone until we know more.
+    5. Прочее: Ленора спросила об огнях к востоку от пустошей. Никто не знает,
+       что это такое. Общий вердикт: не трогать, пока не узнаем больше.
     
-    Meeting adjourned.
-
+    Собрание закрыто.
+    
 # 003 - Water source warning
 holotape-wanderer-003-title = ВНИМАНИЕ – ИСТОЧНИК ВОДЫ НАРУШЕН
 holotape-wanderer-003-content = 
-    TO ANYONE USING THE SPRING AT THE RAIL YARD
+    ВСЕМ, КТО ПОЛЬЗУЕТСЯ ИСТОЧНИКОМ У ЖЕЛЕЗНОДОРОЖНОГО ДВОРА
     
-    DO NOT DRINK THE WATER.
+    НЕ ПЕЙТЕ ЭТУ ВОДУ.
     
-    Found two dead geckos floating in it last week. Dead before I got there.
-    Nothing kills geckos except radiation or poison, and I did not see any radiation
-    signs on the rocks.
+    На прошлой неделе нашёл в ней двух дохлых гекконов. Они уже были мертвы, когда я подошёл.
+    Гекконов не убивает ничто, кроме радиации или яда, а следов радиации
+    на камнях я не заметил.
     
-    Something upstream is contaminating the source. I do not know what yet.
+    Что-то выше по течению загрязняет источник. Я пока не знаю, что именно.
     
-    The backflow pipe on the east side also started pushing out something brown.
-    Looked chemical. Smelled worse.
+    Обратный трубопровод на восточной стороне тоже начал выбрасывать что-то коричневое.
+    Выглядело как химия. Пахло ещё хуже.
     
-    The spring two klicks south is still clean as of four days ago. It is a longer
-    walk but it will not kill you.
+    Источник в двух километрах к югу всё ещё чист по состоянию на четыре дня назад. Идти дальше,
+    но он тебя не убьёт.
     
-    - Prospector crew, Red Rock Caravan
-
+    - Команда старателей, караван «Красная скала»
+    
 # 004 - Another raider's threat
 holotape-wanderer-004-title = ДЕРЖИТЕСЬ ПОДАЛЬШЕ
 holotape-wanderer-004-content = 
-    Found this spot. It is ours now.
+    Нашли это место. Теперь оно наше.
     
-    The old depot north of the crossing has food, water, a generator that mostly works,
-    and four walls that mostly stand up. That is enough to kill for.
+    На старом складе к северу от переезда есть еда, вода, генератор, который в основном работает,
+    и четыре стены, которые в основном стоят. Этого достаточно, чтобы за это убивать.
     
-    We have killed for less.
+    За меньшее мы уже убивали.
     
-    If you are reading this inside the depot: you picked a very bad door to walk through.
-    Run back the way you came and do not tell anyone where this is.
+    Если ты читаешь это внутри склада: ты вошёл в очень плохую дверь.
+    Беги обратно тем же путём и никому не рассказывай, где это место.
     
-    If you are reading this outside the depot: same advice.
+    Если ты читаешь это снаружи склада: тот же совет.
     
-    We are always watching. We have eyes on the roof.
+    Мы всегда наблюдаем. На крыше у нас глаза.
     
-    The crew is 11 strong. Down from 14 last month but quality went up.
+    Команда — 11 человек. В прошлом месяце было 14, но качество выросло.
     
-    You have been warned.
-
+    Ты предупреждён.
+    
 # 005 - Child's letter to missing parent
 holotape-wanderer-005-title = ДЛЯ МАМЫ - ЕСЛИ ОНА ВЕРНЕТСЯ
 holotape-wanderer-005-content = 
-    I am making this in case you come back and I am not here anymore.
+    Я записываю это на случай, если ты вернёшься, а меня здесь уже не будет.
     
-    I stayed at the house by the broken window for as long as I could. Three more days
-    after Aunt Bree told me to go. She said you might come back from the south road.
-    She said to wait. I waited.
+    Я жила в доме у разбитого окна, сколько могла. Ещё три дня
+    после того, как тётя Бри велела уходить. Она сказала, что ты можешь вернуться по южной дороге.
+    Она сказала ждать. Я ждала.
     
-    I am going to the north settlement with Bree now. The tall building with the painted
-    roof - you can see it from the main road if you look for the red mark.
+    Теперь я иду в северное поселение с Бри. Высокое здание с крашеной
+    крышей — его видно с главной дороги, если смотреть на красную отметку.
     
-    There is food under the floor in the back room. I saved some for you.
+    Под полом в дальней комнате есть еда. Я немного приберегла для тебя.
     
-    Please come back.
+    Пожалуйста, вернись.
     
-    - Orin
-
+    - Орин
+    
 # 006 - Caravan route notes
 holotape-wanderer-006-title = ПРИМЕЧАНИЯ ПО МАРШРУТУ – ВОСТОЧНЫЙ КРУГ
 holotape-wanderer-006-content = 
-    EASTERN CIRCUIT - WORKING NOTES
+    ВОСТОЧНЫЙ КРУГ - РАБОЧИЕ ЗАМЕТКИ
     
-    Day 1: Left Fernley at first light. 14 pack brahmin, 3 guards.
-    Road quiet. Reached the crossing by midday. No toll collector.
-    That is new. Either the crew moved on or something cleared them out.
+    День 1: вышли из Фернли на рассвете. 14 вьючных браминов, 3 охранника.
+    Дорога тихая. К полудню достигли переезда. Сборщика платы нет.
+    Это новое. Либо команда ушла, либо что-то их вычистило.
     
-    Day 2: Salt flat shortcut. Saved time. Brahmin hated it. Flat ground messes with
-    their hooves. Two developed sore pads by evening. Will slow us tomorrow.
+    День 2: срез через соляные пустоши. Экономит время. Брамины его ненавидели. Ровная поверхность
+    сбивает им копыта. К вечеру у двух появились натёртые подушечки. Завтра это нас замедлит.
     
-    Day 3: Wendover. Sell price for grain is UP. Shortage here - something hit their
-    crop stores. Good for us, bad for them. Traded the grain for caps and a working
-    water purifier chip. Even deal. Maybe slightly in our favor.
+    День 3: Уэндовер. Цена на зерно ВЫРОСЛА. Здесь нехватка — что-то поразило их
+    амбары с урожаем. Хорошо для нас, плохо для них. Обменял зерно на крышки и рабочий
+    фильтр очистителя воды. Ровная сделка. Пожалуй, немного в нашу пользу.
     
-    Day 4: North return. Avoided the highway. Saw smoke from the direction of the
-    truck stop. Not our problem.
+    День 4: возврат на север. Избегали шоссе. Видели дым в стороне
+    автостоянки. Не наша проблема.
     
-    Day 5: Home. No casualties. Minor losses: one crate of grain (brahmin stepped on it),
-    one canteen (stolen, probably day 2), Mira's boots (just fell apart).
-    Overall verdict: worth running again.
-
+    День 5: дома. Потерь нет. Мелкие потери: один ящик зерна (брамин наступил),
+    одна фляга (утащена, вероятно, на второй день), сапоги Миры (просто развалились).
+    Общий вердикт: маршрут стоит повторить.
+    
 # 007 - Scavenger finds log
-holotape-wanderer-007-title = ЖУРНАЛ SCAV – СОЛЕННЫЙ СЕКТОР
+holotape-wanderer-007-title = ЖУРНАЛ МАРОДЁРА – СОЛЁНЫЙ СЕКТОР
 holotape-wanderer-007-content = 
-    SCAV LOG - SALT FLAT SECTOR
-    Recording finds because my partner says I have the memory of a molerat.
-    She is not wrong.
+    ЖУРНАЛ SCAV - СЕКТОР СОЛЯНЫХ ПУСТОШЕЙ
+    Записываю находки, потому что напарница говорит, что у меня память, как у молокрысы.
+    Она не ошибается.
     
-    Old garage east of the main road: mostly stripped. Found half a case of 5.56
-    under the lift. Took it. Also found a Pip-Boy with a cracked screen - could not
-    get it to turn on. Left it. Too heavy to carry for maybe.
+    Старый гараж к востоку от главной дороги: в основном ободрали. Нашёл пол-ящика патронов 5.56
+    под подъёмником. Взял. Также нашёл Пип-Бой с треснувшим экраном — не смог
+    его включить. Оставил. Слишком тяжёлый, чтобы таскать ради «может быть».
     
-    Farmhouse north of the flats: somebody already hit it. Recent. Food is gone, tools
-    are gone. Left a mattress and some kids toys. I did not touch the toys.
+    Фермерский дом к северу от пустошей: кто-то уже обчистил. Недавно. Еда разобрана, инструменты
+    разобраны. Оставили матрас и детские игрушки. Игрушки я не трогал.
     
-    Pre-war bunker near the rail crossing: sealed. USAF markings. Three-digit combo lock
-    I could not figure. Tried 0000 (no), 1234 (no), 2077 (no, obviously). Will come back
-    with bolt cutters.
+    Довоенный бункер у переезда: запечатан. Маркировка ВВС США. Трёхзначный кодовый замок,
+    который я не смог подобрать. Пробовал 0000 (нет), 1234 (нет), 2077 (нет, очевидно). Вернусь
+    с болторезом.
     
-    The speedway grandstands: not worth the trip. Structurally unsound, molerats everywhere.
-    Did find one intact vending machine in the concourse. Cleaned it out.
-    Mostly candy. Candy 200 years old turns into something amazing and/or terrible.
-
+    Трибуны гоночной трассы: не стоят поездки. Конструктивно ненадёжны, молокрысы повсюду.
+    Зато нашёл один целый торговый автомат в вестибюле. Выгреб его.
+    В основном конфеты. Конфеты 200-летней давности превращаются во что-то потрясающее и/или ужасное.
+    
 # 008 - Abandoned homestead inventory
 holotape-wanderer-008-title = ИНВЕНТАРИЗАЦИЯ УСАДЬБЫ
 holotape-wanderer-008-content = 
-    Doing this for the insurance. Except there is no insurance. Doing this for my
-    own peace of mind.
+    Делаю это для страховки. Только страховки нет. Делаю это для собственного
+    спокойствия.
     
-    What we have:
-    - Water: 40 liters, purified. Good for two weeks at current usage.
-    - Food: canned goods variable. Maybe 3 weeks of real meals, 5 weeks if we stretch.
-    - Ammunition: 87 rounds 10mm, 31 shotgun shells, nothing for the big rifle.
-    - Medicine: two stimpaks, one antibiotics course, a lot of bandages.
-    - Tools: functional.
-    - Generator: running but the fuel gauge I rigged says maybe 60 hours left.
-    - Walls: north and east walls are solid. West wall has a gap. Priority repair.
+    Что у нас есть:
+    - Вода: 40 литров, очищенная. Хватит на две недели при текущем расходе.
+    - Еда: консервы, ассорти. Недель на три полноценных обеда, на пять, если растянуть.
+    - Боеприпасы: 87 патронов 10 мм, 31 дробин, под большую винтовку ничего.
+    - Медицина: два стимпака, курс антибиотиков, куча бинтов.
+    - Инструменты: рабочие.
+    - Генератор: работает, но датчик топлива, который я сам соорудил, показывает максимум часов 60.
+    - Стены: северная и восточная целые. Западная — с щелью. Ремонт в приоритете.
     
-    What we need:
-    - Fuel. More than anything else right now.
-    - Someone who knows how to fix a water recycler. The recycler clogged again.
-    - A reason to stay optimistic.
+    Что нам нужно:
+    - Топливо. Сейчас оно важнее всего.
+    - Кто-то, кто умеет чинить водяной рециклер. Рециклер опять засорился.
+    - Причина оставаться оптимистами.
     
-    We are okay. We are not comfortable, but we are okay. There is a difference.
-
+    Мы в порядке. Нам не комфортно, но мы в порядке. В этом есть разница.
+    
 # 009 - Medical supply request
 holotape-wanderer-009-title = МЕДИЦИНСКИЙ ЗАПРОС - СРОЧНО
 holotape-wanderer-009-content = 
-    Whoever picks this up - please take it to the settlement north of I-80.
-    There is a woman there named Cord who runs the medical post. She will know
-    what to do with it.
+    Кто бы ни подобрал это — пожалуйста, отнесите в поселение к северу от I-80.
+    Там есть женщина по имени Корд, которая заведует медпунктом. Она будет знать,
+    что с этим делать.
     
-    We have a respiratory outbreak here. Six people sick, three serious.
-    I think it is mold in the water recycler. I could not find the source but
-    the timing matches when we started using the recycler again after the repair.
+    У нас здесь вспышка респираторного заболевания. Шесть заболевших, трое в тяжёлом состоянии.
+    Думаю, дело в плесени в водяном рециклере. Источник я найти не смог, но
+    сроки совпадают с тем моментом, когда мы снова начали пользоваться рециклером после ремонта.
     
-    We need antibiotics. We need masks if you have them. We need anything.
+    Нам нужны антибиотики. Нужны маски, если есть. Нужно хоть что-то.
     
-    We can pay in labor when our people are well.
+    Мы сможем расплатиться трудом, когда наши выздоровеют.
     
-    The settlement is the old brick warehouse on the south edge of the lake bed.
-    Look for the blue tarp on the east wall. That is us.
+    Поселение — старый кирпичный склад на южном краю высохшего озера.
+    Ищите синий брезент на восточной стене. Это мы.
     
-    Please hurry.
-
+    Пожалуйста, поторопитесь.
+    
 # 010 - Generator repair notes
 holotape-wanderer-010-title = ЖУРНАЛ РЕМОНТА ГЕНЕРАТОРА
 holotape-wanderer-010-content = 
-    REPAIR LOG - MAIN GENERATOR
-    (No date - calendar stopped mattering)
+    ЖУРНАЛ РЕМОНТА - ОСНОВНОЙ ГЕНЕРАТОР
+    (Даты нет - календарь перестал иметь значение)
     
-    Attempt 4: Replaced the fuel line. Generator runs but not at full output.
-    Running at maybe 60%. Lights work. Recycler works. Heating does not.
-    We are managing.
+    Попытка 4: заменил топливопровод. Генератор работает, но не на полную мощность.
+    Примерно на 60%. Свет работает. Рециклер работает. Отопление — нет.
+    Мы справляемся.
     
-    The main problem is the alternator coil. I need copper wire and I do not have
-    enough. Used the last of the salvage spool on attempt 3.
+    Главная проблема — катушка генератора. Нужна медная проволока, а у меня
+    недостаточно. Израсходовал последний моток из утиля на третью попытку.
     
-    Options:
-    A) Strip the old motorbike in storage. Has copper in the electrics. Will kill
-       any chance of the bike ever working but we stopped needing the bike anyway.
-    B) Trade for copper at the next caravan. Need to figure out what we are trading.
-    C) Reduce power draw to the point where 60% is sufficient.
+    Варианты:
+    A) Разобрать старый мотоцикл в хранилище. В электрике есть медь. Это убьёт
+       любую надежду на то, что мотоцикл когда-нибудь заработает, но он нам всё равно уже не нужен.
+    B) Выменять медь у следующего каравана. Нужно решить, чем платить.
+    C) Снизить энергопотребление до уровня, при котором 60% достаточно.
     
-    Going with A and C simultaneously. If this does not work there is no D.
+    Пойду по A и C одновременно. Если не сработает, плана D не существует.
     
-    Whoever reads this after me: the fuel line needs to be checked every six weeks.
-    If it develops a hairline crack again it will fail without warning.
-    Learned this the hard way. In winter. You do not want that.
-
+    Тот, кто прочитает после меня: топливопровод нужно проверять каждые шесть недель.
+    Если снова появится волосяная трещина, он откажет без предупреждения.
+    Я усвоил это на горьком опыте. Зимой. Вам такого не надо.
+    
 # 011 - Overheard Legion movement warning
 holotape-wanderer-011-title = ВНИМАНИЕ – РАЗВЕДЧИКИ ЛЕГИОНА
 holotape-wanderer-011-content = 
-    To anyone heading east on the I-80:
+    Всем, кто направляется на восток по I-80:
     
-    Legion scouts. Saw them two days ago near the mile marker 18 rest stop.
-    Five men, red cloth, machetes and one rifle between them. They were not
-    moving fast. They were watching the road.
+    Разведчики Легиона. Видел их два дня назад у придорожной стоянки на 18-й миле.
+    Пять человек, красные тряпки, мачете и одна винтовка на всех. Они не
+    торопились. Они наблюдали за дорогой.
     
-    I did not stop. They did not follow. I do not know if they are still there.
+    Я не остановился. Они не преследовали. Не знаю, остались ли они там.
     
-    If you have to go east, go at first light and stay off the raised sections
-    of highway where you can be seen from distance. Use the service road south
-    of the highway where you can.
+    Если нужно на восток — идите на рассвете и держитесь подальше от приподнятых участков
+    шоссе, откуда вас видно издалека. Где можно, используйте объездную дорогу к югу
+    от шоссе.
     
-    If the Legion is sending scouts this far west, the main force is not far behind.
-    The people in Wendover should know about this.
+    Если Легион засылает разведчиков так далеко на запад, основная сила не за горами.
+    Люди в Уэндовере должны об этом знать.
     
-    I would go back and tell them but I cannot. I have somewhere to be.
-    Pass it on if you can.
-
+    Я бы вернулся и сказал им, но не могу. Мне нужно в другое место.
+    Передай дальше, если сможешь.
+    
 # 012 - NCR deserter confession
 holotape-wanderer-012-title = ЛИЧНЫЙ РЕКОРД - ДЕЗЕРТИРОВАНИЕ
 holotape-wanderer-012-content = 
-    I am recording this because I need to say it out loud at least once.
+    Я записываю это, потому что мне нужно хотя бы раз произнести это вслух.
     
-    I deserted. Forty-Third Infantry, Third Platoon, Sergeant Reyes commanding.
-    Left my kit and my bunk and walked north in the middle of the night.
+    Я дезертир. Сорок третий пехотный полк, третий взвод, сержант Рейес командует.
+    Оставил своё снаряжение и койку и ушёл на север посреди ночи.
     
-    I am not going to explain why because it does not matter.
-    It mattered at the time. Now it is just a fact about me.
+    Я не собираюсь объяснять почему, потому что это не важно.
+    Тогда это было важно. Теперь это просто факт обо мне.
     
-    NCR will have a bounty on me. Rangers track deserters.
-    I do not have a plan. I have a heading: north.
+    НКР назначит за меня награду. Рейнджеры выслеживают дезертиров.
+    У меня нет плана. У меня есть направление: север.
     
-    If someone finds this and you work for NCR: I am not coming back.
-    If you want the bounty, you are welcome to try.
-    If you are not NCR: good morning. Nice day out here if you can
-    ignore everything wrong with it.
+    Если кто-то найдёт это и ты работаешь на НКР: я не вернусь.
+    Если хочешь награду — попробуй, я не против.
+    Если ты не из НКР: доброе утро. День тут неплохой, если
+    не обращать внимания на всё, что с ним не так.
     
-    My name was Private Torres. Now it is just Torres.
-    Maybe just T.
-    I am working on it.
-
+    Меня звали рядовой Торрес. Теперь просто Торрес.
+    Может, просто Т.
+    Я работаю над этим.
+    
 # 013 - Survival tips from experienced wastelander
 holotape-wanderer-013-title = ЗАМЕЧАНИЯ ДЛЯ НОВИЧКОВ
 holotape-wanderer-013-content = 
-    Things I wish someone had told me when I was new:
+    Вещи, которые мне хотелось бы, чтобы кто-то сказал мне, когда я был новичком:
     
-    1. Eat before you drink. The calories matter.
-    2. Treat every water source as contaminated until proven otherwise.
-       The "probably fine" ones are how you get sick.
-    3. If you hear gunfire and you are not the one being shot at, move away from it.
-       This is not cowardice. This is arithmetic.
-    4. The salt flat shortcut saves time in spring. In summer it will kill you.
-       The heat reflects off the surface. There is no shade. People have died
-       with water left in their canteen because they collapsed first.
-    5. Geckos are territorial but predictable. They will not chase you far.
-       Radscorpions will chase you as far as they want to.
-    6. A fixed shelter is worth more than caps. Own something that does not move
-       and you will sleep better than anyone running.
-    7. Learn one thing that other people cannot do. Doctoring, mechanics, something.
-       Trade value keeps you alive longer than any weapon.
+    1. Сначала ешь, потом пей. Калории имеют значение.
+    2. Относись к каждому источнику воды как к заражённому, пока не доказано обратное.
+       «Вроде норм» — так люди болеют.
+    3. Слышишь выстрелы и стреляют не в тебя — уходи от них.
+       Это не трусость. Это арифметика.
+    4. Срез через соляные пустоши экономит время весной. Летом он тебя убьёт.
+       Жара отражается от поверхности. Тени нет. Люди умирали
+       с оставшейся во фляге водой, потому что падали раньше.
+    5. Гекконы территориальны, но предсказуемы. Далеко за тобой не пойдут.
+       Рад-скорпионы будут гнаться сколько захотят.
+    6. Постоянное убежище дороже крышек. Владей чем-то, что не двигается,
+       и будешь спать лучше любого беглеца.
+    7. Выучи одно, чего не умеют другие. Врачевание, механика, что-то ещё.
+       Меновая ценность сохранит тебе жизнь лучше любого оружия.
     
-    None of this is original. I got it from someone else who got it from someone else.
-    Pass it on.
-
+    Ничего из этого не оригинально. Я узнал это от кого-то, кто узнал от кого-то ещё.
+    Передай дальше.
+    
 # 014 - Trade goods manifest
 holotape-wanderer-014-title = ТОРГОВЫЙ МАНИФЕСТ - ЗАПУСК 14
 holotape-wanderer-014-content = 
-    RUN 14 - OUTBOUND FROM WENDOVER
+    РЕЙС 14 - УХОДЯЩИЙ ИЗ УЭНДОВЕРА
     
-    GOODS CARRIED
-    - Salt, pressed blocks (12 units): destination Fernley
-    - Carved bone goods (misc): destination wherever trades
-    - Old world currency for collector (3 bundles): don't ask
-    - Pre-war tobacco, partial tin: destination anyone who asks
+    ПЕРЕВОЗИМЫЙ ГРУЗ
+    - Соль, прессованные блоки (12 шт.): пункт назначения Фернли
+    - Изделия из резной кости (разное): пункт назначения — там, где торгуют
+    - Валюта старого мира для коллекционера (3 пачки): не спрашивай
+    - Довоенный табак, неполная банка: для того, кто попросит
     
-    EXPECTED RETURNS (if all trades land)
-    - Fuel cells (20 minimum)
-    - Antibiotics (10 doses minimum)
-    - Heavy canvas for wall repair
-    - If lucky: copper wire spool (keep asking)
+    ОЖИДАЕМЫЙ ВОЗВРАТ (если все сделки сойдутся)
+    - Топливные элементы (минимум 20)
+    - Антибиотики (минимум 10 доз)
+    - Плотный брезент для ремонта стен
+    - При удаче: моток медной проволоки (продолжать спрашивать)
     
-    NOTES
-    The salt is valued high west of Wendover. East, it is basically free.
-    Do not go east with the salt. Learn from my first run.
+    ЗАМЕТКИ
+    Соль ценится высоко к западу от Уэндовера. К востоку она, по сути, ничего не стоит.
+    Не ходи на восток с солью. Учись на моём первом рейсе.
     
-    The bone goods are from a carver named Paz who works near the speedway.
-    She takes a percent on any sale. Worth including. Her work moves.
+    Костяные изделия делает резчик по имени Паз, работающий у гоночной трассы.
+    Она берёт процент с каждой продажи. Стоит везти. Её работы хорошо идут.
     
-    The tobacco tin is mostly ash at this point but there is something in the
-    middle. Do not open it until you are somewhere private and you have a stimpak.
+    Банка табака к этому моменту в основном пепел, но в середине что-то есть.
+    Не открывай, пока не окажешься в уединённом месте и не будешь со стимпаком.
     
-    - Caravan Lead Mendez
-
+    - Глава каравана Мендес
+    
 # 015 - Personal journal of slow scarcity
 holotape-wanderer-015-title = ЛИЧНЫЙ ЖУРНАЛ
 holotape-wanderer-015-content = 
-    Day 1: Food stores at half. Started rationing.
+    День 1: запасы еды на половине. Начал рационирование.
     
-    Day 8: Snared two rabbits. Best day in a week.
+    День 8: поймал двух кроликов. Лучший день за неделю.
     
-    Day 15: Water recycler output down. The filter needs replacement but I do not
-    have a replacement. Started collecting rain in pots but this is the wrong
-    season for rain.
+    День 15: производительность водяного рециклера упала. Фильтр нужно заменить, но у меня
+    нет запасного. Начал собирать дождевую воду в кастрюли, но сейчас не сезон
+    для дождя.
     
-    Day 23: Traded my second-best knife for three days of food from the settlement
-    two miles west. They were fair about it. Maybe I should have gone there sooner.
+    День 23: обменял свой второй лучший нож на три дня еды в поселении
+    в двух милях к западу. Они поступили честно. Пожалуй, надо было пойти туда раньше.
     
-    Day 30: The rabbits are gone from this area. Something frightened them off or
-    something is eating them. Saw large tracks near the burrow system.
+    День 30: кролики ушли из этой местности. Что-то их спугнуло или
+    что-то их съедает. Видел крупные следы у нор.
     
-    Day 37: Found a pre-war supply drop cache under the old highway sign. Enough
-    canned food to last another month. No expiry on fear, I suppose - I cried.
+    День 37: нашёл довоенный тайник с припасами под старым дорожным знаком. Консервов
+    хватит ещё на месяц. Страх, видимо, не имеет срока годности — я плакал.
     
-    Day 38: Starting over. More carefully.
-
+    День 38: начинаю заново. Осторожнее.
+    
 # 016 - Radio broadcast log
 holotape-wanderer-016-title = ЖУРНАЛ ТРАНСЛЯЦИЙ - РАДИО СОЛТ-СИТИ
 holotape-wanderer-016-content = 
-    SALT CITY WASTELAND RADIO
-    BROADCAST LOG - ONGOING
+    РАДИО ПУСТОШИ «СОЛТ-СИТИ»
+    ЖУРНАЛ ТРАНСЛЯЦИЙ - В ПРОЦЕССЕ
     
-    This station is maintained by volunteers. We broadcast when we have power.
-    We stop when we do not.
+    Эту станцию обслуживают волонтёры. Мы вещаем, когда есть электричество.
+    Когда его нет — замолкаем.
     
-    TODAY'S BROADCAST (approximate)
+    СЕГОДНЯШНЯЯ ТРАНСЛЯЦИЯ (приблизительно)
     
-    Music: Two hours, vintage pre-war recordings. One record skips on track four.
-        Apologies. We are working on it. The skipping has become a tradition anyway.
+    Музыка: два часа, винтажные довоенные записи. Одна пластинка заедает на четвёртом треке.
+        Приношу извинения. Мы работаем над этим. Заедание уже стало традицией.
     
-    News and Reports:
-    - Caravan from Fernley expected Thursday if weather holds.
-    - The water committee meeting is rescheduled to Friday.
-    - Missing: brown dog, answers to Noodles, last seen near the south fence.
-      If found, please return to the Kellerman family.
-    - Reminder: the weekly supply share requires participation from all households.
-      If you have not contributed this cycle, see Marshal Oates.
+    Новости и отчёты:
+    - Караван из Фернли ожидается в четверг, если позволит погода.
+    - Заседание водного комитета перенесено на пятницу.
+    - Разыскивается: коричневая собака, отзывается на Нудлс, в последний раз видна у южного забора.
+      Если найдёте, верните, пожалуйста, семье Келлерман.
+    - Напоминание: еженедельная раздача общих припасов требует участия всех домохозяйств.
+      Если вы ещё не внесли долю в этом цикле, обратитесь к маршалу Оутсу.
     
-    Tonight's story: third installment of our reading of the pre-war novel we found
-    in the library basement. Still not sure the ending is worth waiting for, but
-    seven families have said they will be listening, so we will keep going.
+    Сегодняшняя история: третья часть нашего чтения довоенного романа, найденного нами
+    в подвале библиотеки. Мы всё ещё не уверены, что концовки стоит ждать, но
+    семь семей сказали, что будут слушать, так что продолжим.
     
-    Stay warm. Stay smart. See you tomorrow.
-
+    Оставайтесь в тепле. Оставайтесь умными. Увидимся завтра.
+    
 # 017 - Absurdist pre-war brand jingle
 holotape-wanderer-017-title = ЗАКАТ САРСАПАРИЛЬЯ - ПРОМО ЛЕНТА
 holotape-wanderer-017-content = 
-    (Upbeat jingle music plays for several seconds, then cuts to a recorded voice)
+    (Играет жизнерадостная джингловая мелодия несколько секунд, затем сменяется голосом записи)
     
-    Hi there, partner!
+    Привет, партнёр!
     
-    This is a promotional recording from the fine folks at Sunset Sarsaparilla!
+    Это рекламная запись от замечательных людей из «Сансет Сарсапарилья»!
     
-    If you are hearing this, you are holding one of our limited-run GOLDEN WINNER
-    promotional holotapes! That means you may be eligible for our grand prize of
-    ONE MILLION bottle caps!
+    Если ты слышишь это, значит, ты держишь одну из наших промо-лент лимитированной серии
+    «ЗОЛОТОЙ ПОБЕДИТЕЛЬ»! А это значит, что ты можешь претендовать на наш главный приз —
+    ОДИН МИЛЛИОН крышек от бутылок!
     
-    Simply visit your nearest Sunset Sarsaparilla distribution center, bring proof
-    of purchase, and claim your winnings in person!
+    Просто посети ближайший дистрибьюторский центр «Сансет Сарсапарилья», принеси чек
+    о покупке — и забери свой выигрыш лично!
     
-    Additional terms apply. Offer void in Montana, certain territories, and the
-    immediate aftermath of nuclear conflict. Distribution centers may be temporarily
-    closed due to circumstances including but not limited to: supply disruption,
-    enemy action, societal collapse, or spontaneous depressurization.
+    Действуют дополнительные условия. Предложение не действует в Монтане, на отдельных территориях
+    и в непосредственной близости от последствий ядерного конфликта. Дистрибьюторские центры могут быть
+    временно закрыты по причинам, включая, но не ограничиваясь: перебои в поставках,
+    действия противника, крах общества или самопроизвольная разгерметизация.
     
-    Sunset Sarsaparilla: The Taste of the Old West!
+    «Сансет Сарсапарилья»: вкус старого Запада!
     
-    (Jingle plays again. Then static.)
+    (Джингл играет снова. Затем помехи.)
     
-    (Handwritten note taped to the casing: Worth checking anyway - M)
-
+    (Рукописная записка на корпусе: В любом случае, стоит проверить - М)
+    
 # 018 - Treasure hunt final clue
 holotape-wanderer-018-title = ПОИСК КЭША – ПОСЛЕДНЯЯ ПОДСКАЗКА
 holotape-wanderer-018-content = 
-    If you made it this far, you found all four clues.
-    Good. You are either very smart or very lucky.
+    Если ты дошёл до этого, значит, ты нашёл все четыре подсказки.
+    Хорошо. Ты либо очень умен, либо очень везуч.
     
-    The cache is under the floorboards of the old ranger station north of the
-    highway. You already know which one - it is the one with the door torn off.
-    Look for the loose board in the northwest corner. Lift straight up.
+    Тайник под половицами старой станции рейнджеров к северу от
+    шоссе. Ты уже знаешь какой — это та, с сорванной дверью.
+    Ищи оторванную доску в северо-западном углу. Поднимай строго вверх.
     
-    Contents, as of when I hid it:
-    - One (1) bottle of Nuka-Cola Quantum. Yes, an actual one. Do not shake it.
-    - A sealed tin of pre-war hard candy. Might be edible. Might not be. Try at
-      your own judgment.
-    - The key to the supply room under the salt processing shed, south side of town.
-      The shed is abandoned. The supply room is not empty.
+    Содержимое на момент, когда я его прятал:
+    - Одна (1) бутылка «Нюка-Колы Квантум». Да, настоящая. Не тряси.
+    - Запечатанная банка довоенных конфет. Может быть съедобна. Может и нет. Пробуешь
+      на свой страх и риск.
+    - Ключ от кладовой под соляным складом, южная сторона города.
+      Склад заброшен. Но кладовая не пуста.
     
-    I set this up for my daughter. She said treasure hunts were childish.
-    She was nine. I disagreed then. I disagree now.
+    Я устроил это для своей дочери. Она говорила, что поиски сокровищ — это для детей.
+    Ей было девять. Тогда я не соглашался. Не согласен и сейчас.
     
-    She did not make it. Neither did her mother.
+    Она не дожила. И её мать тоже.
     
-    You made it. So have at it.
+    А ты дожил. Так что давай.
     
-    - Foreman Aldous, retired
-
+    - Бригадир Олдоус, в отставке
+    
 # 019 - Animal behavior warning
 holotape-wanderer-019-title = КОНСУЛЬТАЦИЯ ПО ДИКОЙ ПРИРОДЕ
 holotape-wanderer-019-content = 
-    Note to anyone moving through the northeast section of the salt flats:
+    Заметка всем, кто проходит через северо-восточный участок соляных пустошей:
     
-    The deathclaw that was using the old drainage channel as a den is gone.
-    This is good news. The bad news is we do not know where it went.
+    Смертокоготь, который использовал старый дренажный канал как логово, ушёл.
+    Это хорошая новость. Плохая новость в том, что мы не знаем, куда он делся.
     
-    Additionally, the molerat population in the speedway ruins has more than doubled
-    since last month. They boiled out through the old concourse and are now ranging
-    further north. Big ones. If you hear them underground it means you are surrounded,
-    not approaching them. Different problem.
+    Кроме того, популяция молокрыс в руинах гоночной трассы более чем удвоилась
+    с прошлого месяца. Они хлынули через старый вестибюль и теперь разбредаются
+    дальше на север. Крупные особи. Если слышишь их под землёй — значит ты окружён,
+    а не приближаешься к ним. Другая проблема.
     
-    The gecko situation near the south spring is unchanged: territorial but manageable
-    if you make noise on approach and do not crouch. Crouching reads as aggression.
+    Ситуация с гекконами у южного источника без изменений: они территориальны, но с ними можно
+    ужиться, если шуметь при подходе и не пригибаться. Пригибание они читают как агрессию.
     
-    Radscorpions: always assume more than you can see. They nest in groups of four
-    to seven. If you find one adult, you have already found three adults.
+    Рад-скорпионы: всегда считай, что их больше, чем видишь. Они гнездятся группами по четыре-семь.
+    Если нашёл одного взрослого — ты уже нашёл троих взрослых.
     
-    Stay on the main paths during daylight where possible.
-    We have enough trouble without adding animal attacks to the list.
+    Днём, где возможно, держитесь главных троп.
+    У нас и без того достаточно проблем, чтобы добавлять нападения животных в список.
     
-    - Settlement Watch
-
+    - Поселенческая стража
+    
 # 020 - Last will and testament
 holotape-wanderer-020-title = ПОСЛЕДНЯЯ ВОЛЯ И ЗАВЕТ
 holotape-wanderer-020-content = 
-    Being of sound(ish) mind and uncertain body, I hereby leave the following:
+    Будучи в здравом(вроде бы) уме и с непредсказуемым телом, настоящим завещаю следующее:
     
-    To my nephew Carver, the big rifle and all remaining ammunition. He knows
-    how to use it. Also the hand-drawn maps. He helped make them.
+    Своему племяннику Карверу — большую винтовку и все оставшиеся патроны. Он знает,
+    как ею пользоваться. Также самодельные карты. Он помогал их делать.
     
-    To the settlement general fund: my supply of purified water, all food stores,
-    two coils of wire, and the solar charging unit in the back room.
-    I figure the community gave me more than I gave it. This is a start on evening up.
+    В общий фонд поселения: мой запас очищенной воды, все запасы еды,
+    два мотка проволоки и солнечное зарядное устройство из дальней комнаты.
+    Я считаю, что общество дало мне больше, чем я ему. Это начало выравнивания счёта.
     
-    To Mira at the caravan: the outstanding debt of 40 caps is forgiven.
-    She kept me alive two winters ago when she did not have to.
-    Call it even.
+    Мире с каравана: прощаю непогашенный долг в 40 крышек.
+    Она два года назад спасла мне жизнь, когда не обязана была.
+    Считаем, что квиты.
     
-    I do not have much else. What I had, I used.
+    Больше у меня ничего особенного нет. Что было — то я использовал.
     
-    If anyone asks, I did all right. I saw the salt flats at sunrise one more time
-    this week. Still the most extraordinary thing I know.
+    Если кто спросит — я жил неплохо. Я снова увидел соляные пустоши на рассвете
+    на этой неделе. До сих пор самая выдающаяся вещь, что я знаю.
     
-    If by some miracle the situation changes and I survive this: disregard everything.
-    Except giving Mira her 40 caps back. She has earned it fair.
+    Если каким-то чудом ситуация изменится и я выживу: не принимайте это всерьёз.
+    Кроме возврата Мире её 40 крышек. Она их честно заслужила.
     
-    - Donnelly, citizen of somewhere
+    - Доннелли, гражданин откуда-то

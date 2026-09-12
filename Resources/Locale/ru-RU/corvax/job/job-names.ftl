@@ -19,6 +19,8 @@ job-name-caesar-legion-explorer = Разведчик Легиона
 job-description-caesar-legion-explorer = Будьте впереди основных сил Легиона в роли разведчика и охотника. Твои глаза и твой клинок — это досягаемость Цезаря до диких земель.
 job-name-caesar-legion-orator = Оратор Легиона
 job-description-caesar-legion-orator = Озвучьте философию Цезаря и распространите доктрину Легиона. Оратор сражается словами не меньше, чем сталью.
+job-name-caesar-legion-optio = Опцион Легиона
+job-description-caesar-legion-optio = Вы второй человек в командовании: ведите дипломатию Легиона и помогайте Центуриону во всех делах. Вы готовитесь стать Центурионом.
 job-name-caesar-legion-dean = Декан Легиона
 job-description-caesar-legion-dean = Возглавьте небольшое боевое подразделение Легиона и держите легионеров под собой готовыми к бою и послушными.
 job-name-caesar-legion-forgemaster = Мастер кузни Легиона
@@ -59,3 +61,18 @@ job-description-caesar-legion-slave = Вы раб Легиона Цезаря. �
 # job-description-bos-west-scribe = Lead the scribes, control technical doctrine, and safeguard the chapter's knowledge.
 # job-name-bos-west-gunsmith = Brotherhood Squire
 # job-description-bos-west-gunsmith = Maintain Brotherhood equipment while training under the chapter's senior members.
+
+job-name-medical-borg = Медицинский киборг
+
+job-name-chief-justice = Главный судья
+
+job-name-clerk = Клерк
+
+job-name-prosecutor = Прокурор
+
+job-name-courier = Курьер
+
+job-name-admin-assistant = Административный помощник
+
+job-name-radiohost = Радиоведущий
+job-description-radiohost = Поддерживайте эфир! Развлекайте экипаж, сообщайте новости и будьте голосом, который нужен станции.

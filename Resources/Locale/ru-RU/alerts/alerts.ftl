@@ -119,3 +119,25 @@ alerts-rooted-desc = Вы прикреплены к земле. Вы не мож
 
 alerts-stealthy-name = Карманничество
 alerts-stealthy-desc = Определяет режим скрытой кражи. Нажмите для переключения.
+
+alerts-high-oxygen-name = [color=red]Высокий уровень кислорода[/color]
+
+alerts-high-oxygen-desc = В воздухе, которым вы дышите, [color=red]слишком много кислорода[/color]. Используйте [color=green]дыхательную маску и баллон[/color].
+
+alerts-low-plasma-name = [color=red]Низкий уровень плазмы[/color]
+
+alerts-low-plasma-desc = В воздухе, которым вы дышите, [color=red]недостаточно плазмы[/color]. Используйте [color=green]дыхательную маску и баллон[/color].
+
+alerts-hunger-current-value = Текущий голод:
+    { $current }/{ $max }
+
+alerts-thirst-current-value = Текущая жажда:
+    { $current }/{ $max }
+
+alerts-offer-name = Предложение
+
+alerts-offer-desc = Кто-то предлагает вам предмет.
+
+alerts-deflecting-name = Отражение
+
+alerts-deflecting-desc = У вас есть шанс отразить входящие снаряды. Если стоять неподвижно или двигаться медленно, этот шанс возрастёт.

@@ -348,7 +348,7 @@
   components:
   - type: Wieldable
   - type: StrengthRequirement
-    requiredStrength: 5
+    requiredStrength: 4
   - type: GunWieldBonus
     minAngle: -23 # #Misfits Tweak - wielded spread 2°/20°; fast fire. fast spread.
     maxAngle: -46
@@ -629,7 +629,7 @@
   components:
   - type: Wieldable
   - type: StrengthRequirement
-    requiredStrength: 5
+    requiredStrength: 4
   - type: GunWieldBonus
     minAngle: -24 # #Misfits Tweak - wielded spread 1°/10°; 0° min for rifles
     maxAngle: -50
@@ -684,7 +684,7 @@
   components:
   - type: Wieldable
   - type: StrengthRequirement
-    requiredStrength: 5
+    requiredStrength: 4
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -45
@@ -730,7 +730,7 @@
   components:
   - type: Wieldable
   - type: StrengthRequirement
-    requiredStrength: 5
+    requiredStrength: 4
   - type: GunWieldBonus
     minAngle: -34
     maxAngle: -63
@@ -948,7 +948,7 @@
   components:
   - type: Wieldable
   - type: StrengthRequirement
-    requiredStrength: 5
+    requiredStrength: 6
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -56
@@ -1121,6 +1121,9 @@
   id: N14WeaponPlasmaCaster
   description: A massive plasma gun with a pretty sharp barrel, this gun is fed with plasma shells.
   components:
+
+  - type: StrengthRequirement
+    requiredStrength: 7
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_caster.rsi
     layers:
@@ -1179,6 +1182,9 @@
   id: N14WeaponLaserGatling
   description: A minigun, but laser — for those who prefer ash piles to perforated corpses. Spews a torrent of red laser bolts downrange at eight rounds per second. Requires a fusion core to operate.
   components:
+
+  - type: StrengthRequirement
+    requiredStrength: 7
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_gatling.rsi
     layers:
@@ -1229,9 +1235,9 @@
     InactiveWeaponFireRate: 1
   - type: Gun
     minAngle: 2
-    maxAngle: 12
+    maxAngle: 15
     angleIncrease: 4
-    angleDecay: 12
+    angleDecay: 15
     fireRate: 8
     soundGunshot:
       collection: N14LaserGatlingGunshot
@@ -1296,7 +1302,7 @@
     - 0,1,0,1
   - type: Wieldable
   - type: StrengthRequirement
-    requiredStrength: 5
+    requiredStrength: 7
   - type: GunWieldBonus
     minAngle: -7 # #Misfits Tweak - wielded spread 1°/5°; rapid-fire weapons keep 1° minimum
     maxAngle: -20
@@ -1405,7 +1411,7 @@
     - 0,1,0,1
   - type: Wieldable
   - type: StrengthRequirement
-    requiredStrength: 5
+    requiredStrength: 4
   - type: GunWieldBonus
     minAngle: -18
     maxAngle: -50
@@ -1520,6 +1526,8 @@
     - 0,0,3,1
     - 0,2,0,2
   - type: Wieldable
+  - type: StrengthRequirement
+    requiredStrength: 7
     wieldedSpeedModifier: 0.7
   - type: GunWieldBonus
     minAngle: -24

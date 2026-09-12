@@ -92,7 +92,7 @@ nc-store-contract-desc-generated = Обязательно: { $goals }
 
 nc-store-contract-goal-inline = { $item } x{ $count }
 
-nc-store-unknown-item = None
+nc-store-unknown-item = ???
 
 nc-store-proto-tooltip-name-only = { $name }
 nc-store-proto-tooltip = { $name }
@@ -113,3 +113,10 @@ nc-store-popup-no-crate = Чтобы продать, вам нужно выта�
 nc-store-popup-invalid-listing = Недействительный листинг.
 nc-store-popup-transaction-failed = Транзакция не удалась.
 nc-store-popup-crate-too-far = Ящик находится слишком далеко.
+
+nc-store-difficulty-road-kill = Труп на дороге
+nc-store-difficulty-lazy-lizard = Ленивая ящерица
+nc-store-difficulty-junktown-rat = Крыса Джанктауна
+nc-store-difficulty-hub-mercenary = Наёмник из Хаба
+nc-store-difficulty-bunker-buster = Разрушитель бункеров
+nc-store-difficulty-wasteland-legend = Легенда Пустоши

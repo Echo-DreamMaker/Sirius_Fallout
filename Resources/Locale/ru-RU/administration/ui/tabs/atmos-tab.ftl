@@ -10,3 +10,21 @@ admin-ui-atmos-tile-y = TileY
 admin-ui-atmos-gas = Газ
 admin-ui-atmos-gas-amount = Кол-во
 admin-ui-atmos-temperature = Температура
+
+ui-tab-atmos-set-temperature-title = Температура
+
+ui-tab-atmos-add-atmos = Добавить атмосферу
+
+ui-tab-atmos-add-gas = Добавить газ
+
+ui-tab-atmos-fill-gas = Заполнить газом
+
+ui-tab-atmos-grid = Грид
+
+ui-tab-atmos-tileX = Координата X
+
+ui-tab-atmos-tileY = Координата Y
+
+ui-tab-atmos-temperature = Температура
+
+ui-tab-atmos-button = Применить

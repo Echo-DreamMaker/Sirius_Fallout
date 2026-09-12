@@ -9,3 +9,8 @@ metabolizer-type-plant = Растение
 metabolizer-type-dwarf = Дварф
 metabolizer-type-moth = Моль
 metabolizer-type-arachnid = Арахнид
+
+metabolizer-type-vampiric = Вампирический
+metabolizer-type-liquorlifeline = Ликёровая жизнь
+metabolizer-type-shadowkin = Тенерод
+metabolizer-type-plasmaman = Плазмамен

@@ -40,3 +40,9 @@ ui-vote-fluff = На основе Robust™ СЗИ-НСД
 
 cmd-votemenu-desc = Открывает меню голосования.
 cmd-votemenu-help = Использование: votemenu
+
+ui-vote-menu-command-description = Открывает меню голосования
+
+ui-vote-menu-command-help-text = Использование: votemenu
+
+ui-vote-type-extend = Продлить раунд

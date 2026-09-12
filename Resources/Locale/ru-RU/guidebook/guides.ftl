@@ -200,3 +200,23 @@ guide-entry-rules-ban-durations = Длительности банов
 
 guide-entry-writing = Разметка письма
 guide-entry-glossary = Словарь терминов
+
+guide-entry-sm = Двигатель сверхматерии (ДСМ)
+
+guide-entry-singularity = Сингулярность / Тесла
+
+guide-entry-blood-cult = Кровавый культ
+
+guide-entry-altars-golemancy = Алтари и големантия
+
+guide-entry-glimmer-creatures = Мерцающие существа
+
+guide-entry-reverse-engineering = Обратное проектирование
+
+guide-entry-loadout-info = Снаряжение
+
+guide-entry-loadout-eyes-eyepatch = Глазная повязка
+
+guide-entry-crafting-sys = Чертежи и крафт
+
+guide-entry-network-configurator = Сетевой конфигуратор

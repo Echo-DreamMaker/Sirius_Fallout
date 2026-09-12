@@ -54,3 +54,6 @@ recipe-RailingCornerSmall-name = { ent-RailingCornerSmall }
 recipe-RailingCornerSmall-desc = { ent-RailingCornerSmall.desc }
 recipe-RailingRound-name = { ent-RailingRound }
 recipe-RailingRound-desc = { ent-RailingRound.desc }
+
+ent-N14DoorWoodHouseWhite = деревянная дверь
+    .desc = Это дверь. Похоже на входную дверь дома.

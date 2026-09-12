@@ -177,7 +177,7 @@ psionic-familiar-despawn-text = {CAPITALIZE($entity)} возвращается �
 ghost-role-information-familiar-name = Псионический фамильяр
 ghost-role-information-familiar-description = Межпространственное существо, подчиняющееся воле Псиона.
 ghost-role-information-familiar-rules = 
-    Obey the one who summoned you. Do not act against the interests of your Master. You will die for your Master if it is necessary.
+    Подчиняйтесь тому, кто вас призвал. Не действуйте против интересов своего Учителя. Вы умрёте за Учителя, если это будет необходимо.
 
 # Assay Power
 assay-begin = Воздух вокруг {CAPITALIZE($entity)} начинает слабо мерцать.

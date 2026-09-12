@@ -101,3 +101,8 @@ wanted-list-status-label = [color=darkgray]статус:[/color] { $status ->
 wanted-list-history-table-time-col = Время
 wanted-list-history-table-reason-col = Преступление
 wanted-list-history-table-initiator-col = Инициатор
+
+glimmer-monitor-program-name = Монитор глиммера
+glimmer-monitor-current-glimmer = Текущий глиммер: { $glimmer }Ψ
+glimmer-monitor-interval = Интервал
+glimmer-monitor-sync = Синхронизация

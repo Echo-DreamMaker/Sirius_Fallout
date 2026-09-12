@@ -25,10 +25,18 @@ panicbunker-command-show-reason-disabled = The panic bunker will no longer show 
 
 cmd-panicbunker_min_account_age-desc = Gets or sets the minimum account age in minutes that an account must have to be allowed to connect with the panic bunker enabled.
 cmd-panicbunker_min_account_age-help = Usage: panicbunker_min_account_age <minutes>
-panicbunker-command-min-account-age-is = The minimum account age for the panic bunker is { $minutes } minutes.
-panicbunker-command-min-account-age-set = Set the minimum account age for the panic bunker to { $minutes } minutes.
+panicbunker-command-min-account-age-is = Минимальный возраст аккаунта для входа при включённом режиме «Бункер» — { $hours } ч.
+panicbunker-command-min-account-age-set = Минимальный возраст аккаунта для входа при включённом режиме «Бункер» установлен на { $hours } ч.
 
 cmd-panicbunker_min_overall_minutes-desc = Gets or sets the minimum overall playtime in minutes that an account must have to be allowed to connect with the panic bunker enabled.
 cmd-panicbunker_min_overall_minutes-help = Usage: panicbunker_min_overall_minutes <minutes>
 panicbunker-command-min-overall-minutes-is = The minimum overall playtime for the panic bunker is { $minutes } minutes.
 panicbunker-command-min-overall-minutes-set = Set the minimum overall playtime for the panic bunker to { $minutes } minutes.
+
+cmd-panicbunker_min_overall_hours-desc = Получает или задаёт минимальное общее время игры в часах, которое должно быть у аккаунта, чтобы ему было разрешено подключаться при включённом режиме «Бункер».
+
+cmd-panicbunker_min_overall_hours-help = Использование: panicbunker_min_overall_hours <часы>
+
+panicbunker-command-min-overall-hours-is = Минимальное общее время игры для режима «Бункер» — { $hours } ч.
+
+panicbunker-command-min-overall-hours-set = Минимальное общее время игры для режима «Бункер» установлено на { $hours } ч.

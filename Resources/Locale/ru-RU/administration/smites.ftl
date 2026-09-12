@@ -135,3 +135,9 @@ admin-trick-pause-map-description = Ставит выбранную карту �
 admin-trick-snap-joints-description = Удаляет все физические шарниры из объекта. К сожалению, не отщёлкивает все кости в теле.
 admin-trick-minigun-fire-description = Заставляет целевое оружие стрелять как миниган (очень быстро).
 admin-trick-set-bullet-amount-description = Быстро устанавливает значение количества незаспавненных патронов в оружии.
+
+admin-smite-ghoul-species-swap-description = Превращает наших любимых игроков в гулей, используйте с великой честью.
+
+admin-smite-lung-cancer-description = Рак лёгких IIIA стадии — для тех, кому сильно зашёл сериал «Во все тяжкие».
+
+admin-smite-plasma-internals-description = Заменяет содержимое их дыхательной системы плазмой.

@@ -84,3 +84,15 @@ reagent-desc-mechanotoxin = Нейротоксин, используемый в 
 
 reagent-name-toxintrash = мусор
 reagent-desc-toxintrash = Жидкость с ужасным запахом. Смертельна для всех, кроме воксов.
+
+reagent-name-soulbreaker-toxin = токсин душегуб
+
+reagent-desc-soulbreaker-toxin = Антипсионик, примерно в 4 раза мощнее токсина майндбрейкер.
+
+reagent-name-lotophagoi-oil = масло лотофагов
+
+reagent-desc-lotophagoi-oil = Сверхмощный наркотик, который гораздо лучше обычных галлюциногенов вызывает псио-способности, но с более серьёзными побочными эффектами.
+
+reagent-name-ectoplasm = эктоплазма
+
+reagent-desc-ectoplasm = Физическая составляющая полуматериальных духов.

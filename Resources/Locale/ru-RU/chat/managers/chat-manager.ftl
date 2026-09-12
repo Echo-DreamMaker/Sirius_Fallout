@@ -176,3 +176,6 @@ chat-speech-verb-electricity-2 = жужжит
 chat-speech-verb-electricity-3 = скрежещет
 
 chat-speech-verb-marish = Марс
+
+chat-speech-verb-name-station-radio = Станционное радио
+chat-speech-verb-station-radio-1 = передаёт

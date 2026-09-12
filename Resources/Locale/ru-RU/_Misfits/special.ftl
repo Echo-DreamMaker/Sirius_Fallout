@@ -1,5 +1,5 @@
-special-low-charisma-examine-very-low = { CAPITALIZE(SUBJECT($user)) } seems hard to approach and uncomfortable to talk to.
-special-low-charisma-examine-low = { CAPITALIZE(SUBJECT($user)) } seems a little awkward to approach.
+special-low-charisma-examine-very-low = { CAPITALIZE(SUBJECT($user)) } кажется трудным(-ой) в общении, с ним(ней) неловко разговаривать.
+special-low-charisma-examine-low = { CAPITALIZE(SUBJECT($user)) } кажется немного неловким(-ой) в общении.
 
 special-low-charisma-opener-0 = Ну,
 special-low-charisma-opener-1 = Ух,

@@ -1,0 +1,12 @@
+market-barter-request-heading = Предмет, который вы хотите получить в обмен:
+market-barter-request-none = Требование обмена не выбрано.
+market-barter-request-selected = Требование: {$item}
+market-tab-activity = Лента активности
+market-tab-create = Создать объявление
+market-tab-exchange = Биржа
+market-tab-my-orders = Мои заказы и объявления
+market-verb-deposit = Внести на рынок
+market-verb-open = Открыть свободный рынок Уэндовер
+market-verb-storage = Открыть склад рынка
+market-window-heading = Биржа свободного рынка Уэндовер
+market-window-title = Биржа свободного рынка Уэндовер

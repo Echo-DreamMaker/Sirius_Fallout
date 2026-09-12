@@ -39,6 +39,18 @@ rcd-component-airlocks = Шлюзы
 rcd-component-electrical = Электроприборы
 rcd-component-lighting = Освещение
 
+rcd-component-tribal-shelter = Племенное укрытие
+
+rcd-component-tribal-furnishings = Племенная мебель
+
+rcd-component-tribal-agriculture = Племенное земледелие
+
+rcd-component-tribal-lighting = Племенное освещение
+
+rcd-component-wasteland-doors = Пустошные двери
+
+rcd-component-wasteland-walls-and-flooring = Пустошные стены и полы
+
 
 ### Prototype names (note: constructable items will be puralized)
 

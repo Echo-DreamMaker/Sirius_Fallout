@@ -12,92 +12,101 @@ ug-qualtoth-verb-pray = Молитесь Уг-Квалтоту
 # Three variants cycle so repeat visits feel slightly different.
 
 ug-qualtoth-proximity-1 = 
-    You feel an ominous presence reaching out to you from somewhere nearby...
+    Вы чувствуете зловещее присутствие, тянущееся к вам откуда-то поблизости...
 
 ug-qualtoth-proximity-2 = 
-    Something ancient stirs. A cold, dry intelligence brushes the edge of your thoughts.
+    Что-то древнее шевелится. Холодный, сухой разум касается края ваших мыслей.
 
 ug-qualtoth-proximity-3 = 
-    The hairs on the back of your neck rise. Whatever is here, it has noticed you.
+    Волосы на затылке встают дыбом. Что бы здесь ни было, оно заметило вас.
 
 # ── In-prayer flavor text (delivered only to the praying player at ~5 s / 10 s / 15 s) ──
 
 ug-qualtoth-pray-flavour-1 = 
-    A cold tendril of thought reaches across the silence and brushes the back of your mind.
+    Холодный щуп мысли тянется сквозь тишину и касается глубин вашего разума.
 
 ug-qualtoth-pray-flavour-2 = 
-    Your heartbeat slows... then quickens to a rhythm that is not your own.
+    Ваше сердцебиение замедляется... а затем ускоряется до ритма, который не принадлежит вам.
 
 ug-qualtoth-pray-flavour-3 = 
-    The stone pulses — warm, patient, achingly hungry. It is tasting you.
+    Камень пульсирует — тёплый, терпеливый, мучительно голодный. Он пробует вас на вкус.
 
 # ── Drawn-in notification (shown to other tribals when someone nearby begins praying) ──
 
 ug-qualtoth-ritual-begun-nearby = 
-    Something shifts in the air around you. Someone near the idol has opened a door.
-    You feel it too, now. Whether you want to or not.
+    Что-то меняется в воздухе вокруг вас. Кто-то рядом с идолом открыл дверь.
+    Теперь вы чувствуете это тоже. Хотите вы того или нет.
 
 # ── Prayer feedback ────────────────────────────────────────────────────────
 
 ug-qualtoth-pray-begin = 
-    You kneel before the idol and begin your ritual. Do not move or you will lose focus.
+    Вы опускаетесь на колени перед идолом и начинаете ритуал. Не двигайтесь, иначе потеряете сосредоточение.
 
 ug-qualtoth-pray-cooldown = 
-    The idol offers you nothing yet. Wait { $minutes } more minute(s) before praying again.
+    Идол пока ничего вам не дарует. Подождите ещё { $minutes } мин., прежде чем молиться снова.
 
 ug-qualtoth-pray-already-ascended = 
-    You ARE Ug-Qualtoth's gift. There is nothing left to pray for.
+    Вы И ЕСТЬ дар Уг-Квалтота. Молиться больше не о чем.
 
 ug-qualtoth-pray-success = 
-    A warmth — or something like it — courses through you. ({ $devotion } devotion total)
+    Тепло — или что-то похожее на него — струится сквозь вас. ({ $devotion } накопленного благоговения)
 
 ug-qualtoth-pray-emote = 
-    kneels before the stone idol, head bowed, lips moving in silent worship.
+    опускается на колени перед каменным идолом, склонив голову, беззвучно шевеля губами в безмолвной молитве.
 
 # ── Blood sacrifice ────────────────────────────────────────────────────────
 
 ug-qualtoth-sacrifice-reward = 
-    The idol drinks deep of the spilled blood. You feel its approval. ({ $devotion } devotion total)
+    Идол утоляет жажду пролитой кровью. Вы чувствуете его одобрение. ({ $devotion } накопленного благоговения)
 
 # ── Stage 1: one tendril arm ───────────────────────────────────────────────
 
 ug-qualtoth-stage1-private = 
-    Your right hand BURNS. You watch in mute horror as the fingers fuse and split,
-    reforming into a hooked mass of glistening cartilage and exposed bone.
-    It is stronger. You feel its weight differently now.
+    Ваша правая рука ГОРИТ. Вы с немым ужасом наблюдаете, как пальцы срастаются и расщепляются,
+    превращаясь в крючковатую массу блестящего хряща и обнажённой кости.
+    Она стала сильнее. Вы по-новому ощущаете её вес.
 
 ug-qualtoth-stage1-emote = 
-    clutches their right hand, bones audibly cracking as the fingers twist into something inhuman.
+    сжимает правую руку, кости слышно хрустят, пока пальцы скручиваются во что-то нечеловеческое.
 
 # ── Stage 2: full right arm ────────────────────────────────────────────────
 
 ug-qualtoth-stage2-private = 
-    The corruption crawls upward from your hand. Your entire right arm reshapes —
-    tendons snap and re-knot, muscle thickens into something alien.
-    You flex it. It responds. It is no longer entirely yours.
+    Порча ползёт вверх от вашей руки. Вся правая рука перестраивается —
+    сухожилия лопаются и завязываются узлами, мышцы уплотняются во что-то чужеродное.
+    Вы сгибаете её. Она отвечает. Она больше не полностью ваша.
 
 ug-qualtoth-stage2-emote = 
-    seizes as their right arm convulses from wrist to shoulder, the limb twisting into a grotesque new form.
+    бьётся в судорогах, правая рука конвульсирует от запястья до плеча, конечность скручивается в гротескную новую форму.
 
 # ── Stage 3: chest and legs, head untouched ───────────────────────────────
 
 ug-qualtoth-stage3-private = 
-    Your chest heaves as something unfurls along your spine. Ribs push outward.
-    Your legs buckle and reform — joints bending the wrong way for a heartbeat
-    before locking into a new, alien configuration.
-    Your face is the last thing still yours. For now.
+    Ваша грудь вздымается, когда что-то разворачивается вдоль позвоночника. Рёбра выталкиваются наружу.
+    Ноги подгибаются и перестраиваются — суставы на мгновение сгибаются в обратную сторону,
+    прежде чем застывают в новой, чужеродной конфигурации.
+    Ваше лицо — последнее, что ещё принадлежит вам. Пока что.
 
 ug-qualtoth-stage3-emote = 
-    convulses violently, a sound like snapping timber ringing out from within their body
-    as they straighten up — taller, wider, and fundamentally wrong.
+    жестоко конвульсирует, из его тела доносится звук, похожий на треск ломающегося дерева,
+    по мере того как он выпрямляется — выше, шире и глубоко неправильный.
 
 # ── Stage 4: full ascension / polymorph ───────────────────────────────────
 
 ug-qualtoth-stage4-private = 
-    Everything ends.
-    Everything begins.
-    Ug-Qualtoth fills the space where you used to be.
+    Всё заканчивается.
+    Всё начинается.
+    Уг-Квалтот заполняет пространство, где когда-то были вы.
 
 ug-qualtoth-stage4-emote = 
-    is consumed from the inside out in a cascade of splitting flesh — and then something
-    entirely different rises from what remains.
+    пожирается изнутри каскадом расступающейся плоти — и затем из того, что осталось,
+    поднимается нечто совершенно иное.
+
+ug-qualtoth-stage4-announcement =
+    Сообщения с Пустоши гласят, что ещё один поклонник Уг-Квалтота завершил гнусное вознесение. Опознавательный признак — обелископодобная структура, торчащая из головы этого индивида (РАЗРЕШЕНО К УНИЧТОЖЕНИЮ, боевые правила не применяются).
+
+# ── Hidden mutation stage markings (rendered by UgQualtothSystem) ────────────
+
+marking-UgQualtothStage1 = Уг-Квалтот: стадия 1
+marking-UgQualtothStage2 = Уг-Квалтот: стадия 2
+marking-UgQualtothStage3 = Уг-Квалтот: стадия 3

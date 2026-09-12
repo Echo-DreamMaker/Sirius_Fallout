@@ -36,3 +36,6 @@ tool-quality-digging-tool-name = Лопата
 
 tool-quality-brushing-name = Brushing
 tool-quality-brushing-tool-name = Wire Brush
+
+tool-quality-axing-name = Рубка
+tool-quality-axing-tool-name = Пожарный топор

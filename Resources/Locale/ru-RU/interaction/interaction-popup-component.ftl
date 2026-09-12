@@ -108,3 +108,17 @@ petting-failure-tesla = Вы тянетесь погладить { $target }, н
 
 petting-success-mail-teleporter = Вы гладите { $target } по { POSS-ADJ($target) } послушной, холодной обшивке.
 petting-failure-mail-teleporter = Вы тянетесь погладить { $target }, но { SUBJECT($target) } занимается сортировкой почты!
+
+petting-success-gladiabot = Вы гладите { $target } по { POSS-ADJ($target) } свирепой картонной голове.
+
+petting-success-batonbot = Вы гладите { $target } по { POSS-ADJ($target) } защитной металлической голове.
+
+petting-success-disablerbot = Вы гладите { $target } по { POSS-ADJ($target) } защитной металлической голове.
+
+petting-failure-gladiabot = Вы тянетесь погладить { $target }, но { SUBJECT($target) } хочет только драться!
+
+petting-failure-batonbot = Вы тянетесь погладить { $target }, но { SUBJECT($target) } едва не тыкает вас дубинкой!
+
+petting-failure-disablerbot = Вы тянетесь погладить { $target }, но { SUBJECT($target) } сердито машет своим оружием!
+
+petting-failure-pibble = Вы тянетесь погладить { $target }, но { SUBJECT($target) } бросается на вас!

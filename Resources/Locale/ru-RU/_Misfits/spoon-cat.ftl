@@ -1,0 +1,12 @@
+action-desc-spoon-cat-translator = Позволяет кому-то понимать кошачий язык до конца раунда. Три заряда.
+action-desc-wim-dog-translator = Позволяет кому-то понимать собачий язык до конца раунда. Три заряда.
+action-name-spoon-cat-translator = Поделиться пониманием кошачьего
+action-name-wim-dog-translator = Поделиться пониманием собачьего
+spoon-cat-translator-already = Они уже понимают кошачий язык.
+spoon-cat-translator-invalid = Они не способны понимать языки.
+spoon-cat-translator-success = Теперь ты понимаешь кошачий язык.
+spoon-cat-translator-success-user = Теперь {$target} понимает кошачий язык.
+wim-dog-translator-already = Они уже понимают собачий язык.
+wim-dog-translator-invalid = Они не способны понимать языки.
+wim-dog-translator-success = Теперь ты понимаешь собачий язык.
+wim-dog-translator-success-user = Теперь {$target} понимает собачий язык.

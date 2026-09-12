@@ -13,12 +13,12 @@
                         <prefUi:HighlightedContainer>
                             <BoxContainer Orientation="Vertical">
                                 <BoxContainer Orientation="Horizontal" VerticalExpand="True">
-                                    <Label Text="Name:" />
+                                    <Label Text="{Loc humanoid-profile-editor-name-label}" />
                                     <LineEdit Name="NameEdit" MinSize="270 0" VerticalAlignment="Center" Margin="5 0 0 0" />
-                                    <Button Name="NameRandomize" Text="Random" />
+                                    <Button Name="NameRandomize" Text="{Loc humanoid-profile-editor-name-random-button}" />
                                 </BoxContainer>
                                 <Button Name="RandomizeEverything" HorizontalAlignment="Center" HorizontalExpand="False"
-                                    MaxWidth="256" Text="Randomize Everything" />
+                                    MaxWidth="256" Text="{Loc humanoid-profile-editor-randomize-everything-button}" />
                                 <RichTextLabel Name="WarningLabel" HorizontalExpand="False" VerticalExpand="True"
                                     MaxWidth="425" HorizontalAlignment="Left" />
                             </BoxContainer>
@@ -29,11 +29,11 @@
             <BoxContainer Orientation="Vertical">
                 <prefUi:HighlightedContainer>
                     <BoxContainer Orientation="Horizontal" SeparationOverride="5">
-                        <Button Name="ImportButton" Text="Import"/>
-                        <Button Name="ExportButton" Text="Export"/>
-                        <Button Name="SaveButton" Text="Save" />
-                        <Button Name="ResetButton" Disabled="True" Text="Reset"/>
-                        <Button Name="ExportImageButton" Text="Export Image"/> <Button Name="OpenImagesButton" Text="Open Folder"/> </BoxContainer>
+                        <Button Name="ImportButton" Text="{Loc humanoid-profile-editor-import-button}"/>
+                        <Button Name="ExportButton" Text="{Loc humanoid-profile-editor-export-button}"/>
+                        <Button Name="SaveButton" Text="{Loc humanoid-profile-editor-save-button}" />
+                        <Button Name="ResetButton" Disabled="True" Text="{Loc humanoid-profile-editor-reset-button}"/>
+                        <Button Name="ExportImageButton" Text="{Loc humanoid-profile-editor-export-image-button}"/> <Button Name="OpenImagesButton" Text="{Loc humanoid-profile-editor-open-image-button}"/> </BoxContainer>
                 </prefUi:HighlightedContainer>
                 <CheckBox Name="RoundEndAnonymityCheckBox" Text="{Loc humanoid-profile-editor-round-end-anonymity}" HorizontalAlignment="Right" />
             </BoxContainer>
@@ -45,95 +45,95 @@
                     <BoxContainer HorizontalExpand="True" Orientation="Vertical">
                         <BoxContainer Margin="10" Orientation="Vertical" HorizontalExpand="True">
                             <BoxContainer HorizontalExpand="True">
-                                <Label Text="Species:" />
+                                <Label Text="{Loc humanoid-profile-editor-species-label}" />
                                 <Control HorizontalExpand="True"/>
                                 <TextureButton Name="SpeciesInfoButton" Scale="0.3 0.3" VerticalAlignment="Center"
-                                    ToolTip="Species Information"/>
+                                    ToolTip="{Loc humanoid-profile-editor-species-info-tooltip}"/>
                                 <OptionButton Name="SpeciesButton" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer Name="RobotModelContainer" HorizontalExpand="True" Visible="False">
-                                <Label Text="Variant:" />
+                                <Label Text="{Loc humanoid-profile-editor-variant-label}" />
                                 <Control HorizontalExpand="True"/>
                                 <OptionButton Name="RobotModelButton" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer Name="CCustomSpecieName" HorizontalExpand="True">
-                                <Label Text="Custom Species Name:" />
+                                <Label Text="{Loc humanoid-profile-editor-customspeciename-label}" />
                                 <Control HorizontalExpand="True"/>
                                     <LineEdit Name="CCustomSpecieNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer HorizontalExpand="True">
-                                <Label Text="Age:" />
+                                <Label Text="{Loc humanoid-profile-editor-age-label}" />
                                 <Control HorizontalExpand="True"/>
                                 <LineEdit Name="AgeEdit" MinSize="40 0" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer Name="SexContainer" HorizontalExpand="True">
-                                <Label Text="Sex:" />
+                                <Label Text="{Loc humanoid-profile-editor-sex-label}" />
                                 <Control HorizontalExpand="True"/>
                                 <OptionButton Name="SexButton" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer HorizontalExpand="True">
-                                <Label Text="Pronouns:" />
+                                <Label Text="{Loc humanoid-profile-editor-pronouns-label}" />
                                 <Control HorizontalExpand="True"/>
                                 <OptionButton Name="PronounsButton" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer Name="CosmeticPronousContainer" HorizontalExpand="True">
-                                <Label Text="Display Pronouns:" />
+                                <Label Text="{Loc humanoid-profile-editor-display-pronouns-label}" />
                                 <Control HorizontalExpand="True"/>
                                 <LineEdit Name="CosmeticPronounsNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer Name="StationAiNameContainer" HorizontalExpand="True">
-                                <Label Text="Station AI Name:" />
+                                <Label Text="{Loc humanoid-profile-editor-station-ai-name-label}" />
                                 <Control HorizontalExpand="True"/>
                                 <LineEdit Name="StationAINameEdit" MinSize="270 0" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer Name="CyborgNameContainer" HorizontalExpand="True">
-                                <Label Text="Cyborg Name:" />
+                                <Label Text="{Loc humanoid-profile-editor-cyborg-name-label}" />
                                 <Control HorizontalExpand="True"/>
                                 <LineEdit Name="CyborgNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer Name="ClothingContainer" HorizontalExpand="True">
-                                <Label Text="Clothing:" />
+                                <Label Text="{Loc humanoid-profile-editor-clothing-label}" />
                                 <Control HorizontalExpand="True"/>
-                                <Button Name="ShowClothes" Pressed="True" ToggleMode="True" Text="Show" HorizontalAlignment="Right" />
+                                <Button Name="ShowClothes" Pressed="True" ToggleMode="True" Text="{Loc humanoid-profile-editor-clothing-show}" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer Name="LoadoutsContainer" HorizontalExpand="True">
-                                <Label Text="Loadouts:" />
+                                <Label Text="{Loc humanoid-profile-editor-loadouts-label}" />
                                 <Control HorizontalExpand="True"/>
-                                <Button Name="ShowLoadouts" Pressed="True" ToggleMode="True" Text="Show" HorizontalAlignment="Right" />
+                                <Button Name="ShowLoadouts" Pressed="True" ToggleMode="True" Text="{Loc humanoid-profile-editor-loadouts-show}" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer HorizontalExpand="True">
-                                <Label Text="Spawn Priority:" />
+                                <Label Text="{Loc humanoid-profile-editor-spawn-priority-label}" />
                                 <Control HorizontalExpand="True"/>
                                 <OptionButton Name="SpawnPriorityButton" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer HorizontalExpand="True" Visible="False" Name="BarksContainer">
-                                <Label Text="Voice:" />
+                                <Label Text="{Loc humanoid-profile-editor-voice-label}" />
                                 <Control HorizontalExpand="True"/>
                                 <OptionButton Name="BarkVoiceButton" HorizontalAlignment="Right" />
-                                <Button Name="BarkVoicePlayButton" Text="Play" MaxWidth="80" />
+                                <Button Name="BarkVoicePlayButton" Text="{Loc humanoid-profile-editor-play-button}" MaxWidth="80" />
                             </BoxContainer>
                             <!-- #Misfits Add - vocal style preference -->
                             <BoxContainer HorizontalExpand="True" Name="SpeechVerbContainer">
-                                <Label Text="Vocal Style:" />
+                                <Label Text="{Loc humanoid-profile-editor-vocal-style-label}" />
                                 <Control HorizontalExpand="True"/>
                                 <OptionButton Name="SpeechVerbButton" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer Name="HeightContainer" HorizontalExpand="True">
                                 <Label Name="HeightLabel" Text="Height:" MinWidth="110" />
                                 <Slider Name="HeightSlider" MinValue="0.5" Value="1" MaxValue="1.5" HorizontalExpand="True" Margin="5 0 5 0" />
-                                <Button Name="HeightReset" Text="Reset" />
+                                <Button Name="HeightReset" Text="{Loc humanoid-profile-editor-reset-button}" />
                             </BoxContainer>
                             <BoxContainer Name="WidthContainer" HorizontalExpand="True">
                                 <Label Name="WidthLabel" Text="Width:" MinWidth="110" />
                                 <Slider Name="WidthSlider" MinValue="0.5" Value="1" MaxValue="1.5" HorizontalExpand="True" Margin="5 0 5 0" />
-                                <Button Name="WidthReset" Text="Reset" />
+                                <Button Name="WidthReset" Text="{Loc humanoid-profile-editor-reset-button}" />
                             </BoxContainer>
                             <BoxContainer Name="WeightContainer" HorizontalExpand="True">
                                 <Label Name="WeightLabel" />
                             </BoxContainer>
                         </BoxContainer>
                         <BoxContainer Margin="10" HorizontalExpand="True" Orientation="Vertical">
-                            <Label Text="Skin Color:" />
+                            <Label Text="{Loc humanoid-profile-editor-skin-color-label}" />
                             <Slider HorizontalExpand="True" Name="Skin" MinValue="0" MaxValue="100" Value="20" />
                             <BoxContainer Name="RgbSkinColorContainer" Visible="False" Orientation="Vertical" HorizontalExpand="True"></BoxContainer>
                         </BoxContainer>
@@ -142,7 +142,7 @@
                             <humanoid:SingleMarkingPicker Name="FacialHairPicker" Category="FacialHair" />
                         </BoxContainer>
                         <BoxContainer Name="EyesContainer" Margin="10" Orientation="Vertical">
-                            <Label Text="Eyes:" />
+                            <Label Text="{Loc humanoid-profile-editor-eyes-label}" />
                             <humanoid:EyeColorPicker Name="EyeColorPicker" />
                         </BoxContainer>
                     </BoxContainer>
@@ -175,16 +175,16 @@
                 <BoxContainer HorizontalExpand="True" Margin="0 0 0 5">
                     <Button
                         Name="TraitsShowUnusableButton"
-                        Text="Show Unusable"
-                        ToolTip="Show traits that are currently unavailable."
+                        Text="{Loc humanoid-profile-editor-traits-show-unusable-button}"
+                        ToolTip="{Loc humanoid-profile-editor-traits-show-unusable-button-tooltip}"
                         ToggleMode="True"
                         HorizontalAlignment="Stretch"
                         HorizontalExpand="True"
                         StyleClasses="OpenRight" />
                     <Button
                         Name="TraitsRemoveUnusableButton"
-                        Text="Remove Unusable"
-                        ToolTip="Remove unusable traits from the selection."
+                        Text="{Loc humanoid-profile-editor-traits-remove-unusable-button}"
+                        ToolTip="{Loc humanoid-profile-editor-traits-remove-unusable-button-tooltip}"
                         HorizontalAlignment="Stretch"
                         HorizontalExpand="True"
                         StyleClasses="OpenLeft" />
@@ -214,16 +214,16 @@
                 <BoxContainer HorizontalExpand="True" Margin="0 0 0 5">
                     <Button
                         Name="LoadoutsShowUnusableButton"
-                        Text="Show Unusable"
-                        ToolTip="Show loadouts that are currently unavailable."
+                        Text="{Loc humanoid-profile-editor-loadouts-show-unusable-button}"
+                        ToolTip="{Loc humanoid-profile-editor-loadouts-show-unusable-button-tooltip}"
                         ToggleMode="True"
                         HorizontalAlignment="Stretch"
                         HorizontalExpand="True"
                         StyleClasses="OpenRight" />
                     <Button
                         Name="LoadoutsRemoveUnusableButton"
-                        Text="Remove Unusable"
-                        ToolTip="Remove unusable loadouts from the selection."
+                        Text="{Loc humanoid-profile-editor-loadouts-remove-unusable-button}"
+                        ToolTip="{Loc humanoid-profile-editor-loadouts-remove-unusable-button-tooltip}"
                         HorizontalAlignment="Stretch"
                         HorizontalExpand="True"
                         StyleClasses="OpenLeft" />
@@ -239,7 +239,7 @@
                 <BoxContainer HorizontalExpand="True" Margin="0 0 0 5">
                     <Button
                         Name="PatreonLoadoutsShowUnusableButton"
-                        Text="Show Unusable"
+                        Text="{Loc humanoid-profile-editor-loadouts-show-unusable-button}"
                         ToolTip="{Loc humanoid-profile-editor-loadouts-show-unusable-button-tooltip}"
                         ToggleMode="True"
                         HorizontalAlignment="Stretch"
@@ -247,7 +247,7 @@
                         StyleClasses="OpenRight" />
                     <Button
                         Name="PatreonLoadoutsRemoveUnusableButton"
-                        Text="Remove Unusable"
+                        Text="{Loc humanoid-profile-editor-loadouts-remove-unusable-button}"
                         ToolTip="{Loc humanoid-profile-editor-loadouts-remove-unusable-button-tooltip}"
                         HorizontalAlignment="Stretch"
                         HorizontalExpand="True"

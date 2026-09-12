@@ -33,3 +33,17 @@ chem-master-window-sort-type-none = Сорт. по: Сначала старые
 chem-master-window-sort-type-alphabetical = Сорт. по: По алфавиту
 chem-master-window-sort-type-quantity = Сорт. по: Количество
 chem-master-window-sort-type-latest = Сорт. по: Сначала новые
+
+chem-master-window-pill-buffer-tab = Буфер таблеток
+chem-master-window-amount-placeholder = Количество переноса
+chem-master-window-pill-buffer-text = Буфер таблеток
+chem-master-window-pill-buffer-label = буфер таблеток:
+chem-master-window-pill-buffer-empty-text = Буфер таблеток пуст.
+chem-master-window-pill-buffer-low-text = Недостаточно раствора в буфере таблеток
+chem-master-window-sort-method-tooltip = Выберите способ сортировки буфера.
+chem-master-window-sort-method-Time-text = Сначала новые
+chem-master-window-sort-method-Alphabetical-text = По алфавиту
+chem-master-window-sort-method-Amount-text = Количество
+chem-master-window-transferring-label =    Переносится: [color={$color}]{$quantity}[/color]
+chem-master-window-transferring-default-label =    Переносится: [color=#ffffff]50[/color]
+chem-master-window-reagent-move-button = Переместить

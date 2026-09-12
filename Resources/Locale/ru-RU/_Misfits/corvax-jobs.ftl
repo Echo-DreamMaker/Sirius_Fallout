@@ -28,11 +28,14 @@ job-name-whitelegs-war-chief = Вождь племени Белоногих
 job-name-whitelegs-bone-breaker = Костолом племени Белоногих
 job-name-whitelegs-storm-drummer = Барабанщик племени Белоногих
 job-name-whitelegs-pain-maker = Истязатель племени Белоногих
+# #Misfits Add - "Yuma" Elder role for the Tribe (Willowers) faction
+job-name-willow-elder = Старейшина Уиллоуэров
 
 # Job descriptions
 # Misfits Change /Comment-out/: Inquisitor role removed.
 # job-description-bos-mid-inquisitor = Расследуйте нарушения доктрины, допрашивайте подозреваемых и следите за соблюдением законов Братства изнутри.
 job-description-bos-mid-serf = Выполняйте работу, обеспечивающую функционирование Братства, и выживайте под его защитой.
+job-description-bos-mid-Serf = Выполняйте работу, обеспечивающую функционирование Братства, и выживайте под его защитой.
 job-description-ncr-mp-investegator = Вы — следователь военной полиции Новой Калифорнийской Республики. Расследуйте преступления в пределах юрисдикции НКР, допрашивайте подозреваемых и следите за соблюдением военного законодательства. Вы руководите военной полицией в полевых условиях.
 job-description-ncr-prisoner = Вы — пленник Новой Калифорнийской Республики. Отбывайте наказание, выполняйте приказы и, возможно, найдите способ заслужить свободу — или забрать ее.
 job-description-raider = Вы рейдер пустоши. Собирайте мусор, сражайтесь и выживайте любыми необходимыми средствами. Сильные берут то, что хотят.
@@ -57,6 +60,8 @@ job-description-whitelegs-war-chief = Вы — Белоногий вождь. У
 job-description-whitelegs-bone-breaker = Вы — Белый Ноголом. Бейте первым, бейте сильно и держитесь достаточно близко, чтобы закончить работу своими руками.
 job-description-whitelegs-storm-drummer = Вы Белоногий Звонящий. Возглавьте натиск, задайте темп атаки и продолжайте оказывать давление на линию противника.
 job-description-whitelegs-pain-maker = Вы — Сеятель Белых Ног. Сократите разрыв, разделайте отставших и заставьте панику распространяться быстрее, чем пули.
+# #Misfits Add - "Yuma" or Willower Elder role description
+job-description-willow-elder = Вы — Старейшина Уиллоуэров, мудрый старый племенник, чья мудрость ведёт племя. Наставляйте молодых, советуйте Вождю и облегчайте бремя Шамана. Вас глубоко уважают, но вы не командир — Вождь ведёт.
 
 # #Misfits Removed - Outlaws supervisors replaced by Eighties-specific keys.
 # job-supervisors-outlaws = the Outlaws leadership

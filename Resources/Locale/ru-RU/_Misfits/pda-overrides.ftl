@@ -1,8 +1,8 @@
 # #Misfits Add - Health status labels for the Pip-Boy home screen
 pipboy-health-header = Состояние здоровья:
-pipboy-health-state-alive = [color=lime]ALIVE[/color]
-pipboy-health-state-critical = [color=red]CRITICAL[/color]
-pipboy-health-state-dead = [color=darkred]DECEASED[/color]
+pipboy-health-state-alive = [color=lime]В ЖИВЫХ[/color]
+pipboy-health-state-critical = [color=red]КРИТИЧЕСКОЕ[/color]
+pipboy-health-state-dead = [color=darkred]МЁРТВ[/color]
 
 pipboy-health-state-soft-crit = [color=orange]ТРАВМИРОВАНО[/color]
 pipboy-health-state-unknown = [color=gray]НЕИЗВЕСТНО[/color]

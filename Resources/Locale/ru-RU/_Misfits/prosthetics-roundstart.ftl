@@ -1,0 +1,17 @@
+entity-name-MisfitsProstheticNCRLeftHand = протез левой руки НКР
+entity-name-MisfitsProstheticNCRRightHand = протез правой руки НКР
+entity-name-MisfitsProstheticSimpleLeftFoot = простой протез левой стопы
+entity-name-MisfitsProstheticSimpleLeftHand = простой протез левой руки
+entity-name-MisfitsProstheticSimpleRightFoot = простой протез правой стопы
+entity-name-MisfitsProstheticSimpleRightHand = простой протез правой руки
+entity-name-MisfitsProstheticVaultTecLeftFoot = протез левой стопы «Vault-Tec»
+entity-name-MisfitsProstheticVaultTecLeftHand = протез левой руки «Vault-Tec»
+entity-name-MisfitsProstheticVaultTecRightFoot = протез правой стопы «Vault-Tec»
+entity-name-MisfitsProstheticVaultTecRightHand = протез правой руки «Vault-Tec»
+humanoid-profile-editor-prosthetic-left-foot = Левая стопа
+humanoid-profile-editor-prosthetic-left-hand = Левая рука
+humanoid-profile-editor-prosthetic-none = Обычная конечность
+humanoid-profile-editor-prosthetic-right-foot = Правая стопа
+humanoid-profile-editor-prosthetic-right-hand = Правая рука
+humanoid-profile-editor-prosthetics-description = Эти протезы заменяют выбранную часть тела, когда ваш персонаж входит в раунд.
+humanoid-profile-editor-prosthetics-title = Протезы при старте раунда

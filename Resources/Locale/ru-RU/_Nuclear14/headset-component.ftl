@@ -22,3 +22,7 @@ chat-radio-bazaar = Базар
 chat-radio-wasteland = Пустошь
 chat-radio-wasteland-global = Пустошь
 chat-radio-followers = Последователи
+
+chat-radio-ncr-rangers = Рейнджеры НКР
+chat-radio-osi = OSI
+chat-radio-zax-binary = ZAX Бинарный

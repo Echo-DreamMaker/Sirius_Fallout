@@ -3,3 +3,5 @@ defibrillator-no-mind = Не обнаружено признаков мозго�
 defibrillator-rotten = Обнаружено разложение тканей: реанимация невозможна.
 defibrillator-unrevivable = Данного пациента невозможно реанимировать ввиду уникальных особенностей организма.
 defibrillator-xeno = Зачем вообще воскрешать эту тварь?!
+
+defibrillator-revive-do = { CAPITALIZE(SUBJECT($target)) } резко дёргается и со свистом втягивает воздух.

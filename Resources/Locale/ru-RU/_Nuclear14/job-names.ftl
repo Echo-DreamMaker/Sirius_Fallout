@@ -150,6 +150,8 @@ job-name-followers = Последователи Апокалипсиса
 job-description-followers = Отбросьте дух Последователей еще глубже в пустоши. Относитесь к населению ради общего блага.
 
 # Fun
+job-name-robot = Робот
+job-description-robot = Плейсхолдерная роль робота. Следуйте своему программированию.
 job-name-survivor = Выживший
 job-description-survivor = Выживайте так долго, как сможете! Это никогда не заканчивается.
 job-name-zetan = Зетанский похититель
@@ -157,3 +159,34 @@ job-description-zetan = За материнский корабль! Исслед
 
 # N14 Role Timers # Is this needed?
 Survivor = Выживший
+
+# #Cythisiax Add - HONOR GUARD personal-whitelist BoS rank (hidden, beneath the Elder)
+job-name-bos-honor-guard = Почётный караул Братства
+job-description-bos-honor-guard = Отобранный вручную страж Старейшины, носящий силовую броню T-51bc 509-го подразделения. Обладает той же властью, что и Главный паладин, отчасти голос Старейшины, но ваши первейшая обязанность — жизнь Старейшины.
+
+job-name-ncr-heavy-trooper-lead = Ведущий тяжеловооружённый солдат НКР
+job-description-ncr-heavy-trooper-lead = Руководите тяжеловооружёнными солдатами НКР на поле боя, координируйте тяжёлое вооружение и держите линию обороны.
+
+job-name-osi-chief-scientist = Главный учёный OSI
+job-description-osi-chief-scientist = Возглавьте отряд Управления науки и промышленности НКР. Руководите исследованиями, промышленностью и полевыми изысканиями, координируя своих учёных с командной цепочкой НКР.
+job-name-osi-scientist = Учёный OSI
+job-description-osi-scientist = Проводите исследования, поддерживайте промышленные системы и обеспечивайте техническую экспертизу для НКР. Выполняйте приказы Главного учёного OSI.
+job-name-osi-assistant = Ассистент OSI
+job-description-osi-assistant = Помогайте учёным OSI и поддерживайте работу лаборатории, клиники и полевых исследований. Выполняйте приказы старших учёных.
+job-name-osi-agent = Агент OSI
+job-description-osi-agent = Полевой оперативник Управления науки и промышленности. Защищайте персонал и имущество OSI, сопровождайте экспедиции и устраняйте угрозы научной миссии Республики.
+job-name-osi-eyebot = Робоглаз OSI
+job-description-osi-eyebot = Служите Управлению науки и промышленности НКР в качестве верного роботизированного помощника исследователей.
+
+job-name-outcast = Изгнанник Братства
+job-description-outcast = Изгнанник Братства Стали, выживающий за пределами защиты ордена и ищущий своё место в пустоши.
+
+job-name-vault-cargo-specialist = Грузовой специалист
+job-description-vault-cargo-specialist = Управляйте запасами Убежища и заказывайте припасы.
+job-name-vault-courier = Курьер
+job-description-vault-courier = Доставляйте сообщения, почту и небольшие посылки между Убежищем и, возможно, внешней пустошью.
+job-name-vault-salvage-specialist = Специалист по утилизации
+job-description-vault-salvage-specialist = Отправляйтесь в пещеры за ресурсами, а при крайней необходимости — даже в пустошь.
+
+job-name-wasterTrader = Торговец пустоши
+job-description-wasterTrader = Покупайте и продавайте разнообразные экзотические и необходимые товары любому, кто готов платить; вы верны только крышкам.

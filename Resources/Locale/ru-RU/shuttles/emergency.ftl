@@ -49,3 +49,9 @@ emergency-shuttle-ui-remaining = Осталось: { $remaining }
 # Map Misc.
 map-name-centcomm = Центральное командование
 map-name-terminal = Терминал прибытия
+
+emergency-shuttle-command-round-desc = Останавливает таймер, завершающий раунд, когда поезд покидает пустошь.
+
+emergency-shuttle-command-dock-desc = Вызывает поезд и стыкует его к станции... если это возможно.
+
+emergency-shuttle-command-launch-desc = Досрочно отправляет поезд, если это возможно.
