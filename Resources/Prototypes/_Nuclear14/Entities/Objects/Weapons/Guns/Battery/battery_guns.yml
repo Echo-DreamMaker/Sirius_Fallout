@@ -1526,7 +1526,6 @@
     - 0,0,3,1
     - 0,2,0,2
   - type: Wieldable
-
   - type: StrengthRequirement
     requiredStrength: 7
     wieldedSpeedModifier: 0.7

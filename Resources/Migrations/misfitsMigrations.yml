@@ -23,9 +23,9 @@ N14DoorCellLocked80s: MisfitsDoorCellLocked80s
 # N14DecorationFlagYuma: MisfitsDecorationFlagTribe  # TODO remove when the map is updated to use the new flags
 
 # 14/08/2026
-N14DecorationFlagBrotherhoodMidwest: MisfitsDecorationFlagBoSBonneville509
-N14FlagWallWesternBrotherhood: MisfitsFlagWallBrotherhoodBonneville509
-N14DecorationFlagpoleMBOS: MisfitsDecorationFlagpoleBoSBonneville509
+# N14DecorationFlagBrotherhoodMidwest: MisfitsDecorationFlagBoSBonneville509 # Removed - BoS flags must stay as the canonical Brotherhood ones
+# N14FlagWallWesternBrotherhood: MisfitsFlagWallBrotherhoodBonneville509
+# N14DecorationFlagpoleMBOS: MisfitsDecorationFlagpoleBoSBonneville509
 
 # 19/08/2026 change all monkey and kobold cubes to rad cubes
 # we start the cooking revolution here
