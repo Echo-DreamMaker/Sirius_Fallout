@@ -837,10 +837,24 @@
 
 - type: entity
   name: M72 Gauss rifle
-  parent: N14WeaponRifleBase
+  parent: BaseItem
   id: N14WeaponSniperM72GaussRifleSirius67
   description: "An anti-materiel rifle with an ergonomic, sleek, skeletonized design. Simply looking at it can you tell it'll rip some limbs apart. Uses .50 anti-material ammo."
   components:
+  - type: StrengthRequirement
+    requiredStrength: 5
+  - type: GunRequiresWield
+  - type: AmmoCounter
+  - type: MinigunToggle
+    BypassChamber: true
+  - type: ItemToggle
+    onUse: false
+    activated: false
+    noToggleOnWield: true
+    soundActivate:
+      path: /Audio/Weapons/spinon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/spinoff.ogg
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/gaussrifle.rsi
     quickEquip: false
@@ -872,6 +886,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+  - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -883,19 +898,9 @@
         whitelist:
           tags:
             - N14MagazineRifle2mmEC
-      gun_chamber:
-        name: Chamber
-        startingItem: N14Cartridge2mmEC
-        priority: 1
-        whitelist:
-          tags:
-            - N14Cartridge2mmEC
-      # #Misfits Add — scope attachment slot on anti-materiel rifle
-      # gun_scope:
-      #   name: Scope Slot
-      #   whitelist:
-      #     tags:
-      #     - RifleScope
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -905,6 +910,26 @@
     backStrength: 3
   - type: StaticPrice
     price: 200
+  - type: Execution
+  - type: MeleeWeapon
+    attackRate: 1.3333
+    damage:
+      types:
+        Blunt: 8.5
+    bluntStaminaDamageFactor: 1.25
+    swapKeys: true
+    disableHeavy: true
+    animation: WeaponArcThrust
+    wideAnimationRotation: 180
+    soundHit:
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2.5
+  - type: DamageOtherOnHit
+    staminaCost: 7.5
+  - type: FarGunshot
   - type: GunDamageBonus
     bonusDamage:
       types:
@@ -919,6 +944,16 @@
   - type: Tag
     tags:
     - Sniper
+  - type: MinigunToggle
+    BypassChamber: true
+  - type: ItemToggle
+    onUse: false
+    activated: false
+    noToggleOnWield: true
+    soundActivate:
+      path: /Audio/Weapons/spinon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/spinoff.ogg
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/gaussrifle.rsi
     quickEquip: false

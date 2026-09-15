@@ -34,7 +34,7 @@ max_connections = 1024
 tickrate = 30
 
 [netres]
-limit = 10.0
+limit = 21.0
 
 [build]
 #! PLEASE set this for your fork

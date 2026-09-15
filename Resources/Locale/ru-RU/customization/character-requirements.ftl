@@ -87,7 +87,7 @@ character-height-requirement = Вы должны{$inverted ->
     }
     *[other]{$max ->
         [2147483648] выше [color = {$color}]{$min}[/color]см
-        *[other] ростом от [color = {$color}]{$min}[/color] до [color=__PH0__]{$max}[/color]см
+        *[other] ростом от [color = {$color}]{$min}[/color] до [color={$color}]{$max}[/color]см
     }
 }
 
@@ -101,7 +101,7 @@ character-width-requirement = Вы должны{$inverted ->
     }
     *[other]{$max ->
         [2147483648] шире [color = {$color}]{$min}[/color]см
-        *[other] шириной от [color = {$color}]{$min}[/color] до [color=__PH0__]{$max}[/color]см
+        *[other] шириной от [color = {$color}]{$min}[/color] до [color={$color}]{$max}[/color]см
     }
 }
 
@@ -115,7 +115,7 @@ character-weight-requirement = Вы должны{$inverted ->
     }
     *[other]{$max ->
         [2147483648] тяжелее [color = {$color}]{$min}[/color]кг
-        *[other] весом от [color = {$color}]{$min}[/color] до [color=__PH0__]{$max}[/color]кг
+        *[other] весом от [color = {$color}]{$min}[/color] до [color={$color}]{$max}[/color]кг
     }
 }
 

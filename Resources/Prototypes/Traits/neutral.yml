@@ -70,62 +70,42 @@
         # - type: UltraVision
         # - type: DogVision
 
-# - type: trait
-  # id: Saturnine
-  # category: Mental
-  # points: 6
-  # requirements:
-    # - !type:CharacterJobRequirement
-      # inverted: true
-      # jobs:
-        # - Borg
-        # - MedicalBorg
-    # - !type:CharacterTraitRequirement
-      # inverted: true
-      # traits:
-        # - Sanguine
-  # functions:
-    # - !type:TraitAddMoodlets
-      # moodEffects:
-        # - TraitSaturnine
+- type: trait
+  id: Saturnine
+  category: Mental
+  points: 6
+  requirements:
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Sanguine
+  functions:
+    - !type:TraitAddMoodlets
+      moodEffects:
+        - TraitSaturnine
 
-# - type: trait
-  # id: Sanguine
-  # category: Mental
-  # points: -6
-  # requirements:
-    # - !type:CharacterJobRequirement
-      # inverted: true
-      # jobs:
-        # - Borg
-        # - MedicalBorg
-    # - !type:CharacterTraitRequirement
-      # inverted: true
-      # traits:
-        # - Saturnine
-  # functions:
-    # - !type:TraitAddMoodlets
-      # moodEffects:
-        # - TraitSanguine
+- type: trait
+  id: Sanguine
+  category: Mental
+  points: -6
+  requirements:
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - Saturnine
+  functions:
+    - !type:TraitAddMoodlets
+      moodEffects:
+        - TraitSanguine
 
-# - type: trait
-  # id: AddictionNicotine
-  # category: Mental
-  # points: 1
-  # requirements:
-    # - !type:CharacterJobRequirement
-      # inverted: true
-      # jobs:
-        # - Borg
-        # - MedicalBorg
-    # - !type:CharacterSpeciesRequirement
-      # inverted: true
-      # species:
-        # - IPC
-  # functions:
-    # - !type:TraitAddMoodlets
-      # moodEffects:
-        # - NicotineWithdrawal
+- type: trait
+  id: AddictionNicotine
+  category: Mental
+  points: 1
+  functions:
+    - !type:TraitAddMoodlets
+      moodEffects:
+        - NicotineWithdrawal
 
 # - type: trait
   # id: Liar

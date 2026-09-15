@@ -56,6 +56,11 @@ public sealed partial class GunSystem
 
             var step = ContentHelpers.RoundToLevels((int) current, (int) capacity, component.MagSteps);
 
+            if (component.Inverted && step > 0)
+            {
+                step = component.MagSteps - step;
+            }
+
             if (step == 0 && !component.ZeroVisible)
             {
                 if (_sprite.LayerMapTryGet(sprite, GunVisualLayers.Mag, out _, LOG))

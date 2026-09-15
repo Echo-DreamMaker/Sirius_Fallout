@@ -52,3 +52,17 @@
       collection: N14ShellEject
       params:
         volume: -1
+
+- type: entity
+  id: N14ShellShotgun12Beanbag
+  name: beanbag shell (12 gauge)
+  parent: N14ShellShotgun12
+  components:
+  - type: Sprite
+    layers:
+      - state: beanbag
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgun12Beanbag
+  - type: SpentAmmoVisuals
+    state: beanbag

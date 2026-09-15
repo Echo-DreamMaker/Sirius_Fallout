@@ -1,11 +1,7 @@
-﻿- type: entity
-  parent: MagazineBox20gauge
+﻿# #Misfits Shims - beanbag ammo boxes now live in the N14 core
+# (Resources/Prototypes/_Nuclear14/.../Ammunition/Boxes/20gauge.yml).
+# These IDs are kept so maps/kits referencing them keep working.
+- type: entity
+  parent: MagazineBox20GaugeBeanbag
   id: MisfitsMagazineBox20GaugeBeanbag
   name: ammunition box (20 gauge beanbag)
-  components:
-  - type: BallisticAmmoProvider
-    proto: MisfitsShellShotgun20Beanbag
-  - type: Sprite
-    layers:
-      - state: base
-      - state: beanbag

@@ -19,6 +19,8 @@
     size: Ginormous
   - type: ItemToggle
     onUse: false
+    activated: false
+    noToggleOnWield: true
     soundActivate:
       path: /Audio/Weapons/spinon.ogg
     soundDeactivate:
@@ -26,8 +28,6 @@
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/spinloop.ogg
-  - type: UseDelay
-    delay: 1.5
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/minigun.rsi
     quickEquip: false
@@ -46,9 +46,7 @@
       - FullAuto
     soundGunshot:
       collection: N14MinigunGunshot
-  - type: ChamberMagazineAmmoProvider
-    soundRack:
-      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -60,17 +58,9 @@
         whitelist:
           tags:
             - N14MagazineMinigun5mm
-      gun_chamber:
-        name: Chamber
-        startingItem: N14CartridgePistol5
-        priority: 1
-        whitelist:
-          tags:
-            - N14CartridgePistol5
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -160,9 +150,27 @@
 
 - type: entity
   name: MEC Gauss minigun
-  parent: BaseWeaponMinigun
+  parent: BaseItem
   id: N14WeaponMECGaussMinigunSirius
   components:
+  - type: SuperMutantFitting
+  - type: StrengthRequirement
+    requiredStrength: 6
+  - type: MinigunToggle
+    BypassChamber: true
+    ApplyActiveSpeedModifier: true
+    ActivatedSpeedModifier: 0.1
+  - type: ItemToggle
+    onUse: false
+    activated: false
+    noToggleOnWield: true
+    soundActivate:
+      path: /Audio/Weapons/spinon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/spinoff.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/Weapons/spinloop.ogg
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/gaussminigun.rsi
     layers:
@@ -184,15 +192,13 @@
     maxAngle: 12
     angleIncrease: 2
     angleDecay: 12
-    fireRate: 8
+    fireRate: 6
     selectedMode: FullAuto
     availableModes:
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/GaussPistol_SingleShot_1.ogg
-  - type: ChamberMagazineAmmoProvider
-    soundRack:
-      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -204,17 +210,9 @@
         whitelist:
           tags:
             - N14MagazineGaussMinigun2mmEC
-      gun_chamber:
-        name: Chamber
-        startingItem: N14Cartridge2mmEC
-        priority: 1
-        whitelist:
-          tags:
-            - N14Cartridge2mmEC
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
     steps: 1

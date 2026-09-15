@@ -18,8 +18,9 @@
     netsync: false
   - type: MagazineVisuals
     magState: mag
-    steps: 2
+    steps: 3
     zeroVisible: false
+    inverted: true
   - type: Appearance
   - type: FoldableAmmoBox #Misfits Change /Add/: Empty cardboard ammo boxes can fold back into one cardboard sheet.
 

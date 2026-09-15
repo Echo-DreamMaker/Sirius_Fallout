@@ -2,9 +2,8 @@
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared.Interaction.Events;
+using Robust.Shared.GameObjects;
 
 namespace Content.Shared.Item.ItemToggle;
 // TODO: rework
@@ -21,60 +20,54 @@ namespace Content.Shared.Item.ItemToggle;
 /// </summary>
 public sealed partial class MinigunToggleSystem : EntitySystem
 {
-    [Dependency] private ItemToggleSystem _toggle = default!;
     [Dependency] private SharedGunSystem _gun = default!;
     [Dependency] private MovementSpeedModifierSystem _move = default!;
     public override void Initialize()
     {
 
-        SubscribeLocalEvent<MinigunToggleComponent, UseInHandEvent>(OnUseTryActivate, before: [typeof(SharedGunSystem)]);
+        SubscribeLocalEvent<MinigunToggleComponent, MapInitEvent>(OnMapInitRefresh);
         SubscribeLocalEvent<MinigunToggleComponent, GunRefreshModifiersEvent>(ActiveFireRate);
+        SubscribeLocalEvent<MinigunToggleComponent, ItemToggledEvent>(OnItemToggled);
         SubscribeLocalEvent<MinigunToggleComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(ActiveSpeedModifier);
     }
 
 
-    private void OnUseTryActBallistic(EntityUid uid, ChamberMagazineAmmoProviderComponent compBallistic, UseInHandEvent args)
-    {
+    // Firing is controlled solely by the power button on E (ActivateInWorldEvent).
+    // Z (UseInHandEvent) is left free so the weapon can be wielded in both hands
+    // without turning it on or off.
 
-        var closedBolt = compBallistic.BoltClosed;
-        if (closedBolt != true || _gun.GetChamberEntity(uid) is null)
-        {
-            _toggle.TryDeactivate(uid);
-        }
-        else
-        {
-            _toggle.Toggle(uid);
-            args.Handled = true;
-        }
+    private void OnMapInitRefresh(EntityUid uid, MinigunToggleComponent comp, ref MapInitEvent args)
+    {
+        // Weapons that spawn turned off must still apply their gated fire rate
+        // before the first toggle, otherwise they would fire at the base rate.
+        _gun.RefreshModifiers(uid);
     }
 
-    // I want this to be handled in a generic way inside gunsystem. I dont like hardcoding interactions like this
-    public void OnUseTryActivate(EntityUid uid, MinigunToggleComponent comp, UseInHandEvent args)
+    private void OnItemToggled(EntityUid uid, MinigunToggleComponent comp, ItemToggledEvent args)
     {
-
-        if (TryComp<ChamberMagazineAmmoProviderComponent>(uid, out var compBallistic))
-        {
-            OnUseTryActBallistic(uid, compBallistic, args);
-        }
-        else
-        {
-            _toggle.Toggle(uid);
-            args.Handled = true;
-        }
-
         _gun.RefreshModifiers(uid);
-        _move.RefreshMovementSpeedModifiers(args.User);
+        if (args.User != null)
+            _move.RefreshMovementSpeedModifiers(args.User.Value);
     }
 
     // TODO: should be affected by Special
     /// <summary>
-    /// Handles changing the fire rate when the gun is active and inactive
+    /// Handles changing the fire rate when the gun is active and inactive.
+    /// The power button (E) is a hard on/off switch for every toggle weapon:
+    /// off means the weapon cannot fire at all, on means it fires at its
+    /// prototype fire rate (or ActivatedFireRate when set).
     /// </summary>
     public void ActiveFireRate(Entity<MinigunToggleComponent> ent, ref GunRefreshModifiersEvent args)
     {
         var comp = Comp<ItemToggleComponent>(ent.Owner);
-        args.FireRate = comp.Activated ? ent.Comp.ActivatedFireRate : ent.Comp.InactiveWeaponFireRate;
+        if (!comp.Activated)
+        {
+            args.FireRate = 0f;
+            return;
+        }
 
+        if (ent.Comp.ActivatedFireRate > 0f)
+            args.FireRate = ent.Comp.ActivatedFireRate;
     }
 
     // TODO: should be affected by Special
@@ -83,6 +76,11 @@ public sealed partial class MinigunToggleSystem : EntitySystem
     /// </summary>
     public void ActiveSpeedModifier(EntityUid uid, MinigunToggleComponent comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
+        // Ballistic chamber miniguns always take the movement penalty while active.
+        // Energy (BypassChamber) weapons opt in via ApplyActiveSpeedModifier.
+        if (comp.BypassChamber && !comp.ApplyActiveSpeedModifier)
+            return;
+
         var active = Comp<ItemToggleComponent>(uid).Activated;
         float speedMod = active ? comp.ActivatedSpeedModifier : 1f;
         args.Args.ModifySpeed(speedMod, speedMod, true);

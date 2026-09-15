@@ -254,6 +254,9 @@ public sealed class ItemToggleSystem : EntitySystem
     /// </summary>
     private void TurnOnOnWielded(Entity<ItemToggleComponent> ent, ref ItemWieldedEvent args)
     {
+        if (ent.Comp.NoToggleOnWield)
+            return;
+
         // FIXME: for some reason both client and server play sound
         TryActivate((ent, ent.Comp));
     }

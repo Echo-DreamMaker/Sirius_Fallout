@@ -7,6 +7,7 @@ using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Tag;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 
@@ -110,7 +111,7 @@ public sealed class SpecialAimingSystem : EntitySystem
 
     private void RefreshGun(EntityUid uid)
     {
-        if (_hands.TryGetActiveItem(uid, out var item))
+        if (_hands.TryGetActiveItem(uid, out var item) && TryComp<GunComponent>(item.Value, out _))
             _gun.RefreshModifiers(item.Value);
     }
 

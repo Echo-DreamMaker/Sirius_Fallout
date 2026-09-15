@@ -114,8 +114,9 @@ public abstract partial class SharedGunSystem
     {
         RefreshModifiers((uid, component));
 
-        var fireDelay = 1f / component.FireRateModified;
-        if (fireDelay.Equals(0f))
+        // When a weapon is toggled off its fire rate is zeroed (open bolt).
+        // Do not compute a cooldown from it: 1/0 would overflow TimeSpan.
+        if (component.FireRateModified <= 0f)
             return;
 
         if (!component.ResetOnHandSelected)
@@ -126,7 +127,7 @@ public abstract partial class SharedGunSystem
 
         // If someone swaps to this weapon then reset its cd.
         var curTime = Timing.CurTime;
-        var minimum = curTime + TimeSpan.FromSeconds(fireDelay);
+        var minimum = curTime + TimeSpan.FromSeconds(1f / component.FireRateModified);
 
         if (minimum < component.NextFire)
             return;
