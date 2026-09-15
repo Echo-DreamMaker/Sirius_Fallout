@@ -11,6 +11,7 @@ using Robust.Shared.Utility;
 using Robust.Shared.Configuration;
 using Robust.Client.ResourceManagement;
 using Content.Shared.CCVar;
+using Content.Client.Stylesheets;
 
 namespace Content.Client.DoAfter;
 
@@ -23,6 +24,7 @@ public sealed class DoAfterOverlay : Overlay
     private readonly SharedTransformSystem _transform;
     private readonly MetaDataSystem _meta;
     private readonly ProgressColorSystem _progressColor;
+    private readonly IStylesheetManager _stylesheet;
 
     private readonly Texture _barTexture;
     private readonly ShaderInstance _unshadedShader;
@@ -49,6 +51,7 @@ public sealed class DoAfterOverlay : Overlay
         _timing = timing;
         _player = player;
         _cfg = IoCManager.Resolve<IConfigurationManager>();
+        _stylesheet = IoCManager.Resolve<IStylesheetManager>();
         _transform = _entManager.EntitySysManager.GetEntitySystem<SharedTransformSystem>();
         _meta = _entManager.EntitySysManager.GetEntitySystem<MetaDataSystem>();
         _progressColor = _entManager.System<ProgressColorSystem>();
@@ -83,6 +86,7 @@ public sealed class DoAfterOverlay : Overlay
 
         var bounds = args.WorldAABB.Enlarged(5f);
         var localEnt = _player.LocalSession?.AttachedEntity;
+        var themeColor = StyleNano.NanoGold;
 
         var metaQuery = _entManager.GetEntityQuery<MetaDataComponent>();
         var enumerator = _entManager.AllEntityQueryEnumerator<ActiveDoAfterComponent, DoAfterComponent, SpriteComponent, TransformComponent>();
@@ -127,8 +131,6 @@ public sealed class DoAfterOverlay : Overlay
                     alpha = 0.5f;
                 }
 
-                float yOffset = sprite.Bounds.Height / 2f + 0.05f;
-
                 Color color;
                 float elapsedRatio;
 
@@ -160,9 +162,10 @@ public sealed class DoAfterOverlay : Overlay
 
                 if (_useFalloutHUD)
                 {
+                    float falloutYOffset = sprite.Bounds.Height / 2f - 0.35f;
                     var falloutPos = new Vector2(-_falloutBgTexture.Width / 2f / EyeManager.PixelsPerMeter,
-                        yOffset / scale + offset / EyeManager.PixelsPerMeter * scale);
-                    handle.DrawTexture(_falloutBgTexture, falloutPos);
+                        falloutYOffset / scale + offset / EyeManager.PixelsPerMeter * scale);
+                    handle.DrawTexture(_falloutBgTexture, falloutPos, themeColor.WithAlpha(alpha));
                     const int totalBlocks = 10;
                     int visibleBlocks = 0;
                     if (elapsedRatio > 0f)
@@ -192,12 +195,13 @@ public sealed class DoAfterOverlay : Overlay
                         }
                     }
 
-                    offset += _falloutBgTexture.Height / scale;
+                    offset += _barTexture.Height / scale;
                 }
                 else
                 {
+                    float vanillaYOffset = sprite.Bounds.Height / 2f + 0.05f;
                     var position = new Vector2(-_barTexture.Width / 2f / EyeManager.PixelsPerMeter,
-                        yOffset / scale + offset / EyeManager.PixelsPerMeter * scale);
+                        vanillaYOffset / scale + offset / EyeManager.PixelsPerMeter * scale);
                     handle.DrawTexture(_barTexture, position);
 
                     var xProgress = (EndX - StartX) * elapsedRatio + StartX;

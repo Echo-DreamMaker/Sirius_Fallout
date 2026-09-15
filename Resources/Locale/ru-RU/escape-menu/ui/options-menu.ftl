@@ -436,6 +436,7 @@ ui-options-function-offer-item = Предложить что-либо
 ui-options-function-toggle-standing = Переключить стойку
 ui-options-function-toggle-crawling-under = Переключить ползание под мебелью
 ui-options-modern-progress-bar = Современный прогресс-бар
+ui-options-fallout-progress-bar = Прогресс-бар Fallout
 ui-options-header-targeting = Прицеливание
 ui-options-hotkey-default-walk = Идти по умолчанию
 ui-options-function-target-head = Прицел: голова
