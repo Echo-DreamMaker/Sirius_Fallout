@@ -4,6 +4,20 @@
   group: N14Alcohol
   name: reagent-name-absinthe
   desc: reagent-desc-absinthe
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Ale
@@ -11,13 +25,41 @@
   group: N14Alcohol
   name: reagent-name-ale
   desc: reagent-desc-ale
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Beer
   id: N14BeantownBrownBeer
   group: N14Alcohol
   name: reagent-name-beantownbrownbeer
-  desc: reagent-desc-beantownbrownbeer 
+  desc: reagent-desc-beantownbrownbeer
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Whiskey
@@ -25,13 +67,41 @@
   group: N14Alcohol
   name: reagent-name-bourbon
   desc: reagent-desc-bourbon
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Beer
   id: N14GammaGulpBeer
   group: N14Alcohol
-  name: reagent-name-gammagulpbeer 
+  name: reagent-name-gammagulpbeer
   desc: reagent-desc-gammagulpbeer
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Beer
@@ -41,6 +111,20 @@
   desc: reagent-desc-gwinnetstout
   flavor: rum #N14TODO Change
   color: "#664300" #N14TODO Change
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Beer
@@ -50,6 +134,20 @@
   desc: reagent-desc-lager
   flavor: rum #N14TODO Change
   color: "#664300" #N14TODO Change
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Moonshine
@@ -57,6 +155,20 @@
   group: N14Alcohol
   name: reagent-name-moonshine
   desc: reagent-desc-moonshine
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: N14Lager
@@ -71,6 +183,20 @@
   group: N14Alcohol
   name: reagent-name-roentgenrum
   desc: reagent-desc-roentgenrum
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Rum
@@ -80,6 +206,20 @@
   desc: reagent-desc-rotgut
   flavor: rum #N14TODO Change
   color: "#664300" #N14TODO Change
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Whiskey
@@ -89,6 +229,20 @@
   desc: reagent-desc-scotch
   flavor: rum #N14TODO Change
   color: "#664300" #N14TODO Change
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Vodka
@@ -96,6 +250,20 @@
   group: N14Alcohol
   name: reagent-name-vodka
   desc: reagent-desc-vodka
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Whiskey
@@ -103,6 +271,20 @@
   group: N14Alcohol
   name: reagent-name-scotch
   desc: reagent-desc-scotch
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Whiskey
@@ -112,6 +294,20 @@
   desc: reagent-desc-scotch
   flavor: rum #N14TODO Change
   color: "#664300" #N14TODO Change
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 - type: reagent
   parent: Wine
@@ -119,6 +315,20 @@
   group: N14Alcohol
   name: reagent-name-wine
   desc: reagent-desc-wine
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          perceptionBoost: -1
+        - time: 600
+          perceptionBoost: 0
+      - !type:Addicting
+        time: 6
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: AlcoholWithdrawal
 
 # Mixtures
 
