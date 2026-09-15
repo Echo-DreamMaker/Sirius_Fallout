@@ -50,7 +50,8 @@ public abstract class SharedAddictionSystem : EntitySystem
         string drugName = "",
         int addictionThreshold = 4,
         FixedPoint2? currentQuantity = null,
-        StatusEffectsComponent? status = null)
+        StatusEffectsComponent? status = null,
+        bool permanent = false)
     {
         if (!Resolve(uid, ref status, false))
             return false;
@@ -106,10 +107,14 @@ public abstract class SharedAddictionSystem : EntitySystem
 
         if (isNew)
         {
+            var duration = permanent
+                ? TimeSpan.FromDays(3650)
+                : TimeSpan.FromSeconds(addictionTime);
+
             _statusEffects.TryAddStatusEffect<AddictedComponent>(
                 uid,
                 StatusEffectKey,
-                TimeSpan.FromSeconds(addictionTime),
+                duration,
                 false,
                 status);
         }
@@ -125,6 +130,7 @@ public abstract class SharedAddictionSystem : EntitySystem
                 addicted.DrugName = drugName;
 
             addicted.DoseCount++;
+            addicted.Permanent |= permanent;
         }
 
         OnAddictionApplied(uid, isNew);
@@ -163,6 +169,46 @@ public abstract class SharedAddictionSystem : EntitySystem
         // Take the highest stamina drain
         if (staminaDrain > addicted.WithdrawalStaminaDrain)
             addicted.WithdrawalStaminaDrain = staminaDrain;
+    }
+
+    /// <summary>
+    ///     Records the current metabolism observation and reports whether it represents a NEW dose of the
+    ///     given reagent (first encounter, a gap longer than <paramref name="gap"/> seconds, or a quantity
+    ///     increase). Used to gate per-dose addiction rolls so a continuous bloodstream presence collapses
+    ///     into a single dose.
+    /// </summary>
+    public bool MarkExposureAndIsNewDose(
+        EntityUid uid,
+        ProtoId<ReagentPrototype>? drugId,
+        FixedPoint2? currentQuantity,
+        TimeSpan? gap = null)
+    {
+        if (drugId == null)
+            return true;
+
+        gap ??= ExposureGap;
+
+        var exposure = EnsureComp<AddictionExposureComponent>(uid);
+        var reagentId = drugId.Value;
+        var now = _timing.CurTime;
+
+        var isNew = !exposure.LastSeenTimes.TryGetValue(reagentId, out var lastSeen)
+            || now - lastSeen > gap.Value;
+
+        if (!isNew
+            && currentQuantity != null
+            && exposure.LastSeenQuantities.TryGetValue(reagentId, out var lastQuantity)
+            && currentQuantity.Value > lastQuantity)
+        {
+            isNew = true;
+        }
+
+        exposure.LastSeenTimes[reagentId] = now;
+
+        if (currentQuantity != null)
+            exposure.LastSeenQuantities[reagentId] = currentQuantity.Value;
+
+        return isNew;
     }
 
     /// <summary>

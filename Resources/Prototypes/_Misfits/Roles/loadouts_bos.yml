@@ -5,18 +5,7 @@
 # These are NOT round-join spawn gear — players must spend loadout points to receive them in-game.
 # Pattern mirrors LoadoutLegionPrincipes.
 
-# === Elder: 509th BoS Elder T-51bc ===
-- type: loadout
-  id: LoadoutBoS509ElderT51BC
-  category: Roles
-  cost: 16
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - BoSWestElderCommander
-  items:
-    - MisfitsClothingOuterPowerArmorBoS509Elder
+# #Forge-Remove /509th/: 509th BoS Elder T-51bc loadout removed from the game.
 
 # #Cythisiax Removed - Head Paladin T-51bc loadout: the 509th T-51bc is no longer
 # accessible to the Head Paladin. The suit (now "MisfitsClothingOuterPowerArmorBoS509HonorGuard")

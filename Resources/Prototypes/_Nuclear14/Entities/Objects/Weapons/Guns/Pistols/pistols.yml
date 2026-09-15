@@ -916,13 +916,24 @@
 
 - type: entity
   name: Gauss Pistol PPK12
-  parent: N14BaseWeaponPistol
+  parent: BaseItem
   id: N14WeaponPistol2mmECPPK12Sirius
   description: Gauss pistol PPK12
   components:
   - type: Tag
     tags:
     - Sidearm
+  - type: StrengthRequirement
+  - type: MinigunToggle
+    BypassChamber: true
+  - type: ItemToggle
+    onUse: false
+    activated: false
+    noToggleOnWield: true
+    soundActivate:
+      path: /Audio/Weapons/spinon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/spinoff.ogg
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/2mmPistol.rsi
     layers:
@@ -932,10 +943,28 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Item
     sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/2mmPistol.rsi
+    size: Small
+    shape:
+    - 0,0,1,1
+    - 0,1,0,1
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
   - type: Gun
+    minAngle: 1
+    maxAngle: 7
+    angleIncrease: 0.5
+    angleDecay: 4
     fireRate: 4
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/GaussPistol_SingleShot_1.ogg
+  - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -944,15 +973,18 @@
         whitelist:
           tags:
             - N14MagazinePistol2mmEC
-      gun_chamber:
-        name: Chamber
-        startingItem: N14Cartridge2mmEC
-        priority: 1
-        whitelist:
-          tags:
-            - N14Cartridge2mmEC
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
   - type: StaticPrice
     price: 1000
+  - type: FollowDistance
+    backStrength: 6
 
 - type: entity
   name: Zipgun

@@ -18,6 +18,16 @@
   - type: Tag
     tags:
     - Sidearm
+  - type: MinigunToggle
+    BypassChamber: true
+  - type: ItemToggle
+    onUse: false
+    activated: false
+    noToggleOnWield: true
+    soundActivate:
+      path: /Audio/Weapons/spinon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/spinoff.ogg
   - type: Sprite
     sprite: _Misfits/Objects/Weapons/Guns/Pistols/gausspistol.rsi
     layers:
@@ -51,7 +61,6 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: MagazineAmmoProvider
   - type: MagazineVisuals
     magState: mag

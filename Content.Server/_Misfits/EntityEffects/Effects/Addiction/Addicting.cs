@@ -6,6 +6,8 @@ using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Misfits.EntityEffects.Effects.Addiction;
 
@@ -63,6 +65,27 @@ public sealed partial class Addicting : EntityEffect
     [DataField]
     public int AddictionThreshold = 4;
 
+    /// <summary>
+    ///     Chance (0..1) that a single NEW dose of the drug causes an addiction.
+    ///     The roll happens once per dose (not per metabolism tick) when this is set below 1.
+    ///     A continuous bloodstream presence is collapsed into a single dose.
+    /// </summary>
+    [DataField]
+    public float DoseChance = 1.0f;
+
+    /// <summary>
+    ///     If true, the resulting addiction is permanent (never expires on its own),
+    ///     used e.g. for Jet.
+    /// </summary>
+    [DataField]
+    public bool Permanent;
+
+    /// <summary>
+    ///     Maximum time between drug observations for them to be counted as the SAME dose.
+    ///     Mirrors SharedAddictionSystem.ExposureGap.
+    /// </summary>
+    private const float DoseGap = 15f;
+
     public override void Effect(EntityEffectBaseArgs args)
     {
         var addictionSys = args.EntityManager.EntitySysManager.GetEntitySystem<SharedAddictionSystem>();
@@ -87,7 +110,25 @@ public sealed partial class Addicting : EntityEffect
             }
         }
 
-        if (!addictionSys.TryApplyAddiction(args.TargetEntity, time, drugId, drugName, AddictionThreshold, currentQuantity))
+        // #Misfits Change /Add:/ Per-dose chance gate — roll DoseChance once per NEW dose,
+        // not on every metabolism tick.
+        if (DoseChance < 1.0f)
+        {
+            if (!addictionSys.MarkExposureAndIsNewDose(args.TargetEntity, drugId, currentQuantity))
+                return;
+
+            if (!IoCManager.Resolve<IRobustRandom>().Prob(DoseChance))
+                return;
+        }
+
+        if (!addictionSys.TryApplyAddiction(
+                args.TargetEntity,
+                time,
+                drugId,
+                drugName,
+                AddictionThreshold,
+                currentQuantity,
+                permanent: Permanent))
             return;
 
         // #Misfits Change /Add:/ Register withdrawal parameters (strongest values win on multi-drug)

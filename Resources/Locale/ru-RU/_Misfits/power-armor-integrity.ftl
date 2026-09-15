@@ -2,7 +2,7 @@
 power-armor-integrity-broken = Структурная целостность {CAPITALIZE(THE($armor))} нарушена! Он больше не поглощает урон.
 power-armor-integrity-restored = Структурная целостность {CAPITALIZE(THE($armor))} восстановлена.
 
-power-armor-integrity-examine = Структурная целостность: [color=__PH0__]{$current}/{$max}[/color]
+power-armor-integrity-examine = Структурная целостность: [color={$color}]{$current}/{$max}[/color]
 power-armor-integrity-examine-broken = Структурная целостность: [color=red]CRITICAL — броня нарушена[/color]
 
 power-armor-integrity-examine-absorption-header = Он поглощает следующий урон:

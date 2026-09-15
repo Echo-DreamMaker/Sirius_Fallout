@@ -257,3 +257,29 @@
     Piercing: 0.80
     Radiation: 0.25
     Poison: 0.75
+
+# Misfits Add - Drug damage resistance ("СУ") sets used by Psycho's SpecialStatTimelineEffect phases.
+# Coefficient = fraction of incoming damage that gets through (0.5 = 50% resist).
+- type: damageModifierSet
+  id: N14DrugResist50 # 50% damage resistance (e.g. Psycho peak: +50 СУ)
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Heat: 0.5
+    Cold: 0.5
+    Shock: 0.5
+    Caustic: 0.5
+    Poison: 0.5
+
+- type: damageModifierSet
+  id: N14DrugResist25 # 25% damage resistance (e.g. Psycho comedown: 25 СУ)
+  coefficients:
+    Blunt: 0.75
+    Slash: 0.75
+    Piercing: 0.75
+    Heat: 0.75
+    Cold: 0.75
+    Shock: 0.75
+    Caustic: 0.75
+    Poison: 0.75

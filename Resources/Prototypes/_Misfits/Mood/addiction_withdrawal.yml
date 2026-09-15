@@ -72,3 +72,13 @@
 
 - type: moodCategory
   id: MentatsAddiction
+
+# ── Alcohol (all N14 alcohol reagents)
+# Alcohol dulls the senses; withdrawal leaves the body craving another drink.
+- type: moodEffect
+  id: AlcoholWithdrawal
+  moodChange: -4
+  category: "AlcoholAddiction"
+
+- type: moodCategory
+  id: AlcoholAddiction

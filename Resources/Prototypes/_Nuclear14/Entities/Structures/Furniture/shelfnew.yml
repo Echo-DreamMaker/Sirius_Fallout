@@ -13,7 +13,7 @@
     snapCardinals: true
     netsync: false
     layers:
-      - state: bookshelf_2
+      - state: metalshelf
   - type: Damageable
     damageModifierSet: Wood
     damageContainer: Inorganic
@@ -38,10 +38,12 @@
     - Wooden
   - type: Transform
     anchored: true
-    noRot: true
+    noRot: false
   - type: Physics
     bodyType: Static
   - type: Anchorable
+  - type: Rotatable
+    rotateWhileAnchored: true
   - type: Pullable
   - type: Storage
     grid:

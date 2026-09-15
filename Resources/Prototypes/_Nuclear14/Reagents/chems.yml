@@ -15,24 +15,22 @@
         messageKeys:
         - drug-ambience-movespeed-mixture-1
         - drug-ambience-movespeed-mixture-2
-      # - !type:StrengthModifierReagent # Nuclear 14 Example of adding modifier to Chemicals
-      #   strengthModifier: 1
-      #   # statusLifetime: 5 # may be useful if we want to make it last longer after reagent is gone from blood?
-      # - !type:PerceptionModifierReagent # Nuclear 14 Example of adding modifier to Chemicals
-      #   perceptionModifier: 1
-      # - !type:EnduranceModifierReagent # Nuclear 14 Example of adding modifier to Chemicals
-      #   enduranceModifier: 1
-      # - !type:CharismaModifierReagent # Nuclear 14 Example of adding modifier to Chemicals
-      #   charismaModifier: 1
-      # - !type:IntelligenceModifierReagent # Nuclear 14 Example of adding modifier to Chemicals
-      #   intelligenceModifier: 1
-      # - !type:AgilityModifierReagent # Nuclear 14 Example of adding modifier to Chemicals
-      #   agilityModifier: 1
-      # - !type:LuckModifierReagent # Nuclear 14 Example of adding modifier to Chemicals
-      #   luckModifier: 1
-      - !type:MovespeedModifier
-        walkSpeedModifier: 1.1
-        sprintSpeedModifier: 1.1
+      # #Misfits Enable /Special/: Jet multi-phase timeline — peak (+2 ОД → speed, +1 СИЛ, +1 ВСП),
+      # crash after 1 min (−4 each → net −2 ОД, −3 СИЛ, −3 ВСП), recovery after 24 min.
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          agilityBoost: 2
+          strengthBoost: 1
+          perceptionBoost: 1
+        - time: 60
+          agilityBoost: -2
+          strengthBoost: -3
+          perceptionBoost: -3
+        - time: 1440
+          agilityBoost: 0
+          strengthBoost: 0
+          perceptionBoost: 0
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
@@ -48,7 +46,11 @@
       - !type:Addicting #Misfits Change
         time: 8
         # Jet withdrawal: lethargy and exhaustion without the speed rush.
-        # Mood handled separately via JetBenefit moodletOnEnd → JetWithdrawal.
+        # 50% per-dose chance to become permanently addicted; mood via JetWithdrawal.
+        doseChance: 0.5
+        permanent: true
+        addictionThreshold: 1
+        withdrawalMoodEffect: JetWithdrawal
         withdrawalSpeedPenalty: 0.80
         withdrawalStaminaDrain: 5.0
       - !type:GenericStatusEffect
@@ -157,7 +159,10 @@
       - !type:Addicting #Misfits Change
         time: 8
         # DamageModifyingMixture (Psycho) withdrawal: aggression crash, body aching from the comedown.
-        # Mood handled separately via PsychoBenefit moodletOnEnd → PsychoWithdrawal.
+        # 20% per-dose chance of addiction; mood via PsychoWithdrawal.
+        doseChance: 0.2
+        addictionThreshold: 1
+        withdrawalMoodEffect: PsychoWithdrawal
         withdrawalDamage:
           groups:
             Brute: 0.2
@@ -165,6 +170,22 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 1.30
         sprintSpeedModifier: 1.30
+      # #Misfits Enable /Special/: Psycho multi-phase timeline — peak (+3 АГЛ, −3 ИНТ, +50 СУ),
+      # crash after 4 min (net АГЛ=0, ИНТ=−2, СУ=25), recovery after 8 min.
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          agilityBoost: 3
+          intelligenceBoost: -3
+          damageResistSet: N14DrugResist50
+        - time: 240
+          agilityBoost: 0
+          intelligenceBoost: -2
+          damageResistSet: N14DrugResist25
+        - time: 480
+          agilityBoost: 0
+          intelligenceBoost: 0
+          damageResistSet: null
       - !type:HealthChange #Misfits Change /Add:/ Overdose — suffocates the player when stacking too much Psycho
         conditions:
         - !type:ReagentThreshold
@@ -267,6 +288,9 @@
       - !type:Addicting #Misfits Change
         time: 6
         # Buffout withdrawal: muscles ache from sudden loss of chemical strength augmentation.
+        # 25% per-dose chance of addiction.
+        doseChance: 0.25
+        addictionThreshold: 1
         withdrawalMoodEffect: BuffoutWithdrawal
         withdrawalDamage:
           groups:
@@ -292,8 +316,21 @@
         - !type:MobStateCondition #Misfits Tweak: OD can push to crit but never kill
         threshold: 30
         damagePerUnit: 0.05
-      - !type:SpecialStatBoostEffect #Misfits Change /Add:/ Temporary Strength boost — scales melee damage while drug is active.
-        strengthBoost: 2
+      - !type:SpecialStatTimelineEffect #Misfits Change /Add:/ Buffout multi-phase timeline — peak (+2 СИЛ, +2 ЛОВ, +3 ВНС),
+        # crash after 6 min (net СИЛ=−2, ЛОВ=−2, ВНС=−1), recovery after 18 min.
+        phases:
+        - time: 0
+          strengthBoost: 2
+          agilityBoost: 2
+          enduranceBoost: 3
+        - time: 360
+          strengthBoost: -2
+          agilityBoost: -2
+          enduranceBoost: -1
+        - time: 1080
+          strengthBoost: 0
+          agilityBoost: 0
+          enduranceBoost: 0
       # TODO: Implement HealthIncreaseReagent effect type to temporarily boost max HP
       # - !type:HealthIncreaseReagent
       #   increaseAmount: 50
@@ -395,13 +432,27 @@
         messageKeys:
         - drug-ambience-mentats-1
         - drug-ambience-mentats-2
-      # - !type:Jitter was placeholder for SPECIAL — replaced by SpecialStatBoostEffect below.
-      - !type:SpecialStatBoostEffect #Misfits Change /Add:/ Perception boost → tighter gun spread/recoil. Intelligence stored for future systems.
-        perceptionBoost: 2
-        intelligenceBoost: 2
+      # - !type:Jitter was placeholder for SPECIAL — replaced by SpecialStatTimelineEffect below.
+      - !type:SpecialStatTimelineEffect #Misfits Change /Add:/ Mentats multi-phase timeline — peak (+2 ИНТ, +2 ВСП, +1 ХАР),
+        # crash after 12 min (net ИНТ=−2, ВСП=−2, ХАР=−2), recovery after 48 min.
+        phases:
+        - time: 0
+          intelligenceBoost: 2
+          perceptionBoost: 2
+          charismaBoost: 1
+        - time: 720
+          intelligenceBoost: -2
+          perceptionBoost: -2
+          charismaBoost: -2
+        - time: 2880
+          intelligenceBoost: 0
+          perceptionBoost: 0
+          charismaBoost: 0
       - !type:Addicting #Misfits Change
         time: 5
-        # Mentats withdrawal: mental clarity evaporates, leaving fatigue and brain fog.
+        # 15% per-dose chance of addiction.
+        doseChance: 0.15
+        addictionThreshold: 1
         withdrawalMoodEffect: MentatsWithdrawal
         withdrawalStaminaDrain: 3.0
 
@@ -422,9 +473,25 @@
         messageKeys:
         - drug-ambience-mentats-berry-1
         - drug-ambience-mentats-berry-2
-      - !type:Jitter #Placeholder for when we get Special working again.
+      # #Misfits Enable /Special/: Berry Mentats — Mentats timeline (+2 ИНТ, +2 ВСП, +1 ХАР).
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          intelligenceBoost: 2
+          perceptionBoost: 2
+          charismaBoost: 1
+        - time: 720
+          intelligenceBoost: -2
+          perceptionBoost: -2
+          charismaBoost: -2
+        - time: 2880
+          intelligenceBoost: 0
+          perceptionBoost: 0
+          charismaBoost: 0
       - !type:Addicting #Misfits Change
         time: 5
+        doseChance: 0.15
+        addictionThreshold: 1
         withdrawalMoodEffect: MentatsWithdrawal
         withdrawalStaminaDrain: 3.0
 
@@ -445,9 +512,25 @@
         messageKeys:
         - drug-ambience-mentats-grape-1
         - drug-ambience-mentats-grape-2
-      - !type:Jitter #Placeholder for when we get Special working again.
+      # #Misfits Enable /Special/: Grape Mentats — Mentats timeline (+2 ИНТ, +2 ВСП, +1 ХАР).
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          intelligenceBoost: 2
+          perceptionBoost: 2
+          charismaBoost: 1
+        - time: 720
+          intelligenceBoost: -2
+          perceptionBoost: -2
+          charismaBoost: -2
+        - time: 2880
+          intelligenceBoost: 0
+          perceptionBoost: 0
+          charismaBoost: 0
       - !type:Addicting #Misfits Change
         time: 5
+        doseChance: 0.15
+        addictionThreshold: 1
         withdrawalMoodEffect: MentatsWithdrawal
         withdrawalStaminaDrain: 3.0
 
@@ -468,9 +551,25 @@
         messageKeys:
         - drug-ambience-mentats-orange-1
         - drug-ambience-mentats-orange-2
-      - !type:Jitter #Placeholder for when we get Special working again.
+      # #Misfits Enable /Special/: Orange Mentats — Mentats timeline (+2 ИНТ, +2 ВСП, +1 ХАР).
+      - !type:SpecialStatTimelineEffect
+        phases:
+        - time: 0
+          intelligenceBoost: 2
+          perceptionBoost: 2
+          charismaBoost: 1
+        - time: 720
+          intelligenceBoost: -2
+          perceptionBoost: -2
+          charismaBoost: -2
+        - time: 2880
+          intelligenceBoost: 0
+          perceptionBoost: 0
+          charismaBoost: 0
       - !type:Addicting #Misfits Change
         time: 5
+        doseChance: 0.15
+        addictionThreshold: 1
         withdrawalMoodEffect: MentatsWithdrawal
         withdrawalStaminaDrain: 3.0
 
@@ -497,7 +596,9 @@
         type: Add
         time: 7
         refresh: true
-      - !type:Jitter #Placeholder for when we get Special working again.
+      # #Misfits Enable /Special/: Med-X dulls pain — grants a temporary Endurance boost.
+      - !type:SpecialStatBoostEffect
+        enduranceBoost: 1
       - !type:HealthChange #Misfits Change /Add:/ Overdose — suffocates the player when stacking too much Med-X
         conditions:
         - !type:ReagentThreshold

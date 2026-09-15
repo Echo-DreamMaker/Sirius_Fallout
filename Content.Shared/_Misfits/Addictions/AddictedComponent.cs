@@ -22,6 +22,13 @@ public sealed partial class AddictedComponent : Component
     public bool Suppressed;
 
     /// <summary>
+    ///     Whether the addiction is permanent (e.g. Jet). A permanent addiction never
+    ///     expires on its own and must be cleared before the entity returns to clean.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Permanent;
+
+    /// <summary>
     ///     When the addictive substance was last metabolized.
     /// </summary>
     [DataField(serverOnly: true, customTypeSerializer: typeof(TimeOffsetSerializer))]

@@ -42,6 +42,13 @@ public sealed partial class ItemToggleComponent : Component
     public bool Predictable = true;
 
     /// <summary>
+    ///     If set to true then the item's toggle state is not automatically activated when the item is wielded.
+    ///     Used by energy weapons that have a manual power button.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool NoToggleOnWield = false;
+
+    /// <summary>
     ///     The noise this item makes when it is toggled on.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]

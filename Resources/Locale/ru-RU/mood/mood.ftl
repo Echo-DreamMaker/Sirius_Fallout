@@ -67,9 +67,9 @@ mood-effect-LotoEnthrallment =
     I fear that I will wither to nothing if I cannot drink from the cup of knowledge once again.
 
 mood-effect-NicotineBenefit = 
-    I feel as if I have been standing my entire life and I just sat down.
+    Я чувствую себя так, будто всю жизнь простоял на ногах и только что присел.
 mood-effect-NicotineWithdrawal = 
-    I could really go for a smoke right now.
+    Сейчас бы как раз затянуться сигаретой.
 
 # Surgery
 mood-effect-SurgeryPain = Операция болит.

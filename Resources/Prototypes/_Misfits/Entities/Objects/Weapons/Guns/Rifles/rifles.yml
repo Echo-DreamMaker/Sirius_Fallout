@@ -55,6 +55,16 @@
   id: N14WeaponGaussRifle
   description: The M72 rifle is of German design. It uses an electromagnetic field to propel rounds at tremendous speed... and pierce almost any obstacle. Its range, accuracy and stopping power is almost unparalleled.
   components:
+  - type: MinigunToggle
+    BypassChamber: true
+  - type: ItemToggle
+    onUse: false
+    activated: false
+    noToggleOnWield: true
+    soundActivate:
+      path: /Audio/Weapons/spinon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/spinoff.ogg
   - type: Sprite
     sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifleicon.rsi
     netsync: false
@@ -99,7 +109,6 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: MagazineAmmoProvider
   - type: MagazineVisuals
     magState: mag

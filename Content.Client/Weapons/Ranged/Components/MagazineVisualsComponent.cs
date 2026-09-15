@@ -22,6 +22,11 @@ public sealed partial class MagazineVisualsComponent : Component
     /// Should we hide when the count is 0
     /// </summary>
     [DataField("zeroVisible")] public bool ZeroVisible;
+
+    /// <summary>
+    /// Inverts the step index so that full = mag-1 and partial = mag-2 (reverse of standard mapping).
+    /// </summary>
+    [DataField("inverted")] public bool Inverted;
 }
 
 public enum GunVisualLayers : byte

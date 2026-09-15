@@ -1,18 +1,7 @@
-﻿- type: entity
+﻿# #Misfits Shims - beanbag shells now live in the N14 core
+# (Resources/Prototypes/_Nuclear14/.../Ammunition/Cartridges/20gauge.yml).
+# These IDs are kept so maps/kits referencing them keep working.
+- type: entity
   id: MisfitsShellShotgun20Beanbag
   name: beanbag shell (20 gauge)
-  parent: N14ShellShotgun20
-  components:
-  - type: Tag
-    tags:
-    - Cartridge
-    - N14ShellShotgun20
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
-    layers:
-      - state: beanbag
-        map: [ "enum.AmmoVisualLayers.Base" ]
-  - type: CartridgeAmmo
-    proto: PelletShotgun20Beanbag
-  - type: SpentAmmoVisuals
-    state: beanbag
+  parent: N14ShellShotgun20Beanbag
