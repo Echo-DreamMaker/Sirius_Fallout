@@ -124,6 +124,9 @@ namespace Content.Client.Options.UI.Tabs
             DisableFiltersCheckBox.OnToggled += OnCheckBoxToggled;
             CensorNudityCheckBox.OnToggled += OnCheckBoxToggled;
 
+            FalloutProgressBarCheckBox.OnToggled += OnCheckBoxToggled; // sirius
+            FalloutProgressBarCheckBox.Pressed = _cfg.GetCVar(CCVars.FalloutProgressBar); // sirius
+
             HudThemeOption.SelectId(_hudThemeIdToIndex.GetValueOrDefault(_cfg.GetCVar(CVars.InterfaceTheme), 0));
             DiscordRich.Pressed = _cfg.GetCVar(CVars.DiscordEnabled);
             ShowOocPatronColor.Pressed = _cfg.GetCVar(CCVars.ShowOocPatronColor);
@@ -213,6 +216,7 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.NoVisionFilters, DisableFiltersCheckBox.Pressed);
             _cfg.SetCVar(CCVars.AccessibilityClientCensorNudity, CensorNudityCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ChatStackLastLines, ChatStackOption.SelectedId);
+            _cfg.SetCVar(CCVars.FalloutProgressBar, FalloutProgressBarCheckBox.Pressed); //sirius
 
             if (HudLayoutOption.SelectedMetadata is string opt)
             {
@@ -262,6 +266,7 @@ namespace Content.Client.Options.UI.Tabs
             var isNoVisionFiltersSame = DisableFiltersCheckBox.Pressed == _cfg.GetCVar(CCVars.NoVisionFilters);
             var isCensorNuditySame = CensorNudityCheckBox.Pressed == _cfg.GetCVar(CCVars.AccessibilityClientCensorNudity);
             var isChatStackTheSame = ChatStackOption.SelectedId == _cfg.GetCVar(CCVars.ChatStackLastLines);
+            var isFalloutProgressBarSame = FalloutProgressBarCheckBox.Pressed == _cfg.GetCVar(CCVars.FalloutProgressBar); // sirius
 
             ApplyButton.Disabled = isHudThemeSame &&
                                    isUiThemeSame &&
@@ -287,7 +292,8 @@ namespace Content.Client.Options.UI.Tabs
                                    isModernProgressBarSame &&
                                    isNoVisionFiltersSame &&
                                    isCensorNuditySame &&
-                                   isChatStackTheSame;
+                                   isChatStackTheSame &&
+                                   isFalloutProgressBarSame; // sirius
         }
 
         private string GetDefaultChatHighlightTerms()

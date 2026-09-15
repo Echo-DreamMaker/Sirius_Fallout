@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Configuration;
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
 
@@ -27,4 +27,7 @@ public sealed partial class CCVars
 
     public static readonly CVarDef<bool> ModernProgressBar =
         CVarDef.Create("hud.modern_progress_bar", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<bool> FalloutProgressBar =
+       CVarDef.Create("hud.fallout_progress_bar", false, CVar.CLIENTONLY | CVar.ARCHIVE); // Sirius
 }
