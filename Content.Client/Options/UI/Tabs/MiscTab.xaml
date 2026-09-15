@@ -89,6 +89,7 @@
                        FontColorOverride="{xNamespace:Static s:StyleNano.NanoGold}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="ModernProgressBar" Text="{Loc 'ui-options-modern-progress-bar'}" />
+                <CheckBox Name="FalloutProgressBarCheckBox" Text="{Loc 'ui-options-fallout-progress-bar'}" />
                 <!-- <CheckBox Name="ToggleWalk" Text="{Loc 'ui-options-hotkey-toggle-walk'}" /> -->
             </BoxContainer>
         </ScrollContainer>
