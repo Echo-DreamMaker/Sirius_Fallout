@@ -90259,6 +90259,7 @@ entities:
   entities:
   - uid: 90689
     mapInit: true
+    components: []
 - proto: ExGrenade
   entities:
   - uid: 7813
@@ -99297,6 +99298,7 @@ entities:
   entities:
   - uid: 90690
     mapInit: true
+    components: []
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 9299
