@@ -1121,7 +1121,6 @@
   id: N14WeaponPlasmaCaster
   description: A massive plasma gun with a pretty sharp barrel, this gun is fed with plasma shells.
   components:
-
   - type: StrengthRequirement
     requiredStrength: 7
   - type: Sprite
@@ -1182,7 +1181,6 @@
   id: N14WeaponLaserGatling
   description: A minigun, but laser — for those who prefer ash piles to perforated corpses. Spews a torrent of red laser bolts downrange at eight rounds per second. Requires a fusion core to operate.
   components:
-
   - type: StrengthRequirement
     requiredStrength: 7
   - type: Sprite

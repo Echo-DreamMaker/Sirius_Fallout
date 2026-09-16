@@ -1,46 +1,52 @@
 // #Misfits Add - Manages DrugSpecialBoostComponent lifecycle (expiry) and translates
-// drug-sourced SPECIAL stat deltas into tangible in-game effects:
-//   • Perception → gun spread / recoil reduction  (stacks with SpecialPerceptionSystem base)
-//   • Agility    → walk/sprint speed bonus         (stacks with SpecialMovementSystem base)
-//   • Strength   → melee damage bonus              (stacks with SpecialMovementSystem wield-counter)
-// Component expiry is polled every update; on removal speed modifiers are refreshed.
+// drug-sourced SPECIAL stat deltas into REAL temporary modifiers on
+// SpecialComponent.Temporary*Modifier via SharedSpecialSystem. Because the base
+// SPECIAL consumers (movement, spread, melee, requirements, crafting gates) read
+// effective stats, boosting the temporary modifiers makes the actual characteristics
+// increase instead of layering on parallel event micro-effects.
+// Component expiry is polled every update; on removal the temporary modifiers are cleared.
 
-using Angle = Robust.Shared.Maths.Angle;
-using Content.Shared._Misfits.PlayerData.Components;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared._Misfits.Special;
+using Content.Shared._Misfits.Special.Components;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Misfits.SpecialStats;
 
 /// <summary>
-/// Handles the lifecycle of <see cref="DrugSpecialBoostComponent"/> and converts
-/// its active stat deltas into gameplay effects via event subscriptions.
-/// <list type="bullet">
-///   <item>Perception boost → gun spread/recoil reduction (identical rate to SpecialPerceptionSystem)</item>
-///   <item>Agility boost    → walk/sprint speed multiplier (identical rate to SpecialMovementSystem)</item>
-///   <item>Strength boost   → melee damage bonus (+4 % per point)</item>
-/// </list>
+/// Handles the lifecycle of <see cref="DrugSpecialBoostComponent"/> and mirrors its
+/// active stat deltas into <see cref="SpecialComponent"/> temporary modifiers so every
+/// SPECIAL-based system reacts to the drug:
+///   • Strength   → melee damage, weapon/speed requirements (SpecialCombatSystem, Wieldable...)
+///   • Perception → spread/recoil, traces (SpecialPerceptionSystem, ...)
+///   • Agility    → movement speed, action speed (SpecialMovementSystem, ...)
+///   • Endurance  → health thresholds, resistances, stamina (SpecialEnduranceSystem, ...)
+///   • Charisma / Intelligence / Luck → gated systems read effective values each event.
 /// </summary>
 public sealed class DrugSpecialBoostSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] private readonly SharedSpecialSystem _special = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
-    // ── Constants matching existing base-SPECIAL systems so stacking scales uniformly ──
-
-    /// <summary>Spread/recoil reduction per PER point (mirrors SpecialPerceptionSystem).</summary>
-    private const float PerceptionReductionPerPoint = 0.005f;
-
-    /// <summary>Walk/sprint speed bonus per AGI point (mirrors SpecialMovementSystem).</summary>
-    private const float AgilitySpeedBonusPerPoint = 0.015f;
-
-    /// <summary>Bonus melee damage fraction per STR point (e.g. STR +2 → +8 % damage).</summary>
-    private const float StrengthDamageBonusPerPoint = 0.04f;
+    /// <summary>Source tag so drug-sourced modifiers can be removed without touching other effects.</summary>
+    public const string ModifierSource = "drug-special";
 
     // Maintained across frames for O(n) expiry checking without per-tick querying.
     private readonly List<Entity<DrugSpecialBoostComponent>> _tracked = new();
+
+    // Last-applied signature per entity so we only rewrite SpecialComponent when a
+    // drug phase/new dose actually changes the boost values (avoids per-frame churn).
+    private readonly Dictionary<EntityUid, StatSignature> _applied = new();
+
+    private readonly record struct StatSignature(
+        int Strength,
+        int Perception,
+        int Endurance,
+        int Charisma,
+        int Intelligence,
+        int Agility,
+        int Luck);
 
     public override void Initialize()
     {
@@ -51,18 +57,7 @@ public sealed class DrugSpecialBoostSystem : EntitySystem
 
         // Track each new component so Update() can iterate without a full ECS query.
         SubscribeLocalEvent<DrugSpecialBoostComponent, ComponentStartup>(OnStartup);
-
-        // ── Per-frame event hooks ───────────────────────────────────────────────
-        // Agility: modify movement speed whenever the engine recalculates it.
-        SubscribeLocalEvent<DrugSpecialBoostComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
-
-        // Perception: tighten gun spread/recoil for every shot fired by the holder.
-        // Global subscription — we identify the holder by walking the transform parent.
-        SubscribeLocalEvent<GunRefreshModifiersEvent>(OnGunRefresh);
-
-        // Strength: add bonus melee damage on every hit.
-        // Global subscription — we check the User field directly.
-        SubscribeLocalEvent<MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<DrugSpecialBoostComponent, ComponentShutdown>(OnShutdown);
     }
 
     // ── Startup tracking ────────────────────────────────────────────────────────
@@ -72,58 +67,16 @@ public sealed class DrugSpecialBoostSystem : EntitySystem
         _tracked.Add(ent);
     }
 
-    // ── Agility → movement speed ───────────────────────────────────────────────
-
-    private void OnRefreshSpeed(EntityUid uid, DrugSpecialBoostComponent comp, ref RefreshMovementSpeedModifiersEvent args)
+    private void OnShutdown(Entity<DrugSpecialBoostComponent> ent, ref ComponentShutdown args)
     {
-        if (comp.AgilityBoost <= 0)
-            return;
+        _tracked.Remove(ent);
+        _applied.Remove(ent.Owner);
 
-        // Each AGI point above 0 gives AgilitySpeedBonusPerPoint boost.
-        // This delta stacks on top of SpecialMovementSystem's base AGI contribution.
-        var bonus = 1f + comp.AgilityBoost * AgilitySpeedBonusPerPoint;
-        args.ModifySpeed(bonus, bonus);
+        if (_net.IsServer)
+            _special.ClearTemporaryModifiers(ent.Owner, ModifierSource);
     }
 
-    // ── Perception → gun spread / recoil ───────────────────────────────────────
-
-    private void OnGunRefresh(ref GunRefreshModifiersEvent args)
-    {
-        // Walk up the transform hierarchy to find the entity holding the gun.
-        var holder = Transform(args.Gun.Owner).ParentUid;
-
-        if (!TryComp<DrugSpecialBoostComponent>(holder, out var comp) || comp.PerceptionBoost <= 0)
-            return;
-
-        // Same formula as SpecialPerceptionSystem — each PER point narrows spread by 0.5 %.
-        var reduction    = comp.PerceptionBoost * PerceptionReductionPerPoint;
-        var keepFraction = 1.0 - reduction;
-
-        args.MinAngle          = new Angle((double) args.MinAngle          * keepFraction);
-        args.MaxAngle          = new Angle((double) args.MaxAngle          * keepFraction);
-        args.AngleIncrease     = new Angle((double) args.AngleIncrease     * keepFraction);
-        args.CameraRecoilScalar *= (float) keepFraction;
-    }
-
-    // ── Strength → melee damage ────────────────────────────────────────────────
-
-    private void OnMeleeHit(MeleeHitEvent args)
-    {
-        // Only process actual hits (not examination/preview calls).
-        if (!args.IsHit || args.HitEntities.Count == 0)
-            return;
-
-        if (!TryComp<DrugSpecialBoostComponent>(args.User, out var comp) || comp.StrengthBoost <= 0)
-            return;
-
-        // Each STR point contributes StrengthDamageBonusPerPoint extra damage.
-        // Bonus damage is proportional to the weapon's base damage types so any
-        // weapon benefits without needing weapon-specific handling.
-        var bonusFraction = comp.StrengthBoost * StrengthDamageBonusPerPoint;
-        args.BonusDamage += args.BaseDamage * bonusFraction;
-    }
-
-    // ── Timer / expiry ──────────────────────────────────────────────────────────
+    // ── Timer / expiry + mirror ────────────────────────────────────────────────
 
     public override void Update(float frameTime)
     {
@@ -139,22 +92,64 @@ public sealed class DrugSpecialBoostSystem : EntitySystem
             if (ent.Comp.Deleted)
             {
                 _tracked.RemoveAt(i);
+                _applied.Remove(ent.Owner);
                 continue;
             }
 
-            // Not yet expired — keep checking next frame.
-            if (ent.Comp.ExpireTime > now)
+            // Client-side expiry is handled by the server: it owns the modifier list.
+            if (!_net.IsServer)
                 continue;
 
-            _tracked.RemoveAt(i);
+            // Expired — remove mirror + component.
+            if (ent.Comp.ExpireTime <= now)
+            {
+                _tracked.RemoveAt(i);
+                _applied.Remove(ent.Owner);
+                _special.ClearTemporaryModifiers(ent.Owner, ModifierSource);
+                RemComp<DrugSpecialBoostComponent>(ent.Owner);
+                continue;
+            }
 
-            // Agility boost was active — force a speed recalculation on expiry
-            // so the player is not stuck with the bonus after the drug wears off.
-            if (ent.Comp.AgilityBoost != 0)
-                _speedModifier.RefreshMovementSpeedModifiers(ent.Owner);
-
-            RemComp<DrugSpecialBoostComponent>(ent.Owner);
+            ApplyMirrorIfChanged(ent.Owner, ent.Comp);
         }
+    }
+
+    private void ApplyMirrorIfChanged(EntityUid uid, DrugSpecialBoostComponent comp)
+    {
+        // Absolute replacement semantics: each phase/dose writes a full signature,
+        // so when it changes we clear the drug's old modifiers and re-apply the new set.
+        var signature = new StatSignature(
+            comp.StrengthBoost,
+            comp.PerceptionBoost,
+            comp.EnduranceBoost,
+            comp.CharismaBoost,
+            comp.IntelligenceBoost,
+            comp.AgilityBoost,
+            comp.LuckBoost);
+
+        if (_applied.TryGetValue(uid, out var last) && last == signature)
+            return;
+
+        // The component may simply not exist on entities that have no SPECIAL stats
+        // (non-ghost actors without SpecialComponent). TryModifyTemporary handles that.
+        _special.ClearTemporaryModifiers(uid, ModifierSource);
+        TryModify(uid, SpecialStat.Strength, comp.StrengthBoost);
+        TryModify(uid, SpecialStat.Perception, comp.PerceptionBoost);
+        TryModify(uid, SpecialStat.Endurance, comp.EnduranceBoost);
+        TryModify(uid, SpecialStat.Charisma, comp.CharismaBoost);
+        TryModify(uid, SpecialStat.Intelligence, comp.IntelligenceBoost);
+        TryModify(uid, SpecialStat.Agility, comp.AgilityBoost);
+        TryModify(uid, SpecialStat.Luck, comp.LuckBoost);
+
+        _applied[uid] = signature;
+    }
+
+    private void TryModify(EntityUid uid, SpecialStat stat, int value)
+    {
+        if (value == 0)
+            return;
+
+        _special.TryModifyTemporary(uid, stat, value, null, ModifierSource);
     }
 
     // ── Public API (called by SpecialStatBoostEffect each metabolism tick) ──────
