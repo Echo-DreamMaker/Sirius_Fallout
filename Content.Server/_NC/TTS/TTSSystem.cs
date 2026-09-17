@@ -159,7 +159,7 @@ public sealed partial class TTSSystem : EntitySystem
             var xform = xformQuery.GetComponent(listener); 
             var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
             
-            if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange) continue;
+            if (distance > ChatSystem.VoiceRange) continue;
             var canUnderstand = _language.CanUnderstand(listener, language);
             
             RaiseNetworkEvent(canUnderstand ? fullTtsEvent : obfTtsEvent, session); 

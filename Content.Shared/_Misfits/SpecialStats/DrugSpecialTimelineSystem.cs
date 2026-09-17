@@ -22,6 +22,10 @@ public sealed class DrugSpecialTimelineSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] private readonly DrugSpecialBoostSystem _boostSys = default!;
+
+    /// <summary>How long the timeline source keeps itself alive each update (fallback if the boost writer stalls).</summary>
+    private const float KeepAliveSeconds = 2f;
 
     private readonly List<Entity<DrugSpecialTimelineComponent>> _tracked = new();
 
@@ -77,25 +81,22 @@ public sealed class DrugSpecialTimelineSystem : EntitySystem
 
             var phase = comp.Phases[comp.PhaseIndex];
 
-            // Write phase stat values into DrugSpecialBoostComponent.
+            // Write the phase's stat values into DrugSpecialBoostComponent through the shared
+            // resolver as the timeline source. Unlike a direct absolute write, this leaves
+            // other drugs' concurrent metabolism sources intact (their contribution is
+            // re-resolved instead of being stomped to zero), updates only when the resolved
+            // signature changes (no per-frame replicated churn / stat flicker), and manages
+            // the component keep-alive expiry.
             var boost = EnsureComp<DrugSpecialBoostComponent>(ent.Owner);
-            var prevAgility = boost.AgilityBoost;
-
-            boost.StrengthBoost     = phase.Strength;
-            boost.PerceptionBoost   = phase.Perception;
-            boost.EnduranceBoost    = phase.Endurance;
-            boost.CharismaBoost     = phase.Charisma;
-            boost.AgilityBoost      = phase.Agility;
-            boost.IntelligenceBoost = phase.Intelligence;
-            boost.LuckBoost         = phase.Luck;
-
-            // Keep the boost component alive (prevent DrugSpecialBoostSystem from expiring it).
-            boost.ExpireTime = now + TimeSpan.FromSeconds(2);
-            Dirty(ent.Owner, boost);
-
-            // Refresh movement speed if agility changed.
-            if (phase.Agility != prevAgility)
-                _speedModifier.RefreshMovementSpeedModifiers(ent.Owner);
+            var signature = new StatSignature(
+                phase.Strength,
+                phase.Perception,
+                phase.Endurance,
+                phase.Charisma,
+                phase.Intelligence,
+                phase.Agility,
+                phase.Luck);
+            _boostSys.SetSource(ent.Owner, boost, DrugSpecialBoostComponent.TimelineSourceKey, signature, KeepAliveSeconds);
 
             // Manage damage resistance set.
             ApplyDamageResist(ent, phase.DamageResistSet);

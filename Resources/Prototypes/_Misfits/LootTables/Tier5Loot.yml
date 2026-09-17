@@ -22,7 +22,7 @@
       id: N14WeaponSniper50NCRRifle
       weight: 2
     - !type:EntSelector
-      id: N14WeaponSniper308TribalUpgraded
+      id: N14WeaponSniper45-70TribalUpgraded
       weight: 2
     - !type:EntSelector
       id: N14WeaponRevolver45-70HandcannonUpgraded

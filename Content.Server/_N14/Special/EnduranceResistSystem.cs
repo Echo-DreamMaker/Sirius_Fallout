@@ -24,14 +24,14 @@ public sealed class EnduranceResistSystem : EntitySystem
 
     private void OnBeforeDamage(EntityUid uid, DamageableComponent component, ref BeforeDamageChangedEvent args)
     {
-        if (!_special.UsesSpecialStats(uid) || _special.GetEffective(uid, SpecialStat.Endurance) <= 5)
+        if (!_special.UsesSpecialStats(uid))
             return;
 
         if (args.Damage.DamageDict.TryGetValue("Poison", out var poison) && poison > FixedPoint2.Zero)
         {
             var tuning = _special.GetTuning();
             var factor = _special.GetEnduranceResistanceFraction(uid, tuning.EndurancePoisonResistancePerPoint);
-            if (factor > 0f)
+            if (factor != 0f)
                 args.Damage.DamageDict["Poison"] = FixedPoint2.Max(FixedPoint2.Zero, poison * (1f - factor));
         }
 
@@ -39,7 +39,7 @@ public sealed class EnduranceResistSystem : EntitySystem
         {
             var tuning = _special.GetTuning();
             var factor = _special.GetEnduranceResistanceFraction(uid, tuning.EnduranceRadiationResistancePerPoint);
-            if (factor > 0f)
+            if (factor != 0f)
                 args.Damage.DamageDict["Radiation"] = FixedPoint2.Max(FixedPoint2.Zero, radiation * (1f - factor));
         }
     }

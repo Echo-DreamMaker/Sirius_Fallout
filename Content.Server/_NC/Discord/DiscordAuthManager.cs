@@ -135,7 +135,7 @@ public sealed partial class DiscordAuthManager : IPostInjectInit
             var level = SponsorData.ParseRoles(roles);
             if (level != SponsorLevel.None)
             {
-                _sponsors.Sponsors.Add(userId, level);
+                _sponsors.Sponsors[userId] = level;
                 var session = _playerMgr.GetSessionById(userId);
                 var message = new MsgSyncSponsorData
                 {

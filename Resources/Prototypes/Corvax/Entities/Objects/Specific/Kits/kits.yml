@@ -43,7 +43,7 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14WeaponRifle762Chinese
+      - id: N14WeaponRifle545Chinese
       - id: ClothingBeltRope
       - id: Magazine762Rifle
         amount: 2

@@ -512,7 +512,7 @@
       - id: N14WeaponRifle762Marksman
         prob: 0.3
         orGroup: Weapon
-      - id: N14WeaponSniper308TribalUpgraded
+      - id: N14WeaponSniper45-70TribalUpgraded
         prob: 0.3
         orGroup: Weapon
       - id: N14WeaponShotgunRiot
@@ -521,10 +521,10 @@
       - id: N14WeaponLMG
         prob: 0.3
         orGroup: Weapon
-      - id: N14WeaponRifle762MarksmanChinese
+      - id: N14WeaponRifle308MarksmanChinese
         prob: 0.3
         orGroup: Weapon
-      - id: N14WeaponRifle762Chinese
+      - id: N14WeaponRifle545Chinese
         prob: 0.3
         orGroup: Weapon
       - id: N14WeaponLMGBren

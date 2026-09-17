@@ -48,7 +48,18 @@ N14WeaponBlowback: N14WeaponShotgunBlowback
 N14WeaponLeverShotgun: N14WeaponShotgunLever
 N14WeaponRiotShotgun: N14WeaponShotgunRiot
 N14WeaponRifleR91: N14WeaponRifle556R91
-N14WeaponChineseRifle: N14WeaponRifle762Chinese
+N14WeaponChineseRifle: N14WeaponRifle545Chinese
+N14WeaponRifle762Chinese: N14WeaponRifle545Chinese
+
+# 17/09/2026 - Caliber ID standardisation (id/name/desc must match actual fired caliber)
+N14WeaponRifle556R82Sirius: N14WeaponRifle762R82Sirius
+N14WeaponRifle762Rugerac556fSirius: N14WeaponRifle556Rugerac556fSirius
+N14WeaponRifle762MarksmanChinese: N14WeaponRifle308MarksmanChinese
+N14WeaponSniper308Tribal: N14WeaponSniper45-70Tribal
+N14WeaponSniper308TribalUpgraded: N14WeaponSniper45-70TribalUpgraded
+N14WeaponSniper556Tribal: N14WeaponSniper762Tribal
+N14WeaponSniper556TribalUpgraded: N14WeaponSniper762TribalUpgraded
+N14WeaponRifle10mmM1Carbine: N14WeaponRifle556M1Carbine
 N14WeaponCarbine: N14WeaponRifle556Carbine
 N14WeaponMarksman: N14WeaponRifle762Marksman
 N14WeaponService: N14WeaponRifle556Service

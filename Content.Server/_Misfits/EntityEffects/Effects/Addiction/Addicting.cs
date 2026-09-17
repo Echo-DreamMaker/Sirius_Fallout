@@ -112,10 +112,17 @@ public sealed partial class Addicting : EntityEffect
 
         // #Misfits Change /Add:/ Per-dose chance gate — roll DoseChance once per NEW dose,
         // not on every metabolism tick.
+        bool? isNewExposure = null;
         if (DoseChance < 1.0f)
         {
-            if (!addictionSys.MarkExposureAndIsNewDose(args.TargetEntity, drugId, currentQuantity))
+            if (!addictionSys.MarkExposureAndIsNewDose(args.TargetEntity, drugId, currentQuantity, TimeSpan.FromSeconds(DoseGap)))
                 return;
+
+            // #Misfits Fix - relay the "new dose" verdict to TryApplyAddiction. Without it
+            // the addiction tracker re-reads LastSeenTimes (just written by the gate) and
+            // concludes the tick is NOT a fresh exposure, so the count never advances and
+            // an addiction with threshold > 1 and DoseChance < 1 can never be applied.
+            isNewExposure = true;
 
             if (!IoCManager.Resolve<IRobustRandom>().Prob(DoseChance))
                 return;
@@ -128,7 +135,8 @@ public sealed partial class Addicting : EntityEffect
                 drugName,
                 AddictionThreshold,
                 currentQuantity,
-                permanent: Permanent))
+                permanent: Permanent,
+                isNewExposure: isNewExposure))
             return;
 
         // #Misfits Change /Add:/ Register withdrawal parameters (strongest values win on multi-drug)

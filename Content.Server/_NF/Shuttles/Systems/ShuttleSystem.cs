@@ -28,6 +28,12 @@ public sealed partial class ShuttleSystem
         {
             return;
         }
+        // Frontier: only allow a console to alter the grid it is anchored to
+        if (!EntityManager.TryGetComponent(uid, out TransformComponent? consoleTransform) ||
+            consoleTransform.GridUid != transform.GridUid)
+        {
+            return;
+        }
         _console.RefreshShuttleConsoles(transform.GridUid.Value);
 
         var linearDampeningStrength = args.Mode switch

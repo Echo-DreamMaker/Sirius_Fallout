@@ -142,10 +142,10 @@
   - proto: N14WeaponRifle556Carbine
     price: 2
     count: 3
-  - proto: N14WeaponRifle762Chinese
+  - proto: N14WeaponRifle545Chinese
     price: 2
     count: 3
-  - proto: N14WeaponRifle556R82Sirius
+  - proto: N14WeaponRifle762R82Sirius
     price: 4
     count: 2
   - proto: N14WeaponRifle762Marksman
@@ -163,7 +163,7 @@
   - proto: N14WeaponPlasmaRifle
     price: 15
     count: 3
-  - proto: N14WeaponRifle762MarksmanChinese
+  - proto: N14WeaponRifle308MarksmanChinese
     price: 3
     count: 3
   - proto: N14WeaponLMG
@@ -483,7 +483,7 @@
     price: 240
   - proto: N14WeaponSniper308Canadian
     price: 300
-  - proto: N14WeaponRifle762Chinese
+  - proto: N14WeaponRifle545Chinese
     price: 350
     count: 3
   - proto: N14WeaponRifle762Fal
@@ -498,7 +498,7 @@
   - proto: N14WeaponRifle762Marksman
     price: 500
     count: 4
-  - proto: N14WeaponRifle762MarksmanChinese
+  - proto: N14WeaponRifle308MarksmanChinese
     price: 550
     count: 2
   - proto: N14WeaponRifle762Canadian
@@ -1051,7 +1051,7 @@
     price: 75
   - proto: N14WeaponRifle762Fal
     price: 75
-  - proto: N14WeaponRifle762MarksmanChinese
+  - proto: N14WeaponRifle308MarksmanChinese
     price: 100
   - proto: N14WeaponRifle556M16A1Sirius
     price: 100
@@ -1081,15 +1081,15 @@
   id: CaravanSell2_Rifles
   name: "Rifles"
   entries:
-  - proto: N14WeaponSniper556Tribal
+  - proto: N14WeaponSniper762Tribal
     price: 45
-  - proto: N14WeaponSniper556TribalUpgraded
+  - proto: N14WeaponSniper762TribalUpgraded
     price: 55
   - proto: N14WeaponRifle762ClassicrifleSirius
     price: 75
-  - proto: N14WeaponSniper308Tribal
+  - proto: N14WeaponSniper45-70Tribal
     price: 100
-  - proto: N14WeaponSniper308TribalUpgraded
+  - proto: N14WeaponSniper45-70TribalUpgraded
     price: 120
   - proto: N14WeaponRifle308SniperRifle
     price: 275

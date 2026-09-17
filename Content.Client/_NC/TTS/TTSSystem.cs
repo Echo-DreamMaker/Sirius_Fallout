@@ -22,10 +22,8 @@ public sealed class TTSSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
 
     private ISawmill _sawmill = default!;
-    private static MemoryContentRoot _contentRoot = new();
+    private static MemoryContentRoot? _contentRoot;
     private static readonly ResPath Prefix = ResPath.Root / "TTS";
-
-    private static bool _contentRootAdded;
 
     /// <summary>
     /// Reducing the volume of the TTS when whispering. Will be converted to logarithm.
@@ -42,9 +40,9 @@ public sealed class TTSSystem : EntitySystem
 
     public override void Initialize()
     {
-        if (!_contentRootAdded)
+        if (_contentRoot is null)
         {
-            _contentRootAdded = true;
+            _contentRoot = new MemoryContentRoot();
             _res.AddRoot(Prefix, _contentRoot);
         }
 
@@ -57,6 +55,8 @@ public sealed class TTSSystem : EntitySystem
     {
         base.Shutdown();
         _cfg.UnsubValueChanged(CorvaxVars.TTSVolume, OnTtsVolumeChanged);
+        _contentRoot?.Dispose();
+        _contentRoot = null;
     }
 
     public void RequestPreviewTTS(string voiceId)
@@ -76,31 +76,39 @@ public sealed class TTSSystem : EntitySystem
         
         _sawmill.Verbose($"Play TTS audio {ev.Data.Length} bytes from {ev.SourceUid} entity");
 
+        if (_contentRoot is null)
+            return;
+
         var filePath = new ResPath($"{_fileIdx++}.ogg");
-        _contentRoot.AddOrUpdateFile(filePath, ev.Data);
-
-        var audioResource = new AudioResource();
-        audioResource.Load(IoCManager.Instance!, Prefix / filePath);
-
-        var audioParams = AudioParams.Default
-            .WithVolume(AdjustVolume(ev.IsWhisper))
-            .WithMaxDistance(AdjustDistance(ev.IsWhisper));
-
-        var soundSpecifier = new ResolvedPathSpecifier(Prefix / filePath);
-
-        if (ev.SourceUid != null)
+        try
         {
-            if (!TryGetEntity(ev.SourceUid.Value, out _))
-                return;
-            var sourceUid = GetEntity(ev.SourceUid.Value);
-            _audio.PlayEntity(audioResource.AudioStream, sourceUid, soundSpecifier, audioParams);
-        }
-        else
-        {
-            _audio.PlayGlobal(audioResource.AudioStream, soundSpecifier, audioParams);
-        }
+            _contentRoot.AddOrUpdateFile(filePath, ev.Data);
 
-        _contentRoot.RemoveFile(filePath);
+            var audioResource = new AudioResource();
+            audioResource.Load(IoCManager.Instance!, Prefix / filePath);
+
+            var audioParams = AudioParams.Default
+                .WithVolume(AdjustVolume(ev.IsWhisper))
+                .WithMaxDistance(AdjustDistance(ev.IsWhisper));
+
+            var soundSpecifier = new ResolvedPathSpecifier(Prefix / filePath);
+
+            if (ev.SourceUid != null)
+            {
+                if (!TryGetEntity(ev.SourceUid.Value, out _))
+                    return;
+                var sourceUid = GetEntity(ev.SourceUid.Value);
+                _audio.PlayEntity(audioResource.AudioStream, sourceUid, soundSpecifier, audioParams);
+            }
+            else
+            {
+                _audio.PlayGlobal(audioResource.AudioStream, soundSpecifier, audioParams);
+            }
+        }
+        finally
+        {
+            _contentRoot.RemoveFile(filePath);
+        }
     }
 
     private float AdjustVolume(bool isWhisper)

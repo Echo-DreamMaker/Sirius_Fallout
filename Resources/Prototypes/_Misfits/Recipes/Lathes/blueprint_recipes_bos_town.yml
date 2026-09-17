@@ -212,7 +212,7 @@
 
 - type: latheRecipe
   id: N14BPBoSWeaponRifle10mmM1Carbine
-  result: N14WeaponRifle10mmM1Carbine
+  result: N14WeaponRifle556M1Carbine
   category: N14BlueprintBoSWeaponsT2
   completetime: 9
   requiresBlueprint: true
@@ -1458,7 +1458,7 @@
 # #Misfits Add - mediocre civilian-market kinetic guns (T2)
 - type: latheRecipe
   id: N14BPTownWeaponRifle10mmM1Carbine
-  result: N14WeaponRifle10mmM1Carbine
+  result: N14WeaponRifle556M1Carbine
   category: N14BlueprintTownWeaponsT2
   completetime: 9
   requiresBlueprint: true

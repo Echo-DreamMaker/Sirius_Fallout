@@ -123,7 +123,7 @@
 # #Misfits Add - mediocre kinetic security guns (T2)
 - type: latheRecipe
   id: N14BPVaultWeaponRifle10mmM1Carbine
-  result: N14WeaponRifle10mmM1Carbine
+  result: N14WeaponRifle556M1Carbine
   category: N14BlueprintVaultWeaponsT2
   completetime: 9
   requiresBlueprint: true
@@ -846,7 +846,7 @@
 
 - type: latheRecipe
   id: N14BPTribeWeaponRifle10mmM1Carbine
-  result: N14WeaponRifle10mmM1Carbine
+  result: N14WeaponRifle556M1Carbine
   category: N14BlueprintTribeWeaponsT2
   completetime: 9
   requiresBlueprint: true

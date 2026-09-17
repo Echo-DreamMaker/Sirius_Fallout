@@ -28,8 +28,10 @@ public sealed partial class RequirePanelSystem : EntitySystem
 
         if (slot == null
             // If slot doesn't require a wire panel - don't cancel interaction
-            || !comp.Slots.TryGetValue(slot, out var isRequireOpen)
-            || !TryComp<WiresPanelComponent>(uid, out var wiresPanel))
+            || !comp.Slots.TryGetValue(slot, out var isRequireOpen))
+            return true;
+
+        if (!TryComp<WiresPanelComponent>(uid, out var wiresPanel))
             return false;
 
         return wiresPanel.Open == isRequireOpen;

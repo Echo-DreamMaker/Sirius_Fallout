@@ -362,7 +362,7 @@
 
 - type: latheRecipe
   id: N14BPNCRWeaponRifle10mmM1Carbine
-  result: N14WeaponRifle10mmM1Carbine
+  result: N14WeaponRifle556M1Carbine
   category: N14BlueprintNCRWeaponsT2
   completetime: 9
   requiresBlueprint: true
@@ -1974,7 +1974,7 @@
 
 - type: latheRecipe
   id: N14BPLegionWeaponRifle10mmM1Carbine
-  result: N14WeaponRifle10mmM1Carbine
+  result: N14WeaponRifle556M1Carbine
   category: N14BlueprintLegionWeaponsT2
   completetime: 9
   requiresBlueprint: true
@@ -2174,7 +2174,7 @@
 
 - type: latheRecipe
   id: N14BPLegionWeaponRifle762Chinese
-  result: N14WeaponRifle762Chinese
+  result: N14WeaponRifle545Chinese
   category: N14BlueprintLegionWeaponsT3
   completetime: 12
   requiresBlueprint: true

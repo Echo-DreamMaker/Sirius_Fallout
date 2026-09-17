@@ -8,8 +8,6 @@ namespace Content.Shared._N14.Radiation;
 
 public sealed partial class RadiationHealingSystem : EntitySystem
 {
-    private static readonly string[] HealableTypes = { "Blunt", "Slash", "Piercing", "Heat" };
-
     public override void Initialize()
     {
         base.Initialize();
@@ -21,10 +19,10 @@ public sealed partial class RadiationHealingSystem : EntitySystem
         if (component.CurrentExposure <= 0f)
             return;
 
-        if (!TryComp(uid, out DamageableComponent? damage) || damage.TotalDamage >= 90f)
+        if (!TryComp(uid, out DamageableComponent? damage) || damage.TotalDamage >= component.HealCap)
             return;
 
-        var healable = GetHealableDamage(damage);
+        var healable = GetHealableDamage(damage, component.HealableTypes);
         if (healable <= 0f)
             return;
 
@@ -32,10 +30,10 @@ public sealed partial class RadiationHealingSystem : EntitySystem
         args.ModifySpeed(mod);
     }
 
-    private static float GetHealableDamage(DamageableComponent damage)
+    private static float GetHealableDamage(DamageableComponent damage, string[] healableTypes)
     {
         float amount = 0f;
-        foreach (var type in HealableTypes)
+        foreach (var type in healableTypes)
         {
             if (damage.Damage.DamageDict.TryGetValue(type, out var val) && val > FixedPoint2.Zero)
                 amount += val.Float();

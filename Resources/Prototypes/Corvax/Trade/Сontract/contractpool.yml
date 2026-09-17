@@ -107,7 +107,7 @@
     id: N14ClothingMaskGasZealotGasMask
     weight: 1
   - type: Item
-    id: N14WeaponSniper308TribalUpgraded
+    id: N14WeaponSniper45-70TribalUpgraded
     weight: 2
   - type: Item
     id: N14RadAwayInhaler
@@ -219,7 +219,7 @@
     id: N14WeaponShotgunAuto
     weight: 1
   - type: Item
-    id: N14WeaponRifle762MarksmanChinese
+    id: N14WeaponRifle308MarksmanChinese
     weight: 1
   - type: Item
     id: N14WeaponRifleBozarGRA

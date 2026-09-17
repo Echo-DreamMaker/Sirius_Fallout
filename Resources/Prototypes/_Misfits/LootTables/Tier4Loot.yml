@@ -21,7 +21,7 @@
       id: N14WeaponRifle762MarksmanCanadian
       weight: 3
     - !type:EntSelector
-      id: N14WeaponRifle762MarksmanChinese
+      id: N14WeaponRifle308MarksmanChinese
       weight: 3
     - !type:EntSelector
       id: N14WeaponRifleGrenade
@@ -33,10 +33,10 @@
       id: N14WeaponSniper50Pipe
       weight: 2
     - !type:EntSelector
-      id: N14WeaponSniper308Tribal
+      id: N14WeaponSniper45-70Tribal
       weight: 2
     - !type:EntSelector
-      id: N14WeaponSniper556TribalUpgraded
+      id: N14WeaponSniper762TribalUpgraded
       weight: 2
     - !type:EntSelector
       id: N14WeaponRevolver45-70Hunter

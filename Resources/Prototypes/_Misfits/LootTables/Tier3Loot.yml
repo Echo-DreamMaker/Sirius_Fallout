@@ -18,7 +18,7 @@
       id: N14WeaponRifle556R91
       weight: 7
     - !type:EntSelector
-      id: N14WeaponRifle762Chinese
+      id: N14WeaponRifle545Chinese
       weight: 7
     - !type:EntSelector
       id: N14WeaponRifle556Service
@@ -90,13 +90,13 @@
       id: N14WeaponRifle308SniperRifle
       weight: 3
     - !type:EntSelector
-      id: N14WeaponRifle10mmM1Carbine
+      id: N14WeaponRifle556M1Carbine
       weight: 3
     - !type:EntSelector
       id: N14WeaponRifle762Rangemaster
       weight: 2
     - !type:EntSelector
-      id: N14WeaponSniper556Tribal
+      id: N14WeaponSniper762Tribal
       weight: 2
     - !type:EntSelector
       id: MisfitsPlasmaCutter
