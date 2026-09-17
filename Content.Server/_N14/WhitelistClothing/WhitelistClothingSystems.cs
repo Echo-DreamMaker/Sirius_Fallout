@@ -17,7 +17,7 @@ public sealed class WhitelistClothingSystems : EntitySystem
     }
     private void OnEquipAttempt(DidEquipEvent args)
     {
-        if (TryComp<WhitelistClothingComponent>(args.Equipee, out var component) && component.WhitelistState == "humanoid" && !_tagSystem.HasTag(args.Equipment, component.Whitelist) && args.Slot.Equals("outerclothing", StringComparison.CurrentCultureIgnoreCase))
+        if (TryComp<WhitelistClothingComponent>(args.Equipee, out var component) && component.WhitelistState == "humanoid" && !_tagSystem.HasTag(args.Equipment, component.Whitelist) && args.Slot.Equals(component.Slot, StringComparison.CurrentCultureIgnoreCase))
             _inventorySystem.TryUnequip(args.Equipee, args.Slot);
         else if (TryComp<WhitelistClothingComponent>(args.Equipment, out var componentEquipment) && componentEquipment.WhitelistState == "clothing" && !HasComp<WhitelistClothingComponent>(args.Equipee))
             _inventorySystem.TryUnequip(args.Equipee, args.Slot);

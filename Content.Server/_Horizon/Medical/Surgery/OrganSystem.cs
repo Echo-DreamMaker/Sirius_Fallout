@@ -101,7 +101,7 @@ public sealed class OrganSystem : EntitySystem
             return;
 
         _blindable.SetMinDamage((args.Body, blindable), ent.Comp.MinDamage ?? 0);
-        _blindable.AdjustEyeDamage((args.Body, blindable), (ent.Comp.EyeDamage ?? 0) - blindable.MaxDamage);
+        _blindable.AdjustEyeDamage((args.Body, blindable), (ent.Comp.EyeDamage ?? 0) - blindable.EyeDamage);
     }
 
     private void OnVisualizationExtracted(Entity<OrganVisualizationComponent> ent, ref SurgeryOrganExtracted args)

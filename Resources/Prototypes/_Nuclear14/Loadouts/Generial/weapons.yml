@@ -588,7 +588,7 @@
         - Wastelander
         - Tribe
   items:
-    - N14WeaponSniper556Tribal
+    - N14WeaponSniper762Tribal
 
 - type: loadout
   id: N14LoadoutWeaponSniper556TribalUpgraded
@@ -602,7 +602,7 @@
         - Wastelander
         - Tribe
   items:
-    - N14WeaponSniper556TribalUpgraded
+    - N14WeaponSniper762TribalUpgraded
 
 - type: loadout
   id: N14LoadoutWeaponRifle556Pipe
@@ -721,7 +721,7 @@
       departments:
         - CaesarLegion
   items:
-    - N14WeaponRifle762Chinese
+    - N14WeaponRifle545Chinese
 
 - type: loadout
   id: N14LoadoutWeaponRifle762Marksman
@@ -873,7 +873,7 @@
       departments:
         - NCR
   items:
-    - N14WeaponRifle556R82Sirius
+    - N14WeaponRifle762R82Sirius
 
 - type: loadout
   id: N14LoadoutWeaponRifle556EnfieldXL70E3Sirius
@@ -929,7 +929,7 @@
       departments:
         - Tribe
   items:
-    - N14WeaponSniper308Tribal
+    - N14WeaponSniper45-70Tribal
 
 - type: loadout
   id: N14LoadoutWeaponSniper308TribalUpgraded
@@ -942,7 +942,7 @@
       departments:
         - Tribe
   items:
-    - N14WeaponSniper308TribalUpgraded
+    - N14WeaponSniper45-70TribalUpgraded
 
 - type: loadout
   id: N14LoadoutWeaponRifleSKS

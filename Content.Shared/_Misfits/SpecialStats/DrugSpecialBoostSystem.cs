@@ -8,6 +8,7 @@
 
 using Content.Shared._Misfits.Special;
 using Content.Shared._Misfits.Special.Components;
+using Content.Shared.Movement.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
@@ -28,6 +29,7 @@ public sealed class DrugSpecialBoostSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedSpecialSystem _special = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
 
     /// <summary>Source tag so drug-sourced modifiers can be removed without touching other effects.</summary>
     public const string ModifierSource = "drug-special";
@@ -38,15 +40,6 @@ public sealed class DrugSpecialBoostSystem : EntitySystem
     // Last-applied signature per entity so we only rewrite SpecialComponent when a
     // drug phase/new dose actually changes the boost values (avoids per-frame churn).
     private readonly Dictionary<EntityUid, StatSignature> _applied = new();
-
-    private readonly record struct StatSignature(
-        int Strength,
-        int Perception,
-        int Endurance,
-        int Charisma,
-        int Intelligence,
-        int Agility,
-        int Luck);
 
     public override void Initialize()
     {
@@ -94,11 +87,16 @@ public sealed class DrugSpecialBoostSystem : EntitySystem
                 _tracked.RemoveAt(i);
                 _applied.Remove(ent.Owner);
                 continue;
-            }
+}
 
             // Client-side expiry is handled by the server: it owns the modifier list.
             if (!_net.IsServer)
                 continue;
+
+            // Purge sources whose per-drug grace window expired since the last tick and
+            // react to the resulting resolution change (a flushed drug drops its fields
+            // even while another drug's source keeps the component alive).
+            Reconcile(ent.Owner, ent.Comp);
 
             // Expired — remove mirror + component.
             if (ent.Comp.ExpireTime <= now)
@@ -152,18 +150,45 @@ public sealed class DrugSpecialBoostSystem : EntitySystem
         _special.TryModifyTemporary(uid, stat, value, null, ModifierSource);
     }
 
-    // ── Public API (called by SpecialStatBoostEffect each metabolism tick) ──────
+// ── Public API (called by SpecialStatBoostEffect / DrugSpecialTimelineSystem) ──────
 
     /// <summary>
-    /// Pushes the expiry window forward by <paramref name="lifetimeSeconds"/> seconds
-    /// relative to the current time (or the existing timer, whichever is later).
-    /// This keeps the boost alive as long as the drug is still being metabolised.
+    ///     Upserts a source contribution (keyed by reagent prototype for metabolism effects,
+    ///     or <see cref="DrugSpecialBoostComponent.TimelineSourceKey"/> for regimen timelines)
+    ///     with its own per-source grace window of <paramref name="lifetimeSeconds"/> seconds.
+    ///     Only dirties state and reacts to an agility change when the resolved signature changes.
     /// </summary>
-    public void RefreshTimer(EntityUid uid, DrugSpecialBoostComponent comp, float lifetimeSeconds)
+    public void SetSource(EntityUid uid, DrugSpecialBoostComponent comp, string sourceKey, in StatSignature signature, float lifetimeSeconds)
     {
-        // Take the later of 'now' or the current timer so we never shorten an existing window.
-        var baseSeconds = Math.Max(comp.ExpireTime.TotalSeconds, _timing.CurTime.TotalSeconds);
-        comp.ExpireTime = TimeSpan.FromSeconds(baseSeconds + lifetimeSeconds);
+        var now = _timing.CurTime;
+        var expiry = comp.ComputeSourceExpiry(sourceKey, now, lifetimeSeconds);
+
+        if (!comp.SetSource(sourceKey, now, expiry, signature))
+            return;
+
         Dirty(uid, comp);
+        NotifyIfAgilityChanged(uid, comp);
+    }
+
+    /// <summary>
+    ///     Drops expired sources and reacts to a changed effective signature. Called from
+    ///     Update() so a metabolised-away drug's fields stop contributing on time.
+    /// </summary>
+    public void Reconcile(EntityUid uid, DrugSpecialBoostComponent comp)
+    {
+        if (!comp.ExpireSources(_timing.CurTime))
+            return;
+
+        Dirty(uid, comp);
+        NotifyIfAgilityChanged(uid, comp);
+    }
+
+    private void NotifyIfAgilityChanged(EntityUid uid, DrugSpecialBoostComponent comp)
+    {
+        if (comp.AgilityBoost == comp.LastResolvedAgility)
+            return;
+
+        comp.LastResolvedAgility = comp.AgilityBoost;
+        _movement.RefreshMovementSpeedModifiers(uid);
     }
 }

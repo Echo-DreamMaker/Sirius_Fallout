@@ -6,7 +6,6 @@
 
 using Content.Shared._Misfits.SpecialStats;
 using Content.Shared.EntityEffects;
-using Content.Shared.Movement.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
@@ -37,11 +36,12 @@ public sealed partial class SpecialStatBoostEffect : EntityEffect
     [DataField] public int IntelligenceBoost;
     [DataField] public int LuckBoost;
 
-    /// <summary>
-    /// Seconds the boost persists after the last metabolism tick.
-    /// Combined with RefreshTimer's "push forward" logic this keeps the effect active
-    /// for the full duration the reagent is in the bloodstream, expiring shortly after.
-    /// Default: 4 s gives enough headroom for all standard metabolism rates.
+/// <summary>
+    ///     Seconds the boost persists after the last metabolism tick.
+    ///     Combined with the per-source push-forward expiry (<see cref="DrugSpecialBoostSystem.SetSource"/>)
+    ///     this keeps the effect active for the full duration the reagent is in the bloodstream,
+    ///     expiring shortly after.
+    ///     Default: 4 s gives enough headroom for all standard metabolism rates.
     /// </summary>
     [DataField]
     public float StatusLifetime = 4f;
@@ -64,30 +64,25 @@ public sealed partial class SpecialStatBoostEffect : EntityEffect
         var uid  = args.TargetEntity;
         var comp = args.EntityManager.EnsureComponent<DrugSpecialBoostComponent>(uid);
 
-        // Write each non-zero boost value. Using direct assignment means the last
-        // drug to tick (within the same game frame) wins per stat. Since all current
-        // drugs use the same boost magnitude and run simultaneously, this is correct.
-        // Overlapping drugs with DIFFERENT magnitudes for the same stat will resolve
-        // to whichever effect fires last in that tick — acceptable given current content.
-        if (StrengthBoost     != 0) comp.StrengthBoost     = StrengthBoost;
-        if (PerceptionBoost   != 0) comp.PerceptionBoost   = PerceptionBoost;
-        if (EnduranceBoost    != 0) comp.EnduranceBoost    = EnduranceBoost;
-        if (CharismaBoost     != 0) comp.CharismaBoost     = CharismaBoost;
-        if (AgilityBoost      != 0) comp.AgilityBoost      = AgilityBoost;
-        if (IntelligenceBoost != 0) comp.IntelligenceBoost = IntelligenceBoost;
-        if (LuckBoost         != 0) comp.LuckBoost         = LuckBoost;
+        // Key the contribution by the reagent so simultaneous drugs each keep their own
+        // window: when one is metabolised away it stops contributing without cancelling
+        // the other drug's ongoing boost (a plain shared-field write left the flushed
+        // drug's stats stuck on forever).
+        var sourceKey = (args as EntityEffectReagentArgs)?.Reagent?.ID ?? "metabolism-boost";
 
-        // Push the expiry window forward — keeps the boost alive while metabolising.
-        // StatusLifetime is NOT scaled by reagent amount: the boost is binary
-        // (active while drug is present) rather than dose-proportional.
-        var boostSys = args.EntityManager.System<DrugSpecialBoostSystem>();
-        boostSys.RefreshTimer(uid, comp, StatusLifetime);
+        var signature = new StatSignature(
+            StrengthBoost,
+            PerceptionBoost,
+            EnduranceBoost,
+            CharismaBoost,
+            IntelligenceBoost,
+            AgilityBoost,
+            LuckBoost);
 
-        // If an agility boost is active, trigger a movement speed recalc so the
-        // player feels the change immediately (same pattern as MovespeedModifier.cs).
-        if (AgilityBoost != 0)
-            args.EntityManager.System<MovementSpeedModifierSystem>().RefreshMovementSpeedModifiers(uid);
-
-        args.EntityManager.Dirty(uid, comp);
+        // Upsert + resolve through the boost system. Effective fields only dirty when they
+        // actually change, so steady metabolism does not churn replicated state every tick.
+        // Same for the movement-speed refresh: fired only when the resolved agility changes.
+        args.EntityManager.System<DrugSpecialBoostSystem>()
+            .SetSource(uid, comp, sourceKey, signature, StatusLifetime);
     }
 }

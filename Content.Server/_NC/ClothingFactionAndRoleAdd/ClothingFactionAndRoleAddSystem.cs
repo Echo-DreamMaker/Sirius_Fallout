@@ -41,7 +41,8 @@ public sealed partial class ClothingFactionAndRoleAddSystem : EntitySystem
             }
             _roles.MindAddRole(mindId, new JobComponent { Prototype = component.JobId });
         }
-        else _roles.MindAddRole(mindId, new JobComponent { Prototype = component.JobId });
+        else if (!_job.MindHasJobWithId(mindId, component.JobId))
+            _roles.MindAddRole(mindId, new JobComponent { Prototype = component.JobId });
 
         if (TryComp(user, out NpcFactionMemberComponent? npc) && !_npcFaction.IsMember(user, component.Faction))
         {

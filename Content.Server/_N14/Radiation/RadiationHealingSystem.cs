@@ -13,8 +13,6 @@ public sealed partial class RadiationHealingSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
 
-    private static readonly string[] HealableTypes = { "Blunt", "Slash", "Piercing", "Heat", "Cold", "Caustic",};
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -28,7 +26,7 @@ public sealed partial class RadiationHealingSystem : EntitySystem
             var healingNow = false;
             if (healing.CurrentExposure > 0f && damage.TotalDamage < healing.HealCap)
             {
-                var healable = GetHealableDamage(damage);
+                var healable = GetHealableDamage(damage, healing.HealableTypes);
                 if (healable > 0f)
                 {
                     var radUsed = Math.Min(healing.CurrentExposure, healing.CurrentExposure * frameTime);
@@ -37,10 +35,8 @@ public sealed partial class RadiationHealingSystem : EntitySystem
                         var healAmount = radUsed * healing.HealFactor;
 
                         DamageSpecifier spec = new();
-                        spec.DamageDict["Blunt"] = FixedPoint2.New(-healAmount);
-                        spec.DamageDict["Slash"] = FixedPoint2.New(-healAmount);
-                        spec.DamageDict["Piercing"] = FixedPoint2.New(-healAmount);
-                        spec.DamageDict["Heat"] = FixedPoint2.New(-healAmount);
+                        foreach (var type in healing.HealableTypes)
+                            spec.DamageDict[type] = FixedPoint2.New(-healAmount);
 
                         _damageable.TryChangeDamage(uid, spec, interruptsDoAfters: false);
                         healing.CurrentExposure -= radUsed;
@@ -61,10 +57,10 @@ public sealed partial class RadiationHealingSystem : EntitySystem
         }
     }
 
-    private static float GetHealableDamage(DamageableComponent damage)
+    private static float GetHealableDamage(DamageableComponent damage, string[] healableTypes)
     {
         float amount = 0f;
-        foreach (var type in HealableTypes)
+        foreach (var type in healableTypes)
         {
             if (damage.Damage.DamageDict.TryGetValue(type, out var val) && val > FixedPoint2.Zero)
                 amount += val.Float();
@@ -108,7 +104,7 @@ public sealed partial class RadiationHealingSystem : EntitySystem
         // Convert the intercepted radiation into healing spread across physical damage types
         var healAmount = radDamage.Float() * component.HealPerRad;
         // DamageSpecifier spec = new();
-        foreach (var type in HealableTypes)
+        foreach (var type in component.HealableTypes)
             if (args.Damage.DamageDict.TryGetValue(type, out var damage))
             {
                 var total = damage - healAmount;

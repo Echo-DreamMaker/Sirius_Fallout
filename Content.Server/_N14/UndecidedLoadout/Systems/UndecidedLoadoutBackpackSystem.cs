@@ -59,6 +59,9 @@ public sealed class UndecidedLoadoutBackpackSystem : EntitySystem
     private void OnChangeSet(Entity<UndecidedLoadoutBackpackComponent> backpack, ref UndecidedLoadoutBackpackChangeSetMessage args)
     {
         //Swith selecting set
+        if (args.SetNumber < 0 || args.SetNumber >= backpack.Comp.PossibleSets.Count)
+            return;
+
         if (!backpack.Comp.SelectedSets.Remove(args.SetNumber))
             backpack.Comp.SelectedSets.Add(args.SetNumber);
 

@@ -186,7 +186,7 @@
   - proto: N14WeaponLMGchinese
     price: 3600
     count: 2
-  - proto: N14WeaponRifle762MarksmanChinese
+  - proto: N14WeaponRifle308MarksmanChinese
     price: 550
     count: 2
   - proto: N14WeaponShotgunChinese
@@ -582,7 +582,7 @@
     price: 63
   - proto: N14WeaponLMGchinese
     price: 1800
-  - proto: N14WeaponRifle762MarksmanChinese
+  - proto: N14WeaponRifle308MarksmanChinese
     price: 275
   - proto: N14WeaponShotgunChinese
     price: 225

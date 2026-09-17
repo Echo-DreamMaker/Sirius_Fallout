@@ -85,12 +85,7 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
                     }
                     string? tooltip = null;
                     if (!finalIsAvailable)
-                    {
-                        if (hasPart)
-                            tooltip = Loc.GetString("autodoc-surgery-part-present");
-                        else if (!hasPartInAutodoc)
-                            tooltip = Loc.GetString("autodoc-surgery-no-part-in-autodoc");
-                    }
+                        tooltip = Loc.GetString("autodoc-surgery-no-part-in-autodoc");
                     result.Add(new AutodocOperationData(actualOpId, displayName, finalIsAvailable, tooltip));
                     continue;
                 }
@@ -123,12 +118,7 @@ public sealed class SiriusAutodocSurgerySystem : SharedSiriusAutodocSurgerySyste
                 }
                 string? tooltip = null;
                 if (!finalIsAvailable)
-                {
-                    if (hasOrgan)
-                        tooltip = Loc.GetString("autodoc-surgery-organ-present");
-                    else if (!hasOrganInAutodoc)
-                        tooltip = Loc.GetString("autodoc-surgery-no-organ-in-autodoc");
-                }
+                    tooltip = Loc.GetString("autodoc-surgery-no-organ-in-autodoc");
                 result.Add(new AutodocOperationData(actualOpId, displayName, finalIsAvailable, tooltip));
                 continue;
             }

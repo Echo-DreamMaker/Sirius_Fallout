@@ -40,6 +40,13 @@ public sealed class RadiationSourceSuppressionSystem : EntitySystem
 
     private void OnUnequipped(Entity<RadiationSourceSuppressionComponent> ent, ref GotUnequippedEvent args)
     {
+        // #Misfits Fix - Mirror OnEquipped's slot gate: only re-enable the source when the
+        // item was actually suppressing it. Stripping/unequipping from a non-allowed slot
+        // (e.g. a pocket or something swapped out by an automated system) must not flip
+        // the wearer's radiation back on.
+        if ((args.SlotFlags & ent.Comp.AllowedSlots) == 0)
+            return;
+
         if (TryComp<RadiationSourceComponent>(args.Equipee, out _))
             _radiation.SetSourceEnabled(args.Equipee, true);
     }

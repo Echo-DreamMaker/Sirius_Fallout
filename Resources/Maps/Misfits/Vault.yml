@@ -221520,7 +221520,7 @@ entities:
       pos: -48.754105,-28.92881
     - type: BallisticAmmoProvider
       unspawnedCount: 6
-- proto: N14WeaponSniper308Tribal
+- proto: N14WeaponSniper45-70Tribal
   entities:
   - uid: 29949
     components:

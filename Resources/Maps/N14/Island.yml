@@ -549650,7 +549650,7 @@ entities:
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -43.36311,-1.2830315
-- proto: N14WeaponRifle762Rugerac556fSirius
+- proto: N14WeaponRifle556Rugerac556fSirius
   entities:
   - uid: 87655
     components:
@@ -550202,7 +550202,7 @@ entities:
       pos: -108.95141,177.29951
     - type: BallisticAmmoProvider
       unspawnedCount: 6
-- proto: N14WeaponSniper308Tribal
+- proto: N14WeaponSniper45-70Tribal
   entities:
   - uid: 87686
     components:
@@ -550214,7 +550214,7 @@ entities:
     - type: Physics
       linearDamping: 0
       angularDamping: 0
-- proto: N14WeaponSniper308TribalUpgraded
+- proto: N14WeaponSniper45-70TribalUpgraded
   entities:
   - uid: 87687
     components:
@@ -550277,7 +550277,7 @@ entities:
       bodyType: Static
     missingComponents:
     - Item
-- proto: N14WeaponSniper556Tribal
+- proto: N14WeaponSniper762Tribal
   entities:
   - uid: 62779
     components:
@@ -550299,7 +550299,7 @@ entities:
     - type: Physics
       linearDamping: 0
       angularDamping: 0
-- proto: N14WeaponSniper556TribalUpgraded
+- proto: N14WeaponSniper762TribalUpgraded
   entities:
   - uid: 62780
     components:

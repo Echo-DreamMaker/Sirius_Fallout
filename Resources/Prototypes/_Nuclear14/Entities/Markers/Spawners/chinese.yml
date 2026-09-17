@@ -1,0 +1,90 @@
+#MARK: Chinese Army
+- type: entity
+  name: Chinese Partisan Spawner
+  id: N14SpawnMobChinesePartisan
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14ChinesePartisan
+
+- type: entity
+  name: Chinese Gunner Spawner
+  id: N14SpawnMobChineseGunner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14ChineseGunner
+
+- type: entity
+  name: Chinese Officer Spawner
+  id: N14SpawnMobChineseOfficer
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14ChineseOfficer
+
+- type: entity
+  name: Chinese Rifleman Spawner
+  id: N14SpawnMobChineseRifleman
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14ChineseRifleman
+
+- type: entity
+  name: Chinese Spec Ops Spawner
+  id: N14SpawnMobChineseSpecOps
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14ChineseSpecOps
+
+- type: entity
+  name: Chinese Spec Ops Marksman Spawner
+  id: N14SpawnMobChineseMarksman
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14ChineseMarksman

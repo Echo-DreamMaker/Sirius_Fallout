@@ -93,15 +93,15 @@
     price: 80
   - proto: N14WeaponRifle762SKS
     price: 45
-  - proto: N14WeaponRifle762Chinese
+  - proto: N14WeaponRifle545Chinese
     price: 100
   - proto: N14WeaponSniper308Ross
     price: 31
   - proto: N14WeaponRifle308Battle
     price: 25
-  - proto: N14WeaponSniper308Tribal
+  - proto: N14WeaponSniper45-70Tribal
     price: 20
-  - proto: N14WeaponSniper308TribalUpgraded
+  - proto: N14WeaponSniper45-70TribalUpgraded
     price: 25
 
 - type: storeCategoryStructured
@@ -433,15 +433,15 @@
     price: 30
   - proto: N14WeaponRifle762SKS
     price: 19
-  - proto: N14WeaponRifle762Chinese
+  - proto: N14WeaponRifle545Chinese
     price: 10
   - proto: N14WeaponSniper308Ross
     price: 16
   - proto: N14WeaponRifle308Battle
     price: 13
-  - proto: N14WeaponSniper308Tribal
+  - proto: N14WeaponSniper45-70Tribal
     price: 10
-  - proto: N14WeaponSniper308TribalUpgraded
+  - proto: N14WeaponSniper45-70TribalUpgraded
     price: 13
 
 - type: storeCategoryStructured

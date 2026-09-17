@@ -81,8 +81,8 @@
 - type: entity
   name: chinese assault rifle
   parent: N14WeaponRifleBase
-  id: N14WeaponRifle762Chinese
-  description: An old foreign assault rifle with strange symbols on it, it is chambered in the old 7.62 ammunition.
+  id: N14WeaponRifle545Chinese
+  description: An old foreign assault rifle with strange symbols on it, it is chambered in the old 5.45 ammunition.
   components:
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/chineserifle.rsi
@@ -770,7 +770,7 @@
 - type: entity
   name: chinese marksman rifle
   parent: N14WeaponRifleBase
-  id: N14WeaponRifle762MarksmanChinese
+  id: N14WeaponRifle308MarksmanChinese
   description: A pre-war chinese marksman rifle chambered in .308.
   components:
   - type: Clothing
@@ -926,8 +926,8 @@
 - type: entity
   name: tribal rifle
   parent: BaseWeaponSniper
-  id: N14WeaponSniper556Tribal
-  description: A surprisingly decent piece of a gun for being made by tribals, with an internal magazine this semi automatic rifle is rustic but trusty. chambered in 5.56mm.
+  id: N14WeaponSniper762Tribal
+  description: A surprisingly decent piece of a gun for being made by tribals, with an internal magazine this semi automatic rifle is rustic but trusty. chambered in 7.62mm.
   components:
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/tribalrifle.rsi
@@ -959,8 +959,8 @@
 - type: entity
   name: tribal assault rifle
   parent: BaseWeaponSniper
-  id: N14WeaponSniper556TribalUpgraded
-  description: A surprisingly decent piece of a gun for being made by tribals, with an internal magazine this semi automatic rifle is rustic but trusty. chambered in 5.56mm.
+  id: N14WeaponSniper762TribalUpgraded
+  description: A surprisingly decent piece of a gun for being made by tribals, with an internal magazine this semi automatic rifle is rustic but trusty. chambered in 7.62mm.
   components:
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/tribalrifle2.rsi
@@ -1466,8 +1466,8 @@
 - type: entity
   name: R-82 Rifle
   parent: N14WeaponRifleBase
-  id: N14WeaponRifle556R82Sirius
-  description: An old-fashioned assault rifle chambered in 5.56 munitions.
+  id: N14WeaponRifle762R82Sirius
+  description: An old-fashioned assault rifle chambered in 7.62 munitions.
   components:
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/r82.rsi
@@ -1513,8 +1513,8 @@
 - type: entity
   name: Ruger AC556F
   parent: N14WeaponSMGBase
-  id: N14WeaponRifle762Rugerac556fSirius
-  description: A simple metallic pre-war submachine gun, chambered in 9mm ammo.
+  id: N14WeaponRifle556Rugerac556fSirius
+  description: A simple metallic pre-war assault carbine, chambered in 5.56 ammo.
   components:
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/rugerac556f.rsi

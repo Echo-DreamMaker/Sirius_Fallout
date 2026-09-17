@@ -535,7 +535,7 @@
         #- id: N14WeaponRifle556Carbine
         #  prob: 0.04
         #  orGroup: Weapon
-        #- id: N14WeaponRifle762Chinese
+        #- id: N14WeaponRifle545Chinese
         #  prob: 0.02
         #  orGroup: Weapon
         #- id: N14WeaponRifle762Marksman
@@ -2205,7 +2205,7 @@
         - id: N14WeaponRifle556Carbine
           prob: 0.07
           orGroup: Weapon
-        - id: N14WeaponRifle762Chinese
+        - id: N14WeaponRifle545Chinese
           prob: 0.05
           orGroup: Weapon
         - id: N14WeaponRifle762Marksman

@@ -752,7 +752,7 @@
   name: That Gun
   parent: N14BaseWeaponPistol
   id: N14WeaponPistolThatGun
-  description: A bizarre-looking pistol modelled after a prop from a pre-war TV show, chambered in .223. Five rounds, semi-automatic, and oddly accurate. Whoever built this knew what they were doing.
+  description: A bizarre-looking pistol modelled after a prop from a pre-war TV show, chambered in 5.56. Five rounds, semi-automatic, and oddly accurate. Whoever built this knew what they were doing.
   components:
   - type: Tag
     tags:
@@ -990,7 +990,7 @@
   name: Zipgun
   parent: N14WeaponShotgunBase
   id: N14WeaponPistolZipgunSirius
-  description: A pirate's companion. Yarrr! Uses .60 anti-materiel ammo.
+  description: A pirate's companion. Yarrr! Uses 9mm ammo.
   components:
   - type: Gun
     minAngle: 0
@@ -1037,7 +1037,7 @@
   name: .50 Thunder
   parent: N14BaseWeaponPistol
   id: N14WeaponPistol50ThunderSirius
-  description: The cheap and ubiquitous sidearm, chambered in 9mm ammo.
+  description: The cheap and ubiquitous sidearm, chambered in .50 ammo.
   components:
   - type: Tag
     tags:

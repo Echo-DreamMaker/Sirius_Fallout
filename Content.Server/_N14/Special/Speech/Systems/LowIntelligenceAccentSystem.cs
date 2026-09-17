@@ -166,7 +166,7 @@ namespace Content.Server._N14.Special.Speech.EntitySystems
                 var pick = _random.Next(candidates.Count);
                 var wordIdx = candidates[pick];
                 candidates.RemoveAt(pick);
-                words[wordIdx] = Grunts[wordIdx % Grunts.Length];
+                words[wordIdx] = Grunts[_random.Next(Grunts.Length)];
             }
 
             return string.Join(' ', words);

@@ -51,7 +51,8 @@ public abstract class SharedAddictionSystem : EntitySystem
         int addictionThreshold = 4,
         FixedPoint2? currentQuantity = null,
         StatusEffectsComponent? status = null,
-        bool permanent = false)
+        bool permanent = false,
+        bool? isNewExposure = null)
     {
         if (!Resolve(uid, ref status, false))
             return false;
@@ -70,27 +71,25 @@ public abstract class SharedAddictionSystem : EntitySystem
                 var exposure = EnsureComp<AddictionExposureComponent>(uid);
                 var reagentId = drugId.Value;
                 var now = _timing.CurTime;
-                var isNewExposure = true;
 
-                if (exposure.LastSeenTimes.TryGetValue(reagentId, out var lastSeen))
-                    isNewExposure = now - lastSeen > ExposureGap;
+                // #Misfits Fix - When the caller uses MarkExposureAndIsNewDose for its per-dose
+                // gate (DoseChance < 1), it just wrote LastSeenTimes THIS tick, so re-deriving
+                // freshness from LastSeenTimes below would always read "not new" and the exposure
+                // count could never reach its threshold (addiction never applied). Trust the
+                // caller's verdict, and let the caller keep ownership of that tick's bookkeeping.
+                var newExposure = isNewExposure ?? IsNewExposure(exposure, reagentId, currentQuantity, now);
 
-                if (!isNewExposure
-                    && currentQuantity != null
-                    && exposure.LastSeenQuantities.TryGetValue(reagentId, out var lastQuantity)
-                    && currentQuantity.Value > lastQuantity)
+                if (isNewExposure == null)
                 {
-                    isNewExposure = true;
+                    exposure.LastSeenTimes[reagentId] = now;
+
+                    if (currentQuantity != null)
+                        exposure.LastSeenQuantities[reagentId] = currentQuantity.Value;
                 }
-
-                exposure.LastSeenTimes[reagentId] = now;
-
-                if (currentQuantity != null)
-                    exposure.LastSeenQuantities[reagentId] = currentQuantity.Value;
 
                 exposure.ExposureCounts.TryGetValue(reagentId, out var count);
 
-                if (isNewExposure)
+                if (newExposure)
                     count++;
 
                 if (count < threshold)
@@ -218,6 +217,34 @@ public abstract class SharedAddictionSystem : EntitySystem
     protected virtual void OnAddictionApplied(EntityUid uid, bool isNew) { }
 
     /// <summary>
+    ///     Re-derives whether this metabolism observation counts as a NEW exposure of the given
+    ///     reagent (first encounter, gap longer than <see cref="ExposureGap"/>, or a quantity
+    ///     increase). Used to build an exposure count toward <see cref="TryApplyAddiction"/>'s
+    ///     threshold. Does not write any bookkeeping.
+    /// </summary>
+    private bool IsNewExposure(
+        AddictionExposureComponent exposure,
+        ProtoId<ReagentPrototype> reagentId,
+        FixedPoint2? currentQuantity,
+        TimeSpan now)
+    {
+        var isNew = true;
+
+        if (exposure.LastSeenTimes.TryGetValue(reagentId, out var lastSeen))
+            isNew = now - lastSeen > ExposureGap;
+
+        if (!isNew
+            && currentQuantity != null
+            && exposure.LastSeenQuantities.TryGetValue(reagentId, out var lastQuantity)
+            && currentQuantity.Value > lastQuantity)
+        {
+            isNew = true;
+        }
+
+        return isNew;
+    }
+
+    /// <summary>
     ///     Suppresses active addiction symptoms for a duration.
     /// </summary>
     public virtual void TrySuppressAddiction(EntityUid uid, float duration)
@@ -229,10 +256,15 @@ public abstract class SharedAddictionSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Marks the addiction as suppressed and updates the suppression end time.
+    ///     Marks the addiction as suppressed and sets the suppression end time.
+    ///     #Misfits Fix - the server re-derives <see cref="AddictedComponent.Suppressed"/> from
+    ///     <see cref="AddictedComponent.SuppressionEndTime"/> every tick, so a suppression that
+    ///     only toggled the flag without opening a window was undone on the very next tick
+    ///     (Fixer / methadone had no effect).
     /// </summary>
     protected void UpdateAddictionSuppression(EntityUid uid, AddictedComponent component, float duration)
     {
+        component.SuppressionEndTime = _timing.CurTime + TimeSpan.FromSeconds(duration);
         component.Suppressed = true;
         Dirty(uid, component);
     }

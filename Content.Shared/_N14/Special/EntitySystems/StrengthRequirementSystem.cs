@@ -84,9 +84,6 @@ public sealed class StrengthRequirementSystem : EntitySystem
 
     private void OnSpecialChanged(ref SpecialChangedEvent args)
     {
-        if (!TryComp<WieldableComponent>(args.ChangedEntity, out _))
-            return;
-
         var strength = _special.GetEffective(args.ChangedEntity, SpecialStat.Strength);
 
         foreach (var held in _hands.EnumerateHeld(args.ChangedEntity))

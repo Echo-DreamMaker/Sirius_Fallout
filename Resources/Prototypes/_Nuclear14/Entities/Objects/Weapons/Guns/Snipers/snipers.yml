@@ -458,7 +458,7 @@
 - type: entity
   name: huntstick
   parent: N14WeaponSniperHunting
-  id: N14WeaponSniper308Tribal
+  id: N14WeaponSniper45-70Tribal
   description: A tribal lever action rifle. Uses .45-70gov't ammo.
   components:
   - type: Clothing
@@ -484,7 +484,7 @@
 - type: entity
   name: master huntstick
   parent: N14WeaponSniperHunting
-  id: N14WeaponSniper308TribalUpgraded
+  id: N14WeaponSniper45-70TribalUpgraded
   description: A tribal decorated lever action rifle. Uses .45-70gov't ammo.
   components:
   - type: Clothing
@@ -744,8 +744,8 @@
 - type: entity
   name: M1 carbine
   parent: N14WeaponSniperHunting
-  id: N14WeaponRifle10mmM1Carbine
-  description: A semi-automatic carbine originally chambered in .30 caliber, rechambered to 10mm by NCR armorers. Lightweight and easy to handle. Popular with support units and civilians who can get their hands on it.
+  id: N14WeaponRifle556M1Carbine
+  description: A semi-automatic carbine originally chambered in .30 caliber, rechambered to 5.56 by NCR armorers. Lightweight and easy to handle. Popular with support units and civilians who can get their hands on it.
   components:
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/m1carbine.rsi
@@ -839,7 +839,7 @@
   name: M72 Gauss rifle
   parent: BaseItem
   id: N14WeaponSniperM72GaussRifleSirius67
-  description: "An anti-materiel rifle with an ergonomic, sleek, skeletonized design. Simply looking at it can you tell it'll rip some limbs apart. Uses .50 anti-material ammo."
+  description: "An advanced gauss rifle with an ergonomic, sleek, skeletonized design. Uses 2mmEC electromagnetic ammunition."
   components:
   - type: StrengthRequirement
     requiredStrength: 5

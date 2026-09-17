@@ -105,7 +105,7 @@
     price: 500
   - proto: N14WeaponSniper45-70BrushGun
     price: 650
-  - proto: N14WeaponRifle10mmM1Carbine
+  - proto: N14WeaponRifle556M1Carbine
     price: 280
   - proto: N14WeaponRifleM1Garand
     price: 320
@@ -486,7 +486,7 @@
     price: 200
   - proto: N14WeaponSniper45-70BrushGun
     price: 325
-  - proto: N14WeaponRifle10mmM1Carbine
+  - proto: N14WeaponRifle556M1Carbine
     price: 140
   - proto: N14WeaponRifleM1Garand
     price: 160

@@ -39,6 +39,12 @@ public sealed partial class RadiationHealingComponent : Component
     public float HealPerRad = 0.25f;
 
     /// <summary>
+    /// Damage types that radiation can heal. Shared between client and server so the lists can't desync.
+    /// </summary>
+    [DataField("healableTypes")]
+    public string[] HealableTypes = new[] { "Blunt", "Slash", "Piercing", "Heat", "Cold", "Caustic" };
+
+    /// <summary>
     /// Current accumulated radiation intensity in rads per second.
     /// </summary>
     [AutoNetworkedField] public float CurrentExposure;

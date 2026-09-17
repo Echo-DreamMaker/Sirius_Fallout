@@ -6,6 +6,7 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server._NC.Speech.Synthesis.System;
 
@@ -18,6 +19,7 @@ public sealed class BarkSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -34,7 +36,9 @@ public sealed class BarkSystem : EntitySystem
             return;
 
         var sourceEntity = _entityManager.GetNetEntity(uid);
-        var soundPath = barkProto.SoundFiles[new Random().Next(barkProto.SoundFiles.Count)];
+        if (barkProto.SoundFiles.Count == 0)
+            return;
+        var soundPath = _random.Pick(barkProto.SoundFiles);
         RaiseNetworkEvent(new PlayBarkEvent(soundPath, sourceEntity, args.Message, comp.PlaybackSpeed, args.IsWhisper));
     }
 
@@ -44,7 +48,9 @@ public sealed class BarkSystem : EntitySystem
             || !_configurationManager.GetCVar(CorvaxVars.BarksEnabled))
             return;
 
-        var soundPath = barkProto.SoundFiles[new Random().Next(barkProto.SoundFiles.Count)];
+        if (barkProto.SoundFiles.Count == 0)
+            return;
+        var soundPath = _random.Pick(barkProto.SoundFiles);
         var soundSpecifier = new SoundPathSpecifier(soundPath);
 
         var audioParams = new AudioParams

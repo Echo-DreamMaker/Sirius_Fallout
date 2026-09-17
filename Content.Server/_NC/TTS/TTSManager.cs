@@ -40,6 +40,7 @@ public sealed class TTSManager
 
     private ISawmill _sawmill = default!;
     private readonly Dictionary<string, byte[]> _cache = new();
+    private readonly Dictionary<string, Task<byte[]?>> _pendingRequests = new();
     private readonly List<string> _cacheKeysSeq = new();
     private int _maxCachedCount = 200;
     private string _apiUrl = string.Empty;
@@ -74,6 +75,24 @@ public sealed class TTSManager
             return data;
         }
 
+        if (_pendingRequests.TryGetValue(cacheKey, out var pending))
+            return await pending;
+
+        var request = GenerateAudio(cacheKey, speaker, text);
+        _pendingRequests[cacheKey] = request;
+
+        try
+        {
+            return await request;
+        }
+        finally
+        {
+            _pendingRequests.Remove(cacheKey);
+        }
+    }
+
+    private async Task<byte[]?> GenerateAudio(string cacheKey, string speaker, string text)
+    {
         _sawmill.Verbose($"Generate new audio for '{text}' speech by '{speaker}' speaker");
 
         var body = new GenerateVoiceRequest
@@ -117,13 +136,16 @@ public sealed class TTSManager
 
             var soundData = Convert.FromBase64String(firstResult.Audio);
 
-            _cache.Add(cacheKey, soundData);
-            _cacheKeysSeq.Add(cacheKey);
-            if (_cache.Count > _maxCachedCount)
+            if (!_cache.ContainsKey(cacheKey))
             {
-                var firstKey = _cacheKeysSeq.First();
-                _cache.Remove(firstKey);
-                _cacheKeysSeq.Remove(firstKey);
+                _cache[cacheKey] = soundData;
+                _cacheKeysSeq.Add(cacheKey);
+                if (_cache.Count > _maxCachedCount)
+                {
+                    var firstKey = _cacheKeysSeq.First();
+                    _cache.Remove(firstKey);
+                    _cacheKeysSeq.Remove(firstKey);
+                }
             }
 
             _sawmill.Debug($"Generated new audio for '{text}' speech by '{speaker}' speaker ({soundData.Length} bytes)");

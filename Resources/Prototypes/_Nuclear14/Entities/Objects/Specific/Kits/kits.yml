@@ -1719,7 +1719,7 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14WeaponSniper308Tribal
+      - id: N14WeaponSniper45-70Tribal
       - id: N14TribalMachete
       - id: MagazineBox308
 
@@ -1736,7 +1736,7 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14WeaponSniper556Tribal
+      - id: N14WeaponSniper762Tribal
       - id: N14TribalMachete
       - id: MagazineBox556
 

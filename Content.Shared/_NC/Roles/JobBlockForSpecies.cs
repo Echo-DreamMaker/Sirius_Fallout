@@ -34,18 +34,12 @@ namespace Content.Shared._NC.Roles
                 return false;
             }
 
-            if (jobBlockForSpecie.Inverted)
-            {
-                return true;
-            }
-
             if (string.Equals(jobBlockForSpecie.NameSpecie, species, StringComparison.OrdinalIgnoreCase))
-            {
-                reason = Loc.GetString("role-timer-race-ban");
-                return false;
-            }
+                return jobBlockForSpecie.Inverted;
 
-            return true;
+            // Inverted blocks every species other than the named one.
+            reason = Loc.GetString("role-timer-race-ban");
+            return !jobBlockForSpecie.Inverted;
         }
     }
 }
