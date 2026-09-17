@@ -5,6 +5,7 @@
   parent: PrefilledSyringe
   id: FEVSyringe
   name: FEV syringe
+  suffix: Only RP/Punishment
   description: A syringe filled with an experimental Forced Evolutionary Virus strain. The label warns this will cause permanent Super Mutant transformation. (This persists cross round)
   components:
   - type: Sprite
@@ -23,7 +24,7 @@
         - ReagentId: Epinephrine # Placeholder reagent, transformation happens via component
           Quantity: 15
   - type: SuperMutantTransformation
-    updateDatabaseProfile: true
+    updateDatabaseProfile: false
     targetSpecies: SuperMutant
     updateJob: true
     targetJob: SuperMutant

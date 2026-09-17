@@ -16,6 +16,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared._N14.SuperMutant;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -96,6 +97,7 @@ public sealed class SuperMutantTransformationSystem : EntitySystem
         if (_prototype.TryIndex<SpeciesPrototype>(component.TargetSpecies, out var species))
         {
             _humanoid.SetSpecies(target, component.TargetSpecies);
+            EnsureComp<SuperMutantComponent>(target);
         }
 
         // Update the database profile if this is a player character
