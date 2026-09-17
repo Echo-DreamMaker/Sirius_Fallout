@@ -114,7 +114,10 @@ public sealed class SuperMutantSystem : EntitySystem
 
             // Apply Oni/SuperMutant modifier coefficients directly to args.Damage so the hard cap
             // can clamp the final number. Do NOT add to args.Modifiers (applied after this returns).
-            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, sm.MeleeModifiers);
+            if (sm.MeleeModifiers != null)
+            {
+                args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, sm.MeleeModifiers);
+            }
 
             // Log curve: shape wielded weapon damage so low-damage tools aren't trivial
             // and high-damage weapons are compressed toward the ceiling.
@@ -139,7 +142,10 @@ public sealed class SuperMutantSystem : EntitySystem
         }
 
         // Non-super-mutant holders (e.g. Oni race): flat modifiers via args.Modifiers (no log curve, no cap).
-        args.Modifiers.Add(sm.MeleeModifiers);
+        if (sm.MeleeModifiers != null)
+        {
+            args.Modifiers.Add(sm.MeleeModifiers);
+        }
     }
 
     private void OnStamHit(EntityUid uid, HeldBySuperMutantComponent component, TakeStaminaDamageEvent args)
