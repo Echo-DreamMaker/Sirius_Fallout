@@ -7,6 +7,7 @@ mapping-visibility-markers = Маркеры
 mapping-visibility-walls = Стены
 mapping-visibility-airlocks = Шлюзы
 mapping-visibility-decals = Наклейки
+mapping-visibility-roofs = Крыши
 mapping-visibility-subfloor = Черновой пол
 mapping-visibility-cables = Кабели
 mapping-visibility-disposal = Утилизация

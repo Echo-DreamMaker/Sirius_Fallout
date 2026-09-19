@@ -118,6 +118,9 @@ public sealed partial class MappingScreen : InGameScreen
         MoveGrid.Texture.TexturePath = "/Textures/Interface/VerbIcons/point.svg.192dpi.png";
         GridVV.Texture.TexturePath = "/Textures/Interface/VerbIcons/vv.svg.192dpi.png";
         PipesColor.Texture.TexturePath = "/Textures/_Sirius/Interface/VerbIcons/paint-roller-solid.svg.192dpi.png";
+        Roof.Texture.TexturePath = "/Textures/_Sirius/Interface/VerbIcons/roof.svg.192dpi.png";
+        EraseRoof.Texture.TexturePath = "/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png";
+        EraseRoof.Texture.Modulate = Color.FromHex("#FF5555");
         ChatButton.Texture.TexturePath = "/Textures/_Sirius/Interface/VerbIcons/comment-dots-regular.svg.192dpi.png";
 
         HideLeftSide.OnPressed += OnToggleLeftContainer;
@@ -352,9 +355,13 @@ public sealed partial class MappingScreen : InGameScreen
         MoveGrid.Pressed = MoveGrid == except;
         GridVV.Pressed = GridVV == except;
         PipesColor.Pressed = PipesColor == except;
+        Roof.Pressed = Roof == except;
+        EraseRoof.Pressed = EraseRoof == except;
 
         EraseEntityButton.Pressed = EraseEntityButton == except;
         EraseDecalButton.Pressed = EraseDecalButton == except;
         EraseTileButton.Pressed = EraseTileButton == except;
+
+        EraseRoof.Visible = Roof.Pressed || EraseRoof.Pressed;
     }
 }
