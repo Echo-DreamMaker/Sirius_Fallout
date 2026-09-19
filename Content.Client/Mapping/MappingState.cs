@@ -12,6 +12,7 @@ using Content.Client.Verbs;
 using Content.Shared.Administration;
 using Content.Shared.Decals;
 using Content.Shared.Input;
+using Content.Shared.Light.EntitySystems;
 using Content.Shared.Mapping;
 using Content.Shared.Maps;
 using Robust.Client.Console;
@@ -68,6 +69,9 @@ public sealed class MappingState : GameplayStateBase
     private GridDraggingSystem _gridDrag = default!;
     private MapSystem _map = default!;
     private SharedDecalSystem _sharedDecal = default!;
+    // Sirius edit start
+    private InputSystem _inputSystem = default!;
+    // Sirius edit end
 
     // 1 off in case something else uses these colors since we use them to compare
     private static readonly Color PickColor = new(1, 255, 0);
@@ -86,6 +90,28 @@ public sealed class MappingState : GameplayStateBase
     private (Control, MappingPrototypeList)? _scrollTo;
     private bool _tileErase;
     private int _decalIndex;
+
+    // Sirius edit start
+    private SharedRoofSystem _sharedRoofSystem = default!;
+    private bool _isBoxDragging;
+    private bool _isBrushPainting;
+    private RoofDragMode _dragMode = RoofDragMode.None;
+    private Entity<MapGridComponent>? _boxDragGrid;
+    private Vector2i _boxDragStart;
+    private Vector2i _boxDragCurrent;
+    private bool _boxDragValue;
+    private Entity<MapGridComponent>? _brushGrid;
+    private Vector2i? _lastPaintedTile;
+    private bool _brushValue;
+    private List<Entity<MapGridComponent>> _hoveredGrids = new();
+
+    private enum RoofDragMode : byte
+    {
+        None,
+        Line,
+        Box,
+    }
+    // Sirius edit end
 
     private MappingScreen Screen => (MappingScreen) UserInterfaceManager.ActiveScreen!;
     private MainViewport Viewport => UserInterfaceManager.ActiveScreen!.GetWidget<MainViewport>()!;
@@ -149,6 +175,10 @@ public sealed class MappingState : GameplayStateBase
         Screen.MoveGrid.OnPressed += OnMoveGridPressed;
         Screen.GridVV.OnPressed += OnGridVVPressed;
         Screen.PipesColor.OnPressed += OnPipesColorPressed;
+        // Sirius edit start
+        Screen.Roof.OnPressed += OnRoofPressed;
+        Screen.EraseRoof.OnPressed += OnEraseRoofPressed;
+        // Sirius edit end
         Screen.ChatButton.OnPressed += OnChatButtonPressed;
         _placement.PlacementChanged += OnPlacementChanged;
         _mapping.OnFavoritePrototypesLoaded += OnFavoritesLoaded;
@@ -164,10 +194,20 @@ public sealed class MappingState : GameplayStateBase
             .Bind(ContentKeyFunctions.MappingCancelEraseDecal, new PointerInputCmdHandler(HandleCancelEraseDecal, outsidePrediction: true))
             .Bind(ContentKeyFunctions.MappingOpenContextMenu, new PointerInputCmdHandler(HandleOpenContextMenu, outsidePrediction: true))
             .Bind(ContentKeyFunctions.MouseMiddle, new PointerInputCmdHandler(HandleMouseMiddle, outsidePrediction: true))
-            .Bind(EngineKeyFunctions.Use, new PointerInputCmdHandler(HandleUse, outsidePrediction: true))
+            // Sirius edit start
+            .BindBefore(EngineKeyFunctions.EditorLinePlace, new PointerInputCmdHandler(HandleRoofLinePlace, ignoreUp: false, outsidePrediction: true), typeof(PlacementManager))
+            .BindBefore(EngineKeyFunctions.EditorGridPlace, new PointerInputCmdHandler(HandleRoofGridPlace, ignoreUp: false, outsidePrediction: true), typeof(PlacementManager))
+            .BindBefore(EngineKeyFunctions.EditorPlaceObject, new PointerInputCmdHandler(HandleRoofPlaceObject, ignoreUp: false, outsidePrediction: true), typeof(PlacementManager))
+            .BindBefore(EngineKeyFunctions.EditorCancelPlace, new PointerInputCmdHandler(HandleRoofCancelPlace, outsidePrediction: true), typeof(PlacementManager))
+            // Sirius edit end
+            .Bind(EngineKeyFunctions.Use, new PointerInputCmdHandler(HandleUse, ignoreUp: false, outsidePrediction: true))
             .Register<MappingState>();
 
         _overlays.AddOverlay(new MappingOverlay(this));
+        // Sirius edit start
+        var visibilityUI = UserInterfaceManager.GetUIController<MappingVisibilityUIController>();
+        _overlays.AddOverlay(new MappingRoofOverlay(this) { Enabled = visibilityUI.RoofsVisible });
+        // Sirius edit end
 
         _prototypeManager.PrototypesReloaded += OnPrototypesReloaded;
 
@@ -204,10 +244,18 @@ public sealed class MappingState : GameplayStateBase
         Screen.MoveGrid.OnPressed -= OnMoveGridPressed;
         Screen.GridVV.OnPressed -= OnGridVVPressed;
         Screen.PipesColor.OnPressed -= OnPipesColorPressed;
+        // Sirius edit start
+        Screen.Roof.OnPressed -= OnRoofPressed;
+        Screen.EraseRoof.OnPressed -= OnEraseRoofPressed;
+        // Sirius edit end
         Screen.ChatButton.OnPressed -= OnChatButtonPressed;
         _placement.PlacementChanged -= OnPlacementChanged;
         _prototypeManager.PrototypesReloaded -= OnPrototypesReloaded;
         _mapping.OnFavoritePrototypesLoaded -= OnFavoritesLoaded;
+
+        // Sirius edit start
+        DisableRoofPlacement();
+        // Sirius edit end
 
         UserInterfaceManager.ClearWindows();
         _loadController.UnloadScreen();
@@ -227,6 +275,9 @@ public sealed class MappingState : GameplayStateBase
         // Sirius edit end
 
         _overlays.RemoveOverlay<MappingOverlay>();
+        // Sirius edit start
+        _overlays.RemoveOverlay<MappingRoofOverlay>();
+        // Sirius edit end
 
         base.Shutdown();
     }
@@ -247,6 +298,10 @@ public sealed class MappingState : GameplayStateBase
         _gridDrag = _entityManager.System<GridDraggingSystem>();
         _map = _entityManager.System<MapSystem>();
         _sharedDecal = _entityManager.System<SharedDecalSystem>();
+        // Sirius edit start
+        _sharedRoofSystem = _entityManager.System<SharedRoofSystem>();
+        _inputSystem = _entityManager.System<InputSystem>();
+        // Sirius edit end
     }
 
     private void UpdateLocale()
@@ -586,6 +641,11 @@ public sealed class MappingState : GameplayStateBase
         if (_placement.Eraser)
             return;
 
+        // Sirius edit start
+        if (Screen.Roof.Pressed || Screen.EraseRoof.Pressed)
+            DisableRoofPlacement();
+        // Sirius edit end
+
         Deselect();
         _placement.Clear();
         _placement.ToggleEraser();
@@ -803,6 +863,7 @@ public sealed class MappingState : GameplayStateBase
 
         Meta.State = CursorState.None;
         Screen.UnPressActionsExcept(new Control());
+        DisableRoofPlacement();
 
         switch (prototype)
         {
@@ -958,6 +1019,10 @@ public sealed class MappingState : GameplayStateBase
     {
         if (args.Button.Pressed)
         {
+            // Sirius edit start
+            if (Screen.Roof.Pressed || Screen.EraseRoof.Pressed)
+                DisableRoofPlacement();
+            // Sirius edit end
             Deselect();
             Meta.State = CursorState.Decal;
             Meta.Color = PickColor;
@@ -973,6 +1038,10 @@ public sealed class MappingState : GameplayStateBase
     {
         if (args.Button.Pressed)
         {
+            // Sirius edit start
+            if (Screen.Roof.Pressed || Screen.EraseRoof.Pressed)
+                DisableRoofPlacement();
+            // Sirius edit end
             Deselect();
             Meta.State = CursorState.Grid;
             Meta.Color = GridSelectColor;
@@ -988,6 +1057,10 @@ public sealed class MappingState : GameplayStateBase
     {
         if (args.Button.Pressed)
         {
+            // Sirius edit start
+            if (Screen.Roof.Pressed || Screen.EraseRoof.Pressed)
+                DisableRoofPlacement();
+            // Sirius edit end
             Deselect();
             Meta.State = CursorState.Grid;
             Meta.Color = GridRemoveColor;
@@ -1003,6 +1076,10 @@ public sealed class MappingState : GameplayStateBase
     {
         if (args.Button.Pressed)
         {
+            // Sirius edit start
+            if (Screen.Roof.Pressed || Screen.EraseRoof.Pressed)
+                DisableRoofPlacement();
+            // Sirius edit end
             Deselect();
             Meta.State = CursorState.Grid;
             Meta.Color = GridSelectColor;
@@ -1024,6 +1101,10 @@ public sealed class MappingState : GameplayStateBase
     {
         if (args.Button.Pressed)
         {
+            // Sirius edit start
+            if (Screen.Roof.Pressed || Screen.EraseRoof.Pressed)
+                DisableRoofPlacement();
+            // Sirius edit end
             Deselect();
             Meta.State = CursorState.Grid;
             Meta.Color = GridSelectColor;
@@ -1041,6 +1122,10 @@ public sealed class MappingState : GameplayStateBase
 
         if (args.Button.Pressed)
         {
+            // Sirius edit start
+            if (Screen.Roof.Pressed || Screen.EraseRoof.Pressed)
+                DisableRoofPlacement();
+            // Sirius edit end
             Deselect();
             Meta.State = CursorState.Entity;
             Meta.Color = PickColor;
@@ -1056,11 +1141,109 @@ public sealed class MappingState : GameplayStateBase
     {
         Screen.Chat.Visible = args.Button.Pressed;
     }
+
+    // Sirius edit start
+    private void OnRoofPressed(ButtonEventArgs args)
+    {
+        if (args.Button.Pressed)
+            EnableRoofPlacement(true);
+        else
+            DisableRoofPlacement();
+    }
+
+    private void OnEraseRoofPressed(ButtonEventArgs args)
+    {
+        if (args.Button.Pressed)
+            EnableRoofPlacement(false);
+        else
+            DisableRoofPlacement();
+    }
+
+    private void EnableRoofPlacement(bool placing)
+    {
+        CancelRoofDrag();
+        Deselect();
+        _placement.Clear();
+        Screen.UnPressActionsExcept(placing ? Screen.Roof : Screen.EraseRoof);
+
+        Meta.State = CursorState.Tile;
+        Meta.Color = placing ? Color.FromHex("#00BFFF66") : Color.FromHex("#FF444466");
+
+        _input.Contexts.SetActiveContext("editor");
+    }
+
+    private void DisableRoofPlacement()
+    {
+        _isBoxDragging = false;
+        _isBrushPainting = false;
+        _boxDragGrid = null;
+        _brushGrid = null;
+        _lastPaintedTile = null;
+        _dragMode = RoofDragMode.None;
+
+        if (Screen.Roof.Pressed)
+            Screen.Roof.Pressed = false;
+        if (Screen.EraseRoof.Pressed)
+            Screen.EraseRoof.Pressed = false;
+
+        Meta.State = CursorState.None;
+        Screen.EraseRoof.Visible = false;
+
+        if (!_placement.IsActive && _decal.GetActiveDecal().Decal == null)
+            _inputSystem.SetEntityContextActive();
+    }
+
+    private bool CancelRoofDrag()
+    {
+        if (_isBoxDragging || _isBrushPainting)
+        {
+            _isBoxDragging = false;
+            _isBrushPainting = false;
+            _boxDragGrid = null;
+            _brushGrid = null;
+            _lastPaintedTile = null;
+            _dragMode = RoofDragMode.None;
+            return true;
+        }
+
+        return false;
+    }
+
+    private Box2i GetBoxDragArea()
+    {
+        if (_dragMode == RoofDragMode.Line)
+        {
+            var diff = _boxDragCurrent - _boxDragStart;
+            if (Math.Abs(diff.X) >= Math.Abs(diff.Y))
+            {
+                return Box2i.FromTwoPoints(_boxDragStart, new Vector2i(_boxDragCurrent.X, _boxDragStart.Y));
+            }
+            else
+            {
+                return Box2i.FromTwoPoints(_boxDragStart, new Vector2i(_boxDragStart.X, _boxDragCurrent.Y));
+            }
+        }
+
+        return Box2i.FromTwoPoints(_boxDragStart, _boxDragCurrent);
+    }
+    // Sirius edit end
     #endregion
 
     #region Handle Bindings
     private bool HandleOpenContextMenu(in PointerInputCmdArgs args)
     {
+        // Sirius edit start
+        if (CancelRoofDrag())
+            return true;
+
+        if (Screen.Roof.Pressed || Screen.EraseRoof.Pressed)
+        {
+            DisableRoofPlacement();
+            Screen.UnPressActionsExcept(new Control());
+            return true;
+        }
+        // Sirius edit end
+
         Deselect();
 
         var coords = _transform.ToMapCoordinates(args.Coordinates);
@@ -1072,6 +1255,13 @@ public sealed class MappingState : GameplayStateBase
 
     private bool HandleMappingUnselect(in PointerInputCmdArgs args)
     {
+        // Sirius edit start
+        if (CancelRoofDrag())
+            return true;
+
+        DisableRoofPlacement();
+        // Sirius edit end
+
         if (Screen.MoveGrid.Pressed && _gridDrag.Enabled)
         {
             _consoleHost.ExecuteCommand("griddrag");
@@ -1240,8 +1430,139 @@ public sealed class MappingState : GameplayStateBase
         return true;
     }
 
+    // Sirius edit start
+    private bool HandleRoofLinePlace(in PointerInputCmdArgs args)
+    {
+        return HandleRoofPlace(args, RoofDragMode.Line);
+    }
+
+    private bool HandleRoofGridPlace(in PointerInputCmdArgs args)
+    {
+        return HandleRoofPlace(args, RoofDragMode.Box);
+    }
+
+    private bool HandleRoofPlaceObject(in PointerInputCmdArgs args)
+    {
+        return HandleRoofPlace(args, RoofDragMode.None);
+    }
+
+    private bool HandleRoofCancelPlace(in PointerInputCmdArgs args)
+    {
+        if (!Screen.Roof.Pressed && !Screen.EraseRoof.Pressed)
+            return false;
+
+        if (CancelRoofDrag())
+            return true;
+
+        DisableRoofPlacement();
+        Screen.UnPressActionsExcept(new Control());
+        return true;
+    }
+
+    private bool HandleRoofPlace(in PointerInputCmdArgs args, RoofDragMode forcedMode)
+    {
+        if (!Screen.Roof.Pressed && !Screen.EraseRoof.Pressed)
+            return false;
+
+        var isPlacing = Screen.Roof.Pressed;
+
+        if (args.State == BoundKeyState.Down)
+        {
+            if (GetHoveredTile(args.Coordinates) is not { } hovered)
+                return true;
+
+            var isControl = forcedMode == RoofDragMode.Box || (forcedMode == RoofDragMode.None && _input.IsKeyDown(Robust.Client.Input.Keyboard.Key.Control));
+            var isShift = forcedMode == RoofDragMode.Line || (forcedMode == RoofDragMode.None && _input.IsKeyDown(Robust.Client.Input.Keyboard.Key.Shift));
+
+            if (isControl || isShift)
+            {
+                _isBoxDragging = true;
+                _isBrushPainting = false;
+                _boxDragGrid = hovered.Grid;
+                _boxDragStart = hovered.Tile;
+                _boxDragCurrent = hovered.Tile;
+                _boxDragValue = isPlacing;
+                _dragMode = isControl ? RoofDragMode.Box : RoofDragMode.Line;
+            }
+            else
+            {
+                _isBrushPainting = true;
+                _isBoxDragging = false;
+                _dragMode = RoofDragMode.None;
+                _brushGrid = hovered.Grid;
+                _brushValue = isPlacing;
+                _lastPaintedTile = hovered.Tile;
+
+                _entityNetwork.SendSystemNetworkMessage(new RequestSetRoofTileEvent(
+                    _entityManager.GetNetEntity(hovered.Grid.Owner),
+                    hovered.Tile,
+                    isPlacing));
+
+                _sharedRoofSystem.SetRoof(hovered.Grid, hovered.Tile, isPlacing);
+            }
+
+            return true;
+        }
+
+        if (args.State == BoundKeyState.Up)
+        {
+            FinishRoofPlacement();
+            return true;
+        }
+
+        return true;
+    }
+
+    private bool FinishRoofPlacement()
+    {
+        if (_isBoxDragging && _boxDragGrid is { } boxGrid)
+        {
+            var viewport = UserInterfaceManager.CurrentlyHovered as IViewportControl ?? Viewport.Viewport;
+            if (viewport != null && _input.MouseScreenPosition is { IsValid: true } mouseCoords)
+            {
+                var mapPos = viewport.PixelToMap(mouseCoords.Position);
+                if (mapPos.MapId == _transform.GetMapId(boxGrid.Owner))
+                {
+                    _boxDragCurrent = _map.CoordinatesToTile(boxGrid.Owner, boxGrid.Comp, mapPos);
+                }
+            }
+
+            var box = GetBoxDragArea();
+
+            _entityNetwork.SendSystemNetworkMessage(new RequestSetRoofAreaEvent(
+                _entityManager.GetNetEntity(boxGrid.Owner),
+                box,
+                _boxDragValue));
+
+            _sharedRoofSystem.SetRoofArea(boxGrid, box, _boxDragValue);
+
+            _isBoxDragging = false;
+            _boxDragGrid = null;
+            _dragMode = RoofDragMode.None;
+            return true;
+        }
+
+        if (_isBrushPainting)
+        {
+            _isBrushPainting = false;
+            _brushGrid = null;
+            _lastPaintedTile = null;
+            return true;
+        }
+
+        return false;
+    }
+    // Sirius edit end
+
     private bool HandleUse(in PointerInputCmdArgs args)
     {
+        // Sirius edit start
+        if (Screen.Roof.Pressed || Screen.EraseRoof.Pressed)
+        {
+            return HandleRoofPlace(args, RoofDragMode.None);
+        }
+        // Sirius edit end
+
         if (Screen.FixGridAtmos.Pressed)
         {
             Screen.FixGridAtmos.Pressed = false;
@@ -1411,6 +1732,58 @@ public sealed class MappingState : GameplayStateBase
             _tileErase = false;
         }
 
+        // Sirius edit start
+        if (_isBrushPainting)
+        {
+            if (!_input.IsKeyDown(Robust.Client.Input.Keyboard.Key.MouseLeft))
+            {
+                _isBrushPainting = false;
+                _brushGrid = null;
+                _lastPaintedTile = null;
+            }
+            else if (GetHoveredTile() is { } hovered)
+            {
+                if (_brushGrid == null || hovered.Grid.Owner != _brushGrid.Value.Owner)
+                {
+                    _brushGrid = hovered.Grid;
+                    _lastPaintedTile = null;
+                }
+
+                if (hovered.Tile != _lastPaintedTile)
+                {
+                    _lastPaintedTile = hovered.Tile;
+
+                    _entityNetwork.SendSystemNetworkMessage(new RequestSetRoofTileEvent(
+                        _entityManager.GetNetEntity(hovered.Grid.Owner),
+                        hovered.Tile,
+                        _brushValue));
+
+                    _sharedRoofSystem.SetRoof(hovered.Grid, hovered.Tile, _brushValue);
+                }
+            }
+        }
+
+        if (_isBoxDragging && _boxDragGrid is { } dragGrid)
+        {
+            if (!_input.IsKeyDown(Robust.Client.Input.Keyboard.Key.MouseLeft))
+            {
+                FinishRoofPlacement();
+            }
+            else
+            {
+                var viewport = UserInterfaceManager.CurrentlyHovered as IViewportControl ?? Viewport.Viewport;
+                if (viewport != null && _input.MouseScreenPosition is { IsValid: true } coords)
+                {
+                    var mapPos = viewport.PixelToMap(coords.Position);
+                    if (mapPos.MapId == _transform.GetMapId(dragGrid.Owner))
+                    {
+                        _boxDragCurrent = _map.CoordinatesToTile(dragGrid.Owner, dragGrid.Comp, mapPos);
+                    }
+                }
+            }
+        }
+        // Sirius edit end
+
         if (_scrollTo is not { } scrollTo)
             return;
 
@@ -1426,6 +1799,75 @@ public sealed class MappingState : GameplayStateBase
             _scrollTo = null;
         }
     }
+
+    // Sirius edit start
+    public (Entity<MapGridComponent> Grid, Vector2i Tile)? GetHoveredTile(EntityCoordinates? entityCoords = null)
+    {
+        MapCoordinates mapPos;
+
+        if (entityCoords.HasValue && entityCoords.Value.IsValid(_entityManager))
+        {
+            mapPos = _transform.ToMapCoordinates(entityCoords.Value);
+        }
+        else
+        {
+            var viewport = UserInterfaceManager.CurrentlyHovered as IViewportControl ?? Viewport.Viewport;
+            if (viewport == null || _input.MouseScreenPosition is not { IsValid: true } coords)
+                return null;
+
+            mapPos = viewport.PixelToMap(coords.Position);
+        }
+
+        if (mapPos.MapId == MapId.Nullspace)
+            return null;
+
+        if (!_entityManager.System<SharedMapSystem>().TryFindGridAt(mapPos, out var gridUid, out var gridComp))
+        {
+            var bounds = new Box2(mapPos.Position - new Vector2(0.1f, 0.1f), mapPos.Position + new Vector2(0.1f, 0.1f));
+            _hoveredGrids.Clear();
+            _map.FindGridsIntersecting(mapPos.MapId, bounds, ref _hoveredGrids);
+            if (_hoveredGrids.Count == 0)
+                return null;
+
+            gridUid = _hoveredGrids[0].Owner;
+            gridComp = _hoveredGrids[0].Comp;
+        }
+
+        var grid = new Entity<MapGridComponent>(gridUid, gridComp);
+        var tile = _map.CoordinatesToTile(gridUid, gridComp, mapPos);
+        return (grid, tile);
+    }
+
+    public bool TryGetBoxDrag(EntityUid gridUid, out Box2i box, out bool isPlacing)
+    {
+        if (_isBoxDragging && _boxDragGrid is { } grid && grid.Owner == gridUid)
+        {
+            box = GetBoxDragArea();
+            isPlacing = _boxDragValue;
+            return true;
+        }
+
+        box = default;
+        isPlacing = false;
+        return false;
+    }
+
+    public bool TryGetBoxDrag(out EntityUid gridUid, out Box2i box, out bool isPlacing)
+    {
+        if (_isBoxDragging && _boxDragGrid is { } grid)
+        {
+            gridUid = grid.Owner;
+            box = GetBoxDragArea();
+            isPlacing = _boxDragValue;
+            return true;
+        }
+
+        gridUid = default;
+        box = default;
+        isPlacing = false;
+        return false;
+    }
+    // Sirius edit end
 
 
     public enum CursorState

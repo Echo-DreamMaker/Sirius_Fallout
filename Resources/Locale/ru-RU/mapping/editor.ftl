@@ -30,3 +30,14 @@ mapping-hide-left-side-tooltip = Свернуть левый блок
 mapping-hide-right-side-tooltip = Свернуть правый блок
 mapping-collapse-all-tooltip = Свернуть всё
 mapping-clear-search-tooltip = Очистить поиск
+mapping-roof = Крыша
+mapping-erase-roof = Стереть крышу
+mapping-roof-tooltip = Установка крыши
+mapping-erase-roof-tooltip = Стирание крыши
+
+cmd-migratemarkerstoproofs-desc = Мигрирует все MarkerWeatherblocker на гриде в нативный RoofComponent
+cmd-migratemarkerstoproofs-help = Использование: migratemarkerstoproofs [gridUid]
+cmd-migratemarkerstoproofs-invalid-grid = Не удалось распознать сущность '{$id}'.
+cmd-migratemarkerstoproofs-not-a-grid = Сущность '{$id}' не является гридом.
+cmd-migratemarkerstoproofs-no-grid = Грид не указан, и игрок не находится на гриде.
+cmd-migratemarkerstoproofs-result = Миграция завершена для грида {$grid}: удалено маркеров {$deleted}, записано тайлов крыши {$written}.
