@@ -41,22 +41,7 @@
       "name": "eighties"
     },
     {
-      "name": "bosMCommander"
-    },
-    {
         "name": "investigator"
-    },
-    {
-      "name": "bosMKnight"
-    },
-    {
-      "name": "bosMPaladin"
-    },
-    {
-      "name": "bosMScriptor"
-    },
-    {
-      "name": "bosMSquire"
     },
     {
       "name": "caravanGuard"
@@ -126,21 +111,6 @@
     },
     {
       "name": "tribalMedic"
-    },
-    {
-      "name": "vaulDweller"
-    },
-    {
-      "name": "vaultEngineer"
-    },
-    {
-      "name": "vaultMedic"
-    },
-    {
-      "name": "vaultOverseer"
-    },
-    {
-      "name": "vaultSecurity"
     },
     {
       "name": "wastelandChaplain"

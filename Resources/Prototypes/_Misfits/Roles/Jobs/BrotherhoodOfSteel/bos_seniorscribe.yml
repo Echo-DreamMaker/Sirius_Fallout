@@ -22,7 +22,7 @@
       min: 28800 # 8 hours as Scribe
   startingGear: BoSMidScribeGear
   alwaysUseSpawner: true
-  icon: "JobIconBosMScriptor" # Corvax-Change
+  icon: "JobIconBosMSeniorScriptor"
   supervisors: job-supervisors-bos-mid
   accessGroups:
   - BOSSeniorScribe

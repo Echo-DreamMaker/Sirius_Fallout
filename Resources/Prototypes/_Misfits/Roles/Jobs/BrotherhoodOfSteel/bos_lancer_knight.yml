@@ -26,7 +26,7 @@
       min: 28800 # 8 hours
   startingGear: BoSLancerKnightGear
   alwaysUseSpawner: true
-  icon: "JobIconBosMKnight"
+  icon: "JobIconBosMLancerKnight"
   supervisors: job-supervisors-bos-lancer-knight
   accessGroups:
   - BOSKnight
