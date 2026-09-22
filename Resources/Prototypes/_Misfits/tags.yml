@@ -89,3 +89,18 @@
 
 - type: Tag # #Cythisiax Fixed - was lowercase 'type: tag'
   id: BwonsamdiHarness
+
+# #Misfits Add - Weapon attachment category tags.
+# Each attachment item carries exactly one of these; each weapon attachment
+# ItemSlot whitelists the tag for its category.
+- type: Tag
+  id: N14AttachmentTop
+
+- type: Tag
+  id: N14AttachmentMuzzle
+
+- type: Tag
+  id: N14AttachmentBottom
+
+- type: Tag
+  id: N14AttachmentHandle

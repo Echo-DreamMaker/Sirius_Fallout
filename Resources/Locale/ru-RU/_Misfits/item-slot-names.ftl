@@ -32,3 +32,9 @@ Vial = флакон
 Keys = Ключи
 Mail = Почта
 SoulCrystal = Кристалл души
+
+# ── Weapon attachment slots (#Misfits Add) ───────────────────────────────────
+weapon-attachment-slot-top = Верхний слот
+weapon-attachment-slot-muzzle = Дульный слот
+weapon-attachment-slot-bottom = Нижний слот
+weapon-attachment-slot-handle = Слот рукояти

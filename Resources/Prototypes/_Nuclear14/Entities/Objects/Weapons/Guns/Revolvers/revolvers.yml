@@ -6,6 +6,9 @@
   - type: StrengthRequirement
   - type: FollowDistance
     backStrength: 6
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
   - type: StaticPrice
     price: 20
   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system

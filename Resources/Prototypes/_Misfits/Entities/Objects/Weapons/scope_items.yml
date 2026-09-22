@@ -70,8 +70,11 @@
       offset: 15
       allowMovement: false
       doAfter: 0.8
+  - type: WeaponAttachment
+    slot: Top
   - type: Tag
     tags:
     - RifleScope
+    - N14AttachmentTop
   - type: StaticPrice
     price: 100

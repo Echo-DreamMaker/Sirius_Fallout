@@ -1,0 +1,312 @@
+# #Misfits Add - Weapon attachments: tactical upgrades installed into a weapon's
+# gun_top / gun_muzzle / gun_bottom / gun_handle ItemSlots.
+# Each attachment carries a WeaponAttachmentComponent that declares its category,
+# plus optional behaviour components handled by WeaponAttachmentSystem.
+
+# ────────────────────────────────────────────────────────────────────────────
+# TOP - optics and sights
+# ────────────────────────────────────────────────────────────────────────────
+
+- type: entity
+  parent: BaseItem
+  id: N14WeaponAttachmentReflexSight
+  name: reflex sight
+  description: A compact red-dot sight. Improves aiming when mounted on a compatible weapon.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: scope
+  - type: WeaponAttachment
+    slot: Top
+    minAngleModifier: -8
+    maxAngleModifier: -10
+    angleIncreaseModifier: -1
+  - type: Tag
+    tags:
+    - N14AttachmentTop
+  - type: StaticPrice
+    price: 90
+
+
+# ────────────────────────────────────────────────────────────────────────────
+# MUZZLE - suppressors and muzzle brakes
+# ────────────────────────────────────────────────────────────────────────────
+
+- type: entity
+  parent: BaseItem
+  id: N14WeaponAttachmentSuppressor
+  name: suppressor
+  description: Quiets the weapon's gunshot. Mount it on a compatible weapon's muzzle.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: barrel
+  - type: WeaponAttachment
+    slot: Muzzle
+    soundGunshotOverride:
+      path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
+  - type: Tag
+    tags:
+    - N14AttachmentMuzzle
+  - type: StaticPrice
+    price: 150
+
+- type: entity
+  parent: BaseItem
+  id: N14WeaponAttachmentMuzzleBrake
+  name: muzzle brake
+  description: Redirects gases to reduce recoil and tighten the weapon's spread.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: recoilcomp
+  - type: WeaponAttachment
+    slot: Muzzle
+    angleIncreaseModifier: -2
+    angleDecayModifier: 2
+    cameraRecoilScalarModifier: 0.7
+  - type: Tag
+    tags:
+    - N14AttachmentMuzzle
+  - type: StaticPrice
+    price: 100
+
+# ────────────────────────────────────────────────────────────────────────────
+# HANDLE - grips
+# ────────────────────────────────────────────────────────────────────────────
+
+- type: entity
+  parent: BaseItem
+  id: N14WeaponAttachmentGrip
+  name: tactical grip
+  description: Improves weapon handling, making it easier to control and harder to lose.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: riflestock
+  - type: WeaponAttachment
+    slot: Handle
+    minAngleModifier: -6
+    maxAngleModifier: -10
+    angleIncreaseModifier: -2
+    cameraRecoilScalarModifier: 0.9
+  - type: Tag
+    tags:
+    - N14AttachmentHandle
+  - type: StaticPrice
+    price: 80
+
+# ────────────────────────────────────────────────────────────────────────────
+# BOTTOM - bipod
+# ────────────────────────────────────────────────────────────────────────────
+
+- type: entity
+  parent: BaseItem
+  id: N14WeaponAttachmentBipod
+  name: bipod
+  description: Folding legs. Deployed they hurt accuracy standing up but help a lot while prone. Folded they do nothing.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: stockwood
+  - type: WeaponAttachment
+    slot: Bottom
+    toggleAction: N14ActionToggleBipod
+  - type: WeaponBipod
+  - type: Tag
+    tags:
+    - N14AttachmentBottom
+  - type: StaticPrice
+    price: 110
+
+# ────────────────────────────────────────────────────────────────────────────
+# BOTTOM - bayonet
+# ────────────────────────────────────────────────────────────────────────────
+
+- type: entity
+  parent: BaseItem
+  id: N14WeaponAttachmentBayonet
+  name: bayonet
+  description: Lets a rifle stab enemies at close range when mounted.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: sensor_module
+  - type: WeaponAttachment
+    slot: Bottom
+  - type: Bayonet
+    damage:
+      types:
+        Slash: 18
+        Piercing: 5
+        Bloodloss: 2
+    range: 1.8
+    attackRate: 1.2
+    wideAnimationRotation: -135
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Tag
+    tags:
+    - N14AttachmentBottom
+  - type: StaticPrice
+    price: 70
+
+# ────────────────────────────────────────────────────────────────────────────
+# BOTTOM - flashlight
+# ────────────────────────────────────────────────────────────────────────────
+
+- type: entity
+  parent: BaseItem
+  id: N14WeaponAttachmentFlashlight
+  name: weapon flashlight
+  description: A rugged flashlight that mounts under a weapon's barrel. Toggle it to light up the dark.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Tools/flashlight.rsi
+    state: flashlight
+  - type: WeaponAttachment
+    slot: Bottom
+    toggleAction: N14ActionToggleFlashlight
+  - type: WeaponFlashlight
+  - type: PointLight
+    enabled: false
+    lightMask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 8
+    energy: 4
+    softness: 2
+  - type: Tag
+    tags:
+    - N14AttachmentBottom
+  - type: StaticPrice
+    price: 60
+
+# ────────────────────────────────────────────────────────────────────────────
+# BOTTOM - laser aiming module
+# ────────────────────────────────────────────────────────────────────────────
+
+- type: entity
+  parent: BaseItem
+  id: N14WeaponAttachmentLaserSight
+  name: laser sight
+  description: A visible laser aiming module. Toggling it on projects a red beam and tightens your spread.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: lenses
+  - type: WeaponAttachment
+    slot: Bottom
+    toggleAction: N14ActionToggleLaserSight
+  - type: WeaponLaserSight
+  - type: PointLight
+    enabled: false
+    color: "#ff1010"
+    radius: 2
+    energy: 3
+  - type: Tag
+    tags:
+    - N14AttachmentBottom
+  - type: StaticPrice
+    price: 130
+
+# ────────────────────────────────────────────────────────────────────────────
+# BOTTOM - underbarrel weapons
+# These are full guns: switch to the underbarrel via the context menu and reload
+# them by using the appropriate ammunition on the host weapon.
+# ────────────────────────────────────────────────────────────────────────────
+
+- type: entity
+  parent: BaseItem
+  id: N14WeaponAttachmentUnderslungShotgun
+  name: underbarrel shotgun
+  description: A short 12-gauge barrel that mounts under a rifle. Holds 5 shells. Switch to it via the context menu and load it by using shells on the rifle.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: barrel
+    layers:
+    - state: barrel
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: N14ShotgunGunshot
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - N14ShellShotgun12
+    capacity: 5
+    proto: N14ShellShotgun12
+    soundInsert:
+      path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
+  - type: WeaponAttachment
+    slot: Bottom
+  - type: UnderslungWeapon
+  - type: Tag
+    tags:
+    - N14AttachmentBottom
+  - type: StaticPrice
+    price: 140
+
+- type: entity
+  parent: BaseItem
+  id: N14WeaponAttachmentUnderslungGrenade
+  name: underbarrel grenade launcher
+  description: A light 40mm launcher that mounts under a rifle. Holds 1 grenade. Switch to it via the context menu and load it by using grenades on the rifle.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: gunframe
+    layers:
+    - state: gunframe
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Gun
+    minAngle: 24
+    maxAngle: 105
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: N14LauncherGrenadeGunshot
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - N14Grenade
+    capacity: 1
+    proto: 40mmGrenadeFrag
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: WeaponAttachment
+    slot: Bottom
+  - type: UnderslungWeapon
+  - type: Tag
+    tags:
+    - N14AttachmentBottom
+  - type: StaticPrice
+    price: 180

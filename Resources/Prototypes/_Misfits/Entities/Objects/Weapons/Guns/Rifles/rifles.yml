@@ -30,6 +30,30 @@
     - FullAuto
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: Magazine556Rifle
@@ -48,7 +72,6 @@
             - N14Cartridge556Rifle
   - type: StaticPrice
     price: 20
-
 - type: entity
   name: M72 rifle
   parent: BaseItem
@@ -106,9 +129,38 @@
           - N14MagazineRifle2mmEC
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: MagazineAmmoProvider
   - type: MagazineVisuals
     magState: mag
@@ -153,6 +205,30 @@
       collection: N14RifleR91Gunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineHeavy556Rifle

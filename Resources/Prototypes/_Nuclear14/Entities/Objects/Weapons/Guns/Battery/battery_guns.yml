@@ -1,5 +1,4 @@
 # Developer Note: Naming convention is N14 Weapon Plasma/Laser WeaponType Info/Name
-
 - type: entity
   id: N14BaseWeaponPowerCell
   parent: BaseItem
@@ -32,6 +31,30 @@
         whitelist:
           tags:
             - N14MicrofusionCell
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
   - type: Appearance
   - type: IntelligenceRequirement
     requiredIntelligence: 4
@@ -40,8 +63,12 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
-
 - type: entity
   id: N14BaseWeaponPowerCellSmall
   parent: N14BaseWeaponPowerCell
@@ -64,7 +91,6 @@
     maxAngle: 9
     angleIncrease: 0.5
     angleDecay: 4
-
 - type: entity
   id: N14BaseWeaponPowerCellMedium
   parent: N14BaseWeaponPowerCell
@@ -101,6 +127,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14PowerCellSmall
@@ -124,7 +174,6 @@
     price: 80
   - type: Cautery
     speed: 0.3
-
 - type: entity
   name: makeshift laser revolver
   parent: N14BaseWeaponPowerCellSmall
@@ -170,7 +219,6 @@
     price: 60
   - type: Cautery
     speed: 0.3
-
 - type: entity
   name: plasma pistol
   parent: N14BaseWeaponPowerCellSmall
@@ -189,6 +237,30 @@
     sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_pistol.rsi
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14PlasmaCartridge
@@ -211,7 +283,6 @@
     price: 80
   - type: Cautery
     speed: 0.2
-
 - type: entity
   name: plasma defender
   parent: N14BaseWeaponPowerCellSmall
@@ -230,6 +301,30 @@
     sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_pistol.rsi
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14PlasmaCartridge
@@ -254,7 +349,6 @@
     speed: 0.2
 
 # MARK: Recharger
-
 - type: entity
   name: recharger rifle
   parent: BaseWeaponBattery
@@ -293,11 +387,43 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 100
+  - type: ItemSlots
+    slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: FollowDistance
     backStrength: 5
   - type: StaticPrice
     price: 175
-
 - type: entity
   name: recharger pistol
   parent: BaseWeaponBatterySmall
@@ -331,6 +457,39 @@
   - type: Tag
     tags:
     - Sidearm
+  - type: ItemSlots
+    slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: FollowDistance
     backStrength: 6
   - type: StaticPrice
@@ -339,7 +498,6 @@
     speed: 0.3
 
 # MARK: FullAuto
-
 - type: entity
   name: AER-9 auto laser rifle
   parent: N14BaseWeaponPowerCellMedium
@@ -372,6 +530,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MicrofusionCellRed
@@ -394,7 +576,6 @@
     backStrength: 5
   - type: StaticPrice
     price: 225
-
 - type: entity
   name: automatic plasma rifle
   parent: N14BaseWeaponPowerCellMedium
@@ -426,6 +607,30 @@
     - suitStorage
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14PlasmaCartridge
@@ -449,7 +654,6 @@
     backStrength: 5
   - type: StaticPrice
     price: 225
-
 - type: entity
   name: prototype AER-14 laser rifle
   parent: N14BaseWeaponPowerCellMedium
@@ -482,6 +686,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MicrofusionCellRed
@@ -538,6 +766,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MicrofusionCellRed
@@ -596,6 +848,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MicrofusionCellRed
@@ -620,7 +896,6 @@
     price: 500
 
 # MARK: Semiauto
-
 - type: entity
   name: AER-9
   parent: N14BaseWeaponPowerCellMedium
@@ -653,6 +928,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MicrofusionCellRed
@@ -675,7 +974,6 @@
     backStrength: 5
   - type: StaticPrice
     price: 250
-
 - type: entity
   name: crude laser rifle
   parent: N14WeaponLaserRifle
@@ -704,6 +1002,30 @@
     - suitStorage
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MicrofusionCellRed
@@ -721,7 +1043,6 @@
     - SemiAuto
   - type: StaticPrice
     price: 150
-
 - type: entity
   name: makeshift laser rifle
   parent: N14BaseWeaponPowerCellMedium
@@ -754,6 +1075,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MicrofusionCellRed
@@ -773,7 +1118,6 @@
     backStrength: 5
   - type: StaticPrice
     price: 50
-
 - type: entity
   name: plasma rifle
   parent: N14BaseWeaponPowerCellMedium
@@ -805,6 +1149,30 @@
     - suitStorage
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14PlasmaCartridge
@@ -828,7 +1196,6 @@
     backStrength: 5
   - type: StaticPrice
     price: 275
-
 - type: entity
   name: crude plasma rifle
   parent: N14WeaponPlasmaRifle
@@ -860,6 +1227,30 @@
     - suitStorage
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14PlasmaCartridge
@@ -877,7 +1268,6 @@
     - SemiAuto
   - type: StaticPrice
     price: 175
-
 - type: entity
   name: urban plasma rifle
   parent: N14BaseWeaponPowerCellMedium
@@ -909,6 +1299,30 @@
     - suitStorage
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14PlasmaCartridge
@@ -939,7 +1353,6 @@
     price: 225
 
 # MARK: Shotguns
-
 - type: entity
   name: multiplas
   parent: N14BaseWeaponPowerCellMedium
@@ -968,6 +1381,30 @@
     - suitStorage
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14PlasmaCartridgeMultiplas # #Misfits Change - use dedicated multi-shot cartridge
@@ -994,7 +1431,6 @@
 
 #MARK: Focused
 # (just a different looking laser rifle until we get more options)
-
 - type: entity
   name: wattz 3000 laser rifle
   parent: N14BaseWeaponPowerCellMedium
@@ -1027,6 +1463,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MicrofusionCellRed
@@ -1053,7 +1513,6 @@
       types:
         Heat: 33 #sirius change
     fireCostMultiplier: 2.0
-
 - type: entity
   name: wattz 2000 laser rifle
   parent: N14BaseWeaponPowerCellMedium
@@ -1086,6 +1545,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MicrofusionCellRed
@@ -1114,7 +1597,6 @@
     fireCostMultiplier: 2.0
 
 #MARK: Heavy
-
 - type: entity
   name: plasma caster
   parent: N14BaseWeaponPowerCellMedium
@@ -1145,6 +1627,30 @@
     size: Ginormous
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14PlasmaShell
@@ -1174,7 +1680,6 @@
     backStrength: 6
   - type: StaticPrice
     price: 500
-
 - type: entity
   name: laser gatling gun
   parent: N14BaseWeaponPowerCellMedium
@@ -1222,6 +1727,30 @@
     size: Ginormous
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14FusionCore # #Misfits Change - consolidated to single generic fusion core
@@ -1260,7 +1789,6 @@
 
 # #Misfits Add — Laser RCW, Pulse Pistol, Pulse Carbine, Pulse Rifle, Tesla Cannon
 # Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
-
 - type: entity
   name: laser RCW
   parent: N14BaseWeaponPowerCell
@@ -1287,6 +1815,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Power Cell
         startingItem: N14ElectronChargePack
@@ -1321,7 +1873,6 @@
     backStrength: 5
   - type: StaticPrice
     price: 300
-
 - type: entity
   name: pulse pistol
   parent: N14BaseWeaponPowerCellSmall
@@ -1344,6 +1895,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Power Cell
         startingItem: N14PulseEnergyCell
@@ -1369,7 +1944,6 @@
     backStrength: 5
   - type: StaticPrice
     price: 200
-
 - type: entity
   name: pulse carbine
   parent: N14BaseWeaponPowerCell
@@ -1396,6 +1970,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Power Cell
         startingItem: N14PulseMicrofusionCell
@@ -1427,7 +2025,6 @@
     backStrength: 5
   - type: StaticPrice
     price: 350
-
 - type: entity
   name: pulse rifle (YK42b)
   parent: N14BaseWeaponPowerCell
@@ -1454,6 +2051,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Power Cell
         startingItem: N14PulseMicrofusionCell
@@ -1485,7 +2106,6 @@
     backStrength: 5
   - type: StaticPrice
     price: 500
-
 - type: entity
   name: Tesla Cannon
   parent: N14BaseWeaponPowerCell
@@ -1512,6 +2132,30 @@
     zeroVisible: true
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Power Cell
         startingItem: N14TeslaElectronChargePack #Misfits Change — use tesla cell so cannon fires energy ball projectile

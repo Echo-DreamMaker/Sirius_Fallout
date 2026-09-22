@@ -1,6 +1,46 @@
 - type: entity
-  name: automatic rifle
   parent: BaseWeaponRifle
+  id: N14WeaponLMGBase
+  abstract: true
+  components:
+  - type: ItemSlots
+    slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: WeaponAttachmentHost
+- type: entity
+  name: automatic rifle
+  parent: N14WeaponLMGBase
   id: N14WeaponLMGAutoRifle
   description: A high caliber, low-capacity heavy machine gun of the pre-war, chambered in the powerful .308 ammunition.
   components:
@@ -37,6 +77,30 @@
     - FullAuto
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: Magazine308Rifle
@@ -65,10 +129,9 @@
     backStrength: 6
   - type: StaticPrice
     price: 300
-
 - type: entity
   name: canadian HMG
-  parent: BaseWeaponRifle
+  parent: N14WeaponLMGBase
   id: N14WeaponHMGcanadian
   description: A powerfull belt feed machine gun commonly used by the pre-war canadian army, chambered in 7.62mm ammunition.
   components:
@@ -105,6 +168,30 @@
     - FullAuto
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: Magazine762AmmoBelt
@@ -133,10 +220,9 @@
     backStrength: 6
   - type: StaticPrice
     price: 600
-
 - type: entity
   name: chinese LMG
-  parent: BaseWeaponRifle
+  parent: N14WeaponLMGBase
   id: N14WeaponLMGchinese
   description: A pre-war chinese light machine gun, chambered in 7.62mm ammunition.
   components:
@@ -173,6 +259,30 @@
     - FullAuto
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: Magazine762AmmoBelt
@@ -201,10 +311,9 @@
     backStrength: 6
   - type: StaticPrice
     price: 500
-
 - type: entity
   name: light machine gun
-  parent: BaseWeaponRifle
+  parent: N14WeaponLMGBase
   id: N14WeaponLMG
   description: A light machine gun designed by the NCR for their heavy troops, chambered in 5.56 ammo.
   components:
@@ -241,6 +350,30 @@
     - FullAuto
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: LMGMagazine556Rifle
@@ -269,10 +402,9 @@
     backStrength: 6
   - type: StaticPrice
     price: 475
-
 - type: entity
   name: bren machine gun
-  parent: BaseWeaponRifle
+  parent: N14WeaponLMGBase
   id: N14WeaponLMGBren
   description: A high-caliber, high-damage, heavy machine gun mass-produced by the RCMP, chambered in the powerful .308 ammunition.
   components:
@@ -312,6 +444,30 @@
     - FullAuto
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: Magazine308RifleLong
@@ -337,10 +493,9 @@
     backStrength: 6
   - type: StaticPrice
     price: 600
-
 - type: entity
   name: M60 GPMG
-  parent: BaseWeaponRifle
+  parent: N14WeaponLMGBase
   id: N14WeaponM60GPMG
   description: The M60 General Purpose Machine Gun is a pre-war machine gun that has a slow, chugging fire rate. Large, powerful, and loud - this old design was looted by legionnaires from old national guard warehouses.
   components:
@@ -377,6 +532,30 @@
     - FullAuto
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: Magazine308M60Box

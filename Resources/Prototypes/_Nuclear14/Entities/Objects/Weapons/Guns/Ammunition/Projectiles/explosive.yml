@@ -4,6 +4,10 @@
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: grenade
   - type: Projectile
     damage:
       types:
@@ -103,6 +107,10 @@
   categories: [ HideSpawnMenu ]
   description: An explosive missile.
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: frag
   - type: Projectile
     damage:
       types:

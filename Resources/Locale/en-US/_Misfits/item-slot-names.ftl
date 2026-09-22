@@ -32,3 +32,9 @@ Vial = Vial
 Keys = Keys
 Mail = Mail
 SoulCrystal = Soul crystal
+
+# ── Weapon attachment slots (#Misfits Add) ───────────────────────────────────
+weapon-attachment-slot-top = Top slot
+weapon-attachment-slot-muzzle = Muzzle slot
+weapon-attachment-slot-bottom = Bottom slot
+weapon-attachment-slot-handle = Handle slot

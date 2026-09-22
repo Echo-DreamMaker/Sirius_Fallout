@@ -1,6 +1,7 @@
 ﻿using Content.Shared.Hands;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.GameObjects;
@@ -38,6 +39,12 @@ public sealed partial class MinigunToggleSystem : EntitySystem
 
     private void OnMapInitRefresh(EntityUid uid, MinigunToggleComponent comp, ref MapInitEvent args)
     {
+        // The toggle fires on entities which do not always carry a GunComponent
+        // (some togglable weapons are spawned without one at init), so skip those
+        // instead of logging a "Can't resolve GunComponent" error.
+        if (!TryComp<GunComponent>(uid, out _))
+            return;
+
         // Weapons that spawn turned off must still apply their gated fire rate
         // before the first toggle, otherwise they would fire at the base rate.
         _gun.RefreshModifiers(uid);
