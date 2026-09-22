@@ -3,7 +3,7 @@
 # light level (which tiles count as lit).
 
 - type: lightMask
-  id: /Textures/Effects/LightMasks/cone.png
+  id: ConeLightMask
   maskPath: /Textures/Effects/LightMasks/cone.png
   lightCones:
   - direction: 0

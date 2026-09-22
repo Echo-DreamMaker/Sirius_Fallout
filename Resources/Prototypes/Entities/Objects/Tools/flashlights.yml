@@ -70,7 +70,7 @@
   - type: EtherealLight
   - type: PointLight
     enabled: false
-    lightMask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeLightMask
     autoRot: true
     radius: 6
     netsync: false

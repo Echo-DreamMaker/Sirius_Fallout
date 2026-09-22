@@ -184,7 +184,7 @@
   - type: WeaponFlashlight
   - type: PointLight
     enabled: false
-    lightMask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeLightMask
     autoRot: true
     radius: 8
     energy: 4
