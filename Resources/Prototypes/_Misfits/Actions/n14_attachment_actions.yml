@@ -1,0 +1,54 @@
+# #Misfits Add - Toggle actions for active weapon attachments (flashlight / laser sight / bipod).
+# Granted to the player while holding the item or while it is mounted on a held weapon.
+
+- type: entity
+  id: N14ActionToggleFlashlight
+  name: n14-action-toggle-flashlight
+  description: n14-action-toggle-flashlight-description
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: true
+    icon:
+      sprite: Objects/Tools/flashlight.rsi
+      state: flashlight
+    event: !type:ToggleActionEvent {}
+
+- type: entity
+  id: N14ActionToggleLaserSight
+  name: n14-action-toggle-laser-sight
+  description: n14-action-toggle-laser-sight-description
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: true
+    icon:
+      sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lenses
+    event: !type:ToggleActionEvent {}
+
+- type: entity
+  id: N14ActionToggleBipod
+  name: n14-action-toggle-bipod
+  description: n14-action-toggle-bipod-description
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: true
+    icon:
+      sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: stockwood
+    event: !type:ToggleActionEvent {}
+
+- type: entity
+  id: N14ActionToggleUnderbarrel
+  name: n14-action-toggle-underbarrel
+  description: n14-action-toggle-underbarrel-description
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: true
+    icon:
+      sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: gunframe
+    event: !type:ToggleActionEvent {}

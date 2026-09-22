@@ -58,9 +58,38 @@
         whitelist:
           tags:
             - N14MagazineMinigun5mm
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -210,9 +239,38 @@
         whitelist:
           tags:
             - N14MagazineGaussMinigun2mmEC
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: MagazineVisuals
     magState: mag
     steps: 1

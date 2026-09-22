@@ -1,0 +1,11 @@
+# #Misfits Add - Light mask prototypes used to render flashlight beams as cones.
+# 'maskPath' drives the client-side cone render, 'lightCones' drives the server-side
+# light level (which tiles count as lit).
+
+- type: lightMask
+  id: ConeLightMask
+  maskPath: /Textures/Effects/LightMasks/cone.png
+  lightCones:
+  - direction: 0
+    innerWidth: 22.5
+    outerWidth: 45

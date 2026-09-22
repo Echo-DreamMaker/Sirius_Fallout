@@ -11,6 +11,41 @@
   - type: GunWieldBonus
     minAngle: -5
     maxAngle: -10
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: WeaponAttachmentHost
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -21,7 +56,6 @@
   - type: StaticPrice
     price: 100
   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
-
 - type: entity
   name: 10mm SMG
   parent: N14WeaponSMGBase
@@ -66,6 +100,30 @@
     maxAngle: -15
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineSMG10mm
@@ -83,7 +141,6 @@
             - N14CartridgePistol10
   - type: StaticPrice
     price: 75
-
 - type: entity
   name: 10mm suppressed SMG
   parent: N14WeaponSMGBase
@@ -123,6 +180,30 @@
     maxAngle: -15
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineSMG10mm
@@ -140,7 +221,6 @@
             - N14CartridgePistol10
   - type: StaticPrice
     price: 75
-
 - type: entity
   name: 12.7mm SMG
   parent: N14WeaponSMGBase
@@ -179,6 +259,30 @@
     maxAngle: -23
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineSMG12mm
@@ -199,7 +303,6 @@
     price: 100
   - type: StrengthRequirement
     requiredStrength: 5
-
 - type: entity
   name: 12.7mm pipe SMG
   parent: N14WeaponSMGBase
@@ -238,6 +341,30 @@
     maxAngle: -15
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineSMG12mm
@@ -262,7 +389,6 @@
         Piercing: -3
   - type: StrengthRequirement
     requiredStrength: 5
-
 - type: entity
   parent: N14WeaponSMG12mmPipe
   id: N14WeaponSMG12mmPipeEmpty
@@ -291,7 +417,6 @@
     bonusDamage:
       types:
         Piercing: -3
-
 - type: entity
   name: 10mm pipe SMG
   parent: N14WeaponSMGBase
@@ -330,6 +455,30 @@
     maxAngle: -15
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineSMG10mm
@@ -347,7 +496,6 @@
             - N14CartridgePistol10
   - type: StaticPrice
     price: 10
-
 - type: entity
   parent: N14WeaponSMG10mmPipe
   id: N14WeaponSMG10mmPipeEmpty
@@ -375,7 +523,6 @@
     bonusDamage:
       types:
         Piercing: -2
-
 - type: entity
   name: advanced 12.7mm SMG
   parent: N14WeaponSMGBase
@@ -414,6 +561,30 @@
     maxAngle: -29
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14TopMagazineSMG12mm
@@ -434,7 +605,6 @@
     price: 175
   - type: StrengthRequirement
     requiredStrength: 4
-
 - type: entity
   name: 9mm SMG
   parent: N14WeaponSMGBase
@@ -478,6 +648,30 @@
     maxAngle: -15
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineSMG9mm
@@ -495,7 +689,6 @@
             - N14CartridgePistol9
   - type: StaticPrice
     price: 50
-
 - type: entity
   name: infiltrator
   parent: N14WeaponSMGBase
@@ -535,6 +728,30 @@
     maxAngle: -17
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineSMG9mm
@@ -552,7 +769,6 @@
             - N14CartridgePistol9
   - type: StaticPrice
     price: 50
-
 - type: entity
   name: .45 SMG
   parent: N14WeaponSMGBase
@@ -596,6 +812,30 @@
     maxAngle: -15
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: Magazine45SubMachineGun
@@ -613,7 +853,6 @@
             - N14CartridgePistol45
   - type: StaticPrice
     price: 90
-
 - type: entity
   name: sten SMG
   parent: N14WeaponSMGBase
@@ -657,6 +896,30 @@
     maxAngle: -15
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineSMG9mm
@@ -674,7 +937,6 @@
             - N14CartridgePistol9
   - type: StaticPrice
     price: 50
-
 - type: entity
   name: douglas advanced SMG
   parent: N14WeaponSMGBase
@@ -713,6 +975,30 @@
     maxAngle: -23 # Forge-Change
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14TopMagazineSMG12mm
@@ -731,7 +1017,6 @@
             - N14CartridgePistol127
   - type: StaticPrice
     price: 150
-
 - type: entity
   name: chinese advanced SMG
   parent: N14WeaponSMGBase
@@ -770,6 +1055,30 @@
     maxAngle: -23 # Forge-Change
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14TopMagazineSMG12mm
@@ -794,7 +1103,6 @@
         Piercing: 2
   - type: StrengthRequirement
     requiredStrength: 5
-
 - type: entity
   name: chinese SMG
   parent: N14WeaponSMGBase
@@ -838,6 +1146,30 @@
     maxAngle: -15
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineSMG10mm
@@ -862,7 +1194,6 @@
 
 # #Misfits Add — PPSh-41, M3A1 Grease Gun, American 180
 # Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
-
 - type: entity
   name: PPSh-41
   parent: N14WeaponSMGBase
@@ -903,6 +1234,30 @@
     maxAngle: -25
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineSMG9mmDrum
@@ -924,7 +1279,6 @@
     bonusDamage:
       types:
         Piercing: 5
-
 - type: entity
   name: M3A1 grease gun
   parent: N14WeaponSMGBase
@@ -965,6 +1319,30 @@
     maxAngle: -14
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: Magazine45SubMachineGun
@@ -982,7 +1360,6 @@
             - N14CartridgePistol45
   - type: StaticPrice
     price: 120
-
 - type: entity
   name: American 180
   parent: N14WeaponSMGBase
@@ -1023,6 +1400,30 @@
     maxAngle: -12
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineAmerican180Drum
@@ -1084,7 +1485,6 @@
     bonusDamage:
       types:
         Piercing: 5
-
 - type: entity
   name: P90
   parent: N14WeaponSMG9mm
@@ -1128,6 +1528,30 @@
     maxAngle: -15
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineSMG9mmP90
@@ -1193,6 +1617,30 @@
     maxAngle: -14
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: Magazine45SubMachineGun

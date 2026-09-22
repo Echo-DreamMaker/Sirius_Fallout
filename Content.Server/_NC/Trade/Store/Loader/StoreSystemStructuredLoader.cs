@@ -7,8 +7,9 @@ namespace Content.Server._NC.Trade;
 
 public sealed class StoreSystemStructuredLoader : EntitySystem
 {
-    private static readonly ISawmill Sawmill = Logger.GetSawmill("ncstore-loader");
+    private ISawmill _sawmill = default!;
 
+    [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly NcContractSystem _contracts = default!;
 
     private readonly HashSet<EntityUid> _contractsInitialized = new();
@@ -18,6 +19,7 @@ public sealed class StoreSystemStructuredLoader : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        _sawmill = _logManager.GetSawmill("ncstore-loader");
         SubscribeLocalEvent<NcStoreComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<NcStoreComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<NcStoreComponent, EntityTerminatingEvent>(OnTerminating);
@@ -72,7 +74,7 @@ public sealed class StoreSystemStructuredLoader : EntitySystem
     {
         if (comp.BuyPresets.Count == 0 && comp.SellPresets.Count == 0)
         {
-            Sawmill.Warning($"[NcStore] {ToPrettyString(uid)}: no presets found (reason={reason})");
+            _sawmill.Warning($"[NcStore] {ToPrettyString(uid)}: no presets found (reason={reason})");
             return;
         }
 
@@ -93,11 +95,11 @@ public sealed class StoreSystemStructuredLoader : EntitySystem
 
         if (total == 0)
         {
-            Sawmill.Warning($"[NcStore] {ToPrettyString(uid)}: no listings loaded (reason={reason})");
+            _sawmill.Warning($"[NcStore] {ToPrettyString(uid)}: no listings loaded (reason={reason})");
             return;
         }
 
-        Sawmill.Info(
+        _sawmill.Info(
             $"[NcStore] {ToPrettyString(uid)}: loaded {total} listings. " +
             $"BuyPresets=[{string.Join(", ", comp.BuyPresets)}], " +
             $"SellPresets=[{string.Join(", ", comp.SellPresets)}], reason={reason}");
@@ -107,7 +109,7 @@ public sealed class StoreSystemStructuredLoader : EntitySystem
     {
         if (!_prototypes.TryIndex<StorePresetStructuredPrototype>(presetId, out var preset))
         {
-            Sawmill.Error($"[NcStore] Preset '{presetId}' not found");
+            _sawmill.Error($"[NcStore] Preset '{presetId}' not found");
             return 0;
         }
 
@@ -120,7 +122,7 @@ public sealed class StoreSystemStructuredLoader : EntitySystem
         {
             if (!_prototypes.TryIndex<StoreCategoryStructuredPrototype>(categoryId, out var categoryProto))
             {
-                Sawmill.Error($"[NcStore] Category '{categoryId}' not found (preset='{presetId}')");
+                _sawmill.Error($"[NcStore] Category '{categoryId}' not found (preset='{presetId}')");
                 continue;
             }
 

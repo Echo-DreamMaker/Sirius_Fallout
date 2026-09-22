@@ -23,9 +23,7 @@
     solutions:
       motorbikeFuel:
         maxVol: 200
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 0
+        reagents: []
   - type: ExaminableSolution
     solution: motorbikeFuel
   - type: Strap

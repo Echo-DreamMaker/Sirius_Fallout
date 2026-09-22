@@ -11,7 +11,7 @@ namespace Content.Shared._Misfits.Scope;
 /// Supports configurable zoom levels, DoAfter delay, and directional locking.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedScopeSystem))]
+[Access(typeof(SharedScopeSystem), typeof(Content.Shared._Misfits.WeaponAttachments.WeaponAttachmentSystem))]
 public sealed partial class ScopeComponent : Component
 {
     /// <summary>

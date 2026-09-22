@@ -75,9 +75,7 @@
     solutions:
       matchstick:
         maxVol: 0
-        reagents:
-        - ReagentId: Sulfur
-          Quantity: 0 # Forge-Add-End
+        reagents: [] # Forge-Add-End
 
 - type: entity
   name: match box

@@ -8,7 +8,6 @@
     sprite: _Misfits/Objects/Weapons/Guns/Pistols/enclavedeagle.rsi
   - type: Item
     sprite: _Misfits/Objects/Weapons/Guns/Pistols/enclavedeagle.rsi
-
 - type: entity
   name: PPK12
   parent: BaseItem
@@ -58,9 +57,38 @@
           - N14MagazinePistol2mmEC
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: MagazineAmmoProvider
   - type: MagazineVisuals
     magState: mag
@@ -95,6 +123,30 @@
       collection: N14PistolDesertEagleGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol44
@@ -113,6 +165,10 @@
             - N14Cartridge44Magnum
   - type: ContainerContainer
     containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice

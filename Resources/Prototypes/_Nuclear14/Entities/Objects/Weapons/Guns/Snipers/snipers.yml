@@ -31,15 +31,39 @@
     backStrength: 3
   - type: StaticPrice
     price: 75
-  # #Misfits Add — scope attachment slot; inherited by all lever-action carbines
-  # - type: ItemSlots
-  #   slots:
-  #     gun_scope:
-  #       name: Scope Slot
-  #       whitelist:
-  #         tags:
-  #         - RifleScope
-
+  - type: ItemSlots
+    slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
 - type: entity
   name: lee enfield rifle
   parent: BaseWeaponSniper
@@ -75,15 +99,39 @@
     bonusDamage:
       types:
         Piercing: 3
-  # #Misfits Add — scope attachment slot on Lee Enfield
-  # - type: ItemSlots
-  #   slots:
-  #     gun_scope:
-  #       name: Scope Slot
-  #       whitelist:
-  #         tags:
-  #         - RifleScope
-
+  - type: ItemSlots
+    slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
 - type: entity
   name: Anti-Materiel rifle
   parent: BaseWeaponRifle
@@ -144,12 +192,39 @@
           tags:
             - N14Cartridge50
             - N14Cartridge50HEIAP
-      # #Misfits Add — scope attachment slot on anti-materiel rifle
-      # gun_scope:
-      #   name: Scope Slot
-      #   whitelist:
-      #     tags:
-      #     - RifleScope
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -165,7 +240,6 @@
         Piercing: 25
   - type: StrengthRequirement
     requiredStrength: 6
-
 - type: entity
   name: .50 NCR rifle
   parent: BaseWeaponSniper
@@ -203,21 +277,47 @@
     backStrength: 3
   - type: StaticPrice
     price: 175
-  # #Misfits Add — scope attachment slot on .50 NCR rifle
-  # - type: ItemSlots
-  #   slots:
-  #     gun_scope:
-  #       name: Scope Slot
-  #       whitelist:
-  #         tags:
-  #         - RifleScope
+  - type: ItemSlots
+    slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: GunDamageBonus
     bonusDamage:
       types:
         Piercing: 20
   - type: StrengthRequirement
     requiredStrength: 6
-
 - type: entity
   name: lever action carbine
   parent: N14WeaponSniperHunting
@@ -255,7 +355,6 @@
     node: start
   - type: StaticPrice
     price: 75
-
 - type: entity
   name: lever action rifle
   parent: N14WeaponSniperHunting
@@ -279,7 +378,6 @@
       tags:
       - SpeedLoaderInternal
       - N14Cartridge308Rifle
-
 - type: entity
   name: brush gun
   parent: N14WeaponSniperHunting
@@ -305,7 +403,6 @@
     backStrength: 3
   - type: StaticPrice
     price: 100
-
 - type: entity
   name: pipe rifle
   parent: N14WeaponSniperHunting
@@ -330,7 +427,6 @@
     backStrength: 3
   - type: StaticPrice
     price: 25
-
 - type: entity
   name: varmint rifle
   parent: BaseWeaponSniper
@@ -369,7 +465,41 @@
     backStrength: 3
   - type: StaticPrice
     price: 50
-
+  - type: ItemSlots
+    slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
 - type: entity
   name: stockless lever action carbine
   parent: N14WeaponSniperHunting
@@ -410,7 +540,6 @@
     node: levercarbinesawed
   - type: StaticPrice
     price: 75
-
 - type: entity
   name: .50 pipe rifle
   parent: BaseWeaponSniper
@@ -448,13 +577,47 @@
     backStrength: 3
   - type: StaticPrice
     price: 10
+  - type: ItemSlots
+    slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: GunDamageBonus
     bonusDamage:
       types:
         Piercing: 10
   - type: StrengthRequirement
     requiredStrength: 6
-
 - type: entity
   name: huntstick
   parent: N14WeaponSniperHunting
@@ -480,7 +643,6 @@
     backStrength: 3
   - type: StaticPrice
     price: 80
-
 - type: entity
   name: master huntstick
   parent: N14WeaponSniperHunting
@@ -510,7 +672,6 @@
     bonusDamage:
       types:
         Piercing: 2
-
 - type: entity
   name: F1 sniper rifle
   parent: N14WeaponSniperHunting
@@ -529,7 +690,6 @@
     backStrength: 3
   - type: StaticPrice
     price: 150
-
 - type: entity
   name: ross rifle
   parent: N14WeaponSniperHunting
@@ -596,6 +756,30 @@
     - SemiAuto
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: MagazineOver308RifleSniper
@@ -622,7 +806,6 @@
 
 # #Misfits Add — Cowboy Repeater, Paciencia, Ratslayer, M1 Carbine, Rangemaster
 # Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
-
 - type: entity
   name: cowboy repeater
   parent: N14WeaponSniperHunting
@@ -668,7 +851,6 @@
     bonusDamage:
       types:
         Piercing: 2
-
 - type: entity
   name: Paciencia
   parent: N14WeaponSniperHunting
@@ -706,7 +888,6 @@
     backStrength: 4
   - type: StaticPrice
     price: 700
-
 - type: entity
   name: Ratslayer
   parent: N14WeaponSniper556VarmintRifle
@@ -740,7 +921,6 @@
     bonusDamage:
       types:
         Piercing: 2
-
 - type: entity
   name: M1 carbine
   parent: N14WeaponSniperHunting
@@ -786,7 +966,6 @@
     backStrength: 4
   - type: StaticPrice
     price: 80
-
 - type: entity
   name: Colt Rangemaster
   parent: N14WeaponSniperHunting
@@ -834,7 +1013,6 @@
     price: 150
 
 #sirius change start
-
 - type: entity
   name: M72 Gauss rifle
   parent: BaseItem
@@ -898,9 +1076,38 @@
         whitelist:
           tags:
             - N14MagazineRifle2mmEC
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -934,7 +1141,6 @@
     bonusDamage:
       types:
         Piercing: 38
-
 - type: entity
   name: M72 Gauss rifle
   parent: BaseItem
@@ -1001,9 +1207,38 @@
         whitelist:
           tags:
             - N14MagazineRifle2mmEC
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: MagazineVisuals
     magState: mag
     steps: 1

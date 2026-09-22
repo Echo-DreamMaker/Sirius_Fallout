@@ -55,10 +55,39 @@
         whitelist:
           tags:
             - CartridgePistol
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+            - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+            - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+            - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+            - N14AttachmentHandle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -69,7 +98,6 @@
   - type: FollowDistance
     backStrength: 6
   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
-
 - type: entity
   name: N14BaseInternalPistol
   parent: BaseItem
@@ -113,6 +141,37 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: WeaponAttachmentHost
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -122,7 +181,6 @@
     price: 5
   - type: FollowDistance
     backStrength: 6
-
 - type: entity
   name: 9mm Pistol
   parent: N14BaseWeaponPistol
@@ -147,6 +205,30 @@
       collection: N14Pistol9mmGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol9mm
@@ -162,7 +244,6 @@
             - N14CartridgePistol9
   - type: StaticPrice
     price: 10
-
 - type: entity
   name: 10mm Pistol
   parent: N14BaseWeaponPistol
@@ -187,6 +268,30 @@
       collection: N14Pistol10mmGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol10mm
@@ -202,7 +307,6 @@
             - N14CartridgePistol10
   - type: StaticPrice
     price: 30
-
 - type: entity
   name: .45 colt handgun
   parent: N14BaseWeaponPistol
@@ -224,6 +328,30 @@
       collection: N14PistolColtGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol45
@@ -242,11 +370,14 @@
             - N14CartridgePistol45
   - type: ContainerContainer
     containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 45
-
 - type: entity
   name: 12.7mm handgun
   parent: N14BaseWeaponPistol
@@ -271,6 +402,30 @@
       collection: N14Pistol12mmGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol12mm
@@ -289,11 +444,14 @@
             - N14CartridgePistol127
   - type: ContainerContainer
     containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 50
-
 - type: entity
   name: 10mm pipe pistol
   parent: N14BaseWeaponPistol
@@ -322,6 +480,30 @@
       collection: N14Pistol10mmGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol10mm
@@ -341,7 +523,6 @@
     bonusDamage:
       types:
         Piercing: -2
-
 - type: entity
   parent: N14WeaponPistol10mmPipe
   id: N14WeaponPistol10mmPipeEmpty
@@ -367,7 +548,6 @@
     bonusDamage:
       types:
         Piercing: -2
-
 - type: entity
   name: chinese pistol
   parent: N14BaseWeaponInternalMagPistol
@@ -404,7 +584,6 @@
       - N14CartridgePistol9
   - type: StaticPrice
     price: 20
-
 - type: entity
   name: the spy
   parent: N14BaseWeaponInternalMagPistol
@@ -438,7 +617,6 @@
       - N14CartridgePistol9
   - type: StaticPrice
     price: 75
-
 - type: entity
   name: 22lr Pistol
   parent: N14BaseWeaponPistol
@@ -460,6 +638,30 @@
       collection: N14PistolSpyGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol22lr
@@ -475,7 +677,6 @@
             - N14CartridgePistol22
   - type: StaticPrice
     price: 15
-
 - type: entity
   name: webley pistol
   parent: N14BaseWeaponPistol
@@ -500,6 +701,30 @@
       collection: N14Pistol9mmGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol9mm
@@ -515,7 +740,6 @@
             - N14CartridgePistol9
   - type: StaticPrice
     price: 15
-
 - type: entity
   name: desert eagle 44
   parent: N14BaseWeaponPistol
@@ -532,6 +756,30 @@
       collection: N14PistolDesertEagleGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol44
@@ -550,9 +798,12 @@
             - N14Cartridge44Magnum
   - type: ContainerContainer
     containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-
 - type: entity
   name: lasered desert eagle 44
   parent: N14BaseWeaponPistol
@@ -578,6 +829,30 @@
       collection: N14PistolDesertEagleGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol44
@@ -596,6 +871,10 @@
             - N14Cartridge44Magnum
   - type: ContainerContainer
     containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
   - type: FollowDistance
@@ -603,7 +882,6 @@
 
 # #Misfits Add — M1911, M1911 Custom, Maria, That Gun
 # Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
-
 - type: entity
   name: M1911 pistol
   parent: N14BaseWeaponPistol
@@ -632,6 +910,30 @@
       collection: N14PistolColtGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol45
@@ -650,6 +952,10 @@
             - N14CartridgePistol45
   - type: ContainerContainer
     containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
   - type: FollowDistance
@@ -660,7 +966,6 @@
     bonusDamage:
       types:
         Piercing: 1
-
 - type: entity
   name: M1911 custom
   parent: N14WeaponPistolM1911
@@ -690,7 +995,6 @@
     bonusDamage:
       types:
         Piercing: 2
-
 - type: entity
   name: Maria
   parent: N14BaseWeaponPistol
@@ -719,6 +1023,30 @@
       collection: N14Pistol9mmGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol9mm
@@ -737,6 +1065,10 @@
             - N14CartridgePistol9
   - type: ContainerContainer
     containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
   - type: FollowDistance
@@ -747,7 +1079,6 @@
     bonusDamage:
       types:
         Piercing: 7
-
 - type: entity
   name: That Gun
   parent: N14BaseWeaponPistol
@@ -791,7 +1122,6 @@
     price: 350
 
 #sirius change start
-
 - type: entity
   name: Kolibri
   parent: N14WeaponShotgunBase
@@ -820,9 +1150,41 @@
       - N14CartridgePistol22
     capacity: 6
     proto: N14CartridgePistol22
+  - type: ItemSlots
+    slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: StaticPrice
     price: 100
-
 - type: entity
   name: 9mm minipm
   parent: N14BaseWeaponPistol
@@ -851,6 +1213,30 @@
       collection: N14Pistol9mmGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol9mm
@@ -866,7 +1252,6 @@
             - N14CartridgePistol9
   - type: StaticPrice
     price: 30
-
 - type: entity
   name: Sig Sauer
   parent: N14WeaponPistol9mm
@@ -898,6 +1283,30 @@
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol9mm
@@ -913,7 +1322,6 @@
             - N14CartridgePistol9
   - type: StaticPrice
     price: 50
-
 - type: entity
   name: Gauss Pistol PPK12
   parent: BaseItem
@@ -973,9 +1381,38 @@
         whitelist:
           tags:
             - N14MagazinePistol2mmEC
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -985,7 +1422,6 @@
     price: 1000
   - type: FollowDistance
     backStrength: 6
-
 - type: entity
   name: Zipgun
   parent: N14WeaponShotgunBase
@@ -1021,6 +1457,39 @@
         - N14Cartridge45-70
     capacity: 1
     proto: N14CartridgePistol9
+  - type: ItemSlots
+    slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+  - type: WeaponAttachmentHost
   - type: StaticPrice
     price: 10
   - type: MeleeWeapon
@@ -1032,7 +1501,6 @@
     wideAnimationRotation: 135
   - type: DamageOtherOnHit
     staminaCost: 5
-
 - type: entity
   name: .50 Thunder
   parent: N14BaseWeaponPistol
@@ -1055,6 +1523,30 @@
       collection: N14AntiMaterielGunshot
   - type: ItemSlots
     slots:
+      gun_top:
+        name: weapon-attachment-slot-top
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentTop
+      gun_muzzle:
+        name: weapon-attachment-slot-muzzle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentMuzzle
+      gun_bottom:
+        name: weapon-attachment-slot-bottom
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentBottom
+      gun_handle:
+        name: weapon-attachment-slot-handle
+        priority: 0
+        whitelist:
+          tags:
+          - N14AttachmentHandle
       gun_chamber:
         name: Chamber
         startingItem: N14Cartridge50
