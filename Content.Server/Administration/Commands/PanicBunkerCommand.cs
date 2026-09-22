@@ -1,5 +1,7 @@
-﻿using Content.Shared.Administration;
+using Content.Server.Administration.Logs;
+using Content.Shared.Administration;
 using Content.Shared.CCVar;
+using Content.Shared.Database;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 
@@ -10,6 +12,7 @@ namespace Content.Server.Administration.Commands;
 public sealed class PanicBunkerCommand : LocalizedCommands
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     public override string Command => "panicbunker";
 
@@ -19,6 +22,9 @@ public sealed class PanicBunkerCommand : LocalizedCommands
         if (toggle == null)
             return;
 
+        _adminLogger.Add(LogType.PanicBunkerToggle, LogImpact.Medium,
+            $"{shell.Player} {(toggle.Value ? "enabled" : "disabled")} the panic bunker");
+
         shell.WriteLine(Loc.GetString(toggle.Value ? "panicbunker-command-enabled" : "panicbunker-command-disabled"));
     }
 
@@ -26,16 +32,14 @@ public sealed class PanicBunkerCommand : LocalizedCommands
     {
         if (args.Length > 1)
         {
-            shell.WriteError(Robust.Shared.Localization.Loc.GetString("shell-need-between-arguments",("lower", 0), ("upper", 1)));
+            shell.WriteError(Robust.Shared.Localization.Loc.GetString("shell-need-between-arguments", ("lower", 0), ("upper", 1)));
             return null;
         }
 
         var enabled = config.GetCVar(cvar);
 
         if (args.Length == 0)
-        {
             enabled = !enabled;
-        }
 
         if (args.Length == 1 && !bool.TryParse(args[0], out enabled))
         {
@@ -53,6 +57,7 @@ public sealed class PanicBunkerCommand : LocalizedCommands
 public sealed class PanicBunkerDisableWithAdminsCommand : LocalizedCommands
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     public override string Command => "panicbunker_disable_with_admins";
 
@@ -62,10 +67,12 @@ public sealed class PanicBunkerDisableWithAdminsCommand : LocalizedCommands
         if (toggle == null)
             return;
 
+        _adminLogger.Add(LogType.PanicBunkerToggle, LogImpact.Medium,
+            $"{shell.Player} {(toggle.Value ? "enabled" : "disabled")} panic bunker auto-disable");
+
         shell.WriteLine(Loc.GetString(toggle.Value
             ? "panicbunker-command-disable-with-admins-enabled"
-            : "panicbunker-command-disable-with-admins-disabled"
-        ));
+            : "panicbunker-command-disable-with-admins-disabled"));
     }
 }
 
@@ -74,6 +81,7 @@ public sealed class PanicBunkerDisableWithAdminsCommand : LocalizedCommands
 public sealed class PanicBunkerEnableWithoutAdminsCommand : LocalizedCommands
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     public override string Command => "panicbunker_enable_without_admins";
 
@@ -83,10 +91,12 @@ public sealed class PanicBunkerEnableWithoutAdminsCommand : LocalizedCommands
         if (toggle == null)
             return;
 
+        _adminLogger.Add(LogType.PanicBunkerToggle, LogImpact.Medium,
+            $"{shell.Player} {(toggle.Value ? "enabled" : "disabled")} panic bunker auto-enable");
+
         shell.WriteLine(Loc.GetString(toggle.Value
             ? "panicbunker-command-enable-without-admins-enabled"
-            : "panicbunker-command-enable-without-admins-disabled"
-        ));
+            : "panicbunker-command-enable-without-admins-disabled"));
     }
 }
 
@@ -95,6 +105,7 @@ public sealed class PanicBunkerEnableWithoutAdminsCommand : LocalizedCommands
 public sealed class PanicBunkerCountDeadminnedCommand : LocalizedCommands
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     public override string Command => "panicbunker_count_deadminned_admins";
 
@@ -104,10 +115,12 @@ public sealed class PanicBunkerCountDeadminnedCommand : LocalizedCommands
         if (toggle == null)
             return;
 
+        _adminLogger.Add(LogType.PanicBunkerToggle, LogImpact.Medium,
+            $"{shell.Player} {(toggle.Value ? "enabled" : "disabled")} counting deadminned admins for the panic bunker");
+
         shell.WriteLine(Loc.GetString(toggle.Value
             ? "panicbunker-command-count-deadminned-admins-enabled"
-            : "panicbunker-command-count-deadminned-admins-disabled"
-        ));
+            : "panicbunker-command-count-deadminned-admins-disabled"));
     }
 }
 
@@ -116,6 +129,7 @@ public sealed class PanicBunkerCountDeadminnedCommand : LocalizedCommands
 public sealed class PanicBunkerShowReasonCommand : LocalizedCommands
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
     public override string Command => "panicbunker_show_reason";
 
@@ -125,10 +139,12 @@ public sealed class PanicBunkerShowReasonCommand : LocalizedCommands
         if (toggle == null)
             return;
 
+        _adminLogger.Add(LogType.PanicBunkerToggle, LogImpact.Medium,
+            $"{shell.Player} {(toggle.Value ? "enabled" : "disabled")} showing the panic bunker rejection reason");
+
         shell.WriteLine(Loc.GetString(toggle.Value
             ? "panicbunker-command-show-reason-enabled"
-            : "panicbunker-command-show-reason-disabled"
-        ));
+            : "panicbunker-command-show-reason-disabled"));
     }
 }
 
@@ -151,7 +167,7 @@ public sealed class PanicBunkerMinAccountAgeCommand : LocalizedCommands
 
         if (args.Length > 1)
         {
-            shell.WriteError(Loc.GetString("shell-need-between-arguments",("lower", 0), ("upper", 1)));
+            shell.WriteError(Loc.GetString("shell-need-between-arguments", ("lower", 0), ("upper", 1)));
             return;
         }
 
@@ -185,7 +201,7 @@ public sealed class PanicBunkerMinOverallHoursCommand : LocalizedCommands
 
         if (args.Length > 1)
         {
-            shell.WriteError(Loc.GetString("shell-need-between-arguments",("lower", 0), ("upper", 1)));
+            shell.WriteError(Loc.GetString("shell-need-between-arguments", ("lower", 0), ("upper", 1)));
             return;
         }
 
