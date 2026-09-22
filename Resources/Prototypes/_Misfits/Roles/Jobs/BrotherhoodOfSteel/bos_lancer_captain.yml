@@ -23,7 +23,7 @@
       min: 72000 # 20 hours
   startingGear: BoSLancerCaptainGear
   alwaysUseSpawner: true
-  icon: "JobIconBosMKnight"
+  icon: "JobIconBosMLancerCaptain"
   supervisors: job-supervisors-bos-lancer-captain
   accessGroups:
   - BOSSeniorKnight

@@ -17,7 +17,7 @@
   playTimeTracker: VaultCourier
   startingGear: VaultCourierGear
   alwaysUseSpawner: true
-  icon: "JobIconVaulDweller"
+  icon: "JobIconVaultCourier"
   supervisors: job-supervisors-vault
   access:
   - VaultDweller

@@ -17,7 +17,7 @@
   playTimeTracker: VaultCargoSpecialist
   startingGear: VaultCargoSpecialistGear
   alwaysUseSpawner: true
-  icon: "JobIconVaultEngineer"
+  icon: "JobIconVaultCargoSpecialist"
   supervisors: job-supervisors-vault
   access:
   - VaultDweller

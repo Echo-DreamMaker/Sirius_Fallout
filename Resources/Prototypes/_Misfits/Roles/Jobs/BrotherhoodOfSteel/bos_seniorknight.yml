@@ -22,7 +22,7 @@
       min: 28800 # 8 hours as Knight
   startingGear: BoSMidKnightGear
   alwaysUseSpawner: true
-  icon: "JobIconBosMKnight" # Corvax-Change
+  icon: "JobIconBosMSeniorKnight"
   supervisors: job-supervisors-bos-mid-knight
   accessGroups:
   - BOSSeniorKnight

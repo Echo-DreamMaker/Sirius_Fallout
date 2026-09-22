@@ -68,36 +68,85 @@
   parent: JobIcon
   id: JobIconBosMCommander
   icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
     state: bosMCommander
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconBosMKnight
   icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
     state: bosMKnight
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconBosMPaladin
   icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
     state: bosMPaladin
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconBosMScriptor
   icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
     state: bosMScriptor
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconBosMSquire
   icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
     state: bosMSquire
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBosMSeniorKnight
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: bosMSeniorKnight
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBosMSeniorPaladin
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: bosMSeniorPaladin
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBosMSeniorScriptor
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: bosMSeniorScriptor
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBosMSerf
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: bosMSerf
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBosMNeofit
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: bosMNeofit
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBosMLancerKnight
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: bosMLancerKnight
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBosMLancerCaptain
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: bosMLancerCaptain
 
 - type: jobIcon
   parent: JobIcon
@@ -262,38 +311,59 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconVaulDweller
+  id: JobIconVaulDweller # у корвакс Vaul вместо Vault, исправьте этот косяк в некст обновлениях мне лень (НЕТ НЕ ТОЛЬКО ЗДЕСЬ T ПОСТАВИТЬ!!)
   icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
-    state: vaulDweller
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: vaulDweller # В ИЗОБРАЖЕНИИ ТОЖЕ ПОСТАВЬТЕ T
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconVaultEngineer
   icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
     state: vaultEngineer
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconVaultMedic
   icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
     state: vaultMedic
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconVaultOverseer
   icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
     state: vaultOverseer
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconVaultSecurity
   icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
     state: vaultSecurity
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconVaultCargoSpecialist
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: vaultCargoSpecialist
+    
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconVaultSalvageSpecialist
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: vaultSalvageSpecialist
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconVaultCourier
+  icon:
+    sprite: /Textures/_Sirius/Interface/Misc/job_icons.rsi
+    state: vaultCourier
 
 - type: jobIcon
   parent: JobIcon
