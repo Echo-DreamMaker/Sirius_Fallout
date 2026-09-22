@@ -115,4 +115,7 @@ public enum LogType
 
     // #Misfits Add - RMC holster logging
     RMCHolster = 200,
+
+    // Sirius Add
+    PanicBunkerToggle = 201,
 }
