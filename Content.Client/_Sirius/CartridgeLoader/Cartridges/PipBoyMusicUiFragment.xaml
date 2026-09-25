@@ -27,7 +27,7 @@
         <BoxContainer Orientation="Horizontal"
                       HorizontalExpand="True"
                       Margin="4 4">
-            <Button Name="PlayButton"
+            <Button Name="PlayPauseButton"
                     Text="{Loc 'pipboy-music-button-play'}"
                     HorizontalExpand="True"
                     MinWidth="64"/>
@@ -35,6 +35,15 @@
                     Text="{Loc 'pipboy-music-button-stop'}"
                     HorizontalExpand="True"
                     MinWidth="64"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      Margin="4 0 4 4">
+            <CheckBox Name="RepeatCheckBox"
+                      Text="{Loc 'pipboy-music-checkbox-repeat'}"/>
+            <CheckBox Name="AutoNextCheckBox"
+                      Text="{Loc 'pipboy-music-checkbox-autonext'}"
+                      Margin="8 0 0 0"/>
         </BoxContainer>
     </BoxContainer>
 </cartridges:PipBoyMusicUiFragment>

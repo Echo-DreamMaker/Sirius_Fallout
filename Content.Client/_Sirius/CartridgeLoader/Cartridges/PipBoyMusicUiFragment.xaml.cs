@@ -12,9 +12,15 @@ public sealed partial class PipBoyMusicUiFragment : BoxContainer
 {
     public event Action<string>? OnTrackSelected;
     public event Action? OnPlayPressed;
+    public event Action? OnPausePressed;
     public event Action? OnStopPressed;
+    public event Action? OnToggleRepeat;
+    public event Action? OnToggleAutoNext;
+
     private List<PipBoyMusicTrack> _allTracks = new();
     private string? _selectedId;
+    private bool _isPlaying;
+    private bool _updatingFromState;
     private float _sliderLockTimer;
 
     public PipBoyMusicUiFragment()
@@ -23,9 +29,33 @@ public sealed partial class PipBoyMusicUiFragment : BoxContainer
         Orientation = LayoutOrientation.Vertical;
         HorizontalExpand = true;
         VerticalExpand = true;
+
         SearchBar.OnTextChanged += _ => RebuildTrackList();
-        PlayButton.OnPressed += _ => OnPlayPressed?.Invoke();
+
+        PlayPauseButton.OnPressed += _ =>
+        {
+            if (_isPlaying)
+                OnPausePressed?.Invoke();
+            else
+                OnPlayPressed?.Invoke();
+        };
+
         StopButton.OnPressed += _ => OnStopPressed?.Invoke();
+
+        RepeatCheckBox.OnToggled += _ =>
+        {
+            if (_updatingFromState)
+                return;
+            OnToggleRepeat?.Invoke();
+        };
+
+        AutoNextCheckBox.OnToggled += _ =>
+        {
+            if (_updatingFromState)
+                return;
+            OnToggleAutoNext?.Invoke();
+        };
+
         PlaybackSlider.OnReleased += _ =>
         {
             PipBoyMusicClientSystem.Instance?.SeekTo(PlaybackSlider.Value);
@@ -37,6 +67,18 @@ public sealed partial class PipBoyMusicUiFragment : BoxContainer
     {
         _allTracks = state.Tracks;
         _selectedId = state.SelectedTrackId;
+        _isPlaying = state.IsPlaying;
+
+        PlayPauseButton.Text = _isPlaying
+            ? Loc.GetString("pipboy-music-button-pause")
+            : Loc.GetString("pipboy-music-button-play");
+        _updatingFromState = true;
+        if (RepeatCheckBox.Pressed != state.RepeatOne)
+            RepeatCheckBox.Pressed = state.RepeatOne;
+        if (AutoNextCheckBox.Pressed != state.AutoNext)
+            AutoNextCheckBox.Pressed = state.AutoNext;
+        _updatingFromState = false;
+
         RebuildTrackList();
     }
 
@@ -49,12 +91,11 @@ public sealed partial class PipBoyMusicUiFragment : BoxContainer
 
         PlaybackSlider.Disabled = _sliderLockTimer > 0f;
 
-        var info = PipBoyMusicClientSystem.Instance?.GetPlaybackInfo() ?? (0f, 0f, false);
+        var info = PipBoyMusicClientSystem.Instance?.GetPlaybackInfo() ?? (0f, 0f, false, false);
 
-        if (info.Length > 0f && info.Playing)
+        if (info.HasStream && info.Length > 0f)
         {
             PlaybackSlider.MaxValue = info.Length;
-
             if (!PlaybackSlider.Grabbed && _sliderLockTimer <= 0f)
                 PlaybackSlider.SetValueWithoutEvent(info.Position);
 
@@ -73,7 +114,6 @@ public sealed partial class PipBoyMusicUiFragment : BoxContainer
     private void RebuildTrackList()
     {
         TrackList.RemoveAllChildren();
-
         var query = SearchBar.Text?.Trim() ?? string.Empty;
 
         foreach (var track in _allTracks)

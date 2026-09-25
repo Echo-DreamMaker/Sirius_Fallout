@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Configuration;
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
 
@@ -27,4 +27,7 @@ public sealed partial class CCVars
 
     public static readonly CVarDef<string> AHelpSound =
         CVarDef.Create("audio.ahelp_sound", "/Audio/Effects/adminhelp.ogg", CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    public static readonly CVarDef<bool> PipBoyMusicAudibleToOthers =
+    CVarDef.Create("audio.pipboy_music_audible_to_others", false, CVar.ARCHIVE | CVar.CLIENTONLY);
 }
