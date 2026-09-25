@@ -1,4 +1,4 @@
-﻿- type: loadout
+- type: loadout
   id: N14InstrumentBanjo
   category: Items
   cost: 0
@@ -400,4 +400,10 @@
   items:
     - SprayPaintDesertTan
 
-
+   # Sirius Add
+- type: loadout
+  id: LoadoutPortableMediaPlayer
+  category: Items
+  cost: 1
+  items:
+    - PortableMediaPlayer
