@@ -245,77 +245,452 @@
         - id: MagazineBox556
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox556Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox556AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox556FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox556JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox556Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: Magazine762Rifle
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine762RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine762RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine762RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine762RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine762RifleTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox762
           prob: 0.05
           orGroup: Ammunition
+        - id: N14AmmoBox762Scrap
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox762AP
+          prob: 0.025
+          orGroup: Ammunition
+        - id: N14AmmoBox762FMJ
+          prob: 0.025
+          orGroup: Ammunition
+        - id: N14AmmoBox762JHP
+          prob: 0.025
+          orGroup: Ammunition
+        - id: N14AmmoBox762Tracer
+          prob: 0.025
+          orGroup: Ammunition
         - id: N14MagazinePistol9mm
           prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmTracer
+          prob: 0.2
           orGroup: Ammunition
         - id: MagazineBox9mm
           prob: 0.2
           orGroup: Ammunition
+        - id: N14AmmoBox9mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: N14MagazinePistol10mm
           prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmTracer
+          prob: 0.2
           orGroup: Ammunition
         - id: N14MagazineSMG10mm
           prob: 0.2
           orGroup: Ammunition
+        - id: N14MagazineSMG10mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox10mm
           prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmScrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmAP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmFMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmJHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmTracer
+          prob: 0.05
           orGroup: Ammunition
         - id: N14MagazinePistol12mm
           prob: 0.2
           orGroup: Ammunition
+        - id: N14MagazinePistol12mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: N14MagazineSMG12mm
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox12
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox12Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox12AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: N14MagazineShotgun12
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12Tracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox12gauge
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox12gaugeScrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeAP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeFMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeJHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeTracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: N14MagazineShotgun20
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20Tracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox20gauge
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox20gaugeScrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeAP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeFMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeJHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeTracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: N14MagazinePistol22lr
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox22
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox22Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox22AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox22FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox22JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox22Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: N14MagazinePistol45
           prob: 0.2
           orGroup: Ammunition
+        - id: N14MagazinePistol45Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol45AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol45FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol45JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol45Tracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox45
           prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45Tracer
+          prob: 0.05
           orGroup: Ammunition
         - id: MagazineBox44
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox44Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox44AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox44FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox44JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox44Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: MagazineBox45
           prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45Tracer
+          prob: 0.05
           orGroup: Ammunition
         - id: MagazineBox308
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox308Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox308AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox308FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox308JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox308Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: LongMagazine556Rifle
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: Magazine556Rifle
           prob: 0.2
           orGroup: Ammunition
+        - id: N14Magazine556RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine556RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine556RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine556RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine556RifleTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: Magazine45SubMachineGun
           prob: 0.3
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunScrap
+          prob: 0.3
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunAP
+          prob: 0.15
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunFMJ
+          prob: 0.15
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunJHP
+          prob: 0.15
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunTracer
+          prob: 0.15
           orGroup: Ammunition
         - id: N14CurrencyCap
           prob: 0.7
@@ -561,77 +936,452 @@
         - id: MagazineBox556
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox556Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox556AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox556FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox556JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox556Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: Magazine762Rifle
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine762RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine762RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine762RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine762RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine762RifleTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox762
           prob: 0.05
           orGroup: Ammunition
+        - id: N14AmmoBox762Scrap
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox762AP
+          prob: 0.025
+          orGroup: Ammunition
+        - id: N14AmmoBox762FMJ
+          prob: 0.025
+          orGroup: Ammunition
+        - id: N14AmmoBox762JHP
+          prob: 0.025
+          orGroup: Ammunition
+        - id: N14AmmoBox762Tracer
+          prob: 0.025
+          orGroup: Ammunition
         - id: N14MagazinePistol9mm
           prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmTracer
+          prob: 0.2
           orGroup: Ammunition
         - id: MagazineBox9mm
           prob: 0.2
           orGroup: Ammunition
+        - id: N14AmmoBox9mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: N14MagazinePistol10mm
           prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmTracer
+          prob: 0.2
           orGroup: Ammunition
         - id: N14MagazineSMG10mm
           prob: 0.2
           orGroup: Ammunition
+        - id: N14MagazineSMG10mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox10mm
           prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmScrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmAP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmFMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmJHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmTracer
+          prob: 0.05
           orGroup: Ammunition
         - id: N14MagazinePistol12mm
           prob: 0.2
           orGroup: Ammunition
+        - id: N14MagazinePistol12mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: N14MagazineSMG12mm
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox12
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox12Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox12AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: N14MagazineShotgun12
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12Tracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox12gauge
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox12gaugeScrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeAP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeFMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeJHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeTracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: N14MagazineShotgun20
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20Tracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox20gauge
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox20gaugeScrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeAP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeFMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeJHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeTracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: N14MagazinePistol22lr
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox22
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox22Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox22AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox22FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox22JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox22Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: N14MagazinePistol45
           prob: 0.2
           orGroup: Ammunition
+        - id: N14MagazinePistol45Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol45AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol45FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol45JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol45Tracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox45
           prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45Tracer
+          prob: 0.05
           orGroup: Ammunition
         - id: MagazineBox44
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox44Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox44AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox44FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox44JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox44Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: MagazineBox45
           prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45Tracer
+          prob: 0.05
           orGroup: Ammunition
         - id: MagazineBox308
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox308Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox308AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox308FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox308JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox308Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: LongMagazine556Rifle
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: Magazine556Rifle
           prob: 0.2
           orGroup: Ammunition
+        - id: N14Magazine556RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine556RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine556RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine556RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine556RifleTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: Magazine45SubMachineGun
           prob: 0.3
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunScrap
+          prob: 0.3
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunAP
+          prob: 0.15
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunFMJ
+          prob: 0.15
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunJHP
+          prob: 0.15
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunTracer
+          prob: 0.15
           orGroup: Ammunition
         - id: N14ClothingOuterCoatLeatherDuster
           prob: 0.6
@@ -1243,77 +1993,452 @@
         - id: MagazineBox556
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox556Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox556AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox556FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox556JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox556Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: Magazine762Rifle
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine762RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine762RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine762RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine762RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine762RifleTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox762
           prob: 0.05
           orGroup: Ammunition
+        - id: N14AmmoBox762Scrap
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox762AP
+          prob: 0.025
+          orGroup: Ammunition
+        - id: N14AmmoBox762FMJ
+          prob: 0.025
+          orGroup: Ammunition
+        - id: N14AmmoBox762JHP
+          prob: 0.025
+          orGroup: Ammunition
+        - id: N14AmmoBox762Tracer
+          prob: 0.025
+          orGroup: Ammunition
         - id: N14MagazinePistol9mm
           prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmTracer
+          prob: 0.2
           orGroup: Ammunition
         - id: MagazineBox9mm
           prob: 0.2
           orGroup: Ammunition
+        - id: N14AmmoBox9mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: N14MagazinePistol10mm
           prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmTracer
+          prob: 0.2
           orGroup: Ammunition
         - id: N14MagazineSMG10mm
           prob: 0.2
           orGroup: Ammunition
+        - id: N14MagazineSMG10mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox10mm
           prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmScrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmAP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmFMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmJHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmTracer
+          prob: 0.05
           orGroup: Ammunition
         - id: N14MagazinePistol12mm
           prob: 0.2
           orGroup: Ammunition
+        - id: N14MagazinePistol12mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: N14MagazineSMG12mm
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox12
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox12Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox12AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: N14MagazineShotgun12
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12Tracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox12gauge
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox12gaugeScrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeAP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeFMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeJHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeTracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: N14MagazineShotgun20
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20Tracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox20gauge
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox20gaugeScrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeAP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeFMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeJHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeTracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: N14MagazinePistol22lr
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox22
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox22Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox22AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox22FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox22JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox22Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: N14MagazinePistol45
           prob: 0.2
           orGroup: Ammunition
+        - id: N14MagazinePistol45Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol45AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol45FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol45JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazinePistol45Tracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox45
           prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45Tracer
+          prob: 0.05
           orGroup: Ammunition
         - id: MagazineBox44
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox44Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox44AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox44FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox44JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox44Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: MagazineBox45
           prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox45Tracer
+          prob: 0.05
           orGroup: Ammunition
         - id: MagazineBox308
           prob: 0.1
           orGroup: Ammunition
+        - id: N14AmmoBox308Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox308AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox308FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox308JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox308Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: LongMagazine556Rifle
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14LongMagazine556RifleTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: Magazine556Rifle
           prob: 0.2
           orGroup: Ammunition
+        - id: N14Magazine556RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine556RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine556RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine556RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine556RifleTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: Magazine45SubMachineGun
           prob: 0.3
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunScrap
+          prob: 0.3
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunAP
+          prob: 0.15
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunFMJ
+          prob: 0.15
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunJHP
+          prob: 0.15
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunTracer
+          prob: 0.15
           orGroup: Ammunition
         - id: N14JunkAbraxoCleaner
           prob: 0.1
@@ -1697,42 +2822,232 @@
           prob: 0.01
         - id: N14MagazinePistol9mm
           prob: 0.01
+        - id: N14MagazinePistol9mmScrap
+          prob: 0.01
+        - id: N14MagazinePistol9mmAP
+          prob: 0.005
+        - id: N14MagazinePistol9mmFMJ
+          prob: 0.005
+        - id: N14MagazinePistol9mmJHP
+          prob: 0.005
+        - id: N14MagazinePistol9mmTracer
+          prob: 0.005
         - id: MagazineBox9mm
           prob: 0.01
+        - id: N14AmmoBox9mmScrap
+          prob: 0.01
+        - id: N14AmmoBox9mmAP
+          prob: 0.005
+        - id: N14AmmoBox9mmFMJ
+          prob: 0.005
+        - id: N14AmmoBox9mmJHP
+          prob: 0.005
+        - id: N14AmmoBox9mmTracer
+          prob: 0.005
         - id: N14MagazinePistol10mm
           prob: 0.01
+        - id: N14MagazinePistol10mmScrap
+          prob: 0.01
+        - id: N14MagazinePistol10mmAP
+          prob: 0.005
+        - id: N14MagazinePistol10mmFMJ
+          prob: 0.005
+        - id: N14MagazinePistol10mmJHP
+          prob: 0.005
+        - id: N14MagazinePistol10mmTracer
+          prob: 0.005
         - id: N14MagazineSMG10mm
           prob: 0.01
+        - id: N14MagazineSMG10mmScrap
+          prob: 0.01
+        - id: N14MagazineSMG10mmAP
+          prob: 0.005
+        - id: N14MagazineSMG10mmFMJ
+          prob: 0.005
+        - id: N14MagazineSMG10mmJHP
+          prob: 0.005
+        - id: N14MagazineSMG10mmTracer
+          prob: 0.005
         - id: MagazineBox10mm
           prob: 0.01
+        - id: N14AmmoBox10mmScrap
+          prob: 0.01
+        - id: N14AmmoBox10mmAP
+          prob: 0.005
+        - id: N14AmmoBox10mmFMJ
+          prob: 0.005
+        - id: N14AmmoBox10mmJHP
+          prob: 0.005
+        - id: N14AmmoBox10mmTracer
+          prob: 0.005
         - id: N14MagazinePistol12mm
           prob: 0.01
+        - id: N14MagazinePistol12mmScrap
+          prob: 0.01
+        - id: N14MagazinePistol12mmAP
+          prob: 0.005
+        - id: N14MagazinePistol12mmFMJ
+          prob: 0.005
+        - id: N14MagazinePistol12mmJHP
+          prob: 0.005
+        - id: N14MagazinePistol12mmTracer
+          prob: 0.005
         - id: N14MagazineSMG12mm
           prob: 0.01
+        - id: N14MagazineSMG12mmScrap
+          prob: 0.01
+        - id: N14MagazineSMG12mmAP
+          prob: 0.005
+        - id: N14MagazineSMG12mmFMJ
+          prob: 0.005
+        - id: N14MagazineSMG12mmJHP
+          prob: 0.005
+        - id: N14MagazineSMG12mmTracer
+          prob: 0.005
         - id: MagazineBox12
           prob: 0.01
+        - id: N14AmmoBox12Scrap
+          prob: 0.01
+        - id: N14AmmoBox12AP
+          prob: 0.005
+        - id: N14AmmoBox12FMJ
+          prob: 0.005
+        - id: N14AmmoBox12JHP
+          prob: 0.005
+        - id: N14AmmoBox12Tracer
+          prob: 0.005
         - id: N14MagazineShotgun12
           prob: 0.01
+        - id: N14MagazineShotgun12Scrap
+          prob: 0.01
+        - id: N14MagazineShotgun12AP
+          prob: 0.005
+        - id: N14MagazineShotgun12FMJ
+          prob: 0.005
+        - id: N14MagazineShotgun12JHP
+          prob: 0.005
+        - id: N14MagazineShotgun12Tracer
+          prob: 0.005
         - id: MagazineBox12gauge
           prob: 0.01
+        - id: N14AmmoBox12gaugeScrap
+          prob: 0.01
+        - id: N14AmmoBox12gaugeAP
+          prob: 0.005
+        - id: N14AmmoBox12gaugeFMJ
+          prob: 0.005
+        - id: N14AmmoBox12gaugeJHP
+          prob: 0.005
+        - id: N14AmmoBox12gaugeTracer
+          prob: 0.005
         - id: N14MagazineShotgun20
           prob: 0.01
+        - id: N14MagazineShotgun20Scrap
+          prob: 0.01
+        - id: N14MagazineShotgun20AP
+          prob: 0.005
+        - id: N14MagazineShotgun20FMJ
+          prob: 0.005
+        - id: N14MagazineShotgun20JHP
+          prob: 0.005
+        - id: N14MagazineShotgun20Tracer
+          prob: 0.005
         - id: MagazineBox20gauge
           prob: 0.01
+        - id: N14AmmoBox20gaugeScrap
+          prob: 0.01
+        - id: N14AmmoBox20gaugeAP
+          prob: 0.005
+        - id: N14AmmoBox20gaugeFMJ
+          prob: 0.005
+        - id: N14AmmoBox20gaugeJHP
+          prob: 0.005
+        - id: N14AmmoBox20gaugeTracer
+          prob: 0.005
         - id: N14MagazinePistol22lr
           prob: 0.01
+        - id: N14MagazinePistol22lrScrap
+          prob: 0.01
+        - id: N14MagazinePistol22lrAP
+          prob: 0.005
+        - id: N14MagazinePistol22lrFMJ
+          prob: 0.005
+        - id: N14MagazinePistol22lrJHP
+          prob: 0.005
+        - id: N14MagazinePistol22lrTracer
+          prob: 0.005
         - id: MagazineBox22
           prob: 0.01
+        - id: N14AmmoBox22Scrap
+          prob: 0.01
+        - id: N14AmmoBox22AP
+          prob: 0.005
+        - id: N14AmmoBox22FMJ
+          prob: 0.005
+        - id: N14AmmoBox22JHP
+          prob: 0.005
+        - id: N14AmmoBox22Tracer
+          prob: 0.005
         - id: N14MagazinePistol45
           prob: 0.01
+        - id: N14MagazinePistol45Scrap
+          prob: 0.01
+        - id: N14MagazinePistol45AP
+          prob: 0.005
+        - id: N14MagazinePistol45FMJ
+          prob: 0.005
+        - id: N14MagazinePistol45JHP
+          prob: 0.005
+        - id: N14MagazinePistol45Tracer
+          prob: 0.005
         - id: MagazineBox45
           prob: 0.01
+        - id: N14AmmoBox45Scrap
+          prob: 0.01
+        - id: N14AmmoBox45AP
+          prob: 0.005
+        - id: N14AmmoBox45FMJ
+          prob: 0.005
+        - id: N14AmmoBox45JHP
+          prob: 0.005
+        - id: N14AmmoBox45Tracer
+          prob: 0.005
         - id: MagazineBox44
           prob: 0.01
+        - id: N14AmmoBox44Scrap
+          prob: 0.01
+        - id: N14AmmoBox44AP
+          prob: 0.005
+        - id: N14AmmoBox44FMJ
+          prob: 0.005
+        - id: N14AmmoBox44JHP
+          prob: 0.005
+        - id: N14AmmoBox44Tracer
+          prob: 0.005
         - id: MagazineBox45
           prob: 0.01
+        - id: N14AmmoBox45Scrap
+          prob: 0.01
+        - id: N14AmmoBox45AP
+          prob: 0.005
+        - id: N14AmmoBox45FMJ
+          prob: 0.005
+        - id: N14AmmoBox45JHP
+          prob: 0.005
+        - id: N14AmmoBox45Tracer
+          prob: 0.005
         - id: MagazineBox308
           prob: 0.01
+        - id: N14AmmoBox308Scrap
+          prob: 0.01
+        - id: N14AmmoBox308AP
+          prob: 0.005
+        - id: N14AmmoBox308FMJ
+          prob: 0.005
+        - id: N14AmmoBox308JHP
+          prob: 0.005
+        - id: N14AmmoBox308Tracer
+          prob: 0.005
         - id: N14CurrencyCap
           prob: 0.9
           orGroup: Currency
@@ -1912,38 +3227,218 @@
         - id: LongMagazine556Rifle
           prob: 0.4
           orGroup: Weapon
+        - id: N14LongMagazine556RifleScrap
+          prob: 0.4
+          orGroup: Weapon
+        - id: N14LongMagazine556RifleAP
+          prob: 0.2
+          orGroup: Weapon
+        - id: N14LongMagazine556RifleFMJ
+          prob: 0.2
+          orGroup: Weapon
+        - id: N14LongMagazine556RifleJHP
+          prob: 0.2
+          orGroup: Weapon
+        - id: N14LongMagazine556RifleTracer
+          prob: 0.2
+          orGroup: Weapon
         - id: Magazine556Rifle
           prob: 0.4
+          orGroup: Ammunition
+        - id: N14Magazine556RifleScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14Magazine556RifleAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine556RifleFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine556RifleJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine556RifleTracer
+          prob: 0.2
           orGroup: Ammunition
         - id: Magazine762Rifle
           prob: 0.4
           orGroup: Ammunition
+        - id: N14Magazine762RifleScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14Magazine762RifleAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine762RifleFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine762RifleJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine762RifleTracer
+          prob: 0.2
+          orGroup: Ammunition
         - id: N14MagazinePistol9mm
           prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol9mmTracer
+          prob: 0.2
           orGroup: Ammunition
         - id: N14MagazinePistol10mm
           prob: 0.4
           orGroup: Ammunition
+        - id: N14MagazinePistol10mmScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol10mmTracer
+          prob: 0.2
+          orGroup: Ammunition
         - id: N14MagazineSMG10mm
           prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG10mmTracer
+          prob: 0.2
           orGroup: Ammunition
         - id: N14MagazinePistol12mm
           prob: 0.4
           orGroup: Ammunition
+        - id: N14MagazinePistol12mmScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol12mmTracer
+          prob: 0.2
+          orGroup: Ammunition
         - id: N14MagazineSMG12mm
           prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMG12mmTracer
+          prob: 0.2
           orGroup: Ammunition
         - id: N14MagazineShotgun12
           prob: 0.2
           orGroup: Ammunition
+        - id: N14MagazineShotgun12Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun12Tracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: N14MagazineShotgun20
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineShotgun20Tracer
+          prob: 0.1
           orGroup: Ammunition
         - id: N14MagazinePistol22lr
           prob: 0.4
           orGroup: Ammunition
+        - id: N14MagazinePistol22lrScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol22lrTracer
+          prob: 0.2
+          orGroup: Ammunition
         - id: N14MagazinePistol45
           prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol45Scrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazinePistol45AP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol45FMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol45JHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazinePistol45Tracer
+          prob: 0.2
           orGroup: Ammunition
         - id: N14MicrofusionCellRed
           prob: 0.2
@@ -1972,23 +3467,128 @@
         - id: Magazine308Rifle
           prob: 0.2
           orGroup: Ammunition
+        - id: N14Magazine308RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine308RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine308RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine308RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine308RifleTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: ClipMagazine308Rifle
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14ClipMagazine308RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14ClipMagazine308RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14ClipMagazine308RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14ClipMagazine308RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14ClipMagazine308RifleTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: Magazine45SubMachineGun
           prob: 0.2
           orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine45SubMachineGunTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox45
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox45Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox45AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45Tracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox44
           prob: 0.2
           orGroup: Ammunition
+        - id: N14AmmoBox44Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox44AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox44FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox44JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox44Tracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox45
           prob: 0.2
           orGroup: Ammunition
+        - id: N14AmmoBox45Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox45AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox45Tracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox308
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox308Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox308AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox308FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox308JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox308Tracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBoxAntiMateriel
           prob: 0.1
@@ -1996,26 +3596,146 @@
         - id: MagazineBox22
           prob: 0.2
           orGroup: Ammunition
+        - id: N14AmmoBox22Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox22AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox22FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox22JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox22Tracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox20gauge
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox20gaugeTracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox12gauge
           prob: 0.2
           orGroup: Ammunition
+        - id: N14AmmoBox12gaugeScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox12gaugeTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox12
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox12Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox12AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox12FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox12JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox12Tracer
+          prob: 0.1
           orGroup: Ammunition
         - id: MagazineBox10mm
           prob: 0.2
           orGroup: Ammunition
+        - id: N14AmmoBox10mmScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox10mmTracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox9mm
           prob: 0.3
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmScrap
+          prob: 0.3
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmAP
+          prob: 0.15
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmFMJ
+          prob: 0.15
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmJHP
+          prob: 0.15
+          orGroup: Ammunition
+        - id: N14AmmoBox9mmTracer
+          prob: 0.15
           orGroup: Ammunition
         - id: MagazineBox762
           prob: 0.2
           orGroup: Ammunition
+        - id: N14AmmoBox762Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox762AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox762FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox762JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox762Tracer
+          prob: 0.1
+          orGroup: Ammunition
         - id: MagazineBox556
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox556Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox556AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox556FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox556JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox556Tracer
+          prob: 0.1
           orGroup: Ammunition
         - id: ClothingBeltUtility
           prob: 0.1

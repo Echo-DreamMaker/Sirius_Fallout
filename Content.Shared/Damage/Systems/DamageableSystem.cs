@@ -133,7 +133,8 @@ namespace Content.Shared.Damage
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
             bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
             // Shitmed Change
-            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null, bool doPartDamage = true)
+            bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null, bool doPartDamage = true,
+            float armorPenetration = 0f)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -173,16 +174,17 @@ namespace Content.Shared.Damage
                     // TODO DAMAGE PERFORMANCE
                     // use a local private field instead of creating a new dictionary here..
                     // TODO: We need to add a check to see if the given armor covers the targeted part (if any) to modify or not.
-                    damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
+                    damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet, armorPenetration);
                 }
 
                 // From Solidus: If you are reading this, I owe you a more comprehensive refactor of this entire system.
                 if (damageable.DamageModifierSets.Count > 0)
                     foreach (var enumerableModifierSet in damageable.DamageModifierSets)
                         if (_prototypeManager.TryIndex<DamageModifierSetPrototype>(enumerableModifierSet, out var enumerableModifier))
-                            damage = DamageSpecifier.ApplyModifierSet(damage, enumerableModifier);
+                            damage = DamageSpecifier.ApplyModifierSet(damage, enumerableModifier, armorPenetration);
 
                 var ev = new DamageModifyEvent(damage, origin, targetPart); // Shitmed Change
+                ev.ArmorPenetration = armorPenetration; // #Misfits Add
                 RaiseLocalEvent(uid.Value, ev);
                 damage = ev.Damage;
 
@@ -367,6 +369,9 @@ namespace Content.Shared.Damage
         public DamageSpecifier Damage;
         public EntityUid? Origin;
         public readonly TargetBodyPart? TargetPart; // Shitmed Change
+
+        // #Misfits Add - fraction of the target's armor ignored by this attack (0..1)
+        public float ArmorPenetration;
 
         public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null) // Shitmed Change
         {

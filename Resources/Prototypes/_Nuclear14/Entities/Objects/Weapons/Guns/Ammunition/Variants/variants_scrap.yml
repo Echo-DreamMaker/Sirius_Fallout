@@ -1,0 +1,717 @@
+# 9mm scrap variant.
+- type: entity
+  id: N14Bullet9mmScrap
+  name: пуля (9 мм самодельная)
+  parent: N14Bullet9mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+- type: entity
+  id: N14CartridgePistol9Scrap
+  name: патрон (9 мм самодельный)
+  parent: N14CartridgePistol9
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet9mmScrap
+- type: entity
+  id: N14AmmoBox9mmScrap
+  name: коробка патронов (9 мм, самодельные)
+  parent: MagazineBox9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Scrap
+- type: entity
+  id: N14MagazinePistol9mmScrap
+  name: магазин (9 мм, пистолетный, самодельный)
+  parent: N14MagazinePistol9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Scrap
+- type: entity
+  id: N14MagazineSMG9mmScrap
+  name: магазин (9 мм, пистолет-пулемётный, самодельный)
+  parent: N14MagazineSMG9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Scrap
+- type: entity
+  id: N14MagazineSMG9mmP90Scrap
+  name: магазин (9 мм, P90, самодельный)
+  parent: N14MagazineSMG9mmP90
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Scrap
+- type: entity
+  id: N14MagazineSMG9mmDrumScrap
+  name: магазин (9 мм, барабанный, самодельный)
+  parent: N14MagazineSMG9mmDrum
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Scrap
+- type: entity
+  id: N14SpeedLoader9Scrap
+  name: спидлоадер (9 мм, самодельный)
+  parent: SpeedLoader9
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Scrap
+# 10mm scrap variant.
+- type: entity
+  id: N14Bullet10mmScrap
+  name: пуля (10 мм самодельная)
+  parent: N14Bullet10mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 11
+- type: entity
+  id: N14CartridgePistol10Scrap
+  name: патрон (10 мм самодельный)
+  parent: N14CartridgePistol10
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet10mmScrap
+- type: entity
+  id: N14AmmoBox10mmScrap
+  name: коробка патронов (10 мм, самодельные)
+  parent: MagazineBox10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10Scrap
+- type: entity
+  id: N14MagazinePistol10mmScrap
+  name: магазин (10 мм, пистолетный, самодельный)
+  parent: N14MagazinePistol10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10Scrap
+- type: entity
+  id: N14MagazineSMG10mmScrap
+  name: магазин (10 мм, пистолет-пулемётный, самодельный)
+  parent: N14MagazineSMG10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10Scrap
+- type: entity
+  id: N14SpeedLoader10Scrap
+  name: спидлоадер (10 мм, самодельный)
+  parent: SpeedLoader10
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10Scrap
+# 45 scrap variant.
+- type: entity
+  id: N14Bullet45Scrap
+  name: пуля (.45 самодельная)
+  parent: N14Bullet45
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 13
+- type: entity
+  id: N14CartridgePistol45Scrap
+  name: патрон (.45 самодельный)
+  parent: N14CartridgePistol45
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet45Scrap
+- type: entity
+  id: N14AmmoBox45Scrap
+  name: коробка патронов (.45, самодельные)
+  parent: MagazineBox45
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45Scrap
+- type: entity
+  id: N14MagazinePistol45Scrap
+  name: магазин (.45, пистолетный, самодельный)
+  parent: N14MagazinePistol45
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45Scrap
+- type: entity
+  id: N14Magazine45SubMachineGunScrap
+  name: магазин (.45, пистолет-пулемётный, самодельный)
+  parent: Magazine45SubMachineGun
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45Scrap
+# 22lr scrap variant.
+- type: entity
+  id: N14Bullet22Scrap
+  name: пуля (.22 самодельная)
+  parent: N14Bullet22
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 8
+- type: entity
+  id: N14CartridgePistol22Scrap
+  name: патрон (.22 самодельный)
+  parent: N14CartridgePistol22
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet22Scrap
+- type: entity
+  id: N14AmmoBox22Scrap
+  name: коробка патронов (.22, самодельные)
+  parent: MagazineBox22
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22Scrap
+- type: entity
+  id: N14MagazinePistol22lrScrap
+  name: магазин (.22, пистолетный, самодельный)
+  parent: N14MagazinePistol22lr
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22Scrap
+- type: entity
+  id: N14MagazineAmerican180DrumScrap
+  name: магазин (.22, барабанный, самодельный)
+  parent: N14MagazineAmerican180Drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22Scrap
+# 357 scrap variant.
+- type: entity
+  id: N14Bullet357Scrap
+  name: пуля (.357 самодельная)
+  parent: N14Bullet357
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 17
+- type: entity
+  id: N14CartridgePistol357Scrap
+  name: патрон (.357 самодельный)
+  parent: N14CartridgePistol357
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet357Scrap
+- type: entity
+  id: N14AmmoBox357Scrap
+  name: коробка патронов (.357, самодельные)
+  parent: N14AmmoBox357
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol357Scrap
+# 44 scrap variant.
+- type: entity
+  id: N14Bullet44Scrap
+  name: пуля (.44 самодельная)
+  parent: N14Bullet44
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 24
+- type: entity
+  id: N14Cartridge44MagnumScrap
+  name: патрон (.44 самодельный)
+  parent: N14Cartridge44Magnum
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet44Scrap
+- type: entity
+  id: N14AmmoBox44Scrap
+  name: коробка патронов (.44, самодельные)
+  parent: MagazineBox44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumScrap
+- type: entity
+  id: N14MagazinePistol44Scrap
+  name: магазин (.44, пистолетный, самодельный)
+  parent: N14MagazinePistol44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumScrap
+- type: entity
+  id: N14SpeedLoader44Scrap
+  name: спидлоадер (.44, самодельный)
+  parent: SpeedLoader44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumScrap
+# 5mm scrap variant.
+- type: entity
+  id: N14Bullet5mmScrap
+  name: пуля (5 мм самодельная)
+  parent: N14Bullet5mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 9
+- type: entity
+  id: N14CartridgePistol5Scrap
+  name: патрон (5 мм самодельный)
+  parent: N14CartridgePistol5
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet5mmScrap
+- type: entity
+  id: N14MagazineMinigun5mmScrap
+  name: магазин (5 мм, пулемётный, самодельный)
+  parent: N14MagazineMinigun5mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol5Scrap
+# 556 scrap variant.
+- type: entity
+  id: N14Bullet556Scrap
+  name: пуля (5,56 мм самодельная)
+  parent: N14Bullet556
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+- type: entity
+  id: N14Cartridge556RifleScrap
+  name: патрон (5,56 мм самодельный)
+  parent: N14Cartridge556Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet556Scrap
+- type: entity
+  id: N14AmmoBox556Scrap
+  name: коробка патронов (5,56 мм, самодельные)
+  parent: MagazineBox556
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleScrap
+- type: entity
+  id: N14Magazine556RifleScrap
+  name: магазин (5,56 мм, винтовочный, самодельный)
+  parent: Magazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleScrap
+- type: entity
+  id: N14Magazine556Rifle30Scrap
+  name: магазин (5,56 мм, винтовочный, самодельный)
+  parent: Magazine556Rifle30
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleScrap
+- type: entity
+  id: N14LongMagazine556RifleScrap
+  name: магазин (5,56 мм, карабинный, самодельный)
+  parent: LongMagazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleScrap
+- type: entity
+  id: N14LMGMagazine556RifleScrap
+  name: магазин (5,56 мм, ручной пулемёт, самодельный)
+  parent: LMGMagazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleScrap
+# 545 scrap variant.
+- type: entity
+  id: N14Bullet545Scrap
+  name: пуля (5,45 мм самодельная)
+  parent: N14Bullet545
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 17
+- type: entity
+  id: N14Cartridge545RifleScrap
+  name: патрон (5,45 мм самодельный)
+  parent: N14Cartridge545Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet545Scrap
+- type: entity
+  id: N14AmmoBox545Scrap
+  name: коробка патронов (5,45 мм, самодельные)
+  parent: MagazineBox545
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleScrap
+- type: entity
+  id: N14Magazine545RifleScrap
+  name: магазин (5,45 мм, винтовочный, самодельный)
+  parent: Magazine545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleScrap
+- type: entity
+  id: N14MagazineDrum545RifleScrap
+  name: магазин (5,45 мм, барабанный, самодельный)
+  parent: MagazineDrum545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleScrap
+# 762 scrap variant.
+- type: entity
+  id: N14Bullet762Scrap
+  name: пуля (7,62 мм самодельная)
+  parent: N14Bullet762
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 19
+- type: entity
+  id: N14Cartridge762RifleScrap
+  name: патрон (7,62 мм самодельный)
+  parent: N14Cartridge762Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet762Scrap
+- type: entity
+  id: N14AmmoBox762Scrap
+  name: коробка патронов (7,62 мм, самодельные)
+  parent: MagazineBox762
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleScrap
+- type: entity
+  id: N14Magazine762RifleScrap
+  name: магазин (7,62 мм, винтовочный, самодельный)
+  parent: Magazine762Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleScrap
+- type: entity
+  id: N14Magazine762AmmoShortScrap
+  name: магазин (7,62 мм, укороченный, самодельный)
+  parent: Magazine762AmmoShort
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleScrap
+- type: entity
+  id: N14Magazine762AmmoBeltScrap
+  name: пулемётная лента (7,62 мм, самодельная)
+  parent: Magazine762AmmoBelt
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleScrap
+# 127 scrap variant.
+- type: entity
+  id: N14Bullet127Scrap
+  name: пуля (12,7 мм самодельная)
+  parent: N14Bullet127
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 16
+- type: entity
+  id: N14CartridgePistol127Scrap
+  name: патрон (12,7 мм самодельный)
+  parent: N14CartridgePistol127
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet127Scrap
+- type: entity
+  id: N14AmmoBox12Scrap
+  name: коробка патронов (12,7 мм, самодельные)
+  parent: MagazineBox12
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127Scrap
+- type: entity
+  id: N14MagazinePistol12mmScrap
+  name: магазин (12,7 мм, пистолетный, самодельный)
+  parent: N14MagazinePistol12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127Scrap
+- type: entity
+  id: N14MagazineSMG12mmScrap
+  name: магазин (12,7 мм, пистолет-пулемётный, самодельный)
+  parent: N14MagazineSMG12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127Scrap
+- type: entity
+  id: N14TopMagazineSMG12mmScrap
+  name: магазин (12,7 мм, верхний, самодельный)
+  parent: N14TopMagazineSMG12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127Scrap
+# 308 scrap variant.
+- type: entity
+  id: N14Bullet308Scrap
+  name: пуля (.308 самодельная)
+  parent: N14Bullet308
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 29
+- type: entity
+  id: N14Cartridge308RifleScrap
+  name: патрон (.308 самодельный)
+  parent: N14Cartridge308Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet308Scrap
+- type: entity
+  id: N14AmmoBox308Scrap
+  name: коробка патронов (.308, самодельные)
+  parent: MagazineBox308
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleScrap
+- type: entity
+  id: N14Magazine308RifleScrap
+  name: магазин (.308, винтовочный, самодельный)
+  parent: Magazine308Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleScrap
+- type: entity
+  id: N14Magazine308RifleLongScrap
+  name: магазин (.308, длинный, самодельный)
+  parent: Magazine308RifleLong
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleScrap
+- type: entity
+  id: N14Magazine308RifleSniperScrap
+  name: магазин (.308, снайперский, самодельный)
+  parent: Magazine308RifleSniper
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleScrap
+- type: entity
+  id: N14Magazine308M60BoxScrap
+  name: пулемётная лента (.308, самодельная)
+  parent: Magazine308M60Box
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleScrap
+- type: entity
+  id: N14ClipMagazine308RifleScrap
+  name: обойма (.308, самодельная)
+  parent: ClipMagazine308Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleScrap
+- type: entity
+  id: N14SKSEnbloc308Scrap
+  name: обойма (.308, самодельная)
+  parent: SKSEnbloc308
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleScrap
+- type: entity
+  id: N14SpeedLoader308TubeScrap
+  name: спидлоадер (.308, самодельный)
+  parent: SpeedLoader308Tube
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleScrap
+# 4570 scrap variant.
+- type: entity
+  id: N14Bullet45-70Scrap
+  name: пуля (.45-70 самодельная)
+  parent: N14Bullet45-70
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 26
+- type: entity
+  id: N14Cartridge45-70Scrap
+  name: патрон (.45-70 самодельный)
+  parent: N14Cartridge45-70
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet45-70Scrap
+- type: entity
+  id: N14AmmoBox45-70Scrap
+  name: коробка патронов (.45-70, самодельные)
+  parent: MagazineBox45-70
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70Scrap
+- type: entity
+  id: N14SpeedLoader45-70Scrap
+  name: спидлоадер (.45-70, самодельный)
+  parent: SpeedLoader45-70
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70Scrap
+- type: entity
+  id: N14SpeedLoader45-70TubeScrap
+  name: спидлоадер (.45-70, самодельный)
+  parent: SpeedLoader45-70Tube
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70Scrap
+# 50 scrap variant.
+- type: entity
+  id: N14Bullet50Scrap
+  name: пуля (.50 самодельная)
+  parent: N14Bullet50
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 23
+- type: entity
+  id: N14Cartridge50Scrap
+  name: патрон (.50 самодельный)
+  parent: N14Cartridge50
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet50Scrap
+- type: entity
+  id: N14AmmoBox50Scrap
+  name: коробка патронов (.50, самодельные)
+  parent: MagazineBox50
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50Scrap
+- type: entity
+  id: N14Magazine50AMRScrap
+  name: магазин (.50, винтовочный, самодельный)
+  parent: N14Magazine50AMR
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50Scrap
+- type: entity
+  id: N14Magazine50ammoBeltScrap
+  name: пулемётная лента (.50, самодельная)
+  parent: Magazine50ammoBelt
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50Scrap
+# 12g scrap variant.
+- type: entity
+  id: PelletShotgun12Scrap
+  name: пуля (12 кал. самодельная) (осколок)
+  parent: PelletShotgun12
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 9
+- type: entity
+  id: PelletShotgun12SpreadScrap
+  parent: PelletShotgun12Spread
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun12Scrap
+- type: entity
+  id: N14ShellShotgun12Scrap
+  name: патрон (12 кал. самодельный)
+  parent: N14ShellShotgun12
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgun12SpreadScrap
+- type: entity
+  id: N14AmmoBox12gaugeScrap
+  name: коробка патронов (12 кал., самодельные)
+  parent: MagazineBox12gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12Scrap
+- type: entity
+  id: N14MagazineShotgun12Scrap
+  name: магазин (12 кал., барабанный, самодельный)
+  parent: N14MagazineShotgun12
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12Scrap
+# 20g scrap variant.
+- type: entity
+  id: PelletShotgun20Scrap
+  name: пуля (20 кал. самодельная) (осколок)
+  parent: PelletShotgun20
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.10
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 8
+- type: entity
+  id: PelletShotgun20SpreadScrap
+  parent: PelletShotgun20Spread
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun20Scrap
+- type: entity
+  id: N14ShellShotgun20Scrap
+  name: патрон (20 кал. самодельный)
+  parent: N14ShellShotgun20
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgun20SpreadScrap
+- type: entity
+  id: N14AmmoBox20gaugeScrap
+  name: коробка патронов (20 кал., самодельные)
+  parent: MagazineBox20gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20Scrap
+- type: entity
+  id: N14MagazineShotgun20Scrap
+  name: магазин (20 кал., барабанный, самодельный)
+  parent: N14MagazineShotgun20
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20Scrap

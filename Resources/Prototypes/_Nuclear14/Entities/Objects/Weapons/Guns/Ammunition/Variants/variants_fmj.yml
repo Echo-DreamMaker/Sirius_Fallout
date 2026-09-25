@@ -1,0 +1,653 @@
+# 9mm fmj variant.
+- type: entity
+  id: N14Bullet9mmFMJ
+  name: пуля (9 мм ЦМО)
+  parent: N14Bullet9mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14CartridgePistol9FMJ
+  name: патрон (9 мм ЦМО)
+  parent: N14CartridgePistol9
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet9mmFMJ
+- type: entity
+  id: N14AmmoBox9mmFMJ
+  name: коробка патронов (9 мм, ЦМО)
+  parent: MagazineBox9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9FMJ
+- type: entity
+  id: N14MagazinePistol9mmFMJ
+  name: магазин (9 мм, пистолетный, ЦМО)
+  parent: N14MagazinePistol9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9FMJ
+- type: entity
+  id: N14MagazineSMG9mmFMJ
+  name: магазин (9 мм, пистолет-пулемётный, ЦМО)
+  parent: N14MagazineSMG9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9FMJ
+- type: entity
+  id: N14MagazineSMG9mmP90FMJ
+  name: магазин (9 мм, P90, ЦМО)
+  parent: N14MagazineSMG9mmP90
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9FMJ
+- type: entity
+  id: N14MagazineSMG9mmDrumFMJ
+  name: магазин (9 мм, барабанный, ЦМО)
+  parent: N14MagazineSMG9mmDrum
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9FMJ
+- type: entity
+  id: N14SpeedLoader9FMJ
+  name: спидлоадер (9 мм, ЦМО)
+  parent: SpeedLoader9
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9FMJ
+# 10mm fmj variant.
+- type: entity
+  id: N14Bullet10mmFMJ
+  name: пуля (10 мм ЦМО)
+  parent: N14Bullet10mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14CartridgePistol10FMJ
+  name: патрон (10 мм ЦМО)
+  parent: N14CartridgePistol10
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet10mmFMJ
+- type: entity
+  id: N14AmmoBox10mmFMJ
+  name: коробка патронов (10 мм, ЦМО)
+  parent: MagazineBox10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10FMJ
+- type: entity
+  id: N14MagazinePistol10mmFMJ
+  name: магазин (10 мм, пистолетный, ЦМО)
+  parent: N14MagazinePistol10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10FMJ
+- type: entity
+  id: N14MagazineSMG10mmFMJ
+  name: магазин (10 мм, пистолет-пулемётный, ЦМО)
+  parent: N14MagazineSMG10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10FMJ
+- type: entity
+  id: N14SpeedLoader10FMJ
+  name: спидлоадер (10 мм, ЦМО)
+  parent: SpeedLoader10
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10FMJ
+# 45 fmj variant.
+- type: entity
+  id: N14Bullet45FMJ
+  name: пуля (.45 ЦМО)
+  parent: N14Bullet45
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14CartridgePistol45FMJ
+  name: патрон (.45 ЦМО)
+  parent: N14CartridgePistol45
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet45FMJ
+- type: entity
+  id: N14AmmoBox45FMJ
+  name: коробка патронов (.45, ЦМО)
+  parent: MagazineBox45
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45FMJ
+- type: entity
+  id: N14MagazinePistol45FMJ
+  name: магазин (.45, пистолетный, ЦМО)
+  parent: N14MagazinePistol45
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45FMJ
+- type: entity
+  id: N14Magazine45SubMachineGunFMJ
+  name: магазин (.45, пистолет-пулемётный, ЦМО)
+  parent: Magazine45SubMachineGun
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45FMJ
+# 22lr fmj variant.
+- type: entity
+  id: N14Bullet22FMJ
+  name: пуля (.22 ЦМО)
+  parent: N14Bullet22
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14CartridgePistol22FMJ
+  name: патрон (.22 ЦМО)
+  parent: N14CartridgePistol22
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet22FMJ
+- type: entity
+  id: N14AmmoBox22FMJ
+  name: коробка патронов (.22, ЦМО)
+  parent: MagazineBox22
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22FMJ
+- type: entity
+  id: N14MagazinePistol22lrFMJ
+  name: магазин (.22, пистолетный, ЦМО)
+  parent: N14MagazinePistol22lr
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22FMJ
+- type: entity
+  id: N14MagazineAmerican180DrumFMJ
+  name: магазин (.22, барабанный, ЦМО)
+  parent: N14MagazineAmerican180Drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22FMJ
+# 357 fmj variant.
+- type: entity
+  id: N14Bullet357FMJ
+  name: пуля (.357 ЦМО)
+  parent: N14Bullet357
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14CartridgePistol357FMJ
+  name: патрон (.357 ЦМО)
+  parent: N14CartridgePistol357
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet357FMJ
+- type: entity
+  id: N14AmmoBox357FMJ
+  name: коробка патронов (.357, ЦМО)
+  parent: N14AmmoBox357
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol357FMJ
+# 44 fmj variant.
+- type: entity
+  id: N14Bullet44FMJ
+  name: пуля (.44 ЦМО)
+  parent: N14Bullet44
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14Cartridge44MagnumFMJ
+  name: патрон (.44 ЦМО)
+  parent: N14Cartridge44Magnum
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet44FMJ
+- type: entity
+  id: N14AmmoBox44FMJ
+  name: коробка патронов (.44, ЦМО)
+  parent: MagazineBox44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumFMJ
+- type: entity
+  id: N14MagazinePistol44FMJ
+  name: магазин (.44, пистолетный, ЦМО)
+  parent: N14MagazinePistol44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumFMJ
+- type: entity
+  id: N14SpeedLoader44FMJ
+  name: спидлоадер (.44, ЦМО)
+  parent: SpeedLoader44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumFMJ
+# 5mm fmj variant.
+- type: entity
+  id: N14Bullet5mmFMJ
+  name: пуля (5 мм ЦМО)
+  parent: N14Bullet5mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14CartridgePistol5FMJ
+  name: патрон (5 мм ЦМО)
+  parent: N14CartridgePistol5
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet5mmFMJ
+- type: entity
+  id: N14MagazineMinigun5mmFMJ
+  name: магазин (5 мм, пулемётный, ЦМО)
+  parent: N14MagazineMinigun5mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol5FMJ
+# 556 fmj variant.
+- type: entity
+  id: N14Bullet556FMJ
+  name: пуля (5,56 мм ЦМО)
+  parent: N14Bullet556
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14Cartridge556RifleFMJ
+  name: патрон (5,56 мм ЦМО)
+  parent: N14Cartridge556Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet556FMJ
+- type: entity
+  id: N14AmmoBox556FMJ
+  name: коробка патронов (5,56 мм, ЦМО)
+  parent: MagazineBox556
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleFMJ
+- type: entity
+  id: N14Magazine556RifleFMJ
+  name: магазин (5,56 мм, винтовочный, ЦМО)
+  parent: Magazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleFMJ
+- type: entity
+  id: N14Magazine556Rifle30FMJ
+  name: магазин (5,56 мм, винтовочный, ЦМО)
+  parent: Magazine556Rifle30
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleFMJ
+- type: entity
+  id: N14LongMagazine556RifleFMJ
+  name: магазин (5,56 мм, карабинный, ЦМО)
+  parent: LongMagazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleFMJ
+- type: entity
+  id: N14LMGMagazine556RifleFMJ
+  name: магазин (5,56 мм, ручной пулемёт, ЦМО)
+  parent: LMGMagazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleFMJ
+# 545 fmj variant.
+- type: entity
+  id: N14Bullet545FMJ
+  name: пуля (5,45 мм ЦМО)
+  parent: N14Bullet545
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14Cartridge545RifleFMJ
+  name: патрон (5,45 мм ЦМО)
+  parent: N14Cartridge545Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet545FMJ
+- type: entity
+  id: N14AmmoBox545FMJ
+  name: коробка патронов (5,45 мм, ЦМО)
+  parent: MagazineBox545
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleFMJ
+- type: entity
+  id: N14Magazine545RifleFMJ
+  name: магазин (5,45 мм, винтовочный, ЦМО)
+  parent: Magazine545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleFMJ
+- type: entity
+  id: N14MagazineDrum545RifleFMJ
+  name: магазин (5,45 мм, барабанный, ЦМО)
+  parent: MagazineDrum545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleFMJ
+# 762 fmj variant.
+- type: entity
+  id: N14Bullet762FMJ
+  name: пуля (7,62 мм ЦМО)
+  parent: N14Bullet762
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14Cartridge762RifleFMJ
+  name: патрон (7,62 мм ЦМО)
+  parent: N14Cartridge762Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet762FMJ
+- type: entity
+  id: N14AmmoBox762FMJ
+  name: коробка патронов (7,62 мм, ЦМО)
+  parent: MagazineBox762
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleFMJ
+- type: entity
+  id: N14Magazine762RifleFMJ
+  name: магазин (7,62 мм, винтовочный, ЦМО)
+  parent: Magazine762Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleFMJ
+- type: entity
+  id: N14Magazine762AmmoShortFMJ
+  name: магазин (7,62 мм, укороченный, ЦМО)
+  parent: Magazine762AmmoShort
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleFMJ
+- type: entity
+  id: N14Magazine762AmmoBeltFMJ
+  name: пулемётная лента (7,62 мм, ЦМО)
+  parent: Magazine762AmmoBelt
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleFMJ
+# 127 fmj variant.
+- type: entity
+  id: N14Bullet127FMJ
+  name: пуля (12,7 мм ЦМО)
+  parent: N14Bullet127
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14CartridgePistol127FMJ
+  name: патрон (12,7 мм ЦМО)
+  parent: N14CartridgePistol127
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet127FMJ
+- type: entity
+  id: N14AmmoBox12FMJ
+  name: коробка патронов (12,7 мм, ЦМО)
+  parent: MagazineBox12
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127FMJ
+- type: entity
+  id: N14MagazinePistol12mmFMJ
+  name: магазин (12,7 мм, пистолетный, ЦМО)
+  parent: N14MagazinePistol12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127FMJ
+- type: entity
+  id: N14MagazineSMG12mmFMJ
+  name: магазин (12,7 мм, пистолет-пулемётный, ЦМО)
+  parent: N14MagazineSMG12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127FMJ
+- type: entity
+  id: N14TopMagazineSMG12mmFMJ
+  name: магазин (12,7 мм, верхний, ЦМО)
+  parent: N14TopMagazineSMG12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127FMJ
+# 308 fmj variant.
+- type: entity
+  id: N14Bullet308FMJ
+  name: пуля (.308 ЦМО)
+  parent: N14Bullet308
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14Cartridge308RifleFMJ
+  name: патрон (.308 ЦМО)
+  parent: N14Cartridge308Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet308FMJ
+- type: entity
+  id: N14AmmoBox308FMJ
+  name: коробка патронов (.308, ЦМО)
+  parent: MagazineBox308
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleFMJ
+- type: entity
+  id: N14Magazine308RifleFMJ
+  name: магазин (.308, винтовочный, ЦМО)
+  parent: Magazine308Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleFMJ
+- type: entity
+  id: N14Magazine308RifleLongFMJ
+  name: магазин (.308, длинный, ЦМО)
+  parent: Magazine308RifleLong
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleFMJ
+- type: entity
+  id: N14Magazine308RifleSniperFMJ
+  name: магазин (.308, снайперский, ЦМО)
+  parent: Magazine308RifleSniper
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleFMJ
+- type: entity
+  id: N14Magazine308M60BoxFMJ
+  name: пулемётная лента (.308, ЦМО)
+  parent: Magazine308M60Box
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleFMJ
+- type: entity
+  id: N14ClipMagazine308RifleFMJ
+  name: обойма (.308, ЦМО)
+  parent: ClipMagazine308Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleFMJ
+- type: entity
+  id: N14SKSEnbloc308FMJ
+  name: обойма (.308, ЦМО)
+  parent: SKSEnbloc308
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleFMJ
+- type: entity
+  id: N14SpeedLoader308TubeFMJ
+  name: спидлоадер (.308, ЦМО)
+  parent: SpeedLoader308Tube
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleFMJ
+# 4570 fmj variant.
+- type: entity
+  id: N14Bullet45-70FMJ
+  name: пуля (.45-70 ЦМО)
+  parent: N14Bullet45-70
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14Cartridge45-70FMJ
+  name: патрон (.45-70 ЦМО)
+  parent: N14Cartridge45-70
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet45-70FMJ
+- type: entity
+  id: N14AmmoBox45-70FMJ
+  name: коробка патронов (.45-70, ЦМО)
+  parent: MagazineBox45-70
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70FMJ
+- type: entity
+  id: N14SpeedLoader45-70FMJ
+  name: спидлоадер (.45-70, ЦМО)
+  parent: SpeedLoader45-70
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70FMJ
+- type: entity
+  id: N14SpeedLoader45-70TubeFMJ
+  name: спидлоадер (.45-70, ЦМО)
+  parent: SpeedLoader45-70Tube
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70FMJ
+# 50 fmj variant.
+- type: entity
+  id: N14Bullet50FMJ
+  name: пуля (.50 ЦМО)
+  parent: N14Bullet50
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: N14Cartridge50FMJ
+  name: патрон (.50 ЦМО)
+  parent: N14Cartridge50
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet50FMJ
+- type: entity
+  id: N14AmmoBox50FMJ
+  name: коробка патронов (.50, ЦМО)
+  parent: MagazineBox50
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50FMJ
+- type: entity
+  id: N14Magazine50AMRFMJ
+  name: магазин (.50, винтовочный, ЦМО)
+  parent: N14Magazine50AMR
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50FMJ
+- type: entity
+  id: N14Magazine50ammoBeltFMJ
+  name: пулемётная лента (.50, ЦМО)
+  parent: Magazine50ammoBelt
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50FMJ
+# 12g fmj variant.
+- type: entity
+  id: PelletShotgun12FMJ
+  name: пуля (12 кал. ЦМО) (осколок)
+  parent: PelletShotgun12
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: PelletShotgun12SpreadFMJ
+  parent: PelletShotgun12Spread
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun12FMJ
+- type: entity
+  id: N14ShellShotgun12FMJ
+  name: патрон (12 кал. ЦМО)
+  parent: N14ShellShotgun12
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgun12SpreadFMJ
+- type: entity
+  id: N14AmmoBox12gaugeFMJ
+  name: коробка патронов (12 кал., ЦМО)
+  parent: MagazineBox12gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12FMJ
+- type: entity
+  id: N14MagazineShotgun12FMJ
+  name: магазин (12 кал., барабанный, ЦМО)
+  parent: N14MagazineShotgun12
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12FMJ
+# 20g fmj variant.
+- type: entity
+  id: PelletShotgun20FMJ
+  name: пуля (20 кал. ЦМО) (осколок)
+  parent: PelletShotgun20
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.10
+- type: entity
+  id: PelletShotgun20SpreadFMJ
+  parent: PelletShotgun20Spread
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun20FMJ
+- type: entity
+  id: N14ShellShotgun20FMJ
+  name: патрон (20 кал. ЦМО)
+  parent: N14ShellShotgun20
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgun20SpreadFMJ
+- type: entity
+  id: N14AmmoBox20gaugeFMJ
+  name: коробка патронов (20 кал., ЦМО)
+  parent: MagazineBox20gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20FMJ
+- type: entity
+  id: N14MagazineShotgun20FMJ
+  name: магазин (20 кал., барабанный, ЦМО)
+  parent: N14MagazineShotgun20
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20FMJ

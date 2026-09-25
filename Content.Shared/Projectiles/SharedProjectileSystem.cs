@@ -13,6 +13,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
+using Content.Shared._Misfits.Weapons;
 using Content.Shared._Misfits.Weapons.Ranged.Prediction;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Throwing;
@@ -107,11 +108,15 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         var coordinates = Transform(projectile).Coordinates;
         var otherName = ToPrettyString(target);
         var direction = ourBody.LinearVelocity.Normalized();
+        var armorPenetration = 0f; // #Misfits Add
+        if (TryComp<ArmorPenetrationComponent>(uid, out var armorPenetrationComponent))
+            armorPenetration = armorPenetrationComponent.Penetration;
         var modifiedDamage = _netManager.IsServer
             ? _damageableSystem.TryChangeDamage(target,
                 ev.Damage,
                 component.IgnoreResistances,
-                origin: component.Shooter)
+                origin: component.Shooter,
+                armorPenetration: armorPenetration) // #Misfits Add
             : new DamageSpecifier(ev.Damage);
         var deleted = Deleted(target);
 

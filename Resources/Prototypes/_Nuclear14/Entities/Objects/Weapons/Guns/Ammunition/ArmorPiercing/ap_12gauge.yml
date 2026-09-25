@@ -1,0 +1,40 @@
+# 12g ap variant.
+- type: entity
+  id: PelletShotgun12AP
+  name: пуля (12 кал. бронебойная) (осколок)
+  parent: PelletShotgun12
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.45
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 11
+- type: entity
+  id: PelletShotgun12SpreadAP
+  parent: PelletShotgun12Spread
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun12AP
+- type: entity
+  id: N14ShellShotgun12AP
+  name: патрон (12 кал. бронебойный)
+  parent: N14ShellShotgun12
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgun12SpreadAP
+- type: entity
+  id: N14AmmoBox12gaugeAP
+  name: коробка патронов (12 кал., бронебойные)
+  parent: MagazineBox12gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12AP
+- type: entity
+  id: N14MagazineShotgun12AP
+  name: магазин (12 кал., барабанный, бронебойный)
+  parent: N14MagazineShotgun12
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12AP

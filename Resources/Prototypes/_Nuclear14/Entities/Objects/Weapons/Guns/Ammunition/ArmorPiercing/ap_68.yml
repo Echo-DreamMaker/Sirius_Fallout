@@ -1,0 +1,17 @@
+# 6.8mm SPC armor-piercing ammunition (no dedicated ammo box exists for the base round).
+- type: entity
+  id: N14Bullet68AP
+  name: bullet (6.8mm AP)
+  parent: N14Bullet68
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.40
+
+- type: entity
+  id: N14Cartridge68RifleAP
+  name: cartridge (6.8mm AP)
+  parent: N14Cartridge68Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet68AP

@@ -1,0 +1,27 @@
+# 357 ap variant.
+- type: entity
+  id: N14Bullet357AP
+  name: пуля (.357 бронебойная)
+  parent: N14Bullet357
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.45
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+- type: entity
+  id: N14CartridgePistol357AP
+  name: патрон (.357 бронебойный)
+  parent: N14CartridgePistol357
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet357AP
+- type: entity
+  id: N14AmmoBox357AP
+  name: коробка патронов (.357, бронебойные)
+  parent: N14AmmoBox357
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol357AP

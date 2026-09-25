@@ -1,0 +1,21 @@
+- type: entity
+  id: N14TracerTrailEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.2
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: spark
+      color: "#44ff44"
+  - type: PointLight
+    enabled: true
+    radius: 1.3
+    energy: 3.0
+    color: "#44ff44"
+  - type: Tag
+    tags:
+    - HideContextMenu

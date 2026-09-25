@@ -1,0 +1,41 @@
+# 22lr ap variant.
+- type: entity
+  id: N14Bullet22AP
+  name: пуля (.22 бронебойная)
+  parent: N14Bullet22
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 9
+- type: entity
+  id: N14CartridgePistol22AP
+  name: патрон (.22 бронебойный)
+  parent: N14CartridgePistol22
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet22AP
+- type: entity
+  id: N14AmmoBox22AP
+  name: коробка патронов (.22, бронебойные)
+  parent: MagazineBox22
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22AP
+- type: entity
+  id: N14MagazinePistol22lrAP
+  name: магазин (.22, пистолетный, бронебойный)
+  parent: N14MagazinePistol22lr
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22AP
+- type: entity
+  id: N14MagazineAmerican180DrumAP
+  name: магазин (.22, барабанный, бронебойный)
+  parent: N14MagazineAmerican180Drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22AP

@@ -1,0 +1,781 @@
+# 9mm tracer variant.
+- type: entity
+  id: N14Bullet9mmTracer
+  name: пуля (9 мм трассирующая)
+  parent: N14Bullet9mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 12
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14CartridgePistol9Tracer
+  name: патрон (9 мм трассирующий)
+  parent: N14CartridgePistol9
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet9mmTracer
+- type: entity
+  id: N14AmmoBox9mmTracer
+  name: коробка патронов (9 мм, трассирующие)
+  parent: MagazineBox9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Tracer
+- type: entity
+  id: N14MagazinePistol9mmTracer
+  name: магазин (9 мм, пистолетный, трассирующий)
+  parent: N14MagazinePistol9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Tracer
+- type: entity
+  id: N14MagazineSMG9mmTracer
+  name: магазин (9 мм, пистолет-пулемётный, трассирующий)
+  parent: N14MagazineSMG9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Tracer
+- type: entity
+  id: N14MagazineSMG9mmP90Tracer
+  name: магазин (9 мм, P90, трассирующий)
+  parent: N14MagazineSMG9mmP90
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Tracer
+- type: entity
+  id: N14MagazineSMG9mmDrumTracer
+  name: магазин (9 мм, барабанный, трассирующий)
+  parent: N14MagazineSMG9mmDrum
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Tracer
+- type: entity
+  id: N14SpeedLoader9Tracer
+  name: спидлоадер (9 мм, трассирующий)
+  parent: SpeedLoader9
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Tracer
+# 10mm tracer variant.
+- type: entity
+  id: N14Bullet10mmTracer
+  name: пуля (10 мм трассирующая)
+  parent: N14Bullet10mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 14
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14CartridgePistol10Tracer
+  name: патрон (10 мм трассирующий)
+  parent: N14CartridgePistol10
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet10mmTracer
+- type: entity
+  id: N14AmmoBox10mmTracer
+  name: коробка патронов (10 мм, трассирующие)
+  parent: MagazineBox10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10Tracer
+- type: entity
+  id: N14MagazinePistol10mmTracer
+  name: магазин (10 мм, пистолетный, трассирующий)
+  parent: N14MagazinePistol10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10Tracer
+- type: entity
+  id: N14MagazineSMG10mmTracer
+  name: магазин (10 мм, пистолет-пулемётный, трассирующий)
+  parent: N14MagazineSMG10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10Tracer
+- type: entity
+  id: N14SpeedLoader10Tracer
+  name: спидлоадер (10 мм, трассирующий)
+  parent: SpeedLoader10
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10Tracer
+# 45 tracer variant.
+- type: entity
+  id: N14Bullet45Tracer
+  name: пуля (.45 трассирующая)
+  parent: N14Bullet45
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 16
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14CartridgePistol45Tracer
+  name: патрон (.45 трассирующий)
+  parent: N14CartridgePistol45
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet45Tracer
+- type: entity
+  id: N14AmmoBox45Tracer
+  name: коробка патронов (.45, трассирующие)
+  parent: MagazineBox45
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45Tracer
+- type: entity
+  id: N14MagazinePistol45Tracer
+  name: магазин (.45, пистолетный, трассирующий)
+  parent: N14MagazinePistol45
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45Tracer
+- type: entity
+  id: N14Magazine45SubMachineGunTracer
+  name: магазин (.45, пистолет-пулемётный, трассирующий)
+  parent: Magazine45SubMachineGun
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45Tracer
+# 22lr tracer variant.
+- type: entity
+  id: N14Bullet22Tracer
+  name: пуля (.22 трассирующая)
+  parent: N14Bullet22
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14CartridgePistol22Tracer
+  name: патрон (.22 трассирующий)
+  parent: N14CartridgePistol22
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet22Tracer
+- type: entity
+  id: N14AmmoBox22Tracer
+  name: коробка патронов (.22, трассирующие)
+  parent: MagazineBox22
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22Tracer
+- type: entity
+  id: N14MagazinePistol22lrTracer
+  name: магазин (.22, пистолетный, трассирующий)
+  parent: N14MagazinePistol22lr
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22Tracer
+- type: entity
+  id: N14MagazineAmerican180DrumTracer
+  name: магазин (.22, барабанный, трассирующий)
+  parent: N14MagazineAmerican180Drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22Tracer
+# 357 tracer variant.
+- type: entity
+  id: N14Bullet357Tracer
+  name: пуля (.357 трассирующая)
+  parent: N14Bullet357
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 21
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14CartridgePistol357Tracer
+  name: патрон (.357 трассирующий)
+  parent: N14CartridgePistol357
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet357Tracer
+- type: entity
+  id: N14AmmoBox357Tracer
+  name: коробка патронов (.357, трассирующие)
+  parent: N14AmmoBox357
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol357Tracer
+# 44 tracer variant.
+- type: entity
+  id: N14Bullet44Tracer
+  name: пуля (.44 трассирующая)
+  parent: N14Bullet44
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14Cartridge44MagnumTracer
+  name: патрон (.44 трассирующий)
+  parent: N14Cartridge44Magnum
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet44Tracer
+- type: entity
+  id: N14AmmoBox44Tracer
+  name: коробка патронов (.44, трассирующие)
+  parent: MagazineBox44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumTracer
+- type: entity
+  id: N14MagazinePistol44Tracer
+  name: магазин (.44, пистолетный, трассирующий)
+  parent: N14MagazinePistol44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumTracer
+- type: entity
+  id: N14SpeedLoader44Tracer
+  name: спидлоадер (.44, трассирующий)
+  parent: SpeedLoader44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumTracer
+# 5mm tracer variant.
+- type: entity
+  id: N14Bullet5mmTracer
+  name: пуля (5 мм трассирующая)
+  parent: N14Bullet5mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 11
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14CartridgePistol5Tracer
+  name: патрон (5 мм трассирующий)
+  parent: N14CartridgePistol5
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet5mmTracer
+- type: entity
+  id: N14MagazineMinigun5mmTracer
+  name: магазин (5 мм, пулемётный, трассирующий)
+  parent: N14MagazineMinigun5mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol5Tracer
+# 556 tracer variant.
+- type: entity
+  id: N14Bullet556Tracer
+  name: пуля (5,56 мм трассирующая)
+  parent: N14Bullet556
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 19
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14Cartridge556RifleTracer
+  name: патрон (5,56 мм трассирующий)
+  parent: N14Cartridge556Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet556Tracer
+- type: entity
+  id: N14AmmoBox556Tracer
+  name: коробка патронов (5,56 мм, трассирующие)
+  parent: MagazineBox556
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleTracer
+- type: entity
+  id: N14Magazine556RifleTracer
+  name: магазин (5,56 мм, винтовочный, трассирующий)
+  parent: Magazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleTracer
+- type: entity
+  id: N14Magazine556Rifle30Tracer
+  name: магазин (5,56 мм, винтовочный, трассирующий)
+  parent: Magazine556Rifle30
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleTracer
+- type: entity
+  id: N14LongMagazine556RifleTracer
+  name: магазин (5,56 мм, карабинный, трассирующий)
+  parent: LongMagazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleTracer
+- type: entity
+  id: N14LMGMagazine556RifleTracer
+  name: магазин (5,56 мм, ручной пулемёт, трассирующий)
+  parent: LMGMagazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleTracer
+# 545 tracer variant.
+- type: entity
+  id: N14Bullet545Tracer
+  name: пуля (5,45 мм трассирующая)
+  parent: N14Bullet545
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 22
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14Cartridge545RifleTracer
+  name: патрон (5,45 мм трассирующий)
+  parent: N14Cartridge545Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet545Tracer
+- type: entity
+  id: N14AmmoBox545Tracer
+  name: коробка патронов (5,45 мм, трассирующие)
+  parent: MagazineBox545
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleTracer
+- type: entity
+  id: N14Magazine545RifleTracer
+  name: магазин (5,45 мм, винтовочный, трассирующий)
+  parent: Magazine545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleTracer
+- type: entity
+  id: N14MagazineDrum545RifleTracer
+  name: магазин (5,45 мм, барабанный, трассирующий)
+  parent: MagazineDrum545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleTracer
+# 762 tracer variant.
+- type: entity
+  id: N14Bullet762Tracer
+  name: пуля (7,62 мм трассирующая)
+  parent: N14Bullet762
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 24
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14Cartridge762RifleTracer
+  name: патрон (7,62 мм трассирующий)
+  parent: N14Cartridge762Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet762Tracer
+- type: entity
+  id: N14AmmoBox762Tracer
+  name: коробка патронов (7,62 мм, трассирующие)
+  parent: MagazineBox762
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleTracer
+- type: entity
+  id: N14Magazine762RifleTracer
+  name: магазин (7,62 мм, винтовочный, трассирующий)
+  parent: Magazine762Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleTracer
+- type: entity
+  id: N14Magazine762AmmoShortTracer
+  name: магазин (7,62 мм, укороченный, трассирующий)
+  parent: Magazine762AmmoShort
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleTracer
+- type: entity
+  id: N14Magazine762AmmoBeltTracer
+  name: пулемётная лента (7,62 мм, трассирующая)
+  parent: Magazine762AmmoBelt
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleTracer
+# 127 tracer variant.
+- type: entity
+  id: N14Bullet127Tracer
+  name: пуля (12,7 мм трассирующая)
+  parent: N14Bullet127
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14CartridgePistol127Tracer
+  name: патрон (12,7 мм трассирующий)
+  parent: N14CartridgePistol127
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet127Tracer
+- type: entity
+  id: N14AmmoBox12Tracer
+  name: коробка патронов (12,7 мм, трассирующие)
+  parent: MagazineBox12
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127Tracer
+- type: entity
+  id: N14MagazinePistol12mmTracer
+  name: магазин (12,7 мм, пистолетный, трассирующий)
+  parent: N14MagazinePistol12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127Tracer
+- type: entity
+  id: N14MagazineSMG12mmTracer
+  name: магазин (12,7 мм, пистолет-пулемётный, трассирующий)
+  parent: N14MagazineSMG12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127Tracer
+- type: entity
+  id: N14TopMagazineSMG12mmTracer
+  name: магазин (12,7 мм, верхний, трассирующий)
+  parent: N14TopMagazineSMG12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127Tracer
+# 308 tracer variant.
+- type: entity
+  id: N14Bullet308Tracer
+  name: пуля (.308 трассирующая)
+  parent: N14Bullet308
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 36
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14Cartridge308RifleTracer
+  name: патрон (.308 трассирующий)
+  parent: N14Cartridge308Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet308Tracer
+- type: entity
+  id: N14AmmoBox308Tracer
+  name: коробка патронов (.308, трассирующие)
+  parent: MagazineBox308
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleTracer
+- type: entity
+  id: N14Magazine308RifleTracer
+  name: магазин (.308, винтовочный, трассирующий)
+  parent: Magazine308Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleTracer
+- type: entity
+  id: N14Magazine308RifleLongTracer
+  name: магазин (.308, длинный, трассирующий)
+  parent: Magazine308RifleLong
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleTracer
+- type: entity
+  id: N14Magazine308RifleSniperTracer
+  name: магазин (.308, снайперский, трассирующий)
+  parent: Magazine308RifleSniper
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleTracer
+- type: entity
+  id: N14Magazine308M60BoxTracer
+  name: пулемётная лента (.308, трассирующая)
+  parent: Magazine308M60Box
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleTracer
+- type: entity
+  id: N14ClipMagazine308RifleTracer
+  name: обойма (.308, трассирующая)
+  parent: ClipMagazine308Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleTracer
+- type: entity
+  id: N14SKSEnbloc308Tracer
+  name: обойма (.308, трассирующая)
+  parent: SKSEnbloc308
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleTracer
+- type: entity
+  id: N14SpeedLoader308TubeTracer
+  name: спидлоадер (.308, трассирующий)
+  parent: SpeedLoader308Tube
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleTracer
+# 4570 tracer variant.
+- type: entity
+  id: N14Bullet45-70Tracer
+  name: пуля (.45-70 трассирующая)
+  parent: N14Bullet45-70
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 33
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14Cartridge45-70Tracer
+  name: патрон (.45-70 трассирующий)
+  parent: N14Cartridge45-70
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet45-70Tracer
+- type: entity
+  id: N14AmmoBox45-70Tracer
+  name: коробка патронов (.45-70, трассирующие)
+  parent: MagazineBox45-70
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70Tracer
+- type: entity
+  id: N14SpeedLoader45-70Tracer
+  name: спидлоадер (.45-70, трассирующий)
+  parent: SpeedLoader45-70
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70Tracer
+- type: entity
+  id: N14SpeedLoader45-70TubeTracer
+  name: спидлоадер (.45-70, трассирующий)
+  parent: SpeedLoader45-70Tube
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70Tracer
+# 50 tracer variant.
+- type: entity
+  id: N14Bullet50Tracer
+  name: пуля (.50 трассирующая)
+  parent: N14Bullet50
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 29
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: N14Cartridge50Tracer
+  name: патрон (.50 трассирующий)
+  parent: N14Cartridge50
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet50Tracer
+- type: entity
+  id: N14AmmoBox50Tracer
+  name: коробка патронов (.50, трассирующие)
+  parent: MagazineBox50
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50Tracer
+- type: entity
+  id: N14Magazine50AMRTracer
+  name: магазин (.50, винтовочный, трассирующий)
+  parent: N14Magazine50AMR
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50Tracer
+- type: entity
+  id: N14Magazine50ammoBeltTracer
+  name: пулемётная лента (.50, трассирующая)
+  parent: Magazine50ammoBelt
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50Tracer
+# 12g tracer variant.
+- type: entity
+  id: PelletShotgun12Tracer
+  name: пуля (12 кал. трассирующая) (осколок)
+  parent: PelletShotgun12
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 11
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: PelletShotgun12SpreadTracer
+  parent: PelletShotgun12Spread
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun12Tracer
+- type: entity
+  id: N14ShellShotgun12Tracer
+  name: патрон (12 кал. трассирующий)
+  parent: N14ShellShotgun12
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgun12SpreadTracer
+- type: entity
+  id: N14AmmoBox12gaugeTracer
+  name: коробка патронов (12 кал., трассирующие)
+  parent: MagazineBox12gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12Tracer
+- type: entity
+  id: N14MagazineShotgun12Tracer
+  name: магазин (12 кал., барабанный, трассирующий)
+  parent: N14MagazineShotgun12
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12Tracer
+# 20g tracer variant.
+- type: entity
+  id: PelletShotgun20Tracer
+  name: пуля (20 кал. трассирующая) (осколок)
+  parent: PelletShotgun20
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+  - type: TracerVisual
+  - type: PointLight
+    enabled: true
+    color: "#44ff44"
+    radius: 3.0
+    energy: 5.0
+- type: entity
+  id: PelletShotgun20SpreadTracer
+  parent: PelletShotgun20Spread
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun20Tracer
+- type: entity
+  id: N14ShellShotgun20Tracer
+  name: патрон (20 кал. трассирующий)
+  parent: N14ShellShotgun20
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgun20SpreadTracer
+- type: entity
+  id: N14AmmoBox20gaugeTracer
+  name: коробка патронов (20 кал., трассирующие)
+  parent: MagazineBox20gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20Tracer
+- type: entity
+  id: N14MagazineShotgun20Tracer
+  name: магазин (20 кал., барабанный, трассирующий)
+  parent: N14MagazineShotgun20
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20Tracer

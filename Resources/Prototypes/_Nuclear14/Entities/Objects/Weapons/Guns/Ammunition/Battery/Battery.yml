@@ -329,7 +329,7 @@
     startingCharge: 600
   - type: HitscanBatteryAmmoProvider
     proto: N14MFLaserRed
-    fireCost: 100
+    fireCost: 50 # 12 shots at 50 charge per shot
 
 # - type: entity
 #   name: electron charge pack
@@ -501,8 +501,8 @@
        - N14PlasmaShell
        - N14AmmoCell
    - type: Battery
-     maxCharge: 7500
-     startingCharge: 7500
+     maxCharge: 20000 # 40 shots at 500 charge per shot
+     startingCharge: 20000
    - type: ProjectileBatteryAmmoProvider
      proto: BulletBigPlasma
      fireCost: 500

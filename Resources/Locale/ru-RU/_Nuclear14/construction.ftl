@@ -3,6 +3,13 @@ construction-category-explosives = Взрывчатые вещества
 
 lathe-category-ammo-box = Ящики для боеприпасов
 lathe-category-ammo-magazines = Магазины
+lathe-category-ammo-standard = Обычные
+lathe-category-ammo-ap = Бронебойные
+lathe-category-ammo-jhp = Экспансивные
+lathe-category-ammo-fmj = ЦМО
+lathe-category-ammo-incendiary = Зажигательные
+lathe-category-ammo-tracer = Трассирующие
+lathe-category-ammo-scrap = Самодельные
 lathe-category-armor = Броня
 lathe-category-containers = Контейнеры
 lathe-category-chemistry = Химия
@@ -25,3 +32,5 @@ ent-MeatSpikeConstruction = Мясной шип
 hand-craft-intell-too-low-intelligence = Вы недостаточно умны, чтобы изготовить это вручную.
 hand-craft-intell-insufficient-materials = У вас недостаточно материалов, чтобы изготовить это вручную.
 hand-craft-intell-leftover-materials-title = Оставшиеся материалы
+
+misfits-armor-penetration-examine = Бронепробитие: {$value}%.

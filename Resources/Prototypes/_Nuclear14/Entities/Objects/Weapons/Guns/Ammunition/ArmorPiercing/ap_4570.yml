@@ -1,0 +1,41 @@
+# 4570 ap variant.
+- type: entity
+  id: N14Bullet45-70AP
+  name: пуля (.45-70 бронебойная)
+  parent: N14Bullet45-70
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.45
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 32
+- type: entity
+  id: N14Cartridge45-70AP
+  name: патрон (.45-70 бронебойный)
+  parent: N14Cartridge45-70
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet45-70AP
+- type: entity
+  id: N14AmmoBox45-70AP
+  name: коробка патронов (.45-70, бронебойные)
+  parent: MagazineBox45-70
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70AP
+- type: entity
+  id: N14SpeedLoader45-70AP
+  name: спидлоадер (.45-70, бронебойный)
+  parent: SpeedLoader45-70
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70AP
+- type: entity
+  id: N14SpeedLoader45-70TubeAP
+  name: спидлоадер (.45-70, бронебойный)
+  parent: SpeedLoader45-70Tube
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70AP

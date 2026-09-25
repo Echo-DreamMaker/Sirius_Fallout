@@ -1,0 +1,55 @@
+# 556 ap variant.
+- type: entity
+  id: N14Bullet556AP
+  name: пуля (5,56 мм бронебойная)
+  parent: N14Bullet556
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.35
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 18
+- type: entity
+  id: N14Cartridge556RifleAP
+  name: патрон (5,56 мм бронебойный)
+  parent: N14Cartridge556Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet556AP
+- type: entity
+  id: N14AmmoBox556AP
+  name: коробка патронов (5,56 мм, бронебойные)
+  parent: MagazineBox556
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleAP
+- type: entity
+  id: N14Magazine556RifleAP
+  name: магазин (5,56 мм, винтовочный, бронебойный)
+  parent: Magazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleAP
+- type: entity
+  id: N14Magazine556Rifle30AP
+  name: магазин (5,56 мм, винтовочный, бронебойный)
+  parent: Magazine556Rifle30
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleAP
+- type: entity
+  id: N14LongMagazine556RifleAP
+  name: магазин (5,56 мм, карабинный, бронебойный)
+  parent: LongMagazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleAP
+- type: entity
+  id: N14LMGMagazine556RifleAP
+  name: магазин (5,56 мм, ручной пулемёт, бронебойный)
+  parent: LMGMagazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleAP
