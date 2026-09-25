@@ -28,7 +28,7 @@
 - type: latheRecipe
   id: N14Cartridge556Rifle
   result: N14Cartridge556Rifle
-  category: N14Ammo
+  category: N14AmmoStandard
   completetime: 2
   materials:
     Lead: 2
@@ -38,7 +38,7 @@
 - type: latheRecipe
   id: Magazine556Rifle
   result: Magazine556Rifle
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 50
@@ -48,7 +48,7 @@
 - type: latheRecipe
   id: LongMagazine556Rifle
   result: LongMagazine556Rifle
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 70
@@ -58,7 +58,7 @@
 - type: latheRecipe
   id: LMGMagazine556Rifle
   result: LMGMagazine556Rifle
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 110
@@ -68,7 +68,7 @@
 - type: latheRecipe
   id: MagazineBox556
   result: MagazineBox556
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 150
@@ -80,7 +80,7 @@
 - type: latheRecipe
   id: N14CartridgePistol5
   result: N14CartridgePistol5
-  category: N14Ammo
+  category: N14AmmoStandard
   completetime: 2
   materials:
     Lead: 1
@@ -90,7 +90,7 @@
 - type: latheRecipe
   id: N14MagazineMinigun5mm
   result: N14MagazineMinigun5mm
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials: # #Burger - Decreased cost of ammo boxes to make up for larger size in bag the less use cases that causes.
     Lead: 500
@@ -101,7 +101,7 @@
 - type: latheRecipe
   id: N14Cartridge762Rifle
   result: N14Cartridge762Rifle
-  category: N14Ammo
+  category: N14AmmoStandard
   completetime: 2
   materials:
     Lead: 2
@@ -111,7 +111,7 @@
 - type: latheRecipe
   id: Magazine762AmmoShort
   result: Magazine762AmmoShort
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 40
@@ -121,7 +121,7 @@
 - type: latheRecipe
   id: Magazine762Rifle
   result: Magazine762Rifle
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 60
@@ -131,7 +131,7 @@
 - type: latheRecipe
   id: Magazine762AmmoBelt
   result: Magazine762AmmoBelt
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 500
@@ -141,7 +141,7 @@
 - type: latheRecipe
   id: MagazineBox762
   result: MagazineBox762
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 120
@@ -153,7 +153,7 @@
 - type: latheRecipe
   id: N14CartridgePistol9
   result: N14CartridgePistol9
-  category: N14Ammo
+  category: N14AmmoStandard
   completetime: 2
   materials:
     Lead: 1
@@ -163,7 +163,7 @@
 - type: latheRecipe
   id: N14MagazinePistol9mm
   result: N14MagazinePistol9mm
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 24
@@ -173,7 +173,7 @@
 - type: latheRecipe
   id: N14MagazineSMG9mm
   result: N14MagazineSMG9mm
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 31
@@ -183,7 +183,7 @@
 - type: latheRecipe
   id: SpeedLoader9
   result: SpeedLoader9
-  category: N14AmmoMagazine # Forge-Change
+  category: N14AmmoStandard # Forge-Change
   completetime: 5
   materials:
     Lead: 6
@@ -193,7 +193,7 @@
 - type: latheRecipe
   id: MagazineBox9mm
   result: MagazineBox9mm
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 80
@@ -205,7 +205,7 @@
 - type: latheRecipe
   id: N14CartridgePistol10
   result: N14CartridgePistol10
-  category: N14Ammo
+  category: N14AmmoStandard
   completetime: 2
   materials:
     Lead: 1
@@ -215,7 +215,7 @@
 - type: latheRecipe
   id: N14MagazinePistol10mm
   result: N14MagazinePistol10mm
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 10
@@ -225,7 +225,7 @@
 - type: latheRecipe
   id: N14MagazineSMG10mm
   result: N14MagazineSMG10mm
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 35
@@ -235,7 +235,7 @@
 - type: latheRecipe
   id: SpeedLoader10
   result: SpeedLoader10
-  category: N14AmmoMagazine # Forge-Change
+  category: N14AmmoStandard # Forge-Change
   completetime: 5
   materials:
     Lead: 6
@@ -245,7 +245,7 @@
 - type: latheRecipe
   id: MagazineBox10mm
   result: MagazineBox10mm
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 80
@@ -257,7 +257,7 @@
 - type: latheRecipe
   id: N14CartridgePistol127
   result: N14CartridgePistol127
-  category: N14Ammo
+  category: N14AmmoStandard
   completetime: 2
   materials:
     Lead: 2
@@ -267,7 +267,7 @@
 - type: latheRecipe
   id: N14MagazinePistol12mm
   result: N14MagazinePistol12mm
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 20
@@ -277,7 +277,7 @@
 - type: latheRecipe
   id: N14MagazineSMG12mm
   result: N14MagazineSMG12mm
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 56
@@ -287,7 +287,7 @@
 - type: latheRecipe
   id: N14TopMagazineSMG12mm
   result: N14TopMagazineSMG12mm
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 80
@@ -297,7 +297,7 @@
 - type: latheRecipe
   id: MagazineBox12
   result: MagazineBox12
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 150
@@ -309,7 +309,7 @@
 - type: latheRecipe
   id: N14ShellShotgun12
   result: N14ShellShotgun12
-  category: N14Ammo
+  category: N14AmmoStandard
   completetime: 2
   materials:
     Lead: 2
@@ -319,7 +319,7 @@
 - type: latheRecipe
   id: N14MagazineShotgun12
   result: N14MagazineShotgun12
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 16
@@ -330,7 +330,7 @@
 - type: latheRecipe
   id: MagazineBox12gauge
   result: MagazineBox12gauge
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 60
@@ -342,7 +342,7 @@
 - type: latheRecipe
   id: N14ShellShotgun20
   result: N14ShellShotgun20
-  category: N14Ammo
+  category: N14AmmoStandard
   completetime: 2
   materials:
     Lead: 1
@@ -352,7 +352,7 @@
 - type: latheRecipe
   id: N14MagazineShotgun20
   result: N14MagazineShotgun20
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 20
@@ -363,7 +363,7 @@
 - type: latheRecipe
   id: MagazineBox20gauge
   result: MagazineBox20gauge
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 30
@@ -375,7 +375,7 @@
 - type: latheRecipe
   id: N14CartridgePistol22
   result: N14CartridgePistol22
-  category: N14Ammo
+  category: N14AmmoStandard
   completetime: 2
   materials:
     Lead: 1
@@ -385,7 +385,7 @@
 - type: latheRecipe
   id: N14MagazinePistol22lr
   result: N14MagazinePistol22lr
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 80
@@ -395,7 +395,7 @@
 - type: latheRecipe
   id: MagazineBox22
   result: MagazineBox22
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 75
@@ -407,7 +407,7 @@
 - type: latheRecipe
   id: N14Cartridge44Magnum
   result: N14Cartridge44Magnum
-  category: N14Ammo
+  category: N14AmmoStandard
   completetime: 2
   materials:
     Lead: 2
@@ -417,7 +417,7 @@
 - type: latheRecipe
   id: SpeedLoader44
   result: SpeedLoader44
-  category: N14AmmoMagazine # Forge-Change
+  category: N14AmmoStandard # Forge-Change
   completetime: 5
   materials:
     Lead: 10
@@ -427,7 +427,7 @@
 - type: latheRecipe
   id: MagazineBox44
   result: MagazineBox44
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 44
@@ -438,7 +438,7 @@
 - type: latheRecipe
   id: N14MagazinePistol44
   result: N14MagazinePistol44
-  category: N14AmmoMagazine # Forge-Change
+  category: N14AmmoStandard # Forge-Change
   completetime: 5
   materials:
     Lead: 20
@@ -449,7 +449,7 @@
 - type: latheRecipe
   id: N14CartridgePistol45
   result: N14CartridgePistol45
-  category: N14Ammo
+  category: N14AmmoStandard
   completetime: 2
   materials:
     Lead: 1
@@ -459,7 +459,7 @@
 - type: latheRecipe
   id: N14MagazinePistol45
   result: N14MagazinePistol45
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 18
@@ -469,7 +469,7 @@
 - type: latheRecipe
   id: Magazine45SubMachineGun
   result: Magazine45SubMachineGun
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 25
@@ -479,7 +479,7 @@
 - type: latheRecipe
   id: MagazineBox45
   result: MagazineBox45
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 75
@@ -491,7 +491,7 @@
 - type: latheRecipe
   id: N14Cartridge308Rifle
   result: N14Cartridge308Rifle
-  category: N14Ammo
+  category: N14AmmoStandard
   completetime: 2
   materials:
     Lead: 3
@@ -501,7 +501,7 @@
 - type: latheRecipe
   id: Magazine308Rifle
   result: Magazine308Rifle
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 33
@@ -511,7 +511,7 @@
 - type: latheRecipe
   id: Magazine308RifleLong
   result: Magazine308RifleLong
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 300
@@ -521,7 +521,7 @@
 - type: latheRecipe
   id: ClipMagazine308Rifle
   result: ClipMagazine308Rifle
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 24
@@ -531,7 +531,7 @@
 - type: latheRecipe
   id: SpeedLoader308Tube
   result: SpeedLoader308Tube
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 24
@@ -541,7 +541,7 @@
 - type: latheRecipe
   id: MagazineBox308
   result: MagazineBox308
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 96
@@ -553,7 +553,7 @@
 - type: latheRecipe
   id: Magazine308RifleSniper
   result: Magazine308RifleSniper
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 33
@@ -564,7 +564,7 @@
 - type: latheRecipe
   id: SpeedLoader45-70
   result: SpeedLoader45-70
-  category: N14AmmoMagazine # Forge-Change
+  category: N14AmmoStandard # Forge-Change
   completetime: 5
   materials:
     Lead: 24
@@ -574,7 +574,7 @@
 - type: latheRecipe
   id: SpeedLoader45-70Tube
   result: SpeedLoader45-70Tube
-  category: N14AmmoMagazine # Forge-Change
+  category: N14AmmoStandard # Forge-Change
   completetime: 5
   materials:
     Lead: 40
@@ -584,7 +584,7 @@
 - type: latheRecipe
   id: MagazineBox45-70
   result: MagazineBox45-70
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 120
@@ -596,7 +596,7 @@
 - type: latheRecipe
   id: N14Magazine50AMR
   result: N14Magazine50AMR
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 25
@@ -606,7 +606,7 @@
 - type: latheRecipe
   id: MagazineBox50
   result: MagazineBox50
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 150

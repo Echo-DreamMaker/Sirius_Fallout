@@ -11,6 +11,34 @@
   name: lathe-category-ammo-magazines
 
 - type: latheCategory
+  id: N14AmmoStandard
+  name: lathe-category-ammo-standard
+
+- type: latheCategory
+  id: N14AmmoAP
+  name: lathe-category-ammo-ap
+
+- type: latheCategory
+  id: N14AmmoJHP
+  name: lathe-category-ammo-jhp
+
+- type: latheCategory
+  id: N14AmmoFMJ
+  name: lathe-category-ammo-fmj
+
+- type: latheCategory
+  id: N14AmmoIncendiary
+  name: lathe-category-ammo-incendiary
+
+- type: latheCategory
+  id: N14AmmoTracer
+  name: lathe-category-ammo-tracer
+
+- type: latheCategory
+  id: N14AmmoScrap
+  name: lathe-category-ammo-scrap
+
+- type: latheCategory
   id: N14Armor
   name: lathe-category-armor
 

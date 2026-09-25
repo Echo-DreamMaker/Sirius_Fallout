@@ -1,0 +1,76 @@
+# 308 ap variant.
+- type: entity
+  id: N14Bullet308AP
+  name: пуля (.308 бронебойная)
+  parent: N14Bullet308
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.45
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 34
+- type: entity
+  id: N14Cartridge308RifleAP
+  name: патрон (.308 бронебойный)
+  parent: N14Cartridge308Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet308AP
+- type: entity
+  id: N14AmmoBox308AP
+  name: коробка патронов (.308, бронебойные)
+  parent: MagazineBox308
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleAP
+- type: entity
+  id: N14Magazine308RifleAP
+  name: магазин (.308, винтовочный, бронебойный)
+  parent: Magazine308Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleAP
+- type: entity
+  id: N14Magazine308RifleLongAP
+  name: магазин (.308, длинный, бронебойный)
+  parent: Magazine308RifleLong
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleAP
+- type: entity
+  id: N14Magazine308RifleSniperAP
+  name: магазин (.308, снайперский, бронебойный)
+  parent: Magazine308RifleSniper
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleAP
+- type: entity
+  id: N14Magazine308M60BoxAP
+  name: пулемётная лента (.308, бронебойная)
+  parent: Magazine308M60Box
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleAP
+- type: entity
+  id: N14ClipMagazine308RifleAP
+  name: обойма (.308, бронебойная)
+  parent: ClipMagazine308Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleAP
+- type: entity
+  id: N14SKSEnbloc308AP
+  name: обойма (.308, бронебойная)
+  parent: SKSEnbloc308
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleAP
+- type: entity
+  id: N14SpeedLoader308TubeAP
+  name: спидлоадер (.308, бронебойный)
+  parent: SpeedLoader308Tube
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleAP

@@ -1,0 +1,88 @@
+# Misfits Add: Ammo Utility - portable reloading kit for homemade (scrap) ammunition.
+- type: entity
+  parent: BaseItem
+  id: N14AmmoUtility
+  description: Набор инструментов и матриц для снаряжения самодельных патронов в полевых условиях.
+  name: утилита для патронов
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: toaster
+  - type: Item
+    size: Huge
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticRecipes: # Homemade (scrap) ammo only.
+    - N14CartridgePistol9Scrap
+    - N14AmmoBox9mmScrap
+    - N14MagazinePistol9mmScrap
+    - N14MagazineSMG9mmScrap
+    - N14SpeedLoader9Scrap
+    - N14CartridgePistol10Scrap
+    - N14AmmoBox10mmScrap
+    - N14MagazinePistol10mmScrap
+    - N14MagazineSMG10mmScrap
+    - N14SpeedLoader10Scrap
+    - N14CartridgePistol45Scrap
+    - N14AmmoBox45Scrap
+    - N14MagazinePistol45Scrap
+    - N14Magazine45SubMachineGunScrap
+    - N14CartridgePistol22Scrap
+    - N14AmmoBox22Scrap
+    - N14MagazinePistol22lrScrap
+    - N14Cartridge44MagnumScrap
+    - N14AmmoBox44Scrap
+    - N14MagazinePistol44Scrap
+    - N14SpeedLoader44Scrap
+    - N14CartridgePistol5Scrap
+    - N14MagazineMinigun5mmScrap
+    - N14Cartridge556RifleScrap
+    - N14AmmoBox556Scrap
+    - N14Magazine556RifleScrap
+    - N14LongMagazine556RifleScrap
+    - N14LMGMagazine556RifleScrap
+    - N14Cartridge545RifleScrap
+    - N14AmmoBox545Scrap
+    - N14Magazine545RifleScrap
+    - N14MagazineDrum545RifleScrap
+    - N14Cartridge762RifleScrap
+    - N14AmmoBox762Scrap
+    - N14Magazine762RifleScrap
+    - N14Magazine762AmmoShortScrap
+    - N14Magazine762AmmoBeltScrap
+    - N14CartridgePistol127Scrap
+    - N14AmmoBox12Scrap
+    - N14MagazinePistol12mmScrap
+    - N14MagazineSMG12mmScrap
+    - N14TopMagazineSMG12mmScrap
+    - N14Cartridge308RifleScrap
+    - N14AmmoBox308Scrap
+    - N14Magazine308RifleScrap
+    - N14Magazine308RifleLongScrap
+    - N14Magazine308RifleSniperScrap
+    - N14ClipMagazine308RifleScrap
+    - N14SpeedLoader308TubeScrap
+    - N14AmmoBox45-70Scrap
+    - N14SpeedLoader45-70Scrap
+    - N14SpeedLoader45-70TubeScrap
+    - N14AmmoBox50Scrap
+    - N14Magazine50AMRScrap
+    - N14ShellShotgun12Scrap
+    - N14AmmoBox12gaugeScrap
+    - N14MagazineShotgun12Scrap
+    - N14ShellShotgun20Scrap
+    - N14AmmoBox20gaugeScrap
+    - N14MagazineShotgun20Scrap
+  - type: ActivatableUI
+    key: enum.LatheUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.LatheUiKey.Key:
+        type: LatheBoundUserInterface

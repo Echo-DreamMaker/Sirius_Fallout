@@ -1,0 +1,41 @@
+# 45 ap variant.
+- type: entity
+  id: N14Bullet45AP
+  name: пуля (.45 бронебойная)
+  parent: N14Bullet45
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+- type: entity
+  id: N14CartridgePistol45AP
+  name: патрон (.45 бронебойный)
+  parent: N14CartridgePistol45
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet45AP
+- type: entity
+  id: N14AmmoBox45AP
+  name: коробка патронов (.45, бронебойные)
+  parent: MagazineBox45
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45AP
+- type: entity
+  id: N14MagazinePistol45AP
+  name: магазин (.45, пистолетный, бронебойный)
+  parent: N14MagazinePistol45
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45AP
+- type: entity
+  id: N14Magazine45SubMachineGunAP
+  name: магазин (.45, пистолет-пулемётный, бронебойный)
+  parent: Magazine45SubMachineGun
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45AP

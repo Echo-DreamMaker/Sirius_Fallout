@@ -12,6 +12,9 @@
     damage:
       types:
         Piercing: 32
+  # #Misfits Add - 2mmEC gauss round is inherently armor-piercing; ignores 75% of armor.
+  - type: ArmorPenetration
+    penetration: 0.75
   # sirius Add - 2mmEC gauss round; extreme range caliber — minimal falloff
   - type: BallisticDamageFalloff
     falloffStartTiles: 12.0

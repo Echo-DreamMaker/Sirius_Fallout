@@ -1,0 +1,41 @@
+# 545 ap variant.
+- type: entity
+  id: N14Bullet545AP
+  name: пуля (5,45 мм бронебойная)
+  parent: N14Bullet545
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.35
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 21
+- type: entity
+  id: N14Cartridge545RifleAP
+  name: патрон (5,45 мм бронебойный)
+  parent: N14Cartridge545Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet545AP
+- type: entity
+  id: N14AmmoBox545AP
+  name: коробка патронов (5,45 мм, бронебойные)
+  parent: MagazineBox545
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleAP
+- type: entity
+  id: N14Magazine545RifleAP
+  name: магазин (5,45 мм, винтовочный, бронебойный)
+  parent: Magazine545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleAP
+- type: entity
+  id: N14MagazineDrum545RifleAP
+  name: магазин (5,45 мм, барабанный, бронебойный)
+  parent: MagazineDrum545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleAP

@@ -1,0 +1,40 @@
+# 20g ap variant.
+- type: entity
+  id: PelletShotgun20AP
+  name: пуля (20 кал. бронебойная) (осколок)
+  parent: PelletShotgun20
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.45
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 9
+- type: entity
+  id: PelletShotgun20SpreadAP
+  parent: PelletShotgun20Spread
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun20AP
+- type: entity
+  id: N14ShellShotgun20AP
+  name: патрон (20 кал. бронебойный)
+  parent: N14ShellShotgun20
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgun20SpreadAP
+- type: entity
+  id: N14AmmoBox20gaugeAP
+  name: коробка патронов (20 кал., бронебойные)
+  parent: MagazineBox20gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20AP
+- type: entity
+  id: N14MagazineShotgun20AP
+  name: магазин (20 кал., барабанный, бронебойный)
+  parent: N14MagazineShotgun20
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20AP

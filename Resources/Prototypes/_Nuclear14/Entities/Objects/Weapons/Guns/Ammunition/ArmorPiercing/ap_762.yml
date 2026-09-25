@@ -1,0 +1,48 @@
+# 762 ap variant.
+- type: entity
+  id: N14Bullet762AP
+  name: пуля (7,62 мм бронебойная)
+  parent: N14Bullet762
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.35
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 23
+- type: entity
+  id: N14Cartridge762RifleAP
+  name: патрон (7,62 мм бронебойный)
+  parent: N14Cartridge762Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet762AP
+- type: entity
+  id: N14AmmoBox762AP
+  name: коробка патронов (7,62 мм, бронебойные)
+  parent: MagazineBox762
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleAP
+- type: entity
+  id: N14Magazine762RifleAP
+  name: магазин (7,62 мм, винтовочный, бронебойный)
+  parent: Magazine762Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleAP
+- type: entity
+  id: N14Magazine762AmmoShortAP
+  name: магазин (7,62 мм, укороченный, бронебойный)
+  parent: Magazine762AmmoShort
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleAP
+- type: entity
+  id: N14Magazine762AmmoBeltAP
+  name: пулемётная лента (7,62 мм, бронебойная)
+  parent: Magazine762AmmoBelt
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleAP

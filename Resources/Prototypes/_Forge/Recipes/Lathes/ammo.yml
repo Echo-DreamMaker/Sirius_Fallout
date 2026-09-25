@@ -2,7 +2,7 @@
 - type: latheRecipe
   id: MagazineBox545
   result: MagazineBox545
-  category: N14AmmoBox
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 180
@@ -13,7 +13,7 @@
 - type: latheRecipe
   id: Magazine545Rifle
   result: Magazine545Rifle
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 60
@@ -23,7 +23,7 @@
 - type: latheRecipe
   id: MagazineDrum545Rifle
   result: MagazineDrum545Rifle
-  category: N14AmmoMagazine
+  category: N14AmmoStandard
   completetime: 5
   materials:
     Lead: 450

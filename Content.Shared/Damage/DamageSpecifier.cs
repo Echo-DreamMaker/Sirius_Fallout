@@ -152,6 +152,50 @@ namespace Content.Shared.Damage
                 if (modifierSet.Coefficients.TryGetValue(key, out var coefficient))
                     newValue *= coefficient; // coefficients can heal you, e.g. cauterizing bleeding
 
+if(newValue != 0)
+                newDamage.DamageDict[key] = FixedPoint2.New(newValue);
+            }
+
+            return newDamage;
+        }
+
+        // #Misfits Add - Armor penetration overload. Scales the armor's effectiveness
+        // by the penetration value: coefficients are moved toward 1 (no armor) and flat
+        // reductions are reduced by the same fraction.
+        public static DamageSpecifier ApplyModifierSet(DamageSpecifier damageSpec, DamageModifierSet modifierSet, float armorPenetration)
+        {
+            if (armorPenetration <= 0f)
+                return ApplyModifierSet(damageSpec, modifierSet);
+
+            DamageSpecifier newDamage = new();
+            newDamage.DamageDict.EnsureCapacity(damageSpec.DamageDict.Count);
+
+            foreach (var (key, value) in damageSpec.DamageDict)
+            {
+                if (value == 0)
+                    continue;
+
+                if (value < 0)
+                {
+                    newDamage.DamageDict[key] = value;
+                    continue;
+                }
+
+                float newValue = value.Float();
+
+                if (modifierSet.FlatReduction.TryGetValue(key, out var reduction))
+                    newValue = Math.Max(0f, newValue - reduction * (1f - armorPenetration)); // flat reductions can't heal you
+
+                if (modifierSet.Coefficients.TryGetValue(key, out var coefficient))
+                {
+                    // Only armor (coefficient < 1) is scaled toward 1; weaknesses (coefficient > 1) are left alone.
+                    var scaledCoefficient = coefficient < 1f
+                        ? 1f - (1f - coefficient) * (1f - armorPenetration)
+                        : coefficient;
+
+                    newValue *= scaledCoefficient; // coefficients can heal you, e.g. cauterizing bleeding
+                }
+
                 if(newValue != 0)
                     newDamage.DamageDict[key] = FixedPoint2.New(newValue);
             }

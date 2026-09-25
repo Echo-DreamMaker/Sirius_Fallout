@@ -1,0 +1,41 @@
+# 44 ap variant.
+- type: entity
+  id: N14Bullet44AP
+  name: пуля (.44 бронебойная)
+  parent: N14Bullet44
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: 0.45
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 29
+- type: entity
+  id: N14Cartridge44MagnumAP
+  name: патрон (.44 бронебойный)
+  parent: N14Cartridge44Magnum
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet44AP
+- type: entity
+  id: N14AmmoBox44AP
+  name: коробка патронов (.44, бронебойные)
+  parent: MagazineBox44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumAP
+- type: entity
+  id: N14MagazinePistol44AP
+  name: магазин (.44, пистолетный, бронебойный)
+  parent: N14MagazinePistol44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumAP
+- type: entity
+  id: N14SpeedLoader44AP
+  name: спидлоадер (.44, бронебойный)
+  parent: SpeedLoader44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumAP

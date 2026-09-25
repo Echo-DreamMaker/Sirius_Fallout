@@ -9,6 +9,9 @@
       types:
         Piercing: 30
         Blunt: 20
+  # #Misfits Add - .50 base round is the standard anti-materiel AP load; ignores 60% of armor.
+  - type: ArmorPenetration
+    penetration: 0.6
   # Misfits Add - .50 BMG anti-materiel; extreme range caliber — minimal falloff
   - type: BallisticDamageFalloff
     falloffStartTiles: 12.0

@@ -1,0 +1,733 @@
+# 9mm incendiary variant.
+- type: entity
+  id: N14Bullet9mmIncendiary
+  name: пуля (9 мм зажигательная)
+  parent: N14Bullet9mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 0.50
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14CartridgePistol9Incendiary
+  name: патрон (9 мм зажигательный)
+  parent: N14CartridgePistol9
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet9mmIncendiary
+- type: entity
+  id: N14AmmoBox9mmIncendiary
+  name: коробка патронов (9 мм, зажигательные)
+  parent: MagazineBox9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Incendiary
+- type: entity
+  id: N14MagazinePistol9mmIncendiary
+  name: магазин (9 мм, пистолетный, зажигательный)
+  parent: N14MagazinePistol9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Incendiary
+- type: entity
+  id: N14MagazineSMG9mmIncendiary
+  name: магазин (9 мм, пистолет-пулемётный, зажигательный)
+  parent: N14MagazineSMG9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Incendiary
+- type: entity
+  id: N14MagazineSMG9mmP90Incendiary
+  name: магазин (9 мм, P90, зажигательный)
+  parent: N14MagazineSMG9mmP90
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Incendiary
+- type: entity
+  id: N14MagazineSMG9mmDrumIncendiary
+  name: магазин (9 мм, барабанный, зажигательный)
+  parent: N14MagazineSMG9mmDrum
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Incendiary
+- type: entity
+  id: N14SpeedLoader9Incendiary
+  name: спидлоадер (9 мм, зажигательный)
+  parent: SpeedLoader9
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9Incendiary
+# 10mm incendiary variant.
+- type: entity
+  id: N14Bullet10mmIncendiary
+  name: пуля (10 мм зажигательная)
+  parent: N14Bullet10mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 0.50
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14CartridgePistol10Incendiary
+  name: патрон (10 мм зажигательный)
+  parent: N14CartridgePistol10
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet10mmIncendiary
+- type: entity
+  id: N14AmmoBox10mmIncendiary
+  name: коробка патронов (10 мм, зажигательные)
+  parent: MagazineBox10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10Incendiary
+- type: entity
+  id: N14MagazinePistol10mmIncendiary
+  name: магазин (10 мм, пистолетный, зажигательный)
+  parent: N14MagazinePistol10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10Incendiary
+- type: entity
+  id: N14MagazineSMG10mmIncendiary
+  name: магазин (10 мм, пистолет-пулемётный, зажигательный)
+  parent: N14MagazineSMG10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10Incendiary
+- type: entity
+  id: N14SpeedLoader10Incendiary
+  name: спидлоадер (10 мм, зажигательный)
+  parent: SpeedLoader10
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10Incendiary
+# 45 incendiary variant.
+- type: entity
+  id: N14Bullet45Incendiary
+  name: пуля (.45 зажигательная)
+  parent: N14Bullet45
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 0.50
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14CartridgePistol45Incendiary
+  name: патрон (.45 зажигательный)
+  parent: N14CartridgePistol45
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet45Incendiary
+- type: entity
+  id: N14AmmoBox45Incendiary
+  name: коробка патронов (.45, зажигательные)
+  parent: MagazineBox45
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45Incendiary
+- type: entity
+  id: N14MagazinePistol45Incendiary
+  name: магазин (.45, пистолетный, зажигательный)
+  parent: N14MagazinePistol45
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45Incendiary
+- type: entity
+  id: N14Magazine45SubMachineGunIncendiary
+  name: магазин (.45, пистолет-пулемётный, зажигательный)
+  parent: Magazine45SubMachineGun
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45Incendiary
+# 22lr incendiary variant.
+- type: entity
+  id: N14Bullet22Incendiary
+  name: пуля (.22 зажигательная)
+  parent: N14Bullet22
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 0.50
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14CartridgePistol22Incendiary
+  name: патрон (.22 зажигательный)
+  parent: N14CartridgePistol22
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet22Incendiary
+- type: entity
+  id: N14AmmoBox22Incendiary
+  name: коробка патронов (.22, зажигательные)
+  parent: MagazineBox22
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22Incendiary
+- type: entity
+  id: N14MagazinePistol22lrIncendiary
+  name: магазин (.22, пистолетный, зажигательный)
+  parent: N14MagazinePistol22lr
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22Incendiary
+- type: entity
+  id: N14MagazineAmerican180DrumIncendiary
+  name: магазин (.22, барабанный, зажигательный)
+  parent: N14MagazineAmerican180Drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22Incendiary
+# 357 incendiary variant.
+- type: entity
+  id: N14Bullet357Incendiary
+  name: пуля (.357 зажигательная)
+  parent: N14Bullet357
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.50
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14CartridgePistol357Incendiary
+  name: патрон (.357 зажигательный)
+  parent: N14CartridgePistol357
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet357Incendiary
+- type: entity
+  id: N14AmmoBox357Incendiary
+  name: коробка патронов (.357, зажигательные)
+  parent: N14AmmoBox357
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol357Incendiary
+# 44 incendiary variant.
+- type: entity
+  id: N14Bullet44Incendiary
+  name: пуля (.44 зажигательная)
+  parent: N14Bullet44
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.50
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14Cartridge44MagnumIncendiary
+  name: патрон (.44 зажигательный)
+  parent: N14Cartridge44Magnum
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet44Incendiary
+- type: entity
+  id: N14AmmoBox44Incendiary
+  name: коробка патронов (.44, зажигательные)
+  parent: MagazineBox44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumIncendiary
+- type: entity
+  id: N14MagazinePistol44Incendiary
+  name: магазин (.44, пистолетный, зажигательный)
+  parent: N14MagazinePistol44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumIncendiary
+- type: entity
+  id: N14SpeedLoader44Incendiary
+  name: спидлоадер (.44, зажигательный)
+  parent: SpeedLoader44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumIncendiary
+# 5mm incendiary variant.
+- type: entity
+  id: N14Bullet5mmIncendiary
+  name: пуля (5 мм зажигательная)
+  parent: N14Bullet5mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.00
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14CartridgePistol5Incendiary
+  name: патрон (5 мм зажигательный)
+  parent: N14CartridgePistol5
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet5mmIncendiary
+- type: entity
+  id: N14MagazineMinigun5mmIncendiary
+  name: магазин (5 мм, пулемётный, зажигательный)
+  parent: N14MagazineMinigun5mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol5Incendiary
+# 556 incendiary variant.
+- type: entity
+  id: N14Bullet556Incendiary
+  name: пуля (5,56 мм зажигательная)
+  parent: N14Bullet556
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.00
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14Cartridge556RifleIncendiary
+  name: патрон (5,56 мм зажигательный)
+  parent: N14Cartridge556Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet556Incendiary
+- type: entity
+  id: N14AmmoBox556Incendiary
+  name: коробка патронов (5,56 мм, зажигательные)
+  parent: MagazineBox556
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleIncendiary
+- type: entity
+  id: N14Magazine556RifleIncendiary
+  name: магазин (5,56 мм, винтовочный, зажигательный)
+  parent: Magazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleIncendiary
+- type: entity
+  id: N14Magazine556Rifle30Incendiary
+  name: магазин (5,56 мм, винтовочный, зажигательный)
+  parent: Magazine556Rifle30
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleIncendiary
+- type: entity
+  id: N14LongMagazine556RifleIncendiary
+  name: магазин (5,56 мм, карабинный, зажигательный)
+  parent: LongMagazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleIncendiary
+- type: entity
+  id: N14LMGMagazine556RifleIncendiary
+  name: магазин (5,56 мм, ручной пулемёт, зажигательный)
+  parent: LMGMagazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleIncendiary
+# 545 incendiary variant.
+- type: entity
+  id: N14Bullet545Incendiary
+  name: пуля (5,45 мм зажигательная)
+  parent: N14Bullet545
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.00
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14Cartridge545RifleIncendiary
+  name: патрон (5,45 мм зажигательный)
+  parent: N14Cartridge545Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet545Incendiary
+- type: entity
+  id: N14AmmoBox545Incendiary
+  name: коробка патронов (5,45 мм, зажигательные)
+  parent: MagazineBox545
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleIncendiary
+- type: entity
+  id: N14Magazine545RifleIncendiary
+  name: магазин (5,45 мм, винтовочный, зажигательный)
+  parent: Magazine545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleIncendiary
+- type: entity
+  id: N14MagazineDrum545RifleIncendiary
+  name: магазин (5,45 мм, барабанный, зажигательный)
+  parent: MagazineDrum545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleIncendiary
+# 762 incendiary variant.
+- type: entity
+  id: N14Bullet762Incendiary
+  name: пуля (7,62 мм зажигательная)
+  parent: N14Bullet762
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.00
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14Cartridge762RifleIncendiary
+  name: патрон (7,62 мм зажигательный)
+  parent: N14Cartridge762Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet762Incendiary
+- type: entity
+  id: N14AmmoBox762Incendiary
+  name: коробка патронов (7,62 мм, зажигательные)
+  parent: MagazineBox762
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleIncendiary
+- type: entity
+  id: N14Magazine762RifleIncendiary
+  name: магазин (7,62 мм, винтовочный, зажигательный)
+  parent: Magazine762Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleIncendiary
+- type: entity
+  id: N14Magazine762AmmoShortIncendiary
+  name: магазин (7,62 мм, укороченный, зажигательный)
+  parent: Magazine762AmmoShort
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleIncendiary
+- type: entity
+  id: N14Magazine762AmmoBeltIncendiary
+  name: пулемётная лента (7,62 мм, зажигательная)
+  parent: Magazine762AmmoBelt
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleIncendiary
+# 127 incendiary variant.
+- type: entity
+  id: N14Bullet127Incendiary
+  name: пуля (12,7 мм зажигательная)
+  parent: N14Bullet127
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.00
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14CartridgePistol127Incendiary
+  name: патрон (12,7 мм зажигательный)
+  parent: N14CartridgePistol127
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet127Incendiary
+- type: entity
+  id: N14AmmoBox12Incendiary
+  name: коробка патронов (12,7 мм, зажигательные)
+  parent: MagazineBox12
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127Incendiary
+- type: entity
+  id: N14MagazinePistol12mmIncendiary
+  name: магазин (12,7 мм, пистолетный, зажигательный)
+  parent: N14MagazinePistol12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127Incendiary
+- type: entity
+  id: N14MagazineSMG12mmIncendiary
+  name: магазин (12,7 мм, пистолет-пулемётный, зажигательный)
+  parent: N14MagazineSMG12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127Incendiary
+- type: entity
+  id: N14TopMagazineSMG12mmIncendiary
+  name: магазин (12,7 мм, верхний, зажигательный)
+  parent: N14TopMagazineSMG12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127Incendiary
+# 308 incendiary variant.
+- type: entity
+  id: N14Bullet308Incendiary
+  name: пуля (.308 зажигательная)
+  parent: N14Bullet308
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.50
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14Cartridge308RifleIncendiary
+  name: патрон (.308 зажигательный)
+  parent: N14Cartridge308Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet308Incendiary
+- type: entity
+  id: N14AmmoBox308Incendiary
+  name: коробка патронов (.308, зажигательные)
+  parent: MagazineBox308
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleIncendiary
+- type: entity
+  id: N14Magazine308RifleIncendiary
+  name: магазин (.308, винтовочный, зажигательный)
+  parent: Magazine308Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleIncendiary
+- type: entity
+  id: N14Magazine308RifleLongIncendiary
+  name: магазин (.308, длинный, зажигательный)
+  parent: Magazine308RifleLong
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleIncendiary
+- type: entity
+  id: N14Magazine308RifleSniperIncendiary
+  name: магазин (.308, снайперский, зажигательный)
+  parent: Magazine308RifleSniper
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleIncendiary
+- type: entity
+  id: N14Magazine308M60BoxIncendiary
+  name: пулемётная лента (.308, зажигательная)
+  parent: Magazine308M60Box
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleIncendiary
+- type: entity
+  id: N14ClipMagazine308RifleIncendiary
+  name: обойма (.308, зажигательная)
+  parent: ClipMagazine308Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleIncendiary
+- type: entity
+  id: N14SKSEnbloc308Incendiary
+  name: обойма (.308, зажигательная)
+  parent: SKSEnbloc308
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleIncendiary
+- type: entity
+  id: N14SpeedLoader308TubeIncendiary
+  name: спидлоадер (.308, зажигательный)
+  parent: SpeedLoader308Tube
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleIncendiary
+# 4570 incendiary variant.
+- type: entity
+  id: N14Bullet45-70Incendiary
+  name: пуля (.45-70 зажигательная)
+  parent: N14Bullet45-70
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.50
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14Cartridge45-70Incendiary
+  name: патрон (.45-70 зажигательный)
+  parent: N14Cartridge45-70
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet45-70Incendiary
+- type: entity
+  id: N14AmmoBox45-70Incendiary
+  name: коробка патронов (.45-70, зажигательные)
+  parent: MagazineBox45-70
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70Incendiary
+- type: entity
+  id: N14SpeedLoader45-70Incendiary
+  name: спидлоадер (.45-70, зажигательный)
+  parent: SpeedLoader45-70
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70Incendiary
+- type: entity
+  id: N14SpeedLoader45-70TubeIncendiary
+  name: спидлоадер (.45-70, зажигательный)
+  parent: SpeedLoader45-70Tube
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70Incendiary
+# 50 incendiary variant.
+- type: entity
+  id: N14Bullet50Incendiary
+  name: пуля (.50 зажигательная)
+  parent: N14Bullet50
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.50
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: N14Cartridge50Incendiary
+  name: патрон (.50 зажигательный)
+  parent: N14Cartridge50
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet50Incendiary
+- type: entity
+  id: N14AmmoBox50Incendiary
+  name: коробка патронов (.50, зажигательные)
+  parent: MagazineBox50
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50Incendiary
+- type: entity
+  id: N14Magazine50AMRIncendiary
+  name: магазин (.50, винтовочный, зажигательный)
+  parent: N14Magazine50AMR
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50Incendiary
+- type: entity
+  id: N14Magazine50ammoBeltIncendiary
+  name: пулемётная лента (.50, зажигательная)
+  parent: Magazine50ammoBelt
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50Incendiary
+# 12g incendiary variant.
+- type: entity
+  id: PelletShotgun12Incendiary
+  name: пуля (12 кал. зажигательная) (осколок)
+  parent: PelletShotgun12
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.50
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: PelletShotgun12SpreadIncendiary
+  parent: PelletShotgun12Spread
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun12Incendiary
+- type: entity
+  id: N14ShellShotgun12Incendiary
+  name: патрон (12 кал. зажигательный)
+  parent: N14ShellShotgun12
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgun12SpreadIncendiary
+- type: entity
+  id: N14AmmoBox12gaugeIncendiary
+  name: коробка патронов (12 кал., зажигательные)
+  parent: MagazineBox12gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12Incendiary
+- type: entity
+  id: N14MagazineShotgun12Incendiary
+  name: магазин (12 кал., барабанный, зажигательный)
+  parent: N14MagazineShotgun12
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12Incendiary
+# 20g incendiary variant.
+- type: entity
+  id: PelletShotgun20Incendiary
+  name: пуля (20 кал. зажигательная) (осколок)
+  parent: PelletShotgun20
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IgniteOnCollide
+    fireStacks: 1.50
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.5
+    energy: 2.0
+- type: entity
+  id: PelletShotgun20SpreadIncendiary
+  parent: PelletShotgun20Spread
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun20Incendiary
+- type: entity
+  id: N14ShellShotgun20Incendiary
+  name: патрон (20 кал. зажигательный)
+  parent: N14ShellShotgun20
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgun20SpreadIncendiary
+- type: entity
+  id: N14AmmoBox20gaugeIncendiary
+  name: коробка патронов (20 кал., зажигательные)
+  parent: MagazineBox20gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20Incendiary
+- type: entity
+  id: N14MagazineShotgun20Incendiary
+  name: магазин (20 кал., барабанный, зажигательный)
+  parent: N14MagazineShotgun20
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20Incendiary

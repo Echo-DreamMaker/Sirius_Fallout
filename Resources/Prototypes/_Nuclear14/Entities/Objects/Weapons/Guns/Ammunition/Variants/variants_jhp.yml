@@ -1,0 +1,717 @@
+# 9mm jhp variant.
+- type: entity
+  id: N14Bullet9mmJHP
+  name: пуля (9 мм экспансивная)
+  parent: N14Bullet9mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+- type: entity
+  id: N14CartridgePistol9JHP
+  name: патрон (9 мм экспансивный)
+  parent: N14CartridgePistol9
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet9mmJHP
+- type: entity
+  id: N14AmmoBox9mmJHP
+  name: коробка патронов (9 мм, экспансивные)
+  parent: MagazineBox9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9JHP
+- type: entity
+  id: N14MagazinePistol9mmJHP
+  name: магазин (9 мм, пистолетный, экспансивный)
+  parent: N14MagazinePistol9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9JHP
+- type: entity
+  id: N14MagazineSMG9mmJHP
+  name: магазин (9 мм, пистолет-пулемётный, экспансивный)
+  parent: N14MagazineSMG9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9JHP
+- type: entity
+  id: N14MagazineSMG9mmP90JHP
+  name: магазин (9 мм, P90, экспансивный)
+  parent: N14MagazineSMG9mmP90
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9JHP
+- type: entity
+  id: N14MagazineSMG9mmDrumJHP
+  name: магазин (9 мм, барабанный, экспансивный)
+  parent: N14MagazineSMG9mmDrum
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9JHP
+- type: entity
+  id: N14SpeedLoader9JHP
+  name: спидлоадер (9 мм, экспансивный)
+  parent: SpeedLoader9
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9JHP
+# 10mm jhp variant.
+- type: entity
+  id: N14Bullet10mmJHP
+  name: пуля (10 мм экспансивная)
+  parent: N14Bullet10mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 17
+- type: entity
+  id: N14CartridgePistol10JHP
+  name: патрон (10 мм экспансивный)
+  parent: N14CartridgePistol10
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet10mmJHP
+- type: entity
+  id: N14AmmoBox10mmJHP
+  name: коробка патронов (10 мм, экспансивные)
+  parent: MagazineBox10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10JHP
+- type: entity
+  id: N14MagazinePistol10mmJHP
+  name: магазин (10 мм, пистолетный, экспансивный)
+  parent: N14MagazinePistol10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10JHP
+- type: entity
+  id: N14MagazineSMG10mmJHP
+  name: магазин (10 мм, пистолет-пулемётный, экспансивный)
+  parent: N14MagazineSMG10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10JHP
+- type: entity
+  id: N14SpeedLoader10JHP
+  name: спидлоадер (10 мм, экспансивный)
+  parent: SpeedLoader10
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10JHP
+# 45 jhp variant.
+- type: entity
+  id: N14Bullet45JHP
+  name: пуля (.45 экспансивная)
+  parent: N14Bullet45
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+- type: entity
+  id: N14CartridgePistol45JHP
+  name: патрон (.45 экспансивный)
+  parent: N14CartridgePistol45
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet45JHP
+- type: entity
+  id: N14AmmoBox45JHP
+  name: коробка патронов (.45, экспансивные)
+  parent: MagazineBox45
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45JHP
+- type: entity
+  id: N14MagazinePistol45JHP
+  name: магазин (.45, пистолетный, экспансивный)
+  parent: N14MagazinePistol45
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45JHP
+- type: entity
+  id: N14Magazine45SubMachineGunJHP
+  name: магазин (.45, пистолет-пулемётный, экспансивный)
+  parent: Magazine45SubMachineGun
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol45JHP
+# 22lr jhp variant.
+- type: entity
+  id: N14Bullet22JHP
+  name: пуля (.22 экспансивная)
+  parent: N14Bullet22
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 12
+- type: entity
+  id: N14CartridgePistol22JHP
+  name: патрон (.22 экспансивный)
+  parent: N14CartridgePistol22
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet22JHP
+- type: entity
+  id: N14AmmoBox22JHP
+  name: коробка патронов (.22, экспансивные)
+  parent: MagazineBox22
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22JHP
+- type: entity
+  id: N14MagazinePistol22lrJHP
+  name: магазин (.22, пистолетный, экспансивный)
+  parent: N14MagazinePistol22lr
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22JHP
+- type: entity
+  id: N14MagazineAmerican180DrumJHP
+  name: магазин (.22, барабанный, экспансивный)
+  parent: N14MagazineAmerican180Drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22JHP
+# 357 jhp variant.
+- type: entity
+  id: N14Bullet357JHP
+  name: пуля (.357 экспансивная)
+  parent: N14Bullet357
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 28
+- type: entity
+  id: N14CartridgePistol357JHP
+  name: патрон (.357 экспансивный)
+  parent: N14CartridgePistol357
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet357JHP
+- type: entity
+  id: N14AmmoBox357JHP
+  name: коробка патронов (.357, экспансивные)
+  parent: N14AmmoBox357
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol357JHP
+# 44 jhp variant.
+- type: entity
+  id: N14Bullet44JHP
+  name: пуля (.44 экспансивная)
+  parent: N14Bullet44
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+- type: entity
+  id: N14Cartridge44MagnumJHP
+  name: патрон (.44 экспансивный)
+  parent: N14Cartridge44Magnum
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet44JHP
+- type: entity
+  id: N14AmmoBox44JHP
+  name: коробка патронов (.44, экспансивные)
+  parent: MagazineBox44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumJHP
+- type: entity
+  id: N14MagazinePistol44JHP
+  name: магазин (.44, пистолетный, экспансивный)
+  parent: N14MagazinePistol44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumJHP
+- type: entity
+  id: N14SpeedLoader44JHP
+  name: спидлоадер (.44, экспансивный)
+  parent: SpeedLoader44
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge44MagnumJHP
+# 5mm jhp variant.
+- type: entity
+  id: N14Bullet5mmJHP
+  name: пуля (5 мм экспансивная)
+  parent: N14Bullet5mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 14
+- type: entity
+  id: N14CartridgePistol5JHP
+  name: патрон (5 мм экспансивный)
+  parent: N14CartridgePistol5
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet5mmJHP
+- type: entity
+  id: N14MagazineMinigun5mmJHP
+  name: магазин (5 мм, пулемётный, экспансивный)
+  parent: N14MagazineMinigun5mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol5JHP
+# 556 jhp variant.
+- type: entity
+  id: N14Bullet556JHP
+  name: пуля (5,56 мм экспансивная)
+  parent: N14Bullet556
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 24
+- type: entity
+  id: N14Cartridge556RifleJHP
+  name: патрон (5,56 мм экспансивный)
+  parent: N14Cartridge556Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet556JHP
+- type: entity
+  id: N14AmmoBox556JHP
+  name: коробка патронов (5,56 мм, экспансивные)
+  parent: MagazineBox556
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleJHP
+- type: entity
+  id: N14Magazine556RifleJHP
+  name: магазин (5,56 мм, винтовочный, экспансивный)
+  parent: Magazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleJHP
+- type: entity
+  id: N14Magazine556Rifle30JHP
+  name: магазин (5,56 мм, винтовочный, экспансивный)
+  parent: Magazine556Rifle30
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleJHP
+- type: entity
+  id: N14LongMagazine556RifleJHP
+  name: магазин (5,56 мм, карабинный, экспансивный)
+  parent: LongMagazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleJHP
+- type: entity
+  id: N14LMGMagazine556RifleJHP
+  name: магазин (5,56 мм, ручной пулемёт, экспансивный)
+  parent: LMGMagazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556RifleJHP
+# 545 jhp variant.
+- type: entity
+  id: N14Bullet545JHP
+  name: пуля (5,45 мм экспансивная)
+  parent: N14Bullet545
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 28
+- type: entity
+  id: N14Cartridge545RifleJHP
+  name: патрон (5,45 мм экспансивный)
+  parent: N14Cartridge545Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet545JHP
+- type: entity
+  id: N14AmmoBox545JHP
+  name: коробка патронов (5,45 мм, экспансивные)
+  parent: MagazineBox545
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleJHP
+- type: entity
+  id: N14Magazine545RifleJHP
+  name: магазин (5,45 мм, винтовочный, экспансивный)
+  parent: Magazine545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleJHP
+- type: entity
+  id: N14MagazineDrum545RifleJHP
+  name: магазин (5,45 мм, барабанный, экспансивный)
+  parent: MagazineDrum545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545RifleJHP
+# 762 jhp variant.
+- type: entity
+  id: N14Bullet762JHP
+  name: пуля (7,62 мм экспансивная)
+  parent: N14Bullet762
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+- type: entity
+  id: N14Cartridge762RifleJHP
+  name: патрон (7,62 мм экспансивный)
+  parent: N14Cartridge762Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet762JHP
+- type: entity
+  id: N14AmmoBox762JHP
+  name: коробка патронов (7,62 мм, экспансивные)
+  parent: MagazineBox762
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleJHP
+- type: entity
+  id: N14Magazine762RifleJHP
+  name: магазин (7,62 мм, винтовочный, экспансивный)
+  parent: Magazine762Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleJHP
+- type: entity
+  id: N14Magazine762AmmoShortJHP
+  name: магазин (7,62 мм, укороченный, экспансивный)
+  parent: Magazine762AmmoShort
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleJHP
+- type: entity
+  id: N14Magazine762AmmoBeltJHP
+  name: пулемётная лента (7,62 мм, экспансивная)
+  parent: Magazine762AmmoBelt
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762RifleJHP
+# 127 jhp variant.
+- type: entity
+  id: N14Bullet127JHP
+  name: пуля (12,7 мм экспансивная)
+  parent: N14Bullet127
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+- type: entity
+  id: N14CartridgePistol127JHP
+  name: патрон (12,7 мм экспансивный)
+  parent: N14CartridgePistol127
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet127JHP
+- type: entity
+  id: N14AmmoBox12JHP
+  name: коробка патронов (12,7 мм, экспансивные)
+  parent: MagazineBox12
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127JHP
+- type: entity
+  id: N14MagazinePistol12mmJHP
+  name: магазин (12,7 мм, пистолетный, экспансивный)
+  parent: N14MagazinePistol12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127JHP
+- type: entity
+  id: N14MagazineSMG12mmJHP
+  name: магазин (12,7 мм, пистолет-пулемётный, экспансивный)
+  parent: N14MagazineSMG12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127JHP
+- type: entity
+  id: N14TopMagazineSMG12mmJHP
+  name: магазин (12,7 мм, верхний, экспансивный)
+  parent: N14TopMagazineSMG12mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127JHP
+# 308 jhp variant.
+- type: entity
+  id: N14Bullet308JHP
+  name: пуля (.308 экспансивная)
+  parent: N14Bullet308
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 48
+- type: entity
+  id: N14Cartridge308RifleJHP
+  name: патрон (.308 экспансивный)
+  parent: N14Cartridge308Rifle
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet308JHP
+- type: entity
+  id: N14AmmoBox308JHP
+  name: коробка патронов (.308, экспансивные)
+  parent: MagazineBox308
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleJHP
+- type: entity
+  id: N14Magazine308RifleJHP
+  name: магазин (.308, винтовочный, экспансивный)
+  parent: Magazine308Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleJHP
+- type: entity
+  id: N14Magazine308RifleLongJHP
+  name: магазин (.308, длинный, экспансивный)
+  parent: Magazine308RifleLong
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleJHP
+- type: entity
+  id: N14Magazine308RifleSniperJHP
+  name: магазин (.308, снайперский, экспансивный)
+  parent: Magazine308RifleSniper
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleJHP
+- type: entity
+  id: N14Magazine308M60BoxJHP
+  name: пулемётная лента (.308, экспансивная)
+  parent: Magazine308M60Box
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleJHP
+- type: entity
+  id: N14ClipMagazine308RifleJHP
+  name: обойма (.308, экспансивная)
+  parent: ClipMagazine308Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleJHP
+- type: entity
+  id: N14SKSEnbloc308JHP
+  name: обойма (.308, экспансивная)
+  parent: SKSEnbloc308
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleJHP
+- type: entity
+  id: N14SpeedLoader308TubeJHP
+  name: спидлоадер (.308, экспансивный)
+  parent: SpeedLoader308Tube
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge308RifleJHP
+# 4570 jhp variant.
+- type: entity
+  id: N14Bullet45-70JHP
+  name: пуля (.45-70 экспансивная)
+  parent: N14Bullet45-70
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 44
+- type: entity
+  id: N14Cartridge45-70JHP
+  name: патрон (.45-70 экспансивный)
+  parent: N14Cartridge45-70
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet45-70JHP
+- type: entity
+  id: N14AmmoBox45-70JHP
+  name: коробка патронов (.45-70, экспансивные)
+  parent: MagazineBox45-70
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70JHP
+- type: entity
+  id: N14SpeedLoader45-70JHP
+  name: спидлоадер (.45-70, экспансивный)
+  parent: SpeedLoader45-70
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70JHP
+- type: entity
+  id: N14SpeedLoader45-70TubeJHP
+  name: спидлоадер (.45-70, экспансивный)
+  parent: SpeedLoader45-70Tube
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge45-70JHP
+# 50 jhp variant.
+- type: entity
+  id: N14Bullet50JHP
+  name: пуля (.50 экспансивная)
+  parent: N14Bullet50
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 38
+- type: entity
+  id: N14Cartridge50JHP
+  name: патрон (.50 экспансивный)
+  parent: N14Cartridge50
+  components:
+  - type: CartridgeAmmo
+    proto: N14Bullet50JHP
+- type: entity
+  id: N14AmmoBox50JHP
+  name: коробка патронов (.50, экспансивные)
+  parent: MagazineBox50
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50JHP
+- type: entity
+  id: N14Magazine50AMRJHP
+  name: магазин (.50, винтовочный, экспансивный)
+  parent: N14Magazine50AMR
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50JHP
+- type: entity
+  id: N14Magazine50ammoBeltJHP
+  name: пулемётная лента (.50, экспансивная)
+  parent: Magazine50ammoBelt
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50JHP
+# 12g jhp variant.
+- type: entity
+  id: PelletShotgun12JHP
+  name: пуля (12 кал. экспансивная) (осколок)
+  parent: PelletShotgun12
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+- type: entity
+  id: PelletShotgun12SpreadJHP
+  parent: PelletShotgun12Spread
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun12JHP
+- type: entity
+  id: N14ShellShotgun12JHP
+  name: патрон (12 кал. экспансивный)
+  parent: N14ShellShotgun12
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgun12SpreadJHP
+- type: entity
+  id: N14AmmoBox12gaugeJHP
+  name: коробка патронов (12 кал., экспансивные)
+  parent: MagazineBox12gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12JHP
+- type: entity
+  id: N14MagazineShotgun12JHP
+  name: магазин (12 кал., барабанный, экспансивный)
+  parent: N14MagazineShotgun12
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12JHP
+# 20g jhp variant.
+- type: entity
+  id: PelletShotgun20JHP
+  name: пуля (20 кал. экспансивная) (осколок)
+  parent: PelletShotgun20
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ArmorPenetration
+    penetration: -0.25
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 13
+- type: entity
+  id: PelletShotgun20SpreadJHP
+  parent: PelletShotgun20Spread
+  components:
+  - type: ProjectileSpread
+    proto: PelletShotgun20JHP
+- type: entity
+  id: N14ShellShotgun20JHP
+  name: патрон (20 кал. экспансивный)
+  parent: N14ShellShotgun20
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgun20SpreadJHP
+- type: entity
+  id: N14AmmoBox20gaugeJHP
+  name: коробка патронов (20 кал., экспансивные)
+  parent: MagazineBox20gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20JHP
+- type: entity
+  id: N14MagazineShotgun20JHP
+  name: магазин (20 кал., барабанный, экспансивный)
+  parent: N14MagazineShotgun20
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20JHP
