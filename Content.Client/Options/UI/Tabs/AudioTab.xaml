@@ -157,6 +157,9 @@
                 <CheckBox Name="PipBoyMusicAudibleToOthersCheckBox"
           Text="{Loc 'ui-options-pipboy-music-audible-to-others'}"
           ToolTip="{Loc 'ui-options-pipboy-music-audible-to-others-tooltip'}" />
+                <CheckBox Name="PortableMediaPlayerAudibleToOthersCheckBox"
+          Text="{Loc 'ui-options-portable-media-player-audible-to-others'}"
+          ToolTip="{Loc 'ui-options-portable-media-player-audible-to-others-tooltip'}" />
             </BoxContainer>
         </BoxContainer>
         <controls:StripeBack HasBottomEdge="False" HasMargins="False">
