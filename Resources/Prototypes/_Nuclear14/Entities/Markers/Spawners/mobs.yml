@@ -1045,6 +1045,20 @@
     prototypes:
       - N14MobNPCMBoSKnight
 
+- type: entity
+  name: BoS Knight Spawner
+  id: N14SpawnMobNPCMBoSKnightGuard
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/Raiders.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14MobNPCMBoSKnightGuard
 #Misfits Change /Comment-out/: Washington BoS NPC spawners removed — NPC entities commented out.
 #- type: entity
 #  name: Washington Initiate Spawner
@@ -1105,6 +1119,21 @@
   - type: ConditionalSpawner
     prototypes:
       - N14MobNPCNCRTrooper
+
+- type: entity
+  name: NCR Army Trooper Spawner
+  id: N14SpawnMobNPCNCRTrooperGuard
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/Raiders.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14MobNPCNCRTrooperGuard
 
 - type: entity
   name: Caravan Merc Spawner

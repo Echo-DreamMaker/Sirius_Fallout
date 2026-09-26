@@ -63,6 +63,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
     {
         ent.Comp.FriendlyFactions.Clear();
         ent.Comp.HostileFactions.Clear();
+        ent.Comp.NeutralFactions.Clear();
 
         foreach (var faction in ent.Comp.Factions)
         {
@@ -72,6 +73,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
 
             ent.Comp.FriendlyFactions.UnionWith(factionData.Friendly);
             ent.Comp.HostileFactions.UnionWith(factionData.Hostile);
+            ent.Comp.NeutralFactions.UnionWith(factionData.Neutral);
         }
     }
 
@@ -192,13 +194,10 @@ public sealed partial class NpcFactionSystem : EntitySystem
             return Array.Empty<EntityUid>();
 
         var hostiles = GetNearbyFactions(ent, range, ent.Comp1.HostileFactions)
-            // ignore mobs that have both hostile faction and the same faction,
-            // otherwise having multiple factions is strictly negative
             .Where(target => !IsEntityFriendly((ent, ent.Comp1), target));
         if (!Resolve(ent, ref ent.Comp2, false))
             return hostiles;
 
-        // ignore anything from enemy faction that we are explicitly friendly towards
         var faction = (ent.Owner, ent.Comp2);
         return hostiles
             .Union(GetHostiles(faction))
@@ -251,6 +250,16 @@ public sealed partial class NpcFactionSystem : EntitySystem
                 return false;
 
         return intersect.Count() > 0 || ent.Comp.FriendlyFactions.Overlaps(other.Comp.Factions);
+    }
+
+    public bool IsEntityNeutral(Entity<NpcFactionMemberComponent?> ent, Entity<NpcFactionMemberComponent?> other)
+    {
+        if (IsEntityFriendly(ent, other))
+            return false;
+        if (IsEntityHostile(ent, other))
+            return false;
+
+        return true;
     }
 
     public bool IsEntityHostile(Entity<NpcFactionMemberComponent?, FactionExceptionComponent?> ent, Entity<NpcFactionMemberComponent?> other)
@@ -352,7 +361,8 @@ public sealed partial class NpcFactionSystem : EntitySystem
             {
                 IsHostileToSelf = faction.Hostile.Contains(faction.ID),
                 Friendly = faction.Friendly.ToHashSet(),
-                Hostile = faction.Hostile.ToHashSet()
+                Hostile = faction.Hostile.ToHashSet(),
+                Neutral = faction.Neutral.ToHashSet(),
             });
 
         var query = AllEntityQuery<NpcFactionMemberComponent>();
@@ -360,6 +370,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
         {
             comp.FriendlyFactions.Clear();
             comp.HostileFactions.Clear();
+            comp.NeutralFactions.Clear();
             RefreshFactions((uid, comp));
         }
     }

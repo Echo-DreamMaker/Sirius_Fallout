@@ -124,10 +124,25 @@
   id: BrotherhoodOfSteel
   friendly:
   - BrotherhoodOfSteelSecureArea
+  neutral: # Test
+  - Wastelander
+  - NCR
+  - NCRSecureArea
+  - Rangers
+  - Townsfolk
+  - TownsfolkSecureArea
+  - Tribal
+  - TribalSecureArea
+  - Vault
+  - VaultSecureArea
+  - CaravanCompany
+  - CaravanCompanySecureArea
+  - Followers
+  - CaesarLegion
   hostile:
   - WastelandInsect
   - WastelandAnimal
-  - Deathclaw #Misfits Add - Deathclaw is enemy of everything
+  - Deathclaw
   - Raider
   - HostileRobot
   - Enclave

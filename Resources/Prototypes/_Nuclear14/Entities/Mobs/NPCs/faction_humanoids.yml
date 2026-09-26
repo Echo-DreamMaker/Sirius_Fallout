@@ -125,7 +125,9 @@
     - type: NpcFactionMember
       friendlyOrderable: true
       factions:
-      - BrotherhoodOfSteelSecureArea
+      - BrotherhoodOfSteel
+    - type: NPCRetaliation
+      attackMemoryLength: 30
     - type: Gun
       minAngle: 4
       maxAngle: 9
@@ -201,6 +203,16 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/assaultcarbine.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
+- type: entity
+  name: BoS Knight
+  parent: N14MobNPCMBoSKnight
+  id: N14MobNPCMBoSKnightGuard
+  description: A soldier of the Brotherhood, not the most skilled and easily forgetable. Still, he might be dangerous.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - BrotherhoodOfSteelSecureArea
 #Misfits Change /Comment-out/: Washington chapter NPC humanoids removed — loadouts commented out.
 ## Washington chapter's humanoid NPCs for event making and such.
 #- type: entity
@@ -330,7 +342,9 @@
     - type: NpcFactionMember
       friendlyOrderable: true
       factions:
-      - NCRSecureArea
+      - NCR
+    - type: NPCRetaliation
+      attackMemoryLength: 30
     - type: Gun
       minAngle: 2
       maxAngle: 14
@@ -405,6 +419,18 @@
         visible: false
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/servicerifle.rsi
         state: inhand-right  # Only part we change, the gun sprite.
+
+- type: entity
+  name: NCR Army Trooper
+  parent: N14MobNPCNCRTrooper
+  id: N14MobNPCNCRTrooperGuard
+  suffix: NPC
+  description: An Army trooper of the NCR. He's tasked to guard places and is quite easy to forget, but he's still dangerous.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - NCRSecureArea
 
 # The Blue Line caravan's humanoid NPCs for event making and such.
 - type: entity

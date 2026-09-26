@@ -131,6 +131,21 @@
   id: NCR
   friendly:
   - NCRSecureArea
+  neutral:
+  - Wastelander
+  - BrotherhoodOfSteel
+  - BrotherhoodOfSteelSecureArea
+  - Rangers
+  - Townsfolk
+  - TownsfolkSecureArea
+  - Tribal
+  - TribalSecureArea
+  - Vault
+  - VaultSecureArea
+  - CaravanCompany
+  - CaravanCompanySecureArea
+  - Followers
+  - CaesarLegion
   hostile:
   - WastelandInsect
   - WastelandAnimal
