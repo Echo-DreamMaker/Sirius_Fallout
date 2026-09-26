@@ -401,3 +401,40 @@
   name: Andrews Sisters - Straighten up and Fly Right
   path:
     path: /Audio/_Nuclear14/Music/Fallout76/1-50.-Vic-Schoen-and-His-Orchestra_-The-Andrews-Sisters-Straighten-Up-and-Fly-Right.ogg
+
+    # Sirius add
+- type: jukebox
+  id: ATFRadioAlone
+  name: ATF Radio - Alone
+  path:
+    path: /Audio/_Sirius/ATFRadio/ATF_Radio_Alone.ogg
+
+- type: jukebox
+  id: ATFRadioCrazyTrain
+  name: ATF Radio - Crazy Train
+  path:
+    path: /Audio/_Sirius/ATFRadio/ATF_Radio_Crazy_Train.ogg
+
+- type: jukebox
+  id: ATFRadioPompeii1969
+  name: ATF Radio - Pompeii 1969 
+  path:
+    path: /Audio/_Sirius/ATFRadio/ATF_Radio_Pompeii_1969.ogg
+
+- type: jukebox
+  id: ATFRadioRisingSun
+  name: BoS Radio - Rising Sun
+  path:
+    path: /Audio/_Sirius/ATFRadio/ATF_Radio_Rising_Sun.ogg
+
+- type: jukebox
+  id: ATFRadioSundayMorning
+  name: ATF Radio - Sunday Morning
+  path:
+    path: /Audio/_Sirius/ATFRadio/ATF_Radio_Sunday_Morning.ogg
+
+- type: jukebox
+  id: ATFRadioTitanium
+  name: ATF Radio - Titanium
+  path:
+    path: /Audio/_Sirius/ATFRadio/ATF_Radio_Titanium.ogg

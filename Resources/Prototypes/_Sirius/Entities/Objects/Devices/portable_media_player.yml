@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseItem
+  id: PortableMediaPlayer
+  name: quantum media player
+  description: A compact pre-War media player powered by a miniature quantum cell. Its virtually inexhaustible energy source can keep the music playing for centuries — long after its owner has turned to dust.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/pai.rsi
+    layers:
+    - state: icon-pai-off
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.PortableMediaPlayerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PortableMediaPlayerUiKey.Key:
+        type: PortableMediaPlayerBoundUserInterface
+  - type: PortableMediaPlayer
