@@ -3,8 +3,6 @@ using Content.Server.CartridgeLoader;
 using Content.Shared._Sirius.CartridgeLoader.Cartridges;
 using Content.Shared.Audio.Jukebox;
 using Content.Shared.CartridgeLoader;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -13,7 +11,6 @@ namespace Content.Server._Sirius.CartridgeLoader.Cartridges;
 public sealed class PipBoyMusicCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoader = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
@@ -22,13 +19,11 @@ public sealed class PipBoyMusicCartridgeSystem : EntitySystem
 
         SubscribeLocalEvent<PipBoyMusicCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<PipBoyMusicCartridgeComponent, CartridgeMessageEvent>(OnUiMessage);
-        SubscribeLocalEvent<PipBoyMusicCartridgeComponent, ComponentShutdown>(OnShutdown);
         SubscribeNetworkEvent<PipBoyMusicTrackFinishedEvent>(OnTrackFinished);
-    }
-
-    private void OnShutdown(Entity<PipBoyMusicCartridgeComponent> ent, ref ComponentShutdown args)
-    {
-        StopServerStream(ent.Comp);
+        SubscribeNetworkEvent<PipBoyMusicSyncRequestEvent>(OnSyncRequest);
+        SubscribeNetworkEvent<PipBoyMusicPositionSyncEvent>(OnPositionSync);
+        SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
     }
 
     private void OnUiReady(Entity<PipBoyMusicCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
@@ -47,12 +42,15 @@ public sealed class PipBoyMusicCartridgeSystem : EntitySystem
         ent.Comp.OwnerEntity = actor;
         ent.Comp.AudibleToOthers = msg.AudibleToOthers;
 
+        var netLoader = GetNetEntity(loader);
+
         switch (msg.Action)
         {
             case PipBoyMusicUiAction.Select:
                 if (msg.TrackId == null || !_proto.HasIndex<JukeboxPrototype>(msg.TrackId))
                     return;
                 ent.Comp.SelectedTrackId = msg.TrackId;
+                ent.Comp.PlaybackOffset = 0f;
                 if (ent.Comp.IsPlaying)
                     PlayCurrent(ent, actor, loader);
                 break;
@@ -66,14 +64,18 @@ public sealed class PipBoyMusicCartridgeSystem : EntitySystem
 
             case PipBoyMusicUiAction.Pause:
                 ent.Comp.IsPlaying = false;
-                StopServerStream(ent.Comp);
-                SendPauseToOwner(actor);
+                BroadcastPause(ent, actor, netLoader);
                 break;
 
             case PipBoyMusicUiAction.Stop:
                 ent.Comp.IsPlaying = false;
-                StopServerStream(ent.Comp);
-                SendStopToOwner(actor);
+                ent.Comp.PlaybackOffset = 0f;
+                BroadcastStop(ent, actor, netLoader);
+                break;
+
+            case PipBoyMusicUiAction.Seek:
+                ent.Comp.PlaybackOffset = msg.SeekPosition;
+                BroadcastSeek(ent, actor, netLoader, msg.SeekPosition);
                 break;
 
             case PipBoyMusicUiAction.ToggleRepeat:
@@ -91,6 +93,68 @@ public sealed class PipBoyMusicCartridgeSystem : EntitySystem
         UpdateUiState(ent, loader);
     }
 
+    private void OnPositionSync(PipBoyMusicPositionSyncEvent ev, EntitySessionEventArgs args)
+    {
+        if (!ev.FromPipBoy)
+            return;
+        var loader = GetEntity(ev.LoaderUid);
+        if (!TryComp<CartridgeComponent>(loader, out var cart) || cart.LoaderUid is not { } owner)
+            return;
+        var query = EntityQueryEnumerator<PipBoyMusicCartridgeComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!TryComp<CartridgeComponent>(uid, out var c) || c.LoaderUid != owner)
+                continue;
+
+            comp.PlaybackOffset = ev.Position;
+            return;
+        }
+    }
+    private void OnPlayerDetached(PlayerDetachedEvent args)
+    {
+        var session = args.Player;
+        var detachedEntity = args.Entity;
+
+        var query = EntityQueryEnumerator<PipBoyMusicCartridgeComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.OwnerEntity != detachedEntity)
+                continue;
+
+            comp.IsPlaying = false;
+            comp.PlaybackOffset = 0f;
+
+            if (TryComp<CartridgeComponent>(uid, out var cart) && cart.LoaderUid != null)
+            {
+                var netLoader = GetNetEntity(cart.LoaderUid.Value);
+                RaiseNetworkEvent(new PipBoyMusicStopEvent(netLoader), session);
+                UpdateUiState((uid, comp), cart.LoaderUid.Value);
+            }
+        }
+    }
+    private void OnPlayerAttached(PlayerAttachedEvent args)
+    {
+        var session = args.Player;
+        var newEntity = args.Entity;
+
+        var query = EntityQueryEnumerator<PipBoyMusicCartridgeComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.OwnerEntity != newEntity)
+                continue;
+
+            comp.IsPlaying = false;
+            comp.PlaybackOffset = 0f;
+
+            if (TryComp<CartridgeComponent>(uid, out var cart) && cart.LoaderUid != null)
+            {
+                var netLoader = GetNetEntity(cart.LoaderUid.Value);
+                RaiseNetworkEvent(new PipBoyMusicStopEvent(netLoader), session);
+                UpdateUiState((uid, comp), cart.LoaderUid.Value);
+            }
+        }
+    }
+
     private void OnTrackFinished(PipBoyMusicTrackFinishedEvent ev, EntitySessionEventArgs args)
     {
         var loader = GetEntity(ev.LoaderUid);
@@ -103,6 +167,8 @@ public sealed class PipBoyMusicCartridgeSystem : EntitySystem
 
             if (comp.OwnerEntity == null)
                 return;
+
+            comp.PlaybackOffset = 0f;
 
             if (comp.RepeatOne)
             {
@@ -124,6 +190,34 @@ public sealed class PipBoyMusicCartridgeSystem : EntitySystem
         }
     }
 
+    private void OnSyncRequest(PipBoyMusicSyncRequestEvent ev, EntitySessionEventArgs args)
+    {
+        var session = args.SenderSession;
+
+        var query = EntityQueryEnumerator<PipBoyMusicCartridgeComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!comp.IsPlaying || comp.SelectedTrackId == null)
+                continue;
+            if (comp.OwnerEntity == session.AttachedEntity)
+                continue;
+            if (!_proto.TryIndex<JukeboxPrototype>(comp.SelectedTrackId, out var proto))
+                continue;
+            if (!TryComp<CartridgeComponent>(uid, out var cart) || cart.LoaderUid == null)
+                continue;
+
+            var playEv = new PipBoyMusicPlayEvent(
+                proto.Path.Path.ToString(),
+                comp.Volume,
+                GetNetEntity(cart.LoaderUid.Value),
+                comp.AudibleToOthers,
+                startPosition: comp.PlaybackOffset,
+                isOwn: false,
+                fromPipBoy: true);
+            RaiseNetworkEvent(playEv, session);
+        }
+    }
+
     private void AdvanceToNext(Entity<PipBoyMusicCartridgeComponent> ent, EntityUid actor, EntityUid loader)
     {
         var tracks = GetSortedTracks();
@@ -137,6 +231,7 @@ public sealed class PipBoyMusicCartridgeSystem : EntitySystem
         var nextIdx = (currentIdx + 1) % tracks.Count;
         ent.Comp.SelectedTrackId = tracks[nextIdx].Id;
         ent.Comp.IsPlaying = true;
+        ent.Comp.PlaybackOffset = 0f;
 
         PlayCurrent(ent, actor, loader);
     }
@@ -150,45 +245,80 @@ public sealed class PipBoyMusicCartridgeSystem : EntitySystem
         if (!TryComp<ActorComponent>(actor, out var actorComp))
             return;
 
-        StopServerStream(ent.Comp);
+        var netLoader = GetNetEntity(loader);
+        var startPos = ent.Comp.PlaybackOffset;
 
-        var ev = new PipBoyMusicPlayEvent(
+        var ownEv = new PipBoyMusicPlayEvent(
             proto.Path.Path.ToString(),
             ent.Comp.Volume,
-            GetNetEntity(loader),
-            ent.Comp.AudibleToOthers);
-        RaiseNetworkEvent(ev, actorComp.PlayerSession);
+            netLoader,
+            ent.Comp.AudibleToOthers,
+            startPosition: startPos,
+            isOwn: true,
+            fromPipBoy: true);
+        RaiseNetworkEvent(ownEv, actorComp.PlayerSession);
 
         if (ent.Comp.AudibleToOthers)
         {
             var filter = Filter.PvsExcept(actor);
-            var stream = _audio.PlayEntity(
-                proto.Path.Path.ToString(), filter, loader, false,
-                AudioParams.Default.WithVolume(ent.Comp.Volume).WithLoop(false));
-            ent.Comp.ServerStream = stream?.Entity;
+            foreach (var session in filter.Recipients)
+            {
+                var ev = new PipBoyMusicPlayEvent(
+                    proto.Path.Path.ToString(),
+                    ent.Comp.Volume,
+                    netLoader,
+                    ent.Comp.AudibleToOthers,
+                    startPosition: startPos,
+                    isOwn: false,
+                    fromPipBoy: true);
+                RaiseNetworkEvent(ev, session);
+            }
         }
     }
 
-    private void SendPauseToOwner(EntityUid actor)
+    private void BroadcastPause(Entity<PipBoyMusicCartridgeComponent> ent, EntityUid actor, NetEntity netLoader)
     {
         if (!TryComp<ActorComponent>(actor, out var actorComp))
             return;
-        RaiseNetworkEvent(new PipBoyMusicPauseEvent(), actorComp.PlayerSession);
+
+        RaiseNetworkEvent(new PipBoyMusicPauseEvent(netLoader), actorComp.PlayerSession);
+
+        if (!ent.Comp.AudibleToOthers)
+            return;
+
+        var filter = Filter.PvsExcept(actor);
+        foreach (var session in filter.Recipients)
+            RaiseNetworkEvent(new PipBoyMusicPauseEvent(netLoader), session);
     }
 
-    private void SendStopToOwner(EntityUid actor)
+    private void BroadcastStop(Entity<PipBoyMusicCartridgeComponent> ent, EntityUid actor, NetEntity netLoader)
     {
         if (!TryComp<ActorComponent>(actor, out var actorComp))
             return;
-        RaiseNetworkEvent(new PipBoyMusicStopEvent(), actorComp.PlayerSession);
+
+        RaiseNetworkEvent(new PipBoyMusicStopEvent(netLoader), actorComp.PlayerSession);
+
+        if (!ent.Comp.AudibleToOthers)
+            return;
+
+        var filter = Filter.PvsExcept(actor);
+        foreach (var session in filter.Recipients)
+            RaiseNetworkEvent(new PipBoyMusicStopEvent(netLoader), session);
     }
 
-    private void StopServerStream(PipBoyMusicCartridgeComponent comp)
+    private void BroadcastSeek(Entity<PipBoyMusicCartridgeComponent> ent, EntityUid actor, NetEntity netLoader, float position)
     {
-        if (comp.ServerStream == null)
+        if (!TryComp<ActorComponent>(actor, out var actorComp))
             return;
-        _audio.Stop(comp.ServerStream);
-        comp.ServerStream = null;
+
+        RaiseNetworkEvent(new PipBoyMusicSeekEvent(netLoader, position), actorComp.PlayerSession);
+
+        if (!ent.Comp.AudibleToOthers)
+            return;
+
+        var filter = Filter.PvsExcept(actor);
+        foreach (var session in filter.Recipients)
+            RaiseNetworkEvent(new PipBoyMusicSeekEvent(netLoader, position), session);
     }
 
     private void UpdateUiState(Entity<PipBoyMusicCartridgeComponent> ent, EntityUid loader)
@@ -198,7 +328,8 @@ public sealed class PipBoyMusicCartridgeSystem : EntitySystem
             ent.Comp.SelectedTrackId,
             ent.Comp.IsPlaying,
             ent.Comp.RepeatOne,
-            ent.Comp.AutoNext);
+            ent.Comp.AutoNext,
+            GetNetEntity(loader));
         _cartridgeLoader.UpdateCartridgeUiState(loader, state);
     }
 

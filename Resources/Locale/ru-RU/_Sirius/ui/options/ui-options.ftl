@@ -1,4 +1,4 @@
-ui-options-pipboy-music-audible-to-others = Другие игроки слышат музыку из вашего Пип-Боя
-ui-options-pipboy-music-audible-to-others-tooltip = Если включено, музыку из вашего Пип-боя будут слышать окружающие игроки. Если выключено — только вы.
-ui-options-portable-media-player-audible-to-others = Слышать музыку из чужих медиа-плееров
-ui-options-portable-media-player-audible-to-others-tooltip = Если включено, вы будете слышать музыку из медиа-плееров других игроков поблизости. Если выключено — только свою.
+ui-options-mute-others-pipboy-music = Заглушить музыку из чужих Пип-боев
+ui-options-mute-others-pipboy-music-tooltip = Если включено, вы не будете слышать музыку из Пип-боев других игроков. Если выключено — будете.
+ui-options-mute-others-portable-media-player-music = Заглушить музыку из чужих медиа-плееров
+ui-options-mute-others-portable-media-player-music-tooltip = Если включено, вы не будете слышать музыку из медиа-плееров других игроков. Если выключено — будете.

@@ -29,7 +29,8 @@ namespace Content.Client.Options.UI.Tabs
             EventMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.EventMusicEnabled);
             AdminSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AdminSoundsEnabled);
             TtsCheckBox.Pressed = _cfg.GetCVar(CorvaxVars.LocalTTSEnabled); // Corvax-TTS
-            PipBoyMusicAudibleToOthersCheckBox.Pressed = _cfg.GetCVar(CCVars.PipBoyMusicAudibleToOthers); // Sirius
+            MuteOthersPipBoyMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.MuteOthersPipBoyMusic); // Sirius
+            MuteOthersPortableMediaPlayerMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.MuteOthersPortableMediaPlayerMusic); // Sirius
 
             ApplyButton.OnPressed += OnApplyButtonPressed;
             ResetButton.OnPressed += OnResetButtonPressed;
@@ -52,7 +53,8 @@ namespace Content.Client.Options.UI.Tabs
                 AnnouncerDisableMultipleSoundsCheckBox,
                 AdminSoundsCheckBox,
                 TtsCheckBox, // Corvax-TTS
-                PipBoyMusicAudibleToOthersCheckBox // Sirius
+                MuteOthersPipBoyMusicCheckBox, // Sirius
+                MuteOthersPortableMediaPlayerMusicCheckBox // Sirius
             );
 
             AmbienceSoundsSlider.MinValue = _cfg.GetCVar(CCVars.MinMaxAmbientSourcesConfigured);
@@ -101,7 +103,8 @@ namespace Content.Client.Options.UI.Tabs
                 AnnouncerDisableMultipleSoundsCheckBox,
                 AdminSoundsCheckBox,
                 TtsCheckBox, // Corvax-TTS
-                PipBoyMusicAudibleToOthersCheckBox // Sirius
+                MuteOthersPipBoyMusicCheckBox, // Sirius
+                MuteOthersPortableMediaPlayerMusicCheckBox // Sirius
             );
 
             base.Dispose(disposing);
@@ -143,7 +146,8 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.AnnouncerDisableMultipleSounds, AnnouncerDisableMultipleSoundsCheckBox.Pressed);
             _cfg.SetCVar(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox.Pressed);
             _cfg.SetCVar(CorvaxVars.LocalTTSEnabled, TtsCheckBox.Pressed); // Corvax-TTS
-            _cfg.SetCVar(CCVars.PipBoyMusicAudibleToOthers, PipBoyMusicAudibleToOthersCheckBox.Pressed); // Sirius
+            _cfg.SetCVar(CCVars.MuteOthersPipBoyMusic, MuteOthersPipBoyMusicCheckBox.Pressed); // Sirius
+            _cfg.SetCVar(CCVars.MuteOthersPortableMediaPlayerMusic, MuteOthersPortableMediaPlayerMusicCheckBox.Pressed); // Sirius
             _cfg.SaveToFile();
             UpdateChanges();
         }
@@ -173,7 +177,8 @@ namespace Content.Client.Options.UI.Tabs
             AnnouncerDisableMultipleSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AnnouncerDisableMultipleSounds);
             AdminSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AdminSoundsEnabled);
             TtsCheckBox.Pressed = _cfg.GetCVar(CorvaxVars.LocalTTSEnabled); // Corvax-TTS
-            PipBoyMusicAudibleToOthersCheckBox.Pressed = _cfg.GetCVar(CCVars.PipBoyMusicAudibleToOthers); // Sirius
+            MuteOthersPipBoyMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.MuteOthersPipBoyMusic); // Sirius
+            MuteOthersPortableMediaPlayerMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.MuteOthersPortableMediaPlayerMusic); // Sirius
             UpdateChanges();
         }
 
@@ -205,13 +210,14 @@ namespace Content.Client.Options.UI.Tabs
             var isAnnouncerDisableMultipleSoundsSame = AnnouncerDisableMultipleSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.AnnouncerDisableMultipleSounds);
             var isAdminSoundsSame = AdminSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.AdminSoundsEnabled);
             var isTtsSoundsSame = TtsCheckBox.Pressed == _cfg.GetCVar(CorvaxVars.LocalTTSEnabled);
-            var isPipBoySame = PipBoyMusicAudibleToOthersCheckBox.Pressed == _cfg.GetCVar(CCVars.PipBoyMusicAudibleToOthers); // Sirius
+            var isMutePipBoySame = MuteOthersPipBoyMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.MuteOthersPipBoyMusic); // Sirius
+            var isMutePortableSame = MuteOthersPortableMediaPlayerMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.MuteOthersPortableMediaPlayerMusic); // Sirius
 
             var isEverythingSame = isMasterVolumeSame && isMidiVolumeSame && isAmbientVolumeSame
                 && isAmbientMusicVolumeSame && isAmbientSoundsSame && isLobbySame && isRestartSoundsSame && isEventSame
                 && isAnnouncerDisableMultipleSoundsSame && isAdminSoundsSame && isLobbyVolumeSame
                 && isInterfaceVolumeSame && isAnnouncerVolumeSame && isBarksVolumeSame && isTtsVolumeSame && isTtsSoundsSame
-                && isPipBoySame; // Sirius
+                && isMutePipBoySame && isMutePortableSame; // Sirius
 
             ApplyButton.Disabled = isEverythingSame;
             ResetButton.Disabled = isEverythingSame;
