@@ -13,7 +13,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Content.Shared._Misfits.Weapons;
+using Content.Shared._N14.Weapons;
 using Content.Shared._Misfits.Weapons.Ranged.Prediction;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Throwing;

@@ -1,7 +1,7 @@
 using Content.Shared.Projectiles;
 using Robust.Shared.Spawners;
 using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared._Misfits.Weapons;
+using Content.Shared._N14.Weapons;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;

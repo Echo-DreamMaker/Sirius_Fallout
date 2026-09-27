@@ -22,7 +22,7 @@ strength-requirement-unwield = You are too weak to keep { $item } wielded (requi
 strength-requirement-examine = Requires [color=yellow]{ $required } Strength[/color] to use.
 strength-requirement-cannot-apply = You are too weak to use { $item } (requires { $required } Strength).
 action-toggle-special-aim-name = Aim
-action-toggle-special-aim-description = Enter aim mode, zooming your view and improving accuracy with Perception.
+action-toggle-special-aim-description = Enter aim mode, drifting your view toward the cursor (reach scales with your weapon, scope and Perception) and improving accuracy.
 intelligence-requirement-examine = Requires [color=yellow]{ $required } Intelligence[/color] to use reliably. Energy weapons can misfire or slip from your hands otherwise.
 intelligence-requirement-drop = { $item } slips from your hands!
 intelligence-requirement-misfire = { $item } misfires!

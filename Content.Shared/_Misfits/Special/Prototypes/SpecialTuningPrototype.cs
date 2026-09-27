@@ -153,6 +153,51 @@ public sealed partial class SpecialTuningPrototype : IPrototype
     [DataField("perceptionAimSpreadSniperMultiplierPerPoint")]
     public float PerceptionAimSpreadSniperMultiplierPerPoint = 0.05f;
 
+    // Aiming camera: how far the viewport drifts toward the cursor while aim mode is active.
+    [DataField("aimCameraChaseRate")]
+    public float AimCameraChaseRate = 3.5f;
+
+    [DataField("aimCameraNoWeaponRange")]
+    public float AimCameraNoWeaponRange = 1.5f;
+
+    [DataField("aimCameraWeaponBaseRange")]
+    public float AimCameraWeaponBaseRange = 3f;
+
+    [DataField("aimCameraWeaponProfileScale")]
+    public float AimCameraWeaponProfileScale = 6f;
+
+    [DataField("aimCameraSniperMultiplier")]
+    public float AimCameraSniperMultiplier = 1.25f;
+
+    [DataField("aimCameraScopeMultiplier")]
+    public float AimCameraScopeMultiplier = 1.5f;
+
+    [DataField("aimCameraOneHandMultiplier")]
+    public float AimCameraOneHandMultiplier = 0.5f;
+
+    [DataField("aimCameraWieldMultiplier")]
+    public float AimCameraWieldMultiplier = 1.3f;
+
+    [DataField("aimCameraRangeMultiplierPerPoint")]
+    public float AimCameraRangeMultiplierPerPoint = 0.05f;
+
+    [DataField("aimCameraMinRange")]
+    public float AimCameraMinRange = 0.5f;
+
+    // Aiming camera: damage- and Strength-driven shake that makes aiming wobble.
+    // Shake scales with how far the player is toward their death threshold (which
+    // Endurance raises); AimCameraShakeDamageLowRatio is where the tremor starts,
+    // AimCameraShakeDamageHighRatio is where it saturates. Strength damps it
+    // linearly (STR 10 = no shake, STR 1 = full shake). Psycho suppresses it.
+    [DataField("aimCameraShakeDamageLowRatio")]
+    public float AimCameraShakeDamageLowRatio = 0.2f;
+
+    [DataField("aimCameraShakeDamageHighRatio")]
+    public float AimCameraShakeDamageHighRatio = 0.9f;
+
+    [DataField("aimCameraShakeMaxAmplitude")]
+    public float AimCameraShakeMaxAmplitude = 1.75f;
+
     // Perception: motion-trace "infrared" reveal of living mobs through walls.
     // Requires a Perception of at least PerceptionTraceMinPerception. The instantly
     // lingering afterimage fades out over PerceptionTracePersistenceTime.

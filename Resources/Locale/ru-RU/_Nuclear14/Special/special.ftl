@@ -22,7 +22,7 @@ strength-requirement-unwield = Вы слишком слабы, чтобы уде
 strength-requirement-examine = Требуется [color=yellow]{ $required } Силы[/color], чтобы использовать.
 strength-requirement-cannot-apply = Вы слишком слабы, чтобы использовать { $item } (требуется { $required } Силы).
 action-toggle-special-aim-name = Прицеливание
-action-toggle-special-aim-description = Войдите в режим прицеливания: приближает обзор и повышает точность в зависимости от Восприятия.
+action-toggle-special-aim-description = Войдите в режим прицеливания: камера смещается к курсору (дальность зависит от оружия, прицела и Восприятия) и повышает точность.
 intelligence-requirement-examine = Требуется [color=yellow]{ $required } Интеллекта[/color] для надёжного использования. В противном случае энергооружие может дать осечку или выскользнуть из рук.
 intelligence-requirement-drop = { $item } выскальзывает из ваших рук!
 intelligence-requirement-misfire = { $item } даёт осечку!

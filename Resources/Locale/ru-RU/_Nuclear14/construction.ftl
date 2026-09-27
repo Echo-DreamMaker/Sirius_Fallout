@@ -33,4 +33,4 @@ hand-craft-intell-too-low-intelligence = Вы недостаточно умны,
 hand-craft-intell-insufficient-materials = У вас недостаточно материалов, чтобы изготовить это вручную.
 hand-craft-intell-leftover-materials-title = Оставшиеся материалы
 
-misfits-armor-penetration-examine = Бронепробитие: {$value}%.
+n14-armor-penetration-examine = Бронепробитие: {$value}%.

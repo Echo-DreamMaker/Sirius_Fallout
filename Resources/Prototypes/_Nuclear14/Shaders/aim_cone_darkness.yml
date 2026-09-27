@@ -1,0 +1,4 @@
+- type: shader
+  id: N14AimConeDarkness
+  kind: source
+  path: "/Textures/_Nuclear14/Shaders/aim_cone_darkness.swsl"

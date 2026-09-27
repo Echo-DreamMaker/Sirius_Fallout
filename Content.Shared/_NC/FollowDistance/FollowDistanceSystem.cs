@@ -3,9 +3,7 @@
 // All other rights reserved by JerryImMouse.
 using Content.Shared._NC.CameraFollow.Components;
 using Content.Shared._NC.CameraFollow.Events;
-using Content.Shared._NC.FollowDistance.Components;
 using Content.Shared.Camera;
-using Content.Shared.Hands;
 using Robust.Shared.Network;
 
 namespace Content.Shared._NC.FollowDistance;
@@ -15,16 +13,12 @@ namespace Content.Shared._NC.FollowDistance;
 public sealed class FollowDistanceSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly Actions.SharedActionsSystem _actionsSystem = default!;
     private EntityQuery<CameraRecoilComponent> _activeRecoil;
-    private EntityQuery<EyeComponent> _activeEye;
     private EntityQuery<CameraFollowComponent> _activeCamera;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<FollowDistanceComponent, HandSelectedEvent>(OnPickedUp);
-        SubscribeLocalEvent<FollowDistanceComponent, HandDeselectedEvent>(OnDropped);
         SubscribeLocalEvent<CameraFollowComponent, ComponentRemove>(OnCameraFollowRemove);
         SubscribeLocalEvent<CameraFollowComponent, MapInitEvent>(OnCameraFollowInit);
 
@@ -33,7 +27,6 @@ public sealed class FollowDistanceSystem : EntitySystem
         SubscribeAllEvent<ChangeCamOffsetEvent>(OnChangeOffset);
 
         _activeRecoil = GetEntityQuery<CameraRecoilComponent>();
-        _activeEye = GetEntityQuery<EyeComponent>();
         _activeCamera = GetEntityQuery<CameraFollowComponent>();
     }
 
@@ -56,6 +49,9 @@ public sealed class FollowDistanceSystem : EntitySystem
 
     private void OnCameraFollowInit(EntityUid uid, CameraFollowComponent component, MapInitEvent args)
     {
+        if (component.Action == null)
+            return;
+
         _actionsSystem.AddAction(uid, ref component.ActionEntity, component.Action);
     }
 
@@ -64,28 +60,6 @@ public sealed class FollowDistanceSystem : EntitySystem
         if(component.ActionEntity == null || TerminatingOrDeleted(component.ActionEntity.Value))
             return;
         _actionsSystem.RemoveAction(uid, component.ActionEntity);
-    }
-
-    private void OnPickedUp(EntityUid uid, FollowDistanceComponent followDistance, HandSelectedEvent args)
-    {
-        if (!_activeCamera.TryComp(args.User, out var camfollow) || !_activeEye.HasComp(args.User))
-            return;
-
-        camfollow.MaxDistance = followDistance.MaxDistance;
-        camfollow.BackStrength = followDistance.BackStrength;
-        //camfollow.Enabled = true;
-        Dirty(args.User, camfollow);
-    }
-
-    private void OnDropped(EntityUid uid, FollowDistanceComponent followDistance, HandDeselectedEvent args)
-    {
-        if (!_activeCamera.TryComp(args.User, out var camfollow) || !_activeEye.HasComp(args.User))
-            return;
-
-        camfollow.MaxDistance = camfollow.DefaultMaxDistance;
-        camfollow.BackStrength = camfollow.DefaultBackStrength;
-        //camfollow.Enabled = false;
-        Dirty(args.User, camfollow);
     }
 
 }
