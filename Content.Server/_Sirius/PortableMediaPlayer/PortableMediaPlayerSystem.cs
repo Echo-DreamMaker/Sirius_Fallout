@@ -3,8 +3,6 @@ using Content.Shared._Sirius.CartridgeLoader.Cartridges;
 using Content.Shared._Sirius.PortableMediaPlayer;
 using Content.Shared.Audio.Jukebox;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -12,7 +10,6 @@ namespace Content.Server._Sirius.PortableMediaPlayer;
 
 public sealed class PortableMediaPlayerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
@@ -22,13 +19,11 @@ public sealed class PortableMediaPlayerSystem : EntitySystem
 
         SubscribeLocalEvent<PortableMediaPlayerComponent, BoundUIOpenedEvent>(OnUiOpened);
         SubscribeLocalEvent<PortableMediaPlayerComponent, PortableMediaPlayerMessage>(OnUiMessage);
-        SubscribeLocalEvent<PortableMediaPlayerComponent, ComponentShutdown>(OnShutdown);
         SubscribeNetworkEvent<PipBoyMusicTrackFinishedEvent>(OnTrackFinished);
-    }
-
-    private void OnShutdown(EntityUid uid, PortableMediaPlayerComponent component, ComponentShutdown args)
-    {
-        StopServerStream(component);
+        SubscribeNetworkEvent<PipBoyMusicSyncRequestEvent>(OnSyncRequest);
+        SubscribeNetworkEvent<PipBoyMusicPositionSyncEvent>(OnPositionSync);
+        SubscribeLocalEvent<PlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
     }
 
     private void OnUiOpened(EntityUid uid, PortableMediaPlayerComponent component, BoundUIOpenedEvent args)
@@ -39,9 +34,10 @@ public sealed class PortableMediaPlayerSystem : EntitySystem
     private void OnUiMessage(EntityUid uid, PortableMediaPlayerComponent component, PortableMediaPlayerMessage args)
     {
         var actor = args.Actor;
-
         component.OwnerEntity = actor;
         component.AudibleToOthers = args.AudibleToOthers;
+
+        var netSource = GetNetEntity(uid);
 
         switch (args.Action)
         {
@@ -49,6 +45,7 @@ public sealed class PortableMediaPlayerSystem : EntitySystem
                 if (args.TrackId == null || !_proto.HasIndex<JukeboxPrototype>(args.TrackId))
                     return;
                 component.SelectedTrackId = args.TrackId;
+                component.PlaybackOffset = 0f;
                 if (component.IsPlaying)
                     PlayCurrent((uid, component), actor);
                 break;
@@ -62,14 +59,18 @@ public sealed class PortableMediaPlayerSystem : EntitySystem
 
             case PipBoyMusicUiAction.Pause:
                 component.IsPlaying = false;
-                StopServerStream(component);
-                SendPauseToOwner(actor);
+                BroadcastPause(component, actor, netSource);
                 break;
 
             case PipBoyMusicUiAction.Stop:
                 component.IsPlaying = false;
-                StopServerStream(component);
-                SendStopToOwner(actor);
+                component.PlaybackOffset = 0f;
+                BroadcastStop(component, actor, netSource);
+                break;
+
+            case PipBoyMusicUiAction.Seek:
+                component.PlaybackOffset = args.SeekPosition;
+                BroadcastSeek(component, actor, netSource, args.SeekPosition);
                 break;
 
             case PipBoyMusicUiAction.ToggleRepeat:
@@ -87,6 +88,54 @@ public sealed class PortableMediaPlayerSystem : EntitySystem
         UpdateUiState((uid, component));
     }
 
+    private void OnPositionSync(PipBoyMusicPositionSyncEvent ev, EntitySessionEventArgs args)
+    {
+        if (ev.FromPipBoy)
+            return;
+
+        var source = GetEntity(ev.LoaderUid);
+        if (!TryComp<PortableMediaPlayerComponent>(source, out var comp))
+            return;
+
+        comp.PlaybackOffset = ev.Position;
+    }
+
+    private void OnPlayerDetached(PlayerDetachedEvent args)
+    {
+        var session = args.Player;
+        var detachedEntity = args.Entity;
+
+        var query = EntityQueryEnumerator<PortableMediaPlayerComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.OwnerEntity != detachedEntity)
+                continue;
+
+            comp.IsPlaying = false;
+            comp.PlaybackOffset = 0f;
+            RaiseNetworkEvent(new PipBoyMusicStopEvent(GetNetEntity(uid)), session);
+            UpdateUiState((uid, comp));
+        }
+    }
+
+    private void OnPlayerAttached(PlayerAttachedEvent args)
+    {
+        var session = args.Player;
+        var newEntity = args.Entity;
+
+        var query = EntityQueryEnumerator<PortableMediaPlayerComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.OwnerEntity != newEntity)
+                continue;
+
+            comp.IsPlaying = false;
+            comp.PlaybackOffset = 0f;
+            RaiseNetworkEvent(new PipBoyMusicStopEvent(GetNetEntity(uid)), session);
+            UpdateUiState((uid, comp));
+        }
+    }
+
     private void OnTrackFinished(PipBoyMusicTrackFinishedEvent ev, EntitySessionEventArgs args)
     {
         var source = GetEntity(ev.LoaderUid);
@@ -97,20 +146,42 @@ public sealed class PortableMediaPlayerSystem : EntitySystem
         if (comp.OwnerEntity == null)
             return;
 
+        comp.PlaybackOffset = 0f;
+
         if (comp.RepeatOne)
-        {
             PlayCurrent((source, comp), comp.OwnerEntity.Value);
-        }
         else if (comp.AutoNext)
-        {
             AdvanceToNext((source, comp), comp.OwnerEntity.Value);
-        }
         else
-        {
             comp.IsPlaying = false;
-        }
 
         UpdateUiState((source, comp));
+    }
+
+    private void OnSyncRequest(PipBoyMusicSyncRequestEvent ev, EntitySessionEventArgs args)
+    {
+        var session = args.SenderSession;
+
+        var query = EntityQueryEnumerator<PortableMediaPlayerComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!comp.IsPlaying || comp.SelectedTrackId == null)
+                continue;
+            if (comp.OwnerEntity == session.AttachedEntity)
+                continue;
+            if (!_proto.TryIndex<JukeboxPrototype>(comp.SelectedTrackId, out var proto))
+                continue;
+
+            var playEv = new PipBoyMusicPlayEvent(
+                proto.Path.Path.ToString(),
+                comp.Volume,
+                GetNetEntity(uid),
+                comp.AudibleToOthers,
+                startPosition: comp.PlaybackOffset,
+                isOwn: false,
+                fromPipBoy: false);
+            RaiseNetworkEvent(playEv, session);
+        }
     }
 
     private void AdvanceToNext(Entity<PortableMediaPlayerComponent> ent, EntityUid actor)
@@ -126,6 +197,7 @@ public sealed class PortableMediaPlayerSystem : EntitySystem
         var nextIdx = (currentIdx + 1) % tracks.Count;
         ent.Comp.SelectedTrackId = tracks[nextIdx].Id;
         ent.Comp.IsPlaying = true;
+        ent.Comp.PlaybackOffset = 0f;
 
         PlayCurrent(ent, actor);
     }
@@ -139,45 +211,80 @@ public sealed class PortableMediaPlayerSystem : EntitySystem
         if (!TryComp<ActorComponent>(actor, out var actorComp))
             return;
 
-        StopServerStream(ent.Comp);
+        var netSource = GetNetEntity(ent.Owner);
+        var startPos = ent.Comp.PlaybackOffset;
 
-        var ev = new PipBoyMusicPlayEvent(
+        var ownEv = new PipBoyMusicPlayEvent(
             proto.Path.Path.ToString(),
             ent.Comp.Volume,
-            GetNetEntity(ent.Owner),
-            ent.Comp.AudibleToOthers);
-        RaiseNetworkEvent(ev, actorComp.PlayerSession);
+            netSource,
+            ent.Comp.AudibleToOthers,
+            startPosition: startPos,
+            isOwn: true,
+            fromPipBoy: false);
+        RaiseNetworkEvent(ownEv, actorComp.PlayerSession);
 
         if (ent.Comp.AudibleToOthers)
         {
             var filter = Filter.PvsExcept(actor);
-            var stream = _audio.PlayEntity(
-                proto.Path.Path.ToString(), filter, ent.Owner, false,
-                AudioParams.Default.WithVolume(ent.Comp.Volume).WithLoop(false));
-            ent.Comp.ServerStream = stream?.Entity;
+            foreach (var session in filter.Recipients)
+            {
+                var ev = new PipBoyMusicPlayEvent(
+                    proto.Path.Path.ToString(),
+                    ent.Comp.Volume,
+                    netSource,
+                    ent.Comp.AudibleToOthers,
+                    startPosition: startPos,
+                    isOwn: false,
+                    fromPipBoy: false);
+                RaiseNetworkEvent(ev, session);
+            }
         }
     }
 
-    private void SendPauseToOwner(EntityUid actor)
+    private void BroadcastPause(PortableMediaPlayerComponent comp, EntityUid actor, NetEntity netSource)
     {
         if (!TryComp<ActorComponent>(actor, out var actorComp))
             return;
-        RaiseNetworkEvent(new PipBoyMusicPauseEvent(), actorComp.PlayerSession);
+
+        RaiseNetworkEvent(new PipBoyMusicPauseEvent(netSource), actorComp.PlayerSession);
+
+        if (!comp.AudibleToOthers)
+            return;
+
+        var filter = Filter.PvsExcept(actor);
+        foreach (var session in filter.Recipients)
+            RaiseNetworkEvent(new PipBoyMusicPauseEvent(netSource), session);
     }
 
-    private void SendStopToOwner(EntityUid actor)
+    private void BroadcastStop(PortableMediaPlayerComponent comp, EntityUid actor, NetEntity netSource)
     {
         if (!TryComp<ActorComponent>(actor, out var actorComp))
             return;
-        RaiseNetworkEvent(new PipBoyMusicStopEvent(), actorComp.PlayerSession);
+
+        RaiseNetworkEvent(new PipBoyMusicStopEvent(netSource), actorComp.PlayerSession);
+
+        if (!comp.AudibleToOthers)
+            return;
+
+        var filter = Filter.PvsExcept(actor);
+        foreach (var session in filter.Recipients)
+            RaiseNetworkEvent(new PipBoyMusicStopEvent(netSource), session);
     }
 
-    private void StopServerStream(PortableMediaPlayerComponent comp)
+    private void BroadcastSeek(PortableMediaPlayerComponent comp, EntityUid actor, NetEntity netSource, float position)
     {
-        if (comp.ServerStream == null)
+        if (!TryComp<ActorComponent>(actor, out var actorComp))
             return;
-        _audio.Stop(comp.ServerStream);
-        comp.ServerStream = null;
+
+        RaiseNetworkEvent(new PipBoyMusicSeekEvent(netSource, position), actorComp.PlayerSession);
+
+        if (!comp.AudibleToOthers)
+            return;
+
+        var filter = Filter.PvsExcept(actor);
+        foreach (var session in filter.Recipients)
+            RaiseNetworkEvent(new PipBoyMusicSeekEvent(netSource, position), session);
     }
 
     private void UpdateUiState(Entity<PortableMediaPlayerComponent> ent)
@@ -190,7 +297,8 @@ public sealed class PortableMediaPlayerSystem : EntitySystem
             ent.Comp.SelectedTrackId,
             ent.Comp.IsPlaying,
             ent.Comp.RepeatOne,
-            ent.Comp.AutoNext);
+            ent.Comp.AutoNext,
+            GetNetEntity(ent.Owner));
 
         _ui.SetUiState(ent.Owner, PortableMediaPlayerUiKey.Key, state);
     }

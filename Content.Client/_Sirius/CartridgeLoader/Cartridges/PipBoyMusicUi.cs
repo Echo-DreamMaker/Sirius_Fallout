@@ -5,6 +5,7 @@ using Content.Shared.CCVar;
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
 using Robust.Shared.IoC;
+using Robust.Shared.Serialization;
 
 namespace Content.Client._Sirius.CartridgeLoader.Cartridges;
 
@@ -22,12 +23,13 @@ public sealed partial class PipBoyMusicUi : UIFragment
 
         _fragment = new PipBoyMusicUiFragment();
 
-        _fragment.OnTrackSelected += id => Send(userInterface, PipBoyMusicUiAction.Select, id);
+        _fragment.OnTrackSelected += id => Send(userInterface, PipBoyMusicUiAction.Select, trackId: id);
         _fragment.OnPlayPressed += () => Send(userInterface, PipBoyMusicUiAction.Play);
         _fragment.OnPausePressed += () => Send(userInterface, PipBoyMusicUiAction.Pause);
         _fragment.OnStopPressed += () => Send(userInterface, PipBoyMusicUiAction.Stop);
         _fragment.OnToggleRepeat += () => Send(userInterface, PipBoyMusicUiAction.ToggleRepeat);
         _fragment.OnToggleAutoNext += () => Send(userInterface, PipBoyMusicUiAction.ToggleAutoNext);
+        _fragment.OnSeekRequested += (_, pos) => Send(userInterface, PipBoyMusicUiAction.Seek, seekPosition: pos);
     }
 
     public override void UpdateState(BoundUserInterfaceState state)
@@ -37,10 +39,14 @@ public sealed partial class PipBoyMusicUi : UIFragment
         _fragment?.UpdateState(musicState);
     }
 
-    private void Send(BoundUserInterface ui, PipBoyMusicUiAction action, string? trackId = null)
+    private void Send(
+        BoundUserInterface ui,
+        PipBoyMusicUiAction action,
+        string? trackId = null,
+        float seekPosition = 0f)
     {
-        var audible = _cfg.GetCVar(CCVars.PipBoyMusicAudibleToOthers);
-        var msg = new PipBoyMusicUiMessageEvent(action, trackId, audible);
+        var audibleToOthers = !_cfg.GetCVar(CCVars.MuteOthersPipBoyMusic);
+        var msg = new PipBoyMusicUiMessageEvent(action, trackId, audibleToOthers, seekPosition);
         ui.SendMessage(new CartridgeUiMessage(msg));
     }
 }

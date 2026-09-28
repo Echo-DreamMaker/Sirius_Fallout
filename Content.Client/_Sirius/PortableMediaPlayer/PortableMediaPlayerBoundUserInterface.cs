@@ -28,12 +28,13 @@ public sealed class PortableMediaPlayerBoundUserInterface : BoundUserInterface
 
         _fragment = new PipBoyMusicUiFragment();
 
-        _fragment.OnTrackSelected += id => Send(PipBoyMusicUiAction.Select, id);
+        _fragment.OnTrackSelected += id => Send(PipBoyMusicUiAction.Select, trackId: id);
         _fragment.OnPlayPressed += () => Send(PipBoyMusicUiAction.Play);
         _fragment.OnPausePressed += () => Send(PipBoyMusicUiAction.Pause);
         _fragment.OnStopPressed += () => Send(PipBoyMusicUiAction.Stop);
         _fragment.OnToggleRepeat += () => Send(PipBoyMusicUiAction.ToggleRepeat);
         _fragment.OnToggleAutoNext += () => Send(PipBoyMusicUiAction.ToggleAutoNext);
+        _fragment.OnSeekRequested += (_, pos) => Send(PipBoyMusicUiAction.Seek, seekPosition: pos);
 
         _window = new DefaultWindow
         {
@@ -63,9 +64,9 @@ public sealed class PortableMediaPlayerBoundUserInterface : BoundUserInterface
             _window?.Dispose();
     }
 
-    private void Send(PipBoyMusicUiAction action, string? trackId = null)
+    private void Send(PipBoyMusicUiAction action, string? trackId = null, float seekPosition = 0f)
     {
-        var audible = _cfg.GetCVar(CCVars.PortableMediaPlayerAudibleToOthers);
-        SendMessage(new PortableMediaPlayerMessage(action, trackId, audible));
+        var audibleToOthers = !_cfg.GetCVar(CCVars.MuteOthersPortableMediaPlayerMusic);
+        SendMessage(new PortableMediaPlayerMessage(action, trackId, audibleToOthers, seekPosition));
     }
 }
