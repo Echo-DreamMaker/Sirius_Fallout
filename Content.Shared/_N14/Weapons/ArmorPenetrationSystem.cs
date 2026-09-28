@@ -1,10 +1,10 @@
 using Content.Shared.Examine;
 
-// #Misfits Add - Show the round's armor penetration (AP/JHP/FMJ/Scrap variants)
+// #N14 Add - Show the round's armor penetration (AP/JHP/FMJ/Scrap variants)
 // when examining the ammo. The value is the fraction of armor ignored, shown as a
 // signed percentage. Negative values mean the round is worse at defeating armor.
 
-namespace Content.Shared._Misfits.Weapons;
+namespace Content.Shared._N14.Weapons;
 
 public sealed class ArmorPenetrationSystem : EntitySystem
 {
@@ -20,6 +20,6 @@ public sealed class ArmorPenetrationSystem : EntitySystem
             return;
 
         var percent = (int) MathF.Round(component.Penetration * 100f);
-        args.PushMarkup(Loc.GetString("misfits-armor-penetration-examine", ("value", percent)));
+        args.PushMarkup(Loc.GetString("n14-armor-penetration-examine", ("value", percent)));
     }
 }

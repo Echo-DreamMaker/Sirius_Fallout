@@ -38,7 +38,7 @@ public sealed partial class CameraFollowComponent : Component
     public float DefaultBackStrength = 10f;
 
     [DataField("action", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string Action = "ActionToggleCamera";
+    public string? Action;
 
     // Action entity to remove it from player on component remove
     public EntityUid? ActionEntity;

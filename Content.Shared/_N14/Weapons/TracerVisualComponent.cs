@@ -1,8 +1,8 @@
-// #Misfits Add - Marks a projectile as a tracer round. While the round flies,
+// #N14 Add - Marks a projectile as a tracer round. While the round flies,
 // the client renders a glowing comet tail behind it (see Content.Client ProjectileSystem).
 // The NextEmit field is client-side only and is intentionally not networked.
 
-namespace Content.Shared._Misfits.Weapons;
+namespace Content.Shared._N14.Weapons;
 
 [RegisterComponent]
 public sealed partial class TracerVisualComponent : Component

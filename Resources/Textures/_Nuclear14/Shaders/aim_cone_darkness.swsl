@@ -1,0 +1,25 @@
+// Per-pixel aim "cone" darkness. While aim mode is active everything outside a ~90°
+// sector around the aim line slowly darkens (down to 25% visibility); the sector swings
+// with the cursor, instantly scattering the darkness it covers.
+// uApex/uDir are supplied in UI screen pixels (top-left origin, y grows DOWN); this shader
+// converts them into framebuffer pixels (bottom-left origin, y grows up) using
+// SCREEN_PIXEL_SIZE so the cone is correct regardless of UI scaling/DPI.
+uniform highp vec2 uApex;
+uniform highp vec2 uDir;
+uniform highp float uHalfAngle;
+uniform highp float uDarkness;
+
+void fragment() {
+    highp vec2 pixelSize = vec2(1.0 / SCREEN_PIXEL_SIZE.x, 1.0 / SCREEN_PIXEL_SIZE.y);
+    highp vec2 apex = vec2(uApex.x, pixelSize.y - uApex.y);
+    highp vec2 dir = normalize(vec2(uDir.x, -uDir.y));
+    highp vec2 toPixel = FRAGCOORD.xy - apex;
+    highp float dist = length(toPixel);
+    highp vec2 nd = dist > 0.0001 ? toPixel / dist : dir;
+    highp float cosAng = clamp(dot(nd, dir), -1.0, 1.0);
+    highp float ang = acos(cosAng);
+    highp float edge = uHalfAngle + 0.14;
+    highp float inCone = 1.0 - smoothstep(uHalfAngle, edge, ang);
+    highp float alpha = uDarkness * (1.0 - inCone);
+    COLOR = vec4(0.0, 0.0, 0.0, alpha);
+}

@@ -22,4 +22,11 @@ public sealed partial class SpecialAimableComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? ToggleActionEntity;
+
+    /// <summary>
+    /// The weapon the character was aiming with when aim mode was switched on. Aime mode
+    /// is cancelled the moment the active weapon changes, so the old gun's reach can never
+    /// leak onto a different weapon. Not networked; runtime-only.
+    /// </summary>
+    public EntityUid? AimedWeapon;
 }

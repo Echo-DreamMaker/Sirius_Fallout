@@ -25,4 +25,4 @@ lathe-category-weapons-smgs = Smgs
 lathe-category-identification = Identification
 lathe-category-blueprints = Blueprints
 
-misfits-armor-penetration-examine = Armor penetration: {$value}%.
+n14-armor-penetration-examine = Armor penetration: {$value}%.

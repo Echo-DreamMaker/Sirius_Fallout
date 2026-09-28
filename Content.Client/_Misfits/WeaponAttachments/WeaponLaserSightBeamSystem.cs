@@ -108,6 +108,9 @@ public sealed class WeaponLaserSightBeamSystem : EntitySystem
         if (!_gun.TryGetGun(local, out var gunUid, out _))
             return false;
 
+        if (!TryComp<ItemSlotsComponent>(gunUid, out _))
+            return false;
+
         if (!_itemSlots.TryGetSlot(gunUid, WeaponAttachmentSlots.Bottom, out var slot) || slot.Item is not { } item)
             return false;
 

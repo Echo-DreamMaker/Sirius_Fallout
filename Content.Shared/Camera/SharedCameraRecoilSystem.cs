@@ -86,6 +86,9 @@ public abstract class SharedCameraRecoilSystem : EntitySystem
     /// NC changes start
     private void OnCameraFollowInit(EntityUid uid, CameraFollowComponent component, ComponentInit args)
     {
+        if (component.Action == null)
+            return;
+
         _actionsSystem.AddAction(uid, ref component.ActionEntity, component.Action);
     }
 

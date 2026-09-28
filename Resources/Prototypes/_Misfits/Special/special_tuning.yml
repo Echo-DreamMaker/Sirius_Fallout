@@ -40,6 +40,19 @@
   perceptionAimZoomMultiplierPerPoint: 0.08
   perceptionAimSpreadMultiplierPerPoint: 0.02
   perceptionAimSpreadSniperMultiplierPerPoint: 0.05
+  aimCameraChaseRate: 3.5
+  aimCameraOneHandMultiplier: 0.5
+  aimCameraWieldMultiplier: 1.3
+  aimCameraNoWeaponRange: 1.5
+  aimCameraWeaponBaseRange: 3
+  aimCameraWeaponProfileScale: 6
+  aimCameraSniperMultiplier: 1.25
+  aimCameraScopeMultiplier: 1.5
+  aimCameraRangeMultiplierPerPoint: 0.05
+  aimCameraMinRange: 0.5
+  aimCameraShakeDamageLowRatio: 0.2
+  aimCameraShakeDamageHighRatio: 0.9
+  aimCameraShakeMaxAmplitude: 1.75
   perceptionTraceMinPerception: 8
   perceptionTraceRange: 13
   perceptionTracePersistenceTime: 3
