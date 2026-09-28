@@ -103,7 +103,9 @@ namespace Content.Server.GameTicking
             return new TickerLobbyStatusEvent(RunLevel != GameRunLevel.PreRoundLobby, LobbyBackground, status == PlayerGameStatus.ReadyToPlay, _roundStartTime, RoundPreloadTime, RoundStartTimeSpan, Paused, selectedMap?.MapName, selectedMap?.MapAuthor);
         }
 
-        private void SendStatusToAll()
+        // #Misfits Change: Public so the map vote can refresh the lobby map credit after the
+        // selected map changes.
+        public void SendStatusToAll()
         {
             foreach (var player in _playerManager.Sessions)
             {
