@@ -2,7 +2,6 @@
   id: SiriusAutodoc
   start: start
   graph:
-    # ПУНКТ 1: 10 железных слитков
     - node: start
       edges:
         - to: AutodocFrame
@@ -13,8 +12,6 @@
             - material: N14Iron
               amount: 10
               doAfter: 5
-
-    # ПУНКТ 2: винт
     - node: AutodocFrame
       entity: SiriusAutodocFrame
       edges:
@@ -26,8 +23,6 @@
                 state: screw
               name: screws
               doAfter: 2
-
-    # ПУНКТ 3: 5 мотков СВ-кабеля
     - node: AutodocScrewed
       entity: SiriusAutodocFrame
       edges:
@@ -36,8 +31,6 @@
             - material: CableMV
               amount: 5
               doAfter: 4
-
-    # ПУНКТ 4: 3 мотка ВВ-кабеля
     - node: AutodocWired
       entity: SiriusAutodocFrame
       edges:
@@ -46,8 +39,6 @@
             - material: CableHV
               amount: 3
               doAfter: 3
-
-    # ПУНКТ 5: 5 микросхем
     - node: AutodocPowered
       entity: SiriusAutodocFrame
       edges:
@@ -56,8 +47,6 @@
             - material: Circuitry
               amount: 5
               doAfter: 4
-
-    # ПУНКТ 6: машинная плата
     - node: AutodocCircuitry
       entity: SiriusAutodocFrame
       edges:
@@ -69,8 +58,6 @@
                 state: board_1
               name: circuit board
               doAfter: 2
-
-    # ПУНКТ 7: транзистор
     - node: AutodocBoard
       entity: SiriusAutodocFrame
       edges:
@@ -82,8 +69,6 @@
                 state: transistor_1
               name: transistor
               doAfter: 2
-
-    # ПУНКТ 8: сенсорный модуль
     - node: AutodocTransistor
       entity: SiriusAutodocFrame
       edges:
@@ -95,8 +80,6 @@
                 state: sensor_module
               name: sensor module
               doAfter: 3
-
-    # ПУНКТ 9: сенсорная плата
     - node: AutodocSensorModule
       entity: SiriusAutodocFrame
       edges:
@@ -108,8 +91,6 @@
                 state: sensor
               name: sensor board
               doAfter: 3
-
-    # ПУНКТ 10: большая шестерня
     - node: AutodocSensor
       entity: SiriusAutodocFrame
       edges:
@@ -121,8 +102,6 @@
                 state: gear_large
               name: large gear
               doAfter: 2
-
-    # ПУНКТ 11: отвёртка
     - node: AutodocGear
       entity: SiriusAutodocFrame
       edges:
@@ -130,8 +109,6 @@
           steps:
             - tool: Screwing
               doAfter: 3
-
-    # ПУНКТ 12: гаечный ключ
     - node: AutodocScrewed2
       entity: SiriusAutodocFrame
       edges:
@@ -139,8 +116,6 @@
           steps:
             - tool: Anchoring
               doAfter: 3
-
-    # ПУНКТ 13: сварка
     - node: AutodocWrenched
       entity: SiriusAutodocFrame
       edges:
@@ -148,8 +123,6 @@
           steps:
             - tool: Welding
               doAfter: 5
-
-    # ПУНКТ 14: 6 лома электроники
     - node: AutodocWelded
       entity: SiriusAutodocFrame
       edges:
@@ -158,7 +131,5 @@
             - material: N14ScrapElectronic
               amount: 6
               doAfter: 4
-
-    # ФИНАЛ
     - node: AutodocFinished
       entity: SiriusAutodoc
