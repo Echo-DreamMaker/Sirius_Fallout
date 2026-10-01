@@ -42,14 +42,19 @@ public sealed class CameraFollowSystem : EntitySystem
     /// </summary>
     private const string PsychoReagentId = "DamageModifyingMixture";
 
+    /// <summary>Idle (not aiming) shake is this fraction of the full aim-mode shake.</summary>
+    private const float IdleShakeScale = 0.5f;
+
     private readonly Dictionary<EntityUid, Vector2> _velocities = new();
 
     /// <summary>
-    /// Shake vector applied to the rendered eye on the previous frame. It is folded
-    /// back out of the cursor-to-character aim line so the camera keeps tracking the
-    /// real mouse position instead of chasing its own tremor.
+    /// Shake displacement currently sitting on the rendered eye. Both aim (absolute
+    /// write) and idle (relative write) modes keep it in sync, so switching modes
+    /// never double-applies or jumps. In aim mode it is also folded back out of the
+    /// cursor-to-character aim line so the camera keeps tracking the real mouse
+    /// position instead of chasing its own tremor.
     /// </summary>
-    private Vector2 _lastAimShake;
+    private Vector2 _lastAppliedShake;
 
     /// <summary>
     /// Accumulated render time driving the pseudo-random shake wobble. Accumulating
@@ -69,10 +74,9 @@ public sealed class CameraFollowSystem : EntitySystem
     {
         base.FrameUpdate(frameTime);
 
-        // Check if mouse position is valid
-        if (!_timing.IsFirstTimePredicted || !_input.MouseScreenPosition.IsValid)
+        if (!_timing.IsFirstTimePredicted)
         {
-            _lastAimShake = Vector2.Zero;
+            _lastAppliedShake = Vector2.Zero;
             return;
         }
 
@@ -81,22 +85,29 @@ public sealed class CameraFollowSystem : EntitySystem
         if (player == null)
         {
             _velocities.Clear();
-            _lastAimShake = Vector2.Zero;
+            _lastAppliedShake = Vector2.Zero;
             return;
         }
 
-        if (!TryComp<CameraFollowComponent>(player.Value, out var followComponent))
+        // Not aiming: the camera belongs to the recoil/eye systems, only the passive
+        // half-strength tremor is layered on top of the rendered eye.
+        if (!TryComp<CameraFollowComponent>(player.Value, out var followComponent)
+            || !followComponent.Enabled)
         {
             _velocities.Remove(player.Value);
-            _lastAimShake = Vector2.Zero;
+            ApplyIdleShake(player.Value, frameTime);
             return;
         }
-        if (!followComponent.Enabled || !TryComp<EyeComponent>(player.Value, out var eyeComponent))
+        if (!TryComp<EyeComponent>(player.Value, out var eyeComponent))
         {
             _velocities.Remove(player.Value);
-            _lastAimShake = Vector2.Zero;
+            _lastAppliedShake = Vector2.Zero;
             return;
         }
+
+        // Check if mouse position is valid
+        if (!_input.MouseScreenPosition.IsValid)
+            return;
 
         // Get player map position
         var xform = Transform(player.Value);
@@ -108,19 +119,17 @@ public sealed class CameraFollowSystem : EntitySystem
         // which keeps the aim point fixed while the player holds the mouse still.
         var cursorWorld = _manager.PixelToMap(_input.MouseScreenPosition).Position;
         if (cursorWorld == Vector2.Zero)
-        {
-            _lastAimShake = Vector2.Zero;
             return;
-        }
 
         // The rendered eye still carries last frame's visual shake, so PixelToMap above
         // returns the cursor shifted by exactly that shake. Undo it before anchoring the
         // aim line, otherwise the shake would feed back into the chase target.
-        cursorWorld -= _lastAimShake;
+        cursorWorld -= _lastAppliedShake;
 
         // Aim shake is a cosmetic Eye-only offset: damage+Strength drive its magnitude
         // and Psycho zeroes it. It never touches the networked eye/camera offsets.
-        var shake = ComputeAimShake(player.Value, frameTime);
+        var shake = ComputeShake(player.Value, frameTime, 1f);
+        _lastAppliedShake = shake;
 
         var aimLine = cursorWorld - playerPos - eyeComponent.Offset;
 
@@ -189,21 +198,20 @@ public sealed class CameraFollowSystem : EntitySystem
     }
 
     /// <summary>
-    /// Computes the aim-mode camera shake for this frame. The shake ramps in with
-    /// damage (starts at <see cref="SpecialTuningPrototype.AimCameraShakeDamageLowRatio"/>
-    /// of the death threshold, saturates at the high ratio), is damped linearly by
-    /// Strength (STR 10 = none, STR 1 = full) and is suppressed entirely while Psycho's
-    /// dose timeline is active.
+    /// Computes the camera shake displacement for this frame, scaled to the current mode
+    /// (<see cref="IdleShakeScale"/> while not aiming, 1 while aiming). The shake ramps
+    /// in with damage (starts at
+    /// <see cref="SpecialTuningPrototype.AimCameraShakeDamageLowRatio"/> of the death
+    /// threshold, saturates at the high ratio), is damped linearly by Strength (STR 10 =
+    /// none, STR 1 = full) and is suppressed entirely while Psycho's dose timeline is
+    /// active. Returns the displacement only; caller applies it to the rendered Eye.
     /// </summary>
-    private Vector2 ComputeAimShake(EntityUid player, float frameTime)
+    private Vector2 ComputeShake(EntityUid player, float frameTime, float amplitudeScale)
     {
         // Psycho's timeline lives for the whole dose and cancels the tremor.
         if (TryComp<DrugSpecialTimelineComponent>(player, out var timeline)
             && timeline.ReagentId == PsychoReagentId)
-        {
-            _lastAimShake = Vector2.Zero;
             return Vector2.Zero;
-        }
 
         var tuning = _special.GetTuning();
 
@@ -225,13 +233,30 @@ public sealed class CameraFollowSystem : EntitySystem
         var strength = _special.GetEffective(player, SpecialStat.Strength);
         var strengthDampening = (SpecialProfile.Maximum - strength) / 9f;
 
-        var shake = ShakeWobble(frameTime)
-                    * tuning.AimCameraShakeMaxAmplitude
-                    * damageFactor
-                    * strengthDampening;
+        return ShakeWobble(frameTime)
+               * tuning.AimCameraShakeMaxAmplitude
+               * amplitudeScale
+               * damageFactor
+               * strengthDampening;
+    }
 
-        _lastAimShake = shake;
-        return shake;
+    /// <summary>
+    /// Half-strength tremor applied while the player is NOT in aim mode. Uses a relative
+    /// (delta) write so the recoil/camera systems keep full control of the eye base and
+    /// only the wobble displacement is layered on top of whatever offset they set.
+    /// </summary>
+    private void ApplyIdleShake(EntityUid player, float frameTime)
+    {
+        var shake = ComputeShake(player, frameTime, IdleShakeScale);
+        var currentEye = _manager.CurrentEye;
+        if (currentEye == null)
+        {
+            _lastAppliedShake = Vector2.Zero;
+            return;
+        }
+
+        currentEye.Offset += shake - _lastAppliedShake;
+        _lastAppliedShake = shake;
     }
 
     /// <summary>

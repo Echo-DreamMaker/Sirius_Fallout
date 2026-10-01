@@ -310,27 +310,22 @@ namespace Content.Server.Voting.Managers
                 if (args.Winner == null)
                 {
                     picked = (GameMapPrototype) _random.Pick(args.Winners);
-                    _chatManager.DispatchServerAnnouncement(
-                        Loc.GetString("ui-vote-map-tie", ("picked", maps[picked])));
                 }
                 else
                 {
                     picked = (GameMapPrototype) args.Winner;
-                    _chatManager.DispatchServerAnnouncement(
-                        Loc.GetString("ui-vote-map-win", ("winner", maps[picked])));
                 }
 
                 _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Map vote finished: {picked.MapName}");
                 var ticker = _entityManager.EntitySysManager.GetEntitySystem<GameTicker>();
-                if (ticker.CanUpdateMap())
+
+                // #Misfits Fix: Apply the vote *before* announcing the winner. The old code announced
+                // the winner first, so a vote that the ticker then refused to apply (too late in the
+                // lobby, or the map stopped being eligible) still looked like it had worked, while the
+                // round silently kept the previous map. Players were told a map won and got another one.
+                if (!ticker.CanUpdateMap())
                 {
-                    if (_gameMapManager.TrySelectMapIfEligible(picked.ID))
-                    {
-                        ticker.UpdateInfoText();
-                    }
-                }
-                else
-                {
+                    _log.Warning($"Map vote for {picked.ID} was ignored: round start is too close.");
                     if (ticker.RoundPreloadTime <= TimeSpan.Zero)
                     {
                         _chatManager.DispatchServerAnnouncement(Loc.GetString("ui-vote-map-notlobby"));
@@ -340,7 +335,37 @@ namespace Content.Server.Voting.Managers
                         var timeString = $"{ticker.RoundPreloadTime.Minutes:0}:{ticker.RoundPreloadTime.Seconds:00}";
                         _chatManager.DispatchServerAnnouncement(Loc.GetString("ui-vote-map-notlobby-time", ("time", timeString)));
                     }
+
+                    return;
                 }
+
+                if (!_gameMapManager.TrySelectMapIfEligible(picked.ID))
+                {
+                    // #Misfits Fix: Don't swallow this. Previously the winner was announced and the
+                    // selection silently dropped, so the round loaded a map nobody voted for.
+                    _log.Warning($"Map vote for {picked.ID} was ignored: the map is no longer eligible.");
+                    _adminLogger.Add(LogType.Vote, LogImpact.Medium,
+                        $"Map vote for {picked.ID} discarded: map is no longer eligible.");
+                    _chatManager.DispatchServerAnnouncement(
+                        Loc.GetString("ui-vote-map-ineligible", ("winner", maps[picked])));
+                    return;
+                }
+
+                if (args.Winner == null)
+                {
+                    _chatManager.DispatchServerAnnouncement(
+                        Loc.GetString("ui-vote-map-tie", ("picked", maps[picked])));
+                }
+                else
+                {
+                    _chatManager.DispatchServerAnnouncement(
+                        Loc.GetString("ui-vote-map-win", ("winner", maps[picked])));
+                }
+
+                // #Misfits Fix: SendStatusToAll also refreshes the map name/author shown in the lobby
+                // credit. UpdateInfoText alone leaves that display pointing at the previous map.
+                ticker.UpdateInfoText();
+                ticker.SendStatusToAll();
             };
         }
 

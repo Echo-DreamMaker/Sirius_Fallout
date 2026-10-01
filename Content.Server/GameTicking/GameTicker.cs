@@ -138,6 +138,8 @@ namespace Content.Server.GameTicking
             base.Update(frameTime);
             UpdateRoundFlow(frameTime);
             UpdateGameRules();
+            // #Misfits Perf: coalesce lobby info text broadcasts into at most one per tick.
+            FlushInfoTextUpdate();
         }
     }
 }

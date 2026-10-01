@@ -15,6 +15,7 @@ using Content.Shared.Voting;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
+using Robust.Shared.Log;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -39,6 +40,8 @@ namespace Content.Server.Voting.Managers
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
+        private ISawmill _log = default!;
+
         private int _nextVoteId = 1;
 
         private readonly Dictionary<int, VoteReg> _votes = new();
@@ -51,6 +54,8 @@ namespace Content.Server.Voting.Managers
 
         public void Initialize()
         {
+            _log = Logger.GetSawmill("votes");
+
             _netManager.RegisterNetMessage<MsgVoteData>();
             _netManager.RegisterNetMessage<MsgVoteCanCall>();
             _netManager.RegisterNetMessage<MsgVoteMenu>(ReceiveVoteMenu);

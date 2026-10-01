@@ -49,3 +49,5 @@ ui-vote-map-tie = Tie for map vote! Picking... { $picked }
 ui-vote-map-win = { $winner } won the map vote!
 ui-vote-map-notlobby = Voting for maps is only valid in the pre-round lobby!
 ui-vote-map-notlobby-time = Voting for maps is only valid in the pre-round lobby with { $time } remaining!
+# #Misfits Change: Shown when the voted map is discarded because it is no longer eligible.
+ui-vote-map-ineligible = { $winner } won the map vote, but can no longer be used! The next map was not changed.
