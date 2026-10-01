@@ -121,7 +121,7 @@ namespace Content.IntegrationTests.Tests
             // Let the preload window pick a map, so there is a real selection to protect.
             await pair.RunTicksSync(30);
 
-            string? previous = null;
+            string previous = null!;
             await server.WaitPost(() => previous = mapManager.GetSelectedMap()?.ID);
             Assert.That(previous, Is.Not.Null, "The preloaded round should already have a map selected.");
 
@@ -175,7 +175,7 @@ namespace Content.IntegrationTests.Tests
         /// <summary>
         /// Votes for the first offered map, skipping <paramref name="skip"/>, and returns its id.
         /// </summary>
-        private static string? CastVoteForAnyMap(IVoteHandle handle, ICommonSession session, string? skip)
+        private static string CastVoteForAnyMap(IVoteHandle handle, ICommonSession session, string skip)
         {
             for (var optionId = 0; optionId < 64 && handle.IsValidOption(optionId); optionId++)
             {
