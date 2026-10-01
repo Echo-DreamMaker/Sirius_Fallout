@@ -1,3 +1,8 @@
+ent-SiriusAutodoc = автодок
+    .desc = Довоенный медицинский автодок, способный выполнять сложные медицинские процедуры.
+ent-SiriusAutodocFrame = каркас автодока
+    .desc = Недостроенный автодок. Требует дополнительных деталей.
+
 autodoc-verb-open = Открыть
 autodoc-verb-close = Закрыть
 autodoc-verb-eject = Извлечь пациента

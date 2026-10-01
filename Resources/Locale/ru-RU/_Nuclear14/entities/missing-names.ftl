@@ -1186,7 +1186,6 @@ ent-PelletShotgun20 = дробь (20 калибр)
 ent-RailingYellow = жёлтые перила
 ent-RailingYellowCorner = жёлтые перила
 ent-RailingYellowEnd = жёлтые перила
-ent-SiriusAutodoc = автодок
 ent-SiriusClothingHeadHatFiendHelmet = шлем Исчадия
 ent-SiriusIDEnclaveCommander = голо-жетон командира Анклава
 ent-SiriusIDEnclaveCommunicationsOfficer = голо-жетон офицера связи Анклава

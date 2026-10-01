@@ -1,0 +1,135 @@
+- type: constructionGraph
+  id: SiriusAutodoc
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: AutodocFrame
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: N14Iron
+              amount: 10
+              doAfter: 5
+    - node: AutodocFrame
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocScrewed
+          steps:
+            - tag: Screw
+              icon:
+                sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+                state: screw
+              name: screws
+              doAfter: 2
+    - node: AutodocScrewed
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocWired
+          steps:
+            - material: CableMV
+              amount: 5
+              doAfter: 4
+    - node: AutodocWired
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocPowered
+          steps:
+            - material: CableHV
+              amount: 3
+              doAfter: 3
+    - node: AutodocPowered
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocCircuitry
+          steps:
+            - material: Circuitry
+              amount: 5
+              doAfter: 4
+    - node: AutodocCircuitry
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocBoard
+          steps:
+            - tag: N14Board
+              icon:
+                sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+                state: board_1
+              name: circuit board
+              doAfter: 2
+    - node: AutodocBoard
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocTransistor
+          steps:
+            - tag: N14Transistor
+              icon:
+                sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+                state: transistor_1
+              name: transistor
+              doAfter: 2
+    - node: AutodocTransistor
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocSensorModule
+          steps:
+            - tag: SensorModule
+              icon:
+                sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+                state: sensor_module
+              name: sensor module
+              doAfter: 3
+    - node: AutodocSensorModule
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocSensor
+          steps:
+            - tag: Sensor
+              icon:
+                sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+                state: sensor
+              name: sensor board
+              doAfter: 3
+    - node: AutodocSensor
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocGear
+          steps:
+            - tag: Gear
+              icon:
+                sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+                state: gear_large
+              name: large gear
+              doAfter: 2
+    - node: AutodocGear
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocScrewed2
+          steps:
+            - tool: Screwing
+              doAfter: 3
+    - node: AutodocScrewed2
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocWrenched
+          steps:
+            - tool: Anchoring
+              doAfter: 3
+    - node: AutodocWrenched
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocWelded
+          steps:
+            - tool: Welding
+              doAfter: 5
+    - node: AutodocWelded
+      entity: SiriusAutodocFrame
+      edges:
+        - to: AutodocFinished
+          steps:
+            - material: N14ScrapElectronic
+              amount: 6
+              doAfter: 4
+    - node: AutodocFinished
+      entity: SiriusAutodoc
