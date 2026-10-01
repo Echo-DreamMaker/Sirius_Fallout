@@ -65,6 +65,7 @@ ent-DoorElectronicsVaultSalvage = микросхема шлюза
 ent-DoorElectronicsVaultSecurity = микросхема шлюза
 ent-DrinkBottleBaseEmpty50 = предмет
 ent-FEVSyringeInfinite = шприц с ВРЭ
+    .desc = Шприц, заполненный экспериментальным штаммом принудительной эволюционной вируса. На этикетке предупреждение о permanent-превращении в супермутанта. (Сохраняется между раундами)
     .suffix = Админ, Супермутант, Бесконечный
 ent-FertilizerOre1 = удобрение
 ent-FireProjectileShort = огонь
