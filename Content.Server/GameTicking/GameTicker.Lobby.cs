@@ -35,8 +35,28 @@ namespace Content.Server.GameTicking
         /// </summary>
         public IReadOnlyDictionary<NetUserId, PlayerGameStatus> PlayerGameStatuses => _playerGameStatuses;
 
-        public void UpdateInfoText()
+        /// <summary>
+        /// Set when something changed that affects the lobby info text. The broadcast is
+        /// deferred to the end of the tick so a burst of changes (a full lobby connecting at
+        /// once) results in a single broadcast instead of one per player.
+        /// </summary>
+        private bool _infoTextDirty;
+
+        /// <summary>
+        /// Marks the lobby info text as stale. Cheap and safe to call on every player status
+        /// change; the actual broadcast is coalesced into at most one per tick.
+        /// </summary>
+        public void UpdateInfoText() => _infoTextDirty = true;
+
+        /// <summary>
+        /// Broadcasts the lobby info text if anything marked it stale this tick.
+        /// </summary>
+        private void FlushInfoTextUpdate()
         {
+            if (!_infoTextDirty)
+                return;
+
+            _infoTextDirty = false;
             RaiseNetworkEvent(GetInfoMsg(), Filter.Empty().AddPlayers(_playerManager.NetworkedSessions));
         }
 
@@ -66,16 +86,18 @@ namespace Content.Server.GameTicking
                 stationNames.Append(meta.EntityName);
             }
 
+            // #Misfits Perf: resolve the selected map once instead of twice.
+            var selectedMap = _gameMapManager.GetSelectedMap();
+
             if (!foundOne)
             {
-                stationNames.Append(_gameMapManager.GetSelectedMap()?.MapName ??
+                stationNames.Append(selectedMap?.MapName ??
                                     Loc.GetString("game-ticker-no-map-selected"));
             }
 
             var gmTitle = Loc.GetString(preset.ModeTitle);
             var desc = Loc.GetString(preset.Description);
             // #Misfits Add - Include map author in lobby info text
-            var selectedMap = _gameMapManager.GetSelectedMap();
             var mapAuthor = selectedMap?.MapAuthor ?? Loc.GetString("game-ticker-unknown-map-author");
             return Loc.GetString(
                 RunLevel == GameRunLevel.PreRoundLobby

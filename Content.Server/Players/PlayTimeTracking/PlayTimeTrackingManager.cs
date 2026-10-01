@@ -200,6 +200,25 @@ public sealed partial class PlayTimeTrackingManager : ISharedPlaytimeManager, IP
         FlushSingleTracker(data, time);
     }
 
+    /// <summary>
+    /// Flushes a single player's trackers, doing nothing if we hold no data for them.
+    /// </summary>
+    /// <returns>True if the player had data and was flushed.</returns>
+    /// <remarks>
+    /// #Misfits Fix: <see cref="FlushTracker"/> goes through the dictionary indexer and throws
+    /// KeyNotFoundException for a session we have no data for, which happens on the disconnect
+    /// path when a player leaves before their playtime finished loading. This variant is safe
+    /// to call unconditionally.
+    /// </remarks>
+    public bool TryFlushTracker(ICommonSession player)
+    {
+        if (!_playTimeData.TryGetValue(player, out var data))
+            return false;
+
+        FlushSingleTracker(data, _timing.RealTime);
+        return true;
+    }
+
     private static void FlushSingleTracker(PlayTimeData data, TimeSpan time)
     {
         var delta = time - data.LastUpdate;
@@ -246,8 +265,11 @@ public sealed partial class PlayTimeTrackingManager : ISharedPlaytimeManager, IP
     /// </summary>
     public async void SaveSession(ICommonSession session)
     {
-        // This causes all trackers to refresh, ah well.
-        FlushAllTrackers();
+        // #Misfits Perf: flush only this player's trackers. This used to call FlushAllTrackers(),
+        // which walked every tracked player on each individual disconnect — O(n) per disconnect,
+        // O(n^2) when a lobby empties at once. Every other player is still flushed by the
+        // periodic Save() in Update(), so no tracked time is lost.
+        TryFlushTracker(session);
 
         TrackPending(DoSaveSessionAsync(session));
     }
@@ -298,7 +320,11 @@ public sealed partial class PlayTimeTrackingManager : ISharedPlaytimeManager, IP
     {
         var log = new List<PlayTimeUpdate>();
 
-        var data = _playTimeData[session];
+        // #Misfits Fix: the indexer threw KeyNotFoundException when a player disconnected before
+        // their playtime data finished loading. That exception escaped through TrackPending's
+        // async void and took the whole server down with it.
+        if (!_playTimeData.TryGetValue(session, out var data))
+            return;
 
         foreach (var tracker in data.DbTrackersDirty)
         {
