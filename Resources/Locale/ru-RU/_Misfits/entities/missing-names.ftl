@@ -184,6 +184,7 @@ ent-EnclaveSoldierloadoutkits = нерекомендованный набор с
 ent-FalloutNCRmilitarypoliceHelmet = шлем военной полиции НКР
 ent-falloutNCRmilitarypolicevest = жилет военной полиции НКР
 ent-FEVSyringe = шприц с ВРЭ
+    .desc = Шприц, заполненный экспериментальным штаммом принудительной эволюционной вируса. На этикетке предупреждение о permanent-превращении в супермутанта. (Сохраняется между раундами)
     .suffix = Супермутант, Только для РП, Наказания
 ent-FollowersCasualtyTracker = трекер потерь
 ent-FoodCherryBomb = вишня

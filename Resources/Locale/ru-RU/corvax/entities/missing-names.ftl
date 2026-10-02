@@ -147,6 +147,7 @@ ent-N14DecorationFlagpoleUSA = малый флаг армии США
 ent-N14DecorationFlagpoleWesternBOS = флагшток Братства Стали
 ent-N14DecorationFlagWesterBoS = флаг Братства Стали
 ent-N14DoctorSyringeFEV = шприц с ВРЭ
+    .desc = Используется для забора образцов крови у существ или для введения им реагентов. Фанаты химии убьют вас за такой.
     .suffix = Реагент ВРЭ
 ent-N14FoodCannedFish = рыбные консервы
 ent-N14FoodCannedFishHot = разогретые рыбные консервы
