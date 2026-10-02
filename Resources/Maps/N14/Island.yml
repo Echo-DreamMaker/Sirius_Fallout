@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 09/24/2026 12:47:49
-  entityCount: 91424
+  entityCount: 91422
 maps:
 - 1
 grids:
@@ -17,8 +17,6 @@ nullspace:
 - 91423
 - 91424
 - 91425
-- 91426
-- 91427
 tilemap:
   0: Space
   50: CultFloor
@@ -57005,9 +57003,7 @@ entities:
       _specials: []
       timeOfDeath: 34519.5988137
       originalOwnerUserId: 942a4262-5f7f-403e-a48e-3325cb7c82b8
-      objectives:
-      - 91426
-      - 91427
+      objectives: []
       characterName: Франклин Войд
     - type: ObserverRole
     - type: ZombieRole
@@ -103449,10 +103445,6 @@ entities:
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 52.48256,62.53968
-- proto: EscapeShuttleObjective
-  entities:
-  - uid: 91426
-    mapInit: true
 - proto: ExGrenade
   entities:
   - uid: 7813
@@ -112730,10 +112722,6 @@ entities:
       pos: 24.5,308.5
     - type: Godmode
       oldDamage: {}
-- proto: HijackShuttleObjective
-  entities:
-  - uid: 91427
-    mapInit: true
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 9299
