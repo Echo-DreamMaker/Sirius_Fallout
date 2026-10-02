@@ -51,3 +51,8 @@ gun-speedloader-empty = Speedloader empty
 
 # Misfit: gun refactoring. Later on this might need to accomodate for diff types of guns
 gun-general-empty = {$entName}'s Empty
+
+# HybridAmmoProvider
+gun-no-magazine = No magazine inserted!
+gun-no-ammo = Out of ammo!
+gun-not-enough-energy = Not enough charge in the cell!
