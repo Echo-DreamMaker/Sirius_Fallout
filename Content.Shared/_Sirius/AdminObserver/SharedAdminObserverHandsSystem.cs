@@ -7,7 +7,7 @@ using Content.Shared.Strip.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._White.AdminObserver;
+namespace Content.Shared._Sirius.AdminObserver;
 
 public sealed class SharedAdminObserverHandsSystem : EntitySystem
 {

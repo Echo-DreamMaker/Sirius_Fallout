@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._White.AdminObserver;
+namespace Content.Shared._Sirius.AdminObserver;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
 public sealed partial class AdminObserverHandsComponent : Component

@@ -35,7 +35,9 @@
     canInteract: true
   - type: GhostHearing
   - type: Hands
+  # Sirius edit start
   - type: AdminObserverHands
+  # Sirius edit end
   - type: ComplexInteraction
   - type: Puller
     needsHands: true # I want to drag using my hands, thank you very much

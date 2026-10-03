@@ -26,12 +26,14 @@ public sealed partial class OverlayChatGameScreen : InGameScreen
         SetAnchorAndMarginPreset(Chat, LayoutPreset.TopRight, margin: 10);
         SetAnchorAndMarginPreset(Alerts, LayoutPreset.TopRight, margin: 10);
         SetAnchorAndMarginPreset(Targeting, LayoutPreset.BottomRight, margin: 5); // Shitmed Change
+        // Sirius edit start
         SetAnchorPreset(AdminObserverHands, LayoutPreset.TopRight);
         SetMarginLeft(AdminObserverHands, -148);
         SetMarginRight(AdminObserverHands, -84);
         SetMarginTop(AdminObserverHands, 10);
         SetMarginBottom(AdminObserverHands, 74);
         SetGrowHorizontal(AdminObserverHands, GrowDirection.Begin);
+        // Sirius edit end
 
         Chat.OnResized += ChatOnResized;
         Chat.OnChatResizeFinish += ChatOnResizeFinish;
@@ -57,8 +59,10 @@ public sealed partial class OverlayChatGameScreen : InGameScreen
     {
         var marginBottom = Chat.GetValue<float>(MarginBottomProperty);
         SetMarginTop(Alerts, marginBottom);
+        // Sirius edit start
         SetMarginTop(AdminObserverHands, marginBottom);
         SetMarginBottom(AdminObserverHands, marginBottom + 64);
+        // Sirius edit end
     }
 
     public override ChatBox ChatBox => Chat;

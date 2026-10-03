@@ -1,10 +1,10 @@
-using Content.Client._White.UserInterface.Systems.AdminObserver.Widgets;
+using Content.Client._Sirius.UserInterface.Systems.AdminObserver.Widgets;
 using Content.Client.Gameplay;
-using Content.Shared._White.AdminObserver;
+using Content.Shared._Sirius.AdminObserver;
 using Robust.Client.Player;
 using Robust.Client.UserInterface.Controllers;
 
-namespace Content.Client._White.UserInterface.Systems.AdminObserver;
+namespace Content.Client._Sirius.UserInterface.Systems.AdminObserver;
 
 public sealed class AdminObserverHandsUIController : UIController, IOnStateEntered<GameplayState>, IOnSystemChanged<SharedAdminObserverHandsSystem>
 {
