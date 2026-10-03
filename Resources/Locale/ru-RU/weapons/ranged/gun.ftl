@@ -70,3 +70,8 @@ examine-gun-spread-modifier-increase = Разброс повышен на [color
 gun-clumsy = Оружие взрывается у вас в руках!
 
 gun-general-empty = { $entName } пуст
+
+# HybridAmmoProvider
+gun-no-magazine = Нет магазина!
+gun-no-ammo = Патроны кончились!
+gun-not-enough-energy = Недостаточно заряда в элементе питания!
