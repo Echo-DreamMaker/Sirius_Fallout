@@ -11,6 +11,7 @@
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:inventory="clr-namespace:Content.Client.UserInterface.Systems.Inventory.Widgets"
     xmlns:targeting="clr-namespace:Content.Client._Shitmed.UserInterface.Systems.Targeting.Widgets"
+    xmlns:adminObserver="clr-namespace:Content.Client._White.UserInterface.Systems.AdminObserver.Widgets"
     Name="SeparatedChatHud"
     VerticalExpand="False"
     VerticalAlignment="Bottom"
@@ -27,6 +28,7 @@
                 <BoxContainer Name="VoteMenu" Access="Public" Orientation="Vertical"/>
             </BoxContainer>
             <alerts:AlertsUI Name="Alerts" Access="Protected" />
+            <adminObserver:AdminObserverHandsGui Name="AdminObserverHands" Access="Protected"/>
         </LayoutContainer>
         <PanelContainer HorizontalExpand="True" MinWidth="300">
             <PanelContainer.PanelOverride>

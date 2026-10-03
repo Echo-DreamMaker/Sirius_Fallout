@@ -35,6 +35,7 @@
     canInteract: true
   - type: GhostHearing
   - type: Hands
+  - type: AdminObserverHands
   - type: ComplexInteraction
   - type: Puller
     needsHands: true # I want to drag using my hands, thank you very much
