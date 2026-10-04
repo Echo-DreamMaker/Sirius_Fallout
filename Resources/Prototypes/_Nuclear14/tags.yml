@@ -430,6 +430,12 @@
 - type: Tag
   id: N14AmmoCell
 
+# #Misfits Add - gauss magazines are both a ballistic magazine and a battery cell, so they need to
+# be chargeable in the weapon capacitor rechargers, whose whitelists key off ammo-provider
+# components these magazines deliberately do not carry.
+- type: Tag
+  id: N14GaussChargeCell
+
 - type: Tag
   id: N14PowerCellHigh
 

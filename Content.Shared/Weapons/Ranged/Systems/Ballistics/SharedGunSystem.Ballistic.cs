@@ -216,7 +216,10 @@ public abstract partial class SharedGunSystem
             return;
         }
 
-        args.Handled = _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, giverComp.FillDelay, new AmmoFillDoAfterEvent(), used: giverUID, target: args.Target, eventTarget: giverUID)
+        args.Handled = _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User,
+            // #Misfits Change: ammo loading gets a stronger, dedicated Agility speed-up on top
+            // of the generic action-delay scaling from SharedDoAfterSystem.
+            _special.GetAgilityAmmoFillDelay(args.User, giverComp.FillDelay), new AmmoFillDoAfterEvent(), used: giverUID, target: args.Target, eventTarget: giverUID)
         {
             BreakOnMove = false,
             BreakOnDamage = false,
@@ -246,7 +249,8 @@ public abstract partial class SharedGunSystem
         args.Repeat = Timing.IsFirstTimePredicted && !args.Cancelled &&
                       !Deleted(args.Target) && TryComp<BallisticAmmoProviderComponent>(args.Target.Value, out var recieverComp) &&
                       !PopupCancels(recieverComp, args.Target.Value, giverComp, giverUID, args.User) &&
-                      TryAmmoInsert(5, giverUID, recieverComp, args.Target.Value, args.User);
+                      // #Misfits Fix: load one cartridge per operation so a full mag takes a while.
+                      TryAmmoInsert(1, giverUID, recieverComp, args.Target.Value, args.User);
 
         Audio.PlayPredicted(giverComp.SoundInsert, giverUID, args.User, args.Repeat ? _audioParam : _noAmmoAudio);
     }

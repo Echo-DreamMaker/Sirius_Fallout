@@ -5,6 +5,7 @@
   id: N14WeaponBMGSirius
   description: The most significant Browning machine gun associated with the 1938 period is the M2HB (Heavy Barrel). Developed in 1938, this legendary .50-caliber (12.7 mm) heavy machine gun featured a lengthened, air-cooled barrel to improve sustained fire, striking energy, and range for ground and vehicle use.
   components:
+  - type: GunBeltInsertDelay
   - type: SuperMutantFitting
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/bmg.rsi
@@ -44,6 +45,8 @@
         startingItem: Magazine50ammoBelt
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        # #Misfits Change: belt insertion goes through a timed do-after instead of instant interact.
+        insertOnInteract: false
         priority: 2
         whitelist:
           tags:

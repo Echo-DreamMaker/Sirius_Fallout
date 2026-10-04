@@ -106,8 +106,9 @@
       id: N14ClothingHandsPowerFistGoliath
     - !type:EntSelector
       id: N14WeaponLegionScorcher
-    - !type:EntSelector
-      id: N14WeaponGaussPistol
+    # #Misfits Remove - N14WeaponGaussPistol prototype disabled.
+    # - !type:EntSelector
+    #   id: N14WeaponGaussPistol
     - !type:EntSelector
       id: N14WeaponPistolT60
     - !type:EntSelector

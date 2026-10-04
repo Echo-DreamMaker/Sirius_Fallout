@@ -72,103 +72,104 @@
             - N14Cartridge556Rifle
   - type: StaticPrice
     price: 20
-- type: entity
-  name: M72 rifle
-  parent: BaseItem
-  id: N14WeaponGaussRifle
-  description: The M72 rifle is of German design. It uses an electromagnetic field to propel rounds at tremendous speed... and pierce almost any obstacle. Its range, accuracy and stopping power is almost unparalleled.
-  components:
-  - type: MinigunToggle
-    BypassChamber: true
-  - type: ItemToggle
-    onUse: false
-    activated: false
-    noToggleOnWield: true
-    soundActivate:
-      path: /Audio/Weapons/spinon.ogg
-    soundDeactivate:
-      path: /Audio/Weapons/spinoff.ogg
-  - type: Sprite
-    sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifleicon.rsi
-    netsync: false
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Clothing
-    sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifle.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
-  - type: Item
-    size: Large
-    sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifle.rsi
-  - type: Wieldable
-    wieldedSpeedModifier: 0.82
-  - type: GunRequiresWield
-  - type: AmmoCounter
-  - type: Gun
-    fireRate: 2
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
-    soundGunshot:
-      collection: N14AutoShotgunGunshot
-    soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: N14MagazineRifle2mmEC
-        priority: 2
-        whitelist:
-          tags:
-          - N14MagazineRifle2mmEC
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-      gun_top:
-        name: weapon-attachment-slot-top
-        priority: 0
-        whitelist:
-          tags:
-          - N14AttachmentTop
-      gun_muzzle:
-        name: weapon-attachment-slot-muzzle
-        priority: 0
-        whitelist:
-          tags:
-          - N14AttachmentMuzzle
-      gun_bottom:
-        name: weapon-attachment-slot-bottom
-        priority: 0
-        whitelist:
-          tags:
-          - N14AttachmentBottom
-      gun_handle:
-        name: weapon-attachment-slot-handle
-        priority: 0
-        whitelist:
-          tags:
-          - N14AttachmentHandle
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_top: !type:ContainerSlot
-      gun_muzzle: !type:ContainerSlot
-      gun_bottom: !type:ContainerSlot
-      gun_handle: !type:ContainerSlot
-  - type: WeaponAttachmentHost
-  - type: MagazineAmmoProvider
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-  - type: Appearance
-  - type: StaticPrice
-    price: 100
+# #Misfits Remove - N14WeaponGaussRifle (old M72 gauss rifle prototype) disabled on request. The current M72 is N14WeaponSniperM72GaussRifleSirius.
+# - type: entity
+#   name: M72 rifle
+#   parent: BaseItem
+#   id: N14WeaponGaussRifle
+#   description: The M72 rifle is of German design. It uses an electromagnetic field to propel rounds at tremendous speed... and pierce almost any obstacle. Its range, accuracy and stopping power is almost unparalleled.
+#   components:
+#   - type: MinigunToggle
+#     BypassChamber: true
+#   - type: ItemToggle
+#     onUse: false
+#     activated: false
+#     noToggleOnWield: true
+#     soundActivate:
+#       path: /Audio/Weapons/spinon.ogg
+#     soundDeactivate:
+#       path: /Audio/Weapons/spinoff.ogg
+#   - type: Sprite
+#     sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifleicon.rsi
+#     netsync: false
+#     layers:
+#     - state: base
+#       map: ["enum.GunVisualLayers.Base"]
+#     - state: mag-0
+#       map: ["enum.GunVisualLayers.Mag"]
+#   - type: Clothing
+#     sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifle.rsi
+#     quickEquip: false
+#     slots:
+#     - Back
+#     - suitStorage
+#   - type: Item
+#     size: Large
+#     sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifle.rsi
+#   - type: Wieldable
+#     wieldedSpeedModifier: 0.82
+#   - type: GunRequiresWield
+#   - type: AmmoCounter
+#   - type: Gun
+#     fireRate: 2
+#     selectedMode: FullAuto
+#     availableModes:
+#     - FullAuto
+#     soundGunshot:
+#       collection: N14AutoShotgunGunshot
+#     soundEmpty:
+#       path: /Audio/Weapons/Guns/Empty/empty.ogg
+#   - type: ItemSlots
+#     slots:
+#       gun_magazine:
+#         name: Magazine
+#         startingItem: N14MagazineRifle2mmEC
+#         priority: 2
+#         whitelist:
+#           tags:
+#           - N14MagazineRifle2mmEC
+#         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+#         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+#       gun_top:
+#         name: weapon-attachment-slot-top
+#         priority: 0
+#         whitelist:
+#           tags:
+#           - N14AttachmentTop
+#       gun_muzzle:
+#         name: weapon-attachment-slot-muzzle
+#         priority: 0
+#         whitelist:
+#           tags:
+#           - N14AttachmentMuzzle
+#       gun_bottom:
+#         name: weapon-attachment-slot-bottom
+#         priority: 0
+#         whitelist:
+#           tags:
+#           - N14AttachmentBottom
+#       gun_handle:
+#         name: weapon-attachment-slot-handle
+#         priority: 0
+#         whitelist:
+#           tags:
+#           - N14AttachmentHandle
+#   - type: ContainerContainer
+#     containers:
+#       gun_magazine: !type:ContainerSlot
+#       gun_top: !type:ContainerSlot
+#       gun_muzzle: !type:ContainerSlot
+#       gun_bottom: !type:ContainerSlot
+#       gun_handle: !type:ContainerSlot
+#   - type: WeaponAttachmentHost
+#   - type: MagazineAmmoProvider
+#   - type: MagazineVisuals
+#     magState: mag
+#     steps: 1
+#     zeroVisible: true
+#   - type: Appearance
+#   - type: StaticPrice
+#     price: 100
 
 # #Misfits Add - Heavy Assault Rifle. A pre-war 5.56 automatic rifle issued to power
 # armored infantry. Ballistics and handling are a straight copy of the R-91 assault

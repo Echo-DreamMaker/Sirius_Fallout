@@ -43,7 +43,19 @@ namespace Content.Server.Preferences.Managers
 
         private ISawmill _sawmill = default!;
 
-        private int MaxCharacterSlots => _cfg.GetCVar(CCVars.GameMaxCharacterSlots);
+        // #Misfits Fix - a stale/archived "game.maxcharacterslots" override (CVar.ARCHIVE persists
+        // it server-side) can leave the live lobby below the intended 7-character cap (e.g. 3 after
+        // an old config/console command). Clamp so the server always offers the full slot pool;
+        // admins can still raise the cap via config, just not sink it below this floor.
+        public const int MinCharacterSlots = 7;
+
+        // #Misfits Fix - single source of truth for the enforced character-slot floor. Used by the
+        // preferences manager and the transformation systems so the client lobby never sees fewer
+        // slots than ServerPreferencesManager actually allows.
+        public static int GetMaxCharacterSlots(IConfigurationManager cfg)
+            => Math.Max(MinCharacterSlots, cfg.GetCVar(CCVars.GameMaxCharacterSlots));
+
+        private int MaxCharacterSlots => GetMaxCharacterSlots(_cfg);
 
         public void Init()
         {

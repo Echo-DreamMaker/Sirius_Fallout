@@ -86,15 +86,17 @@
         crate: N14CrateRequisitionsEnclavePulsePistol
       - cost: 2800
         crate: N14CrateRequisitionsEnclavePlasmaAuto
-      - cost: 3000
-        stock: 3
-        crate: N14CrateRequisitionsEnclaveGaussPistol
+      # #Misfits Remove - PPK-12 gauss pistol crate disabled (N14WeaponGaussPistol prototype off).
+      # - cost: 3000
+      #   stock: 3
+      #   crate: N14CrateRequisitionsEnclaveGaussPistol
       - cost: 3200
         stock: 3
         crate: N14CrateRequisitionsEnclaveRCW
-      - cost: 3450
-        stock: 3
-        crate: N14CrateRequisitionsEnclaveGauss
+      # #Misfits Remove - M72 gauss rifle crate disabled (N14WeaponGaussRifle prototype off).
+      # - cost: 3450
+      #   stock: 3
+      #   crate: N14CrateRequisitionsEnclaveGauss
       - cost: 3500
         stock: 2
         crate: N14CrateRequisitionsEnclavePulseCarbine
@@ -437,23 +439,24 @@
     - id: N14PlasmaCartridge
       amount: 4
 
-- type: entity
-  parent: N14CrateRequisitions
-  id: N14CrateRequisitionsEnclaveGaussPistol
-  name: PPK-12 gauss pistol crate
-  components:
-  - type: Icon
-    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
-  - type: RequisitionsCrate
-    reward: 50
-  - type: StorageFill
-    contents:
-    - id: N14WeaponGaussPistol
-      amount: 1
-    - id: N14MagazinePistol2mmEC
-      amount: 3
+# #Misfits Remove - N14CrateRequisitionsEnclaveGaussPistol crate removed: N14WeaponGaussPistol prototype disabled.
+# - type: entity
+#   parent: N14CrateRequisitions
+#   id: N14CrateRequisitionsEnclaveGaussPistol
+#   name: PPK-12 gauss pistol crate
+#   components:
+#   - type: Icon
+#     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+#   - type: Sprite
+#     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+#   - type: RequisitionsCrate
+#     reward: 50
+#   - type: StorageFill
+#     contents:
+#     - id: N14WeaponGaussPistol
+#       amount: 1
+#     - id: N14MagazinePistol2mmEC
+#       amount: 3
 
 
 - type: entity
@@ -474,23 +477,24 @@
     - id: N14PlasmaCartridge
       amount: 6
 
-- type: entity
-  parent: N14CrateRequisitions
-  id: N14CrateRequisitionsEnclaveGauss
-  name: M72 gauss rifle crate
-  components:
-  - type: Icon
-    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
-  - type: RequisitionsCrate
-    reward: 50
-  - type: StorageFill
-    contents:
-    - id: N14WeaponGaussRifle
-      amount: 1
-    - id: N14MagazineRifle2mmEC
-      amount: 3
+# - type: entity
+# #Misfits Remove - N14CrateRequisitionsEnclaveGauss crate removed: N14WeaponGaussRifle prototype disabled.
+#   parent: N14CrateRequisitions
+#   id: N14CrateRequisitionsEnclaveGauss
+#   name: M72 gauss rifle crate
+#   components:
+#   - type: Icon
+#     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+#   - type: Sprite
+#     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+#   - type: RequisitionsCrate
+#     reward: 50
+#   - type: StorageFill
+#     contents:
+#     - id: N14WeaponGaussRifle
+#       amount: 1
+#     - id: N14MagazineRifle2mmEC
+#       amount: 3
 
 
 - type: entity

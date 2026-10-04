@@ -17,20 +17,18 @@ namespace Content.IntegrationTests.Tests._Misfits.GunSystem;
 [TestFixture]
 public sealed class GaussRiflePickupAmmoTest
 {
+    // #Misfits Remove - N14WeaponGaussRifle disabled as a leftover duplicate; the surviving
+    // N14WeaponSniperM72GaussRifleSirius covers the same M72 behaviour.
     private static readonly string[] GaussRifleProtos =
     [
-        "N14WeaponSniperM72GaussRifleSirius67",
         "N14WeaponSniperM72GaussRifleSirius",
-        "N14WeaponGaussRifle",
     ];
 
+    // #Misfits Remove - N14WeaponGaussRifle / N14WeaponGaussPistol prototypes disabled.
     private static readonly string[] AllBypassChamberProtos =
     [
-        "N14WeaponSniperM72GaussRifleSirius67",
         "N14WeaponSniperM72GaussRifleSirius",
-        "N14WeaponGaussRifle",
         "N14WeaponPistol2mmECPPK12Sirius",
-        "N14WeaponGaussPistol",
         "N14WeaponMECGaussMinigunSirius",
     ];
 

@@ -252,6 +252,29 @@ public sealed class SharedSpecialSystem : EntitySystem
     }
 
     /// <summary>
+    /// Returns the ammo-fill (magazine loading) speed multiplier for the given Agility.
+    /// This is a dedicated, stronger coefficient for ballistic fill do-afters and stacks
+    /// on top of the generic action-delay scaling from <see cref="GetAgilityActionSpeedMultiplier"/>,
+    /// so high Agility reloads are noticeably faster than other timed actions.
+    /// </summary>
+    public float GetAgilityAmmoFillSpeedMultiplier(EntityUid uid, SpecialComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return 1f;
+
+        var tuning = GetTuning();
+        return GetAgilityActionSpeedMultiplier(GetCurvedEffectDelta(uid, SpecialStat.Agility, component), tuning.AgilityAmmoFillMultiplierPerPoint);
+    }
+
+    /// <summary>
+    /// Applies the Agility ammo-fill speed multiplier to a ballistic fill delay.
+    /// </summary>
+    public TimeSpan GetAgilityAmmoFillDelay(EntityUid uid, TimeSpan baseDelay, SpecialComponent? component = null)
+    {
+        return baseDelay / GetAgilityAmmoFillSpeedMultiplier(uid, component);
+    }
+
+    /// <summary>
     /// Returns the opacity of the motion-trace (infrared) afterimage for the given Perception.
     /// The mechanic is disabled below <see cref="SpecialTuningPrototype.PerceptionTraceMinPerception"/>
     /// (returning null), then grows clearer as Perception climbs above the threshold.

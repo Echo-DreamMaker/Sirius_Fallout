@@ -8,95 +8,96 @@
     sprite: _Misfits/Objects/Weapons/Guns/Pistols/enclavedeagle.rsi
   - type: Item
     sprite: _Misfits/Objects/Weapons/Guns/Pistols/enclavedeagle.rsi
-- type: entity
-  name: PPK12
-  parent: BaseItem
-  id: N14WeaponGaussPistol
-  description: Praised for its range and stopping power, the PPK12 Gauss Pistol is of German design. The pistol uses an electromagnetic field to propel rounds at tremendous speed and punch through almost any armor.
-  components:
-  - type: Tag
-    tags:
-    - Sidearm
-  - type: MinigunToggle
-    BypassChamber: true
-  - type: ItemToggle
-    onUse: false
-    activated: false
-    noToggleOnWield: true
-    soundActivate:
-      path: /Audio/Weapons/spinon.ogg
-    soundDeactivate:
-      path: /Audio/Weapons/spinoff.ogg
-  - type: Sprite
-    sprite: _Misfits/Objects/Weapons/Guns/Pistols/gausspistol.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Item
-    sprite: _Misfits/Objects/Weapons/Guns/Pistols/gausspistol.rsi
-  - type: AmmoCounter
-  - type: Gun
-    fireRate: 2.0
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
-    soundGunshot:
-      collection: N14AutoShotgunGunshot
-    soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: N14MagazinePistol2mmEC
-        priority: 2
-        whitelist:
-          tags:
-          - N14MagazinePistol2mmEC
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-      gun_top:
-        name: weapon-attachment-slot-top
-        priority: 0
-        whitelist:
-          tags:
-          - N14AttachmentTop
-      gun_muzzle:
-        name: weapon-attachment-slot-muzzle
-        priority: 0
-        whitelist:
-          tags:
-          - N14AttachmentMuzzle
-      gun_bottom:
-        name: weapon-attachment-slot-bottom
-        priority: 0
-        whitelist:
-          tags:
-          - N14AttachmentBottom
-      gun_handle:
-        name: weapon-attachment-slot-handle
-        priority: 0
-        whitelist:
-          tags:
-          - N14AttachmentHandle
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_top: !type:ContainerSlot
-      gun_muzzle: !type:ContainerSlot
-      gun_bottom: !type:ContainerSlot
-      gun_handle: !type:ContainerSlot
-  - type: WeaponAttachmentHost
-  - type: MagazineAmmoProvider
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-  - type: Appearance
-  - type: StaticPrice
-    price: 100
+# #Misfits Remove - N14WeaponGaussPistol (old PPK12 gauss pistol prototype) disabled on request. The current PPK12 is N14WeaponPistol2mmECPPK12Sirius.
+# - type: entity
+#   name: PPK12
+#   parent: BaseItem
+#   id: N14WeaponGaussPistol
+#   description: Praised for its range and stopping power, the PPK12 Gauss Pistol is of German design. The pistol uses an electromagnetic field to propel rounds at tremendous speed and punch through almost any armor.
+#   components:
+#   - type: Tag
+#     tags:
+#     - Sidearm
+#   - type: MinigunToggle
+#     BypassChamber: true
+#   - type: ItemToggle
+#     onUse: false
+#     activated: false
+#     noToggleOnWield: true
+#     soundActivate:
+#       path: /Audio/Weapons/spinon.ogg
+#     soundDeactivate:
+#       path: /Audio/Weapons/spinoff.ogg
+#   - type: Sprite
+#     sprite: _Misfits/Objects/Weapons/Guns/Pistols/gausspistol.rsi
+#     layers:
+#     - state: base
+#       map: ["enum.GunVisualLayers.Base"]
+#     - state: mag-0
+#       map: ["enum.GunVisualLayers.Mag"]
+#   - type: Item
+#     sprite: _Misfits/Objects/Weapons/Guns/Pistols/gausspistol.rsi
+#   - type: AmmoCounter
+#   - type: Gun
+#     fireRate: 2.0
+#     selectedMode: FullAuto
+#     availableModes:
+#     - FullAuto
+#     soundGunshot:
+#       collection: N14AutoShotgunGunshot
+#     soundEmpty:
+#       path: /Audio/Weapons/Guns/Empty/empty.ogg
+#   - type: ItemSlots
+#     slots:
+#       gun_magazine:
+#         name: Magazine
+#         startingItem: N14MagazinePistol2mmEC
+#         priority: 2
+#         whitelist:
+#           tags:
+#           - N14MagazinePistol2mmEC
+#         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+#         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+#       gun_top:
+#         name: weapon-attachment-slot-top
+#         priority: 0
+#         whitelist:
+#           tags:
+#           - N14AttachmentTop
+#       gun_muzzle:
+#         name: weapon-attachment-slot-muzzle
+#         priority: 0
+#         whitelist:
+#           tags:
+#           - N14AttachmentMuzzle
+#       gun_bottom:
+#         name: weapon-attachment-slot-bottom
+#         priority: 0
+#         whitelist:
+#           tags:
+#           - N14AttachmentBottom
+#       gun_handle:
+#         name: weapon-attachment-slot-handle
+#         priority: 0
+#         whitelist:
+#           tags:
+#           - N14AttachmentHandle
+#   - type: ContainerContainer
+#     containers:
+#       gun_magazine: !type:ContainerSlot
+#       gun_top: !type:ContainerSlot
+#       gun_muzzle: !type:ContainerSlot
+#       gun_bottom: !type:ContainerSlot
+#       gun_handle: !type:ContainerSlot
+#   - type: WeaponAttachmentHost
+#   - type: MagazineAmmoProvider
+#   - type: MagazineVisuals
+#     magState: mag
+#     steps: 1
+#     zeroVisible: true
+#   - type: Appearance
+#   - type: StaticPrice
+#     price: 100
 
 # #Misfits Add - T-60 Pistol. Pre-war .44 sidearm issued alongside T-60 power armor.
 # Ballistics and rate of fire are copied from the Desert Eagle .44

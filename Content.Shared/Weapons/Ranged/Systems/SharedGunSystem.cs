@@ -19,6 +19,7 @@ using Content.Shared.Item;
 using Content.Shared.Mech.Components; // Goobstation
 using Content.Shared._Misfits.CCVar;
 using Content.Shared._Misfits.Random;
+using Content.Shared._Misfits.Special;
 using Content.Shared._Misfits.Weapons;
 using Content.Shared._Misfits.Weapons.Ranged.Prediction;
 using Content.Shared.Popups;
@@ -88,6 +89,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private SharedPhysicsSystem _sharedPhysics = default!;
     [Dependency] private ISharedPlayerManager _sharedPlayer = default!;
+    [Dependency] private SharedSpecialSystem _special = default!;
 
 
     private const float InteractNextFire = 0.3f;
@@ -120,6 +122,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         // Misfit Additions:
         InitializeSMGInteractions(); // no concrete comp to distguinish smg from other weapon types
         Misfit_InitializeRevolver(); // has RevolverAmmoProviderComponent listen for added event
+        InitializeWeaponBeltInteractions(); // belt-fed machine guns load ammo belts with a timed insert
 
         // Interactions
         SubscribeLocalEvent<GunComponent, GetVerbsEvent<AlternativeVerb>>(OnAltVerb);

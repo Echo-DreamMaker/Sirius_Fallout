@@ -75,3 +75,5 @@ gun-general-empty = { $entName } пуст
 gun-no-magazine = Нет магазина!
 gun-no-ammo = Патроны кончились!
 gun-not-enough-energy = Недостаточно заряда в элементе питания!
+gun-hybrid-charge-examine = В элементе питания [color={$color}]{$charge}[/color] / {$max} зар. ({$percent}%).
+gauss-charge-cell-examine = Элемент питания: [color={$color}]{$charge}[/color] / {$max} зар. ({$percent}%).

@@ -168,7 +168,7 @@ public sealed partial class GhoulReversalEffect : EntityEffect
                 Preferences = updatedPrefs,
                 Settings = new GameSettings
                 {
-                    MaxCharacterSlots = cfg.GetCVar(CCVars.GameMaxCharacterSlots)
+                    MaxCharacterSlots = ServerPreferencesManager.GetMaxCharacterSlots(cfg)
                 }
             };
             netManager.ServerSendMessage(msg, session.Channel);

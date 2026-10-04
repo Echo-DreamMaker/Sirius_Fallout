@@ -135,6 +135,7 @@
   id: N14WeaponHMGcanadian
   description: A powerfull belt feed machine gun commonly used by the pre-war canadian army, chambered in 7.62mm ammunition.
   components:
+  - type: GunBeltInsertDelay
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/canadianhmg.rsi
   - type: Sprite
@@ -197,6 +198,8 @@
         startingItem: Magazine762AmmoBelt
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        # #Misfits Change: belt insertion goes through a timed do-after instead of instant interact.
+        insertOnInteract: false
         priority: 2
         whitelist:
           tags:
@@ -226,6 +229,7 @@
   id: N14WeaponLMGchinese
   description: A pre-war chinese light machine gun, chambered in 7.62mm ammunition.
   components:
+  - type: GunBeltInsertDelay
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/chineselmg.rsi
   - type: Sprite
@@ -288,6 +292,8 @@
         startingItem: Magazine762AmmoBelt
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        # #Misfits Change: belt insertion goes through a timed do-after instead of instant interact.
+        insertOnInteract: false
         priority: 2
         whitelist:
           tags:

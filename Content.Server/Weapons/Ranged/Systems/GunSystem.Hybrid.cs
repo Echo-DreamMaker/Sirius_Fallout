@@ -1,124 +1,95 @@
-using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Weapons.Ranged.Events;
-using Content.Server.Power.EntitySystems;
-using Content.Shared.Power.Components;
-using Robust.Shared.Containers;
-using Robust.Shared.Map;
 using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
+using Content.Shared.Weapons.Ranged.Components;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem
 {
-    private void InitializeHybrid()
+    protected override void InitializeHybrid()
     {
-        SubscribeLocalEvent<HybridAmmoProviderComponent, TakeAmmoEvent>(OnHybridTakeAmmo);
-        SubscribeLocalEvent<HybridAmmoProviderComponent, GetAmmoCountEvent>(OnHybridGetAmmoCount);
-        SubscribeLocalEvent<HybridAmmoProviderComponent, EntInsertedIntoContainerMessage>(OnHybridMagazineInsert);
-        SubscribeLocalEvent<HybridAmmoProviderComponent, EntRemovedFromContainerMessage>(OnHybridMagazineRemove);
+        base.InitializeHybrid();
+
+        SubscribeLocalEvent<HybridAmmoProviderComponent, MapInitEvent>(OnHybridMapInit);
+        SubscribeLocalEvent<HybridAmmoProviderComponent, EntInsertedIntoContainerMessage>(OnHybridSlotChange);
+        SubscribeLocalEvent<HybridAmmoProviderComponent, EntRemovedFromContainerMessage>(OnHybridSlotChange);
+        SubscribeLocalEvent<BatteryComponent, ChargeChangedEvent>(OnCellChargeChanged);
     }
 
-    private void OnHybridMagazineInsert(EntityUid uid, HybridAmmoProviderComponent component, EntInsertedIntoContainerMessage args)
+    private void OnHybridMapInit(EntityUid uid, HybridAmmoProviderComponent component, ref MapInitEvent args)
     {
-        if (component.MagazineSlot != args.Container.ID)
-            return;
-        UpdateAmmoCount(uid);
+        SyncHybridCharge(uid, component);
     }
 
-    private void OnHybridMagazineRemove(EntityUid uid, HybridAmmoProviderComponent component, EntRemovedFromContainerMessage args)
+    private void OnHybridSlotChange(EntityUid uid, HybridAmmoProviderComponent component, ContainerModifiedMessage args)
     {
-        if (component.MagazineSlot != args.Container.ID)
+        if (MagazineSlot != args.Container.ID)
             return;
-        UpdateAmmoCount(uid);
+
+        SyncHybridCharge(uid, component);
     }
 
-    private void OnHybridTakeAmmo(EntityUid uid, HybridAmmoProviderComponent component, TakeAmmoEvent args)
+    protected override void TakeHybridCharge(EntityUid uid, HybridAmmoProviderComponent component, int shots)
     {
-        // 1. Получаем магазин из слота
-        var magazineEntity = GetMagazineEntity(uid);
-        if (magazineEntity == null)
+        var magazine = GetHybridMagazine(uid, component);
+
+        if (magazine == null ||
+            !TryComp<BatteryComponent>(magazine.Value, out var battery))
         {
-            args.Reason = Loc.GetString("gun-no-magazine");
             return;
         }
 
-        // 2. Проверяем патроны (BallisticAmmoProvider)
-        if (!TryComp<BallisticAmmoProviderComponent>(magazineEntity.Value, out var ballistic))
-        {
-            args.Reason = Loc.GetString("gun-no-ammo");
-            return;
-        }
+        _battery.TryUseCharge(magazine.Value, component.FireCost * shots, battery);
+        SyncHybridCharge(uid, component);
+    }
 
-        // Получаем текущее количество патронов
-        var currentCount = GetBallisticShots(ballistic);
-        if (currentCount <= 0)
-        {
-            args.Reason = Loc.GetString("gun-no-ammo");
-            return;
-        }
+    /// <summary>
+    /// Keeps the mirror honest when the cell is drained by something other than the gun: EMP, an
+    /// external power draw, a rejuvenation, and so on. Without this the client would gate shots off
+    /// a stale value and let through shots the server then refuses, i.e. free bullets.
+    ///
+    /// This walks the (very few) hybrid guns rather than keeping a magazine -> gun map, so there is
+    /// no index to leak when a magazine is transferred or deleted mid-charge.
+    /// </summary>
+    private void OnCellChargeChanged(EntityUid uid, BatteryComponent battery, ref ChargeChangedEvent args)
+    {
+        var query = EntityQueryEnumerator<HybridAmmoProviderComponent>();
 
-        // 3. Проверяем энергию (BatteryComponent)
-        if (!TryComp<BatteryComponent>(magazineEntity.Value, out var battery))
+        while (query.MoveNext(out var gun, out var hybrid))
         {
-            args.Reason = Loc.GetString("gun-no-battery");
-            return;
-        }
-        if (battery.CurrentCharge < component.FireCost)
-        {
-            args.Reason = Loc.GetString("gun-not-enough-energy");
-            return;
-        }
+            var magazine = GetHybridMagazine(gun, hybrid);
 
-        // 4. Тратим патрон: удаляем последний патрон из контейнера или уменьшаем UnspawnedCount
-        if (ballistic.Container.ContainedEntities.Count > 0)
-        {
-            var lastEntity = ballistic.Container.ContainedEntities[^1];
-            Containers.Remove(lastEntity, ballistic.Container);
-            QueueDel(lastEntity); // Удаляем сущность патрона (гильза не нужна)
+            if (magazine != uid)
+                continue;
+
+            PublishCharge(gun, hybrid, args.Charge, args.MaxCharge);
         }
-        else if (ballistic.UnspawnedCount > 0)
+    }
+
+    /// <summary>
+    /// Republishes the magazine's charge onto the networked component so the client can gate shots
+    /// and show the examine line without ever touching the battery itself.
+    /// </summary>
+    private void SyncHybridCharge(EntityUid uid, HybridAmmoProviderComponent component)
+    {
+        var magazine = GetHybridMagazine(uid, component);
+
+        if (magazine != null && TryComp<BatteryComponent>(magazine.Value, out var battery))
         {
-            ballistic.UnspawnedCount--;
+            PublishCharge(uid, component, battery.CurrentCharge, battery.MaxCharge);
         }
         else
         {
-            args.Reason = Loc.GetString("gun-no-ammo");
-            return;
-        }
-
-        // 5. Тратим энергию
-        _battery.UseCharge(magazineEntity.Value, component.FireCost);
-
-        // 6. Создаём снаряд в координатах выстрела
-        var fromCoordinates = args.Coordinates;
-        var mapCoords = fromCoordinates.ToMap(EntityManager, _transform);
-        var projectile = Spawn(component.Prototype, mapCoords);
-
-        // 7. Добавляем снаряд в список для выстрела (основной GunSystem обработает его)
-        args.Ammo.Add((projectile, EnsureShootable(projectile)));
-
-        // 8. Обновляем счётчик на клиенте
-        Dirty(magazineEntity.Value, ballistic);
-        UpdateAmmoCount(uid);
-    }
-
-    private void OnHybridGetAmmoCount(EntityUid uid, HybridAmmoProviderComponent component, ref GetAmmoCountEvent args)
-    {
-        var magazineEntity = GetMagazineEntity(uid);
-        if (magazineEntity != null && TryComp<BallisticAmmoProviderComponent>(magazineEntity.Value, out var ballistic))
-        {
-            args.Count = GetBallisticShots(ballistic);
-            args.Capacity = ballistic.Capacity;
-        }
-        else
-        {
-            args.Count = 0;
-            args.Capacity = 0;
+            PublishCharge(uid, component, 0f, 0f);
         }
     }
 
-    private int GetBallisticShots(BallisticAmmoProviderComponent component)
+    private void PublishCharge(EntityUid uid, HybridAmmoProviderComponent component, float charge, float maxCharge)
     {
-        return component.UnspawnedCount + component.Container.ContainedEntities.Count;
+        component.Charge = charge;
+        component.MaxCharge = maxCharge;
+        component.HasCell = maxCharge > 0f;
+        Dirty(uid, component);
     }
 }

@@ -23,10 +23,9 @@ public sealed class ToggleWeaponBehaviorTest
         "N14WeaponMinigunAvenger",
         "N14WeaponMECGaussMinigunSirius",
         "N14WeaponLaserGatling",
-        "N14WeaponSniperM72GaussRifleSirius67",
+        // #Misfits Remove - N14WeaponSniperM72GaussRifleSirius67 was deleted as a duplicate.
         "N14WeaponSniperM72GaussRifleSirius",
-        "N14WeaponGaussRifle",
-        "N14WeaponGaussPistol",
+        // #Misfits Remove - N14WeaponGaussRifle / N14WeaponGaussPistol prototypes disabled.
     ];
 
     [Test]
