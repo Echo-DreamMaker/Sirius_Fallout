@@ -41,7 +41,8 @@ public sealed class GhoulReversalSystem : EntitySystem
     [Dependency] private readonly IServerNetManager _netManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
-    private int MaxCharacterSlots => _cfg.GetCVar(CCVars.GameMaxCharacterSlots);
+    // #Misfits Fix - keep the 7-slot floor consistent with ServerPreferencesManager.
+    private int MaxCharacterSlots => ServerPreferencesManager.GetMaxCharacterSlots(_cfg);
 
     public override void Initialize()
     {

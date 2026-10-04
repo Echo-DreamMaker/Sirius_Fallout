@@ -165,6 +165,12 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+          # #Misfits Add - gauss magazines are battery cells, but they carry a BallisticAmmoProvider
+          # instead of a Battery one, so the components above never match them. ChargerSystem finds
+          # their Battery directly on the entity, so whitelisting the tag is all that is missing.
+          # EntityWhitelist.RequireAll is false, so this is additive: the entries above still match.
+          tags:
+          - N14GaussChargeCell
 
 - type: entity
   parent: BaseItemRecharger
@@ -188,6 +194,11 @@
           - ProjectileBatteryAmmoProvider
           - Stunbaton
           - PowerCell
+          # #Misfits Add - see WeaponCapacitorRecharger. This recharger otherwise accepts everything
+          # the weapon battery chargers do, so leaving the tag off here would make the turbo recharger
+          # refuse cells the normal one happily charges.
+          tags:
+          - N14GaussChargeCell
         blacklist:
           tags:
           - PotatoBattery
@@ -217,6 +228,9 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+          # #Misfits Add - see WeaponCapacitorRecharger.
+          tags:
+          - N14GaussChargeCell
 
 - type: entity
   parent: BaseRecharger

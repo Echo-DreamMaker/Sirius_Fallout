@@ -9,6 +9,10 @@
   - type: CartridgeAmmo
     proto: N14Bullet2mmEC
     deleteOnSpawn: true
+    # Muzzle flash is read from the shootable handed to GunSystem, which for a cartridge is the
+    # cartridge itself, not the bullet it spawns. Without this it silently fell back to the default
+    # MuzzleFlashEffect and the gauss flash on N14Bullet2mmEC was dead config.
+    muzzleFlash: GaussMuzzleFlashEffect
     soundEject:
       collection: N14PistolCasingEject
   - type: Tag

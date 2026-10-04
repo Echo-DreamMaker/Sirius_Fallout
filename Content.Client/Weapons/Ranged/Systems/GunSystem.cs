@@ -113,6 +113,9 @@ public sealed partial class GunSystem : SharedGunSystem
 
         InitializeMagazineVisuals();
         InitializeSpentAmmo();
+        // The hybrid gate has to be subscribed on the client too: it is what refuses a shot locally
+        // when the cell cannot pay. Without this the client fires, spends the round locally and
+        // spawns a projectile the server never makes, which desyncs damage prediction.
         InitializeHybrid();
 
         // Misfit add: refactoring obsolete sprite methods

@@ -49,6 +49,9 @@ public sealed class GroupClientSystem : EntitySystem
     private string?    _pendingInviteFromName;
     private NetUserId? _pendingInviteFromUserId;
 
+    /// <summary>Whether this system instance currently owns the "group" console command.</summary>
+    private bool _commandRegistered;
+
     // ── Lifecycle ──────────────────────────────────────────────────────────
 
     public override void Initialize()
@@ -59,11 +62,19 @@ public sealed class GroupClientSystem : EntitySystem
         SubscribeNetworkEvent<GroupOverlayUpdateEvent>(OnOverlayUpdate);
         SubscribeNetworkEvent<GroupActionResultEvent>(OnActionResult);
 
-        _conHost.RegisterCommand(
-            "group",
-            Loc.GetString("group-cmd-desc"),
-            "group",
-            OpenGroupPanel);
+        // #Misfits Fix - RegisterCommand throws if the name is taken, and the console host
+        // outlives one EntityManager startup: the integration test pool reuses a client instance,
+        // so Initialize() runs again on the next session and used to die with "Command already
+        // registered: group". Make registration idempotent and drop it again on shutdown.
+        if (!_conHost.AvailableCommands.ContainsKey("group"))
+        {
+            _conHost.RegisterCommand(
+                "group",
+                Loc.GetString("group-cmd-desc"),
+                "group",
+                OpenGroupPanel);
+            _commandRegistered = true;
+        }
     }
 
     public override void Shutdown()
@@ -72,6 +83,12 @@ public sealed class GroupClientSystem : EntitySystem
         _window?.Close();
         _window = null;
         RemoveOverlay();
+
+        if (_commandRegistered)
+        {
+            _commandRegistered = false;
+            _conHost.UnregisterCommand("group");
+        }
     }
 
     // ── Network event handlers ─────────────────────────────────────────────

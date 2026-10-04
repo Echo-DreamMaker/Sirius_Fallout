@@ -183,26 +183,32 @@ public sealed class FactionWarSystem : EntitySystem
 
     // ── Lifecycle ──────────────────────────────────────────────────────────
 
+    /// <summary>#Misfits Fix - Console commands this instance registered, so Shutdown can hand them back.</summary>
+    private readonly List<string> _registeredCommands = new();
+
     public override void Initialize()
     {
         base.Initialize();
 
-        // Admin-only: force-end a war between two players.
-        _conHost.RegisterCommand(
+        // #Misfits Fix - RegisterCommand throws if the name is taken, and the console host
+        // outlives one EntityManager startup: the integration test pool reuses a server instance,
+        // so Initialize() runs again on the next round and used to die with "Command already
+        // registered: warend". Make registration idempotent and drop the commands again on shutdown.
+        RegisterCommandIfFree(
             "warend",
             "Forcibly end an active war between two players.",
             "warend <player1_name_or_uid> <player2_name_or_uid>",
             WarEndCommand);
 
         // Admin-only: force-declare a war, bypassing cooldown and checks.
-        _conHost.RegisterCommand(
+        RegisterCommandIfFree(
             "forcewar",
             "Force-declare a war between two players (admin, bypasses cooldown).",
             "forcewar <player1_name_or_uid> <player2_name_or_uid> [reason...]",
             ForceWarCommand);
 
         // Admin-only: force a player into an existing war on a chosen side.
-        _conHost.RegisterCommand(
+        RegisterCommandIfFree(
             "forcewarjoin",
             "Force a player into the same war side as another player.",
             "forcewarjoin <target_username> <ally_username>",
@@ -210,7 +216,7 @@ public sealed class FactionWarSystem : EntitySystem
             ForceWarJoinCompletion);
 
         // #Misfits Add - Admin-only: observe a war without appearing as [ALLY]/[ENEMY].
-        _conHost.RegisterCommand(
+        RegisterCommandIfFree(
             "forceobservewar",
             "Observe a war from a participant's perspective. See overlay tags without getting one yourself.",
             "forceobservewar <observer_username> <war_participant_username>",
@@ -254,6 +260,41 @@ public sealed class FactionWarSystem : EntitySystem
     {
         base.Shutdown();
         _playerManager.PlayerStatusChanged -= OnPlayerStatusChanged;
+
+        foreach (var command in _registeredCommands)
+            _conHost.UnregisterCommand(command);
+
+        _registeredCommands.Clear();
+    }
+
+    /// <summary>
+    /// #Misfits Fix - Registers only if the name is still free, and remembers it so
+    /// <see cref="Shutdown"/> can hand it back. See the note in Initialize.
+    /// </summary>
+    private void RegisterCommandIfFree(string command, string description, string help, ConCommandCallback callback)
+    {
+        if (_conHost.AvailableCommands.ContainsKey(command))
+            return;
+
+        _conHost.RegisterCommand(command, description, help, callback);
+        _registeredCommands.Add(command);
+    }
+
+    /// <summary>
+    /// #Misfits Fix - Completion-callback overload of <see cref="RegisterCommandIfFree"/>.
+    /// </summary>
+    private void RegisterCommandIfFree(
+        string command,
+        string description,
+        string help,
+        ConCommandCallback callback,
+        ConCommandCompletionCallback completionCallback)
+    {
+        if (_conHost.AvailableCommands.ContainsKey(command))
+            return;
+
+        _conHost.RegisterCommand(command, description, help, callback, completionCallback);
+        _registeredCommands.Add(command);
     }
 
     // ── Tick: transition Pending → Active, handle timeouts, broadcast participants ──

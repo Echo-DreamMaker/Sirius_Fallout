@@ -46,6 +46,9 @@ public sealed class FactionWarClientSystem : EntitySystem
     private WarInviteWindow? _warInviteWindow;
     private CeasefireProposalEvent? _pendingCeasefireProposal;
 
+    /// <summary>Console commands this instance registered, so Shutdown can hand them back.</summary>
+    private readonly List<string> _registeredCommands = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -64,25 +67,14 @@ public sealed class FactionWarClientSystem : EntitySystem
         SubscribeNetworkEvent<WarInviteResultEvent>(OnWarInviteResult);
         SubscribeNetworkEvent<FactionWarForceObserveResultEvent>(OnForceObserveResult); // #Misfits Add
 
-        _conHost.RegisterCommand(
-            "war",
-            Loc.GetString("faction-war-cmd-desc"),
-            "war",
-            OpenWarPanel);
-
-        _conHost.RegisterCommand(
-            "warjoin",
-            Loc.GetString("faction-war-join-cmd-desc"),
-            "warjoin",
-            OpenWarJoinPanel);
-
-        _conHost.RegisterCommand(
-            "forcewar",
-            "Open the admin Force War panel.",
-            "forcewar",
-            OpenForceWarPanel);
-
-        _conHost.RegisterCommand(
+        // #Misfits Fix - RegisterCommand throws if the name is taken, and the console host
+        // outlives one EntityManager startup: the integration test pool reuses a client instance,
+        // so Initialize() runs again on the next session and used to die with "Command already
+        // registered: war". Make registration idempotent and drop the commands again on shutdown.
+        RegisterCommandIfFree("war", Loc.GetString("faction-war-cmd-desc"), "war", OpenWarPanel);
+        RegisterCommandIfFree("warjoin", Loc.GetString("faction-war-join-cmd-desc"), "warjoin", OpenWarJoinPanel);
+        RegisterCommandIfFree("forcewar", "Open the admin Force War panel.", "forcewar", OpenForceWarPanel);
+        RegisterCommandIfFree(
             "surrender",
             "Surrender in an active war. You will be forced down, incapacitated, and marked as [SURRENDERED].",
             "surrender",
@@ -103,6 +95,20 @@ public sealed class FactionWarClientSystem : EntitySystem
         _warInviteWindow?.Close();
         _warInviteWindow = null;
         RemoveOverlay();
+
+        foreach (var command in _registeredCommands)
+            _conHost.UnregisterCommand(command);
+
+        _registeredCommands.Clear();
+    }
+
+    private void RegisterCommandIfFree(string command, string description, string help, ConCommandCallback callback)
+    {
+        if (_conHost.AvailableCommands.ContainsKey(command))
+            return;
+
+        _conHost.RegisterCommand(command, description, help, callback);
+        _registeredCommands.Add(command);
     }
 
     // ── Network event handlers ─────────────────────────────────────────────

@@ -10,8 +10,7 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPEnclaveWeaponGaussRifle
-    - N14BPEnclaveWeaponGaussPistol
+    # #Misfits Remove - weapon recipes removed with the N14WeaponGaussRifle/N14WeaponGaussPistol prototypes.
     - N14BPEnclaveAmmoMag2mmECRifle
     - N14BPEnclaveAmmoMag2mmECPistol
     - N14BPEnclaveAmmoBox2mmEC

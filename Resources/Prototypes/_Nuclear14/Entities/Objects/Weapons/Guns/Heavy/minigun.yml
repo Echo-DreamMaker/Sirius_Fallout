@@ -227,7 +227,15 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/GaussPistol_SingleShot_1.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  # #Misfits Fix - third gauss weapon to get the hybrid treatment, same split as the M72 and PPK12:
+  # rounds come from the shared magazine chain so gun prediction works, HybridAmmoProvider only adds
+  # the charge requirement and the drain. N14MagazineGaussMinigun2mmEC is an 80-round box, hence
+  # 80 * 50 J = 4000 J.
   - type: MagazineAmmoProvider
+  - type: HybridAmmoProvider
+    fireCost: 50
   - type: ItemSlots
     slots:
       gun_magazine:

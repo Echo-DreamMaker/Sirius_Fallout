@@ -87,6 +87,11 @@ public sealed partial class SpecialTuningPrototype : IPrototype
     [DataField("agilityActionDelayMultiplierPerPoint")]
     public float AgilityActionDelayMultiplierPerPoint = 0.01333333f;
 
+    // Ammo loading (fill do-afters) gets a much stronger Agility reward than the generic
+    // action-delay multiplier above: high Agility feeds magazines significantly faster.
+    [DataField("agilityAmmoFillMultiplierPerPoint")]
+    public float AgilityAmmoFillMultiplierPerPoint = 0.08f;
+
     // Luck: critical hits and chance-based reward hooks.
     [DataField("luckCriticalChancePerPoint")]
     public float LuckCriticalChancePerPoint = 0.005f;

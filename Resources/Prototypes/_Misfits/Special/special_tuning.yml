@@ -21,6 +21,7 @@
   intelligenceLatheMaterialUseMultiplierPerPoint: 0.03333333
   agilityMovementSpeedMultiplierPerPoint: 0.01
   agilityActionDelayMultiplierPerPoint: 0.01333333
+  agilityAmmoFillMultiplierPerPoint: 0.08
   luckCriticalChancePerPoint: 0.005
   luckSingleShotCriticalChancePerPoint: 0.03333333
   luckCriticalDamageMultiplier: 1.5

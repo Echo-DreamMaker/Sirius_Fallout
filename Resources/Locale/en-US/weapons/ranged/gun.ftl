@@ -56,3 +56,5 @@ gun-general-empty = {$entName}'s Empty
 gun-no-magazine = No magazine inserted!
 gun-no-ammo = Out of ammo!
 gun-not-enough-energy = Not enough charge in the cell!
+gun-hybrid-charge-examine = Its cell holds [color={$color}]{$charge}[/color] / {$max} charges ({$percent}%).
+gauss-charge-cell-examine = Charge cell: [color={$color}]{$charge}[/color] / {$max} charges ({$percent}%).

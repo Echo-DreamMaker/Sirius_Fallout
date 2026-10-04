@@ -7,6 +7,7 @@
   # #Misfits Add - US M240B GPMG, clone of N14WeaponHMGcanadian with Legion crafting hook
   description: A reliable American general-purpose machine gun chambered in 7.62mm ammunition. Standard infantry support weapon used by the pre-war United States armed forces.
   components:
+  - type: GunBeltInsertDelay
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/canadianhmg.rsi
   - type: Sprite
@@ -43,6 +44,8 @@
         startingItem: Magazine762AmmoBelt
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        # #Misfits Change: belt insertion goes through a timed do-after instead of instant interact.
+        insertOnInteract: false
         priority: 2
         whitelist:
           tags:

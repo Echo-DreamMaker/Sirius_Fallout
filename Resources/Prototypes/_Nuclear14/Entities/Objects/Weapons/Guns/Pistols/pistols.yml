@@ -1342,21 +1342,29 @@
       path: /Audio/Weapons/spinon.ogg
     soundDeactivate:
       path: /Audio/Weapons/spinoff.ogg
+  # #Misfits Add - the reference N14WeaponGaussPistol has one and the M72 has one; without it this
+  # pistol was the only gauss weapon with no round readout while the cell readout came from examine.
+  - type: AmmoCounter
+  # #Misfits Change - art taken from N14WeaponGaussPistol (_Misfits/.../Pistols/gausspistol.rsi).
+  # The Sirius prototype pointed at 2mmPistol.rsi, a plain 2mm pistol sheet shared with the
+  # non-gauss N14 pistols, so the PPK12 did not read as a gauss weapon at all. That RSI also only has
+  # a mag-1 layer, one step short of the mag-0 the MagazineVisuals below expects.
   - type: Sprite
-    sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/2mmPistol.rsi
+    sprite: _Misfits/Objects/Weapons/Guns/Pistols/gausspistol.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
+    - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Item
-    sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/2mmPistol.rsi
+    sprite: _Misfits/Objects/Weapons/Guns/Pistols/gausspistol.rsi
     size: Small
     shape:
     - 0,0,1,1
     - 0,1,0,1
+  # #Misfits Change - was Objects/Weapons/Guns/Pistols/viper.rsi, borrowed from an unrelated pistol.
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: _Misfits/Objects/Weapons/Guns/Pistols/gausspistol.rsi
     quickEquip: false
     slots:
     - suitStorage
@@ -1372,12 +1380,23 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/GaussPistol_SingleShot_1.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  # #Misfits Fix - same hybrid split as the M72: rounds come from the shared magazine chain so gun
+  # prediction works, and HybridAmmoProvider only adds the charge requirement and the drain.
+  # N14MagazinePistol2mmEC is a 12-round cell, hence 12 * 50 J = 600 J.
   - type: MagazineAmmoProvider
+  - type: HybridAmmoProvider
+    fireCost: 50
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
         startingItem: N14MagazinePistol2mmEC
+        # #Misfits Change - magazine handling sounds match N14WeaponGaussPistol's.
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
         whitelist:
           tags:
             - N14MagazinePistol2mmEC

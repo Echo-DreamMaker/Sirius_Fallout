@@ -1013,134 +1013,10 @@
     price: 150
 
 #sirius change start
-- type: entity
-  name: M72 Gauss rifle
-  parent: BaseItem
-  id: N14WeaponSniperM72GaussRifleSirius67
-  description: "An advanced gauss rifle with an ergonomic, sleek, skeletonized design. Uses 2mmEC electromagnetic ammunition."
-  components:
-  - type: StrengthRequirement
-    requiredStrength: 5
-  - type: GunRequiresWield
-  - type: AmmoCounter
-  - type: MinigunToggle
-    BypassChamber: true
-  - type: ItemToggle
-    onUse: false
-    activated: false
-    noToggleOnWield: true
-    soundActivate:
-      path: /Audio/Weapons/spinon.ogg
-    soundDeactivate:
-      path: /Audio/Weapons/spinoff.ogg
-  - type: Clothing
-    sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/gaussrifle.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
-  - type: Sprite
-    sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/gaussrifle.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Item
-    size: Huge
-  - type: Wieldable
-    wieldedSpeedModifier: 0.75
-  - type: GunWieldBonus
-    minAngle: -23
-    maxAngle: -104
-  - type: Gun
-    minAngle: 24
-    maxAngle: 105
-    angleIncrease: 4
-    angleDecay: 16
-    fireRate: 1.5
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/GaussRifle_SingleShot_1.ogg
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-  - type: MagazineAmmoProvider
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: N14MagazineRifle2mmEC
-        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - N14MagazineRifle2mmEC
-      gun_top:
-        name: weapon-attachment-slot-top
-        priority: 0
-        whitelist:
-          tags:
-          - N14AttachmentTop
-      gun_muzzle:
-        name: weapon-attachment-slot-muzzle
-        priority: 0
-        whitelist:
-          tags:
-          - N14AttachmentMuzzle
-      gun_bottom:
-        name: weapon-attachment-slot-bottom
-        priority: 0
-        whitelist:
-          tags:
-          - N14AttachmentBottom
-      gun_handle:
-        name: weapon-attachment-slot-handle
-        priority: 0
-        whitelist:
-          tags:
-          - N14AttachmentHandle
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_top: !type:ContainerSlot
-      gun_muzzle: !type:ContainerSlot
-      gun_bottom: !type:ContainerSlot
-      gun_handle: !type:ContainerSlot
-  - type: WeaponAttachmentHost
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-  - type: Appearance
-  - type: FollowDistance
-    backStrength: 3
-  - type: StaticPrice
-    price: 200
-  - type: Execution
-  - type: MeleeWeapon
-    attackRate: 1.3333
-    damage:
-      types:
-        Blunt: 8.5
-    bluntStaminaDamageFactor: 1.25
-    swapKeys: true
-    disableHeavy: true
-    animation: WeaponArcThrust
-    wideAnimationRotation: 180
-    soundHit:
-      collection: MetalThud
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 2.5
-  - type: DamageOtherOnHit
-    staminaCost: 7.5
-  - type: FarGunshot
-  - type: GunDamageBonus
-    bonusDamage:
-      types:
-        Piercing: 38
+# #Misfits Remove - N14WeaponSniperM72GaussRifleSirius67 deleted. It was a leftover test duplicate
+# of the M72 below: same name, no Sniper tag, no hybrid charge drain and the wrong magazine
+# sounds, so it only ever existed to be confused with the real gun. N14WeaponSniperM72GaussRifleSirius
+# is the canonical M72. Nothing referenced it.
 - type: entity
   name: M72 Gauss rifle
   parent: BaseItem
@@ -1160,30 +1036,43 @@
       path: /Audio/Weapons/spinon.ogg
     soundDeactivate:
       path: /Audio/Weapons/spinoff.ogg
+  # #Misfits Change - art and magazine handling taken from N14WeaponGaussRifle, the finished M72 in
+  # _Misfits/.../Rifles/rifles.yml. The Sirius prototype had been pointing at the loose
+  # _Nuclear14 snipers/gaussrifle.rsi, which carries no inhand or equipped layers, so the gun had no
+  # world sprite at all. Split RSI like the source: gaussrifleicon.rsi holds base+mag-0 for the
+  # Sprite, gaussrifle.rsi holds inhand/wielded/equipped for Item and Clothing.
   - type: Clothing
-    sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/gaussrifle.rsi
+    sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifle.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
   - type: Sprite
-    sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/gaussrifle.rsi
+    sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifleicon.rsi
+    netsync: false
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
+  # #Misfits Change - size deliberately left at Huge; only the art came from the reference gun, and
+  # this is the long-ranged battle rifle rather than the carbine-sized N14WeaponGaussRifle.
   - type: Item
     size: Huge
+    sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifle.rsi
   - type: Wieldable
     wieldedSpeedModifier: 0.75
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -104
+  # #Misfits Fix - the gauss cell is an ordinary ballistic magazine that is also a battery, so ammo
+  # comes from the normal MagazineAmmoProvider -> BallisticAmmoProvider -> CartridgeAmmo chain (which
+  # is shared code and therefore works under gun prediction). HybridAmmoProvider only adds the charge
+  # requirement and the per-shot drain; it used to be a server-only full ammo provider, which meant
+  # the shooter never got a local cartridge and the bullet never left the client.
+  - type: MagazineAmmoProvider
   - type: HybridAmmoProvider
-    proto: N14Bullet2mmEC
     fireCost: 50
-    magazineSlot: gun_magazine
   - type: Gun
     minAngle: 24
     maxAngle: 60
@@ -1202,8 +1091,11 @@
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineRifle2mmEC
-        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        # #Misfits Change - magazine handling sounds match N14WeaponGaussRifle's, so swapping a cell
+        # into either M72 sounds the same. Was batrifle_magin/magout.
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
         whitelist:
           tags:
             - N14MagazineRifle2mmEC

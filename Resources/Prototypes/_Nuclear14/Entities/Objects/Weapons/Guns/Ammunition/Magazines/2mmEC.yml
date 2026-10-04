@@ -36,9 +36,27 @@
   name: pistol magazine (2mmEC)
   parent: N14BaseMagazine2mmECPistol
   components:
+  # #Misfits Add - this is the PPK12's cell, so it is also its charge source. Sized from the same
+  # rule as the rifle cell (capacity * 50 J per shot): 12 rounds -> 600 J -> 12 charges.
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
+  - type: GaussChargeCell
+    chargeCost: 50
   - type: BallisticAmmoProvider
     proto: N14Cartridge2mmEC
     unspawnedCount: 12
+  # #Misfits Change - N14MagazinePistol2mmEC repeated here on purpose. The parent
+  # N14BaseMagazine2mmECPistol carries that tag, but a child's component data overrides the parent's
+  # whole value rather than merging, so a Tag block listing only the new tag would have stopped this
+  # magazine matching the PPK12's own gun_magazine whitelist.
+  - type: Tag
+    tags:
+      - N14MagazinePistol2mmEC
+      - N14GaussChargeCell
+  - type: PowerCellVisuals
+    unshadedLayer: enum.PowerCellVisualLayers.Unshaded
+    baseLayer: enum.PowerCellVisualLayers.Base
 
 - type: entity
   id: N14MagazineRifle2mmECOld
@@ -67,9 +85,20 @@
   name: Gauss minigun box (2mmEC)
   parent: N14BaseMagazine2mmECPistol
   components:
+  # #Misfits Add - also the MEC minigun's charge source. Same capacity * 50 J rule as the other two
+  # cells: 80 rounds -> 4000 J -> 80 charges.
+  - type: Battery
+    maxCharge: 4000
+    startingCharge: 4000
+  - type: GaussChargeCell
+    chargeCost: 50
+  # #Misfits Change - one Tag block, not two: a child's component data overrides the parent's whole
+  # value, so a second Tag block would have dropped N14MagazineGaussMinigun2mmEC and the minigun's
+  # own magazine whitelist would stop matching this box.
   - type: Tag
     tags:
       - N14MagazineGaussMinigun2mmEC
+      - N14GaussChargeCell
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/2mmEC/2mmminigunmag.rsi
     scale: 0.70, 0.70
@@ -84,6 +113,9 @@
     magState: mag
     steps: 2
     zeroVisible: false
+  - type: PowerCellVisuals
+    unshadedLayer: enum.PowerCellVisualLayers.Unshaded
+    baseLayer: enum.PowerCellVisualLayers.Base
 
 - type: entity
   id: N14MagazineRifle2mmEC
@@ -104,9 +136,14 @@
     tags:
       - N14MagazineRifle2mmEC
       - N14AmmoCell
+      - N14GaussChargeCell
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
+  # #Misfits Add - reports the cell's own charge on examine, matching the pistol and minigun boxes.
+  # 20 rounds * 50 J = 1000 J = 20 charges.
+  - type: GaussChargeCell
+    chargeCost: 50
   - type: BallisticAmmoProvider
     mayTransfer: true
     proto: N14Cartridge2mmEC

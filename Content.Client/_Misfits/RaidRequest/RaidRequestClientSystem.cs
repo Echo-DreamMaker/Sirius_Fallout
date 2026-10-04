@@ -29,6 +29,9 @@ public sealed class RaidRequestClientSystem : EntitySystem
     private RaidConcludedWindow? _concludedWindow;
     private readonly Queue<RaidRequestEntry> _conclusionQueue = new();
 
+    /// <summary>Whether this system instance currently owns the process-wide "raid" command.</summary>
+    private bool _commandRegistered;
+
     /// <summary>Latest admin snapshot. Mirrored into <see cref="RaidRequestAdminControl"/> when present.</summary>
     public IReadOnlyList<RaidRequestEntry> AdminRequests => _adminRequests;
     private List<RaidRequestEntry> _adminRequests = new();
@@ -62,11 +65,20 @@ public sealed class RaidRequestClientSystem : EntitySystem
         SubscribeNetworkEvent<RaidRequestPeerPromptMsg>(OnPeerPrompt);
         SubscribeNetworkEvent<RaidRequestPeerDecisionResultMsg>(OnPeerDecisionResult);
 
-        _conHost.RegisterCommand(
-            "raid",
-            "Open the Raid Request panel.",
-            "raid",
-            OpenRaidPanel);
+        // #Misfits Fix - RegisterCommand throws if the name is already taken, and the console host
+        // outlives a single EntityManager startup: the integration test pool reuses a client
+        // instance, so Initialize() runs again on the next session and used to die with
+        // "Command already registered: raid". Make registration idempotent, and drop the command
+        // again on shutdown so the next startup starts from a clean slate.
+        if (!_conHost.AvailableCommands.ContainsKey("raid"))
+        {
+            _conHost.RegisterCommand(
+                "raid",
+                "Open the Raid Request panel.",
+                "raid",
+                OpenRaidPanel);
+            _commandRegistered = true;
+        }
     }
 
     public override void Shutdown()
@@ -79,6 +91,12 @@ public sealed class RaidRequestClientSystem : EntitySystem
         _concludedWindow?.ForceClose();
         _concludedWindow = null;
         _conclusionQueue.Clear();
+
+        if (_commandRegistered)
+        {
+            _commandRegistered = false;
+            _conHost.UnregisterCommand("raid");
+        }
     }
 
     // ── /raid console command ─────────────────────────────────────────────
