@@ -27,6 +27,14 @@ public sealed partial class SeparatedChatGameScreen : InGameScreen
         SetAnchorAndMarginPreset(Hotbar, LayoutPreset.BottomWide, margin: 5);
         SetAnchorAndMarginPreset(Alerts, LayoutPreset.TopRight, margin: 10); // #Misfits Change
         SetAnchorAndMarginPreset(Targeting, LayoutPreset.BottomRight, margin: 5);
+        // Sirius edit start
+        SetAnchorPreset(AdminObserverHands, LayoutPreset.TopRight);
+        SetMarginLeft(AdminObserverHands, -148);
+        SetMarginRight(AdminObserverHands, -84);
+        SetMarginTop(AdminObserverHands, 10);
+        SetMarginBottom(AdminObserverHands, 74);
+        SetGrowHorizontal(AdminObserverHands, GrowDirection.Begin);
+        // Sirius edit end
 
         ScreenContainer.OnSplitResizeFinished += () =>
             OnChatResized?.Invoke(new Vector2(ScreenContainer.SplitFraction, 0));
