@@ -198,6 +198,21 @@
   id: Townsfolk
   friendly:
   - TownsfolkSecureArea
+  neutral:
+  - Wastelander
+  - BrotherhoodOfSteel
+  - BrotherhoodOfSteelSecureArea
+  - Enclave
+  - NCR
+  - NCRSecureArea
+  - Rangers
+  - Tribal
+  - TribalSecureArea
+  - Vault
+  - VaultSecureArea
+  - CaravanCompany
+  - CaravanCompanySecureArea
+  - Followers
   hostile:
   - WastelandAnimal
   - WastelandInsect
@@ -233,6 +248,21 @@
   id: Tribal
   friendly:
   - TribalSecureArea
+  neutral:
+  - Wastelander
+  - BrotherhoodOfSteel
+  - BrotherhoodOfSteelSecureArea
+  - Enclave
+  - NCR
+  - NCRSecureArea
+  - Rangers
+  - Townsfolk
+  - TownsfolkSecureArea
+  - Vault
+  - VaultSecureArea
+  - CaravanCompany
+  - CaravanCompanySecureArea
+  - Followers
   hostile:
   - WastelandAnimal
   - WastelandInsect

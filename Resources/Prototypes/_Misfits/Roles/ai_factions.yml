@@ -124,7 +124,7 @@
   id: BrotherhoodOfSteel
   friendly:
   - BrotherhoodOfSteelSecureArea
-  neutral: # Test
+  neutral:
   - Wastelander
   - NCR
   - NCRSecureArea

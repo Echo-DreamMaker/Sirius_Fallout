@@ -1016,6 +1016,21 @@
       - N14MobNPCTownGuard
 
 - type: entity
+  name: Town Enforcer Spawner (Secure)
+  id: N14SpawnMobNPCTownGuardGuard
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/Raiders.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14MobNPCTownGuardGuard
+
+- type: entity
   name: BoS Serf Spawner
   id: N14SpawnMobNPCMBoSSerf
   parent: MarkerBase
@@ -1166,6 +1181,21 @@
       - N14MobNPCTribeSkir
 
 - type: entity
+  name: Tribal Skirmisher Spawner (Guard)
+  id: N14SpawnMobNPCTribeSkirGuard
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/Raiders.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14MobNPCTribeSkirGuard
+
+- type: entity
   name: Tribal Warrior Spawner
   id: N14SpawnMobNPCTribeWarr
   parent: MarkerBase
@@ -1179,6 +1209,21 @@
   - type: ConditionalSpawner
     prototypes:
       - N14MobNPCTribeWarr
+
+- type: entity
+  name: Tribal Warrior Spawner (Guard)
+  id: N14SpawnMobNPCTribeWarrGuard
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/Raiders.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14MobNPCTribeWarrGuard
 
 # Misfits Change - Super Mutant spawners (DesertRose2/desertrose port)
 - type: entity
