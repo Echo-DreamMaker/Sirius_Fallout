@@ -15,7 +15,7 @@ RELEASE_DIR = "release"
 # Forks should change these to publish to their own infrastructure.
 #
 ROBUST_CDN_URL = "https://cdn.dark-haven.xyz/"
-FORK_ID = "EchoKD"
+FORK_ID = "EchoFallout"
 
 def main():
     session = requests.Session()
