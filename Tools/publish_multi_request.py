@@ -14,8 +14,8 @@ RELEASE_DIR = "release"
 # CONFIGURATION PARAMETERS
 # Forks should change these to publish to their own infrastructure.
 #
-ROBUST_CDN_URL = os.environ["ROBUST_CDN_URL"]
-FORK_ID = "master"
+ROBUST_CDN_URL = "https://cdn.dark-haven.xyz/"
+FORK_ID = "EchoFallout"
 
 def main():
     session = requests.Session()
