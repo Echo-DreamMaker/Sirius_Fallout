@@ -1,17 +1,17 @@
-﻿<Document>
-  # Ban Durations
+<Document>
+  # Длительность блокировок
 
-  Bans can be appealed on discord in the ban appeals section.
+  Блокировки можно обжаловать в Discord в разделе обжалования блокировок.
 
-  ## Temporary
-  Temporary bans will be lifted automatically after a certain amount of time. If they are a game ban, they will tell you how much time is remaining when you try to connect.
+  ## Временные
+  Временные блокировки снимаются автоматически по истечении определённого времени. Если это игровая блокировка, при попытке подключения вам сообщат, сколько времени осталось.
 
-  ## Indefinite
-  These bans will only be removed on a successful appeal on discord. Any ban which doesn't tell you when it expires and doesn't specify otherwise can be presumed to be an indefinite ban.
+  ## Бессрочные
+  Такие блокировки снимаются только после успешного обжалования в Discord. Любую блокировку, у которой не указан срок окончания и не сказано иное, можно считать бессрочной.
 
-  ## Voucher
-  This is an indefinite ban which may only be appealed both with a successful appeal and which require a voucher of good behavior from the administrative team of a well-known or at least decently active SS13/SS14 server in order for the appeal to be considered. Voucher bans typically cannot be appealed for at least six months after being issued. Without a voucher, a player can only attempt to appeal a voucher ban once, and only if the ban was inappropriately placed. Voucher bans are typically only placed as a result of an unsuccessful appeal of an indefinite game ban by players with a history of bans and of causing issues.
+  ## По поручительству
+  Это бессрочная блокировка, которую можно обжаловать только при успешном обжаловании и для которой требуется поручительство о хорошем поведении от администрации известного или как минимум достаточно активного сервера SS13/SS14, чтобы обжалование вообще было рассмотрено. Блокировки по поручительству, как правило, нельзя обжаловать в течение как минимум шести месяцев после вынесения. Без поручительства игрок может попытаться обжаловать блокировку по поручительству лишь один раз и только если она была выдана неправомерно. Блокировки по поручительству обычно выносятся лишь в результате неудачного обжалования бессрочной игровой блокировки игроками с историей блокировок и создания проблем.
 
-  ## Permanent
-  This is a ban that is only appealable if the ban was inappropriately placed, including if the ban should not have been permanent. If the result of the appeal is that the ban was appropriately placed, the ban may not be appealed again and will not be lifted. These bans are extremely rare, but are applied to players who continually cause problems even after a voucher ban or users who have completely unacceptable behavior may be permanently removed.
+  ## Перманентные
+  Это блокировка, которую можно обжаловать только в том случае, если она была выдана неправомерно, в том числе если она не должна была быть перманентной. Если по итогам обжалования будет признано, что блокировка выдана обоснованно, повторно её обжаловать нельзя, и снята она не будет. Такие блокировки крайне редки, но применяются к игрокам, которые продолжают создавать проблемы даже после блокировки по поручительству, а пользователи с совершенно недопустимым поведением могут быть навсегда удалены.
 </Document>

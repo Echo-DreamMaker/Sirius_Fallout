@@ -1,87 +1,87 @@
 <Document>
-# Super Mutants
+# Супермутанты
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Super%20Mutants"/]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Super%20Mutants"/]
 
-<p>◈ Super Mutants ◈ FEV Mutants ◈ Wendover Region ◈</p>
+<p>◈ Супермутанты ◈ Мутанты FEV ◈ Регион Уэндовер ◈</p>
 
 <Table Columns="2">
-  <Box>[bold]Super Mutants[/bold]</Box>
+  <Box>[bold]Супермутанты[/bold]</Box>
   <Box></Box>
-  <Box>◈ FACTION DOSSIER ◈</Box>
+  <Box>◈ ДОСЬЕ ФРАКЦИИ ◈</Box>
   <Box></Box>
-  <Box>[bold]Status[/bold]</Box>
-  <Box>Active - Scattered</Box>
-  <Box>[bold]Location[/bold]</Box>
-  <Box>Bonneville Salt Flats, Utah
-Wasteland Ruins</Box>
-  <Box>[bold]Commander[/bold]</Box>
-  <Box>N/A - Individual</Box>
-  <Box>[bold]Ideology[/bold]</Box>
-  <Box>Strength Above All</Box>
-  <Box>[bold]Motto[/bold]</Box>
-  <Box>[italic]Humans weak. Super Mutants strong.[/italic]</Box>
-  <Box>[bold]Affiliation[/bold]</Box>
-  <Box>Independent</Box>
-  <Box>⬜ RESTRICTED ACCESS ⬜</Box>
+  <Box>[bold]Статус[/bold]</Box>
+  <Box>Активны — разрознены</Box>
+  <Box>[bold]Местоположение[/bold]</Box>
+  <Box>Солончаки Бонневилл, Юта
+Руины Пустоши</Box>
+  <Box>[bold]Командир[/bold]</Box>
+  <Box>Н/Д — индивидуально</Box>
+  <Box>[bold]Идеология[/bold]</Box>
+  <Box>Сила превыше всего</Box>
+  <Box>[bold]Девиз[/bold]</Box>
+  <Box>[italic]Люди слабы. Супермутанты сильны.[/italic]</Box>
+  <Box>[bold]Принадлежность[/bold]</Box>
+  <Box>Независимы</Box>
+  <Box>⬜ ОГРАНИЧЕННЫЙ ДОСТУП ⬜</Box>
   <Box></Box>
 </Table>
 
-<p>[bold]Super Mutants[/bold] are humans who were exposed to the [bold]Forced Evolutionary Virus (FEV)[/bold] - a pre-war biological agent designed to create the perfect soldier. The virus transformed them into massive, green-skinned creatures of immense physical power and near-total radiation immunity. The cost was severe: most lost higher cognitive function, becoming violent and territorial. Some, however, retained their intelligence - and with it, their capacity for choice.</p>
+<p>[bold]Супермутанты[/bold] — это люди, подвергшиеся воздействию [bold]Вируса принудительной эволюции (FEV)[/bold] — довоенного биологического агента, созданного для выведения идеального солдата. Вирус превратил их в огромных зеленокожих существ невероятной физической силы и почти полного иммунитета к радиации. Цена оказалась суровой: большинство утратило высшие когнитивные функции, став агрессивными и территориальными. Некоторые, однако, сохранили разум — а вместе с ним и способность выбирать.</p>
 
-## Physical Characteristics
+## Физические характеристики
 
 <ul>
-<li>[bold]1.5× human scale[/bold] - visually and physically larger than any human</li>
-<li>Extreme physical strength and resilience</li>
-<li>Near-total radiation immunity</li>
-<li>Greatly extended lifespan (centuries, with no confirmed upper limit)</li>
-<li>Iron stomach - can safely eat raw meat, organs, and even brains without getting sick</li>
-<li>Skin coloration ranges from olive green to deep yellow-green</li>
+<li>[bold]В 1,5 раза крупнее человека[/bold] — визуально и физически больше любого человека</li>
+<li>Чрезвычайная физическая сила и выносливость</li>
+<li>Почти полный иммунитет к радиации</li>
+<li>Значительно увеличенная продолжительность жизни (века, подтверждённого предела нет)</li>
+<li>Железный желудок — может без вреда есть сырое мясо, органы и даже мозги, не заболевая</li>
+<li>Цвет кожи варьируется от оливково-зелёного до тёмно-жёлто-зелёного</li>
 </ul>
 
-## Roles
+## Роли
 
 <Table Columns="3">
-  <Box>[bold]Role[/bold]</Box>
-  <Box>[bold]Description[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>Super Mutant</Box>
-  <Box>An FEV-mutated human navigating the Wasteland. Your size is your advantage and your curse - feared by most, trusted by few. How you use your strength defines what you are.</Box>
-  <Box>Whitelist required</Box>
-  <Box>[bold]Super Mutant Gladiator[/bold]</Box>
-  <Box>A Super Mutant who has embraced combat as purpose. Arena-tested, wasteland-hardened, and looking for the next challenge worthy of their attention.</Box>
-  <Box>Whitelist required</Box>
+  <Box>[bold]Роль[/bold]</Box>
+  <Box>[bold]Описание[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>Супермутант</Box>
+  <Box>Человек, мутировавший под действием FEV и пробивающийся через Пустошь. Ваш размер — это ваше преимущество и ваше проклятие: вас боятся многие, доверяют немногие. То, как вы распорядитесь своей силой, определяет, кто вы есть.</Box>
+  <Box>Требуется вайтлист</Box>
+  <Box>[bold]Супермутант-гладиатор[/bold]</Box>
+  <Box>Супермутант, избравший бой своим предназначением. Проверенный на арене, закалённый Пустошью и ищущий следующую схватку, достойную его внимания.</Box>
+  <Box>Требуется вайтлист</Box>
 </Table>
 
-<p>Both roles require [bold]whitelist approval[/bold] and lock the player to the Super Mutant species with restricted customization options.</p>
+<p>Обе роли требуют [bold]одобрения вайтлиста[/bold] и жёстко закрепляют за игроком вид супермутанта с ограниченными возможностями настройки.</p>
 
-## Relations
+## Отношения
 
-<p>Super Mutants occupy an uneasy position in the Wasteland. Most factions regard them with fear, hostility, or both. Individual Super Mutants may earn tolerance - or even grudging respect - through their actions, but the default assumption from every settlement and patrol is that a Super Mutant is a threat until proven otherwise.</p>
+<p>Супермутанты занимают шаткое положение в Пустоши. Большинство фракций относится к ним со страхом, враждебностью или и с тем и с другим. Отдельные супермутанты могут своими действиями заслужить терпимость — или даже неохотное уважение, — но по умолчанию любое поселение и любой патруль исходят из того, что супермутант — угроза, пока не доказано обратное.</p>
 
 <Table Columns="3">
-  <Box>[bold]Faction[/bold]</Box>
-  <Box>[bold]Standing[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[textlink="Brotherhood of Steel" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
-  <Box>[bold]Kill on Sight[/bold]</Box>
-  <Box>The Brotherhood classifies Super Mutants as Biological Abominations. No exceptions.</Box>
-  <Box>[textlink="NCR" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
-  <Box>Hostile</Box>
-  <Box>NCR policy treats Super Mutants as hostile wildlife. Individual soldiers may disagree privately.</Box>
-  <Box>[textlink="Caesar's Legion" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
-  <Box>Hostile</Box>
-  <Box>The Legion does not tolerate what it cannot control. Super Mutants are too dangerous to enslave and too proud to submit.</Box>
-  <Box>[textlink="Townsfolk" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]</Box>
-  <Box>Fearful</Box>
-  <Box>A Super Mutant in town clears the street. Earning trust takes time and restraint.</Box>
-  <Box>[textlink="Wastelanders" link="https://wiki.misfitsystems.net/index.php/Wastelanders"/]</Box>
-  <Box>Variable</Box>
-  <Box>Some wastelanders will trade. Some will run. Some will shoot first.</Box>
-  <Box>Other Super Mutants</Box>
-  <Box>Neutral</Box>
-  <Box>Shared blood does not guarantee shared purpose.</Box>
+  <Box>[bold]Фракция[/bold]</Box>
+  <Box>[bold]Отношение[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[textlink="Братство Стали" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
+  <Box>[bold]Убить на месте[/bold]</Box>
+  <Box>Братство классифицирует супермутантов как биологических мерзостей. Без исключений.</Box>
+  <Box>[textlink="НКР" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>Политика НКР рассматривает супермутантов как враждебную дикую фауну. Отдельные солдаты могут втайне с этим не соглашаться.</Box>
+  <Box>[textlink="Легион Цезаря" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>Легион не терпит того, что не может контролировать. Супермутанты слишком опасны, чтобы обратить их в рабство, и слишком горды, чтобы подчиниться.</Box>
+  <Box>[textlink="Горожане" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]</Box>
+  <Box>Со страхом</Box>
+  <Box>Супермутант в городе заставляет улицу опустеть. Чтобы заслужить доверие, нужны время и сдержанность.</Box>
+  <Box>[textlink="Жители Пустоши" link="https://wiki.misfitsystems.net/index.php/Wastelanders"/]</Box>
+  <Box>По-разному</Box>
+  <Box>Некоторые жители Пустоши будут торговать. Некоторые убегут. Некоторые выстрелят первыми.</Box>
+  <Box>Другие супермутанты</Box>
+  <Box>Нейтрально</Box>
+  <Box>Общая кровь не гарантирует общих целей.</Box>
 </Table>
 
 </Document>

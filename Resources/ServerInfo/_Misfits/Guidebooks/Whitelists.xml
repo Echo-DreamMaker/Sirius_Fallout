@@ -1,31 +1,31 @@
 <Document>
-# Whitelists
+# Вайтлисты
 
-<p>Certain non-human roles on Misfits Sanctuary require a whitelist application before you can play them. These roles have unique gameplay mechanics, faction interactions, and RP expectations that set them apart from standard playable roles.</p>
-
-<hr/>
-
-## How to Apply
-
-<p>Visit the Misfits wiki or Discord to submit a whitelist application:</p>
-
-[textlink="Misfits Wiki" link="https://wiki.misfitsystems.net/index.php/Main_Page"]
+<p>Некоторые роли нечеловеческих персонажей на Misfits Sanctuary требуют заявки на вайтлист, прежде чем вы сможете за них играть. У этих ролей уникальные игровые механики, взаимодействие с фракциями и ожидания по RP, которые отличают их от стандартных игровых ролей.</p>
 
 <hr/>
 
-## Whitelist Roles
+## Как подать заявку
+
+<p>Посетите вики Misfits или Discord, чтобы подать заявку на вайтлист:</p>
+
+[textlink="Вики Misfits" link="https://wiki.misfitsystems.net/index.php/Main_Page"]
+
+<hr/>
+
+## Роли с вайтлистом
 
 <ColorBox Color="#1a1a1a" OutlineColor="#a4885c" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-    [bold][color=#a4885c]Super Mutants[/color][/bold]
-    FEV-mutated former humans. Physically dominant but socially complex — select Super Mutants have developed intelligence and culture, while others remain feral. See the [textlink="Super Mutants" link="MisfitsSuperMutants"] guide for full details.
+    [bold][color=#a4885c]Супермутанты[/color][/bold]
+    Мутировавшие под действием FEV бывшие люди. Физически доминируют, но социально сложны — отдельные супермутанты развили интеллект и культуру, тогда как другие остаются дикими. Полные подробности см. в руководстве [textlink="Супермутанты" link="MisfitsSuperMutants"].
   </Box>
 </ColorBox>
 
 <ColorBox Color="#1a1a1a" OutlineColor="#a4885c" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-    [bold][color=#a4885c]Robots[/color][/bold]
-    Autonomous machines and Institute-built Synths navigating a world that fears or exploits them. See the [textlink="Robots" link="MisfitsSynthetics"] guide for full details.
+    [bold][color=#a4885c]Роботы[/color][/bold]
+    Автономные машины и синты, построенные Институтом, прокладывают себе путь в мире, который их боится или использует. Полные подробности см. в руководстве [textlink="Роботы" link="MisfitsSynthetics"].
   </Box>
 </ColorBox>
 

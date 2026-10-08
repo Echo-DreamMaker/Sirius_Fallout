@@ -1,56 +1,56 @@
 <Document>
-# Surgery
+# Хирургия
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Surgery"]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Surgery"]
 
-<p>Surgery allows you to heal wounds, remove or replace body parts and organs, and perform advanced medical procedures. It is the most powerful tool in a Wasteland medic's kit — and the most dangerous if done incorrectly.</p>
+<p>Хирургия позволяет вам залечивать раны, удалять или заменять части тела и органы, а также проводить сложные медицинские процедуры. Это самый мощный инструмент в арсенале медика Пустоши — и самый опасный, если применять его неправильно.</p>
 
 <hr/>
 
-## Before You Begin
+## Прежде чем начать
 
-<p>Your patient must be lying down and ideally sedated before you start. Operating on a conscious patient causes severe pain, worsens their mood, and makes wounds harder to manage.</p>
+<p>До начала операции ваш пациент должен лежать и, в идеале, быть под наркозом. Операция на пациенте в сознании причиняет ему сильную боль, ухудшает его настроение и затрудняет обработку ран.</p>
 
-<p>Use [bold]Nitrous Oxide[/bold] with a breathing mask to sedate your patient safely before beginning any procedure.</p>
+<p>Используйте [bold]закись азота[/bold] вместе с дыхательной маской, чтобы безопасно усыпить пациента перед началом любой процедуры.</p>
 
-<p>You must also wear protective gear to prevent contaminating the patient's wounds:</p>
+<p>Вы также обязаны носить защитную экипировку, чтобы не занести инфекцию в раны пациента:</p>
 
 <ul>
-<li>[bold]Sterile Mask[/bold] — any surgical mask prevents airborne contamination</li>
-<li>[bold]Nitrile Gloves[/bold] — any surgical gloves prevent contact contamination</li>
+<li>[bold]Стерильная маска[/bold] — любая хирургическая маска предотвращает воздушное заражение</li>
+<li>[bold]Нитриловые перчатки[/bold] — любые хирургические перчатки предотвращают контактное заражение</li>
 </ul>
 
 <hr/>
 
-## Surgical Tools
+## Хирургические инструменты
 
-<p>A full surgical kit contains everything needed to open, operate on, and close a patient safely. Most procedures require several tools used in sequence.</p>
+<p>Полный хирургический набор содержит всё необходимое, чтобы безопасно вскрыть пациента, провести операцию и закрыть рану. Большинство процедур требуют нескольких инструментов, применяемых поочерёдно.</p>
 
 <ul>
-<li>[bold]Scalpel[/bold] — makes the initial incision to open the surgical site</li>
-<li>[bold]Retractor[/bold] — holds the incision open so you can work inside</li>
-<li>[bold]Hemostat[/bold] — clamps bleeding vessels and assists with organ removal</li>
-<li>[bold]Drill[/bold] — bores through bone when access to deeper structures is needed</li>
-<li>[bold]Saw[/bold] — cuts through bone for amputation and structural work</li>
-<li>[bold]Cautery[/bold] — seals wounds and closes incisions with heat</li>
-<li>[bold]Bone Gel[/bold] — stabilizes and seals bone after drilling or fracture repair</li>
+<li>[bold]Скальпель[/bold] — делает первый разрез, чтобы вскрыть операционное поле</li>
+<li>[bold]Ретрактор[/bold] — удерживает разрез открытым, чтобы вы могли работать внутри</li>
+<li>[bold]Гемостат[/bold] — зажимает кровоточащие сосуды и помогает при удалении органов</li>
+<li>[bold]Дрель[/bold] — просверливает кость, когда требуется доступ к более глубоким структурам</li>
+<li>[bold]Пила[/bold] — разрезает кость для ампутации и работы со структурами</li>
+<li>[bold]Каутер[/bold] — запаивает раны и закрывает разрезы при помощи жара</li>
+<li>[bold]Костный гель[/bold] — стабилизирует и запаивает кость после сверления или лечения перелома</li>
 </ul>
 
-<p>Once you have tools, interact with your patient to begin. You will be prompted to choose which body part to operate on.</p>
+<p>Когда инструменты у вас есть, взаимодействуйте с пациентом, чтобы начать. Вам будет предложено выбрать, какую часть тела оперировать.</p>
 
 <hr/>
 
-## Ghetto Surgery
+## Кустарная хирургия
 
-<p>When proper surgical tools are unavailable, improvised alternatives can substitute in a pinch. Examine the item to see how effective it is as a surgical substitute.</p>
+<p>Когда надлежащих хирургических инструментов нет, в крайнем случае их могут заменить подручные средства. Осмотрите предмет, чтобы узнать, насколько он эффективен в качестве хирургической замены.</p>
 
 <ul>
-<li>[bold]Welder[/bold] — cauterization substitute</li>
-<li>[bold]Wirecutter[/bold] — hemostat substitute</li>
-<li>[bold]Kitchen Knife[/bold] — scalpel substitute</li>
-<li>[bold]Crowbar[/bold] — retractor substitute</li>
+<li>[bold]Сварочный аппарат[/bold] — замена каутера</li>
+<li>[bold]Кусачки для проволоки[/bold] — замена гемостата</li>
+<li>[bold]Кухонный нож[/bold] — замена скальпеля</li>
+<li>[bold]Лом[/bold] — замена ретрактора</li>
 </ul>
 
-<p>Improvised tools are less effective than proper surgical equipment and increase the risk of complications. Use them only when nothing better is available.</p>
+<p>Подручные инструменты менее эффективны, чем надлежащее хирургическое оборудование, и повышают риск осложнений. Используйте их только тогда, когда ничего лучше нет.</p>
 
 </Document>

@@ -1,28 +1,28 @@
 <Document>
-# Caravan Company
+# Караванная компания
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Caravan%20Company"/]
+[textlink="Просмотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Caravan%20Company"/]
 
-## Caravan Company
+## Караванная компания
 
-<p>Trade caravans are among the most essential institutions in the Fallout universe — the lifelines connecting isolated settlements, carrying news alongside goods, and preventing the Wasteland's fragile economy from collapsing into pure subsistence. From the Crimson Caravan to the Far Go Traders, every major post-war civilization depends on traders willing to brave dangerous roads.</p>
-<p>The Caravan Company is the primary source of goods and supplies flowing into this region. Without their routes, settlements stagnate or starve. Everyone needs them — which means everyone has leverage over them, and they know how to use leverage in return.</p>
+<p>Торговые караваны — один из важнейших институтов вселенной Fallout: это нити жизни, связывающие изолированные поселения, разносящие новости вместе с товарами и не дающие хрупкой экономике Пустоши скатиться к чистому натуральному выживанию. От «Crimson Caravan» до «Far Go Traders» любая крупная послевоенная цивилизация держится на торговцах, готовых рискнуть на опасных дорогах.</p>
+<p>Караванная компания — главный источник товаров и припасов, поступающих в этот регион. Без их маршрутов поселения прозябают или голодают. Они нужны всем — а значит, у всех есть рычаги влияния на них, и они умеют пускать эти рычаги в ход в ответ.</p>
 
-<h3 Text="Philosophy"/>
+<h3 Text="Философия"/>
 
-<p>The Caravan Company operates on profit and mutual benefit above any ideology. They sell to anyone who can pay. This pragmatism makes them valuable neutral parties — and frustrating ones when choosing sides is exactly what a situation demands.</p>
+<p>Караванная компания ставит прибыль и взаимную выгоду выше любой идеологии. Они продают всем, кто может заплатить. Этот прагматизм делает их ценными нейтральными сторонами — и досадно упрямыми, когда ситуация прямо требует выбрать чью-то сторону.</p>
 
-<h3 Text="Roles"/>
+<h3 Text="Роли"/>
 
-<p>[bold]Caravan Master[/bold]</p>
-<p>Your role: Oversee the local CC operation. Manage inventory, coordinate traders, protect assets, and maintain relationships with every faction simultaneously. When the Caravan Company suffers, the whole region suffers — including your bottom line.</p>
-<p>[bold]Merchant[/bold]</p>
-<p>Your role: Buy, sell, and trade. The regional economy runs through your hands. Your relationships with customers — fair dealing or otherwise — define the Caravan Company's reputation in every settlement you reach.</p>
-<p>[bold]Caravan Guard[/bold]</p>
-<p>Your role: Protect the caravan, its personnel, and its inventory. You are not looking for a fight — but if trouble finds your employer, you are the reason it does not end badly for them.</p>
+<p>[bold]Мастер каравана[/bold]</p>
+<p>Ваша роль: курировать местное отделение КК. Управлять запасами, координировать торговцев, защищать имущество и одновременно поддерживать отношения со всеми фракциями. Когда Караванная компания страдает, страдает весь регион — включая вашу прибыль.</p>
+<p>[bold]Торговец[/bold]</p>
+<p>Ваша роль: покупать, продавать и торговать. Региональная экономика проходит через ваши руки. Ваши отношения с покупателями — честная сделка или совсем иная — определяют репутацию Караванной компании в каждом поселении, куда вы доберётесь.</p>
+<p>[bold]Охранник каравана[/bold]</p>
+<p>Ваша роль: защищать караван, его людей и его груз. Вы не ищете драки — но если неприятности найдут вашего нанимателя, именно благодаря вам они для него плохо не закончатся.</p>
 
-<h3 Text="Relations"/>
+<h3 Text="Отношения"/>
 
-<p>The Caravan Company can enter agreements with the NCR for mutual protection and supply access. If the CC is destroyed or driven off, the entire region loses its primary supply lifeline. The CC remains neutral by default but will cut off trade with any faction that attacks their caravans or personnel.</p>
+<p>Караванная компания может заключать соглашения с НКР о взаимной защите и доступе к поставкам. Если КК уничтожат или изгонят, весь регион лишится главной нити снабжения. По умолчанию КК сохраняет нейтралитет, но прекратит торговлю с любой фракцией, которая нападёт на их караваны или их людей.</p>
 
 </Document>

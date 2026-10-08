@@ -1,59 +1,59 @@
 <Document>
-# Two-Handed Melee
+# Двуручное оружие ближнего боя
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Two-Handed%20Melee"/]
+[textlink="Просмотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Two-Handed%20Melee"/]
 
-## Two-Handed Melee
+## Двуручное оружие ближнего боя
 
-<p>Two-handed melee weapons are slower to swing but deal significantly more damage. They require both hands to use, meaning you cannot hold a firearm at the same time - but in melee range, their power is unmatched.</p>
+<p>Двуручное оружие ближнего боя замахивается медленнее, но наносит значительно больше урона. Для его использования нужны обе руки, а значит, вы не сможете одновременно держать огнестрельное оружие — но на дистанции ближнего боя его мощь не имеет равных.</p>
 
-<h3 Text="Spears"/>
+<h3 Text="Копья"/>
 
-<p>Spears are versatile two-handed weapons with reach. They can be thrown and deal good damage against armored and unarmored targets alike.</p>
+<p>Копья — универсальное двуручное оружие с увеличенной дальностью. Их можно метать, и они наносят хороший урон как по целям в броне, так и без неё.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Wasteland Spear[/bold]</Box>
-  <Box>Basic reaching weapon. Can be thrown.</Box>
-  <Box>[bold]Tribal Spear[/bold]</Box>
-  <Box>Decorated tribal construction. Similar stats to the Wasteland Spear.</Box>
-  <Box>[bold]Flag Spear[/bold]</Box>
-  <Box>Spear with faction banner. Ceremonial but fully combat-capable.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Копьё Пустоши[/bold]</Box>
+  <Box>Базовое оружие с увеличенной дальностью. Можно метать.</Box>
+  <Box>[bold]Племенное копьё[/bold]</Box>
+  <Box>Украшенная племенная работа. Характеристики схожи с Копьём Пустоши.</Box>
+  <Box>[bold]Копьё со знаменем[/bold]</Box>
+  <Box>Копьё со знаменем фракции. Церемониальное, но полностью пригодное для боя.</Box>
 </Table>
 
-<h3 Text="Hammers &amp; Sledges"/>
+<h3 Text="Молоты и кувалды"/>
 
-<p>Blunt force weapons that crush through armor. The Super Sledge is the pinnacle of two-handed blunt weaponry.</p>
+<p>Дробящее оружие, проламывающее броню. Суперкувалда — вершина двуручного дробящего оружия.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Sledgehammer[/bold]</Box>
-  <Box>Heavy blunt weapon. Good damage against armored targets.</Box>
-  <Box>[bold]Super Sledge[/bold]</Box>
-  <Box>Pre-war hydraulic sledge. Exceptional damage. Rare and prized.</Box>
-  <Box>[bold]Tribal War Club[/bold]</Box>
-  <Box>Large blunt club. Slower swing, heavy impact.</Box>
-  <Box>[bold]Nail Board[/bold]</Box>
-  <Box>Improvised spiked club. Common Wasteland weapon.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Кувалда[/bold]</Box>
+  <Box>Тяжёлое дробящее оружие. Хороший урон по целям в броне.</Box>
+  <Box>[bold]Суперкувалда[/bold]</Box>
+  <Box>Довоенная гидравлическая кувалда. Исключительный урон. Редкая и ценная.</Box>
+  <Box>[bold]Племенная боевая дубина[/bold]</Box>
+  <Box>Большая дробящая дубина. Медленный замах, тяжёлый удар.</Box>
+  <Box>[bold]Доска с гвоздями[/bold]</Box>
+  <Box>Импровизированная шипованная дубина. Распространённое оружие Пустоши.</Box>
 </Table>
 
-<h3 Text="Long Blades"/>
+<h3 Text="Длинные клинки"/>
 
-<p>Large swords and blades for those who prefer cutting over crushing. Many are tribal or ceremonial in origin.</p>
+<p>Большие мечи и клинки для тех, кто предпочитает резать, а не дробить. Многие из них имеют племенное или церемониальное происхождение.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Longsword[/bold]</Box>
-  <Box>Standard two-handed blade. Balanced reach and damage.</Box>
-  <Box>[bold]Tribal Sword[/bold]</Box>
-  <Box>Handcrafted long blade. Rougher edge than manufactured swords.</Box>
-  <Box>[bold]Tribal Machete[/bold]</Box>
-  <Box>Oversized two-handed cutting blade.</Box>
-  <Box>[bold]Ripper[/bold]</Box>
-  <Box>Motorized blade weapon. Pre-war construction. Very high damage.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Длинный меч[/bold]</Box>
+  <Box>Стандартный двуручный клинок. Сбалансированные дальность и урон.</Box>
+  <Box>[bold]Племенной меч[/bold]</Box>
+  <Box>Длинный клинок ручной работы. Заточка грубее, чем у фабричных мечей.</Box>
+  <Box>[bold]Племенное мачете[/bold]</Box>
+  <Box>Увеличенный двуручный режущий клинок.</Box>
+  <Box>[bold]Потрошитель[/bold]</Box>
+  <Box>Моторизованное клинковое оружие. Довоенная конструкция. Очень высокий урон.</Box>
 </Table>
 
 </Document>
