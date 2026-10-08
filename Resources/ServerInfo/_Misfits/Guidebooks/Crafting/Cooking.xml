@@ -1,128 +1,128 @@
 <Document>
-# Cooking
+# Кулинария
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Cooking"/]
+[textlink="Смотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Cooking"/]
 
-## Cooking
+## Кулинария
 
-<p>Cooking turns raw Wasteland ingredients into meals that are safer, more filling, and usually more valuable than eating ingredients by themselves. Most recipes rely on a heat source plus basic meats, produce, grains, or scavenged pre-war food.</p>
+<p>Кулинария превращает сырые ингредиенты Пустоши в блюда, которые безопаснее, сытнее и обычно ценнее, чем ингредиенты сами по себе. Большинство рецептов требуют источника тепла и простого мяса, овощей, зерна или найденной довоенной еды.</p>
 
-<h3 Text="Cooking Equipment"/>
+<h3 Text="Кухонное оборудование"/>
 
-<p>A cooking stove or kitchen grill is needed for most hot meals.</p>
+<p>Для большинства горячих блюд нужна кухонная плита или кухонный гриль.</p>
 <ul>
-<li>[bold]Cooking Stove[/bold] - Standard cooking equipment found in most settlements and kitchens.</li>
-<li>[bold]Kitchen Grill[/bold] - Outdoor grill suitable for cooking meats and simple meals.</li>
+<li>[bold]Кухонная плита[/bold] — стандартное кухонное оборудование, встречающееся в большинстве поселений и на кухнях.</li>
+<li>[bold]Кухонный гриль[/bold] — уличный гриль, подходящий для приготовления мяса и простых блюд.</li>
 </ul>
 
-<h3 Text="Raw Meats"/>
+<h3 Text="Сырое мясо"/>
 
-<p>Wasteland creatures provide a wide range of raw meats. [bold]Do not eat raw meat[/bold] unless you have no other choice - always cook it first.</p>
+<p>Существа Пустоши дают широкий выбор сырого мяса. [bold]Не ешьте сырое мясо[/bold], если у вас нет другого выбора — всегда сначала готовьте его.</p>
 <ul>
-<li>Brahmin Meat</li>
-<li>Bighorner Meat</li>
-<li>Radstag Meat</li>
-<li>Radhog Meat</li>
-<li>Pigrat Meat</li>
-<li>Yaoguai Meat</li>
-<li>Radscorpion Meat</li>
-<li>Radchicken Meat</li>
-<li>Gecko Meat</li>
-<li>Fire Gecko Meat</li>
-<li>Golden Gecko Meat</li>
-<li>Iguana Meat</li>
-<li>Mirelurk Claw Meat</li>
-<li>Squirrel Meat</li>
+<li>Мясо брамина</li>
+<li>Мясо толсторога</li>
+<li>Мясо рад-оленя</li>
+<li>Мясо борова</li>
+<li>Мясо свинокрыса</li>
+<li>Мясо яо-гая</li>
+<li>Мясо радскорпиона</li>
+<li>Мясо рад-курицы</li>
+<li>Мясо геккона</li>
+<li>Мясо огненного геккона</li>
+<li>Мясо золотого геккона</li>
+<li>Мясо игуаны</li>
+<li>Мясо клешни болотника</li>
+<li>Мясо белки</li>
 </ul>
 
-<h3 Text="Fresh Produce"/>
+<h3 Text="Свежие продукты"/>
 
-<p>Plants grown by farmers or gathered from the Wasteland. They can be eaten raw, processed into extracts, or used in complete meals.</p>
+<p>Растения, выращенные фермерами или собранные в Пустоши. Их можно есть сырыми, перерабатывать в экстракты или использовать в полноценных блюдах.</p>
 <ul>
-<li>Carrot</li>
-<li>Cabbage</li>
-<li>Corn</li>
-<li>Onion</li>
-<li>Potato</li>
-<li>Tomato</li>
-<li>Apple</li>
+<li>Морковь</li>
+<li>Капуста</li>
+<li>Кукуруза</li>
+<li>Лук</li>
+<li>Картофель</li>
+<li>Помидор</li>
+<li>Яблоко</li>
 </ul>
 
-<h3 Text="Cooked Meals"/>
+<h3 Text="Приготовленные блюда"/>
 
-<p>Prepared meals made at a cooking station. Your best everyday food source when a settlement has a working kitchen.</p>
+<p>Готовые блюда, сделанные на кухонной станции. Ваш лучший повседневный источник еды, когда в поселении есть работающая кухня.</p>
 
 <Table Columns="2">
-  <Box>[bold]Meal[/bold]</Box>
-  <Box>[bold]Type[/bold]</Box>
-  <Box>[bold]Ribs[/bold]</Box>
-  <Box>Meat dish</Box>
-  <Box>[bold]Cuban Carp[/bold]</Box>
-  <Box>Fish dish</Box>
-  <Box>[bold]Omelette[/bold]</Box>
-  <Box>Egg dish</Box>
-  <Box>[bold]Fried Egg[/bold]</Box>
-  <Box>Egg dish</Box>
-  <Box>[bold]Enchiladas[/bold]</Box>
-  <Box>Grain and meat</Box>
-  <Box>[bold]Nachos[/bold]</Box>
-  <Box>Grain and cheese</Box>
-  <Box>[bold]Fries[/bold]</Box>
-  <Box>Potato side</Box>
-  <Box>[bold]Queso[/bold]</Box>
-  <Box>Cheese dip</Box>
-  <Box>[bold]Sashimi[/bold]</Box>
-  <Box>Raw fish preparation</Box>
-  <Box>[bold]Loaded Potato[/bold]</Box>
-  <Box>Stuffed potato</Box>
-  <Box>[bold]Fruit Salad[/bold]</Box>
-  <Box>Fresh salad</Box>
-  <Box>[bold]Herb Salad[/bold]</Box>
-  <Box>Fresh salad</Box>
-  <Box>[bold]Coleslaw[/bold]</Box>
-  <Box>Fresh salad</Box>
+  <Box>[bold]Блюдо[/bold]</Box>
+  <Box>[bold]Тип[/bold]</Box>
+  <Box>[bold]Рёбрышки[/bold]</Box>
+  <Box>Мясное блюдо</Box>
+  <Box>[bold]Кубинский карась[/bold]</Box>
+  <Box>Рыбное блюдо</Box>
+  <Box>[bold]Омлет дю фромаж[/bold]</Box>
+  <Box>Блюдо из яиц</Box>
+  <Box>[bold]Яичница[/bold]</Box>
+  <Box>Блюдо из яиц</Box>
+  <Box>[bold]Энчилада[/bold]</Box>
+  <Box>Зерно и мясо</Box>
+  <Box>[bold]Начос[/bold]</Box>
+  <Box>Зерно и сыр</Box>
+  <Box>[bold]Картофель фри[/bold]</Box>
+  <Box>Картофельный гарнир</Box>
+  <Box>[bold]Кесо[/bold]</Box>
+  <Box>Сырный соус</Box>
+  <Box>[bold]Сашими[/bold]</Box>
+  <Box>Блюдо из сырой рыбы</Box>
+  <Box>[bold]Печёный картофель с начинкой[/bold]</Box>
+  <Box>Фаршированный картофель</Box>
+  <Box>[bold]Фруктовый салат[/bold]</Box>
+  <Box>Свежий салат</Box>
+  <Box>[bold]Травяной салат[/bold]</Box>
+  <Box>Свежий салат</Box>
+  <Box>[bold]Коулсло[/bold]</Box>
+  <Box>Свежий салат</Box>
 </Table>
 
-<h3 Text="Soups &amp; Bowls"/>
+<h3 Text="Супы и похлёбки"/>
 
-<p>Simple one-pot foods and grain dishes that stretch ingredients further than most plated meals.</p>
+<p>Простые блюда в одной посуде и блюда из зерна, которые позволяют растянуть ингредиенты дальше, чем большинство порционных блюд.</p>
 <ul>
-<li>Pea Soup</li>
-<li>Boiled Rice</li>
-<li>Rice Gumbo</li>
-<li>Rice Pudding</li>
-<li>Oatmeal</li>
+<li>Гороховый суп</li>
+<li>Отварной рис</li>
+<li>Черноглазый гамбо</li>
+<li>Рисовый пудинг</li>
+<li>Овсянка</li>
 </ul>
 
-<h3 Text="Baked Goods"/>
+<h3 Text="Выпечка"/>
 
-<p>Require grain or flour, plus a reliable heat source.</p>
+<p>Требует зерна или муки, а также надёжного источника тепла.</p>
 <ul>
-<li>Plain Bread</li>
-<li>Cornbread</li>
-<li>Banana Bread</li>
-<li>Meat Roll</li>
-<li>Radroll</li>
-<li>Mutfruit Pie</li>
-<li>Blackberry Pie</li>
-<li>Meat Pie</li>
+<li>Хлеб</li>
+<li>Кукурузный хлеб</li>
+<li>Банановый хлеб</li>
+<li>Мясной рулет</li>
+<li>Редролл</li>
+<li>Пирог из мутафрукта</li>
+<li>Черничный пирог</li>
+<li>Мясной пирог</li>
 </ul>
 
-<h3 Text="Pre-War Packaged Food"/>
+<h3 Text="Довоенная упакованная еда"/>
 
-<p>Pre-war food can still be found throughout the Wasteland. It stores well and is useful when you need fast calories without cooking.</p>
+<p>Довоенную еду всё ещё можно найти по всей Пустоши. Она хорошо хранится и полезна, когда нужны быстрые калории без готовки.</p>
 <ul>
-<li>Blamco Mac & Cheese</li>
-<li>Cram</li>
-<li>Dandy Boy Apples</li>
-<li>Fancy Lads Snack Cakes</li>
-<li>Instamash</li>
-<li>Pork & Beans</li>
-<li>Dinki-Di</li>
+<li>Макароны с сыром «Бламко»</li>
+<li>Готовый обед «Крэм»</li>
+<li>Наливные яблоки «Дэнди Бой»</li>
+<li>Кексы «Весёлые ребята»</li>
+<li>Пюре быстрого приготовления «ИнстаМэш»</li>
+<li>Свинина с бобами</li>
+<li>Собачий корм «Динки-Ди»</li>
 </ul>
 
-<h3 Text="Cooking Recipes"/>
+<h3 Text="Рецепты готовки"/>
 
-<p>The full auto-generated list of food recipes is available in-game via the cooking tab of the crafting menu. Check the in-game guidebook under [bold]Cooking[/bold] for live recipe data.</p>
+<p>Полный автоматически сгенерированный список рецептов еды доступен в игре на вкладке готовки меню создания предметов. Смотрите внутриигровой гайдбук в разделе [bold]Кулинария[/bold] для актуальных данных о рецептах.</p>
 
 </Document>

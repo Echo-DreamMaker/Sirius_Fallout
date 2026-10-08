@@ -1,19 +1,19 @@
 <Document>
-# Survival Guide
+# Руководство по выживанию
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Survival%20Guide"/]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Survival%20Guide"/]
 
-## Survival Guide
+## Руководство по выживанию
 
-<p>Here you will find all the necessary information about surviving in the Wasteland.</p>
+<p>Здесь вы найдёте всю необходимую информацию о выживании в Пустоши.</p>
 
-<h3 Text="Guide Sections"/>
+<h3 Text="Разделы руководства"/>
 
 <Table Columns="2">
-  <Box>[bold]Section[/bold]</Box>
-  <Box>[bold]Contents[/bold]</Box>
-  <Box>[textlink="[bold]Survival Basics[/bold]" link="https://wiki.misfitsystems.net/index.php/Survival_Basics"/]</Box>
-  <Box>Food, water, radiation management, and weather protection. The fundamentals every Wasteland survivor needs to know.</Box>
+  <Box>[bold]Раздел[/bold]</Box>
+  <Box>[bold]Содержание[/bold]</Box>
+  <Box>[textlink="[bold]Основы выживания[/bold]" link="https://wiki.misfitsystems.net/index.php/Survival_Basics"/]</Box>
+  <Box>Еда, вода, контроль радиации и защита от погоды. Основы, которые должен знать каждый выживший в Пустоши.</Box>
 </Table>
 
 </Document>

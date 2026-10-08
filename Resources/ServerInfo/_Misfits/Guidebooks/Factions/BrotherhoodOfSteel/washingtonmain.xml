@@ -1,112 +1,112 @@
 <Document>
-# Washington Brotherhood of Steel
+# Вашингтонское Братство Стали
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"]
+[textlink="Посмотреть полную страницу в вики" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"]
 
 <Table Columns="2">
-  <Box>[bold]Status[/bold]</Box>
-  <Box>[color=#4caf50]Active — Minor Faction[/color]</Box>
-  <Box>[bold]Location[/bold]</Box>
-  <Box>Operating covertly near Wendover</Box>
-  <Box>[bold]Leadership[/bold]</Box>
-  <Box>Elder (Washington Chapter Commander)</Box>
-  <Box>[bold]Ideology[/bold]</Box>
-  <Box>Technological elitism, biological purism</Box>
-  <Box>[bold]Motto[/bold]</Box>
-  <Box>[italic]"Technology must be earned."[/italic]</Box>
+  <Box>[bold]Статус[/bold]</Box>
+  <Box>[color=#4caf50]Активна — Малая фракция[/color]</Box>
+  <Box>[bold]Расположение[/bold]</Box>
+  <Box>Действует скрытно неподалёку от Вендовера</Box>
+  <Box>[bold]Руководство[/bold]</Box>
+  <Box>Старейшина (командир Вашингтонской части)</Box>
+  <Box>[bold]Идеология[/bold]</Box>
+  <Box>Технологический элитизм, биологический пуризм</Box>
+  <Box>[bold]Девиз[/bold]</Box>
+  <Box>[italic]«Технологию нужно заслужить.»[/italic]</Box>
 </Table>
 
-<p>The Washington Brotherhood of Steel is a splinter branch descended from a Midwest Brotherhood expedition that lost contact with their parent organization long ago. Cut off from their origins, they evolved into a purist faction that mirrors the ideals of the original Brotherhood — but with a harder edge. They are the most formidable military force in the local Wasteland, possessing power armor, energy weapons, and an uncompromising will to use them.</p>
+<p>Вашингтонское Братство Стали — это отколовшаяся ветвь, ведущая происхождение от экспедиции Братства со Среднего Запада, которая давно потеряла связь с материнской организацией. Отрезанные от своих истоков, они превратились в пуристскую фракцию, отражающую идеалы изначального Братства — но с более жёстким характером. Они — самая грозная военная сила в местной Пустоши, обладающая силовой бронёй, энергетическим оружием и непреклонной волей пустить всё это в ход.</p>
 
 <hr/>
 
-## Philosophy
+## Философия
 
-<p>The Washington Brotherhood holds to strict technological elitism. They believe only they are qualified to possess and utilize advanced technology. They are hostile to mutants of all kinds and deeply suspicious of outsiders. They act discreetly when possible — but if they choose to act openly, they bring overwhelming firepower.</p>
-
-<hr/>
-
-## Roles
-
-<ColorBox Color="#3B72BF">
-  <Box Margin="2">
-  [bold]Elder[/bold]
-  </Box>
-</ColorBox>
-<Box>
-[color=#a4885c]Your role:[/color] The supreme authority of the Washington Brotherhood. All major decisions flow through you. You rarely appear in the field, but your word is absolute law. Set the chapter's agenda and determine how aggressively to pursue technology acquisition in the region.
-</Box>
-
-<br/>
-
-<ColorBox Color="#3B72BF">
-  <Box Margin="2">
-  [bold]Paladin[/bold]
-  </Box>
-</ColorBox>
-<Box>
-[color=#a4885c]Your role:[/color] Elite warrior in full power armor. The enforcement arm of the Brotherhood — feared throughout the Wasteland. Execute the Elder's directives and lead operations in the field.
-</Box>
-
-<br/>
-
-<ColorBox Color="#3B72BF">
-  <Box Margin="2">
-  [bold]Knight[/bold]
-  </Box>
-</ColorBox>
-<Box>
-[color=#a4885c]Your role:[/color] Veteran soldiers outfitted with Brotherhood-standard gear. The backbone of the chapter's combat strength. Protect assets, enforce the Elder's will, and keep the chapter's equipment battle-ready.
-</Box>
-
-<br/>
-
-<ColorBox Color="#3B72BF">
-  <Box Margin="2">
-  [bold]Scribe[/bold]
-  </Box>
-</ColorBox>
-<Box>
-[color=#a4885c]Your role:[/color] Scholar and technician responsible for cataloguing, maintaining, and recovering technology. Your records are what justify the Brotherhood's mission. Keep them current and accurate.
-</Box>
-
-<br/>
-
-<ColorBox Color="#3B72BF">
-  <Box Margin="2">
-  [bold]Initiate[/bold]
-  </Box>
-</ColorBox>
-<Box>
-[color=#a4885c]Your role:[/color] New recruit undergoing Brotherhood training. Monitored closely and not yet trusted with the faction's most valuable assets. Follow every order, learn fast, and earn the trust of those above you.
-</Box>
+<p>Вашингтонское Братство придерживается строгого технологического элитизма. Они считают, что лишь они достойны обладать передовыми технологиями и использовать их. Они враждебны к мутантам всех видов и глубоко недоверчивы к чужакам. По возможности они действуют скрытно — но если они решают действовать открыто, они обрушивают подавляющую огневую мощь.</p>
 
 <hr/>
 
-## Faction Relations
+## Роли
+
+<ColorBox Color="#3B72BF">
+  <Box Margin="2">
+  [bold]Старейшина[/bold]
+  </Box>
+</ColorBox>
+<Box>
+[color=#a4885c]Ваша роль:[/color] Высшая власть Вашингтонского Братства. Все важные решения проходят через вас. Вы редко появляетесь на поле, но ваше слово — абсолютный закон. Определяйте повестку части и решайте, насколько агрессивно вести добычу технологий в регионе.
+</Box>
+
+<br/>
+
+<ColorBox Color="#3B72BF">
+  <Box Margin="2">
+  [bold]Паладин[/bold]
+  </Box>
+</ColorBox>
+<Box>
+[color=#a4885c]Ваша роль:[/color] Элитный воин в полной силовой броне. Карающая рука Братства — внушающая страх по всей Пустоши. Выполняйте указания старейшины и возглавляйте операции на поле.
+</Box>
+
+<br/>
+
+<ColorBox Color="#3B72BF">
+  <Box Margin="2">
+  [bold]Рыцарь[/bold]
+  </Box>
+</ColorBox>
+<Box>
+[color=#a4885c]Ваша роль:[/color] Ветераны-солдаты, оснащённые по стандартам Братства. Костяк боевой силы части. Защищайте имущество, проводите волю старейшины в жизнь и поддерживайте снаряжение части в боевой готовности.
+</Box>
+
+<br/>
+
+<ColorBox Color="#3B72BF">
+  <Box Margin="2">
+  [bold]Писарь[/bold]
+  </Box>
+</ColorBox>
+<Box>
+[color=#a4885c]Ваша роль:[/color] Учёный и техник, отвечающий за каталогизацию, обслуживание и поиск технологий. Именно ваши записи оправдывают миссию Братства. Поддерживайте их в актуальном и точном состоянии.
+</Box>
+
+<br/>
+
+<ColorBox Color="#3B72BF">
+  <Box Margin="2">
+  [bold]Послушник[/bold]
+  </Box>
+</ColorBox>
+<Box>
+[color=#a4885c]Ваша роль:[/color] Новобранец, проходящий обучение Братства. За вами пристально следят, и вам пока не доверяют самые ценные ресурсы фракции. Выполняйте каждый приказ, учитесь быстро и заслужите доверие тех, кто выше вас.
+</Box>
+
+<hr/>
+
+## Отношения фракций
 
 <Table Columns="3">
-  <Box>[bold][color=#a4885c]Faction[/color][/bold]</Box>
-  <Box>[bold][color=#a4885c]Standing[/color][/bold]</Box>
-  <Box>[bold][color=#a4885c]Notes[/color][/bold]</Box>
-  <Box>NCR</Box>
-  <Box>[color=#cc3333]Hostile[/color]</Box>
-  <Box>Competing interests over technology and territory.</Box>
-  <Box>Midwest Brotherhood</Box>
-  <Box>[color=#a4885c]Complex[/color]</Box>
-  <Box>Shared lineage, opposing doctrine. Their recruitmen policy is an affront.</Box>
-  <Box>Caesar's Legion</Box>
-  <Box>[color=#cc3333]Hostile[/color]</Box>
-  <Box>The Legion destroys what the Brotherhood is here to preserve.</Box>
-  <Box>Townsfolk</Box>
-  <Box>[color=#ffb000]Managed[/color]</Box>
-  <Box>Protected from threats, kept at arm's length. Vault-Tec tech is of interest.</Box>
-  <Box>Wastelanders</Box>
-  <Box>[color=#ffb000]Dismissive[/color]</Box>
-  <Box>Ignorant civilians. Tech confiscation likely if advanced equipment is spotted.</Box>
-  <Box>Enclave</Box>
-  <Box>[color=#cc3333]Kill on Sight[/color]</Box>
-  <Box>Existential threat. The catalyst that drove the chapter's resurgence.</Box>
+  <Box>[bold][color=#a4885c]Фракция[/color][/bold]</Box>
+  <Box>[bold][color=#a4885c]Отношение[/color][/bold]</Box>
+  <Box>[bold][color=#a4885c]Примечания[/color][/bold]</Box>
+  <Box>НКР</Box>
+  <Box>[color=#cc3333]Враждебно[/color]</Box>
+  <Box>Соперничество за технологии и территорию.</Box>
+  <Box>Братство Среднего Запада</Box>
+  <Box>[color=#a4885c]Сложное[/color]</Box>
+  <Box>Общее происхождение, противоположная доктрина. Их политика набора — оскорбление.</Box>
+  <Box>Легион Цезаря</Box>
+  <Box>[color=#cc3333]Враждебно[/color]</Box>
+  <Box>Легион уничтожает то, что Братство здесь призвано сохранить.</Box>
+  <Box>Горожане</Box>
+  <Box>[color=#ffb000]Под контролем[/color]</Box>
+  <Box>Защищены от угроз, но держатся на расстоянии. Технологии Vault-Tec представляют интерес.</Box>
+  <Box>Жители Пустоши</Box>
+  <Box>[color=#ffb000]Пренебрежительное[/color]</Box>
+  <Box>Невежественные гражданские. Вероятна конфискация технологий, если будет замечено передовое снаряжение.</Box>
+  <Box>Анклав</Box>
+  <Box>[color=#cc3333]Убивать на месте[/color]</Box>
+  <Box>Экзистенциальная угроза. Катализатор, вызвавший возрождение части.</Box>
 </Table>
 
 </Document>

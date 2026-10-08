@@ -1,89 +1,89 @@
 <Document>
-# Wastelanders
+# Жители Пустоши
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Wastelanders"/]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Wastelanders"/]
 
-<p>◈ Wastelanders ◈ Faction Dossier ◈ Independent ◈</p>
+<p>◈ Жители Пустоши ◈ Досье фракции ◈ Независимые ◈</p>
 
 <Table Columns="2">
-  <Box>[bold]Wastelanders[/bold]</Box>
+  <Box>[bold]Жители Пустоши[/bold]</Box>
   <Box></Box>
-  <Box>◈ FACTION DOSSIER ◈</Box>
+  <Box>◈ ДОСЬЕ ФРАКЦИИ ◈</Box>
   <Box></Box>
-  <Box>[bold]Status[/bold]</Box>
-  <Box>Active - Unaligned</Box>
-  <Box>[bold]Location[/bold]</Box>
-  <Box>The Wasteland
-Wendover Region, Utah</Box>
-  <Box>[bold]Commander[/bold]</Box>
-  <Box>None</Box>
-  <Box>[bold]Ideology[/bold]</Box>
-  <Box>Personal Code
-Survival</Box>
-  <Box>[bold]Motto[/bold]</Box>
-  <Box>[italic]Nobody's soldier. Nobody's enemy.[/italic]</Box>
-  <Box>[bold]Affiliation[/bold]</Box>
-  <Box>Independent</Box>
-  <Box>⬜ RESTRICTED ACCESS ⬜</Box>
+  <Box>[bold]Статус[/bold]</Box>
+  <Box>Активна — Неприсоединившиеся</Box>
+  <Box>[bold]Расположение[/bold]</Box>
+  <Box>Пустошь
+Регион Уэндовер, Юта</Box>
+  <Box>[bold]Командир[/bold]</Box>
+  <Box>Нет</Box>
+  <Box>[bold]Идеология[/bold]</Box>
+  <Box>Личный кодекс
+Выживание</Box>
+  <Box>[bold]Девиз[/bold]</Box>
+  <Box>[italic]Ничей солдат. Ничей враг.[/italic]</Box>
+  <Box>[bold]Принадлежность[/bold]</Box>
+  <Box>Независимые</Box>
+  <Box>⬜ ОГРАНИЧЕННЫЙ ДОСТУП ⬜</Box>
   <Box></Box>
 </Table>
 
-<p>[bold]Wastelanders[/bold] are the independent survivors of the nuclear devastation - people who belong to no faction, answer to no flag, and make their living on the open Wasteland through skill, instinct, and personal code. They are the beating heart of every Fallout story: wanderers who walk into every situation without a predetermined role and walk out having shaped it.</p>
-<p>No two Wastelanders are alike. Former raiders who went straight. Travelers heading somewhere better. Drifters who have been walking since before they can remember. What they share is a refusal to be defined by anyone else's war.</p>
+<p>[bold]Жители Пустоши[/bold] — независимые выжившие ядерной катастрофы: люди, которые не принадлежат ни к одной фракции, не отвечают ни перед каким флагом и добывают средства к существованию в открытой Пустоши благодаря умению, чутью и личному кодексу. Они — бьющееся сердце любой истории Fallout: странники, которые входят в любую ситуацию без заранее заданной роли и выходят из неё, уже её изменив.</p>
+<p>Не бывает двух одинаковых жителей Пустоши. Бывшие рейдеры, вставшие на путь исправления. Путники, идущие туда, где лучше. Бродяги, что идут по дорогам с тех пор, о чём уже не помнят. Их объединяет одно — отказ позволить чужой войне себя определять.</p>
 
-## Philosophy
+## Философия
 
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"There is no single Wastelander philosophy - that is the point. Independence and personal code are all that connects them. Some run by honor, others by caps, others by something harder to name. The Wasteland does not ask for justification. Only survival."[/italic]
+[italic]«Единой философии жителей Пустоши не существует — в этом и суть. Независимость и личный кодекс — вот всё, что их связывает. Одни живут по чести, другие — ради крышек, третьи — ради чего-то, чему трудно найти название. Пустошь не требует оправданий. Только выживания.»[/italic]
   </Box>
 </ColorBox>
 
-## Roles
+## Роли
 
 <Table Columns="3">
-  <Box>[bold]Role[/bold]</Box>
-  <Box>[bold]Description[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>Drifter</Box>
-  <Box>You are nobody's soldier and nobody's enemy by default. Make alliances, take contracts, pursue your own goals - or make someone else's goals your own. You are the wildcard this round needs.</Box>
-  <Box>Maximum freedom. No allegiance required.</Box>
-  <Box>[bold]Scavenger[/bold]</Box>
-  <Box>Explore, recover, and trade. You know what things are worth and where to look for them. The resources you bring back keep the local economy moving - and your own caps flowing.</Box>
-  <Box>Exploration and trade specialist.</Box>
-  <Box>[bold]Wasteland Medic[/bold]</Box>
-  <Box>Provide medical care to anyone who needs it - for caps, for favors, or out of principle. Your neutrality is a strength: you can go where soldiers cannot and be trusted where guns would get the door slammed.</Box>
-  <Box>Independent medical provider.</Box>
+  <Box>[bold]Роль[/bold]</Box>
+  <Box>[bold]Описание[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>Скиталец</Box>
+  <Box>Вы по умолчанию ничей солдат и ничей враг. Заключайте союзы, берите контракты, добивайтесь собственных целей — или сделайте чужие цели своими. Вы — джокер, который нужен этому раунду.</Box>
+  <Box>Максимальная свобода. Никакой обязательной присяги.</Box>
+  <Box>[bold]Собиратель[/bold]</Box>
+  <Box>Исследуйте, добывайте и торгуйте. Вы знаете цену вещам и где их искать. Ресурсы, которые вы приносите, поддерживают движение местной экономики — и ваш собственный поток крышек.</Box>
+  <Box>Специалист по исследованию и торговле.</Box>
+  <Box>[bold]Медик Пустоши[/bold]</Box>
+  <Box>Оказывайте медицинскую помощь всем, кому она нужна, — за крышки, за услуги или по убеждению. Ваш нейтралитет — это сила: вы можете пойти туда, куда не пойдут солдаты, и заслужить доверие там, где перед ружьём просто захлопнули бы дверь.</Box>
+  <Box>Независимый поставщик медицинской помощи.</Box>
 </Table>
 
-## Relations
+## Отношения
 
-<p>Wastelanders can work with or against any faction depending on personal goals and available caps. They are the wildcards of every round - their choices can shift the balance between factions in directions no one predicted.</p>
+<p>Жители Пустоши могут работать с любой фракцией или против неё — в зависимости от личных целей и имеющихся крышек. Они — джокеры каждого раунда: их выбор может качнуть равновесие между фракциями в сторону, которую никто не предсказывал.</p>
 
 <Table Columns="3">
-  <Box>[bold]Faction[/bold]</Box>
-  <Box>[bold]Standing[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[textlink="Townsfolk" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]</Box>
-  <Box>Variable</Box>
-  <Box>Towns are where Wastelanders trade, resupply, and find work. The relationship is transactional.</Box>
-  <Box>[textlink="NCR" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
-  <Box>Variable</Box>
-  <Box>The NCR offers stability. Some Wastelanders appreciate that. Others see it as a leash.</Box>
-  <Box>[textlink="Brotherhood of Steel" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
-  <Box>Watchful</Box>
-  <Box>The Brotherhood views Wastelanders as "ignorant" - a nuisance to be managed, not an enemy to be destroyed.</Box>
-  <Box>[textlink="Caesar's Legion" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
-  <Box>Dangerous</Box>
-  <Box>Unaligned travelers in Legion territory are enslaved or killed.</Box>
-  <Box>[textlink="Followers of the Apocalypse" link="https://wiki.misfitsystems.net/index.php/Followers_of_the_Apocalypse"/]</Box>
-  <Box>Friendly</Box>
-  <Box>The Followers provide free medical care. Wastelanders are frequent patients.</Box>
-  <Box>[textlink="Outlaws" link="https://wiki.misfitsystems.net/index.php/Outlaws"/]</Box>
-  <Box>Variable</Box>
-  <Box>Some Wastelanders were raiders once. Some still deal with them. The line is blurry.</Box>
+  <Box>[bold]Фракция[/bold]</Box>
+  <Box>[bold]Отношение[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[textlink="Горожане" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]</Box>
+  <Box>Переменное</Box>
+  <Box>В городах жители Пустоши торгуют, пополняют запасы и находят работу. Эти отношения чисто деловые.</Box>
+  <Box>[textlink="НКР" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
+  <Box>Переменное</Box>
+  <Box>НКР предлагает стабильность. Некоторые жители Пустоши это ценят. Другие видят в этом поводок.</Box>
+  <Box>[textlink="Братство Стали" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
+  <Box>Настороженное</Box>
+  <Box>Братство считает жителей Пустоши «невеждами» — досадной помехой, с которой нужно управляться, а не врагом, которого нужно уничтожить.</Box>
+  <Box>[textlink="Легион Цезаря" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
+  <Box>Опасное</Box>
+  <Box>Неприсоединившихся путников на территории Легиона обращают в рабство или убивают.</Box>
+  <Box>[textlink="Последователи Апокалипсиса" link="https://wiki.misfitsystems.net/index.php/Followers_of_the_Apocalypse"/]</Box>
+  <Box>Дружелюбное</Box>
+  <Box>Последователи оказывают бесплатную медицинскую помощь. Жители Пустоши — частые пациенты.</Box>
+  <Box>[textlink="Преступники" link="https://wiki.misfitsystems.net/index.php/Outlaws"/]</Box>
+  <Box>Переменное</Box>
+  <Box>Некоторые жители Пустоши когда-то были рейдерами. Некоторые до сих пор имеют с ними дело. Грань размыта.</Box>
 </Table>
 
-<p>[bold]Note:[/bold] Wastelanders are [bold]excluded[/bold] from faction-wide [textlink="war enlistment" link="https://wiki.misfitsystems.net/index.php/Faction_War"/]. They may join a side individually via [bold]/warjoin[/bold] but are never auto-drafted.</p>
+<p>[bold]Примечание:[/bold] Жители Пустоши [bold]исключены[/bold] из общефракционного [textlink="военного призыва" link="https://wiki.misfitsystems.net/index.php/Faction_War"/]. Они могут присоединиться к стороне индивидуально через [bold]/warjoin[/bold], но их никогда не призывают автоматически.</p>
 
 </Document>

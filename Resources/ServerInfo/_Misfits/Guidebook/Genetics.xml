@@ -1,68 +1,68 @@
 <Document>
-# Genetics
+# Генетика
 
-Genetics on Trauma Station is based off of /tg/station with some slight differences in gameplay.
+Генетика на Trauma Station основана на /tg/station с небольшими отличиями в геймплее.
 
-All mutations from tg are implemented here!
+Здесь реализованы все мутации из tg!
 
-# Disks
+# Диски
 
 <Box>
   <GuideEntityEmbed Entity="GeneticsDisk"/>
 </Box>
 
-Rather than the genetics console having infinite storage, you have to store each mutation on a genetics disk. A hand labeler will save your life here.
+Вместо бесконечного хранилища в консоли генетики вам придётся сохранять каждую мутацию на генетическом диске. Ручной этикетировщик здесь спасёт вам жизнь.
 
-Your locker will have a box of disks but you can print more in the sci techfab.
+В вашем шкафчике будет коробка дисков, но дополнительные можно напечатать в научном техфабе.
 
-# Sequencing
+# Секвенирование
 
-To sequence a mutation, unlocking it and activating it in the subject, solve the gene puzzle so that every A is paired with a T, every C with a G.
+Чтобы секвенировать мутацию, разблокировав и активировав её у подопытного, решите генетическую головоломку так, чтобы каждая A была соединена с T, а каждая C — с G.
 
-For single missing bases this is trivial, but with missing pairs you will need to do some thinking. Or just brute force it and torture your poor monkeys.
+С одиночными пропущенными основаниями всё тривиально, но с пропущенными парами придётся подумать. Или просто перебирать варианты наугад и мучить своих бедных обезьян.
 
-Any incorrect guess when sequencing will severely damage the subject's genome. Get some medicine from chem or more monkey cubes to prepare for this.
+Любая неверная догадка при секвенировании серьёзно повредит геном подопытного. Запаситесь лекарствами из химии или дополнительными кубами обезьян.
 
-# Solving missing base pairs
+# Решение пропущенных пар оснований
 
 <Box>
   <GuideEntityEmbed Entity="HandheldGeneticsScanner"/>
 </Box>
 
-There is no joker button. Go outside of your lab and scan people, or Pun Pun, with your [bold]handheld genome scanner[/bold]. You can use logic to deduce what missing bases in your subjects are by finding multiple people with the same dormant mutation.
+Кнопки-джокера здесь нет. Выйдите из своей лаборатории и просканируйте людей или Пун Пуна своим [bold]ручным сканером генома[/bold]. Вы можете логически вычислить, какие основания пропущены у ваших подопытных, найдя нескольких человек с одной и той же спящей мутацией.
 
-Every mutation in the game has a random number assigned each round, however they stay the same between different subjects with the same mutation.
+Каждой мутации в игре каждый раунд присваивается случайное число, однако у разных подопытных с одной и той же мутацией оно остаётся одинаковым.
 
-For example, if you have a monkey in the lab with a genome with an unknown first pair, then scan someone with that mutation and a known first pair, you can use that pair to finish the sequence.
+Например, если у вас в лаборатории есть обезьяна с геномом, у которого неизвестна первая пара, то, просканировав кого-то с этой мутацией и известной первой парой, вы сможете использовать эту пару, чтобы завершить последовательность.
 
-# Biomass
+# Биомасса
 
-Biomass is needed to print mutators, activators and cleansers. Source it from botany, loose corpses, etc. then put it in your console.
-Think carefully if you need to give every lowly assistant hulk, you won't have any biomass left to print anything else!
+Биомасса нужна для печати мутаторов, активаторов и очистителей. Берите её из ботаники, у неубранных трупов и т. д., а затем загружайте в свою консоль.
+Хорошенько подумайте, нужно ли вам выдавать халка каждому захудалому ассистенту: у вас не останется биомассы, чтобы напечатать что-то ещё!
 
-# Removing Mutations
+# Удаление мутаций
 
-To remove mutations instead of using mutadone, you print a cleanser from the storage tab using a disk with the mutation you want to remove. Inject it and the mutation is gone!
+Чтобы удалять мутации вместо использования мутадона, вы печатаете очиститель во вкладке хранения, используя диск с мутацией, которую хотите удалить. Введите его — и мутация исчезнет!
 
-# Scrambling DNA
+# Перемешивание ДНК
 
-If monkeys are in extra short supply and you are having bad luck, you can use the [bold]Scramble DNA[/bold] button to reroll any dormant mutations the subject has.
-It will receive a lot of damage though, so get some meds.
+Если обезьян катастрофически не хватает и вам не везёт, вы можете нажать кнопку [bold]Перемешать ДНК[/bold], чтобы перебросить все спящие мутации, которые есть у подопытного.
+Правда, он получит много повреждений, так что раздобудьте лекарства.
 
-# Combining
+# Комбинирование
 
-Combining mutations is done with a "catalyst" mutation stored on the current disk, and any mutation the subject already has.
+Комбинирование мутаций выполняется с помощью мутации-«катализатора», сохранённой на текущем диске, и любой мутации, которая уже есть у подопытного.
 
-If you pick a correct combination the result is added, but it is not sequenced! You will need to combine it with many subjects for the complex mutations in order to get enough bases.
+Если вы выберете правильную комбинацию, результат добавится, но он не будет секвенирован! Чтобы набрать достаточно оснований, для сложных мутаций вам придётся комбинировать её со многими подопытными.
 
-# Research
+# Исследования
 
-One of the biggest differences from tg is that [bold]you actually contribute to research![/bold]. You get 8000 points for sequencing most mutations, with more complex ones having higher rewards.
+Одно из самых больших отличий от tg — [bold]вы действительно вносите вклад в исследования![/bold]. За секвенирование большинства мутаций вы получаете 8000 очков, а за более сложные награда выше.
 
-# Unique Enzymes
+# Уникальные ферменты
 
-Disks can also store a person's [bold]unique enzymes[/bold] which can be used to copy their name, sex, fingerprints and eye/skin color to another subject.
+Диски также могут хранить [bold]уникальные ферменты[/bold] человека, с помощью которых можно скопировать его имя, пол, отпечатки пальцев и цвет глаз/кожи другому подопытному.
 
-This won't copy their DNA or current hair styles. Get a pair of scissors and set up a barbershop!
+Это не скопирует его ДНК или текущие причёски. Возьмите ножницы и откройте парикмахерскую!
 
 </Document>

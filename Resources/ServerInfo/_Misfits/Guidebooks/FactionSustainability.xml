@@ -1,118 +1,118 @@
 <Document>
-# Guide to Faction Sustainability
+# Руководство по жизнеобеспечению фракции
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Guide%20to%20Faction%20Sustainability"/]
+[textlink="Просмотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Guide%20to%20Faction%20Sustainability"/]
 
-# Guide to Faction Sustainability: Munitions & Medicine
+# Руководство по жизнеобеспечению фракции: боеприпасы и медикаменты
 
-<p>This guide outlines the essential loops for replenishing a faction's supplies mid-round, focusing on ammunition production and medical farming.</p>
+<p>Это руководство описывает основные циклы пополнения запасов фракции по ходу раунда, уделяя особое внимание производству боеприпасов и выращиванию лекарственных растений.</p>
 
-## Ammunition Production
+## Производство боеприпасов
 
-<p>When round-start supplies are exhausted, combat effectiveness depends on a steady logistical chain of lead, steel, and gunpowder.</p>
+<p>Когда стартовые запасы исчерпаны, боеспособность зависит от бесперебойной логистической цепочки свинца, стали и пороха.</p>
 
-<h3 Text="Resource Acquisition"/>
+<h3 Text="Добыча ресурсов"/>
 
-<p>There are three primary ways to gather the raw materials needed for casings and bullets:</p>
+<p>Существует три основных способа собрать сырьё, необходимое для гильз и пуль:</p>
 <ul>
-<li>[bold]Salvaging:[/bold] Searching junk piles, shelves, and crates in the wastes or bunkers. This is the most efficient method in the early game.</li>
-<li>[bold]Dismantling:[/bold] Breaking down wrecked cars or vehicles found on roads and in junkyards. This provides a significant yield of [bold]Lead[/bold] and [bold]Steel[/bold] scraps.</li>
-<li>[bold]Mining:[/bold] The least viable method. Ore veins (Coal, Sulfur, Iron) have low yields and inconsistent drops, making it difficult to target specific materials.</li>
+<li>[bold]Разбор завалов:[/bold] обыск куч мусора, полок и ящиков в Пустоши или в бункерах. Это самый эффективный метод в начале игры.</li>
+<li>[bold]Разборка:[/bold] разбор разбитых машин или транспортных средств, найденных на дорогах и свалках. Это даёт значительное количество лома [bold]свинца[/bold] и [bold]стали[/bold].</li>
+<li>[bold]Добыча:[/bold] наименее выгодный метод. Рудные жилы (уголь, сера, железо) имеют низкий выход и нестабильный дроп, что затрудняет целевую добычу конкретных материалов.</li>
 </ul>
 
-<h3 Text="Ammo Recipes"/>
+<h3 Text="Рецепты боеприпасов"/>
 
-<p>Standard ammunition requires an [bold]Ammo Bench[/bold]. Ensure you have the following materials inserted into the workbench:</p>
+<p>Для стандартных боеприпасов требуется [bold]верстак для боеприпасов[/bold]. Убедитесь, что в верстак заложены следующие материалы:</p>
 
 <Table Columns="5">
-  <Box>[bold]Ammo Type[/bold]</Box>
-  <Box>[bold]Lead (Bar)[/bold]</Box>
-  <Box>[bold]Steel (Sheet)[/bold]</Box>
-  <Box>[bold]Gunpowder[/bold]</Box>
-  <Box>[bold]Secondary Mat[/bold]</Box>
-  <Box>[bold]5.56mm[/bold]</Box>
+  <Box>[bold]Тип боеприпаса[/bold]</Box>
+  <Box>[bold]Свинец (слиток)[/bold]</Box>
+  <Box>[bold]Сталь (лист)[/bold]</Box>
+  <Box>[bold]Порох[/bold]</Box>
+  <Box>[bold]Доп. материал[/bold]</Box>
+  <Box>[bold]5.56 мм[/bold]</Box>
   <Box>1.5</Box>
   <Box>2.25</Box>
   <Box>1.5</Box>
-  <Box>1 Cardboard</Box>
-  <Box>[bold]Shotgun Shell[/bold]</Box>
+  <Box>1 картон</Box>
+  <Box>[bold]Патрон для дробовика[/bold]</Box>
   <Box>0.6</Box>
   <Box>0</Box>
   <Box>0.6</Box>
-  <Box>1 Cardboard and 1 Paper</Box>
+  <Box>1 картон и 1 бумага</Box>
 </Table>
 
-<p>[italic]Note: Cardboard is crafted from 2x Paper. Paper is crafted from 1x Wood Plank.[/italic]</p>
+<p>[italic]Примечание: картон изготавливается из 2x бумаги. Бумага изготавливается из 1x деревянной доски.[/italic]</p>
 
-<h3 Text="Crafting Gunpowder"/>
+<h3 Text="Изготовление пороха"/>
 
-<p>Gunpowder is the most complex component and must be crafted via the crafting menu. There are two ways to produce it:</p>
+<p>Порох — самый сложный компонент, и его необходимо изготовить через меню крафта. Существует два способа его производства:</p>
 
-<h3 Text="Method 1: Basic Crafting (Manual)"/>
+<h3 Text="Способ 1: базовый крафт (вручную)"/>
 
 <ul>
-<li>[bold]Recipe:[/bold] 1x Fertilizer + 1x Coal + 1x Sulfur.</li>
-<li>[bold]Coal:[/bold] Processed in a [bold]Forge[/bold] from [bold]Charcoal[/bold] (1 Plank = 1 Charcoal; 1.5 Charcoal = 1 Coal).</li>
-<li>[bold]Fertilizer/Sulfur:[/bold] Primarily obtained through mining or faction base stockpiles.</li>
+<li>[bold]Рецепт:[/bold] 1x удобрение + 1x уголь + 1x сера.</li>
+<li>[bold]Уголь:[/bold] перерабатывается в [bold]горне[/bold] из [bold]древесного угля[/bold] (1 доска = 1 древесный уголь; 1.5 древесного угля = 1 уголь).</li>
+<li>[bold]Удобрение/сера:[/bold] в основном добываются в шахте или берутся из запасов базы фракции.</li>
 </ul>
 
-<h3 Text="Method 2: High-Efficiency (Chemset &amp; Mortar)"/>
+<h3 Text="Способ 2: высокая эффективность (химнабор и ступка)"/>
 
-<p>If you have access to a [bold]Chemical Set[/bold] and beakers, you can produce gunpowder in bulk with much higher efficiency.</p>
+<p>Если у вас есть доступ к [bold]химическому набору[/bold] и мензуркам, вы можете производить порох оптом с гораздо большей эффективностью.</p>
 <ul>
-<li>[bold]Grinding:[/bold] Use a [bold]Mortar and Pestle[/bold] (crafted with 2x Wood) to grind Sulfur, Fertilizer, and Coal (which becomes Carbon) into a liquid form.</li>
-<li>[bold]Mixing:[/bold] Collect the resulting liquids into a [bold]Chemical Set[/bold].</li>
-<li>[bold]Ratios:[/bold] Redistribute the chemicals into a single beaker in a strict [bold]1:1:1 ratio[/bold] (For example, 30u Sulfur : 30u Fertilizer : 30u Carbon).</li>
-<li>[bold]Final Step:[/bold] It will consume the units directly from the beaker and drop the gunpowder on the ground, allowing for rapid, large-scale production.</li>
+<li>[bold]Измельчение:[/bold] используйте [bold]ступку с пестиком[/bold] (изготавливается из 2x дерева), чтобы перетереть серу, удобрение и уголь (который превращается в углерод) в жидкую форму.</li>
+<li>[bold]Смешивание:[/bold] соберите полученные жидкости в [bold]химический набор[/bold].</li>
+<li>[bold]Пропорции:[/bold] перераспределите реагенты в одну мензурку в строгой пропорции [bold]1:1:1[/bold] (например, 30u серы : 30u удобрения : 30u углерода).</li>
+<li>[bold]Последний шаг:[/bold] он израсходует единицы прямо из мензурки и выбросит порох на землю, что позволяет быстро производить его в больших объёмах.</li>
 </ul>
 
-## Medical Supplies & Farming
+## Медикаменты и выращивание
 
-<p>Medical sustainability relies on the cultivation of [bold]Broc Flower[/bold] and [bold]Xander Root[/bold].</p>
+<p>Медицинская обеспеченность опирается на выращивание [bold]цветка брока[/bold] и [bold]корня ксандера[/bold].</p>
 
-<h3 Text="The Farming Loop"/>
+<h3 Text="Цикл земледелия"/>
 
-<p>Farming is a precise cycle. If you miss a step(especially clipping), you may lose your ability to replant for the rest of the round.</p>
+<p>Земледелие — это точный цикл. Если вы пропустите шаг (особенно срезание черенка), вы можете потерять возможность пересаживать растение до конца раунда.</p>
 <ul>
-<li>[bold]Planting:[/bold] Start with an empty planter. With a [bold]Plant Clipping[/bold] in your hand, click the planter to sow the crop (clippings function as seeds).</li>
-<li>[bold]Weeding:[/bold] Use a [bold]Hoe[/bold] to remove weeds. This can be done either before planting to prep the soil or after the plant has started growing.</li>
-<li>[bold]Hydration & Nutrition:[/bold]
+<li>[bold]Посадка:[/bold] начните с пустого ящика для растений. Держа в руке [bold]черенок растения[/bold], нажмите на ящик, чтобы посеять культуру (черенки работают как семена).</li>
+<li>[bold]Прополка:[/bold] используйте [bold]тяпку[/bold], чтобы убрать сорняки. Это можно сделать как до посадки, чтобы подготовить почву, так и после того, как растение начало расти.</li>
+<li>[bold]Полив и питание:[/bold]
 <ul>
-<li>Keep the water level stable.</li>
-<li>To boost nutrition, collect **Dung** from Brahmin or Brahdo using a bucket or compost bag.</li>
-<li>Insert the compost bag into a **Composer**, then use [bold]Alt+Click[/bold] (or right-click) to toggle the machine on.</li>
-<li>Once processed into compost, click the planter with the compost in hand.</li>
+<li>Поддерживайте стабильный уровень воды.</li>
+<li>Чтобы повысить питательность, соберите **навоз** у брамина или брадо, используя ведро или мешок для компоста.</li>
+<li>Вставьте мешок для компоста в **компостер**, затем используйте [bold]Alt+Click[/bold] (или правый клик), чтобы включить машину.</li>
+<li>После переработки в компост нажмите на ящик для растений, держа компост в руке.</li>
 </ul>
 </li>
-<li>[bold]Clipping (Crucial):[/bold] Once the plant has grown, you [bold]must[/bold] use **Plant Clipper** on it before harvesting. This gives you a new clipping to replant.</li>
-<li>[bold]Harvesting:[/bold] After clipping, you can harvest the plant.</li>
+<li>[bold]Срезание черенка (критично):[/bold] когда растение выросло, вы [bold]обязаны[/bold] применить на нём **секатор для растений** до сбора урожая. Это даст вам новый черенок для пересадки.</li>
+<li>[bold]Сбор урожая:[/bold] после срезания черенка вы можете собрать растение.</li>
 </ul>
-<p>[italic]Warning: Each plant can only be clipped once. If you harvest before clipping, you officially lose the ability to replant that crop unless you find a new wild source.[/italic]</p>
+<p>[italic]Предупреждение: с каждого растения можно срезать черенок только один раз. Если вы соберёте урожай до срезания черенка, вы официально теряете возможность пересадить эту культуру, если только не найдёте новый дикий источник.[/italic]</p>
 
-<h3 Text="Seed Management"/>
+<h3 Text="Работа с семенами"/>
 
-<p>If your faction does not have a [bold]Seed Extractor[/bold], you must use [bold]Plant Clippers[/bold]:</p>
+<p>Если у вашей фракции нет [bold]извлекателя семян[/bold], вы должны использовать [bold]секатор для растений[/bold]:</p>
 <ul>
-<li>Click a mature crop with the scissors to get a clipping.</li>
-<li>[bold]Warning:[/bold] Each plant can only be clipped once. If you harvest a plant without clipping it first, you lose the ability to replant it.</li>
+<li>Нажмите на созревшую культуру ножницами, чтобы получить черенок.</li>
+<li>[bold]Предупреждение:[/bold] с каждого растения можно срезать черенок только один раз. Если вы соберёте урожай, не срезав черенок заранее, вы потеряете возможность пересадить его.</li>
 </ul>
-<p>[bold]Crafting the Seed Extractor Frame:[/bold] To build the extractor, open your crafting menu and gather the following:</p>
+<p>[bold]Изготовление каркаса извлекателя семян:[/bold] чтобы построить извлекатель, откройте меню крафта и соберите следующее:</p>
 <ul>
-<li>[bold]4x Planks[/bold]</li>
-<li>[bold]1x Cooking Pot[/bold]</li>
-<li>[bold]2x Steel Sheets[/bold]</li>
-<li>[bold]1x Duct Tape[/bold]</li>
-<li>[bold]Tool Required:[/bold] Screwdriver (to finish construction)</li>
+<li>[bold]4x доски[/bold]</li>
+<li>[bold]1x кастрюля[/bold]</li>
+<li>[bold]2x стальных листа[/bold]</li>
+<li>[bold]1x клейкая лента[/bold]</li>
+<li>[bold]Требуемый инструмент:[/bold] отвёртка (чтобы завершить строительство)</li>
 </ul>
 
-<h3 Text="Medical Recipes"/>
+<h3 Text="Медицинские рецепты"/>
 
-<p>Once harvested, use a workbench or your crafting menu to create healing items:</p>
+<p>После сбора урожая используйте верстак или меню крафта, чтобы создать лечебные предметы:</p>
 <ul>
-<li>[bold]Healing Powder:[/bold] 1x Broc Flower + 1x Xander Root.</li>
-<li>[bold]Doctor Syringe:[/bold] 1x Plastic + 0.25 Steel (Crafted at a workbench).</li>
-<li>[bold]Stimpak:[/bold] 1x Broc Flower + 1x Xander Root + 1x Bloodpack + 1x Doctor Syringe.</li>
+<li>[bold]Лечебный порошок:[/bold] 1x цветок брока + 1x корень ксандера.</li>
+<li>[bold]Докторский шприц:[/bold] 1x пластик + 0.25 стали (изготавливается на верстаке).</li>
+<li>[bold]Стимпак:[/bold] 1x цветок брока + 1x корень ксандера + 1x пакет крови + 1x докторский шприц.</li>
 </ul>
-<p>[italic]Note: Empty stimpaks cannot be refilled. Super Stimpaks and Dirty Stimpaks are currently uncraftable.[/italic]</p>
+<p>[italic]Примечание: пустые стимпаки нельзя наполнить заново. Суперстимпаки и грязные стимпаки в настоящее время нельзя изготовить.[/italic]</p>
 
 </Document>

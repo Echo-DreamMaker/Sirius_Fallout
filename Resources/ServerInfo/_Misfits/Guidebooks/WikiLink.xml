@@ -6,44 +6,44 @@
         [color=#1a8a00]+======================================+[/color]
       </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        [bold][color=#39ff14]VAULT-TEC NETWORK TERMINAL[/color][/bold]
+        [bold][color=#39ff14]ТЕРМИНАЛ СЕТИ VAULT-TEC[/color][/bold]
       </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        [color=#1a8a00]ACCESS LEVEL: PUBLIC[/color]
+        [color=#1a8a00]УРОВЕНЬ ДОСТУПА: ОБЩИЙ[/color]
       </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
         [color=#1a8a00]+======================================+[/color]
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        [bold][color=#39ff14]MISFITS: NUCLEAR WASTELAND — WIKI[/color][/bold]
+        [bold][color=#39ff14]MISFITS: ЯДЕРНАЯ ПУСТОШЬ — ВИКИ[/color][/bold]
 
-        [color=#c8f0c8]The full Misfits wiki contains faction dossiers, crafting guides, weapons catalogs, survival tips, and the complete server rules.[/color]
+        [color=#c8f0c8]Полная вики Misfits содержит досье фракций, руководства по крафту, каталоги оружия, советы по выживанию и полные правила сервера.[/color]
 
-        [color=#c8f0c8]Click the link below to open the wiki in your browser:[/color]
+        [color=#c8f0c8]Нажмите ссылку ниже, чтобы открыть вики в браузере:[/color]
       </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-        [bold][color=#ffb000]▶ [/color][/bold][textlink="OPEN THE WIKI" link="https://siriusfallout.miraheze.org/wiki/Заглавная_страница"]
+        [bold][color=#ffb000]▶ [/color][/bold][textlink="ОТКРЫТЬ ВИКИ" link="https://siriusfallout.miraheze.org/wiki/Заглавная_страница"]
       </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-        [textlink="▶ SERVER RULES — READ BEFORE PLAYING" link="https://discord.gg/YdwBK7NqzG"]
+        [textlink="▶ ПРАВИЛА СЕРВЕРА — ПРОЧТИТЕ ПЕРЕД ИГРОЙ" link="https://discord.gg/YdwBK7NqzG"]
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        [color=#1a8a00]PAGES AVAILABLE:[/color]
+        [color=#1a8a00]ДОСТУПНЫЕ СТРАНИЦЫ:[/color]
 
-        - [color=#c8f0c8]Server Rules & Directives[/color]
-        - [color=#c8f0c8]Faction Dossiers (NCR, Legion, BoS, and more)[/color]
-        - [color=#c8f0c8]Faction War System[/color]
-        - [color=#c8f0c8]Crafting, Cooking, Botany & Medicine[/color]
-        - [color=#c8f0c8]Weapons & Armor[/color]
-        - [color=#c8f0c8]Chems & Addiction[/color]
-        - [color=#c8f0c8]Currency & Economy[/color]
-        - [color=#c8f0c8]Survival Guide[/color]
+        - [color=#c8f0c8]Правила и директивы сервера[/color]
+        - [color=#c8f0c8]Досье фракций (НКР, Легион, Братство Стали и другие)[/color]
+        - [color=#c8f0c8]Система войн фракций[/color]
+        - [color=#c8f0c8]Крафт, готовка, ботаника и медицина[/color]
+        - [color=#c8f0c8]Оружие и броня[/color]
+        - [color=#c8f0c8]Химия и зависимость[/color]
+        - [color=#c8f0c8]Валюта и экономика[/color]
+        - [color=#c8f0c8]Руководство по выживанию[/color]
       </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
         [color=#0d4d00]======================================[/color]
       </Box>
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        [color=#1a8a00]— VAULT-TEC NOTICE: A BETTER COMMUNITY THROUGH ORDER. —[/color]
+        [color=#1a8a00]— УВЕДОМЛЕНИЕ VAULT-TEC: ЛУЧШЕЕ СООБЩЕСТВО ЧЕРЕЗ ПОРЯДОК. —[/color]
       </Box>
     </Box>
   </ColorBox>
