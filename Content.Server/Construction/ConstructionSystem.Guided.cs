@@ -1,3 +1,4 @@
+using Content.Server._Misfits.Weapons.Parts;
 using Content.Server.Construction.Components;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
@@ -87,7 +88,10 @@ namespace Content.Server.Construction
                     {
                         args.PushMarkup(Loc.GetString("deconstruction-header-text") + "\n");
                     }
-                    else
+                    // #Misfits Change: a weapon frame prints its own readable
+                    // "Result: <weapon name>" header (WeaponFrameSystem.OnExamine),
+                    // so skip the raw graph node id vanilla would print here.
+                    else if (!HasComp<WeaponFrameComponent>(uid))
                     {
                         args.PushMarkup(Loc.GetString(
                             "construction-component-to-create-header",

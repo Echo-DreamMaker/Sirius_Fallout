@@ -71,6 +71,64 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
             recharge.NextCharge = recharge.NextCharge.Value + TimeSpan.FromSeconds(recharge.RechargeCooldown);
             Dirty(uid, recharge);
         }
+
+        // #Misfits Change: prototype-fed ballistic providers are what creatures such as the
+        // bloatfly (and bows, crossbows...) carry. The query above joins on
+        // BasicEntityAmmoProviderComponent, which they do not have, so their magazine used to be
+        // permanently finite - and NPCCombatSystem.Ranged keeps such a mob aiming forever instead
+        // of falling back to melee, because "has a recharge component" reads as "still recharging".
+        var ballQuery = EntityQueryEnumerator<RechargeBasicEntityAmmoComponent, BallisticAmmoProviderComponent>();
+
+        while (ballQuery.MoveNext(out var uid, out var recharge, out var ball))
+        {
+            // An entity carrying both providers is driven by the loop above.
+            if (HasComp<BasicEntityAmmoProviderComponent>(uid))
+                continue;
+
+            if (ball.Proto == null || recharge.NextCharge == null)
+                continue;
+
+            if (IsAttachedToDeadMob(uid))
+            {
+                if (recharge.NextCharge < _timing.CurTime)
+                {
+                    recharge.NextCharge = _timing.CurTime + TimeSpan.FromSeconds(recharge.RechargeCooldown);
+                    Dirty(uid, recharge);
+                }
+
+                continue;
+            }
+
+            if (recharge.NextCharge > _timing.CurTime)
+                continue;
+
+            // Full: park the timer until a round is actually spent. RechargeBasicEntityAmmoComponent.Reset
+            // (called from OnBallisticTakeAmmo) is what puts a live timer back.
+            if (ball.AmmoCount >= ball.Capacity)
+            {
+                recharge.NextCharge = null;
+                Dirty(uid, recharge);
+                continue;
+            }
+
+            if (_gun.TryAddUnspawnedAmmo(uid, ball))
+            {
+                // We don't predict this because occasionally on client it may not play.
+                // PlayPredicted will still be predicted on the client.
+                if (_netManager.IsServer)
+                    _audio.PlayPvs(recharge.RechargeSound, uid);
+            }
+
+            if (ball.AmmoCount >= ball.Capacity)
+            {
+                recharge.NextCharge = null;
+                Dirty(uid, recharge);
+                continue;
+            }
+
+            recharge.NextCharge = recharge.NextCharge.Value + TimeSpan.FromSeconds(recharge.RechargeCooldown);
+            Dirty(uid, recharge);
+        }
     }
 
     private bool IsAttachedToDeadMob(EntityUid uid)
@@ -103,9 +161,16 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, RechargeBasicEntityAmmoComponent component, ExaminedEvent args)
     {
-        if (!TryComp<BasicEntityAmmoProviderComponent>(uid, out var ammo)
-            || ammo.Count == ammo.Capacity ||
-            component.NextCharge == null)
+        // #Misfits Change: accept ballistic providers too, otherwise a prototype-fed weapon always
+        // examined as "full" even while its magazine was empty and recharging.
+        var full = true;
+
+        if (TryComp<BasicEntityAmmoProviderComponent>(uid, out var ammo))
+            full = ammo.Count == ammo.Capacity;
+        else if (TryComp<BallisticAmmoProviderComponent>(uid, out var ball))
+            full = ball.Proto == null || ball.AmmoCount >= ball.Capacity;
+
+        if (full || component.NextCharge == null)
         {
             args.PushMarkup(Loc.GetString("recharge-basic-entity-ammo-full"));
             return;
