@@ -68,6 +68,15 @@
       gun_bottom: !type:ContainerSlot
       gun_handle: !type:ContainerSlot
   - type: WeaponAttachmentHost
+  # #Misfits Add - Non-modular (map-spawned) energy weapons wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
 - type: entity
   id: N14BaseWeaponPowerCellSmall
@@ -355,6 +364,15 @@
   id: N14WeaponLaserRifleRecharger
   description: The first model for a self-charging laser rifle, its low energy consumption and advanced internal battery lets this gun last for centuries without recharging.
   components:
+  # #Misfits Add - Non-modular (map-spawned) weapons wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   - type: Wieldable
   - type: StrengthRequirement
     requiredStrength: 5
@@ -430,6 +448,15 @@
   id: N14WeaponLaserPistolRecharger
   description: The upgraded version of the recharger rifle, compact but maintaining the same power, its low energy consumption and advanced internal battery makes this gun last for centuries without recharging.
   components:
+  # #Misfits Add - Non-modular (map-spawned) weapons wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Battery/recharger_pistol.rsi
     layers:
@@ -504,6 +531,46 @@
   id: N14WeaponLaserRifleAuto
   description: A jury-rigged AER-9 with a rotating barrel assembly for full-auto fire. Fires a red laser beam — inaccurate but devastating in volume.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_drive: !type:Container
+      craft_bolt: !type:Container
+      craft_optics: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_drive:
+        - N14WeaponPartDriveHv
+      craft_bolt:
+        - N14WeaponPartBoltLaserModuleAuto
+      craft_optics:
+        - N14WeaponPartOpticsAer
+      craft_stock:
+        - N14WeaponPartStockLaserAer
+  - type: Construction
+    graph: N14WeaponPartFrameLaserAerGraph
+    node: done_N14WeaponLaserRifleAuto
+    deconstructionTarget: start
+    containers:
+      - craft_drive
+      - craft_bolt
+      - craft_optics
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponLaserRifleAuto
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Wieldable
   - type: StrengthRequirement
     requiredStrength: 4
@@ -660,6 +727,46 @@
   id: N14WeaponLaserRiflePrototypeAER14
   description: A cutting-edge pre-war prototype laser rifle with experimental green-spectrum optics. Extremely powerful — the enhanced focusing lenses produce a distinctive green beam with significantly higher damage output.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_drive: !type:Container
+      craft_bolt: !type:Container
+      craft_optics: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_drive:
+        - N14WeaponPartDriveHv
+      craft_bolt:
+        - N14WeaponPartBoltLaserModuleProto
+      craft_optics:
+        - N14WeaponPartOpticsAer
+      craft_stock:
+        - N14WeaponPartStockLaserAer
+  - type: Construction
+    graph: N14WeaponPartFrameLaserAerGraph
+    node: done_N14WeaponLaserRiflePrototypeAER14
+    deconstructionTarget: start
+    containers:
+      - craft_drive
+      - craft_bolt
+      - craft_optics
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponLaserRiflePrototypeAER14
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Wieldable
   - type: StrengthRequirement
     requiredStrength: 5
@@ -740,6 +847,46 @@
   id: N14WeaponLaserRifleAER12
   description: An advanced pre-war laser rifle featuring upgraded amber-spectrum focusing optics. Higher rate of fire and slightly increased damage over the standard AER-9 — a significant step up in energy weapon technology.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_drive: !type:Container
+      craft_bolt: !type:Container
+      craft_optics: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_drive:
+        - N14WeaponPartDriveHv
+      craft_bolt:
+        - N14WeaponPartBoltLaserModuleAdvanced
+      craft_optics:
+        - N14WeaponPartOpticsAer
+      craft_stock:
+        - N14WeaponPartStockLaserAer
+  - type: Construction
+    graph: N14WeaponPartFrameLaserAerGraph
+    node: done_N14WeaponLaserRifleAER12
+    deconstructionTarget: start
+    containers:
+      - craft_drive
+      - craft_bolt
+      - craft_optics
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponLaserRifleAER12
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Wieldable
   - type: StrengthRequirement
     requiredStrength: 5
@@ -822,6 +969,46 @@
   id: N14WeaponLaserRifleAER15
   description: The pinnacle of pre-war laser rifle technology. Experimental blue-spectrum focusing crystals produce the highest damage output of any man-portable laser weapon. Extremely rare — only a handful survived the war, and the manufacturing knowledge is lost.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_drive: !type:Container
+      craft_bolt: !type:Container
+      craft_optics: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_drive:
+        - N14WeaponPartDriveHv
+      craft_bolt:
+        - N14WeaponPartBoltLaserModuleHeavy
+      craft_optics:
+        - N14WeaponPartOpticsAer
+      craft_stock:
+        - N14WeaponPartStockLaserAer
+  - type: Construction
+    graph: N14WeaponPartFrameLaserAerGraph
+    node: done_N14WeaponLaserRifleAER15
+    deconstructionTarget: start
+    containers:
+      - craft_drive
+      - craft_bolt
+      - craft_optics
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponLaserRifleAER15
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Wieldable
   - type: StrengthRequirement
     requiredStrength: 5
@@ -902,6 +1089,46 @@
   id: N14WeaponLaserRifle
   description: A sturdy pre-war laser rifle. Fires a standard red laser beam — reliable, well-understood technology that remains the backbone of energy weapon armories.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_drive: !type:Container
+      craft_bolt: !type:Container
+      craft_optics: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_drive:
+        - N14WeaponPartDriveHv
+      craft_bolt:
+        - N14WeaponPartBoltLaserModule
+      craft_optics:
+        - N14WeaponPartOpticsAer
+      craft_stock:
+        - N14WeaponPartStockLaserAer
+  - type: Construction
+    graph: N14WeaponPartFrameLaserAerGraph
+    node: done_N14WeaponLaserRifle
+    deconstructionTarget: start
+    containers:
+      - craft_drive
+      - craft_bolt
+      - craft_optics
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponLaserRifle
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Wieldable
   - type: StrengthRequirement
     requiredStrength: 4
@@ -980,6 +1207,46 @@
   id: N14WeaponLaserRifleCrude
   description: A crude laser rifle, a cheap imitation of the pre-war AER-9. Fires a red laser beam — inaccurate and prone to overheating.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_drive: !type:Container
+      craft_bolt: !type:Container
+      craft_optics: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_drive:
+        - N14WeaponPartDriveHv
+      craft_bolt:
+        - N14WeaponPartBoltLaserModule
+      craft_optics:
+        - N14WeaponPartOpticsAerCrude
+      craft_stock:
+        - N14WeaponPartStockLaserAer
+  - type: Construction
+    graph: N14WeaponPartFrameLaserAerGraph
+    node: done_N14WeaponLaserRifleCrude
+    deconstructionTarget: start
+    containers:
+      - craft_drive
+      - craft_bolt
+      - craft_optics
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponLaserRifleCrude
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Wieldable
   - type: StrengthRequirement
     requiredStrength: 4
@@ -1437,6 +1704,46 @@
   id: N14WeaponLaserRifleWattz3000
   description: Wattz 3000 Laser Rifle. Military-grade focusing optics produce a wide, bright yellow beam with devastating damage output. The most powerful laser rifle in the Wattz line — drains cells fast but hits like a truck.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_drive: !type:Container
+      craft_bolt: !type:Container
+      craft_optics: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_drive:
+        - N14WeaponPartDriveHv
+      craft_bolt:
+        - N14WeaponPartBoltLaserModuleHeavy
+      craft_optics:
+        - N14WeaponPartOpticsWattz
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameLaserWattzGraph
+    node: done_N14WeaponLaserRifleWattz3000
+    deconstructionTarget: start
+    containers:
+      - craft_drive
+      - craft_bolt
+      - craft_optics
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponLaserRifleWattz3000
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Wieldable
   - type: StrengthRequirement
     requiredStrength: 5
@@ -1519,6 +1826,46 @@
   id: N14WeaponLaserRifleWattz2000
   description: Wattz 2000 Laser Rifle. Precision focusing optics produce a wide yellow beam with heavy damage per shot. Slower rate of fire but each hit packs a serious punch at the cost of higher cell drain.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_drive: !type:Container
+      craft_bolt: !type:Container
+      craft_optics: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_drive:
+        - N14WeaponPartDriveHv
+      craft_bolt:
+        - N14WeaponPartBoltLaserModuleAdvanced
+      craft_optics:
+        - N14WeaponPartOpticsWattz
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameLaserWattzGraph
+    node: done_N14WeaponLaserRifleWattz2000
+    deconstructionTarget: start
+    containers:
+      - craft_drive
+      - craft_bolt
+      - craft_optics
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponLaserRifleWattz2000
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Wieldable
   - type: StrengthRequirement
     requiredStrength: 5

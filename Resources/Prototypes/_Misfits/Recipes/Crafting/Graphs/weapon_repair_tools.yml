@@ -1,0 +1,34 @@
+# #Misfits Add: Hand-crafting graphs for the weapon maintenance tools.
+- type: constructionGraph
+  id: N14WeaponCleaningRodGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: rod
+          steps:
+            - material: MetalRod
+              amount: 1
+            - material: Cloth
+              amount: 1
+              doAfter: 3
+
+    - node: rod
+      entity: N14WeaponCleaningRod
+
+- type: constructionGraph
+  id: N14WhetstoneGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: whetstone
+          steps:
+            - material: N14Concrete
+              amount: 1
+            - material: Cloth
+              amount: 1
+              doAfter: 3
+
+    - node: whetstone
+      entity: N14Whetstone

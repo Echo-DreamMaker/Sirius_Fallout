@@ -4,6 +4,9 @@
   name: brass knuckle
   description: A Hardened knuckle grip that is actually made out of steel. They protect your hand, and do more damage, in unarmed combat.
   components:
+  # #Misfits Add - Melee durability (1250 tier, no drawbacks).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Sprite
     sprite: _Misfits/Objects/Weapons/Melee/brassknuckles.rsi
     state: icon
@@ -31,6 +34,9 @@
   name: spiked brass knuckle
   description: A spiked variant of a brass knuckle, seems more lethal.
   components:
+  # #Misfits Add - Melee durability (1250 tier, no drawbacks).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Sprite
     sprite: _Misfits/Objects/Weapons/Melee/spikedbrassknuckles.rsi
     state: icon
@@ -81,6 +87,9 @@
   name: golden knuckle
   description: A Hardened knuckle grip that is actually made out of gold. They protect your hand, and do more damage, in unarmed combat.
   components:
+  # #Misfits Add - Melee durability (1250 tier, no drawbacks).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Sprite
     sprite: _Misfits/Objects/Weapons/Melee/goldenknuckles.rsi
     state: icon

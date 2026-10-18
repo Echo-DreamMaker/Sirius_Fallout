@@ -40,6 +40,15 @@
     wieldedSpeedModifier: 0.82
   - type: StrengthRequirement
     requiredStrength: 5
+  # #Misfits Add - Non-modular (map-spawned) shotguns wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
 
 - type: entity
@@ -48,6 +57,40 @@
   id: N14WeaponShotgun
   description: A pump action shotgun chambered in 12 gauge shells.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel12gStandard
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunClassicGraph
+    node: done_N14WeaponShotgun
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgun
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Gun
     fireRate: 1
     soundGunshot:
@@ -72,9 +115,6 @@
     proto: N14ShellShotgun12
     soundInsert:
       path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
-  - type: Construction
-    graph: PumpShotgunSawed
-    node: start
   - type: StaticPrice
     price: 75
 
@@ -84,6 +124,40 @@
   id: N14WeaponShotgunDoubleBarrel
   description: An immortal classic, uses 12 gauge shells.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltBreech
+      craft_barrel:
+        - N14WeaponPartBarrel12gStandard
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunClassicGraph
+    node: done_N14WeaponShotgunDoubleBarrel
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunDoubleBarrel
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/double_shotgun.rsi
     quickEquip: false
@@ -108,9 +182,6 @@
     proto: N14ShellShotgun12
     soundInsert:
       path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
-  - type: Construction
-    graph: ShotgunSawed
-    node: start
   - type: StaticPrice
     price: 45
 
@@ -120,6 +191,40 @@
   id: N14WeaponShotgunSawedOff
   description: A portable and brutal handheld shotgun. Uses 12 gauge shells.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltBreech
+      craft_barrel:
+        - N14WeaponPartBarrel12gStandard
+      craft_stock:
+        - N14WeaponPartStockShortened
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunClassicGraph
+    node: done_N14WeaponShotgunSawedOff
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunSawedOff
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/sawed_off.rsi
     quickEquip: false
@@ -142,9 +247,6 @@
     proto: N14ShellShotgun12
     soundInsert:
       path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
-  - type: Construction
-    graph: ShotgunSawed
-    node: shotgunsawed
   - type: StaticPrice
     price: 45
 
@@ -167,6 +269,44 @@
   id: N14WeaponShotgunAuto
   description: "It's a magazine-fed automatic shotgun designed for close quarters combat, uses 12 gauge shells."
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel12gStandard
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunModernGraph
+    node: done_N14WeaponShotgunAuto
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunAuto
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/combat_shotgun.rsi
     netsync: false
@@ -209,10 +349,6 @@
           - N14MagazineShotgun12
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: MagazineAmmoProvider
   - type: MagazineVisuals
     magState: mag
@@ -228,6 +364,40 @@
   id: N14WeaponShotgunCaravan
   description: The perfect shotgun for a long journey. Works well for hunting brahmins, geckos, and fiends. Uses 20 gauge shells.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltBreech
+      craft_barrel:
+        - N14WeaponPartBarrel20gStandard
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunClassicGraph
+    node: done_N14WeaponShotgunCaravan
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunCaravan
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/caravan_shotgun.rsi
     quickEquip: false
@@ -261,6 +431,40 @@
   id: N14WeaponShotgunLever
   description: The perfect shotgun for a cowboy, it uses 20 gauge shells.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltLever
+      craft_barrel:
+        - N14WeaponPartBarrel20gStandard
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunClassicGraph
+    node: done_N14WeaponShotgunLever
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunLever
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/lever_shotgun.rsi
     quickEquip: false
@@ -302,6 +506,44 @@
   id: N14WeaponShotgunRiot
   description: A compact semiautomatic shotgun used by pre-war police forces, chambered in 20 gauge shells and using a drum magazine.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel20gStandard
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunModernGraph
+    node: done_N14WeaponShotgunRiot
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunRiot
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/riot_shotgun.rsi
     quickEquip: false
@@ -345,10 +587,6 @@
           - N14MagazineShotgun20
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: MagazineAmmoProvider
   - type: MagazineVisuals
     magState: mag
@@ -364,6 +602,38 @@
   id: N14WeaponShotgunShort
   description: A stockless pump action shotgun, handy for close encounters. Chambered in 12 gauge shells.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel12gStandard
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunClassicGraph
+    node: done_N14WeaponShotgunShort
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunShort
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Gun
     fireRate: 1
     soundGunshot:
@@ -389,9 +659,6 @@
     proto: null
     soundInsert:
       path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
-  - type: Construction
-    graph: PumpShotgunSawed
-    node: pumpshotgunsawed
   - type: StaticPrice
     price: 75
 
@@ -401,6 +668,42 @@
   id: N14WeaponShotgunBlowback
   description: A semi automatic combat shotgun with a integrated drum mag, uses 12 gauge shells.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel12gStandard
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunModernGraph
+    node: done_N14WeaponShotgunBlowback
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunBlowback
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Gun
     fireRate: 3 #sirius change
     soundGunshot:
@@ -434,6 +737,42 @@
   id: N14WeaponShotgunChinese
   description: A pump action chinese shotgun, uses 12 gauge shells.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel12gStandard
+      craft_stock:
+        - N14WeaponPartStockSniper
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunModernGraph
+    node: done_N14WeaponShotgunChinese
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunChinese
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Gun
     fireRate: 3
     soundGunshot:
@@ -467,6 +806,42 @@
   id: N14WeaponShotgunCanadian
   description: A semi automatic canadian combat shotgun, uses 12 gauge shells.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel12gStandard
+      craft_stock:
+        - N14WeaponPartStockShortened
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunModernGraph
+    node: done_N14WeaponShotgunCanadian
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunCanadian
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Gun
     fireRate: 3
     soundGunshot:
@@ -500,6 +875,40 @@
   id: N14WeaponShotgunBoomstick
   description: A heavy and strong double barrel shotgun, it has a reinforced barrel adorned with teeth and a straight form to be used as a club, uses 12 gauge shells.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltBreech
+      craft_barrel:
+        - N14WeaponPartBarrel12gStandard
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunClassicGraph
+    node: done_N14WeaponShotgunBoomstick
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunBoomstick
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/double_shotgun.rsi
     quickEquip: false
@@ -557,6 +966,40 @@
   id: N14WeaponShotgunBloodyStick
   description: A heavy and strong double barrel shotgun, it has a reinforced barrel with sharp blades and a straight form to be used as an axe, uses 12 gauge shells.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltBreech
+      craft_barrel:
+        - N14WeaponPartBarrel12gStandard
+      craft_stock:
+        - N14WeaponPartStockSniper
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunClassicGraph
+    node: done_N14WeaponShotgunBloodyStick
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunBloodyStick
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/double_shotgun.rsi
     quickEquip: false
@@ -655,6 +1098,40 @@
   id: N14WeaponShotgunTrench
   description: A military pump-action shotgun with a bayonet lug and slam-fire capability. Designed for close-quarters clearing. The slam-fire mode cycles fast enough to empty the tube in seconds.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel12gStandard
+      craft_stock:
+        - N14WeaponPartStockShortened
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunClassicGraph
+    node: done_N14WeaponShotgunTrench
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunTrench
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/trench.rsi
     quickEquip: false
@@ -702,6 +1179,40 @@
   id: N14WeaponShotgunNeostead
   description: A Brotherhood-issue semi-automatic shotgun fed from twin underbarrel tubes holding ten shells total. Technology well ahead of the pre-war mainstream — This one has the markings of Legion make.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripShotgun
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel12gStandard
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameShotgunClassicGraph
+    node: done_N14WeaponShotgunNeostead
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponShotgunNeostead
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/neostead.rsi
     quickEquip: false

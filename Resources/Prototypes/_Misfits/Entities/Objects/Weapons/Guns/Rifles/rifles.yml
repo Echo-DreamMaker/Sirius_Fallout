@@ -182,6 +182,47 @@
   id: N14WeaponRifle556HeavyAssault
   description: An assault rifle chambered for 5.56 that was designed pre-war for power armored units. It's large and unwieldy, but boasts an impressive fire rate and magazine capacity.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel556Heavy
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameAssaultHeavyGraph
+    node: done_N14WeaponRifle556HeavyAssault
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556HeavyAssault
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Misfits/Objects/Weapons/Guns/Rifles/t60heavyrifle.rsi
     quickEquip: false

@@ -97,6 +97,15 @@
     price: 8
   - type: FollowDistance
     backStrength: 6
+  # #Misfits Add - Non-modular (map-spawned) pistols wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
 - type: entity
   name: N14BaseInternalPistol
@@ -181,12 +190,58 @@
     price: 5
   - type: FollowDistance
     backStrength: 6
+  # #Misfits Add - Non-modular (map-spawned) pistols wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
 - type: entity
   name: 9mm Pistol
   parent: N14BaseWeaponPistol
   id: N14WeaponPistol9mm
   description: The cheap and ubiquitous sidearm, chambered in 9mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlide
+      craft_barrel:
+        - N14WeaponPartBarrel9mmStandard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistol9mm
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistol9mm
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -250,6 +305,43 @@
   id: N14WeaponPistol10mm
   description: A cheap, ubiquitous sidearm, chambered in 10mm munitions. # TODO: Need to create projectiles, magazines and boxes for 10mm.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlide
+      craft_barrel:
+        - N14WeaponPartBarrel10mmStandard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistol10mm
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistol10mm
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -313,6 +405,43 @@
   id: N14WeaponPistol45Colt
   description: A rugged handgun chambered in .45.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlide
+      craft_barrel:
+        - N14WeaponPartBarrel45Standard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistol45Colt
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistol45Colt
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/colt.rsi
     layers:
@@ -368,14 +497,6 @@
         whitelist:
           tags:
             - N14CartridgePistol45
-  - type: ContainerContainer
-    containers:
-      gun_top: !type:ContainerSlot
-      gun_muzzle: !type:ContainerSlot
-      gun_bottom: !type:ContainerSlot
-      gun_handle: !type:ContainerSlot
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 45
 - type: entity
@@ -384,6 +505,43 @@
   id: N14WeaponPistol12mm
   description: A rugged and robust handgun chambered in 12.7mm ammo. # TODO: Need to create projectiles, magazines and boxes for 12mm.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideHeavy
+      craft_barrel:
+        - N14WeaponPartBarrel12mmStandard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistol12mm
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistol12mm
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -442,14 +600,6 @@
         whitelist:
           tags:
             - N14CartridgePistol127
-  - type: ContainerContainer
-    containers:
-      gun_top: !type:ContainerSlot
-      gun_muzzle: !type:ContainerSlot
-      gun_bottom: !type:ContainerSlot
-      gun_handle: !type:ContainerSlot
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 50
 - type: entity
@@ -623,6 +773,43 @@
   id: N14WeaponPistol22lr
   description: A simple and silenced pistol, chambered in 22lr ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideLight
+      craft_barrel:
+        - N14WeaponPartBarrel22lrStandard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistol22lr
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistol22lr
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/22lr.rsi
     layers:
@@ -683,6 +870,43 @@
   id: N14WeaponPistolWebley
   description: A cheap and simple pre-war canadian pistol, chambered in 9mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideHeavy
+      craft_barrel:
+        - N14WeaponPartBarrel9mmAdvanced
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistolWebley
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistolWebley
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -746,6 +970,43 @@
   id: N14WeaponDesertEagle44
   description: An ancient Desert Eagle pistol, in .44 Magnum. Interest in late 20th century films made this one of the most popular handguns of all times.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideHeavy
+      craft_barrel:
+        - N14WeaponPartBarrel44Standard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponDesertEagle44
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponDesertEagle44
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/deserteagle.rsi
   - type: Item
@@ -796,6 +1057,12 @@
         whitelist:
           tags:
             - N14Cartridge44Magnum
+- type: entity
+  name: lasered desert eagle 44
+  parent: N14BaseWeaponPistol
+  id: N14WeaponLaserdotDesertEagle44
+  description: An ancient Desert Eagle pistol, in .44 Magnum. This one in particular have a laser dot.
+  components:
   - type: ContainerContainer
     containers:
       gun_top: !type:ContainerSlot
@@ -804,12 +1071,35 @@
       gun_handle: !type:ContainerSlot
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-- type: entity
-  name: lasered desert eagle 44
-  parent: N14BaseWeaponPistol
-  id: N14WeaponLaserdotDesertEagle44
-  description: An ancient Desert Eagle pistol, in .44 Magnum. This one in particular have a laser dot.
-  components:
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideAdvanced
+      craft_barrel:
+        - N14WeaponPartBarrel44Advanced
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponLaserdotDesertEagle44
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponLaserdotDesertEagle44
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/laserdeserteagle.rsi
     layers:
@@ -869,14 +1159,6 @@
         whitelist:
           tags:
             - N14Cartridge44Magnum
-  - type: ContainerContainer
-    containers:
-      gun_top: !type:ContainerSlot
-      gun_muzzle: !type:ContainerSlot
-      gun_bottom: !type:ContainerSlot
-      gun_handle: !type:ContainerSlot
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: FollowDistance
     backStrength: 3
 
@@ -888,6 +1170,43 @@
   id: N14WeaponPistolM1911
   description: The classic Colt M1911, a semi-automatic pistol chambered in .45 ACP. A staple of NCR officer sidearms and wasteland gunslingers alike.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideHeavy
+      craft_barrel:
+        - N14WeaponPartBarrel45Standard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistolM1911
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistolM1911
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -950,14 +1269,6 @@
         whitelist:
           tags:
             - N14CartridgePistol45
-  - type: ContainerContainer
-    containers:
-      gun_top: !type:ContainerSlot
-      gun_muzzle: !type:ContainerSlot
-      gun_bottom: !type:ContainerSlot
-      gun_handle: !type:ContainerSlot
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: FollowDistance
     backStrength: 3
   - type: StaticPrice
@@ -972,6 +1283,43 @@
   id: N14WeaponPistolM1911Custom
   description: A customised Colt M1911 with a match-grade barrel, adjusted trigger, and improved sights. The tight tolerances give it a noticeably sharper feel.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideAdvanced
+      craft_barrel:
+        - N14WeaponPartBarrel45Standard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistolM1911Custom
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistolM1911Custom
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/m1911custom.rsi
     layers:
@@ -1001,6 +1349,43 @@
   id: N14WeaponPistolMaria
   description: A pearl-handled 9mm pistol — the personal sidearm of Rose of Sharon Cassidy. Light, fast, and surprisingly deadly. Carries sentimental weight alongside its magazine.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideAdvanced
+      craft_barrel:
+        - N14WeaponPartBarrel9mmStandard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistolMaria
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistolMaria
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -1063,14 +1448,6 @@
         whitelist:
           tags:
             - N14CartridgePistol9
-  - type: ContainerContainer
-    containers:
-      gun_top: !type:ContainerSlot
-      gun_muzzle: !type:ContainerSlot
-      gun_bottom: !type:ContainerSlot
-      gun_handle: !type:ContainerSlot
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: FollowDistance
     backStrength: 3
   - type: StaticPrice
@@ -1085,6 +1462,43 @@
   id: N14WeaponPistolThatGun
   description: A bizarre-looking pistol modelled after a prop from a pre-war TV show, chambered in 5.56. Five rounds, semi-automatic, and oddly accurate. Whoever built this knew what they were doing.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideLight
+      craft_barrel:
+        - N14WeaponPartBarrel12mmStandard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistolThatGun
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistolThatGun
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -1191,6 +1605,43 @@
   id: N14WeaponPistol9mmMinipmSirius
   description: The cheap and ubiquitous sidearm, chambered in 9mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideLight
+      craft_barrel:
+        - N14WeaponPartBarrel9mmStandard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistol9mmMinipmSirius
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistol9mmMinipmSirius
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -1258,6 +1709,43 @@
   id: N14WeaponPistol9mmSigSauerSirius
   description: The cheap and ubiquitous sidearm, chambered in 9mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideAdvanced
+      craft_barrel:
+        - N14WeaponPartBarrel9mmAdvanced
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistol9mmSigSauerSirius
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistol9mmSigSauerSirius
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -1526,6 +2014,43 @@
   id: N14WeaponPistol50ThunderSirius
   description: The cheap and ubiquitous sidearm, chambered in .50 ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideHeavy
+      craft_barrel:
+        - N14WeaponPartBarrel50Standard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistol50ThunderSirius
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistol50ThunderSirius
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm

@@ -386,6 +386,7 @@
   result: N14WeaponPartBarrel50Standard
   category: N14Parts
   completetime: 4
+  requiresBlueprint: true
   materials:
     Steel: 150
 - type: latheRecipe
@@ -590,6 +591,7 @@
   result: N14WeaponPartFrameSniperHeavy
   category: N14Parts
   completetime: 5
+  requiresBlueprint: true
   materials:
     Steel: 200
 - type: latheRecipe

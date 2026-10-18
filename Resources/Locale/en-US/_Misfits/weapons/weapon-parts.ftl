@@ -120,9 +120,39 @@ misfits-weapon-step-stock-pry = Lever the stock off with a crowbar.
 misfits-weapon-step-final-assemble = Tighten the receiver's last screws.
 misfits-weapon-step-final-disassemble = Undo the receiver's last screws.
 misfits-weapon-step-final-pry = Pry the stuck magazine and chambered round out with a crowbar.
+misfits-weapon-step-stock-saw = Saw the stock off; the weapon comes apart into a shorter one.
 
 misfits-weapon-step-drive-disassemble = Cut the grip's power leads with wirecutters and pull the grip off.
 misfits-weapon-step-optics-disassemble = Cut the optics' leads with wirecutters and pull the optics off.
 
 misfits-weapon-need-empty-magazine = Eject the loaded magazine before taking the weapon apart.
 misfits-weapon-need-empty-chamber = Clear the chambered round before taking the weapon apart.
+
+damage-type-wear = wear
+
+misfits-weapon-durability-examine = [color={$color}]Durability: {$state}[/color]
+misfits-weapon-durability-state-1 = as new
+misfits-weapon-durability-state-2 = in good condition
+misfits-weapon-durability-state-3 = serviceable
+misfits-weapon-durability-state-4 = worn
+misfits-weapon-durability-state-5 = damaged
+misfits-weapon-durability-state-6 = badly damaged
+misfits-weapon-durability-state-7 = barely holding together
+
+misfits-weapon-jammed = The weapon jams! Rack the bolt to clear it.
+misfits-weapon-no-barrel = The barrel is missing.
+misfits-weapon-no-bolt = The bolt is missing.
+
+misfits-weapon-repair-tape = You bind the grip and stock back up with tape.
+misfits-weapon-repair-glue = You glue the bolt group back together.
+misfits-weapon-repair-weld = You weld the receiver back into shape.
+misfits-weapon-repair-rod-start = You start swabbing the bore clean...
+misfits-weapon-repair-rod = You scrub the fouling out of the barrel.
+misfits-weapon-repair-rod-store = You slide the cleaning rod into the weapon's underbarrel slot.
+misfits-weapon-repair-rod-noslot = There is nowhere to put the cleaning rod.
+misfits-weapon-repair-whetstone = You grind the nicks out of the edge.
+misfits-weapon-repair-nothing = There is nothing left to repair here.
+misfits-weapon-repair-nofuel = The welding tool is out of fuel.
+
+misfits-weapon-part-examine = [color={$color}]Condition: {$state}[/color]
+misfits-weapon-part-examine-fouled = [color=#a8a8a8]The bore is fouled; a cleaning rod could still recover some of it.[/color]

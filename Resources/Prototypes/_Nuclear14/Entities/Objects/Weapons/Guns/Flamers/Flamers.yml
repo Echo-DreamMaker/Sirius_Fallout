@@ -51,6 +51,15 @@
     price: 100
   - type: FollowDistance
     backStrength: 6
+  # #Misfits Add - Non-modular (map-spawned) flamers wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   - type: VolatileFuelContainer
     solutionId: chamber
     igniteChance: 0.9

@@ -4,6 +4,9 @@
   name: deathclaw gauntlet
   description: A brutal melee gauntlet built from a deathclaw hand, bone, and scrap bracing.
   components:
+  # #Misfits Add - Melee durability (1250 tier, no drawbacks).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Sprite
     sprite: _Misfits/Objects/Weapons/Melee/deathclawgauntlet.rsi
     state: icon

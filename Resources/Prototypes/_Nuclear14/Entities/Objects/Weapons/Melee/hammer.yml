@@ -4,6 +4,9 @@
   id: N14SledgeHammer
   description: A robust sledgehammer that requires considerable strength to be wielded.
   components:
+  # #Misfits Add - Melee durability (1250 tier).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Melee/sledgehammer.rsi
     state: icon
@@ -137,6 +140,9 @@
   id: N14NailBoard
   description: A crude makeshift board outfitted with nails to pierce living things.
   components:
+  # #Misfits Add - Melee durability (1250 tier).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Melee/nail_board
     state: icon

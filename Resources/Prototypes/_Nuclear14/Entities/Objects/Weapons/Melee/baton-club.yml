@@ -4,6 +4,9 @@
   parent: BaseItem
   id: N14PoliceBaton
   components:
+  # #Misfits Add - Melee durability (1250 tier).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: StrengthRequirement
   - type: StaminaDamageOnHit
     damage: 10
@@ -36,6 +39,9 @@
   parent: BaseItem
   id: N14TribalClub
   components:
+  # #Misfits Add - Melee durability (1250 tier).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: StrengthRequirement
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -62,6 +68,9 @@
   parent: BaseItem
   id: N14BrokenPipe
   components:
+  # #Misfits Add - Melee durability (1250 tier).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: StrengthRequirement
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -88,6 +97,9 @@
   parent: BaseItem
   id: N14TrainingSword
   components:
+  # #Misfits Add - Melee durability (1250 tier).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: StrengthRequirement
   - type: StaminaDamageOnHit
     damage: 12
@@ -112,6 +124,9 @@
   parent: BaseItem
   id: N14TrenchClub
   components:
+  # #Misfits Add - Melee durability (1250 tier).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: StrengthRequirement
   - type: MeleeWeapon
     wideAnimationRotation: -135

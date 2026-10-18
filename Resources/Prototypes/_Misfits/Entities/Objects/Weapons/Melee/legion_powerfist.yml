@@ -6,6 +6,9 @@
   name: goliath power fist
   description: A captured Legion shock gauntlet built around a piston-assisted ram that hurls targets backward.
   components:
+  # #Misfits Add - Melee durability (1250 tier, no drawbacks).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Sprite
     sprite: _Nuclear14/Clothing/Hands/PowerGauntlets/basic.rsi
     state: icon

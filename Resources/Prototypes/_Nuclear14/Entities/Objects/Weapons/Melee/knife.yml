@@ -3,6 +3,12 @@
   id: N14BaseKnife
   abstract: true
   components:
+  # #Misfits Add - Melee durability (knife tier: 500, wears with damage drop-off).
+  - type: WeaponDurability
+    frameMax: 500
+    features:
+    - Drop
+    - DamageDown
   - type: StrengthRequirement
   - type: Tag
     tags:

@@ -4,6 +4,15 @@
   id: N14WeaponLauncherGrenade
   description: A pump-action heavy grenade launcher with a 4-grenade capacity, 4-times more fun! It uses 40mm grenades.
   components:
+  # #Misfits Add - Non-modular (map-spawned) weapons wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   - type: SuperMutantFitting
   - type: Wieldable
     wieldedSpeedModifier: 0.75
@@ -86,6 +95,15 @@
   id: N14WeaponRifleGrenade
   description: A break-action, single-shot, light grenade launcher. The coolest thing ever, launches 40mm grenades.
   components:
+  # #Misfits Add - Non-modular (map-spawned) weapons wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   - type: Wieldable
     wieldedSpeedModifier: 0.8
   - type: StrengthRequirement

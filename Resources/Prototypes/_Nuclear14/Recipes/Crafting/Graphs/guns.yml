@@ -9,7 +9,7 @@
          completed:
            - !type:SnapToGrid
          steps:
-            - tag: PistolFrame
+            - tag: N14PartFramePistol
               icon:
                 sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
                 state: pistolframe
@@ -29,7 +29,7 @@
                 state: trigger
               name: trigger(part)
               doAfter: 2
-            - tag: Bolt
+            - tag: N14PartBolt
               icon:
                 sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
                 state: bolt
@@ -94,7 +94,7 @@
          completed:
            - !type:SnapToGrid
          steps:
-            - tag: PistolFrame
+            - tag: N14PartFramePistol
               icon:
                 sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
                 state: pistolframe
@@ -172,7 +172,7 @@
          completed:
            - !type:SnapToGrid
          steps:
-            - tag: PistolFrame
+            - tag: N14PartFramePistol
               icon:
                 sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
                 state: pistolframe
@@ -192,7 +192,7 @@
                 state: trigger
               name: trigger(part)
               doAfter: 2
-            - tag: Bolt
+            - tag: N14PartBolt
               icon:
                 sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
                 state: bolt
@@ -239,7 +239,7 @@
          completed:
            - !type:SnapToGrid
          steps:
-            - tag: PistolFrame
+            - tag: N14PartFramePistol
               icon:
                 sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
                 state: pistolframe
@@ -265,7 +265,7 @@
                 state: recoilcomp
               name: recoil compensator(part)
               doAfter: 2
-            - tag: Bolt
+            - tag: N14PartBolt
               icon:
                 sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
                 state: bolt

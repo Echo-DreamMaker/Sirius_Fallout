@@ -20,48 +20,12 @@
 #
 # "(no stock)" variants are what finishing a frame without a stock produces:
 # identical function, much worse handling.
+#
+# Weapons flagged as base_modular have their own prototype carry the modular
+# components in the hand-written gun files; the generator emits nothing for them
+# here and points graph completion nodes at the base prototype instead.
 
 #MARK: assault rifle frame
-- type: entity
-  parent: N14WeaponRifle556R91
-  id: N14WeaponRifle556R91Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltGas
-        craft_barrel:
-          - N14WeaponPartBarrel556Standard
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameAssaultGraph
-      node: done_N14WeaponRifle556R91Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556R91Assembled
 - type: entity
   parent: N14WeaponRifle556R91
   id: N14WeaponRifle556R91NoStock
@@ -109,46 +73,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556R91NoStock
-- type: entity
-  parent: N14WeaponRifleInfiltrator
-  id: N14WeaponRifleInfiltratorAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltGas
-        craft_barrel:
-          - N14WeaponPartBarrel556Suppressed
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameAssaultGraph
-      node: done_N14WeaponRifleInfiltratorAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifleInfiltratorAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifleInfiltrator
   id: N14WeaponRifleInfiltratorNoStock
@@ -196,47 +125,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifleInfiltratorNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: service rifle frame
-- type: entity
-  parent: N14WeaponRifle556Service
-  id: N14WeaponRifle556ServiceAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel556Standard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameAssaultServiceGraph
-      node: done_N14WeaponRifle556ServiceAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556ServiceAssembled
 - type: entity
   parent: N14WeaponRifle556Service
   id: N14WeaponRifle556ServiceNoStock
@@ -284,46 +178,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556ServiceNoStock
-- type: entity
-  parent: N14WeaponRifle556ServiceScoped
-  id: N14WeaponRifle556ServiceScopedAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel556Long
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameAssaultServiceGraph
-      node: done_N14WeaponRifle556ServiceScopedAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556ServiceScopedAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle556ServiceScoped
   id: N14WeaponRifle556ServiceScopedNoStock
@@ -371,46 +230,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556ServiceScopedNoStock
-- type: entity
-  parent: N14WeaponRifle556Scout
-  id: N14WeaponRifle556ScoutAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel556Long
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameAssaultServiceGraph
-      node: done_N14WeaponRifle556ScoutAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556ScoutAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle556Scout
   id: N14WeaponRifle556ScoutNoStock
@@ -458,46 +282,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556ScoutNoStock
-- type: entity
-  parent: N14WeaponRifle556Butchered
-  id: N14WeaponRifle556ButcheredAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel556Standard
-        craft_stock:
-          - N14WeaponPartStockShortened
-    - type: Construction
-      graph: N14WeaponPartFrameAssaultServiceGraph
-      node: done_N14WeaponRifle556ButcheredAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556ButcheredAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle556Butchered
   id: N14WeaponRifle556ButcheredNoStock
@@ -545,47 +334,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556ButcheredNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: heavy assault rifle frame
-- type: entity
-  parent: N14WeaponRifle556HeavyAssault
-  id: N14WeaponRifle556HeavyAssaultAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltGas
-        craft_barrel:
-          - N14WeaponPartBarrel556Heavy
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameAssaultHeavyGraph
-      node: done_N14WeaponRifle556HeavyAssaultAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556HeavyAssaultAssembled
 - type: entity
   parent: N14WeaponRifle556HeavyAssault
   id: N14WeaponRifle556HeavyAssaultNoStock
@@ -633,47 +387,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556HeavyAssaultNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: carbine frame
-- type: entity
-  parent: N14WeaponRifle556Carbine
-  id: N14WeaponRifle556CarbineAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltGas
-        craft_barrel:
-          - N14WeaponPartBarrel556Standard
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameCarbineGraph
-      node: done_N14WeaponRifle556CarbineAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556CarbineAssembled
 - type: entity
   parent: N14WeaponRifle556Carbine
   id: N14WeaponRifle556CarbineNoStock
@@ -721,46 +440,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556CarbineNoStock
-- type: entity
-  parent: N14WeaponRifle556M16A1Sirius
-  id: N14WeaponRifle556M16A1SiriusAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltGas
-        craft_barrel:
-          - N14WeaponPartBarrel556Long
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameCarbineGraph
-      node: done_N14WeaponRifle556M16A1SiriusAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556M16A1SiriusAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle556M16A1Sirius
   id: N14WeaponRifle556M16A1SiriusNoStock
@@ -808,46 +492,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556M16A1SiriusNoStock
-- type: entity
-  parent: N14WeaponRifle556SteirSirius
-  id: N14WeaponRifle556SteirSiriusAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltGas
-        craft_barrel:
-          - N14WeaponPartBarrel556Light
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameCarbineGraph
-      node: done_N14WeaponRifle556SteirSiriusAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556SteirSiriusAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle556SteirSirius
   id: N14WeaponRifle556SteirSiriusNoStock
@@ -895,46 +544,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556SteirSiriusNoStock
-- type: entity
-  parent: N14WeaponRifle556GalilSirius
-  id: N14WeaponRifle556GalilSiriusAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltGas
-        craft_barrel:
-          - N14WeaponPartBarrel556Standard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameCarbineGraph
-      node: done_N14WeaponRifle556GalilSiriusAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556GalilSiriusAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle556GalilSirius
   id: N14WeaponRifle556GalilSiriusNoStock
@@ -982,92 +596,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556GalilSiriusNoStock
-- type: entity
-  parent: N14WeaponRifle556Rugerac556fSirius
-  id: N14WeaponRifle556Rugerac556fSiriusNoStock
-  name: Ruger AC556F (no stock)
-  description: "A simple metallic pre-war assault carbine, chambered in 5.56 ammo. Without a stock it kicks all over the place."
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: Gun
-      minAngle: 32
-      maxAngle: 52
-      angleIncrease: 5
-      angleDecay: 12
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltGas
-        craft_barrel:
-          - N14WeaponPartBarrel556Light
-    - type: Construction
-      graph: N14WeaponPartFrameCarbineGraph
-      node: done_N14WeaponRifle556Rugerac556fSiriusNoStock
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556Rugerac556fSiriusNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: bullpup frame
-- type: entity
-  parent: N14WeaponRifle556EM2
-  id: N14WeaponRifle556EM2Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltGas
-        craft_barrel:
-          - N14WeaponPartBarrel556Long
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameBullpupGraph
-      node: done_N14WeaponRifle556EM2Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556EM2Assembled
 - type: entity
   parent: N14WeaponRifle556EM2
   id: N14WeaponRifle556EM2NoStock
@@ -1115,46 +649,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556EM2NoStock
-- type: entity
-  parent: N14WeaponRifle556EnfieldXL70E3Sirius
-  id: N14WeaponRifle556EnfieldXL70E3SiriusAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltGas
-        craft_barrel:
-          - N14WeaponPartBarrel556Standard
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameBullpupGraph
-      node: done_N14WeaponRifle556EnfieldXL70E3SiriusAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556EnfieldXL70E3SiriusAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle556EnfieldXL70E3Sirius
   id: N14WeaponRifle556EnfieldXL70E3SiriusNoStock
@@ -1202,47 +701,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556EnfieldXL70E3SiriusNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: pre-war carbine frame
-- type: entity
-  parent: N14WeaponRifle556CarbineOld
-  id: N14WeaponRifle556CarbineOldAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltGas
-        craft_barrel:
-          - N14WeaponPartBarrel556Standard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameOldCarbineGraph
-      node: done_N14WeaponRifle556CarbineOldAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556CarbineOldAssembled
 - type: entity
   parent: N14WeaponRifle556CarbineOld
   id: N14WeaponRifle556CarbineOldNoStock
@@ -1290,47 +754,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556CarbineOldNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: 7.62 semi-automatic frame
-- type: entity
-  parent: N14WeaponRifle762Fal
-  id: N14WeaponRifle762FalAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel762Standard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameSemi762Graph
-      node: done_N14WeaponRifle762FalAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762FalAssembled
 - type: entity
   parent: N14WeaponRifle762Fal
   id: N14WeaponRifle762FalNoStock
@@ -1378,46 +807,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle762FalNoStock
-- type: entity
-  parent: N14WeaponRifle762M14
-  id: N14WeaponRifle762M14Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel762Long
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameSemi762Graph
-      node: done_N14WeaponRifle762M14Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762M14Assembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle762M14
   id: N14WeaponRifle762M14NoStock
@@ -1465,46 +859,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle762M14NoStock
-- type: entity
-  parent: N14WeaponRifle762SKS
-  id: N14WeaponRifle762SKSAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel762Light
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameSemi762Graph
-      node: done_N14WeaponRifle762SKSAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762SKSAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle762SKS
   id: N14WeaponRifle762SKSNoStock
@@ -1552,46 +911,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle762SKSNoStock
-- type: entity
-  parent: N14WeaponRifle762ClassicrifleSirius
-  id: N14WeaponRifle762ClassicrifleSiriusAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel762Heavy
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameSemi762Graph
-      node: done_N14WeaponRifle762ClassicrifleSiriusAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762ClassicrifleSiriusAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle762ClassicrifleSirius
   id: N14WeaponRifle762ClassicrifleSiriusNoStock
@@ -1639,47 +963,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle762ClassicrifleSiriusNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: marksman rifle frame
-- type: entity
-  parent: N14WeaponRifle762Marksman
-  id: N14WeaponRifle762MarksmanAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel762Sniper
-        craft_stock:
-          - N14WeaponPartStockSniper
-    - type: Construction
-      graph: N14WeaponPartFrameMarksmanGraph
-      node: done_N14WeaponRifle762MarksmanAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762MarksmanAssembled
 - type: entity
   parent: N14WeaponRifle762Marksman
   id: N14WeaponRifle762MarksmanNoStock
@@ -1727,46 +1016,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle762MarksmanNoStock
-- type: entity
-  parent: N14WeaponRifle762Canadian
-  id: N14WeaponRifle762CanadianAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel762Heavy
-        craft_stock:
-          - N14WeaponPartStockSniper
-    - type: Construction
-      graph: N14WeaponPartFrameMarksmanGraph
-      node: done_N14WeaponRifle762CanadianAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762CanadianAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle762Canadian
   id: N14WeaponRifle762CanadianNoStock
@@ -1814,46 +1068,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle762CanadianNoStock
-- type: entity
-  parent: N14WeaponRifle762MarksmanCanadian
-  id: N14WeaponRifle762MarksmanCanadianAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel762Long
-        craft_stock:
-          - N14WeaponPartStockSniper
-    - type: Construction
-      graph: N14WeaponPartFrameMarksmanGraph
-      node: done_N14WeaponRifle762MarksmanCanadianAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762MarksmanCanadianAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle762MarksmanCanadian
   id: N14WeaponRifle762MarksmanCanadianNoStock
@@ -1901,46 +1120,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle762MarksmanCanadianNoStock
-- type: entity
-  parent: N14WeaponRifle308MarksmanChinese
-  id: N14WeaponRifle308MarksmanChineseAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel308Sniper
-        craft_stock:
-          - N14WeaponPartStockSniper
-    - type: Construction
-      graph: N14WeaponPartFrameMarksmanGraph
-      node: done_N14WeaponRifle308MarksmanChineseAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle308MarksmanChineseAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle308MarksmanChinese
   id: N14WeaponRifle308MarksmanChineseNoStock
@@ -1988,46 +1172,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle308MarksmanChineseNoStock
-- type: entity
-  parent: N14WeaponRifle762R82Sirius
-  id: N14WeaponRifle762R82SiriusAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltGas
-        craft_barrel:
-          - N14WeaponPartBarrel762Standard
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameMarksmanGraph
-      node: done_N14WeaponRifle762R82SiriusAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762R82SiriusAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle762R82Sirius
   id: N14WeaponRifle762R82SiriusNoStock
@@ -2075,47 +1224,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle762R82SiriusNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: .308 battle rifle frame
-- type: entity
-  parent: N14WeaponRifle308Battle
-  id: N14WeaponRifle308BattleAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel308Long
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameBattle308Graph
-      node: done_N14WeaponRifle308BattleAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle308BattleAssembled
 - type: entity
   parent: N14WeaponRifle308Battle
   id: N14WeaponRifle308BattleNoStock
@@ -2163,46 +1277,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle308BattleNoStock
-- type: entity
-  parent: N14WeaponRifleM1Garand
-  id: N14WeaponRifleM1GarandAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel308Standard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameBattle308Graph
-      node: done_N14WeaponRifleM1GarandAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifleM1GarandAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifleM1Garand
   id: N14WeaponRifleM1GarandNoStock
@@ -2250,46 +1329,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifleM1GarandNoStock
-- type: entity
-  parent: N14WeaponRifleSKS
-  id: N14WeaponRifleSKSAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel308Heavy
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameBattle308Graph
-      node: done_N14WeaponRifleSKSAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifleSKSAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifleSKS
   id: N14WeaponRifleSKSNoStock
@@ -2337,44 +1381,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifleSKSNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: tribal rifle frame
-- type: entity
-  parent: N14WeaponSniper762Tribal
-  id: N14WeaponSniper762TribalAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel762Standard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameTribalGraph
-      node: done_N14WeaponSniper762TribalAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper762TribalAssembled
 - type: entity
   parent: N14WeaponSniper762Tribal
   id: N14WeaponSniper762TribalNoStock
@@ -2419,43 +1431,11 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniper762TribalNoStock
-- type: entity
-  parent: N14WeaponSniper762TribalUpgraded
-  id: N14WeaponSniper762TribalUpgradedAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel762Heavy
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameTribalGraph
-      node: done_N14WeaponSniper762TribalUpgradedAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper762TribalUpgradedAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniper762TribalUpgraded
   id: N14WeaponSniper762TribalUpgradedNoStock
@@ -2500,44 +1480,12 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniper762TribalUpgradedNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: lever-action rifle frame
-- type: entity
-  parent: N14WeaponSniper308LeverRifle
-  id: N14WeaponSniper308LeverRifleAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltLever
-        craft_barrel:
-          - N14WeaponPartBarrel308Long
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameLeverGraph
-      node: done_N14WeaponSniper308LeverRifleAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper308LeverRifleAssembled
 - type: entity
   parent: N14WeaponSniper308LeverRifle
   id: N14WeaponSniper308LeverRifleNoStock
@@ -2555,6 +1503,7 @@
         craft_bolt: !type:Container
         craft_barrel: !type:Container
         craft_stock: !type:Container
+        craft_magazine: !type:Container
     - type: Gun
       minAngle: 32
       maxAngle: 52
@@ -2582,43 +1531,11 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniper308LeverRifleNoStock
-- type: entity
-  parent: N14WeaponSniper44LeverCarbine
-  id: N14WeaponSniper44LeverCarbineAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltLever
-        craft_barrel:
-          - N14WeaponPartBarrel44Standard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameLeverGraph
-      node: done_N14WeaponSniper44LeverCarbineAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper44LeverCarbineAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniper44LeverCarbine
   id: N14WeaponSniper44LeverCarbineNoStock
@@ -2636,6 +1553,7 @@
         craft_bolt: !type:Container
         craft_barrel: !type:Container
         craft_stock: !type:Container
+        craft_magazine: !type:Container
     - type: Gun
       minAngle: 32
       maxAngle: 52
@@ -2663,85 +1581,11 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniper44LeverCarbineNoStock
-- type: entity
-  parent: N14WeaponSniper44LeverShortCarbine
-  id: N14WeaponSniper44LeverShortCarbineNoStock
-  name: stockless lever action carbine (no stock)
-  description: An extra short lever action carbine. Uses .44 ammo. Without a stock it kicks all over the place.
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: Gun
-      minAngle: 32
-      maxAngle: 52
-      angleIncrease: 5
-      angleDecay: 12
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltLever
-        craft_barrel:
-          - N14WeaponPartBarrel44Standard
-    - type: Construction
-      graph: N14WeaponPartFrameLeverGraph
-      node: done_N14WeaponSniper44LeverShortCarbineNoStock
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper44LeverShortCarbineNoStock
-- type: entity
-  parent: N14WeaponSniper45-70BrushGun
-  id: N14WeaponSniper45-70BrushGunAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltLever
-        craft_barrel:
-          - N14WeaponPartBarrel4570Standard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameLeverGraph
-      node: done_N14WeaponSniper45-70BrushGunAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper45-70BrushGunAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniper45-70BrushGun
   id: N14WeaponSniper45-70BrushGunNoStock
@@ -2759,6 +1603,7 @@
         craft_bolt: !type:Container
         craft_barrel: !type:Container
         craft_stock: !type:Container
+        craft_magazine: !type:Container
     - type: Gun
       minAngle: 32
       maxAngle: 52
@@ -2786,1717 +1631,15 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniper45-70BrushGunNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: pistol frame
-- type: entity
-  parent: N14WeaponPistol9mm
-  id: N14WeaponPistol9mmAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlide
-        craft_barrel:
-          - N14WeaponPartBarrel9mmStandard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistol9mmAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistol9mmAssembled
-- type: entity
-  parent: N14WeaponPistol9mmSigSauerSirius
-  id: N14WeaponPistol9mmSigSauerSiriusAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideAdvanced
-        craft_barrel:
-          - N14WeaponPartBarrel9mmAdvanced
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistol9mmSigSauerSiriusAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistol9mmSigSauerSiriusAssembled
-- type: entity
-  parent: N14WeaponPistol9mmMinipmSirius
-  id: N14WeaponPistol9mmMinipmSiriusAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideLight
-        craft_barrel:
-          - N14WeaponPartBarrel9mmStandard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistol9mmMinipmSiriusAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistol9mmMinipmSiriusAssembled
-- type: entity
-  parent: N14WeaponPistolWebley
-  id: N14WeaponPistolWebleyAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideHeavy
-        craft_barrel:
-          - N14WeaponPartBarrel9mmAdvanced
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistolWebleyAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistolWebleyAssembled
-- type: entity
-  parent: N14WeaponPistolMaria
-  id: N14WeaponPistolMariaAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideAdvanced
-        craft_barrel:
-          - N14WeaponPartBarrel9mmStandard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistolMariaAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistolMariaAssembled
-- type: entity
-  parent: N14WeaponPistol10mm
-  id: N14WeaponPistol10mmAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlide
-        craft_barrel:
-          - N14WeaponPartBarrel10mmStandard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistol10mmAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistol10mmAssembled
-- type: entity
-  parent: N14WeaponPistol45Colt
-  id: N14WeaponPistol45ColtAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlide
-        craft_barrel:
-          - N14WeaponPartBarrel45Standard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistol45ColtAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistol45ColtAssembled
-- type: entity
-  parent: N14WeaponPistolM1911
-  id: N14WeaponPistolM1911Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideHeavy
-        craft_barrel:
-          - N14WeaponPartBarrel45Standard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistolM1911Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistolM1911Assembled
-- type: entity
-  parent: N14WeaponPistolM1911Custom
-  id: N14WeaponPistolM1911CustomAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideAdvanced
-        craft_barrel:
-          - N14WeaponPartBarrel45Standard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistolM1911CustomAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistolM1911CustomAssembled
-- type: entity
-  parent: N14WeaponPistol12mm
-  id: N14WeaponPistol12mmAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideHeavy
-        craft_barrel:
-          - N14WeaponPartBarrel12mmStandard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistol12mmAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistol12mmAssembled
-- type: entity
-  parent: N14WeaponPistol22lr
-  id: N14WeaponPistol22lrAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideLight
-        craft_barrel:
-          - N14WeaponPartBarrel22lrStandard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistol22lrAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistol22lrAssembled
-- type: entity
-  parent: N14WeaponDesertEagle44
-  id: N14WeaponDesertEagle44Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideHeavy
-        craft_barrel:
-          - N14WeaponPartBarrel44Standard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponDesertEagle44Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponDesertEagle44Assembled
-- type: entity
-  parent: N14WeaponLaserdotDesertEagle44
-  id: N14WeaponLaserdotDesertEagle44Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideAdvanced
-        craft_barrel:
-          - N14WeaponPartBarrel44Advanced
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponLaserdotDesertEagle44Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserdotDesertEagle44Assembled
-- type: entity
-  parent: N14WeaponPistolThatGun
-  id: N14WeaponPistolThatGunAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideLight
-        craft_barrel:
-          - N14WeaponPartBarrel12mmStandard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistolThatGunAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistolThatGunAssembled
-- type: entity
-  parent: N14WeaponPistol50ThunderSirius
-  id: N14WeaponPistol50ThunderSiriusAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideHeavy
-        craft_barrel:
-          - N14WeaponPartBarrel50Standard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistol50ThunderSiriusAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistol50ThunderSiriusAssembled
-- type: entity
-  parent: N14WeaponPistolT60
-  id: N14WeaponPistolT60Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideLight
-        craft_barrel:
-          - N14WeaponPartBarrel44Standard
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponPistolT60Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistolT60Assembled
-- type: entity
-  parent: N14WeaponEnclaveDesertEagle44
-  id: N14WeaponEnclaveDesertEagle44Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltPistolSlideLight
-        craft_barrel:
-          - N14WeaponPartBarrel44Advanced
-    - type: Construction
-      graph: N14WeaponPartFramePistolGraph
-      node: done_N14WeaponEnclaveDesertEagle44Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponEnclaveDesertEagle44Assembled
 #MARK: revolver frame
-- type: entity
-  parent: N14WeaponRevolver9mm
-  id: N14WeaponRevolver9mmAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammer
-        craft_barrel:
-          - N14WeaponPartBarrel9mmStandard
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver9mmAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver9mmAssembled
-- type: entity
-  parent: N14WeaponRevolver10mm
-  id: N14WeaponRevolver10mmAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammer
-        craft_barrel:
-          - N14WeaponPartBarrel10mmStandard
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver10mmAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver10mmAssembled
-- type: entity
-  parent: N14WeaponRevolverWebley
-  id: N14WeaponRevolverWebleyAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammer
-        craft_barrel:
-          - N14WeaponPartBarrel44Advanced
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolverWebleyAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolverWebleyAssembled
-- type: entity
-  parent: N14WeaponRevolver44Magnum
-  id: N14WeaponRevolver44MagnumAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammer
-        craft_barrel:
-          - N14WeaponPartBarrel44Standard
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver44MagnumAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver44MagnumAssembled
-- type: entity
-  parent: N14WeaponRevolver44MagnumCaptain
-  id: N14WeaponRevolver44MagnumCaptainAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammerTarget
-        craft_barrel:
-          - N14WeaponPartBarrel44Standard
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver44MagnumCaptainAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver44MagnumCaptainAssembled
-- type: entity
-  parent: N14WeaponRevolver44Mysterious
-  id: N14WeaponRevolver44MysteriousAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammerTarget
-        craft_barrel:
-          - N14WeaponPartBarrel44Advanced
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver44MysteriousAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver44MysteriousAssembled
-- type: entity
-  parent: N14WeaponRevolver44Tribal
-  id: N14WeaponRevolver44TribalAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammerHeavy
-        craft_barrel:
-          - N14WeaponPartBarrel44Standard
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver44TribalAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver44TribalAssembled
-- type: entity
-  parent: N14WeaponRevolver44TribalUpgraded
-  id: N14WeaponRevolver44TribalUpgradedAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammerHeavy
-        craft_barrel:
-          - N14WeaponPartBarrel44Advanced
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver44TribalUpgradedAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver44TribalUpgradedAssembled
-- type: entity
-  parent: N14WeaponRevolver44TribalUpgradedExtra
-  id: N14WeaponRevolver44TribalUpgradedExtraAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammer
-        craft_barrel:
-          - N14WeaponPartBarrel44Heavy
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver44TribalUpgradedExtraAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver44TribalUpgradedExtraAssembled
-- type: entity
-  parent: N14WeaponRevolver44Peacekeeper
-  id: N14WeaponRevolver44PeacekeeperAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammerTarget
-        craft_barrel:
-          - N14WeaponPartBarrel44Heavy
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver44PeacekeeperAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver44PeacekeeperAssembled
-- type: entity
-  parent: N14WeaponRevolver45-70Hunter
-  id: N14WeaponRevolver45-70HunterAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammer
-        craft_barrel:
-          - N14WeaponPartBarrel4570Standard
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver45-70HunterAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver45-70HunterAssembled
-- type: entity
-  parent: N14WeaponRevolver45-70WildWhisper
-  id: N14WeaponRevolver45-70WildWhisperAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammerTarget
-        craft_barrel:
-          - N14WeaponPartBarrel4570Standard
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver45-70WildWhisperAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver45-70WildWhisperAssembled
-- type: entity
-  parent: N14WeaponRevolver45-70RangerSequoia
-  id: N14WeaponRevolver45-70RangerSequoiaAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammerHeavy
-        craft_barrel:
-          - N14WeaponPartBarrel4570Standard
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver45-70RangerSequoiaAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver45-70RangerSequoiaAssembled
-- type: entity
-  parent: N14WeaponRevolver45-70Handcannon
-  id: N14WeaponRevolver45-70HandcannonAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammer
-        craft_barrel:
-          - N14WeaponPartBarrel4570Advanced
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver45-70HandcannonAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver45-70HandcannonAssembled
-- type: entity
-  parent: N14WeaponRevolver45-70HandcannonUpgraded
-  id: N14WeaponRevolver45-70HandcannonUpgradedAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammerTarget
-        craft_barrel:
-          - N14WeaponPartBarrel4570Advanced
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver45-70HandcannonUpgradedAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver45-70HandcannonUpgradedAssembled
-- type: entity
-  parent: N14WeaponRevolver357Detective
-  id: N14WeaponRevolver357DetectiveAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammer
-        craft_barrel:
-          - N14WeaponPartBarrel357Standard
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver357DetectiveAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver357DetectiveAssembled
-- type: entity
-  parent: N14WeaponRevolver357Lucky
-  id: N14WeaponRevolver357LuckyAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammerHeavy
-        craft_barrel:
-          - N14WeaponPartBarrel357Standard
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolver357LuckyAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver357LuckyAssembled
-- type: entity
-  parent: N14WeaponRevolverCalicoSirius
-  id: N14WeaponRevolverCalicoSiriusAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        revolver-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripRevolver
-        craft_bolt:
-          - N14WeaponPartBoltRevolverHammer
-        craft_barrel:
-          - N14WeaponPartBarrel45Standard
-    - type: Construction
-      graph: N14WeaponPartFrameRevolverGraph
-      node: done_N14WeaponRevolverCalicoSiriusAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolverCalicoSiriusAssembled
 #MARK: submachine gun frame
-- type: entity
-  parent: N14WeaponSMG9mm
-  id: N14WeaponSMG9mmAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowback
-        craft_barrel:
-          - N14WeaponPartBarrel9mmStandard
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMG9mmAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG9mmAssembled
-- type: entity
-  parent: N14WeaponSMG9mminfiltrator
-  id: N14WeaponSMG9mminfiltratorAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowbackDelayed
-        craft_barrel:
-          - N14WeaponPartBarrel9mmStandard
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMG9mminfiltratorAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG9mminfiltratorAssembled
-- type: entity
-  parent: N14WeaponSMG9mminfiltratorMk2Sirius
-  id: N14WeaponSMG9mminfiltratorMk2SiriusAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowbackDelayed
-        craft_barrel:
-          - N14WeaponPartBarrel9mmAdvanced
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMG9mminfiltratorMk2SiriusAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG9mminfiltratorMk2SiriusAssembled
-- type: entity
-  parent: N14WeaponSMG9mmCanadian
-  id: N14WeaponSMG9mmCanadianAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowback
-        craft_barrel:
-          - N14WeaponPartBarrel9mmAdvanced
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMG9mmCanadianAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG9mmCanadianAssembled
-- type: entity
-  parent: N14WeaponSMGPPSh41
-  id: N14WeaponSMGPPSh41Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowbackVintage
-        craft_barrel:
-          - N14WeaponPartBarrel9mmStandard
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMGPPSh41Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMGPPSh41Assembled
-- type: entity
-  parent: N14WeaponSMG10mm
-  id: N14WeaponSMG10mmAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowback
-        craft_barrel:
-          - N14WeaponPartBarrel10mmStandard
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMG10mmAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG10mmAssembled
-- type: entity
-  parent: N14WeaponSMG10mmChinese
-  id: N14WeaponSMG10mmChineseAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowbackDelayed
-        craft_barrel:
-          - N14WeaponPartBarrel10mmStandard
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMG10mmChineseAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG10mmChineseAssembled
-- type: entity
-  parent: N14WeaponSMG10mmSuppressed
-  id: N14WeaponSMG10mmSuppressedAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowbackHeavy
-        craft_barrel:
-          - N14WeaponPartBarrel10mmStandard
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMG10mmSuppressedAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG10mmSuppressedAssembled
-- type: entity
-  parent: N14WeaponSMG12mm
-  id: N14WeaponSMG12mmAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowback
-        craft_barrel:
-          - N14WeaponPartBarrel12mmStandard
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMG12mmAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG12mmAssembled
-- type: entity
-  parent: N14WeaponSMG12mmAdvanced
-  id: N14WeaponSMG12mmAdvancedAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowbackDelayed
-        craft_barrel:
-          - N14WeaponPartBarrel12mmStandard
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMG12mmAdvancedAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG12mmAdvancedAssembled
-- type: entity
-  parent: N14WeaponSMG12mmAdvancedCanadian
-  id: N14WeaponSMG12mmAdvancedCanadianAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowbackHeavy
-        craft_barrel:
-          - N14WeaponPartBarrel12mmStandard
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMG12mmAdvancedCanadianAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG12mmAdvancedCanadianAssembled
-- type: entity
-  parent: N14WeaponSMG12mmAdvancedChinese
-  id: N14WeaponSMG12mmAdvancedChineseAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowbackDelayed
-        craft_barrel:
-          - N14WeaponPartBarrel12mmAdvanced
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMG12mmAdvancedChineseAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG12mmAdvancedChineseAssembled
-- type: entity
-  parent: N14WeaponSMG45
-  id: N14WeaponSMG45Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowback
-        craft_barrel:
-          - N14WeaponPartBarrel45Standard
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMG45Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG45Assembled
-- type: entity
-  parent: N14WeaponSMGGreaseGun
-  id: N14WeaponSMGGreaseGunAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowbackHeavy
-        craft_barrel:
-          - N14WeaponPartBarrel45Standard
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMGGreaseGunAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMGGreaseGunAssembled
-- type: entity
-  parent: N14WeaponSMGAmerican180
-  id: N14WeaponSMGAmerican180Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripPistol
-        craft_bolt:
-          - N14WeaponPartBoltBlowbackVintage
-        craft_barrel:
-          - N14WeaponPartBarrel22lrStandard
-    - type: Construction
-      graph: N14WeaponPartFrameSmgGraph
-      node: done_N14WeaponSMGAmerican180Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMGAmerican180Assembled
 #MARK: classic shotgun frame
-- type: entity
-  parent: N14WeaponShotgun
-  id: N14WeaponShotgunAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel12gStandard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunClassicGraph
-      node: done_N14WeaponShotgunAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunAssembled
 - type: entity
   parent: N14WeaponShotgun
   id: N14WeaponShotgunNoStock
@@ -4537,39 +1680,11 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunNoStock
-- type: entity
-  parent: N14WeaponShotgunDoubleBarrel
-  id: N14WeaponShotgunDoubleBarrelAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltBreech
-        craft_barrel:
-          - N14WeaponPartBarrel12gStandard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunClassicGraph
-      node: done_N14WeaponShotgunDoubleBarrelAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunDoubleBarrelAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponShotgunDoubleBarrel
   id: N14WeaponShotgunDoubleBarrelNoStock
@@ -4610,39 +1725,11 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunDoubleBarrelNoStock
-- type: entity
-  parent: N14WeaponShotgunSawedOff
-  id: N14WeaponShotgunSawedOffAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltBreech
-        craft_barrel:
-          - N14WeaponPartBarrel12gStandard
-        craft_stock:
-          - N14WeaponPartStockShortened
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunClassicGraph
-      node: done_N14WeaponShotgunSawedOffAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunSawedOffAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponShotgunSawedOff
   id: N14WeaponShotgunSawedOffNoStock
@@ -4683,39 +1770,11 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunSawedOffNoStock
-- type: entity
-  parent: N14WeaponShotgunBoomstick
-  id: N14WeaponShotgunBoomstickAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltBreech
-        craft_barrel:
-          - N14WeaponPartBarrel12gStandard
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunClassicGraph
-      node: done_N14WeaponShotgunBoomstickAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunBoomstickAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponShotgunBoomstick
   id: N14WeaponShotgunBoomstickNoStock
@@ -4756,39 +1815,11 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunBoomstickNoStock
-- type: entity
-  parent: N14WeaponShotgunBloodyStick
-  id: N14WeaponShotgunBloodyStickAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltBreech
-        craft_barrel:
-          - N14WeaponPartBarrel12gStandard
-        craft_stock:
-          - N14WeaponPartStockSniper
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunClassicGraph
-      node: done_N14WeaponShotgunBloodyStickAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunBloodyStickAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponShotgunBloodyStick
   id: N14WeaponShotgunBloodyStickNoStock
@@ -4829,39 +1860,11 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunBloodyStickNoStock
-- type: entity
-  parent: N14WeaponShotgunTrench
-  id: N14WeaponShotgunTrenchAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel12gStandard
-        craft_stock:
-          - N14WeaponPartStockShortened
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunClassicGraph
-      node: done_N14WeaponShotgunTrenchAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunTrenchAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponShotgunTrench
   id: N14WeaponShotgunTrenchNoStock
@@ -4902,39 +1905,11 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunTrenchNoStock
-- type: entity
-  parent: N14WeaponShotgunNeostead
-  id: N14WeaponShotgunNeosteadAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel12gStandard
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunClassicGraph
-      node: done_N14WeaponShotgunNeosteadAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunNeosteadAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponShotgunNeostead
   id: N14WeaponShotgunNeosteadNoStock
@@ -4975,77 +1950,11 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunNeosteadNoStock
-- type: entity
-  parent: N14WeaponShotgunShort
-  id: N14WeaponShotgunShortNoStock
-  name: stockless shotgun (no stock)
-  description: "A stockless pump action shotgun, handy for close encounters. Chambered in 12 gauge shells. Without a stock it kicks all over the place."
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: Gun
-      minAngle: 32
-      maxAngle: 52
-      angleIncrease: 5
-      angleDecay: 12
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel12gStandard
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunClassicGraph
-      node: done_N14WeaponShotgunShortNoStock
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunShortNoStock
-- type: entity
-  parent: N14WeaponShotgunCaravan
-  id: N14WeaponShotgunCaravanAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltBreech
-        craft_barrel:
-          - N14WeaponPartBarrel20gStandard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunClassicGraph
-      node: done_N14WeaponShotgunCaravanAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunCaravanAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponShotgunCaravan
   id: N14WeaponShotgunCaravanNoStock
@@ -5086,39 +1995,11 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunCaravanNoStock
-- type: entity
-  parent: N14WeaponShotgunLever
-  id: N14WeaponShotgunLeverAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltLever
-        craft_barrel:
-          - N14WeaponPartBarrel20gStandard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunClassicGraph
-      node: done_N14WeaponShotgunLeverAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunLeverAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponShotgunLever
   id: N14WeaponShotgunLeverNoStock
@@ -5159,44 +2040,12 @@
         - craft_stock
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunLeverNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: modern shotgun frame
-- type: entity
-  parent: N14WeaponShotgunAuto
-  id: N14WeaponShotgunAutoAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel12gStandard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunModernGraph
-      node: done_N14WeaponShotgunAutoAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunAutoAssembled
 - type: entity
   parent: N14WeaponShotgunAuto
   id: N14WeaponShotgunAutoNoStock
@@ -5241,41 +2090,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunAutoNoStock
-- type: entity
-  parent: N14WeaponShotgunBlowback
-  id: N14WeaponShotgunBlowbackAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel12gStandard
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunModernGraph
-      node: done_N14WeaponShotgunBlowbackAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunBlowbackAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponShotgunBlowback
   id: N14WeaponShotgunBlowbackNoStock
@@ -5318,41 +2137,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunBlowbackNoStock
-- type: entity
-  parent: N14WeaponShotgunChinese
-  id: N14WeaponShotgunChineseAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel12gStandard
-        craft_stock:
-          - N14WeaponPartStockSniper
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunModernGraph
-      node: done_N14WeaponShotgunChineseAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunChineseAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponShotgunChinese
   id: N14WeaponShotgunChineseNoStock
@@ -5395,41 +2184,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunChineseNoStock
-- type: entity
-  parent: N14WeaponShotgunCanadian
-  id: N14WeaponShotgunCanadianAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel12gStandard
-        craft_stock:
-          - N14WeaponPartStockShortened
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunModernGraph
-      node: done_N14WeaponShotgunCanadianAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunCanadianAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponShotgunCanadian
   id: N14WeaponShotgunCanadianNoStock
@@ -5472,43 +2231,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunCanadianNoStock
-- type: entity
-  parent: N14WeaponShotgunRiot
-  id: N14WeaponShotgunRiotAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGripShotgun
-        craft_bolt:
-          - N14WeaponPartBoltRecoil
-        craft_barrel:
-          - N14WeaponPartBarrel20gStandard
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameShotgunModernGraph
-      node: done_N14WeaponShotgunRiotAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunRiotAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponShotgunRiot
   id: N14WeaponShotgunRiotNoStock
@@ -5553,46 +2280,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponShotgunRiotNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: sniper rifle frame
-- type: entity
-  parent: N14WeaponSniperHunting
-  id: N14WeaponSniperHuntingAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel308Sniper
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponSniperHuntingAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniperHuntingAssembled
 - type: entity
   parent: N14WeaponSniperHunting
   id: N14WeaponSniperHuntingNoStock
@@ -5639,45 +2332,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniperHuntingNoStock
-- type: entity
-  parent: N14WeaponSniperEnfield
-  id: N14WeaponSniperEnfieldAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel308SniperHeavy
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponSniperEnfieldAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniperEnfieldAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniperEnfield
   id: N14WeaponSniperEnfieldNoStock
@@ -5724,45 +2383,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniperEnfieldNoStock
-- type: entity
-  parent: N14WeaponSniper308Canadian
-  id: N14WeaponSniper308CanadianAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel308Sniper
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponSniper308CanadianAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper308CanadianAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniper308Canadian
   id: N14WeaponSniper308CanadianNoStock
@@ -5809,45 +2434,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniper308CanadianNoStock
-- type: entity
-  parent: N14WeaponSniper308Ross
-  id: N14WeaponSniper308RossAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel308Sniper
-        craft_stock:
-          - N14WeaponPartStockSniper
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponSniper308RossAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper308RossAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniper308Ross
   id: N14WeaponSniper308RossNoStock
@@ -5894,46 +2485,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniper308RossNoStock
-- type: entity
-  parent: N14WeaponRifle308SniperRifle
-  id: N14WeaponRifle308SniperRifleAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel308SniperHeavy
-        craft_stock:
-          - N14WeaponPartStockSniper
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponRifle308SniperRifleAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle308SniperRifleAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle308SniperRifle
   id: N14WeaponRifle308SniperRifleNoStock
@@ -5981,45 +2537,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle308SniperRifleNoStock
-- type: entity
-  parent: N14WeaponSniper556VarmintRifle
-  id: N14WeaponSniper556VarmintRifleAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel556Sniper
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponSniper556VarmintRifleAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper556VarmintRifleAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniper556VarmintRifle
   id: N14WeaponSniper556VarmintRifleNoStock
@@ -6066,40 +2588,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniper556VarmintRifleNoStock
-- type: entity
-  parent: N14WeaponSniperRatslayer
-  id: N14WeaponSniperRatslayerAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel556Sniper
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponSniperRatslayerAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniperRatslayerAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniperRatslayer
   id: N14WeaponSniperRatslayerNoStock
@@ -6141,45 +2634,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniperRatslayerNoStock
-- type: entity
-  parent: N14WeaponRifle556M1Carbine
-  id: N14WeaponRifle556M1CarbineAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel556Sniper
-        craft_stock:
-          - N14WeaponPartStockSniper
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponRifle556M1CarbineAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556M1CarbineAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle556M1Carbine
   id: N14WeaponRifle556M1CarbineNoStock
@@ -6226,45 +2685,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle556M1CarbineNoStock
-- type: entity
-  parent: N14WeaponSniper45-70Tribal
-  id: N14WeaponSniper45-70TribalAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel4570Standard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponSniper45-70TribalAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper45-70TribalAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniper45-70Tribal
   id: N14WeaponSniper45-70TribalNoStock
@@ -6311,45 +2736,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniper45-70TribalNoStock
-- type: entity
-  parent: N14WeaponSniper45-70TribalUpgraded
-  id: N14WeaponSniper45-70TribalUpgradedAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel4570Advanced
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponSniper45-70TribalUpgradedAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper45-70TribalUpgradedAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniper45-70TribalUpgraded
   id: N14WeaponSniper45-70TribalUpgradedNoStock
@@ -6396,45 +2787,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniper45-70TribalUpgradedNoStock
-- type: entity
-  parent: N14WeaponSniperCowboyRepeater
-  id: N14WeaponSniperCowboyRepeaterAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltLever
-        craft_barrel:
-          - N14WeaponPartBarrel4570Standard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponSniperCowboyRepeaterAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniperCowboyRepeaterAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniperCowboyRepeater
   id: N14WeaponSniperCowboyRepeaterNoStock
@@ -6481,45 +2838,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniperCowboyRepeaterNoStock
-- type: entity
-  parent: N14WeaponSniperPaciencia
-  id: N14WeaponSniperPacienciaAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltLever
-        craft_barrel:
-          - N14WeaponPartBarrel4570Standard
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponSniperPacienciaAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniperPacienciaAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniperPaciencia
   id: N14WeaponSniperPacienciaNoStock
@@ -6566,45 +2889,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniperPacienciaNoStock
-- type: entity
-  parent: N14WeaponRifle762Rangemaster
-  id: N14WeaponRifle762RangemasterAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel762Sniper
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponRifle762RangemasterAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762RangemasterAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponRifle762Rangemaster
   id: N14WeaponRifle762RangemasterNoStock
@@ -6651,45 +2940,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponRifle762RangemasterNoStock
-- type: entity
-  parent: N14WeaponSniper50NCRRifle
-  id: N14WeaponSniper50NCRRifleAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel50Standard
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameSniperGraph
-      node: done_N14WeaponSniper50NCRRifleAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper50NCRRifleAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponSniper50NCRRifle
   id: N14WeaponSniper50NCRRifleNoStock
@@ -6736,47 +2991,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniper50NCRRifleNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: heavy sniper frame
-- type: entity
-  parent: N14WeaponSniper50AntiMateriel
-  id: N14WeaponSniper50AntiMaterielAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_grip: !type:Container
-        craft_bolt: !type:Container
-        craft_barrel: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_grip:
-          - N14WeaponPartGrip
-        craft_bolt:
-          - N14WeaponPartBoltAction
-        craft_barrel:
-          - N14WeaponPartBarrel50Standard
-        craft_stock:
-          - N14WeaponPartStockSniper
-    - type: Construction
-      graph: N14WeaponPartFrameSniperHeavyGraph
-      node: done_N14WeaponSniper50AntiMaterielAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_grip
-        - craft_bolt
-        - craft_barrel
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper50AntiMaterielAssembled
 - type: entity
   parent: N14WeaponSniper50AntiMateriel
   id: N14WeaponSniper50AntiMaterielNoStock
@@ -6824,46 +3044,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponSniper50AntiMaterielNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: AER laser rifle frame
-- type: entity
-  parent: N14WeaponLaserRifle
-  id: N14WeaponLaserRifleAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_drive: !type:Container
-        craft_bolt: !type:Container
-        craft_optics: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_drive:
-          - N14WeaponPartDriveHv
-        craft_bolt:
-          - N14WeaponPartBoltLaserModule
-        craft_optics:
-          - N14WeaponPartOpticsAer
-        craft_stock:
-          - N14WeaponPartStockLaserAer
-    - type: Construction
-      graph: N14WeaponPartFrameLaserAerGraph
-      node: done_N14WeaponLaserRifleAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_drive
-        - craft_bolt
-        - craft_optics
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserRifleAssembled
 - type: entity
   parent: N14WeaponLaserRifle
   id: N14WeaponLaserRifleNoStock
@@ -6910,45 +3096,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponLaserRifleNoStock
-- type: entity
-  parent: N14WeaponLaserRifleAuto
-  id: N14WeaponLaserRifleAutoAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_drive: !type:Container
-        craft_bolt: !type:Container
-        craft_optics: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_drive:
-          - N14WeaponPartDriveHv
-        craft_bolt:
-          - N14WeaponPartBoltLaserModuleAuto
-        craft_optics:
-          - N14WeaponPartOpticsAer
-        craft_stock:
-          - N14WeaponPartStockLaserAer
-    - type: Construction
-      graph: N14WeaponPartFrameLaserAerGraph
-      node: done_N14WeaponLaserRifleAutoAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_drive
-        - craft_bolt
-        - craft_optics
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserRifleAutoAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponLaserRifleAuto
   id: N14WeaponLaserRifleAutoNoStock
@@ -6995,45 +3147,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponLaserRifleAutoNoStock
-- type: entity
-  parent: N14WeaponLaserRifleAER12
-  id: N14WeaponLaserRifleAER12Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_drive: !type:Container
-        craft_bolt: !type:Container
-        craft_optics: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_drive:
-          - N14WeaponPartDriveHv
-        craft_bolt:
-          - N14WeaponPartBoltLaserModuleAdvanced
-        craft_optics:
-          - N14WeaponPartOpticsAer
-        craft_stock:
-          - N14WeaponPartStockLaserAer
-    - type: Construction
-      graph: N14WeaponPartFrameLaserAerGraph
-      node: done_N14WeaponLaserRifleAER12Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_drive
-        - craft_bolt
-        - craft_optics
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserRifleAER12Assembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponLaserRifleAER12
   id: N14WeaponLaserRifleAER12NoStock
@@ -7080,45 +3198,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponLaserRifleAER12NoStock
-- type: entity
-  parent: N14WeaponLaserRifleAER15
-  id: N14WeaponLaserRifleAER15Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_drive: !type:Container
-        craft_bolt: !type:Container
-        craft_optics: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_drive:
-          - N14WeaponPartDriveHv
-        craft_bolt:
-          - N14WeaponPartBoltLaserModuleHeavy
-        craft_optics:
-          - N14WeaponPartOpticsAer
-        craft_stock:
-          - N14WeaponPartStockLaserAer
-    - type: Construction
-      graph: N14WeaponPartFrameLaserAerGraph
-      node: done_N14WeaponLaserRifleAER15Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_drive
-        - craft_bolt
-        - craft_optics
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserRifleAER15Assembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponLaserRifleAER15
   id: N14WeaponLaserRifleAER15NoStock
@@ -7165,45 +3249,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponLaserRifleAER15NoStock
-- type: entity
-  parent: N14WeaponLaserRiflePrototypeAER14
-  id: N14WeaponLaserRiflePrototypeAER14Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_drive: !type:Container
-        craft_bolt: !type:Container
-        craft_optics: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_drive:
-          - N14WeaponPartDriveHv
-        craft_bolt:
-          - N14WeaponPartBoltLaserModuleProto
-        craft_optics:
-          - N14WeaponPartOpticsAer
-        craft_stock:
-          - N14WeaponPartStockLaserAer
-    - type: Construction
-      graph: N14WeaponPartFrameLaserAerGraph
-      node: done_N14WeaponLaserRiflePrototypeAER14Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_drive
-        - craft_bolt
-        - craft_optics
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserRiflePrototypeAER14Assembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponLaserRiflePrototypeAER14
   id: N14WeaponLaserRiflePrototypeAER14NoStock
@@ -7250,45 +3300,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponLaserRiflePrototypeAER14NoStock
-- type: entity
-  parent: N14WeaponLaserRifleCrude
-  id: N14WeaponLaserRifleCrudeAssembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_drive: !type:Container
-        craft_bolt: !type:Container
-        craft_optics: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_drive:
-          - N14WeaponPartDriveHv
-        craft_bolt:
-          - N14WeaponPartBoltLaserModule
-        craft_optics:
-          - N14WeaponPartOpticsAerCrude
-        craft_stock:
-          - N14WeaponPartStockLaserAer
-    - type: Construction
-      graph: N14WeaponPartFrameLaserAerGraph
-      node: done_N14WeaponLaserRifleCrudeAssembled
-      deconstructionTarget: start
-      containers:
-        - craft_drive
-        - craft_bolt
-        - craft_optics
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserRifleCrudeAssembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponLaserRifleCrude
   id: N14WeaponLaserRifleCrudeNoStock
@@ -7335,46 +3351,12 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponLaserRifleCrudeNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: Wattz laser rifle frame
-- type: entity
-  parent: N14WeaponLaserRifleWattz2000
-  id: N14WeaponLaserRifleWattz2000Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_drive: !type:Container
-        craft_bolt: !type:Container
-        craft_optics: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_drive:
-          - N14WeaponPartDriveHv
-        craft_bolt:
-          - N14WeaponPartBoltLaserModuleAdvanced
-        craft_optics:
-          - N14WeaponPartOpticsWattz
-        craft_stock:
-          - N14WeaponPartStockWooden
-    - type: Construction
-      graph: N14WeaponPartFrameLaserWattzGraph
-      node: done_N14WeaponLaserRifleWattz2000Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_drive
-        - craft_bolt
-        - craft_optics
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserRifleWattz2000Assembled
 - type: entity
   parent: N14WeaponLaserRifleWattz2000
   id: N14WeaponLaserRifleWattz2000NoStock
@@ -7421,45 +3403,11 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponLaserRifleWattz2000NoStock
-- type: entity
-  parent: N14WeaponLaserRifleWattz3000
-  id: N14WeaponLaserRifleWattz3000Assembled
-  components:
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        craft_drive: !type:Container
-        craft_bolt: !type:Container
-        craft_optics: !type:Container
-        craft_stock: !type:Container
-        craft_magazine: !type:Container
-    - type: ContainerFill
-      ignoreConstructionSpawn: true
-      containers:
-        craft_drive:
-          - N14WeaponPartDriveHv
-        craft_bolt:
-          - N14WeaponPartBoltLaserModuleHeavy
-        craft_optics:
-          - N14WeaponPartOpticsWattz
-        craft_stock:
-          - N14WeaponPartStockPolymer
-    - type: Construction
-      graph: N14WeaponPartFrameLaserWattzGraph
-      node: done_N14WeaponLaserRifleWattz3000Assembled
-      deconstructionTarget: start
-      containers:
-        - craft_drive
-        - craft_bolt
-        - craft_optics
-        - craft_stock
-        - craft_magazine
-    - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserRifleWattz3000Assembled
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 - type: entity
   parent: N14WeaponLaserRifleWattz3000
   id: N14WeaponLaserRifleWattz3000NoStock
@@ -7506,3 +3454,8 @@
         - craft_magazine
     - type: WeaponFrame
       assemblyTarget: done_N14WeaponLaserRifleWattz3000NoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability

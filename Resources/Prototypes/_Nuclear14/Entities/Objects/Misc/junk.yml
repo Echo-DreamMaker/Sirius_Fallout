@@ -585,8 +585,15 @@
 
 
 #MARK: Gun Parts
+# #Misfits Add - the legacy junk gun parts now double as our modular weapon
+# parts: each is parented to the matching N14WeaponPart* prototype, keeping its
+# id so the items spawned by maps, storage fills and loot can be used in modular
+# assembly. The old tag is kept alongside our tag so the legacy pipe-weapon and
+# unique-weapon construction graphs (which still step on the old tags) keep
+# working. N14JunkGunpartsRecoilComp and N14JunkGunpartsRifleScope have no
+# equivalent in our part system and remain plain junk.
 - type: entity
-  parent: N14JunkItemBaseMetal
+  parent: N14WeaponPartBoltAction
   id: N14JunkGunpartsAction
   name: gun action (part)
   description: An action from a bolt action gun.
@@ -595,10 +602,13 @@
     state: action
   - type: Tag
     tags:
+    - N14PartBolt
+    - N14PartBoltAction
+    - N14PartTypeSniper
     - Action
 
 - type: entity
-  parent: N14JunkItemBaseAluminum
+  parent: N14WeaponPartFrameAssaultHeavy
   id: N14JunkGunpartsAdvancedFrame
   name: gun frame (part)
   description: An advanced gun frame.
@@ -607,10 +617,11 @@
     state: advancedframe
   - type: Tag
     tags:
+    - N14PartFrameAssaultHeavy
     - N14AdvancedFrame
 
 - type: entity
-  parent: N14JunkItemBaseMetal
+  parent: N14WeaponPartBarrel556Standard
   id: N14JunkGunpartsBarrel
   name: gun barrel (part)
   description: An gun barrel.
@@ -619,10 +630,12 @@
     state: barrel
   - type: Tag
     tags:
+    - N14PartBarrel
+    - N14PartBarrel556Standard
     - Barrel
 
 - type: entity
-  parent: N14JunkItemBaseMetal
+  parent: N14WeaponPartBoltBlowback
   id: N14JunkGunpartsBolt
   name: gun bolt(part)
   description: A bolt for a gun.
@@ -631,10 +644,13 @@
     state: bolt
   - type: Tag
     tags:
+    - N14PartBolt
+    - N14PartBoltBlowback
+    - N14PartTypeSmg
     - Bolt
 
 - type: entity
-  parent: N14JunkItemBaseMetal
+  parent: N14WeaponPartFrameAssault
   id: N14JunkGunpartsFrame
   name: gun frame(part)
   description: A frame for a gun.
@@ -643,10 +659,11 @@
     state: gunframe
   - type: Tag
     tags:
+    - N14PartFrameAssault
     - GunFrame
 
 - type: entity
-  parent: N14JunkItemBaseMetal
+  parent: N14WeaponPartFramePistol
   id: N14JunkGunpartsFramePistol
   name: pistol frame(part)
   description: A frame for a pistol.
@@ -655,10 +672,11 @@
     state: pistolframe
   - type: Tag
     tags:
+    - N14PartFramePistol
     - PistolFrame
 
 - type: entity
-  parent: N14JunkItemBaseMetal
+  parent: N14WeaponPartFrameAssault
   id: N14JunkGunpartsReceiver
   name: receiver(part)
   description: A receiver for a gun.
@@ -667,6 +685,7 @@
     state: receiver
   - type: Tag
     tags:
+    - N14PartFrameAssault
     - Receiver
 
 - type: entity
@@ -682,7 +701,7 @@
     - RecoilComp
 
 - type: entity
-  parent: N14JunkItemBaseMetal
+  parent: N14WeaponPartFrameAssault
   id: N14JunkGunpartsRifleFrame
   name: rifle frame(part)
   description: A frame for a rifle.
@@ -691,10 +710,11 @@
     state: rifleframe
   - type: Tag
     tags:
+    - N14PartFrameAssault
     - RifleFrame
 
 - type: entity
-  parent: N14JunkItemBaseMetal
+  parent: N14WeaponPartStockSniper
   id: N14JunkGunpartsRifleStock
   name: rifle stock(part)
   description: A stock for a rifle.
@@ -703,6 +723,8 @@
     state: riflestock
   - type: Tag
     tags:
+    - N14PartStock
+    - N14PartStockSniper
     - RifleStock1
 
 - type: entity
@@ -718,7 +740,7 @@
     - RifleScope
 
 - type: entity
-  parent: N14JunkItemBaseMetal
+  parent: N14WeaponPartStockPolymer
   id: N14JunkGunpartsStock
   name: stock(part)
   description: A metal stock for a gun.
@@ -727,10 +749,12 @@
     state: stock
   - type: Tag
     tags:
+    - N14PartStock
+    - N14PartStockPolymer
     - Stock
 
 - type: entity
-  parent: N14JunkItemBase
+  parent: N14WeaponPartStockWooden
   id: N14JunkGunpartsStockWood
   name: stock(part)
   description: A wooden stock for a gun.
@@ -739,10 +763,12 @@
     state: stockwood
   - type: Tag
     tags:
+    - N14PartStock
+    - N14PartStockWooden
     - StockWood
 
 - type: entity
-  parent: N14JunkItemBaseMetal
+  parent: N14WeaponPartGripPistol
   id: N14JunkGunpartsTrigger
   name: trigger(part)
   description: A trigger mechanism for a gun.
@@ -751,6 +777,8 @@
     state: trigger
   - type: Tag
     tags:
+    - N14PartGrip
+    - N14PartGripPistol
     - Trigger
 
 - type: entity

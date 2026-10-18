@@ -120,9 +120,39 @@ misfits-weapon-step-stock-pry = Подденьте приклад монтиро
 misfits-weapon-step-final-assemble = Затяните последние винты ствольной коробки.
 misfits-weapon-step-final-disassemble = Отверните последние винты ствольной коробки.
 misfits-weapon-step-final-pry = Извлеките застрявший магазин и патрон из патронника монтировкой.
+misfits-weapon-step-stock-saw = Отпилите приклад; оружие превратится в укороченную версию.
 
 misfits-weapon-step-drive-disassemble = Перекусите провода питания рукояти кусачками и снимите рукоять.
 misfits-weapon-step-optics-disassemble = Перекусите провода оптики кусачками и снимите оптику.
 
 misfits-weapon-need-empty-magazine = Извлеките магазин, прежде чем разбирать оружие.
 misfits-weapon-need-empty-chamber = Разрядите патронник, прежде чем разбирать оружие.
+
+damage-type-wear = износ
+
+misfits-weapon-durability-examine = [color={$color}]Прочность: {$state}[/color]
+misfits-weapon-durability-state-1 = как новое
+misfits-weapon-durability-state-2 = в хорошем состоянии
+misfits-weapon-durability-state-3 = рабочее
+misfits-weapon-durability-state-4 = изношенное
+misfits-weapon-durability-state-5 = повреждённое
+misfits-weapon-durability-state-6 = сильно повреждённое
+misfits-weapon-durability-state-7 = едва держится
+
+misfits-weapon-jammed = Оружие заклинило! Передёрните затвор.
+misfits-weapon-no-barrel = Отсутствует ствол.
+misfits-weapon-no-bolt = Отсутствует затвор.
+
+misfits-weapon-repair-tape = Вы обматываете рукоять и приклад изолентой.
+misfits-weapon-repair-glue = Вы приклеиваете затворную группу на место.
+misfits-weapon-repair-weld = Вы привариваете ствольную коробку обратно.
+misfits-weapon-repair-rod-start = Вы начинаете прочищать канал ствола...
+misfits-weapon-repair-rod = Вы вычищаете нагар из ствола.
+misfits-weapon-repair-rod-store = Вы вставляете шомпол в подствольный слот оружия.
+misfits-weapon-repair-rod-noslot = Шомпол некуда вставить.
+misfits-weapon-repair-whetstone = Вы стачиваете зазубрины с кромки.
+misfits-weapon-repair-nothing = Здесь больше нечего ремонтировать.
+misfits-weapon-repair-nofuel = В сварочном аппарате закончилось топливо.
+
+misfits-weapon-part-examine = [color={$color}]Состояние: {$state}[/color]
+misfits-weapon-part-examine-fouled = [color=#a8a8a8]Канал ствола засорён; шомпол ещё может восстановить часть.[/color]

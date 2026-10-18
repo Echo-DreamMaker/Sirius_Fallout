@@ -33,7 +33,6 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Misfits.Weapons.Parts;
@@ -54,11 +53,25 @@ public sealed class WeaponFrameSystem : EntitySystem
     {
         SubscribeLocalEvent<WeaponFrameComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
         SubscribeLocalEvent<WeaponFrameComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<WeaponFrameComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<WeaponFrameComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<WeaponFrameComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
     }
 
-    private void OnMapInit(EntityUid uid, WeaponFrameComponent frame, ref MapInitEvent args)
+    /// <summary>
+    ///     Seats the magazine the player staged during assembly into the finished
+    ///     weapon, before the free magazine the prototype declares gets spawned.
+    /// </summary>
+    /// <remarks>
+    ///     This has to be a startup handler rather than a map-init one. The two are
+    ///     raised for the same entity in a fixed order: every component is initialized
+    ///     (which is when ItemSlotsSystem creates the slot containers) and started
+    ///     first, and only then is MapInitEvent raised (which is when ItemSlotsSystem
+    ///     spawns each slot's startingItem). Running here therefore means the slot is
+    ///     already usable and, once we have occupied it, ItemSlotsSystem leaves the
+    ///     prototype's free magazine alone - there is no second occupant to delete
+    ///     and nothing that has to be deferred to the next tick.
+    /// </remarks>
+    private void OnStartup(EntityUid uid, WeaponFrameComponent frame, ComponentStartup args)
     {
         if (!_container.TryGetContainer(uid, CraftMagazine, out var staged) ||
             staged.ContainedEntities.Count == 0)
@@ -68,37 +81,29 @@ public sealed class WeaponFrameSystem : EntitySystem
             return;
         }
 
-        // #Misfits Add - ItemSlotsSystem.OnMapInit is what spawns the inherited
-        // startingItem magazine and chambered round, and the order of the two
-        // MapInit handlers is not guaranteed. Defer the swap by one tick so both
-        // have run, otherwise a chambered round spawned afterwards would survive.
-        Timer.Spawn(0, () =>
+        if (!TryComp(uid, out ItemSlotsComponent? slots))
+            return;
+
+        if (!_itemSlots.TryGetSlot(uid, MagazineSlot, out var magazineSlot, slots))
+            return;
+
+        // The finished weapon keeps the magazine the player installed (with its
+        // exact ammunition), not the free one the prototype spawns. Insert takes
+        // the magazine out of the staging container for us.
+        var magazine = staged.ContainedEntities[0];
+        if (!_itemSlots.TryInsert(uid, magazineSlot, magazine, null))
         {
-            if (TerminatingOrDeleted(uid) ||
-                !TryComp(uid, out ItemSlotsComponent? slots) ||
-                !_container.TryGetContainer(uid, CraftMagazine, out var craft) ||
-                craft.ContainedEntities.Count == 0)
-                return;
+            // Leave the magazine where it can still be recovered rather than
+            // dropping it at the weapon's feet, and let the prototype's magazine
+            // stand in instead.
+            Log.Error($"Could not seat the staged magazine into {ToPrettyString(uid)}");
+            return;
+        }
 
-            var magazine = craft.ContainedEntities[0];
-
-            // The finished weapon keeps the magazine the player installed (with
-            // its exact ammunition), not the free one the prototype spawns.
-            if (_itemSlots.TryGetSlot(uid, MagazineSlot, out var magazineSlot, slots))
-            {
-                if (magazineSlot.Item is { } inherited)
-                    EntityManager.DeleteEntity(inherited);
-
-                _container.Remove(magazine, craft, reparent: false);
-                _itemSlots.TryInsert(uid, magazineSlot, magazine, null);
-            }
-
-            if (_itemSlots.TryGetSlot(uid, ChamberSlot, out var chamberSlot, slots) &&
-                chamberSlot.Item is { } chambered)
-            {
-                EntityManager.DeleteEntity(chambered);
-            }
-        });
+        // A weapon built by hand starts unchambered, which is also what keeps
+        // the reverse edge's "gun_chamber is empty" condition satisfiable.
+        if (_itemSlots.TryGetSlot(uid, ChamberSlot, out var chamberSlot, slots))
+            chamberSlot.StartingItem = null;
     }
 
     private void OnInsertAttempt(EntityUid uid, WeaponFrameComponent frame, ref ItemSlotInsertAttemptEvent args)

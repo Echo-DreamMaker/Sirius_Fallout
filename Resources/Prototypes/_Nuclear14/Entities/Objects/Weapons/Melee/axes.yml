@@ -4,6 +4,9 @@
   id: N14Hatchet
   description: A tool that's just as useful as a weapon. Used for chopping things.
   components:
+  # #Misfits Add - Melee durability (1250 tier).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Melee/hatchet.rsi
     slots:
@@ -43,6 +46,9 @@
   id: N14TribalHatchet
   description: A tool that's just as useful as a weapon. Used for chopping things.
   components:
+  # #Misfits Add - Melee durability (1250 tier).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Melee/tribalhatchet.rsi
     slots:
@@ -109,6 +115,9 @@
   id: N14BaseAxe
   description: A heavy wood axe, classic tool and weapon.
   components:
+  # #Misfits Add - Melee durability (heavy tier: 1250, no drawbacks).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Tag
     tags:
     - FireAxe

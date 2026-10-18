@@ -11,6 +11,15 @@
       revolver-ammo: !type:Container
   - type: StaticPrice
     price: 20
+  # #Misfits Add - Non-modular (map-spawned) revolvers wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
 
 - type: entity
@@ -19,6 +28,36 @@
   id: N14WeaponRevolver9mm
   description: A small compact six-shooter. Uses 9mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammer
+      craft_barrel:
+        - N14WeaponPartBarrel9mmStandard
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver9mm
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver9mm
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -54,6 +93,36 @@
   id: N14WeaponRevolver10mm
   description: The first prototype for the 10mm revolver pistol, Uses 10mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammer
+      craft_barrel:
+        - N14WeaponPartBarrel10mmStandard
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver10mm
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver10mm
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/10mmrevolver.rsi
   - type: Clothing
@@ -80,6 +149,36 @@
   id: N14WeaponRevolverWebley
   description: An old trusty break-action pistol, easy to load and easy to use.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammer
+      craft_barrel:
+        - N14WeaponPartBarrel44Advanced
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolverWebley
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolverWebley
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -122,6 +221,36 @@
   id: N14WeaponRevolver44Magnum
   description: The Big Iron. Uses .44 magnum ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammer
+      craft_barrel:
+        - N14WeaponPartBarrel44Standard
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver44Magnum
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver44Magnum
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/magnum.rsi
   - type: Clothing
@@ -145,6 +274,36 @@
   id: N14WeaponRevolver44MagnumCaptain
   description: A true freedom fighter carries his flag everywhere, even on his gun. Uses .44 magnum ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammerTarget
+      craft_barrel:
+        - N14WeaponPartBarrel44Standard
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver44MagnumCaptain
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver44MagnumCaptain
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Gun
     fireRate: 4
     resetOnHandSelected: false
@@ -169,6 +328,36 @@
   id: N14WeaponRevolver45-70Hunter
   description: A heavy revolver with a long barrel designed to hunt small animals, but it also works for people. Uses .45-70 gov't ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammer
+      craft_barrel:
+        - N14WeaponPartBarrel4570Standard
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver45-70Hunter
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver45-70Hunter
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Gun
     fireRate: 3
     soundGunshot:
@@ -192,6 +381,36 @@
   id: N14WeaponRevolver45-70WildWhisper
   description: "It's said that after a troublemaker gets shot down with this revolver ghostly words are whispered to their ears. No one knows what the question is, but the answer spoken is always 'innocent'. Uses .45-70 gov't ammo."
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammerTarget
+      craft_barrel:
+        - N14WeaponPartBarrel4570Standard
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver45-70WildWhisper
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver45-70WildWhisper
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Gun
     fireRate: 3
     resetOnHandSelected: false
@@ -220,6 +439,36 @@
   id: N14WeaponRevolver45-70RangerSequoia
   description: 20 years of suffering for a, albeit beautiful, glorified six-shooter. Undeniably worth it. Uses .45-70 gov't ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammerHeavy
+      craft_barrel:
+        - N14WeaponPartBarrel4570Standard
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver45-70RangerSequoia
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver45-70RangerSequoia
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/ranger_sequoia.rsi
   - type: Clothing
@@ -248,6 +497,36 @@
   id: N14WeaponRevolver44Tribal
   description: A tribal revolver, simple but very handy. Uses .44 magnum ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammerHeavy
+      craft_barrel:
+        - N14WeaponPartBarrel44Standard
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver44Tribal
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver44Tribal
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/tribalrevolver1.rsi
   - type: Clothing
@@ -278,6 +557,36 @@
   id: N14WeaponRevolver44TribalUpgraded
   description: A tribal revolver, upgraded to hold 6 bullets and a slightly faster fire rate. Uses .44 magnum ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammerHeavy
+      craft_barrel:
+        - N14WeaponPartBarrel44Advanced
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver44TribalUpgraded
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver44TribalUpgraded
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/tribalrevolver2.rsi
   - type: Clothing
@@ -302,6 +611,36 @@
   id: N14WeaponRevolver44TribalUpgradedExtra
   description: A tribal revolver, upgraded to hold 8 bullets and fire faster. Uses .44 magnum ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammer
+      craft_barrel:
+        - N14WeaponPartBarrel44Heavy
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver44TribalUpgradedExtra
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver44TribalUpgradedExtra
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/tribalrevolver3.rsi
   - type: Clothing
@@ -332,6 +671,36 @@
   id: N14WeaponRevolver45-70Handcannon
   description: A long and heavy tribal handcannon. Uses .45-70 gov't ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammer
+      craft_barrel:
+        - N14WeaponPartBarrel4570Advanced
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver45-70Handcannon
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver45-70Handcannon
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/tribalhandcannon.rsi
   - type: Clothing
@@ -359,6 +728,36 @@
   id: N14WeaponRevolver45-70HandcannonUpgraded
   description: A long and heavy tribal handcannon, upgraded with a bigger cylinder to hold more bullets. Uses .45-70 gov't ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammerTarget
+      craft_barrel:
+        - N14WeaponPartBarrel4570Advanced
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver45-70HandcannonUpgraded
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver45-70HandcannonUpgraded
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/tribalhandcannon2.rsi
   - type: Clothing
@@ -391,6 +790,36 @@
   id: N14WeaponRevolver357Detective
   description: A compact double-action revolver in .357 Magnum. Favoured by lawmen pre-war, this blued model fits neatly under a jacket. Short barrel cuts range but not lethality.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammer
+      craft_barrel:
+        - N14WeaponPartBarrel357Standard
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver357Detective
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver357Detective
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -427,6 +856,36 @@
   id: N14WeaponRevolver357Lucky
   description: A .357 revolver with a custom pearl grip and exceptional balance. It has outlasted a lot of hard years without complaint. It cycles just a hair faster than it should — like it wants to be fired.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammerHeavy
+      craft_barrel:
+        - N14WeaponPartBarrel357Standard
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver357Lucky
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver357Lucky
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/lucky37.rsi
   - type: Clothing
@@ -452,6 +911,36 @@
   id: N14WeaponRevolver44Peacekeeper
   description: A beautifully maintained .44 Magnum with a custom grip and hair-trigger action. In the right hands it can be fanned for rapid fire, sacrificing precision for volume. A showman's weapon that still kills.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammerTarget
+      craft_barrel:
+        - N14WeaponPartBarrel44Heavy
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver44Peacekeeper
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver44Peacekeeper
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm
@@ -492,6 +981,36 @@
   id: N14WeaponRevolverCalicoSirius
   description: An old trusty break-action pistol, easy to load and easy to use.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammer
+      craft_barrel:
+        - N14WeaponPartBarrel45Standard
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolverCalicoSirius
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolverCalicoSirius
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Tag
     tags:
     - Sidearm

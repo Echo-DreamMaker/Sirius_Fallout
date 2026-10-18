@@ -22,8 +22,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: rifleframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556R91Assembled
+      assemblyTarget: done_N14WeaponRifle556R91
     - type: Construction
       graph: N14WeaponPartFrameAssaultGraph
       node: seat_grip
@@ -42,8 +45,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: rifleframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556ServiceAssembled
+      assemblyTarget: done_N14WeaponRifle556Service
     - type: Construction
       graph: N14WeaponPartFrameAssaultServiceGraph
       node: seat_grip
@@ -62,8 +68,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: advancedframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556HeavyAssaultAssembled
+      assemblyTarget: done_N14WeaponRifle556HeavyAssault
     - type: Construction
       graph: N14WeaponPartFrameAssaultHeavyGraph
       node: seat_grip
@@ -82,8 +91,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: gunframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556CarbineAssembled
+      assemblyTarget: done_N14WeaponRifle556Carbine
     - type: Construction
       graph: N14WeaponPartFrameCarbineGraph
       node: seat_grip
@@ -102,8 +114,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: gunframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556EM2Assembled
+      assemblyTarget: done_N14WeaponRifle556EM2
     - type: Construction
       graph: N14WeaponPartFrameBullpupGraph
       node: seat_grip
@@ -122,8 +137,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: rifleframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556CarbineOldAssembled
+      assemblyTarget: done_N14WeaponRifle556CarbineOld
     - type: Construction
       graph: N14WeaponPartFrameOldCarbineGraph
       node: seat_grip
@@ -142,8 +160,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: rifleframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762FalAssembled
+      assemblyTarget: done_N14WeaponRifle762Fal
     - type: Construction
       graph: N14WeaponPartFrameSemi762Graph
       node: seat_grip
@@ -162,8 +183,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: rifleframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762MarksmanAssembled
+      assemblyTarget: done_N14WeaponRifle762Marksman
     - type: Construction
       graph: N14WeaponPartFrameMarksmanGraph
       node: seat_grip
@@ -182,8 +206,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: rifleframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle308BattleAssembled
+      assemblyTarget: done_N14WeaponRifle308Battle
     - type: Construction
       graph: N14WeaponPartFrameBattle308Graph
       node: seat_grip
@@ -202,8 +229,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: rifleframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper762TribalAssembled
+      assemblyTarget: done_N14WeaponSniper762Tribal
     - type: Construction
       graph: N14WeaponPartFrameTribalGraph
       node: seat_grip
@@ -221,8 +251,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: rifleframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper308LeverRifleAssembled
+      assemblyTarget: done_N14WeaponSniper308LeverRifle
     - type: Construction
       graph: N14WeaponPartFrameLeverGraph
       node: seat_grip
@@ -240,8 +273,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: pistolframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistol9mmAssembled
+      assemblyTarget: done_N14WeaponPistol9mm
     - type: Construction
       graph: N14WeaponPartFramePistolGraph
       node: seat_grip_pistol
@@ -259,8 +295,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: pistolframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver9mmAssembled
+      assemblyTarget: done_N14WeaponRevolver9mm
     - type: Construction
       graph: N14WeaponPartFrameRevolverGraph
       node: seat_grip_revolver
@@ -277,8 +316,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: pistolframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG9mmAssembled
+      assemblyTarget: done_N14WeaponSMG9mm
     - type: Construction
       graph: N14WeaponPartFrameSmgGraph
       node: seat_grip_pistol
@@ -296,8 +338,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: rifleframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunAssembled
+      assemblyTarget: done_N14WeaponShotgun
     - type: Construction
       graph: N14WeaponPartFrameShotgunClassicGraph
       node: seat_grip_shotgun
@@ -315,8 +360,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: advancedframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunAutoAssembled
+      assemblyTarget: done_N14WeaponShotgunAuto
     - type: Construction
       graph: N14WeaponPartFrameShotgunModernGraph
       node: seat_grip_shotgun
@@ -335,8 +383,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: rifleframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniperHuntingAssembled
+      assemblyTarget: done_N14WeaponSniperHunting
     - type: Construction
       graph: N14WeaponPartFrameSniperGraph
       node: seat_grip
@@ -355,8 +406,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: advancedframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper50AntiMaterielAssembled
+      assemblyTarget: done_N14WeaponSniper50AntiMateriel
     - type: Construction
       graph: N14WeaponPartFrameSniperHeavyGraph
       node: seat_grip
@@ -375,8 +429,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: advancedframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserRifleAssembled
+      assemblyTarget: done_N14WeaponLaserRifle
     - type: Construction
       graph: N14WeaponPartFrameLaserAerGraph
       node: sec_drive_hv
@@ -395,8 +452,11 @@
     - type: Sprite
       sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
       state: rifleframe
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserRifleWattz2000Assembled
+      assemblyTarget: done_N14WeaponLaserRifleWattz2000
     - type: Construction
       graph: N14WeaponPartFrameLaserWattzGraph
       node: sec_drive_hv

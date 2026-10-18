@@ -42,8 +42,11 @@
     - type: Tag
       tags:
         - N14PartFrameAssault
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556R91Assembled
+      assemblyTarget: done_N14WeaponRifle556R91
     - type: Construction
       graph: N14WeaponPartFrameAssaultGraph
       node: start
@@ -65,8 +68,11 @@
     - type: Tag
       tags:
         - N14PartFrameAssaultService
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556ServiceAssembled
+      assemblyTarget: done_N14WeaponRifle556Service
     - type: Construction
       graph: N14WeaponPartFrameAssaultServiceGraph
       node: start
@@ -88,8 +94,11 @@
     - type: Tag
       tags:
         - N14PartFrameAssaultHeavy
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556HeavyAssaultAssembled
+      assemblyTarget: done_N14WeaponRifle556HeavyAssault
     - type: Construction
       graph: N14WeaponPartFrameAssaultHeavyGraph
       node: start
@@ -111,8 +120,11 @@
     - type: Tag
       tags:
         - N14PartFrameCarbine
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556CarbineAssembled
+      assemblyTarget: done_N14WeaponRifle556Carbine
     - type: Construction
       graph: N14WeaponPartFrameCarbineGraph
       node: start
@@ -134,8 +146,11 @@
     - type: Tag
       tags:
         - N14PartFrameBullpup
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556EM2Assembled
+      assemblyTarget: done_N14WeaponRifle556EM2
     - type: Construction
       graph: N14WeaponPartFrameBullpupGraph
       node: start
@@ -157,8 +172,11 @@
     - type: Tag
       tags:
         - N14PartFrameOldCarbine
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle556CarbineOldAssembled
+      assemblyTarget: done_N14WeaponRifle556CarbineOld
     - type: Construction
       graph: N14WeaponPartFrameOldCarbineGraph
       node: start
@@ -180,8 +198,11 @@
     - type: Tag
       tags:
         - N14PartFrameSemi762
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762FalAssembled
+      assemblyTarget: done_N14WeaponRifle762Fal
     - type: Construction
       graph: N14WeaponPartFrameSemi762Graph
       node: start
@@ -203,8 +224,11 @@
     - type: Tag
       tags:
         - N14PartFrameMarksman
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle762MarksmanAssembled
+      assemblyTarget: done_N14WeaponRifle762Marksman
     - type: Construction
       graph: N14WeaponPartFrameMarksmanGraph
       node: start
@@ -226,8 +250,11 @@
     - type: Tag
       tags:
         - N14PartFrameBattle308
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRifle308BattleAssembled
+      assemblyTarget: done_N14WeaponRifle308Battle
     - type: Construction
       graph: N14WeaponPartFrameBattle308Graph
       node: start
@@ -249,8 +276,11 @@
     - type: Tag
       tags:
         - N14PartFrameTribal
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper762TribalAssembled
+      assemblyTarget: done_N14WeaponSniper762Tribal
     - type: Construction
       graph: N14WeaponPartFrameTribalGraph
       node: start
@@ -271,8 +301,11 @@
     - type: Tag
       tags:
         - N14PartFrameLever
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper308LeverRifleAssembled
+      assemblyTarget: done_N14WeaponSniper308LeverRifle
     - type: Construction
       graph: N14WeaponPartFrameLeverGraph
       node: start
@@ -293,8 +326,11 @@
     - type: Tag
       tags:
         - N14PartFramePistol
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponPistol9mmAssembled
+      assemblyTarget: done_N14WeaponPistol9mm
     - type: Construction
       graph: N14WeaponPartFramePistolGraph
       node: start
@@ -315,8 +351,11 @@
     - type: Tag
       tags:
         - N14PartFrameRevolver
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponRevolver9mmAssembled
+      assemblyTarget: done_N14WeaponRevolver9mm
     - type: Construction
       graph: N14WeaponPartFrameRevolverGraph
       node: start
@@ -336,8 +375,11 @@
     - type: Tag
       tags:
         - N14PartFrameSmg
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSMG9mmAssembled
+      assemblyTarget: done_N14WeaponSMG9mm
     - type: Construction
       graph: N14WeaponPartFrameSmgGraph
       node: start
@@ -358,8 +400,11 @@
     - type: Tag
       tags:
         - N14PartFrameShotgunClassic
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunAssembled
+      assemblyTarget: done_N14WeaponShotgun
     - type: Construction
       graph: N14WeaponPartFrameShotgunClassicGraph
       node: start
@@ -380,8 +425,11 @@
     - type: Tag
       tags:
         - N14PartFrameShotgunModern
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponShotgunAutoAssembled
+      assemblyTarget: done_N14WeaponShotgunAuto
     - type: Construction
       graph: N14WeaponPartFrameShotgunModernGraph
       node: start
@@ -403,8 +451,11 @@
     - type: Tag
       tags:
         - N14PartFrameSniper
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniperHuntingAssembled
+      assemblyTarget: done_N14WeaponSniperHunting
     - type: Construction
       graph: N14WeaponPartFrameSniperGraph
       node: start
@@ -426,8 +477,11 @@
     - type: Tag
       tags:
         - N14PartFrameSniperHeavy
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponSniper50AntiMaterielAssembled
+      assemblyTarget: done_N14WeaponSniper50AntiMateriel
     - type: Construction
       graph: N14WeaponPartFrameSniperHeavyGraph
       node: start
@@ -449,8 +503,11 @@
     - type: Tag
       tags:
         - N14PartFrameLaserAer
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserRifleAssembled
+      assemblyTarget: done_N14WeaponLaserRifle
     - type: Construction
       graph: N14WeaponPartFrameLaserAerGraph
       node: start
@@ -472,8 +529,11 @@
     - type: Tag
       tags:
         - N14PartFrameLaserWattz
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
     - type: WeaponFrame
-      assemblyTarget: done_N14WeaponLaserRifleWattz2000Assembled
+      assemblyTarget: done_N14WeaponLaserRifleWattz2000
     - type: Construction
       graph: N14WeaponPartFrameLaserWattzGraph
       node: start
@@ -497,6 +557,9 @@
       tags:
         - N14PartGrip
         - N14PartGrip
+    - type: WeaponPartDurability
+      role: Grip
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartGripPistol
@@ -509,6 +572,9 @@
       tags:
         - N14PartGrip
         - N14PartGripPistol
+    - type: WeaponPartDurability
+      role: Grip
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartGripRevolver
@@ -521,6 +587,9 @@
       tags:
         - N14PartGrip
         - N14PartGripRevolver
+    - type: WeaponPartDurability
+      role: Grip
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartGripShotgun
@@ -533,6 +602,9 @@
       tags:
         - N14PartGrip
         - N14PartGripShotgun
+    - type: WeaponPartDurability
+      role: Grip
+      max: 250
 #MARK: Bolts
 - type: entity
   parent: N14WeaponPartBase
@@ -547,6 +619,9 @@
         - N14PartBolt
         - N14PartBoltAction
         - N14PartTypeSniper
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltGas
@@ -560,6 +635,9 @@
         - N14PartBolt
         - N14PartBoltGas
         - N14PartTypeAssault
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltRecoil
@@ -573,6 +651,9 @@
         - N14PartBolt
         - N14PartBoltRecoil
         - N14PartTypeClassic
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltLever
@@ -586,6 +667,9 @@
         - N14PartBolt
         - N14PartBoltLever
         - N14PartTypeLever
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltPistolSlide
@@ -599,6 +683,9 @@
         - N14PartBolt
         - N14PartBoltPistolSlide
         - N14PartTypePistol
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltPistolSlideLight
@@ -612,6 +699,9 @@
         - N14PartBolt
         - N14PartBoltPistolSlideLight
         - N14PartTypePistol
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltPistolSlideHeavy
@@ -625,6 +715,9 @@
         - N14PartBolt
         - N14PartBoltPistolSlideHeavy
         - N14PartTypePistol
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltPistolSlideAdvanced
@@ -638,6 +731,9 @@
         - N14PartBolt
         - N14PartBoltPistolSlideAdvanced
         - N14PartTypePistol
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltRevolverHammer
@@ -651,6 +747,9 @@
         - N14PartBolt
         - N14PartBoltRevolverHammer
         - N14PartTypeRevolver
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltRevolverHammerTarget
@@ -664,6 +763,9 @@
         - N14PartBolt
         - N14PartBoltRevolverHammerTarget
         - N14PartTypeRevolver
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltRevolverHammerHeavy
@@ -677,6 +779,9 @@
         - N14PartBolt
         - N14PartBoltRevolverHammerHeavy
         - N14PartTypeRevolver
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltBlowback
@@ -690,6 +795,9 @@
         - N14PartBolt
         - N14PartBoltBlowback
         - N14PartTypeSmg
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltBlowbackDelayed
@@ -703,6 +811,9 @@
         - N14PartBolt
         - N14PartBoltBlowbackDelayed
         - N14PartTypeSmg
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltBlowbackHeavy
@@ -716,6 +827,9 @@
         - N14PartBolt
         - N14PartBoltBlowbackHeavy
         - N14PartTypeSmg
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltBlowbackVintage
@@ -729,6 +843,9 @@
         - N14PartBolt
         - N14PartBoltBlowbackVintage
         - N14PartTypeSmg
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltBreech
@@ -742,6 +859,9 @@
         - N14PartBolt
         - N14PartBoltBreech
         - N14PartTypeShotgun
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltLaserModule
@@ -755,6 +875,9 @@
         - N14PartBolt
         - N14PartBoltLaserModule
         - N14PartTypeLaser
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltLaserModuleAdvanced
@@ -768,6 +891,9 @@
         - N14PartBolt
         - N14PartBoltLaserModuleAdvanced
         - N14PartTypeLaser
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltLaserModuleHeavy
@@ -781,6 +907,9 @@
         - N14PartBolt
         - N14PartBoltLaserModuleHeavy
         - N14PartTypeLaser
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltLaserModuleProto
@@ -794,6 +923,9 @@
         - N14PartBolt
         - N14PartBoltLaserModuleProto
         - N14PartTypeLaser
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBoltLaserModuleAuto
@@ -807,6 +939,9 @@
         - N14PartBolt
         - N14PartBoltLaserModuleAuto
         - N14PartTypeLaser
+    - type: WeaponPartDurability
+      role: Bolt
+      max: 250
 #MARK: Barrels
 - type: entity
   parent: N14WeaponPartBase
@@ -820,6 +955,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel556Standard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel556Light
@@ -832,6 +970,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel556Light
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel556Heavy
@@ -844,6 +985,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel556Heavy
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel556Long
@@ -856,6 +1000,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel556Long
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel556Suppressed
@@ -868,6 +1015,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel556Suppressed
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel556Sniper
@@ -880,6 +1030,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel556Sniper
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel762Standard
@@ -892,6 +1045,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel762Standard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel762Light
@@ -904,6 +1060,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel762Light
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel762Heavy
@@ -916,6 +1075,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel762Heavy
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel762Long
@@ -928,6 +1090,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel762Long
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel762Sniper
@@ -940,6 +1105,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel762Sniper
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel308Standard
@@ -952,6 +1120,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel308Standard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel308Heavy
@@ -964,6 +1135,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel308Heavy
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel308Long
@@ -976,6 +1150,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel308Long
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel308Sniper
@@ -988,6 +1165,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel308Sniper
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel308SniperHeavy
@@ -1000,6 +1180,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel308SniperHeavy
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel44Standard
@@ -1012,6 +1195,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel44Standard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel44Advanced
@@ -1024,6 +1210,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel44Advanced
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel44Heavy
@@ -1036,6 +1225,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel44Heavy
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel4570Standard
@@ -1048,6 +1240,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel4570Standard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel4570Advanced
@@ -1060,6 +1255,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel4570Advanced
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel9mmStandard
@@ -1072,6 +1270,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel9mmStandard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel9mmAdvanced
@@ -1084,6 +1285,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel9mmAdvanced
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel10mmStandard
@@ -1096,6 +1300,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel10mmStandard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel45Standard
@@ -1108,6 +1315,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel45Standard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel12mmStandard
@@ -1120,6 +1330,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel12mmStandard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel12mmAdvanced
@@ -1132,6 +1345,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel12mmAdvanced
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel22lrStandard
@@ -1144,6 +1360,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel22lrStandard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel357Standard
@@ -1156,6 +1375,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel357Standard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel50Standard
@@ -1168,6 +1390,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel50Standard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel12gStandard
@@ -1180,6 +1405,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel12gStandard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartBarrel20gStandard
@@ -1192,6 +1420,9 @@
       tags:
         - N14PartBarrel
         - N14PartBarrel20gStandard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
 #MARK: Stocks
 - type: entity
   parent: N14WeaponPartBase
@@ -1205,6 +1436,9 @@
       tags:
         - N14PartStock
         - N14PartStockWooden
+    - type: WeaponPartDurability
+      role: Stock
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartStockPolymer
@@ -1217,6 +1451,9 @@
       tags:
         - N14PartStock
         - N14PartStockPolymer
+    - type: WeaponPartDurability
+      role: Stock
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartStockSniper
@@ -1229,6 +1466,9 @@
       tags:
         - N14PartStock
         - N14PartStockSniper
+    - type: WeaponPartDurability
+      role: Stock
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartStockShortened
@@ -1241,6 +1481,9 @@
       tags:
         - N14PartStock
         - N14PartStockShortened
+    - type: WeaponPartDurability
+      role: Stock
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartStockLaserAer
@@ -1253,6 +1496,9 @@
       tags:
         - N14PartStock
         - N14PartStockLaserAer
+    - type: WeaponPartDurability
+      role: Stock
+      max: 250
 #MARK: Drives
 - type: entity
   parent: N14WeaponPartBase
@@ -1266,6 +1512,9 @@
       tags:
         - N14PartDrive
         - N14PartDriveHv
+    - type: WeaponPartDurability
+      role: Drive
+      max: 250
 #MARK: Opticss
 - type: entity
   parent: N14WeaponPartBase
@@ -1279,6 +1528,9 @@
       tags:
         - N14PartOptics
         - N14PartOpticsAer
+    - type: WeaponPartDurability
+      role: Optics
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartOpticsAerCrude
@@ -1291,6 +1543,9 @@
       tags:
         - N14PartOptics
         - N14PartOpticsAerCrude
+    - type: WeaponPartDurability
+      role: Optics
+      max: 250
 - type: entity
   parent: N14WeaponPartBase
   id: N14WeaponPartOpticsWattz
@@ -1303,3 +1558,6 @@
       tags:
         - N14PartOptics
         - N14PartOpticsWattz
+    - type: WeaponPartDurability
+      role: Optics
+      max: 250

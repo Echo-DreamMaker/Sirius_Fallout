@@ -100,19 +100,10 @@
     # - N14WeaponLaserRifleMakeshiftBlueprint
     # - N14WeaponRifle556PipeBlueprint
     # Gun Parts
-    - N14JunkGunpartsAction
-    - N14JunkGunpartsBarrel
-    - N14JunkGunpartsBolt
-    - N14JunkGunpartsFrame
-    - N14JunkGunpartsFramePistol
-    - N14JunkGunpartsReceiver
+    # #Misfits Change - only the two junk parts that have no modular equivalent
+    # stay craftable; the rest duplicate the N14WeaponPart* recipes below.
     - N14JunkGunpartsRecoilComp
-    - N14JunkGunpartsRifleFrame
-    - N14JunkGunpartsRifleStock
     - N14JunkGunpartsRifleScope
-    - N14JunkGunpartsStock
-    - N14JunkGunpartsStockWood
-    - N14JunkGunpartsTrigger
     # #Misfits Add - Weapon parts printing
 
 # Recipes of the N14Parts category, registered on the weapon workbench's
@@ -172,7 +163,6 @@
     - N14WeaponPartBarrel12mmAdvanced
     - N14WeaponPartBarrel22lrStandard
     - N14WeaponPartBarrel357Standard
-    - N14WeaponPartBarrel50Standard
     - N14WeaponPartBarrel12gStandard
     - N14WeaponPartBarrel20gStandard
     - N14WeaponPartStockWooden
@@ -201,7 +191,6 @@
     - N14WeaponPartFrameShotgunClassic
     - N14WeaponPartFrameShotgunModern
     - N14WeaponPartFrameSniper
-    - N14WeaponPartFrameSniperHeavy
     - N14WeaponPartFrameLaserAer
     - N14WeaponPartFrameLaserWattz
 # #Misfits End

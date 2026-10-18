@@ -38,6 +38,15 @@
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
   - type: WeaponAttachmentHost
+  # #Misfits Add - Non-modular (map-spawned) LMGs wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
 - type: entity
   name: automatic rifle
   parent: N14WeaponLMGBase
