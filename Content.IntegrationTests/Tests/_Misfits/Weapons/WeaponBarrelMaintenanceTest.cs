@@ -30,6 +30,8 @@ public sealed class WeaponBarrelMaintenanceTest
         var entMan = server.ResolveDependency<IEntityManager>();
         var hands = entMan.System<SharedHandsSystem>();
 
+        WeaponPartDurabilityComponent stockComp = null!;
+
         await server.WaitAssertion(() =>
         {
             var user = entMan.SpawnEntity(HumanProto, map.GridCoords);
@@ -49,15 +51,24 @@ public sealed class WeaponBarrelMaintenanceTest
             Assert.That(entMan.Deleted(tape), Is.False,
                 "tape refused by a barrel must not be consumed");
 
-            // Control: the same tape still mends a loose stock, so the refusal above
-            // really is the barrel rule and not a dead interaction.
+            // Control: the same tape still mends a loose stock after its action
+            // completes, so the refusal above really is the barrel rule and not a
+            // dead interaction.
             var stock = entMan.SpawnEntity(StockProto, map.GridCoords);
-            var stockComp = entMan.GetComponent<WeaponPartDurabilityComponent>(stock);
+            stockComp = entMan.GetComponent<WeaponPartDurabilityComponent>(stock);
             stockComp.Current = 100f;
 
             entMan.EventBus.RaiseLocalEvent(stock,
                 new InteractUsingEvent(user, tape, stock, map.GridCoords));
 
+            Assert.That(stockComp.Current, Is.EqualTo(100f),
+                "tape repair should be deferred, not applied instantly");
+        });
+
+        // Binding furniture takes 4 seconds.
+        await pair.RunSeconds(4.5f);
+        await server.WaitAssertion(() =>
+        {
             Assert.That(stockComp.Current, Is.EqualTo(100f + TapeRepair),
                 "duct tape should still repair a loose stock");
         });

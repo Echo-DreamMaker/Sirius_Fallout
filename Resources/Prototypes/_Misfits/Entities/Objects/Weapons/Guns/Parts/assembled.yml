@@ -29,17 +29,11 @@
 - type: entity
   parent: N14WeaponRifle556R91
   id: N14WeaponRifle556R91NoStock
-  name: R-91 Rifle (no stock)
-  description: An old-fashioned assault rifle chambered in 5.56 munitions. Without a stock it kicks all over the place.
+  name: N14WeaponRifle556R91 (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -81,17 +75,11 @@
 - type: entity
   parent: N14WeaponRifleInfiltrator
   id: N14WeaponRifleInfiltratorNoStock
-  name: Infiltrator (no stock)
-  description: A heavily modified R91 assault rifle with an integrated suppressor and polymer furniture. No official designation — whoever built it just started calling it the Infiltrator. Runs quiet and runs hot. Without a stock it kicks all over the place.
+  name: N14WeaponRifleInfiltrator (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -134,17 +122,11 @@
 - type: entity
   parent: N14WeaponRifle556Service
   id: N14WeaponRifle556ServiceNoStock
-  name: service rifle (no stock)
-  description: "A cheaply mass-produced post-war rifle made by the NCR, chambered in 5.56 ammo. Without a stock it kicks all over the place."
+  name: N14WeaponRifle556Service (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -186,17 +168,11 @@
 - type: entity
   parent: N14WeaponRifle556ServiceScoped
   id: N14WeaponRifle556ServiceScopedNoStock
-  name: scoped service rifle (no stock)
-  description: "A cheaply mass-produced post-war rifle made by the NCR, chambered in 5.56 ammo. This one features an optic mounted on the carry handle. Without a stock it kicks all over the place."
+  name: N14WeaponRifle556ServiceScoped (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -238,17 +214,11 @@
 - type: entity
   parent: N14WeaponRifle556Scout
   id: N14WeaponRifle556ScoutNoStock
-  name: scout rifle (no stock)
-  description: A modified version of the service rifle made by Rangers in the field. It is capable of using larger 5.56 magazines than its predecessor. Without a stock it kicks all over the place.
+  name: N14WeaponRifle556Scout (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -290,17 +260,11 @@
 - type: entity
   parent: N14WeaponRifle556Butchered
   id: N14WeaponRifle556ButcheredNoStock
-  name: butchered service rifle (no stock)
-  description: "A cheaply mass-produced post-war rifle made by the NCR, this one has been tortured horribly and converted into a \"carbine\", chambered in 5.56 ammo. Without a stock it kicks all over the place."
+  name: N14WeaponRifle556Butchered (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -396,17 +360,11 @@
 - type: entity
   parent: N14WeaponRifle556Carbine
   id: N14WeaponRifle556CarbineNoStock
-  name: assault carbine (no stock)
-  description: "A sleek black compact assault rifle, uses 5.56 ammo. Without a stock it kicks all over the place."
+  name: N14WeaponRifle556Carbine (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -448,17 +406,11 @@
 - type: entity
   parent: N14WeaponRifle556M16A1Sirius
   id: N14WeaponRifle556M16A1SiriusNoStock
-  name: M16A1 (no stock)
-  description: "A sleek black compact assault rifle, uses 5.56 ammo. Without a stock it kicks all over the place."
+  name: N14WeaponRifle556M16A1Sirius (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -500,17 +452,11 @@
 - type: entity
   parent: N14WeaponRifle556SteirSirius
   id: N14WeaponRifle556SteirSiriusNoStock
-  name: Steir Aug (no stock)
-  description: "A sleek black compact assault rifle, uses 5.56 ammo. Without a stock it kicks all over the place."
+  name: N14WeaponRifle556SteirSirius (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -552,17 +498,11 @@
 - type: entity
   parent: N14WeaponRifle556GalilSirius
   id: N14WeaponRifle556GalilSiriusNoStock
-  name: Galil Rifle (no stock)
-  description: An old-fashioned assault rifle chambered in 5.56 munitions. Without a stock it kicks all over the place.
+  name: N14WeaponRifle556GalilSirius (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -605,17 +545,11 @@
 - type: entity
   parent: N14WeaponRifle556EM2
   id: N14WeaponRifle556EM2NoStock
-  name: EM2 rifle (no stock)
-  description: "A long bullpup assault rifle, uses 5.56 ammo. Without a stock it kicks all over the place."
+  name: N14WeaponRifle556EM2 (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -657,17 +591,11 @@
 - type: entity
   parent: N14WeaponRifle556EnfieldXL70E3Sirius
   id: N14WeaponRifle556EnfieldXL70E3SiriusNoStock
-  name: Enfield XL70E3 (no stock)
-  description: "A long bullpup assault rifle, uses 5.56 ammo. Without a stock it kicks all over the place."
+  name: N14WeaponRifle556EnfieldXL70E3Sirius (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -710,17 +638,11 @@
 - type: entity
   parent: N14WeaponRifle556CarbineOld
   id: N14WeaponRifle556CarbineOldNoStock
-  name: old carbine (no stock)
-  description: "A short compact rifle of the pre-war, chambered in 5.56 ammo. Without a stock it kicks all over the place."
+  name: N14WeaponRifle556CarbineOld (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -763,17 +685,11 @@
 - type: entity
   parent: N14WeaponRifle762Fal
   id: N14WeaponRifle762FalNoStock
-  name: FAL rifle (no stock)
-  description: "A pre-war battle rifle chambered in 7.62mm, strong and reliable. its said this gun once won the title of \"the right arm of the free world\", but theres not much left of the world to confirm it. Without a stock it kicks all over the place."
+  name: N14WeaponRifle762Fal (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -815,17 +731,11 @@
 - type: entity
   parent: N14WeaponRifle762M14
   id: N14WeaponRifle762M14NoStock
-  name: M14 rifle (no stock)
-  description: "A pre-war battle rifle chambered in 7.62mm, build to replace the old M1 garand of the US military, it didnt last for long and got remplaced by the R-91 after a few years of service. Without a stock it kicks all over the place."
+  name: N14WeaponRifle762M14 (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -867,17 +777,11 @@
 - type: entity
   parent: N14WeaponRifle762SKS
   id: N14WeaponRifle762SKSNoStock
-  name: SKS chinese carbine (no stock)
-  description: "A pre-war chinese rifle chambered in 7.62mm. cheap, simple and easy to use, perfect to arm commie militias from around the world. Without a stock it kicks all over the place."
+  name: N14WeaponRifle762SKS (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -919,17 +823,11 @@
 - type: entity
   parent: N14WeaponRifle762ClassicrifleSirius
   id: N14WeaponRifle762ClassicrifleSiriusNoStock
-  name: Classic rifle (no stock)
-  description: "The Colt Rangemaster is a powerful semi-automatic rifle chambered for 7.62mm ammunition. The ammunition combined with a 1:10\" barrel rifling twist gives it good accuracy at range. Without a stock it kicks all over the place."
+  name: N14WeaponRifle762ClassicrifleSirius (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -972,17 +870,11 @@
 - type: entity
   parent: N14WeaponRifle762Marksman
   id: N14WeaponRifle762MarksmanNoStock
-  name: marksman carbine (no stock)
-  description: "A heavy semiautomatic rifle with a scope, uses 7.62 ammo. Without a stock it kicks all over the place."
+  name: N14WeaponRifle762Marksman (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1024,17 +916,11 @@
 - type: entity
   parent: N14WeaponRifle762Canadian
   id: N14WeaponRifle762CanadianNoStock
-  name: C70 rifle (no stock)
-  description: "A pre-war canadian assault rifle chambered in 7.62mm, surprisingly in good state for being 200 a years old rifle Without a stock it kicks all over the place."
+  name: N14WeaponRifle762Canadian (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1076,17 +962,11 @@
 - type: entity
   parent: N14WeaponRifle762MarksmanCanadian
   id: N14WeaponRifle762MarksmanCanadianNoStock
-  name: F2 marksman rifle (no stock)
-  description: A pre-war canadian marksman rifle chambered in 7.62mm. Without a stock it kicks all over the place.
+  name: N14WeaponRifle762MarksmanCanadian (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1128,17 +1008,11 @@
 - type: entity
   parent: N14WeaponRifle308MarksmanChinese
   id: N14WeaponRifle308MarksmanChineseNoStock
-  name: chinese marksman rifle (no stock)
-  description: A pre-war chinese marksman rifle chambered in .308. Without a stock it kicks all over the place.
+  name: N14WeaponRifle308MarksmanChinese (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1180,17 +1054,11 @@
 - type: entity
   parent: N14WeaponRifle762R82Sirius
   id: N14WeaponRifle762R82SiriusNoStock
-  name: R-82 Rifle (no stock)
-  description: An old-fashioned assault rifle chambered in 7.62 munitions. Without a stock it kicks all over the place.
+  name: N14WeaponRifle762R82Sirius (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1233,17 +1101,11 @@
 - type: entity
   parent: N14WeaponRifle308Battle
   id: N14WeaponRifle308BattleNoStock
-  name: battle rifle (no stock)
-  description: "A long semi-automatic rifle fed by clips, chambered in the powerful 308. Without a stock it kicks all over the place."
+  name: N14WeaponRifle308Battle (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1285,17 +1147,11 @@
 - type: entity
   parent: N14WeaponRifleM1Garand
   id: N14WeaponRifleM1GarandNoStock
-  name: M1 Garand (no stock)
-  description: "The WWII American classic. A semi-automatic battle rifle fed by an 8-round en-bloc clip chambered in .308 Winchester. When the clip runs dry it pings out satisfyingly. Don't stick your thumb in it. Without a stock it kicks all over the place."
+  name: N14WeaponRifleM1Garand (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1337,17 +1193,11 @@
 - type: entity
   parent: N14WeaponRifleSKS
   id: N14WeaponRifleSKSNoStock
-  name: SKS (no stock)
-  description: "An old hunting rifle taken from discovered stockpiles and refurbished in Legion workshops. The standard heavy rifle of the Legion, still rare. Semi-auto only, fed by a 10-round en-bloc clip. Without a stock it kicks all over the place."
+  name: N14WeaponRifleSKS (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1390,16 +1240,11 @@
 - type: entity
   parent: N14WeaponSniper762Tribal
   id: N14WeaponSniper762TribalNoStock
-  name: tribal rifle (no stock)
-  description: "A surprisingly decent piece of a gun for being made by tribals, with an internal magazine this semi automatic rifle is rustic but trusty. chambered in 7.62mm. Without a stock it kicks all over the place."
+  name: N14WeaponSniper762Tribal (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1439,16 +1284,11 @@
 - type: entity
   parent: N14WeaponSniper762TribalUpgraded
   id: N14WeaponSniper762TribalUpgradedNoStock
-  name: tribal assault rifle (no stock)
-  description: "A surprisingly decent piece of a gun for being made by tribals, with an internal magazine this semi automatic rifle is rustic but trusty. chambered in 7.62mm. Without a stock it kicks all over the place."
+  name: N14WeaponSniper762TribalUpgraded (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1489,21 +1329,15 @@
 - type: entity
   parent: N14WeaponSniper308LeverRifle
   id: N14WeaponSniper308LeverRifleNoStock
-  name: lever action rifle (no stock)
-  description: A long lever action repeater rifle. Uses .308 ammo. Without a stock it kicks all over the place.
+  name: N14WeaponSniper308LeverRifle (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
         craft_stock: !type:Container
-        craft_magazine: !type:Container
     - type: Gun
       minAngle: 32
       maxAngle: 52
@@ -1539,21 +1373,15 @@
 - type: entity
   parent: N14WeaponSniper44LeverCarbine
   id: N14WeaponSniper44LeverCarbineNoStock
-  name: lever action carbine (no stock)
-  description: A short lever action carbine. Uses .44 ammo. Without a stock it kicks all over the place.
+  name: N14WeaponSniper44LeverCarbine (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
         craft_stock: !type:Container
-        craft_magazine: !type:Container
     - type: Gun
       minAngle: 32
       maxAngle: 52
@@ -1589,21 +1417,15 @@
 - type: entity
   parent: N14WeaponSniper45-70BrushGun
   id: N14WeaponSniper45-70BrushGunNoStock
-  name: brush gun (no stock)
-  description: "A powerful lever action carbine. Uses .45-70 gov't ammo. Without a stock it kicks all over the place."
+  name: N14WeaponSniper45-70BrushGun (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
         craft_stock: !type:Container
-        craft_magazine: !type:Container
     - type: Gun
       minAngle: 32
       maxAngle: 52
@@ -1643,12 +1465,11 @@
 - type: entity
   parent: N14WeaponShotgun
   id: N14WeaponShotgunNoStock
-  name: shotgun (no stock)
-  description: A pump action shotgun chambered in 12 gauge shells. Without a stock it kicks all over the place.
+  name: N14WeaponShotgun (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1688,12 +1509,11 @@
 - type: entity
   parent: N14WeaponShotgunDoubleBarrel
   id: N14WeaponShotgunDoubleBarrelNoStock
-  name: double-barrel shotgun (no stock)
-  description: "An immortal classic, uses 12 gauge shells. Without a stock it kicks all over the place."
+  name: N14WeaponShotgunDoubleBarrel (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1733,12 +1553,11 @@
 - type: entity
   parent: N14WeaponShotgunSawedOff
   id: N14WeaponShotgunSawedOffNoStock
-  name: sawed-off shotgun (no stock)
-  description: A portable and brutal handheld shotgun. Uses 12 gauge shells. Without a stock it kicks all over the place.
+  name: N14WeaponShotgunSawedOff (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1778,12 +1597,11 @@
 - type: entity
   parent: N14WeaponShotgunBoomstick
   id: N14WeaponShotgunBoomstickNoStock
-  name: boom stick (no stock)
-  description: "A heavy and strong double barrel shotgun, it has a reinforced barrel adorned with teeth and a straight form to be used as a club, uses 12 gauge shells. Without a stock it kicks all over the place."
+  name: N14WeaponShotgunBoomstick (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1823,12 +1641,11 @@
 - type: entity
   parent: N14WeaponShotgunBloodyStick
   id: N14WeaponShotgunBloodyStickNoStock
-  name: bloody stick (no stock)
-  description: "A heavy and strong double barrel shotgun, it has a reinforced barrel with sharp blades and a straight form to be used as an axe, uses 12 gauge shells. Without a stock it kicks all over the place."
+  name: N14WeaponShotgunBloodyStick (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1868,12 +1685,11 @@
 - type: entity
   parent: N14WeaponShotgunTrench
   id: N14WeaponShotgunTrenchNoStock
-  name: trench shotgun (no stock)
-  description: A military pump-action shotgun with a bayonet lug and slam-fire capability. Designed for close-quarters clearing. The slam-fire mode cycles fast enough to empty the tube in seconds. Without a stock it kicks all over the place.
+  name: N14WeaponShotgunTrench (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1913,12 +1729,11 @@
 - type: entity
   parent: N14WeaponShotgunNeostead
   id: N14WeaponShotgunNeosteadNoStock
-  name: Neostead 2000 (no stock)
-  description: A Brotherhood-issue semi-automatic shotgun fed from twin underbarrel tubes holding ten shells total. Technology well ahead of the pre-war mainstream — This one has the markings of Legion make. Without a stock it kicks all over the place.
+  name: N14WeaponShotgunNeostead (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -1958,12 +1773,11 @@
 - type: entity
   parent: N14WeaponShotgunCaravan
   id: N14WeaponShotgunCaravanNoStock
-  name: caravan shotgun (no stock)
-  description: "The perfect shotgun for a long journey. Works well for hunting brahmins, geckos, and fiends. Uses 20 gauge shells. Without a stock it kicks all over the place."
+  name: N14WeaponShotgunCaravan (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2003,12 +1817,11 @@
 - type: entity
   parent: N14WeaponShotgunLever
   id: N14WeaponShotgunLeverNoStock
-  name: lever action shotgun (no stock)
-  description: "The perfect shotgun for a cowboy, it uses 20 gauge shells. Without a stock it kicks all over the place."
+  name: N14WeaponShotgunLever (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2049,14 +1862,11 @@
 - type: entity
   parent: N14WeaponShotgunAuto
   id: N14WeaponShotgunAutoNoStock
-  name: combat shotgun (no stock)
-  description: "It's a magazine-fed automatic shotgun designed for close quarters combat, uses 12 gauge shells. Without a stock it kicks all over the place."
+  name: N14WeaponShotgunAuto (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2098,12 +1908,11 @@
 - type: entity
   parent: N14WeaponShotgunBlowback
   id: N14WeaponShotgunBlowbackNoStock
-  name: blowback shotgun (no stock)
-  description: "A semi automatic combat shotgun with a integrated drum mag, uses 12 gauge shells. Without a stock it kicks all over the place."
+  name: N14WeaponShotgunBlowback (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2145,12 +1954,11 @@
 - type: entity
   parent: N14WeaponShotgunChinese
   id: N14WeaponShotgunChineseNoStock
-  name: chinese shotgun (no stock)
-  description: "A pump action chinese shotgun, uses 12 gauge shells. Without a stock it kicks all over the place."
+  name: N14WeaponShotgunChinese (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2192,12 +2000,11 @@
 - type: entity
   parent: N14WeaponShotgunCanadian
   id: N14WeaponShotgunCanadianNoStock
-  name: frenchi shotgun (no stock)
-  description: "A semi automatic canadian combat shotgun, uses 12 gauge shells. Without a stock it kicks all over the place."
+  name: N14WeaponShotgunCanadian (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2239,14 +2046,11 @@
 - type: entity
   parent: N14WeaponShotgunRiot
   id: N14WeaponShotgunRiotNoStock
-  name: riot shotgun (no stock)
-  description: "A compact semiautomatic shotgun used by pre-war police forces, chambered in 20 gauge shells and using a drum magazine. Without a stock it kicks all over the place."
+  name: N14WeaponShotgunRiot (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2289,16 +2093,11 @@
 - type: entity
   parent: N14WeaponSniperHunting
   id: N14WeaponSniperHuntingNoStock
-  name: hunting rifle (no stock)
-  description: A rugged bolt action rifle. Uses .308 ammo. Without a stock it kicks all over the place.
+  name: N14WeaponSniperHunting (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2340,16 +2139,11 @@
 - type: entity
   parent: N14WeaponSniperEnfield
   id: N14WeaponSniperEnfieldNoStock
-  name: lee enfield rifle (no stock)
-  description: A classic bolt-action service rifle. Uses .308 ammo. Without a stock it kicks all over the place.
+  name: N14WeaponSniperEnfield (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2391,16 +2185,11 @@
 - type: entity
   parent: N14WeaponSniper308Canadian
   id: N14WeaponSniper308CanadianNoStock
-  name: F1 sniper rifle (no stock)
-  description: A pre-war bolt action canadian sniper rifle. Uses .308 ammo. Without a stock it kicks all over the place.
+  name: N14WeaponSniper308Canadian (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2442,16 +2231,11 @@
 - type: entity
   parent: N14WeaponSniper308Ross
   id: N14WeaponSniper308RossNoStock
-  name: ross rifle (no stock)
-  description: A well-preserved bolt action canadian service rifle. Uses .308 ammo. Without a stock it kicks all over the place.
+  name: N14WeaponSniper308Ross (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2493,17 +2277,11 @@
 - type: entity
   parent: N14WeaponRifle308SniperRifle
   id: N14WeaponRifle308SniperRifleNoStock
-  name: 308 Sniper Rifle (no stock)
-  description: "sniper rifle chambered in .308, its chamber can handle overpressured .308 ammo. Without a stock it kicks all over the place."
+  name: N14WeaponRifle308SniperRifle (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2545,16 +2323,11 @@
 - type: entity
   parent: N14WeaponSniper556VarmintRifle
   id: N14WeaponSniper556VarmintRifleNoStock
-  name: varmint rifle (no stock)
-  description: "A pre-war low-power bolt action rifle, originally designed to hunt small animals. This gun also works fine on anything human-sized. Uses 5.56 ammo. Without a stock it kicks all over the place."
+  name: N14WeaponSniper556VarmintRifle (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2642,16 +2415,11 @@
 - type: entity
   parent: N14WeaponRifle556M1Carbine
   id: N14WeaponRifle556M1CarbineNoStock
-  name: M1 carbine (no stock)
-  description: "A semi-automatic carbine originally chambered in .30 caliber, rechambered to 5.56 by NCR armorers. Lightweight and easy to handle. Popular with support units and civilians who can get their hands on it. Without a stock it kicks all over the place."
+  name: N14WeaponRifle556M1Carbine (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2693,16 +2461,11 @@
 - type: entity
   parent: N14WeaponSniper45-70Tribal
   id: N14WeaponSniper45-70TribalNoStock
-  name: huntstick (no stock)
-  description: "A tribal lever action rifle. Uses .45-70gov't ammo. Without a stock it kicks all over the place."
+  name: N14WeaponSniper45-70Tribal (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2744,16 +2507,11 @@
 - type: entity
   parent: N14WeaponSniper45-70TribalUpgraded
   id: N14WeaponSniper45-70TribalUpgradedNoStock
-  name: master huntstick (no stock)
-  description: "A tribal decorated lever action rifle. Uses .45-70gov't ammo. Without a stock it kicks all over the place."
+  name: N14WeaponSniper45-70TribalUpgraded (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2795,16 +2553,11 @@
 - type: entity
   parent: N14WeaponSniperCowboyRepeater
   id: N14WeaponSniperCowboyRepeaterNoStock
-  name: cowboy repeater (no stock)
-  description: "A lever-action rifle in .45-70gov't with worn brown furniture. The weapon of gunslingers and honest wastelanders. Holds twelve rounds in the tubular magazine and cycles fast enough to feel semi-automatic. Without a stock it kicks all over the place."
+  name: N14WeaponSniperCowboyRepeater (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2846,16 +2599,11 @@
 - type: entity
   parent: N14WeaponSniperPaciencia
   id: N14WeaponSniperPacienciaNoStock
-  name: Paciencia (no stock)
-  description: "A bolt-action hunting rifle with a Mexican flag hand-painted on the stock. Only three rounds in the chamber, but each shot hits like a freight train. The name means patience. You will need it. Without a stock it kicks all over the place."
+  name: N14WeaponSniperPaciencia (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2897,16 +2645,11 @@
 - type: entity
   parent: N14WeaponRifle762Rangemaster
   id: N14WeaponRifle762RangemasterNoStock
-  name: Colt Rangemaster (no stock)
-  description: A semi-automatic 7.62mm rifle with a long barrel and scope-ready channel. Issued to NCR designated marksmen who needed reach without the weight of a full sniper platform. Ten rounds internally. Without a stock it kicks all over the place.
+  name: N14WeaponRifle762Rangemaster (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
-        ballistic-ammo: !type:Container
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -2948,16 +2691,11 @@
 - type: entity
   parent: N14WeaponSniper50NCRRifle
   id: N14WeaponSniper50NCRRifleNoStock
-  name: .50 NCR rifle (no stock)
-  description: "An attempt by the NCR to mass-produce .50 ammo weapons for normal infantry, very cheap but still deals a lot of damage. Uses .50 anti-material ammo. Without a stock it kicks all over the place."
+  name: N14WeaponSniper50NCRRifle (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        ballistic-ammo: !type:Container
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -3000,17 +2738,11 @@
 - type: entity
   parent: N14WeaponSniper50AntiMateriel
   id: N14WeaponSniper50AntiMaterielNoStock
-  name: Anti-Materiel rifle (no stock)
-  description: "An anti-materiel rifle with an ergonomic, sleek, skeletonized design. Simply looking at it can you tell it'll rip some limbs apart. Uses .50 anti-material ammo. Without a stock it kicks all over the place."
+  name: N14WeaponSniper50AntiMateriel (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_magazine: !type:ContainerSlot
-        gun_chamber: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_grip: !type:Container
         craft_bolt: !type:Container
         craft_barrel: !type:Container
@@ -3053,16 +2785,11 @@
 - type: entity
   parent: N14WeaponLaserRifle
   id: N14WeaponLaserRifleNoStock
-  name: AER-9 (no stock)
-  description: "A sturdy pre-war laser rifle. Fires a standard red laser beam — reliable, well-understood technology that remains the backbone of energy weapon armories. Without a stock it kicks all over the place."
+  name: N14WeaponLaserRifle (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_drive: !type:Container
         craft_bolt: !type:Container
         craft_optics: !type:Container
@@ -3104,16 +2831,11 @@
 - type: entity
   parent: N14WeaponLaserRifleAuto
   id: N14WeaponLaserRifleAutoNoStock
-  name: AER-9 auto laser rifle (no stock)
-  description: A jury-rigged AER-9 with a rotating barrel assembly for full-auto fire. Fires a red laser beam — inaccurate but devastating in volume. Without a stock it kicks all over the place.
+  name: N14WeaponLaserRifleAuto (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_drive: !type:Container
         craft_bolt: !type:Container
         craft_optics: !type:Container
@@ -3155,16 +2877,11 @@
 - type: entity
   parent: N14WeaponLaserRifleAER12
   id: N14WeaponLaserRifleAER12NoStock
-  name: AER-12 laser rifle (no stock)
-  description: An advanced pre-war laser rifle featuring upgraded amber-spectrum focusing optics. Higher rate of fire and slightly increased damage over the standard AER-9 — a significant step up in energy weapon technology. Without a stock it kicks all over the place.
+  name: N14WeaponLaserRifleAER12 (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_drive: !type:Container
         craft_bolt: !type:Container
         craft_optics: !type:Container
@@ -3206,16 +2923,11 @@
 - type: entity
   parent: N14WeaponLaserRifleAER15
   id: N14WeaponLaserRifleAER15NoStock
-  name: AER-15 laser rifle (no stock)
-  description: "The pinnacle of pre-war laser rifle technology. Experimental blue-spectrum focusing crystals produce the highest damage output of any man-portable laser weapon. Extremely rare — only a handful survived the war, and the manufacturing knowledge is lost. Without a stock it kicks all over the place."
+  name: N14WeaponLaserRifleAER15 (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_drive: !type:Container
         craft_bolt: !type:Container
         craft_optics: !type:Container
@@ -3257,16 +2969,11 @@
 - type: entity
   parent: N14WeaponLaserRiflePrototypeAER14
   id: N14WeaponLaserRiflePrototypeAER14NoStock
-  name: prototype AER-14 laser rifle (no stock)
-  description: A cutting-edge pre-war prototype laser rifle with experimental green-spectrum optics. Extremely powerful — the enhanced focusing lenses produce a distinctive green beam with significantly higher damage output. Without a stock it kicks all over the place.
+  name: N14WeaponLaserRiflePrototypeAER14 (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_drive: !type:Container
         craft_bolt: !type:Container
         craft_optics: !type:Container
@@ -3308,16 +3015,11 @@
 - type: entity
   parent: N14WeaponLaserRifleCrude
   id: N14WeaponLaserRifleCrudeNoStock
-  name: crude laser rifle (no stock)
-  description: "A crude laser rifle, a cheap imitation of the pre-war AER-9. Fires a red laser beam — inaccurate and prone to overheating. Without a stock it kicks all over the place."
+  name: N14WeaponLaserRifleCrude (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_drive: !type:Container
         craft_bolt: !type:Container
         craft_optics: !type:Container
@@ -3360,16 +3062,11 @@
 - type: entity
   parent: N14WeaponLaserRifleWattz2000
   id: N14WeaponLaserRifleWattz2000NoStock
-  name: wattz 2000 laser rifle (no stock)
-  description: Wattz 2000 Laser Rifle. Precision focusing optics produce a wide yellow beam with heavy damage per shot. Slower rate of fire but each hit packs a serious punch at the cost of higher cell drain. Without a stock it kicks all over the place.
+  name: N14WeaponLaserRifleWattz2000 (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_drive: !type:Container
         craft_bolt: !type:Container
         craft_optics: !type:Container
@@ -3411,16 +3108,11 @@
 - type: entity
   parent: N14WeaponLaserRifleWattz3000
   id: N14WeaponLaserRifleWattz3000NoStock
-  name: wattz 3000 laser rifle (no stock)
-  description: "Wattz 3000 Laser Rifle. Military-grade focusing optics produce a wide, bright yellow beam with devastating damage output. The most powerful laser rifle in the Wattz line — drains cells fast but hits like a truck. Without a stock it kicks all over the place."
+  name: N14WeaponLaserRifleWattz3000 (no stock)
+  description:  Without a stock it kicks all over the place.
   components:
     - type: ContainerContainer
       containers:
-        gun_magazine: !type:ContainerSlot
-        gun_top: !type:ContainerSlot
-        gun_muzzle: !type:ContainerSlot
-        gun_bottom: !type:ContainerSlot
-        gun_handle: !type:ContainerSlot
         craft_drive: !type:Container
         craft_bolt: !type:Container
         craft_optics: !type:Container

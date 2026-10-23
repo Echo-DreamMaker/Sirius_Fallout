@@ -602,83 +602,20 @@
     price: 100
 - type: entity
   name: scoped service rifle
-  parent: N14WeaponRifleBase
+  parent: N14WeaponRifle556Service
   id: N14WeaponRifle556ServiceScoped
   description: A cheaply mass-produced post-war rifle made by the NCR, chambered in 5.56 ammo. This one features an optic mounted on the carry handle.
+  # #Misfits Change - the scoped service rifle is now just a service rifle with a
+  # rifle scope attachment fitted in the top slot, rather than a separate frame
+  # carrying its own stats, long barrel and sprites. Detach the scope to get a
+  # plain service rifle back.
   components:
-  - type: ContainerContainer
-    containers:
-      gun_top: !type:ContainerSlot
-      gun_muzzle: !type:ContainerSlot
-      gun_bottom: !type:ContainerSlot
-      gun_handle: !type:ContainerSlot
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
-      craft_grip: !type:Container
-      craft_bolt: !type:Container
-      craft_barrel: !type:Container
-      craft_stock: !type:Container
-      craft_magazine: !type:Container
-  - type: ContainerFill
-    ignoreConstructionSpawn: true
-    containers:
-      craft_grip:
-        - N14WeaponPartGrip
-      craft_bolt:
-        - N14WeaponPartBoltRecoil
-      craft_barrel:
-        - N14WeaponPartBarrel556Long
-      craft_stock:
-        - N14WeaponPartStockWooden
-  - type: Construction
-    graph: N14WeaponPartFrameAssaultServiceGraph
-    node: done_N14WeaponRifle556ServiceScoped
-    deconstructionTarget: start
-    containers:
-      - craft_grip
-      - craft_bolt
-      - craft_barrel
-      - craft_stock
-      - craft_magazine
-  - type: WeaponFrame
-    assemblyTarget: done_N14WeaponRifle556ServiceScoped
-  - type: WeaponDurability
-    frameMax: 500
-    modular: true
-  - type: Damageable
-    damageContainer: WeaponDurability
-  - type: Item
-    sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/scopedservicerifle.rsi
-  - type: Clothing
-    sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/scopedservicerifle.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
-  - type: Sprite
-    scale: 0.8, 0.8
-    sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/scopedservicerifleicon.rsi
-    layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
-  - type: Gun
-    minAngle: 21 # Corvax-Change
-    maxAngle: 38 # Corvax-Change
-    angleIncrease: 4
-    angleDecay: 16
-    fireRate: 4 # Corvax-Change
-    soundGunshot:
-      collection: N14ServiceGunshot
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
   - type: ItemSlots
     slots:
       gun_top:
         name: weapon-attachment-slot-top
         priority: 0
+        startingItem: N14WeaponScopeAttachment
         whitelist:
           tags:
           - N14AttachmentTop
@@ -716,9 +653,6 @@
         whitelist:
           tags:
             - N14Cartridge556Rifle
-  # #Misfits Add — built-in scope on scoped service rifle (explicitly described as having an optic)
-  # - type: N14Scope
-  #   eyeOffset: 5
 - type: entity
   name: scout rifle
   parent: N14WeaponRifleBase

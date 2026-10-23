@@ -116,6 +116,29 @@ namespace Content.Client.UserInterface.Controls
         public bool EntityHover => HoverSpriteView.Sprite != null;
         public bool MouseIsHovering;
 
+        // #Misfits Add - the slot artwork (the hand slot texture, the highlight and
+        // the blocked overlay) is authored at 32px and drawn at 2x for the default
+        // 64px control. A control that is bigger than that has to scale the art
+        // with it, otherwise the frame and the item end up in the corner of the
+        // slot instead of filling it.
+        public void SetSlotSize(float size)
+        {
+            var scale = size / 32f;
+
+            ButtonRect.TextureScale = new Vector2(scale, scale);
+            HighlightRect.TextureScale = new Vector2(scale, scale);
+            BlockedRect.TextureScale = new Vector2(scale, scale);
+
+            SpriteView.Scale = new Vector2(scale, scale);
+            SpriteView.SetSize = new Vector2(size, size);
+
+            HoverSpriteView.Scale = new Vector2(scale, scale);
+            HoverSpriteView.SetSize = new Vector2(size, size);
+
+            MinSize = new Vector2(size, size);
+            SetSize = new Vector2(size, size);
+        }
+
         public SlotControl()
         {
             IoCManager.InjectDependencies(this);

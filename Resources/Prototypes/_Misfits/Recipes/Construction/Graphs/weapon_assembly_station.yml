@@ -1,0 +1,86 @@
+# #Misfits Add - Construction graph for the weapon assembly station.
+# Cloned from the weapon workbench graph, with an added fuel tank step before anchoring.
+- type: constructionGraph
+  id: N14WeaponAssemblyStation
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: WeaponAssemblyStationFrame
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 8
+              doAfter: 5
+
+    - node: WeaponAssemblyStationFrame
+      entity: N14WeaponAssemblyStationFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WeaponAssemblyStationSteel
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 3
+
+    - node: WeaponAssemblyStationSteel
+      entity: N14WeaponAssemblyStationFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WeaponAssemblyStationUnwelded
+          steps:
+            - tool: Welding
+              doAfter: 4
+
+    - node: WeaponAssemblyStationUnwelded
+      entity: N14WeaponAssemblyStationFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WeaponAssemblyStationCircuitry
+          steps:
+            - material: Circuitry
+              amount: 2
+              doAfter: 1
+
+    - node: WeaponAssemblyStationCircuitry
+      entity: N14WeaponAssemblyStationFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WeaponAssemblyStationUnscrewed
+          steps:
+            - tool: Screwing
+              doAfter: 6
+
+    - node: WeaponAssemblyStationUnscrewed
+      actions:
+      - !type:AppearanceChange
+      entity: N14WeaponAssemblyStationFrame
+      edges:
+        - to: WeaponAssemblyStationFuel
+          steps:
+            - component: ReagentTank
+              store: fueltank
+              name: a fuel tank
+              icon:
+                sprite: _Nuclear14/Objects/Misc/handyfuel.rsi
+                state: fuel
+              doAfter: 2
+
+    - node: WeaponAssemblyStationFuel
+      actions:
+      - !type:AppearanceChange
+      entity: N14WeaponAssemblyStationFrame
+      edges:
+        - to: WeaponAssemblyStation
+          steps:
+            - tool: Anchoring
+              doAfter: 6
+
+    - node: WeaponAssemblyStation
+      entity: N14WeaponAssemblyStation

@@ -12,7 +12,8 @@
 //                      weapon with nothing to clean it is stored in the
 //                      underbarrel slot.
 //   * Whetstone     -> recoverable melee weapons  (restores recoverable wear).
-// Tape/glue are consumed one unit at a time (a stack loses a single item).
+// Tape and glue are not instant: binding furniture takes 4s and glue needs 6s to
+// cure, and only then is a single unit consumed (a stack loses one item).
 //
 // #Misfits Fix - furniture and the barrel are repaired with different tools:
 // tape binds a loose stock or grip and glue mends a loose bolt, but neither
@@ -53,6 +54,8 @@ public sealed partial class SharedWeaponDurabilitySystem
 
     private static readonly FixedPoint2 WelderRepairFuel = FixedPoint2.New(5);
     private static readonly TimeSpan RodRepairDelay = TimeSpan.FromSeconds(2);
+    private static readonly TimeSpan TapeRepairDelay = TimeSpan.FromSeconds(4);
+    private static readonly TimeSpan GlueRepairDelay = TimeSpan.FromSeconds(6);
 
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
@@ -104,15 +107,13 @@ public sealed partial class SharedWeaponDurabilitySystem
         // bolt group; a barrel takes neither. It is cleaned instead.
         if (_tag.HasTag(used, DuctTapeTag) && IsTapePart(comp.Role))
         {
-            args.Handled = TryLoosePartRepair(uid, comp, args.User, used,
-                TapeRepair, TapeCap, "misfits-weapon-repair-tape");
+            args.Handled = TryStartLoosePartRepair(uid, comp, args.User, used, TapeRepairDelay);
             return;
         }
 
         if (_tag.HasTag(used, WonderGlueTag) && comp.Role == WeaponPartRole.Bolt)
         {
-            args.Handled = TryLoosePartRepair(uid, comp, args.User, used,
-                GlueRepair, GlueCap, "misfits-weapon-repair-glue");
+            args.Handled = TryStartLoosePartRepair(uid, comp, args.User, used, GlueRepairDelay);
             return;
         }
 
@@ -125,20 +126,63 @@ public sealed partial class SharedWeaponDurabilitySystem
         return role is WeaponPartRole.Stock or WeaponPartRole.Grip;
     }
 
-    private bool TryLoosePartRepair(EntityUid uid, WeaponPartDurabilityComponent comp, EntityUid user, EntityUid used,
-        float amount, float cap, string successLoc)
+    /// <summary>
+    ///     #Misfits Add - tape and glue are consumed over a short action instead
+    ///     of instantly, so binding furniture does not out-heal the cleaning rod
+    ///     for free. The cap check happens up front, before the timer starts.
+    /// </summary>
+    private bool TryStartLoosePartRepair(EntityUid uid, WeaponPartDurabilityComponent comp, EntityUid user,
+        EntityUid used, TimeSpan delay)
     {
-        var ceiling = comp.Max * cap;
-        if (comp.Current >= ceiling)
+        var cap = _tag.HasTag(used, DuctTapeTag) ? TapeCap : GlueCap;
+        if (comp.Current >= comp.Max * cap)
         {
             _popup.PopupEntity(Loc.GetString("misfits-weapon-repair-nothing"), uid, user);
             return true;
         }
 
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay,
+            new WeaponPartRepairDoAfterEvent(), uid, target: uid, used: used)
+        {
+            BreakOnMove = true,
+            NeedHand = true,
+        };
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
+        return true;
+    }
+
+    private void OnLoosePartRepairFinished(EntityUid uid, WeaponPartDurabilityComponent comp,
+        WeaponPartRepairDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        if (args.Used is not { } used || Deleted(used))
+            return;
+
+        // Re-derive which consumable this was: the tool decides the amount, the
+        // cap and the message, and this action only ever runs for tape or glue.
+        if (_tag.HasTag(used, DuctTapeTag) && IsTapePart(comp.Role))
+        {
+            ApplyLoosePartRepair(uid, comp, used, args.User, TapeRepair, TapeCap, "misfits-weapon-repair-tape");
+            return;
+        }
+
+        if (_tag.HasTag(used, WonderGlueTag) && comp.Role == WeaponPartRole.Bolt)
+            ApplyLoosePartRepair(uid, comp, used, args.User, GlueRepair, GlueCap, "misfits-weapon-repair-glue");
+    }
+
+    private void ApplyLoosePartRepair(EntityUid uid, WeaponPartDurabilityComponent comp, EntityUid used,
+        EntityUid user, float amount, float cap, string successLoc)
+    {
+        var ceiling = comp.Max * cap;
+        if (comp.Current >= ceiling)
+            return;
+
         comp.Current = MathF.Min(ceiling, comp.Current + amount);
         ConsumeOne(used);
         _popup.PopupEntity(Loc.GetString(successLoc), uid, user);
-        return true;
     }
 
     private void ConsumeOne(EntityUid used)
@@ -370,6 +414,61 @@ public sealed partial class SharedWeaponDurabilitySystem
 
     #endregion
 
+    #region Bench repair
+
+    /// <summary>
+    ///     #Misfits Add - repair entry point for the weapon assembly station.
+    ///     Restores a fitted part, working off its recoverable debt (barrel
+    ///     fouling) before putting health back, both capped at the maximum.
+    /// </summary>
+    public bool TryRepairPart(WeaponPartDurabilityComponent part, float amount)
+    {
+        if (amount <= 0f)
+            return false;
+
+        var health = part.Current;
+        var debt = part.Deferred;
+
+        Restore(ref part.Deferred, ref part.Current, part.Max, amount);
+
+        return part.Current > health || part.Deferred < debt;
+    }
+
+    /// <summary>
+    ///     #Misfits Add - repair entry point for the weapon assembly station.
+    ///     Mends the receiver of a modular weapon (the frame it was stripped to)
+    ///     or the body of a weapon that has no parts of its own.
+    /// </summary>
+    public bool TryRepairBody(EntityUid uid, WeaponDurabilityComponent comp, float amount)
+    {
+        if (amount <= 0f)
+            return false;
+
+        var health = comp.FrameCurrent;
+        var debt = comp.Deferred;
+
+        Restore(ref comp.Deferred, ref comp.FrameCurrent, comp.FrameMax, amount);
+
+        if (comp.FrameCurrent <= health && comp.Deferred >= debt)
+            return false;
+
+        AfterWear(uid, comp);
+        return true;
+    }
+
+    /// <summary>
+    ///     Heals repair debt first and health after it, spending no more than
+    ///     <paramref name="amount"/> in total.
+    /// </summary>
+    private static void Restore(ref float deferred, ref float current, float max, float amount)
+    {
+        var offDebt = MathF.Min(amount, deferred);
+        deferred -= offDebt;
+        current = MathF.Min(max, current + (amount - offDebt));
+    }
+
+    #endregion
+
     #region Helpers
 
     /// <summary>
@@ -412,6 +511,12 @@ public sealed partial class SharedWeaponDurabilitySystem
 
 [Serializable, NetSerializable]
 public sealed partial class WeaponCleaningRodRepairDoAfterEvent : DoAfterEvent
+{
+    public override DoAfterEvent Clone() => this;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class WeaponPartRepairDoAfterEvent : DoAfterEvent
 {
     public override DoAfterEvent Clone() => this;
 }

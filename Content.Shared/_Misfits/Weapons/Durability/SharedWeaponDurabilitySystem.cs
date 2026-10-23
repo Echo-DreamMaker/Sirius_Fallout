@@ -84,6 +84,8 @@ public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
         SubscribeLocalEvent<WeaponDurabilityComponent, WeaponCleaningRodRepairDoAfterEvent>(OnRodRepairFinished);
         // #Misfits Fix - the barrel can be swabbed while it is out of the weapon.
         SubscribeLocalEvent<WeaponPartDurabilityComponent, WeaponCleaningRodRepairDoAfterEvent>(OnPartRodRepairFinished);
+        // #Misfits Add - tape/glue take a few seconds to apply to a loose part.
+        SubscribeLocalEvent<WeaponPartDurabilityComponent, WeaponPartRepairDoAfterEvent>(OnLoosePartRepairFinished);
     }
 
     private void OnWeaponInit(EntityUid uid, WeaponDurabilityComponent comp, ComponentInit args)
@@ -330,8 +332,8 @@ public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
 
         var ratio = comp.Total / comp.TotalMax;
         args.PushMarkup(Loc.GetString("misfits-weapon-durability-examine",
-            ("state", Loc.GetString(StateKey(ratio))),
-            ("color", StateColor(ratio))));
+            ("state", Loc.GetString(WeaponDurabilityCondition.StateKey(ratio))),
+            ("color", WeaponDurabilityCondition.StateColor(ratio))));
     }
 
     private void OnPartExamine(EntityUid uid, WeaponPartDurabilityComponent comp, ExaminedEvent args)
@@ -341,8 +343,8 @@ public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
 
         var ratio = MathHelper.Clamp01(comp.Current / comp.Max);
         args.PushMarkup(Loc.GetString("misfits-weapon-part-examine",
-            ("state", Loc.GetString(StateKey(ratio))),
-            ("color", StateColor(ratio))));
+            ("state", Loc.GetString(WeaponDurabilityCondition.StateKey(ratio))),
+            ("color", WeaponDurabilityCondition.StateColor(ratio))));
 
         // Only the barrel takes recoverable fouling, and a cleaning rod is the
         // only thing that puts it back.
@@ -582,45 +584,6 @@ public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
             WeaponPartRole.Stock => 1f,
             _ => noStock ? 1.5f : 0.5f,
         };
-    }
-
-    private static string StateKey(float ratio)
-    {
-        if (ratio >= 0.999f)
-            return "misfits-weapon-durability-state-1";
-        if (ratio >= 0.90f)
-            return "misfits-weapon-durability-state-2";
-        if (ratio >= 0.75f)
-            return "misfits-weapon-durability-state-3";
-        if (ratio >= 0.50f)
-            return "misfits-weapon-durability-state-4";
-        if (ratio >= 0.30f)
-            return "misfits-weapon-durability-state-5";
-        if (ratio >= 0.15f)
-            return "misfits-weapon-durability-state-6";
-        return "misfits-weapon-durability-state-7";
-    }
-
-    /// <summary>
-    ///     #Misfits Add - colours the durability/condition readout by level, from
-    ///     dark red (worst) up through red, orange, yellow, light green and green
-    ///     to azure (best). Mirrors the thresholds of <see cref="StateKey"/>.
-    /// </summary>
-    private static string StateColor(float ratio)
-    {
-        if (ratio >= 0.999f)
-            return "#33A9FF"; // azure
-        if (ratio >= 0.90f)
-            return "#32CD32"; // green
-        if (ratio >= 0.75f)
-            return "#90EE90"; // light green
-        if (ratio >= 0.50f)
-            return "#FFD700"; // yellow
-        if (ratio >= 0.30f)
-            return "#FF8C00"; // orange
-        if (ratio >= 0.15f)
-            return "#E53935"; // red
-        return "#8B0000";     // dark red
     }
 
     #endregion

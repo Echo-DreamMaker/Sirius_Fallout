@@ -1,0 +1,198 @@
+# #Misfits Add - Precision weapon assembly / disassembly / repair station.
+- type: entity
+  parent: BaseStructure
+  id: N14WeaponAssemblyStation
+  name: weapon assembly station
+  description: A pre-war precision bench used to assemble, strip down and repair firearms.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Misc/workbenches.rsi
+    state: weaponbench
+    offset: 0.5, 0
+  - type: InteractionOutline
+  - type: Appearance
+  - type: Rotatable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,0,1.25,0.3"
+        density: 3000
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Anchorable
+  - type: ContainerContainer
+    containers:
+      weapon_main: !type:ContainerSlot
+      part_1: !type:ContainerSlot
+      part_2: !type:ContainerSlot
+      part_3: !type:ContainerSlot
+      part_4: !type:ContainerSlot
+      part_6: !type:ContainerSlot
+  - type: WeaponAssemblyStation
+  # Put / take weapons and parts through the UI (or by clicking the machine).
+  - type: ItemSlots
+    slots:
+      weapon_main:
+        name: misfits-weapon-station-slot-weapon
+        priority: 10
+        lockedFailPopup: misfits-weapon-station-locked
+        whitelist:
+          components:
+          - WeaponDurability
+        # #Misfits Fix - a fuel tank carries MeleeWeapon (blunt 0) so the old
+        # Gun/MeleeWeapon whitelist let it through. Only a real firearm belongs
+        # in the main slot, so tanks and other reagent containers are banned.
+        blacklist:
+          components:
+          - ReagentTank
+          - DrainableSolution
+          - RefillableSolution
+      part_1:
+        name: misfits-weapon-station-slot-barrel
+        priority: 5
+        whitelist:
+          components:
+          - WeaponPartDurability
+          tags:
+          - N14PartBarrel
+          - N14PartOptics
+        blacklist:
+          components:
+          - Gun
+          - MeleeWeapon
+      part_2:
+        name: misfits-weapon-station-slot-bolt
+        priority: 5
+        whitelist:
+          components:
+          - WeaponPartDurability
+          tags:
+          - N14PartBolt
+        blacklist:
+          components:
+          - Gun
+          - MeleeWeapon
+      part_3:
+        name: misfits-weapon-station-slot-grip
+        priority: 5
+        whitelist:
+          components:
+          - WeaponPartDurability
+          tags:
+          - N14PartGrip
+          - N14PartDrive
+        blacklist:
+          components:
+          - Gun
+          - MeleeWeapon
+      part_4:
+        name: misfits-weapon-station-slot-stock
+        priority: 5
+        whitelist:
+          components:
+          - WeaponPartDurability
+          tags:
+          - N14PartStock
+        blacklist:
+          components:
+          - Gun
+          - MeleeWeapon
+      part_6:
+        name: misfits-weapon-station-slot-magazine
+        priority: 5
+        whitelist:
+          components:
+          - BallisticAmmoProvider
+          - PowerCell
+        blacklist:
+          components:
+          - Gun
+          - MeleeWeapon
+  # Internal welding-fuel reservoir consumed by assembly and repair work.
+  - type: SolutionContainerManager
+    solutions:
+      fuel:
+        maxVol: 500
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 250
+  - type: RefillableSolution
+    solution: fuel
+  - type: ExaminableSolution
+    solution: fuel
+  - type: ApcPowerReceiver
+    powerLoad: 250
+    needsPower: true
+  - type: ExtensionCableReceiver
+  - type: PointLight
+    color: "#ffd285"
+    radius: 3
+    energy: 6
+    enabled: false
+  - type: ActivatableUI
+    key: enum.WeaponAssemblyStationUiKey.Key
+    requiresComplex: false
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.WeaponAssemblyStationUiKey.Key:
+        type: WeaponAssemblyStationBoundUserInterface
+  - type: Construction
+    graph: N14WeaponAssemblyStation
+    node: WeaponAssemblyStation
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+        - !type:EmptyAllContainersBehaviour
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetSteel1:
+              min: 4
+              max: 8
+            CableMVStack:
+              min: 3
+              max: 6
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseStructure
+  id: N14WeaponAssemblyStationFrame
+  name: weapon assembly station frame
+  description: A weapon assembly station. This one is still being built!
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Misc/workbenches.rsi
+    offset: 0.5, 0
+    layers:
+    - state: weaponbenchframe0
+      map: [ "enum.ConstructionVisuals.Layer" ]
+  - type: InteractionOutline
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          WeaponAssemblyStationFrame: { state: weaponbenchframe0 }
+          WeaponAssemblyStationSteel: { state: weaponbenchframe1 }
+          WeaponAssemblyStationUnwelded: { state: weaponbenchframe2 }
+          WeaponAssemblyStationCircuitry: { state: weaponbenchframe3 }
+          WeaponAssemblyStationUnscrewed: { state: weaponbenchframe4 }
+          WeaponAssemblyStationFuel: { state: weaponbenchframe4 }
+  - type: Construction
+    graph: N14WeaponAssemblyStation
+    node: WeaponAssemblyStationFrame
