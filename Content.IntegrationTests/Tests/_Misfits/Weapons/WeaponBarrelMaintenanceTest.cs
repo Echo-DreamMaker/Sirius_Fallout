@@ -3,7 +3,7 @@
 // not a one-shot stroke but keeps going until the recoverable wear is gone.
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
-using Content.Shared._Misfits.Weapons.Durability;
+using Content.Shared._Sirius.Weapons.Durability;
 using Robust.Shared.GameObjects;
 
 namespace Content.IntegrationTests.Tests._Misfits.Weapons;

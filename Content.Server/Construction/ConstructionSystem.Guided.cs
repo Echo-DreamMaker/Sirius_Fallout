@@ -1,4 +1,4 @@
-using Content.Server._Misfits.Weapons.Parts;
+using Content.Server._Sirius.Weapons.Parts;
 using Content.Server.Construction.Components;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
