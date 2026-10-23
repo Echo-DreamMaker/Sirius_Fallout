@@ -5,6 +5,9 @@
   name: molerat gauntlet
   description: Big blag heavy gauntlet.
   components:
+  # #Misfits Add - Melee durability (1250 tier, no drawbacks).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: StrengthRequirement
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Melee/moleratgauntlet.rsi

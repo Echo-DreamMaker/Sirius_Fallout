@@ -123,6 +123,19 @@
     recipes:
     - N14BPNCRWeaponAntiMateriel
 
+# #Misfits Add - the .50 anti-materiel rifle's heavy frame and .50 barrel are not
+# part of normal workbench crafting; this schematic unlocks them.
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintAntiMaterielParts
+  name: Anti-Materiel Parts Schematic
+  description: Machining drawings for the heavy anti-materiel receiver and the .50 chambering barrel.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14WeaponPartFrameSniperHeavy
+    - N14WeaponPartBarrel50Standard
+
 # --- NCR Armor ---
 - type: entity
   parent: N14BlueprintBase

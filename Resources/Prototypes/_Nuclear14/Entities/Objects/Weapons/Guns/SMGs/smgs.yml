@@ -53,6 +53,15 @@
   - type: Appearance
   - type: FollowDistance
     backStrength: 6
+  # #Misfits Add - Non-modular (map-spawned) SMGs wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   - type: StaticPrice
     price: 100
   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
@@ -62,6 +71,43 @@
   id: N14WeaponSMG10mm
   description: Fully automatic submachine gun chambered in 10mm. # TODO: Need to create projectiles, magazines and boxes for 10mm.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowback
+      craft_barrel:
+        - N14WeaponPartBarrel10mmStandard
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMG10mm
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMG10mm
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/10mmSMG.rsi
     quickEquip: false
@@ -147,6 +193,43 @@
   id: N14WeaponSMG10mmSuppressed
   description: Fully automatic submachine gun chambered in 10mm, this one comes with a suppressor. # TODO: Need to create projectiles, magazines and boxes for 10mm.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowbackHeavy
+      craft_barrel:
+        - N14WeaponPartBarrel10mmStandard
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMG10mmSuppressed
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMG10mmSuppressed
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/10mmSMGsuppressed.rsi
     quickEquip: false
@@ -227,6 +310,43 @@
   id: N14WeaponSMG12mm
   description: A heavy submachine gun chambered in 12mm.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowback
+      craft_barrel:
+        - N14WeaponPartBarrel12mmStandard
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMG12mm
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMG12mm
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/12mmSMG.rsi
     quickEquip: false
@@ -529,6 +649,43 @@
   id: N14WeaponSMG12mmAdvanced
   description: A bulky submachine gun with a top-fed magazine system, it uses 12mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowbackDelayed
+      craft_barrel:
+        - N14WeaponPartBarrel12mmStandard
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMG12mmAdvanced
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMG12mmAdvanced
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/advance12mm.rsi
     quickEquip: false
@@ -611,6 +768,43 @@
   id: N14WeaponSMG9mm
   description: A simple metallic pre-war submachine gun, chambered in 9mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowback
+      craft_barrel:
+        - N14WeaponPartBarrel9mmStandard
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMG9mm
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMG9mm
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/9mmSMG.rsi
     quickEquip: false
@@ -695,6 +889,43 @@
   id: N14WeaponSMG9mminfiltrator
   description: A simple metallic pre-war submachine gun modified with a integrated suppressor, chambered in 9mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowbackDelayed
+      craft_barrel:
+        - N14WeaponPartBarrel9mmStandard
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMG9mminfiltrator
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMG9mminfiltrator
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/infiltrator.rsi
     quickEquip: false
@@ -775,6 +1006,43 @@
   id: N14WeaponSMG45
   description: A pre-war submachine gun with a wooden stock, chambered in .45.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowback
+      craft_barrel:
+        - N14WeaponPartBarrel45Standard
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMG45
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMG45
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/45SMG.rsi
     quickEquip: false
@@ -859,6 +1127,43 @@
   id: N14WeaponSMG9mmCanadian
   description: A simple pre-war canadian submachine gun, chambered in 9mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowback
+      craft_barrel:
+        - N14WeaponPartBarrel9mmAdvanced
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMG9mmCanadian
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMG9mmCanadian
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/canadianSMG.rsi
     quickEquip: false
@@ -943,6 +1248,43 @@
   id: N14WeaponSMG12mmAdvancedCanadian
   description: An advanced pre-war canadian submachine gun, chambered in 12.7mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowbackHeavy
+      craft_barrel:
+        - N14WeaponPartBarrel12mmStandard
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMG12mmAdvancedCanadian
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMG12mmAdvancedCanadian
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/canadianadvanceSMG.rsi
     quickEquip: false
@@ -1023,6 +1365,43 @@
   id: N14WeaponSMG12mmAdvancedChinese
   description: An advanced pre-war chinese submachine gun intended for special forces, chambered in 12.7mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowbackDelayed
+      craft_barrel:
+        - N14WeaponPartBarrel12mmAdvanced
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMG12mmAdvancedChinese
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMG12mmAdvancedChinese
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/chineseadvanceSMG.rsi
     quickEquip: false
@@ -1109,6 +1488,43 @@
   id: N14WeaponSMG10mmChinese
   description: A chinese fully automatic silenced submachine gun chambered in 10mm.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowbackDelayed
+      craft_barrel:
+        - N14WeaponPartBarrel10mmStandard
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMG10mmChinese
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMG10mmChinese
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/chineseSMG.rsi
     quickEquip: false
@@ -1200,6 +1616,43 @@
   id: N14WeaponSMGPPSh41
   description: A Soviet World War II drum-fed submachine gun. Pre-war museums kept one behind glass. Now raiders carry them. Wildly inaccurate at range, devastating up close. The drum holds thirty-five rounds.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowbackVintage
+      craft_barrel:
+        - N14WeaponPartBarrel9mmStandard
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMGPPSh41
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMGPPSh41
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/ppsh41.rsi
     quickEquip: false
@@ -1285,6 +1738,43 @@
   id: N14WeaponSMGGreaseGun
   description: A stamped-steel .45 ACP submachine gun, designed to be produced cheaply in wartime. Unglamorous but reliable. Compatible with the same .45 box magazines as the Thompson. Nicknamed the grease gun for obvious reasons.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowbackHeavy
+      craft_barrel:
+        - N14WeaponPartBarrel45Standard
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMGGreaseGun
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMGGreaseGun
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/greasegun.rsi
     quickEquip: false
@@ -1366,6 +1856,43 @@
   id: N14WeaponSMGAmerican180
   description: A pre-war .22 LR submachine gun with an integrated suppressor and a large top-loaded drum magazine. Whisper-quiet, with an almost absurd rate of fire. A full drum of .22 vanishes faster than you expect.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowbackVintage
+      craft_barrel:
+        - N14WeaponPartBarrel22lrStandard
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMGAmerican180
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMGAmerican180
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/american180.rsi
     quickEquip: false
@@ -1448,6 +1975,43 @@
   id: N14WeaponSMG9mminfiltratorMk2Sirius
   description: A special metallic pre-war submachine gun modified with a integrated suppressor, chambered in 9mm ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltBlowbackDelayed
+      craft_barrel:
+        - N14WeaponPartBarrel9mmAdvanced
+  - type: Construction
+    graph: N14WeaponPartFrameSmgGraph
+    node: done_N14WeaponSMG9mminfiltratorMk2Sirius
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSMG9mminfiltratorMk2Sirius
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/infiltratormk2.rsi
     quickEquip: false

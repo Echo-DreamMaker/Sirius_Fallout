@@ -5,6 +5,15 @@
   id: N14WeaponBMGSirius
   description: The most significant Browning machine gun associated with the 1938 period is the M2HB (Heavy Barrel). Developed in 1938, this legendary .50-caliber (12.7 mm) heavy machine gun featured a lengthened, air-cooled barrel to improve sustained fire, striking energy, and range for ground and vehicle use.
   components:
+  # #Misfits Add - Non-modular (map-spawned) weapons wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   - type: GunBeltInsertDelay
   - type: SuperMutantFitting
   - type: Clothing

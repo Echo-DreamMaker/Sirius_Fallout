@@ -4,6 +4,36 @@
   name: mysterious revolver
   description: A finely kept revolver with an unsettling air about it. Uses .44 magnum ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripRevolver
+      craft_bolt:
+        - N14WeaponPartBoltRevolverHammerTarget
+      craft_barrel:
+        - N14WeaponPartBarrel44Advanced
+  - type: Construction
+    graph: N14WeaponPartFrameRevolverGraph
+    node: done_N14WeaponRevolver44Mysterious
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRevolver44Mysterious
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/mysterious44.rsi
   - type: Clothing

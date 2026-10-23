@@ -4,6 +4,9 @@
   name: NCRMP shock baton
   description: A heavy stun baton issued to NCR Military Police for riot control and base defense.
   components:
+  # #Misfits Add - Melee durability (1250 tier, no drawbacks).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Stunbaton
     energyPerUse: 100
   - type: MeleeWeapon

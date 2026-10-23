@@ -21,6 +21,8 @@
     </PanelContainer>
     <BoxContainer Name="Contents" Orientation="Vertical" Margin="0 6 0 4" RectClipContent="True">
         <BoxContainer Name="StatusContents" Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Bottom" />
+        <!-- #Misfits Add - optional marked-up line (e.g. part durability) above the name. -->
+        <RichTextLabel Name="ExtraLabel" StyleClasses="ItemStatus" Visible="False" />
         <Control>
             <Label Name="NoItemLabel" ClipText="True" StyleClasses="ItemStatusNotHeld" Align="Left" Text="{Loc 'item-status-not-held'}" />
             <Label Name="ItemNameLabel" ClipText="True" StyleClasses="ItemStatus" Align="Left" Visible="False" />

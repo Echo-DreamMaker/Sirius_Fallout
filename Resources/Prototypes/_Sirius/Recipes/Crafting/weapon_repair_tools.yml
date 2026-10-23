@@ -1,0 +1,28 @@
+# #Misfits Add: Make the weapon maintenance tools available from the hand-crafting (G) menu.
+- type: construction
+  name: gun cleaning rod
+  id: N14WeaponCleaningRodRecipe
+  graph: N14WeaponCleaningRodGraph
+  startNode: start
+  targetNode: rod
+  category: construction-category-tools
+  description: A long metal rod for scraping fouling out of a fouled bore.
+  hide: false
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    state: rod
+  objectType: Item
+
+- type: construction
+  name: whetstone
+  id: N14WhetstoneRecipe
+  graph: N14WhetstoneGraph
+  startNode: start
+  targetNode: whetstone
+  category: construction-category-tools
+  description: A block of abrasive stone for restoring a keen edge to a nicked blade.
+  hide: false
+  icon:
+    sprite: Objects/Materials/ingots.rsi
+    state: iron
+  objectType: Item

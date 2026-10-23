@@ -1,0 +1,19 @@
+# #Misfits Add - Damage type and container backing the modular weapon
+# durability system.
+#
+# "Wear" is a bookkeeping damage type. An assembled weapon carries a
+# DamageableComponent so that vanilla damage sources (projectiles, melee,
+# explosions, high-speed impacts) actually reach it, but WeaponDurabilitySystem
+# intercepts BeforeDamageChangedEvent, converts the incoming damage into
+# per-part wear and cancels it. The weapon itself therefore never accumulates
+# Wear; the type exists only so the DamageableComponent has a valid container.
+- type: damageType
+  id: Wear
+  name: damage-type-wear
+  armorCoefficientPrice: 1
+  armorFlatPrice: 1
+
+- type: damageContainer
+  id: WeaponDurability
+  supportedTypes:
+  - Wear

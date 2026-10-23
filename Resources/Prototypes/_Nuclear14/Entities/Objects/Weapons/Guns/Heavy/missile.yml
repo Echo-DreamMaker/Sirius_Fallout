@@ -4,6 +4,15 @@
   id: N14WeaponLauncherMissile
   description: "An advanced pre-war shoulder-mounted missile launcher, it's kinda obvious what kind of ammo it uses."
   components:
+  # #Misfits Add - Non-modular (map-spawned) weapons wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   - type: SuperMutantFitting
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/missilelauncher.rsi

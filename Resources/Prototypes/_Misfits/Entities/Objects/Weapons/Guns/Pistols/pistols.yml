@@ -4,6 +4,43 @@
   id: N14WeaponEnclaveDesertEagle44
   description: An ancient Desert Eagle pistol, in .44 Magnum. Interest in late 20th century films made this one of the most popular handguns of all times.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideLight
+      craft_barrel:
+        - N14WeaponPartBarrel44Advanced
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponEnclaveDesertEagle44
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponEnclaveDesertEagle44
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Misfits/Objects/Weapons/Guns/Pistols/enclavedeagle.rsi
   - type: Item
@@ -110,6 +147,43 @@
   id: N14WeaponPistolT60
   description: A large semi-automatic handgun chambered in .44, this weapon was designed pre-war for power armored units, specifically the T-60 line. Its lack of conventional sights is made up for by its built in electronics that increase its accuracy greatly.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGripPistol
+      craft_bolt:
+        - N14WeaponPartBoltPistolSlideLight
+      craft_barrel:
+        - N14WeaponPartBarrel44Standard
+  - type: Construction
+    graph: N14WeaponPartFramePistolGraph
+    node: done_N14WeaponPistolT60
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponPistolT60
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Sprite
     sprite: _Misfits/Objects/Weapons/Guns/Pistols/t60pistol.rsi
   - type: Item
@@ -164,13 +238,5 @@
         whitelist:
           tags:
             - N14Cartridge44Magnum
-  - type: ContainerContainer
-    containers:
-      gun_top: !type:ContainerSlot
-      gun_muzzle: !type:ContainerSlot
-      gun_bottom: !type:ContainerSlot
-      gun_handle: !type:ContainerSlot
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 100

@@ -383,7 +383,18 @@ public abstract partial class SharedGunSystem
 
         for (int i = 0; i < ammoToSpawn; i++)
         {
-            var uid = Spawn(giverComp.Proto);
+            // #Misfits Fix: Spawn(proto) creates the entity in MapCoordinates.Nullspace, so the
+            // freshly-materialised round never lands on a map. ShootProjectile derives its
+            // reparent destination from GetMapCoordinates of the projectile itself, which for a
+            // nullspace entity is nullspace again, so the round stays detached: it is never sent
+            // to any player and never collides, while the gunshot sound still plays. This is why
+            // prototype-fed weapons (the bloatfly's acid, bows, anything using `proto:` without
+            // container-resident ammo) fired audibly but produced no visible projectile.
+            // TakeAmmoEvent already carries the shot origin - use it, as this method's own
+            // remarks promise ("spawned ammo is dropped in closest valid parent of giverUID").
+            var uid = args.Coordinates.IsValid(EntityManager)
+                ? Spawn(giverComp.Proto, args.Coordinates)
+                : Spawn(giverComp.Proto, Transform(giverUID).Coordinates);
             FlagPredicted(uid);
             giverComp.ClientPredictedAmmoVisual.Add(giverComp.Proto);
 
@@ -396,10 +407,39 @@ public abstract partial class SharedGunSystem
         giverComp.SpawnedCountPredict -= ammoToRemove;
         giverComp.IndexPredict = giverComp.IndexPredict + ammoToSpawn + ammoToRemove;
 
+        // #Misfits Fix: mirror OnBasicEntityTakeAmmo - spending a round starts the recharge
+        // timer. RechargeBasicEntityAmmoSystem parks a full provider at NextCharge == null, so
+        // without this nothing ever wakes the timer up again after the first shot.
+        if (ammoToSpawn > 0 || ammoToRemove > 0)
+            _recharge.Reset(giverUID);
+
         DebugTools.Assert(DebugAmmoProviderChange(giverComp));
         NetworkCompState(giverUID, args.User, giverComp);
         UpdateBallisticAppearance(giverUID, giverComp);
         UpdateAmmoCount(giverUID);
+    }
+
+    /// <summary>
+    /// #Misfits Fix: adds one round of virtual (unspawned) ammunition to a ballistic provider.
+    /// Ballistic counterpart of <see cref="UpdateBasicEntityAmmoCount"/>, so that
+    /// <c>RechargeBasicEntityAmmoSystem</c> can refill prototype-fed magazines - creatures like
+    /// the bloatfly, bows and anything else carrying a <c>proto:</c> instead of container-resident
+    /// rounds. Those used to be limited to whatever <c>capacity</c> they spawned with, because the
+    /// recharge system only ever queried <c>BasicEntityAmmoProviderComponent</c>.
+    /// </summary>
+    public bool TryAddUnspawnedAmmo(EntityUid uid, BallisticAmmoProviderComponent comp)
+    {
+        if (comp.Proto == null || comp.Capacity <= 0 || comp.AmmoCount >= comp.Capacity)
+            return false;
+
+        comp.UnspawnedCount++;
+        comp.IndexPredict++;
+
+        Dirty(uid, comp);
+        NetworkCompState(uid, null, comp);
+        UpdateBallisticAppearance(uid, comp);
+        UpdateAmmoCount(uid);
+        return true;
     }
     public void NetworkCompState(EntityUid uid, EntityUid? user, BallisticAmmoProviderComponent comp)
     {

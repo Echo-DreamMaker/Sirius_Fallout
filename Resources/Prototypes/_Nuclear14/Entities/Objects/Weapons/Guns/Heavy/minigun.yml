@@ -120,6 +120,15 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7.5
+  # #Misfits Add - Non-modular (map-spawned) miniguns wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
 
 - type: entity
   name: minigun
@@ -182,6 +191,15 @@
   parent: BaseItem
   id: N14WeaponMECGaussMinigunSirius
   components:
+  # #Misfits Add - Non-modular (map-spawned) weapons wear as a single unit.
+  - type: WeaponDurability
+    frameMax: 1250
+    meleeWear: 4
+    throwWear: 6
+    features:
+    - Drop
+    - Jam
+    - Spread
   - type: SuperMutantFitting
   - type: StrengthRequirement
     requiredStrength: 6

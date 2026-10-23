@@ -67,6 +67,47 @@
   id: N14WeaponRifle556R91
   description: An old-fashioned assault rifle chambered in 5.56 munitions.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel556Standard
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameAssaultGraph
+    node: done_N14WeaponRifle556R91
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556R91
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/r91.rsi
     quickEquip: false
@@ -129,6 +170,8 @@
         whitelist:
           tags:
             - N14Cartridge556Rifle
+  # #Misfits Add - Modular receiver: this rifle is built from, and stripped
+  # back into, loose parts (frame IncompleteN14WeaponPartFrameAssault).
   - type: StaticPrice
     price: 100
 - type: entity
@@ -208,6 +251,47 @@
   id: N14WeaponRifle556Carbine
   description: A sleek black compact assault rifle, uses 5.56 ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel556Standard
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameCarbineGraph
+    node: done_N14WeaponRifle556Carbine
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556Carbine
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/assaultcarbine.rsi
     quickEquip: false
@@ -282,6 +366,47 @@
   id: N14WeaponRifle762Marksman
   description: A heavy semiautomatic rifle with a scope, uses 7.62 ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltAction
+      craft_barrel:
+        - N14WeaponPartBarrel762Sniper
+      craft_stock:
+        - N14WeaponPartStockSniper
+  - type: Construction
+    graph: N14WeaponPartFrameMarksmanGraph
+    node: done_N14WeaponRifle762Marksman
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle762Marksman
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/marksman.rsi
     quickEquip: false
@@ -360,6 +485,47 @@
   id: N14WeaponRifle556Service
   description: A cheaply mass-produced post-war rifle made by the NCR, chambered in 5.56 ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel556Standard
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameAssaultServiceGraph
+    node: done_N14WeaponRifle556Service
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556Service
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Item
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/servicerifle.rsi
   - type: Clothing
@@ -436,42 +602,20 @@
     price: 100
 - type: entity
   name: scoped service rifle
-  parent: N14WeaponRifleBase
+  parent: N14WeaponRifle556Service
   id: N14WeaponRifle556ServiceScoped
   description: A cheaply mass-produced post-war rifle made by the NCR, chambered in 5.56 ammo. This one features an optic mounted on the carry handle.
+  # #Misfits Change - the scoped service rifle is now just a service rifle with a
+  # rifle scope attachment fitted in the top slot, rather than a separate frame
+  # carrying its own stats, long barrel and sprites. Detach the scope to get a
+  # plain service rifle back.
   components:
-  - type: Item
-    sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/scopedservicerifle.rsi
-  - type: Clothing
-    sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/scopedservicerifle.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
-  - type: Sprite
-    scale: 0.8, 0.8
-    sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/scopedservicerifleicon.rsi
-    layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
-  - type: Gun
-    minAngle: 21 # Corvax-Change
-    maxAngle: 38 # Corvax-Change
-    angleIncrease: 4
-    angleDecay: 16
-    fireRate: 4 # Corvax-Change
-    soundGunshot:
-      collection: N14ServiceGunshot
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
   - type: ItemSlots
     slots:
       gun_top:
         name: weapon-attachment-slot-top
         priority: 0
+        startingItem: N14WeaponScopeAttachment
         whitelist:
           tags:
           - N14AttachmentTop
@@ -509,15 +653,53 @@
         whitelist:
           tags:
             - N14Cartridge556Rifle
-  # #Misfits Add — built-in scope on scoped service rifle (explicitly described as having an optic)
-  # - type: N14Scope
-  #   eyeOffset: 5
 - type: entity
   name: scout rifle
   parent: N14WeaponRifleBase
   id: N14WeaponRifle556Scout
   description: A modified version of the service rifle made by Rangers in the field. It is capable of using larger 5.56 magazines than its predecessor.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel556Long
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameAssaultServiceGraph
+    node: done_N14WeaponRifle556Scout
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556Scout
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/scoutrifle.rsi
     quickEquip: false
@@ -594,6 +776,47 @@
   id: N14WeaponRifle308Battle
   description: A long semi-automatic rifle fed by clips, chambered in the powerful 308.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel308Long
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameBattle308Graph
+    node: done_N14WeaponRifle308Battle
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle308Battle
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/battlerifle.rsi
     quickEquip: false
@@ -676,6 +899,47 @@
   id: N14WeaponRifle556CarbineOld
   description: A short compact rifle of the pre-war, chambered in 5.56 ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel556Standard
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameOldCarbineGraph
+    node: done_N14WeaponRifle556CarbineOld
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556CarbineOld
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/carbine.rsi
     quickEquip: false
@@ -750,6 +1014,47 @@
   id: N14WeaponRifle762Canadian
   description: A pre-war canadian assault rifle chambered in 7.62mm, surprisingly in good state for being 200 a years old rifle
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltAction
+      craft_barrel:
+        - N14WeaponPartBarrel762Heavy
+      craft_stock:
+        - N14WeaponPartStockSniper
+  - type: Construction
+    graph: N14WeaponPartFrameMarksmanGraph
+    node: done_N14WeaponRifle762Canadian
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle762Canadian
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/canadianrifle.rsi
     quickEquip: false
@@ -825,6 +1130,47 @@
   id: N14WeaponRifle556EM2
   description: A long bullpup assault rifle, uses 5.56 ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel556Long
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameBullpupGraph
+    node: done_N14WeaponRifle556EM2
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556EM2
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/em2.rsi
     quickEquip: false
@@ -900,6 +1246,47 @@
   id: N14WeaponRifle762Fal
   description: A pre-war battle rifle chambered in 7.62mm, strong and reliable. its said this gun once won the title of "the right arm of the free world", but theres not much left of the world to confirm it.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel762Standard
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameSemi762Graph
+    node: done_N14WeaponRifle762Fal
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle762Fal
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/fal.rsi
     quickEquip: false
@@ -974,6 +1361,47 @@
   id: N14WeaponRifle762M14
   description: A pre-war battle rifle chambered in 7.62mm, build to replace the old M1 garand of the US military, it didnt last for long and got remplaced by the R-91 after a few years of service.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel762Long
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameSemi762Graph
+    node: done_N14WeaponRifle762M14
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle762M14
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/m14.rsi
     quickEquip: false
@@ -1048,6 +1476,47 @@
   id: N14WeaponRifle762MarksmanCanadian
   description: A pre-war canadian marksman rifle chambered in 7.62mm.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltAction
+      craft_barrel:
+        - N14WeaponPartBarrel762Long
+      craft_stock:
+        - N14WeaponPartStockSniper
+  - type: Construction
+    graph: N14WeaponPartFrameMarksmanGraph
+    node: done_N14WeaponRifle762MarksmanCanadian
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle762MarksmanCanadian
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/canadianmarksman.rsi
     quickEquip: false
@@ -1125,6 +1594,47 @@
   id: N14WeaponRifle308MarksmanChinese
   description: A pre-war chinese marksman rifle chambered in .308.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltAction
+      craft_barrel:
+        - N14WeaponPartBarrel308Sniper
+      craft_stock:
+        - N14WeaponPartStockSniper
+  - type: Construction
+    graph: N14WeaponPartFrameMarksmanGraph
+    node: done_N14WeaponRifle308MarksmanChinese
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle308MarksmanChinese
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/chinesemarksman.rsi
     quickEquip: false
@@ -1202,6 +1712,47 @@
   id: N14WeaponRifle762SKS
   description: A pre-war chinese rifle chambered in 7.62mm. cheap, simple and easy to use, perfect to arm commie militias from around the world.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel762Light
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameSemi762Graph
+    node: done_N14WeaponRifle762SKS
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle762SKS
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/chinesecarbine.rsi
     quickEquip: false
@@ -1350,6 +1901,44 @@
   id: N14WeaponSniper762Tribal
   description: A surprisingly decent piece of a gun for being made by tribals, with an internal magazine this semi automatic rifle is rustic but trusty. chambered in 7.62mm.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel762Standard
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameTribalGraph
+    node: done_N14WeaponSniper762Tribal
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSniper762Tribal
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/tribalrifle.rsi
   - type: Sprite
@@ -1402,14 +1991,6 @@
         whitelist:
           tags:
           - N14AttachmentHandle
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-        ents: []
-      gun_top: !type:ContainerSlot
-      gun_muzzle: !type:ContainerSlot
-      gun_bottom: !type:ContainerSlot
-      gun_handle: !type:ContainerSlot
   - type: WeaponAttachmentHost
 - type: entity
   name: tribal assault rifle
@@ -1417,6 +1998,44 @@
   id: N14WeaponSniper762TribalUpgraded
   description: A surprisingly decent piece of a gun for being made by tribals, with an internal magazine this semi automatic rifle is rustic but trusty. chambered in 7.62mm.
   components:
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel762Heavy
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameTribalGraph
+    node: done_N14WeaponSniper762TribalUpgraded
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponSniper762TribalUpgraded
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/tribalrifle2.rsi
   - type: Sprite
@@ -1469,14 +2088,6 @@
         whitelist:
           tags:
           - N14AttachmentHandle
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-        ents: []
-      gun_top: !type:ContainerSlot
-      gun_muzzle: !type:ContainerSlot
-      gun_bottom: !type:ContainerSlot
-      gun_handle: !type:ContainerSlot
   - type: WeaponAttachmentHost
 - type: entity
   name: butchered service rifle
@@ -1484,6 +2095,47 @@
   id: N14WeaponRifle556Butchered
   description: A cheaply mass-produced post-war rifle made by the NCR, this one has been tortured horribly and converted into a "carbine", chambered in 5.56 ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel556Standard
+      craft_stock:
+        - N14WeaponPartStockShortened
+  - type: Construction
+    graph: N14WeaponPartFrameAssaultServiceGraph
+    node: done_N14WeaponRifle556Butchered
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556Butchered
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/butcheredrifle.rsi
     quickEquip: false
@@ -1497,9 +2149,6 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
-  - type: Construction
-    graph: UniqueWeapons
-    node: ButcheredServiceRifle
   - type: Gun
     minAngle: 26
     maxAngle: 50
@@ -1576,6 +2225,47 @@
   id: N14WeaponRifleM1Garand
   description: The WWII American classic. A semi-automatic battle rifle fed by an 8-round en-bloc clip chambered in .308 Winchester. When the clip runs dry it pings out satisfyingly. Don't stick your thumb in it.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel308Standard
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameBattle308Graph
+    node: done_N14WeaponRifleM1Garand
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifleM1Garand
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/hunting.rsi # #Misfits Tweak: use hunting rifle RSI as back-slot placeholder — m1garand.rsi equipped-BACKPACK state eclipses the full character sprite
     quickEquip: false
@@ -1771,6 +2461,47 @@
   id: N14WeaponRifleSKS
   description: An old hunting rifle taken from discovered stockpiles and refurbished in Legion workshops. The standard heavy rifle of the Legion, still rare. Semi-auto only, fed by a 10-round en-bloc clip.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel308Heavy
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameBattle308Graph
+    node: done_N14WeaponRifleSKS
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifleSKS
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/hunting.rsi # #Misfits Tweak: hunting rifle RSI back-slot placeholder — sks.rsi equipped-BACKPACK state is not suitable
     quickEquip: false
@@ -1854,6 +2585,47 @@
   id: N14WeaponRifleInfiltrator
   description: A heavily modified R91 assault rifle with an integrated suppressor and polymer furniture. No official designation — whoever built it just started calling it the Infiltrator. Runs quiet and runs hot.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel556Suppressed
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameAssaultGraph
+    node: done_N14WeaponRifleInfiltrator
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifleInfiltrator
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Gun
     fireRate: 8
     minAngle: 3
@@ -1865,6 +2637,7 @@
     - Fullauto
     soundGunshot:
       collection: N14RifleR91Gunshot
+  # #Misfits Add - Modular receiver (suppressed-barrel R91 variant).
   - type: StaticPrice
     price: 500
 
@@ -1875,6 +2648,47 @@
   id: N14WeaponRifle762ClassicrifleSirius
   description: The Colt Rangemaster is a powerful semi-automatic rifle chambered for 7.62mm ammunition. The ammunition combined with a 1:10" barrel rifling twist gives it good accuracy at range.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltRecoil
+      craft_barrel:
+        - N14WeaponPartBarrel762Heavy
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameSemi762Graph
+    node: done_N14WeaponRifle762ClassicrifleSirius
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle762ClassicrifleSirius
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/classic.rsi
     quickEquip: false
@@ -1952,6 +2766,47 @@
   id: N14WeaponRifle556GalilSirius
   description: An old-fashioned assault rifle chambered in 5.56 munitions.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel556Standard
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameCarbineGraph
+    node: done_N14WeaponRifle556GalilSirius
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556GalilSirius
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/galil.rsi
     quickEquip: false
@@ -2023,6 +2878,47 @@
   id: N14WeaponRifle556M16A1Sirius
   description: A sleek black compact assault rifle, uses 5.56 ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel556Long
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameCarbineGraph
+    node: done_N14WeaponRifle556M16A1Sirius
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556M16A1Sirius
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/m16a1.rsi
     quickEquip: false
@@ -2098,6 +2994,47 @@
   id: N14WeaponRifle762R82Sirius
   description: An old-fashioned assault rifle chambered in 7.62 munitions.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel762Standard
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameMarksmanGraph
+    node: done_N14WeaponRifle762R82Sirius
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle762R82Sirius
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/r82.rsi
     quickEquip: false
@@ -2168,6 +3105,45 @@
   id: N14WeaponRifle556Rugerac556fSirius
   description: A simple metallic pre-war assault carbine, chambered in 5.56 ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel556Light
+  - type: Construction
+    graph: N14WeaponPartFrameCarbineGraph
+    node: done_N14WeaponRifle556Rugerac556fSirius
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556Rugerac556fSirius
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/rugerac556f.rsi
     quickEquip: false
@@ -2256,6 +3232,47 @@
   id: N14WeaponRifle556EnfieldXL70E3Sirius
   description: A long bullpup assault rifle, uses 5.56 ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel556Standard
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameBullpupGraph
+    node: done_N14WeaponRifle556EnfieldXL70E3Sirius
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556EnfieldXL70E3Sirius
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/enfieldxl70e3.rsi
     quickEquip: false
@@ -2335,6 +3352,47 @@
   id: N14WeaponRifle556SteirSirius
   description: A sleek black compact assault rifle, uses 5.56 ammo.
   components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel556Light
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameCarbineGraph
+    node: done_N14WeaponRifle556SteirSirius
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle556SteirSirius
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/steir.rsi
     quickEquip: false

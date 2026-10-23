@@ -1,4 +1,5 @@
 using Content.Client.Items;
+using Content.Client.Message;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory.VirtualItem;
@@ -103,6 +104,8 @@ public sealed partial class ItemStatusPanel : Control
         if (entity == null)
         {
             ItemNameLabel.Text = "";
+            ExtraLabel.Visible = false;
+            ExtraLabel.SetMarkup("");
             ClearOldStatus();
             _entity = null;
             return;
@@ -120,6 +123,15 @@ public sealed partial class ItemStatusPanel : Control
     public void UpdateHighlight(bool highlight)
     {
         HighlightPanel.Visible = highlight;
+    }
+
+    // #Misfits Add - optional extra line above the item name, used by the weapon
+    // assembly station to print exact durability numbers next to each slot.
+    // Takes markup so the caller can colour the readout by damage level.
+    public void SetExtraText(string? text)
+    {
+        ExtraLabel.Visible = !string.IsNullOrEmpty(text);
+        ExtraLabel.SetMarkup(text ?? string.Empty);
     }
 
     private void UpdateItemName()

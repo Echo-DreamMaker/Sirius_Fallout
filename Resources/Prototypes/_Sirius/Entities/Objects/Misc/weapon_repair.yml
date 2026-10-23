@@ -1,0 +1,38 @@
+# #Misfits Add - Weapon maintenance tools used by the durability repair system.
+
+- type: entity
+  parent: BaseItem
+  id: N14WeaponCleaningRod
+  name: gun cleaning rod
+  description: A long bronze rod with a jagged tip. Pushed down a fouled bore, it scrapes the caked powder out of a barrel.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    state: rod
+  - type: Item
+    size: Small
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    shape:
+    - 0,0,3,0
+  - type: Tag
+    tags:
+    - N14GunCleaningRod
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+
+- type: entity
+  parent: BaseItem
+  id: N14Whetstone
+  name: whetstone
+  description: A worn block of grey stone. Dragging a blade across it restores a keen edge to nicked steel.
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/ingots.rsi
+    state: iron
+  - type: Item
+    size: Small
+    sprite: Objects/Materials/ingots.rsi
+  - type: Tag
+    tags:
+    - N14Whetstone

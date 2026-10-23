@@ -4,6 +4,13 @@
   id: N14Machete
   description: A large, vicious looking blade.
   components:
+  # #Misfits Add - Melee durability (longblade tier: 750, whetstone-recoverable).
+  - type: WeaponDurability
+    frameMax: 750
+    recoverable: true
+    features:
+    - Drop
+    - DamageDown
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
   - type: EmbedPassiveDamage
@@ -308,6 +315,13 @@
   id: N14BumperSwordSirius
   description: A bigger, heavier, and more destructive sword.
   components:
+  # #Misfits Add - Melee durability (longblade tier: 750, whetstone-recoverable).
+  - type: WeaponDurability
+    frameMax: 750
+    recoverable: true
+    features:
+    - Drop
+    - DamageDown
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Melee/bumper_sword.rsi
     state: icon

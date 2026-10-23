@@ -4,6 +4,9 @@
   id: MisfitsPlasmaCutter
   description: A mobile cutting device with a modular assortment of "blades" formed by superheated plasma.
   components:
+  # #Misfits Add - Melee durability (1250 tier, no drawbacks).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: EnergySword
     activatedColor: "#29e21c"
     colorOptions:

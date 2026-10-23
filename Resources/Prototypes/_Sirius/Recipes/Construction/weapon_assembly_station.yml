@@ -1,0 +1,20 @@
+# #Misfits Add - Construction recipe for the weapon assembly station.
+- type: construction
+  name: weapon assembly station
+  id: N14WeaponAssemblyStation
+  graph: N14WeaponAssemblyStation
+  startNode: start
+  targetNode: WeaponAssemblyStation
+  category: construction-category-machines
+  description: A pre-war precision bench used to assemble, strip down and repair firearms.
+  icon:
+    sprite: _Nuclear14/Structures/Misc/workbenches.rsi
+    state: weaponbench
+  offset: 0.5, 0
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  canRotate: true
+  hide: false
+  conditions:
+    - !type:TileNotBlocked

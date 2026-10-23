@@ -4,6 +4,9 @@
   id: N14BaseBallBat
   description: A robust baseball bat.
   components:
+  # #Misfits Add - Melee durability (1250 tier, no drawbacks).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Sprite
     sprite: Objects/Weapons/Melee/baseball_bat.rsi
     state: icon
@@ -51,6 +54,9 @@
   id: N14PoolCue
   description: A pool cue used for hitting balls, usually the ones on pool tables, but also occasionally your enemy's.
   components:
+  # #Misfits Add - Melee durability (1250 tier, no drawbacks).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Melee/pool_cue.rsi
     state: icon
@@ -105,6 +111,9 @@
   id: N14GolfClub
   description: A tool used for a pointless old-world sport, now used as an instrument of destruction.
   components:
+  # #Misfits Add - Melee durability (1250 tier, no drawbacks).
+  - type: WeaponDurability
+    frameMax: 1250
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Melee/golf_club.rsi
     state: icon

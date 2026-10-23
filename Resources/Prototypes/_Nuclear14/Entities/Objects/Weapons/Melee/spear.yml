@@ -4,6 +4,13 @@
   id: baseThrowingSpear
   description: Definition of a classic. Keeping murder affordable since 200,000 BCE.
   components:
+  # #Misfits Add - Melee durability (spear tier: 750, whetstone-recoverable).
+  - type: WeaponDurability
+    frameMax: 750
+    recoverable: true
+    features:
+    - Drop
+    - DamageDown
   - type: EmbeddableProjectile
     offset: 0.15,0.15
   - type: EmbedPassiveDamage
@@ -89,6 +96,13 @@
   id: N14WastelandSpear
   description: Definition of a classic. Keeping murder affordable since 200,000 BCE.
   components:
+  # #Misfits Add - Melee durability (spear tier: 750, whetstone-recoverable).
+  - type: WeaponDurability
+    frameMax: 750
+    recoverable: true
+    features:
+    - Drop
+    - DamageDown
   - type: Wieldable
   - type: StrengthRequirement
     requiredStrength: 4
