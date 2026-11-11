@@ -151,6 +151,8 @@
 - type: Tag
   id: N14PartBarrel556Sniper
 - type: Tag
+  id: N14PartBarrel545Standard
+- type: Tag
   id: N14PartBarrel762Standard
 - type: Tag
   id: N14PartBarrel762Light

@@ -156,3 +156,4 @@ misfits-weapon-repair-nofuel = В сварочном аппарате закон
 
 misfits-weapon-part-examine = [color={$color}]Состояние: {$state}[/color]
 misfits-weapon-part-examine-fouled = [color=#a8a8a8]Канал ствола засорён; шомпол ещё может восстановить часть.[/color]
+misfits-weapon-part-examine-fouled-optics = [color=#a8a8a8]Оптика загрязнена; шомпол ещё может восстановить часть.[/color]

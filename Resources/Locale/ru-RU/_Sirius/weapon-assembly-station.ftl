@@ -29,6 +29,7 @@ misfits-weapon-station-repaired = Вы заканчиваете ремонт о�
 misfits-weapon-station-need-stripped = Сначала разберите оружие, чтобы взяться за раму.
 misfits-weapon-station-cannot-repair = Станок не может это починить.
 misfits-weapon-station-repair-empty = В этом слоте нечего чинить.
+misfits-weapon-station-progress-label = Ход работы
 
 misfits-weapon-station-slot-weapon = оружие
 misfits-weapon-station-slot-barrel = ствол / оптика

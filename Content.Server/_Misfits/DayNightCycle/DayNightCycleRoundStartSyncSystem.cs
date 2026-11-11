@@ -25,9 +25,15 @@ public sealed class DayNightCycleRoundStartSyncSystem : EntitySystem
     {
         var timestamp = (float) _timing.CurTime.TotalSeconds;
         var query = EntityQueryEnumerator<DayNightCycleComponent>();
-        while (query.MoveNext(out _, out var dayNight))
+        while (query.MoveNext(out var uid, out var dayNight))
         {
             dayNight.RoundStartTimeSeconds = timestamp;
+            // #Misfits Fix - RoundStartTimeSeconds is an AutoNetworkedField that
+            // was mutated without a Dirty, so clients already present at round
+            // start kept the previous (stale, usually zero) timestamp and
+            // computed the cycle phase from the full server CurTime instead of
+            // the round start.
+            Dirty(uid, dayNight);
         }
     }
 }

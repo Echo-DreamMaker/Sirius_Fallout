@@ -18,13 +18,9 @@
     equippedPrefix: unlit
   - type: Item
     size: Tiny
-  - type: SolutionContainerManager
-    solutions:
-      smokable:
-        maxVol: 100
-        reagents:
-          - ReagentId: Nicotine
-            Quantity: 100
+  # #Misfits Fix - the smokable solution was overridden to 100 maxVol with
+  # 100 Nicotine (vanilla: 20 / 10), so one cigarette burned and dosed for
+  # half an hour. Inherit the vanilla solution again (~3 min of smoke).
 
 
 - type: entity

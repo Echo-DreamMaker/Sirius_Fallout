@@ -29,6 +29,7 @@ misfits-weapon-station-repaired = You finish repairing the weapon.
 misfits-weapon-station-need-stripped = Take the weapon apart before working on its receiver.
 misfits-weapon-station-cannot-repair = The station cannot repair this.
 misfits-weapon-station-repair-empty = There is nothing in that slot to repair.
+misfits-weapon-station-progress-label = Work in progress
 
 misfits-weapon-station-slot-weapon = weapon
 misfits-weapon-station-slot-barrel = barrel / optics

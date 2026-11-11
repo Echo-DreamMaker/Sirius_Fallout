@@ -108,6 +108,8 @@ ent-N14WeaponPartBarrel556Suppressed = ствол с глушителем 5.56 (
     .desc = Ствол 5.56 со встроенным глушителем. Тихий, но быстро нагревается.
 ent-N14WeaponPartBarrel556Sniper = снайперский ствол 5.56 (деталь)
     .desc = Особо точный нарезной ствол 5.56 для винтовок с оптикой.
+ent-N14WeaponPartBarrel545Standard = обычный ствол 5.45 (деталь)
+    .desc = Нарезной ствол под старый патрон 5.45.
 ent-N14WeaponPartBarrel762Standard = обычный ствол 7.62 (деталь)
     .desc = Нарезной ствол под патрон 7.62.
 ent-N14WeaponPartBarrel762Light = облегчённый ствол 7.62 (деталь)
@@ -213,6 +215,7 @@ ent-N14Whetstone = точильный камень
 
 ent-N14WeaponRifle556R91NoStock = винтовка R-91 (без приклада)
 ent-N14WeaponRifleInfiltratorNoStock = Инфильтратор (без приклада)
+ent-N14WeaponRifle545ChineseNoStock = Китайская штурмовая винтовка (без приклада)
 ent-N14WeaponRifle556ServiceNoStock = служебная винтовка (без приклада)
 ent-N14WeaponRifle556ServiceScopedNoStock = боевая винтовка с прицелом (без приклада)
 ent-N14WeaponRifle556ScoutNoStock = разведывательная винтовка (без приклада)

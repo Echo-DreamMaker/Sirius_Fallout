@@ -86,6 +86,21 @@ public sealed partial class WeaponAssemblyStationComponent : Component
     [ViewVariables]
     public bool IsBusy = false;
 
+    // #Misfits Add - progress bar: the station keeps the wall clock end time of
+    // whatever it is doing, so the UI can draw a filling bar instead of a
+    // spinner. Both are in IGameTiming.CurTime seconds. The end time is a
+    // double because CurTime itself is: after a long uptime a float would only
+    // resolve the deadline to a fraction of a second.
+    [ViewVariables]
+    public double OperationEndTime;
+
+    [ViewVariables]
+    public float OperationDuration;
+
+    /// <summary>Progress of the running operation, 0..1, refreshed by the system's tick.</summary>
+    [ViewVariables]
+    public float Progress;
+
     [Serializable, NetSerializable]
     public enum WeaponAssemblyVisuals : byte
     {

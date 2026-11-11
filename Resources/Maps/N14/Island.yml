@@ -53114,6 +53114,11 @@ entities:
     - type: Roof
       data: {}
     - type: DayNightCycle
+      # #Misfits Change - kept in step with the map entity above: 24 real
+      # minutes per cycle, rounds begin at noon. (This grid copy has no
+      # MapLight and does not render, but it must not disagree with the map.)
+      cycleDuration: 24
+      startOffset: 0.5
       timeEntries:
       - colorHex: '#000000'
       - time: 0.04

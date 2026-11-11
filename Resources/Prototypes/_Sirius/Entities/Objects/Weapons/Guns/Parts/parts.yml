@@ -1035,6 +1035,21 @@
       max: 250
 - type: entity
   parent: N14WeaponPartBase
+  id: N14WeaponPartBarrel545Standard
+  name: standard 5-45 barrel (part)
+  description: A rifled barrel chambered for the old 5.45 ammunition.
+  components:
+    - type: Sprite
+      state: barrel
+    - type: Tag
+      tags:
+        - N14PartBarrel
+        - N14PartBarrel545Standard
+    - type: WeaponPartDurability
+      role: Barrel
+      max: 250
+- type: entity
+  parent: N14WeaponPartBase
   id: N14WeaponPartBarrel762Standard
   name: standard 7-62 barrel (part)
   description: A rifled barrel chambered for 7.62 ammunition.

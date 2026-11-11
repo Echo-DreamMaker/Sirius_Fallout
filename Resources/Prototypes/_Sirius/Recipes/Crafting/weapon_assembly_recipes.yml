@@ -52,6 +52,26 @@
     - N14WeaponPartGrip
     - null
   magazine: Magazine556Rifle
+- type: weaponAssemblyRecipe
+  id: N14WeaponRifle545Chinese
+  result: N14WeaponRifle545Chinese
+  frame: N14WeaponPartFrameAssault
+  parts:
+    - N14WeaponPartBarrel545Standard
+    - N14WeaponPartBoltGas
+    - N14WeaponPartGrip
+    - N14WeaponPartStockWooden
+  magazine: Magazine545Rifle
+- type: weaponAssemblyRecipe
+  id: N14WeaponRifle545ChineseNoStock
+  result: N14WeaponRifle545ChineseNoStock
+  frame: N14WeaponPartFrameAssault
+  parts:
+    - N14WeaponPartBarrel545Standard
+    - N14WeaponPartBoltGas
+    - N14WeaponPartGrip
+    - null
+  magazine: Magazine545Rifle
 #MARK: service rifle frame
 - type: weaponAssemblyRecipe
   id: N14WeaponRifle556Service

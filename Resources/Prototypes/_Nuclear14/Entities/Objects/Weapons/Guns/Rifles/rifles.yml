@@ -180,6 +180,49 @@
   id: N14WeaponRifle545Chinese
   description: An old foreign assault rifle with strange symbols on it, it is chambered in the old 5.45 ammunition.
   components:
+  # #Misfits Add - Modular receiver: this rifle is built from, and stripped
+  # back into, loose parts (frame IncompleteN14WeaponPartFrameAssault).
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel545Standard
+      craft_stock:
+        - N14WeaponPartStockWooden
+  - type: Construction
+    graph: N14WeaponPartFrameAssaultGraph
+    node: done_N14WeaponRifle545Chinese
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifle545Chinese
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/chineserifle.rsi
     quickEquip: false

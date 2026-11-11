@@ -21,6 +21,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Sirius.WeaponAssemblyStation;
 
@@ -39,6 +40,7 @@ public sealed partial class WeaponAssemblyStationSystem : EntitySystem
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly SharedToolSystem _tool = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private static readonly SoundPathSpecifier BoltSound = new("/Audio/Items/ratchet.ogg");
     private const string AnchoringQuality = "Anchoring";
@@ -75,6 +77,45 @@ public sealed partial class WeaponAssemblyStationSystem : EntitySystem
             return;
 
         UpdateUi(uid, comp);
+    }
+
+    // #Misfits Add - drive the UI progress bar. The bar is a pure estimate: the
+    // station knows when the running do-after should end, so it reports a
+    // fraction of that time rather than tracking the do-after itself. Nothing is
+    // sent once the value settles at 0 or while the percentage does not move,
+    // which keeps an idle station off the network entirely.
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var now = _timing.CurTime.TotalSeconds;
+        var query = EntityQueryEnumerator<WeaponAssemblyStationComponent>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!comp.IsBusy || comp.OperationDuration <= 0f)
+            {
+                if (comp.Progress == 0f)
+                    continue;
+
+                comp.Progress = 0f;
+                UpdateUi(uid, comp);
+                continue;
+            }
+
+            var progress = (float) Math.Clamp(
+                1.0 - (comp.OperationEndTime - now) / comp.OperationDuration,
+                0.0,
+                1.0);
+
+            // 2% steps are smooth enough for a 240 px bar and cap the traffic at
+            // roughly 50 updates for an eight second assembly.
+            if (progress < 1f && MathF.Abs(progress - comp.Progress) < 0.02f)
+                continue;
+
+            comp.Progress = progress;
+            UpdateUi(uid, comp);
+        }
     }
 
     private void OnInit(EntityUid uid, WeaponAssemblyStationComponent comp, ComponentInit args)
@@ -343,7 +384,8 @@ public sealed partial class WeaponAssemblyStationSystem : EntitySystem
                 weaponCurrent,
                 weaponMax,
                 fuel,
-                fuelMax));
+                fuelMax,
+                comp.Progress));
     }
 
     public void UpdateAppearance(EntityUid uid, WeaponAssemblyStationComponent comp)

@@ -15,13 +15,9 @@
   - type: Perishable
     rotAfter: 1800 # Half an in-game day.
   - type: Hunger # Forge-Change
-    baseDecayRate: 0.004 # Misfits Tweak - halved from 0.008 so hunger depletes ~2x slower; Peckish reached ~3.5hrs from typical start vs ~1.7hrs vanilla
-    hungerThresholdDecayModifiers:
-      Overfed: 1
-      Okay: 0.6
-      Peckish: 0.5
-      Starving: 0.4
-      Dead: 0
+    # #Misfits Change - decay rates back to the component defaults (0.008 with
+    # the vanilla threshold modifiers): the halved rates below left humans fed
+    # for hours and made the survival loop unnoticeable.
     starvationDamage:      # Misfits Change - use custom Starvation type
       types:
         Starvation: 0.15
@@ -33,7 +29,8 @@
     sprite: Mobs/Species/Human/parts.rsi
     state: full
   - type: Thirst
-    baseDecayRate: 0.02 # Misfits Tweak - reduced from 0.1 (5x slower); first "Thirsty" ~1hr from typical start vs ~13min vanilla; not Parched until ~2hrs
+    # #Misfits Change - back to the component default 0.1 decay: the 0.02
+    # override meant players effectively never got thirsty.
     dehydrationDamage:  # Misfits Add - Dehydration damage
       types:
         Dehydration: 0.15
