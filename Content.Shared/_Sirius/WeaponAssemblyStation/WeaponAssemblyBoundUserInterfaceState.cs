@@ -37,6 +37,10 @@ public sealed class WeaponAssemblyBoundUserInterfaceState : BoundUserInterfaceSt
     public float Fuel;
     public float FuelMax;
 
+    // #Misfits Add - how far the running operation has got, 0..1. The client
+    // draws it as a progress bar under the repair buttons.
+    public float Progress;
+
     public WeaponAssemblyBoundUserInterfaceState(
         bool powered,
         bool isBusy,
@@ -52,7 +56,8 @@ public sealed class WeaponAssemblyBoundUserInterfaceState : BoundUserInterfaceSt
         float weaponCurrent,
         float weaponMax,
         float fuel,
-        float fuelMax)
+        float fuelMax,
+        float progress)
     {
         Powered = powered;
         IsBusy = isBusy;
@@ -69,5 +74,6 @@ public sealed class WeaponAssemblyBoundUserInterfaceState : BoundUserInterfaceSt
         WeaponMax = weaponMax;
         Fuel = fuel;
         FuelMax = fuelMax;
+        Progress = progress;
     }
 }

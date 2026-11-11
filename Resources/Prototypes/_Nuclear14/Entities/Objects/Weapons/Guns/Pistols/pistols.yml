@@ -143,13 +143,17 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
-  - type: ChamberMagazineAmmoProvider
-    soundRack:
-      path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_cock.ogg
+  # #Misfits Fix - this base fed weapons a second, always-empty chamber
+  # provider on top of their own BallisticAmmoProvider: the chinese and spy
+  # pistols counted a phantom +1 round in the HUD and mixed chamber/magazine
+  # text into examine, while the chamber had no ItemSlots entry and could
+  # never actually be loaded. It is a pure internal-magazine base now: the
+  # children's BallisticAmmoProvider is the single source of rounds, and the
+  # AmmoCounter makes the held-gun readout show it truthfully.
+  - type: AmmoCounter
   - type: ContainerContainer
     containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
+      ballistic-ammo: !type:Container
       gun_top: !type:ContainerSlot
       gun_muzzle: !type:ContainerSlot
       gun_bottom: !type:ContainerSlot

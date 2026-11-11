@@ -65,6 +65,12 @@ public sealed partial class WeaponAssemblyStationSystem
 
     private void StartRepairStep(EntityUid uid, WeaponAssemblyStationComponent comp, EntityUid user, int step)
     {
+        // #Misfits Add - one stroke is one bar fill; a long repair run pulses
+        // the bar once per stroke rather than pretending to know the total.
+        comp.OperationDuration = comp.RepairStepDelay;
+        comp.OperationEndTime = _timing.CurTime.TotalSeconds + comp.OperationDuration;
+        comp.Progress = 0f;
+
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user,
             comp.RepairStepDelay,
             new WeaponRepairDoAfterEvent { Step = step },

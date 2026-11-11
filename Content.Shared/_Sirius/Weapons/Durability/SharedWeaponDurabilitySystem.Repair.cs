@@ -19,6 +19,9 @@
 // tape binds a loose stock or grip and glue mends a loose bolt, but neither
 // ever touches a barrel - the fouling and dents a barrel picks up only come
 // back out with the cleaning rod.
+// #Misfits Fix - barrel-less modular energy weapons have no barrel to swab:
+// their optics take the same recoverable shot fouling, so the rod cleans
+// the optics when the weapon carries no barrel part.
 using System;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -261,7 +264,9 @@ public sealed partial class SharedWeaponDurabilitySystem
         EntityUid used)
     {
         GetParts(uid, _parts);
-        if (comp.Modular && TryGetPart(_parts, WeaponPartRole.Barrel, out var barrel) && IsSwabbable(barrel))
+        // #Misfits Fix - barrel-less modular energy weapons have their shot
+        // fouling on the optics, so the rod looks there too.
+        if (comp.Modular && TryGetSwabbablePart(_parts, out var cleanable))
         {
             if (StartRodDoAfter(uid, args.User, used))
             {
@@ -272,7 +277,7 @@ public sealed partial class SharedWeaponDurabilitySystem
             return;
         }
 
-        // No barrel to clean: store the rod in the weapon's underbarrel slot.
+        // No barrel or optics to clean: store the rod in the weapon's underbarrel slot.
         if (_container.TryGetContainer(uid, UnderbarrelSlot, out var slot) && slot.ContainedEntities.Count == 0)
         {
             if (_container.Insert(used, slot))
@@ -295,26 +300,28 @@ public sealed partial class SharedWeaponDurabilitySystem
             return;
 
         GetParts(uid, _parts);
-        if (!TryGetPart(_parts, WeaponPartRole.Barrel, out var barrel) || !ApplyRodHeal(barrel))
+        // #Misfits Fix - the rod works the optics as well as the barrel.
+        if (!TryGetSwabbablePart(_parts, out var cleanable) || !ApplyRodHeal(cleanable))
             return;
 
         AfterWear(uid, comp);
         _popup.PopupEntity(Loc.GetString("misfits-weapon-repair-rod"), uid, args.User);
 
         // Keep going while there is anything left to clean.
-        if (IsSwabbable(barrel))
+        if (IsSwabbable(cleanable))
             ContinueRodClean(args.User, uid, args.Used);
     }
 
     /// <summary>
     ///     #Misfits Fix - a barrel out of the weapon can be swabbed too: the
     ///     wear it accumulated travels with the part, so there is no reason the
-    ///     cleaning rod only works once it is back in a receiver.
+    ///     cleaning rod only works once it is back in a receiver. The optics of
+    ///     a barrel-less energy weapon swab the same way.
     /// </summary>
     private bool TryStartBarrelRodClean(EntityUid uid, WeaponPartDurabilityComponent comp, EntityUid user,
         EntityUid rod)
     {
-        if (comp.Role != WeaponPartRole.Barrel)
+        if (comp.Role is not (WeaponPartRole.Barrel or WeaponPartRole.Optics))
             return false;
 
         if (!IsSwabbable(comp))
@@ -333,7 +340,7 @@ public sealed partial class SharedWeaponDurabilitySystem
     private void OnPartRodRepairFinished(EntityUid uid, WeaponPartDurabilityComponent comp,
         WeaponCleaningRodRepairDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || comp.Role != WeaponPartRole.Barrel)
+        if (args.Cancelled || args.Handled || comp.Role is not (WeaponPartRole.Barrel or WeaponPartRole.Optics))
             return;
 
         if (!ApplyRodHeal(comp))
@@ -504,6 +511,20 @@ public sealed partial class SharedWeaponDurabilitySystem
 
         part = null!;
         return false;
+    }
+
+    /// <summary>
+    ///     #Misfits Fix - finds the part the cleaning rod can work on: the
+    ///     barrel first, and when the weapon carries none (modular energy
+    ///     guns) the optics its shots foul instead.
+    /// </summary>
+    private static bool TryGetSwabbablePart(List<(EntityUid Uid, WeaponPartDurabilityComponent Comp)> parts,
+        out WeaponPartDurabilityComponent part)
+    {
+        if (TryGetPart(parts, WeaponPartRole.Barrel, out part) && IsSwabbable(part))
+            return true;
+
+        return TryGetPart(parts, WeaponPartRole.Optics, out part) && IsSwabbable(part);
     }
 
     #endregion

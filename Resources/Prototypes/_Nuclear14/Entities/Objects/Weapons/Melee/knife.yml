@@ -4,8 +4,11 @@
   abstract: true
   components:
   # #Misfits Add - Melee durability (knife tier: 500, wears with damage drop-off).
+  # #Misfits Fix - recoverable so a whetstone can put melee wear back; without it
+  # knives accumulated no deferred wear and had "nothing to repair".
   - type: WeaponDurability
     frameMax: 500
+    recoverable: true
     features:
     - Drop
     - DamageDown

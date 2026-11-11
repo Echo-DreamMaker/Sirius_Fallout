@@ -130,6 +130,58 @@
       modular: true
     - type: Damageable
       damageContainer: WeaponDurability
+- type: entity
+  parent: N14WeaponRifle545Chinese
+  id: N14WeaponRifle545ChineseNoStock
+  name: chinese assault rifle (no stock)
+  description: "An old foreign assault rifle with strange symbols on it, it is chambered in the old 5.45 ammunition. Without a stock it kicks all over the place."
+  components:
+    - type: ContainerContainer
+      containers:
+        gun_top: !type:ContainerSlot
+        gun_muzzle: !type:ContainerSlot
+        gun_bottom: !type:ContainerSlot
+        gun_handle: !type:ContainerSlot
+        gun_magazine: !type:ContainerSlot
+        gun_chamber: !type:ContainerSlot
+        craft_grip: !type:Container
+        craft_bolt: !type:Container
+        craft_barrel: !type:Container
+        craft_stock: !type:Container
+        craft_magazine: !type:Container
+    - type: Gun
+      minAngle: 32
+      maxAngle: 52
+      angleIncrease: 5
+      angleDecay: 12
+    - type: ContainerFill
+      ignoreConstructionSpawn: true
+      containers:
+        craft_grip:
+          - N14WeaponPartGrip
+        craft_bolt:
+          - N14WeaponPartBoltGas
+        craft_barrel:
+          - N14WeaponPartBarrel545Standard
+        craft_stock:
+          - N14WeaponPartStockWooden
+    - type: Construction
+      graph: N14WeaponPartFrameAssaultGraph
+      node: done_N14WeaponRifle545ChineseNoStock
+      deconstructionTarget: start
+      containers:
+        - craft_grip
+        - craft_bolt
+        - craft_barrel
+        - craft_stock
+        - craft_magazine
+    - type: WeaponFrame
+      assemblyTarget: done_N14WeaponRifle545ChineseNoStock
+    - type: WeaponDurability
+      frameMax: 500
+      modular: true
+    - type: Damageable
+      damageContainer: WeaponDurability
 #MARK: service rifle frame
 - type: entity
   parent: N14WeaponRifle556Service

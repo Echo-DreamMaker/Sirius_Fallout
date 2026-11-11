@@ -5,8 +5,10 @@
   description: A tool that's just as useful as a weapon. Used for chopping things.
   components:
   # #Misfits Add - Melee durability (1250 tier).
+  # #Misfits Fix - recoverable so the whetstone works on hatchets.
   - type: WeaponDurability
     frameMax: 1250
+    recoverable: true
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Melee/hatchet.rsi
     slots:
@@ -47,8 +49,10 @@
   description: A tool that's just as useful as a weapon. Used for chopping things.
   components:
   # #Misfits Add - Melee durability (1250 tier).
+  # #Misfits Fix - recoverable so the whetstone works on tribal hatchets.
   - type: WeaponDurability
     frameMax: 1250
+    recoverable: true
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Melee/tribalhatchet.rsi
     slots:
@@ -116,8 +120,10 @@
   description: A heavy wood axe, classic tool and weapon.
   components:
   # #Misfits Add - Melee durability (heavy tier: 1250, no drawbacks).
+  # #Misfits Fix - recoverable so the whetstone works on axes.
   - type: WeaponDurability
     frameMax: 1250
+    recoverable: true
   - type: Tag
     tags:
     - FireAxe

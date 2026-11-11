@@ -437,7 +437,10 @@ public sealed partial class ShowMoodEffects : IAlertClick
         var chatManager = IoCManager.Resolve<IChatManager>();
 
         var color = (proto.MoodChange > 0) ? "#008000" : "#BA0000";
-        var msg = $"[font size=10][color={color}]{proto.Description}[/color][/font]";
+        // #Misfits Change - lead with the effect's mood value so the readout
+        // shows how much each factor contributes, not just that it exists.
+        var value = proto.MoodChange.ToString("+0.#;-0.#");
+        var msg = $"[font size=10][color={color}]{value}: {proto.Description}[/color][/font]";
 
         chatManager.ChatMessageToOne(
             ChatChannel.Emotes,

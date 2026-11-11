@@ -77,6 +77,7 @@ public sealed partial class WeaponAssemblyStationWindow : DefaultWindow
         // #Misfits Add - the repair buttons mirror WeaponAssemblyUiButton's own
         // repair order, so the index doubles as the operation the server runs.
         RepairLabel.Text = Loc.GetString("misfits-weapon-station-repair-label");
+        OperationLabel.Text = Loc.GetString("misfits-weapon-station-progress-label");
         _repairButtons[0] = RepairBodyButton;
         _repairButtons[1] = RepairBarrelButton;
         _repairButtons[2] = RepairBoltButton;
@@ -253,6 +254,16 @@ public sealed partial class WeaponAssemblyStationWindow : DefaultWindow
         }
 
         UpdateFuel(state.Fuel, state.FuelMax);
+        UpdateProgress(state.Progress, state.IsBusy);
+    }
+
+    // #Misfits Add - the operation bar only shows while the station is working;
+    // the server reports a fraction of the do-after's run time.
+    private void UpdateProgress(float progress, bool busy)
+    {
+        OperationLabel.Visible = busy;
+        OperationBar.Visible = busy;
+        OperationBar.Value = busy ? Math.Clamp(progress * 100f, 0f, 100f) : 0f;
     }
 
     // #Misfits Add - welding fuel gauge in the bottom-right of the window.

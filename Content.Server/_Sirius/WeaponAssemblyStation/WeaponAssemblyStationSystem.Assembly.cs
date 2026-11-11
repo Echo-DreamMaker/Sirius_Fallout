@@ -141,6 +141,11 @@ public sealed partial class WeaponAssemblyStationSystem
     {
         comp.IsBusy = true;
 
+        // #Misfits Add - hand the UI a deadline for its progress bar.
+        comp.OperationDuration = assemble ? comp.AssembleDelay : comp.DisassembleDelay;
+        comp.OperationEndTime = _timing.CurTime.TotalSeconds + comp.OperationDuration;
+        comp.Progress = 0f;
+
         // The weapon is clamped for the duration of the operation, whatever the
         // bolt state was beforehand.
         _itemSlots.SetLock(uid, WeaponAssemblyStationComponent.MainSlotId, true);

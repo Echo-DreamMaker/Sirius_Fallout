@@ -221,6 +221,13 @@
   materials:
     Steel: 150
 - type: latheRecipe
+  id: N14WeaponPartBarrel545Standard
+  result: N14WeaponPartBarrel545Standard
+  category: N14Parts
+  completetime: 4
+  materials:
+    Steel: 150
+- type: latheRecipe
   id: N14WeaponPartBarrel762Standard
   result: N14WeaponPartBarrel762Standard
   category: N14Parts

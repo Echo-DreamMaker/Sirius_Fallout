@@ -90,6 +90,13 @@
               name: suppressed 5-56 barrel
               icon: {sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi, state: barrel}
               doAfter: 2
+        - to: seat_grip_gas_545_standard
+          steps:
+            - tag: N14PartBarrel545Standard
+              store: craft_barrel
+              name: standard 5-45 barrel
+              icon: {sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi, state: barrel}
+              doAfter: 2
     - node: seat_grip_gas
       entity: IncompleteN14WeaponPartFrameAssault
       edges:
@@ -106,6 +113,47 @@
               completed:
                 - !type:EmptyContainer
                   container: craft_bolt
+                  pickup: true
+    - node: sec_grip_gas_545_standard
+      entity: IncompleteN14WeaponPartFrameAssault
+      edges:
+        - to: seat_grip_gas_545_standard
+          steps:
+            - tool: Welding
+              doAfter: 1.5
+              examine: misfits-weapon-step-barrel-disassemble
+        - to: seat_grip_gas_545_standard_wooden
+          steps:
+            - tag: N14PartStockWooden
+              store: craft_stock
+              name: wooden stock
+              icon: {sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi, state: stockwood}
+              doAfter: 2
+        - to: done_N14WeaponRifle545ChineseNoStock
+          steps:
+            - tag: Magazine545Rifle
+              store: craft_magazine
+              name: 5-45 magazine
+              doAfter: 2
+            - tool: Screwing
+              doAfter: 2
+              examine: misfits-weapon-step-final-assemble
+    - node: seat_grip_gas_545_standard
+      entity: IncompleteN14WeaponPartFrameAssault
+      edges:
+        - to: sec_grip_gas_545_standard
+          steps:
+            - tool: Welding
+              doAfter: 3
+              examine: misfits-weapon-step-barrel-assemble
+        - to: sec_grip_gas
+          steps:
+            - tool: Prying
+              doAfter: 1.5
+              examine: misfits-weapon-step-barrel-pry
+              completed:
+                - !type:EmptyContainer
+                  container: craft_barrel
                   pickup: true
     - node: sec_grip_gas_556_standard
       entity: IncompleteN14WeaponPartFrameAssault
@@ -231,6 +279,27 @@
                 - !type:EmptyContainer
                   container: craft_stock
                   pickup: true
+    - node: seat_grip_gas_545_standard_wooden
+      entity: IncompleteN14WeaponPartFrameAssault
+      edges:
+        - to: done_N14WeaponRifle545Chinese
+          steps:
+            - tag: Magazine545Rifle
+              store: craft_magazine
+              name: 5-45 magazine
+              doAfter: 2
+            - tool: Screwing
+              doAfter: 2
+              examine: misfits-weapon-step-stock-assemble
+        - to: sec_grip_gas_545_standard
+          steps:
+            - tool: Prying
+              doAfter: 1.5
+              examine: misfits-weapon-step-stock-pry
+              completed:
+                - !type:EmptyContainer
+                  container: craft_stock
+                  pickup: true
     - node: done_N14WeaponRifle556R91
       entity: N14WeaponRifle556R91
       edges:
@@ -346,6 +415,69 @@
               doAfter: 2
               examine: misfits-weapon-step-final-disassemble
         - to: done_N14WeaponRifleInfiltratorNoStock
+          steps:
+            - tool: Prying
+              doAfter: 2
+              examine: misfits-weapon-step-final-pry
+              completed:
+                - !type:EmptyItemSlot
+                  slot: gun_magazine
+                  pickup: true
+                - !type:EmptyItemSlot
+                  slot: gun_chamber
+                  pickup: true
+    - node: done_N14WeaponRifle545Chinese
+      entity: N14WeaponRifle545Chinese
+      edges:
+        - to: seat_grip_gas_545_standard_wooden
+          conditions:
+            - !type:ContainerEmpty
+              container: gun_magazine
+              examineText: misfits-weapon-need-empty-magazine
+            - !type:ContainerEmpty
+              container: gun_chamber
+              examineText: misfits-weapon-need-empty-chamber
+          steps:
+            - tool: Screwing
+              doAfter: 2
+              examine: misfits-weapon-step-stock-disassemble
+        - to: done_N14WeaponRifle545Chinese
+          steps:
+            - tool: Prying
+              doAfter: 2
+              examine: misfits-weapon-step-final-pry
+              completed:
+                - !type:EmptyItemSlot
+                  slot: gun_magazine
+                  pickup: true
+                - !type:EmptyItemSlot
+                  slot: gun_chamber
+                  pickup: true
+        - to: done_N14WeaponRifle545ChineseNoStock
+          steps:
+            - tool: Sawing
+              doAfter: 2
+              examine: misfits-weapon-step-stock-saw
+              completed:
+                - !type:EmptyContainer
+                  container: craft_stock
+                  pickup: true
+    - node: done_N14WeaponRifle545ChineseNoStock
+      entity: N14WeaponRifle545ChineseNoStock
+      edges:
+        - to: sec_grip_gas_545_standard
+          conditions:
+            - !type:ContainerEmpty
+              container: gun_magazine
+              examineText: misfits-weapon-need-empty-magazine
+            - !type:ContainerEmpty
+              container: gun_chamber
+              examineText: misfits-weapon-need-empty-chamber
+          steps:
+            - tool: Screwing
+              doAfter: 2
+              examine: misfits-weapon-step-final-disassemble
+        - to: done_N14WeaponRifle545ChineseNoStock
           steps:
             - tool: Prying
               doAfter: 2

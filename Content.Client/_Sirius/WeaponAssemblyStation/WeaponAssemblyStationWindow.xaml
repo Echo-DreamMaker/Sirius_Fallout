@@ -19,6 +19,10 @@
                 <Button Name="RepairBoltButton" HorizontalExpand="True" />
                 <Button Name="RepairGripButton" HorizontalExpand="True" />
                 <Button Name="RepairStockButton" HorizontalExpand="True" />
+                <!-- #Misfits Add - progress of the operation the station is running,
+                     between the repair buttons and the fuel gauge. -->
+                <Label Name="OperationLabel" HorizontalAlignment="Center" Visible="False" />
+                <ProgressBar Name="OperationBar" MinHeight="16" HorizontalExpand="True" Visible="False" />
                 <!-- #Misfits Add - welding fuel gauge, pinned to the bottom of the column. -->
                 <Control VerticalExpand="True" MinHeight="8" />
                 <Label Name="FuelLabel" HorizontalAlignment="Center" />

@@ -37,6 +37,7 @@ namespace Content.Shared._Sirius.Weapons.Durability;
 public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
 {
     private const string StockContainer = "craft_stock";
+    private const string GripContainer = "craft_grip";
 
     // Fraction of the barrel's per-shot wear that is recoverable.
     private const float BarrelDeferredFraction = 0.9f;
@@ -151,7 +152,12 @@ public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
 
         if (comp.Modular)
         {
-            if (!HasPart(_parts, WeaponPartRole.Barrel))
+            // #Misfits Fix - modular energy weapons carry no barrel part at
+            // all (their receivers only take drive/bolt/optics/stock), so
+            // requiring a Barrel here cancelled every shot server-side while
+            // the client still predicted the beam. A barrel-less modular
+            // weapon aims through its optics instead.
+            if (!HasPart(_parts, WeaponPartRole.Barrel) && !HasPart(_parts, WeaponPartRole.Optics))
             {
                 args.Cancelled = true;
                 args.Message = Loc.GetString("misfits-weapon-no-barrel");
@@ -207,8 +213,12 @@ public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
         }
 
         // A worn/replaced grip can slip out of the user's hands.
+        // #Misfits Fix - modular energy weapons integrate the grip into the
+        // frame (no craft_grip slot at all); reading their absent grip part
+        // as ratio 0 made every shot a coin flip on dropping the weapon
+        // once lasers could actually fire server-side.
         var dropRatio = comp.Modular
-            ? PartRatio(_parts, WeaponPartRole.Grip)
+            ? HasGripSlot(uid) ? PartRatio(_parts, WeaponPartRole.Grip) : 1f
             : HasFeature(comp, WeaponFeatures.Drop) ? Ratio(comp) : 1f;
 
         var dropChance = FeatureChance(GetHolder(uid), DropChance(dropRatio));
@@ -278,8 +288,11 @@ public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
                 comp.Deferred += comp.MeleeWear * BarrelDeferredFraction;
         }
 
+        // #Misfits Fix - same grip-slot guard as the shot path: modular energy
+        // weapons have no craft_grip container, so an absent grip part must not
+        // read as a destroyed one here either.
         var dropRatio = comp.Modular
-            ? PartRatio(_parts, WeaponPartRole.Grip)
+            ? HasGripSlot(uid) ? PartRatio(_parts, WeaponPartRole.Grip) : 1f
             : HasFeature(comp, WeaponFeatures.Drop) ? Ratio(comp) : 1f;
 
         var dropChance = FeatureChance(args.User, DropChance(dropRatio));
@@ -346,10 +359,18 @@ public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
             ("state", Loc.GetString(WeaponDurabilityCondition.StateKey(ratio))),
             ("color", WeaponDurabilityCondition.StateColor(ratio))));
 
-        // Only the barrel takes recoverable fouling, and a cleaning rod is the
-        // only thing that puts it back.
-        if (comp.Role == WeaponPartRole.Barrel && comp.Deferred > 0f)
-            args.PushMarkup(Loc.GetString("misfits-weapon-part-examine-fouled"));
+        // Only the barrel (and, on barrel-less energy weapons, the optics)
+        // takes recoverable fouling, and a cleaning rod is the only thing
+        // that puts it back.
+        // #Misfits Fix - optics on barrel-less modular energy weapons take the
+        // same recoverable shot fouling, so they show it too.
+        if (comp.Role is not (WeaponPartRole.Barrel or WeaponPartRole.Optics) || comp.Deferred <= 0f)
+            return;
+
+        var fouledKey = comp.Role == WeaponPartRole.Optics
+            ? "misfits-weapon-part-examine-fouled-optics"
+            : "misfits-weapon-part-examine-fouled";
+        args.PushMarkup(Loc.GetString(fouledKey));
     }
 
     #endregion
@@ -435,7 +456,13 @@ public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
         if (comp.Modular)
         {
             GetParts(uid, _parts);
-            spread = SpreadMultiplier(PartRatio(_parts, WeaponPartRole.Barrel));
+            // #Misfits Fix - barrel-less modular weapons (energy guns) aim
+            // through their optics: reading the absent Barrel role here
+            // computed a 0 ratio and doubled their spread out of the box.
+            var spreadRole = HasPart(_parts, WeaponPartRole.Barrel)
+                ? WeaponPartRole.Barrel
+                : WeaponPartRole.Optics;
+            spread = SpreadMultiplier(PartRatio(_parts, spreadRole));
             damage = 1f;
         }
         else
@@ -505,6 +532,11 @@ public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
     private bool HasStockSlot(EntityUid uid)
     {
         return _container.TryGetContainer(uid, StockContainer, out _);
+    }
+
+    private bool HasGripSlot(EntityUid uid)
+    {
+        return _container.TryGetContainer(uid, GripContainer, out _);
     }
 
     private static bool HasPart(List<(EntityUid Uid, WeaponPartDurabilityComponent Comp)> parts, WeaponPartRole role)

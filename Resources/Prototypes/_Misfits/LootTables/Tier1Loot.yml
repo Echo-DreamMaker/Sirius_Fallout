@@ -246,6 +246,9 @@
       id: N14WeaponPartBarrel556Sniper
       weight: 4
     - !type:EntSelector
+      id: N14WeaponPartBarrel545Standard
+      weight: 4
+    - !type:EntSelector
       id: N14WeaponPartBarrel762Standard
       weight: 4
     - !type:EntSelector
