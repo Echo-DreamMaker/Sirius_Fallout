@@ -164,12 +164,6 @@ entities:
     - type: Roof
       data: {}
     - type: DayNightCycle
-      # #Misfits Change - a full day/night pass in 24 real minutes instead of
-      # the 240-minute default, so the island visibly cycles like the other maps.
-      cycleDuration: 24
-      # #Misfits Change - rounds begin at noon (peak of the curve) instead of
-      # its pitch-black pre-dawn start.
-      startOffset: 0.5
       timeEntries:
       - colorHex: '#000000'
       - time: 0.04
