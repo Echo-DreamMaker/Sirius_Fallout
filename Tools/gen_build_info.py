@@ -20,10 +20,14 @@ SERVER_FILES = [
 ]
 
 VERSION = os.environ['GITHUB_SHA']
-FORK_ID = "delta-v"
-BUILD_URL = f"https://builds.delta-v.org/{{FORK_ID}}/builds/{{FORK_VERSION}}/{FILE}"
-MANIFEST_URL = f"https://cdn.delta-v.org/version/{{FORK_VERSION}}/manifest"
-MANIFEST_DOWNLOAD_URL = f"https://cdn.delta-v.org/version/{{FORK_VERSION}}/download"
+
+# #Misfits Change: publish to our own CDN/fork instead of the delta-v defaults.
+FORK_ID = "EchoFallout"
+ROBUST_CDN_URL = "https://cdn.dark-haven.xyz/"
+VERSION_URL = f"{ROBUST_CDN_URL}fork/{FORK_ID}/version/{VERSION}"
+BUILD_URL = f"{VERSION_URL}/file/{FILE}"
+MANIFEST_URL = f"{VERSION_URL}/manifest"
+MANIFEST_DOWNLOAD_URL = f"{VERSION_URL}/download"
 
 def main() -> None:
     client_file = os.path.join("release", FILE)

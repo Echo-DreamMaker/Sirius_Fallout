@@ -38,6 +38,12 @@ jobs:
     - name: Package client
       run: dotnet run --project Content.Packaging client --no-wipe-release
 
+    # #Misfits Change: embed build.json into the release zips, otherwise the deployed
+    # server's /info has no fork_id/version/download URLs and the launcher can't update.
+    # Must run after packaging (it hashes the finished zips) and before publishing.
+    - name: Generate build info
+      run: Tools/gen_build_info.py
+
     - name: Publish version
       run: Tools/publish_multi_request.py
       env:
