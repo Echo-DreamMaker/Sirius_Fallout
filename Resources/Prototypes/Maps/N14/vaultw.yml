@@ -1,0 +1,30 @@
+# Sirius Add: game map prototype for VaultW
+- type: gameMap
+  id: VaultW
+  mapName: 'Vault W'
+  mapPath: /Maps/N14/VaultW.yml
+  minPlayers: 0
+  stations:
+    VaultW:
+      stationProto: FalloutStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Vault W'
+        - type: StationJobs
+          overflowJobs:
+            - VaultDweller
+          availableJobs:
+            # Vault command / leadership
+            Overseer: [ 1, 1 ] # Смотритель убежища
+            VaultManagement: [ 1, 1 ] # Иная роль убежища (руководство)
+
+            # Core vault roles
+            VaultSecurity: [ 3, 4 ] # Охранник убежища
+            VaultDweller: [ 6, 8 ] # Житель убежища
+            VaultDoctor: [ 2, 3 ] # Врач убежища
+            VaultEngineer: [ 2, 3 ] # Инженер убежища
+
+            # Other working vault roles in build
+            VaultCargoSpecialist: [ 1, 1 ]
+            VaultCourier: [ 1, 1 ]
+            VaultSalvageSpecialist: [ 1, 1 ]
