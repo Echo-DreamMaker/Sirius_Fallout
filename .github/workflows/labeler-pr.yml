@@ -8,4 +8,4 @@ jobs:
     if: github.actor != 'PJBot' && github.actor != 'DeltaV-Bot' && github.actor != 'SimpleStation14'
     runs-on: ubuntu-latest
     steps:
-    - run: echo "actions/labeler disabled: PR diff too large for GitHub API on big merges"
+    - run: 'echo "actions/labeler disabled: PR diff too large for GitHub API on big merges"'
