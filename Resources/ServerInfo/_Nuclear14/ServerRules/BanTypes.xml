@@ -1,11 +1,11 @@
-﻿<Document>
-  # Ban Types
+<Document>
+  # Типы блокировок
 
-  Bans can be appealed on discord in the ban appeals section.
+  Блокировки можно обжаловать в Discord в разделе обжалования блокировок.
 
-  ## Role Ban
-  Also called a "job ban", this ban prevents your character from joining or late-joining a round as one or more jobs or roles. These are often used in response to problematic behavior in particular departments or address gross inexperience in important roles such as heads of staff. These bans do not mechanically prevent you from switching to the role during a round or acting as that role, but doing so is considered ban evasion.
+  ## Блокировка роли
+  Также называемая «блокировкой должности», эта блокировка не позволяет вашему персонажу присоединиться к раунду или подключиться к нему с опозданием в качестве одной или нескольких должностей или ролей. Обычно она применяется в ответ на проблемное поведение в отдельных отделах или для борьбы с грубой неопытностью в важных ролях, таких как главы персонала. Механически эти блокировки не мешают вам переключиться на роль во время раунда или действовать в качестве этой роли, но такие действия считаются уклонением от блокировки.
 
-  ## Game Ban
-  Also called a "server ban", this ban prevents you from connecting to the server.
+  ## Блокировка игры
+  Также называемая «блокировкой сервера», эта блокировка не позволяет вам подключиться к серверу.
 </Document>

@@ -19,6 +19,7 @@ public sealed class MappingVisibilityUIController : UIController
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly ILightManager _lightManager = default!;
+    [Dependency] private readonly IOverlayManager _overlayManager = default!;
 
     private MappingVisibilityWindow? _window;
     private MappingScreen? _mappingScreen;
@@ -34,6 +35,9 @@ public sealed class MappingVisibilityUIController : UIController
     private bool _entitiesVisible = true;
     private bool _tilesVisible = true;
     private bool _decalsVisible = true;
+    private bool _roofsVisible = true;
+
+    public bool RoofsVisible => _roofsVisible;
     public void ToggleWindow()
     {
         EnsureWindow();
@@ -91,6 +95,8 @@ public sealed class MappingVisibilityUIController : UIController
         _window.Decals.Pressed = true;
         _window.Decals.OnPressed += OnToggleDecalsLayerPressed;
 
+        _window.Roofs.Pressed = _roofsVisible;
+        _window.Roofs.OnPressed += OnToggleRoofsLayerPressed;
         _window.SubFloor.Pressed = _entitySystemManager.GetEntitySystem<SubFloorHideSystem>().ShowAll;
         _window.SubFloor.OnPressed += OnToggleSubfloorPressed;
 
@@ -178,6 +184,12 @@ public sealed class MappingVisibilityUIController : UIController
     private void OnToggleDecalsLayerPressed(BaseButton.ButtonEventArgs args)
     {
         _entitySystemManager.GetEntitySystem<DecalSystem>().ToggleOverlay();
+    }
+    private void OnToggleRoofsLayerPressed(BaseButton.ButtonEventArgs args)
+    {
+        _roofsVisible = args.Button.Pressed;
+        if (_overlayManager.TryGetOverlay<MappingRoofOverlay>(out var overlay))
+            overlay.Enabled = args.Button.Pressed;
     }
     private void OnToggleSubfloorPressed(BaseButton.ButtonEventArgs args)
     {

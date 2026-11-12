@@ -1,74 +1,74 @@
 <Document>
-# One-Handed Melee
+# Одноручное оружие ближнего боя
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/One-Handed%20Melee"/]
+[textlink="Просмотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/One-Handed%20Melee"/]
 
-## One-Handed Melee
+## Одноручное оружие ближнего боя
 
-<p>One-handed melee weapons are fast, easy to wield, and leave your other hand free for a shield, tool, or secondary weapon. They are ideal for close-quarters combat and self-defense.</p>
+<p>Одноручное оружие ближнего боя быстрое и удобное в обращении, а вторая рука остаётся свободной для щита, инструмента или запасного оружия. Оно идеально подходит для боя в тесноте и для самообороны.</p>
 
-<h3 Text="Knives"/>
+<h3 Text="Ножи"/>
 
-<p>The most basic of survival tools - useful for crafting, hunting, and fighting.</p>
+<p>Самый простой из инструментов выживания — полезен для ремесла, охоты и драки.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Combat Knife[/bold]</Box>
-  <Box>Military-grade knife. Balanced for combat.</Box>
-  <Box>[bold]Kitchen Knife[/bold]</Box>
-  <Box>Common utility blade. Found in settlements.</Box>
-  <Box>[bold]Tribal Knife[/bold]</Box>
-  <Box>Handcrafted. Slightly shorter but reliable.</Box>
-  <Box>[bold]Butcher's Cleaver[/bold]</Box>
-  <Box>Heavy cutting blade. Good damage for a one-handed weapon.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Боевой нож[/bold]</Box>
+  <Box>Нож армейского образца. Сбалансирован для боя.</Box>
+  <Box>[bold]Кухонный нож[/bold]</Box>
+  <Box>Обычный бытовой клинок. Встречается в поселениях.</Box>
+  <Box>[bold]Племенной нож[/bold]</Box>
+  <Box>Ручной работы. Немного короче, но надёжен.</Box>
+  <Box>[bold]Тесак мясника[/bold]</Box>
+  <Box>Тяжёлый режущий клинок. Хороший урон для одноручного оружия.</Box>
 </Table>
 
-<h3 Text="Hatchets &amp; Axes"/>
+<h3 Text="Топорики &amp; топоры"/>
 
-<p>Fast and reliable. A staple tool and weapon throughout the Wasteland.</p>
+<p>Быстрые и надёжные. Основной инструмент и оружие по всей Пустоши.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Hatchet[/bold]</Box>
-  <Box>Standard cutting axe. Common tool and weapon.</Box>
-  <Box>[bold]Tribal Hatchet[/bold]</Box>
-  <Box>Handcrafted variant. Slightly rougher than a manufactured hatchet.</Box>
-  <Box>[bold]Fire Axe[/bold]</Box>
-  <Box>Large head, heavy swing. Deals significant damage.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Топорик[/bold]</Box>
+  <Box>Стандартный режущий топор. Распространённый инструмент и оружие.</Box>
+  <Box>[bold]Племенной топорик[/bold]</Box>
+  <Box>Вариант ручной работы. Немного грубее фабричного топорика.</Box>
+  <Box>[bold]Пожарный топор[/bold]</Box>
+  <Box>Большое лезвие, тяжёлый замах. Наносит значительный урон.</Box>
 </Table>
 
-<h3 Text="Batons &amp; Clubs"/>
+<h3 Text="Дубинки &amp; палицы"/>
 
-<p>Non-lethal options for subduing enemies, or improvised weapons when nothing else is available.</p>
+<p>Нелетальные варианты для усмирения противников или импровизированное оружие, когда больше ничего нет под рукой.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Police Baton[/bold]</Box>
-  <Box>Pre-war law enforcement baton. Good for non-lethal takedowns.</Box>
-  <Box>[bold]Tribal Club[/bold]</Box>
-  <Box>Simple blunt weapon. Easy to find or make.</Box>
-  <Box>[bold]Broken Pipe[/bold]</Box>
-  <Box>Improvised weapon. Scavenged from ruins.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Полицейская дубинка[/bold]</Box>
+  <Box>Довоенная дубинка правоохранителей. Хороша для нелетального задержания.</Box>
+  <Box>[bold]Племенная палица[/bold]</Box>
+  <Box>Простое ударное оружие. Легко найти или сделать.</Box>
+  <Box>[bold]Обломок трубы[/bold]</Box>
+  <Box>Импровизированное оружие. Найден среди развалин.</Box>
 </Table>
 
-<h3 Text="Short Blades &amp; Swords"/>
+<h3 Text="Короткие клинки &amp; мечи"/>
 
-<p>One-handed blades that deal more damage than knives while remaining swift.</p>
+<p>Одноручные клинки, которые наносят больше урона, чем ножи, но остаются быстрыми.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Machete[/bold]</Box>
-  <Box>Heavy cutting blade. Good against lightly armored targets.</Box>
-  <Box>[bold]Scrap Machete[/bold]</Box>
-  <Box>Post-war constructed machete. Functional but rougher.</Box>
-  <Box>[bold]Chinese Sword[/bold]</Box>
-  <Box>Pre-war officer's blade. Well-balanced and durable.</Box>
-  <Box>[bold]Ceremonial Sword[/bold]</Box>
-  <Box>Decorative but functional. Often carried by Legion officers.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Мачете[/bold]</Box>
+  <Box>Тяжёлый режущий клинок. Хорош против слабо бронированных целей.</Box>
+  <Box>[bold]Мачете из хлама[/bold]</Box>
+  <Box>Мачете послевоенной сборки. Работоспособно, но грубее.</Box>
+  <Box>[bold]Китайский меч[/bold]</Box>
+  <Box>Довоенный офицерский клинок. Хорошо сбалансирован и прочен.</Box>
+  <Box>[bold]Церемониальный меч[/bold]</Box>
+  <Box>Украшенный, но рабочий. Часто его носят офицеры Легиона.</Box>
 </Table>
 
 </Document>

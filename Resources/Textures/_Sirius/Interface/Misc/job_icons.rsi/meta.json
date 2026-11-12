@@ -16,6 +16,66 @@
         },
         {
             "name": "anclave_rabochiy"
+        },
+        {
+            "name": "bosMCommander"
+        },
+        {
+            "name": "bosMSeniorKnight"
+        },
+        {
+            "name": "bosMSeniorPaladin"
+        },
+        {
+            "name": "bosMSeniorScriptor"
+        },
+        {
+            "name": "bosMKnight"
+        },
+        {
+            "name": "bosMPaladin"
+        },
+        {
+            "name": "bosMScriptor"
+        },
+        {
+            "name": "bosMSquire"
+        },
+        {
+            "name": "bosMNeofit"
+        },
+        {
+            "name": "bosMSerf"
+        },
+        {
+            "name": "bosMLancerCaptain"
+        },
+        {
+            "name": "bosMLancerKnight"
+        },
+        {
+            "name": "vaulDweller"
+        },
+        {
+            "name": "vaultEngineer"
+        },
+        {
+            "name": "vaultMedic"
+        },
+        {
+            "name": "vaultOverseer"
+        },
+        {
+            "name": "vaultSecurity"
+        },
+        {
+            "name": "vaultCargoSpecialist"
+        },
+        {
+            "name": "vaultSalvageSpecialist"
+        },
+        {
+            "name": "vaultCourier"
         }
     ]
 }

@@ -1,147 +1,147 @@
 <Document>
-# Outlaws
+# Преступники
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Outlaws"/]
+[textlink="Открыть полную страницу Wiki" link="https://wiki.misfitsystems.net/index.php/Outlaws"/]
 
-<p>◈ Outlaws ◈ Gangs of the I-80 Corridor ◈ Wendover Region ◈</p>
+<p>◈ Преступники ◈ Банды коридора I-80 ◈ Регион Вендовер ◈</p>
 
 <Table Columns="2">
-  <Box>[bold]Outlaws[/bold]</Box>
+  <Box>[bold]Преступники[/bold]</Box>
   <Box></Box>
-  <Box>◈ FACTION DOSSIER ◈</Box>
+  <Box>◈ ДОСЬЕ ФРАКЦИИ ◈</Box>
   <Box></Box>
-  <Box>[bold]Status[/bold]</Box>
-  <Box>Active - Fragmented</Box>
-  <Box>[bold]Location[/bold]</Box>
-  <Box>I-80 Corridor, Northern Utah
-Bonneville Salt Flats, Great Salt Lake</Box>
-  <Box>[bold]Commander[/bold]</Box>
-  <Box>Various Gang Leaders</Box>
-  <Box>[bold]Ideology[/bold]</Box>
-  <Box>Survival of the Strong
-Take What You Need</Box>
-  <Box>[bold]Motto[/bold]</Box>
-  <Box>[italic]The road belongs to those who hold it[/italic]</Box>
-  <Box>[bold]Affiliation[/bold]</Box>
-  <Box>Independent Gangs</Box>
-  <Box>⬜ RESTRICTED ACCESS ⬜</Box>
+  <Box>[bold]Статус[/bold]</Box>
+  <Box>Активна — раздроблена</Box>
+  <Box>[bold]Расположение[/bold]</Box>
+  <Box>Коридор I-80, северная Юта
+Солончаки Бонневиль, Большое Солёное озеро</Box>
+  <Box>[bold]Командир[/bold]</Box>
+  <Box>Различные лидеры банд</Box>
+  <Box>[bold]Идеология[/bold]</Box>
+  <Box>Выживание сильнейших
+Бери то, что тебе нужно</Box>
+  <Box>[bold]Девиз[/bold]</Box>
+  <Box>[italic]Дорога принадлежит тем, кто её удерживает[/italic]</Box>
+  <Box>[bold]Принадлежность[/bold]</Box>
+  <Box>Независимые банды</Box>
+  <Box>⬜ ОГРАНИЧЕННЫЙ ДОСТУП ⬜</Box>
   <Box></Box>
 </Table>
 
-<p>The [bold]Outlaws[/bold] are the raiders, bandits, and gang fighters who haunt the I-80 corridor and the Bonneville Salt Flats. They are not a single organization - they are a collection of violent, loosely-affiliated gangs, each with their own methods, territory, and leadership. What unites them is a willingness to take what they need by force and a refusal to kneel to any flag.</p>
-<p>Wendover sits at the crossroads of their territory. Every faction that builds a wall here paints a target on it.</p>
+<p>[bold]Преступники[/bold] — это рейдеры, бандиты и бойцы банд, что рыщут по коридору I-80 и солончакам Бонневиль. Они не единая организация — это сборище жестоких, слабо связанных между собой банд, у каждой из которых свои методы, территория и главари. Объединяет их готовность силой брать то, что им нужно, и отказ преклонять колено перед любым флагом.</p>
+<p>Вендовер стоит на перекрёстке их территории. Каждая фракция, что возводит здесь стену, рисует на ней мишень.</p>
 
-## The Eighties
+## Восьмидесятые
 
-<p>The most feared name on the I-80 corridor. The Eighties take their name from the interstate itself - the old pre-war freeway that runs through northern Utah and out past the Great Salt Lake. They have been operating in this region longer than most factions care to remember.</p>
+<p>Самое страшное имя в коридоре I-80. «Восьмидесятые» взяли своё название от самой межштатной трассы — старой довоенной автомагистрали, что тянется через северную Юту и уходит дальше за Большое Солёное озеро. Они орудуют в этом регионе дольше, чем большинство фракций изволят помнить.</p>
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"Raiders is raiders. Bunch of them swept into town and dragged off two working girls. Deputies gave pursuit, straight into Eighties territory. By the time we caught up, there wasn't much left of them. If the Eighties had wanted to kill us, we would've been dead. Guess they figured we weren't worth the trouble."[/italic]
+[italic]«Рейдеры и есть рейдеры. Орава их влетела в город и уволокла двух работниц. Заместители бросились в погоню — прямиком на территорию Восьмидесятых. К тому времени, как мы их нагнали, от них мало что осталось. Если бы Восьмидесятые хотели нас убить, мы были бы мертвы. Видать, решили, что мы не стоим возни».[/italic]
   </Box>
 </ColorBox>
-<p>The Eighties are rightly feared for their ability to cover vast amounts of territory with very few men. They raid frontier towns for supplies and are known for kidnapping - and worse. Engaging them in the open salt flats or along the freeway is a losing proposition for most organized patrols. They know the terrain. They know where to disappear. And they have been doing this longer than anyone currently stationed at Wendover has been alive.</p>
-<p>Their presence in the region means that no supply line is safe, no settlement is truly secure, and any faction that extends itself too far from its walls will find out what the Eighties think of trespassers.</p>
+<p>Восьмидесятых по праву боятся за их умение охватывать огромные территории совсем малыми силами. Они совершают набеги на пограничные городки ради припасов и известны похищениями — и кое-чем похуже. Вступить с ними в бой на открытых солончаках или вдоль трассы — проигрышное дело для большинства организованных патрулей. Они знают эту местность. Они знают, где исчезнуть. И занимаются этим дольше, чем живёт любой из тех, кто сейчас расквартирован в Вендовере.</p>
+<p>Их присутствие в регионе означает, что ни один маршрут снабжения не безопасен, ни одно поселение не защищено по-настоящему, и любая фракция, что слишком далеко отойдёт от своих стен, узнает, что Восьмидесятые думают о нарушителях границ.</p>
 
-## The Gangs
+## Банды
 
-<p>Each Outlaw gang operates with its own style, methods, and reputation. All are dangerous. None are predictable.</p>
+<p>Каждая банда Преступников действует по-своему, со своими методами и репутацией. Все они опасны. Ни одна не предсказуема.</p>
 
-<h3 Text="Khans"/>
+<h3 Text="Ханы"/>
 
-<p>The Khans are the most organized of the Outlaw gangs - a structured raider crew that values loyalty, territory, and controlled aggression. They maintain supply lines, defend their turf, and hit hard when provoked. They are not mindless - they are methodical.</p>
+<p>Ханы — самая организованная из банд Преступников: структурированная рейдерская команда, что ценит верность, территорию и сдержанную агрессию. Они поддерживают маршруты снабжения, защищают свои владения и бьют больно, когда их спровоцируют. Они не безмозглые — они методичные.</p>
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"Keep your crew supplied, fight smart, and hold your ground."[/italic]
-  </Box>
-</ColorBox>
-
-<h3 Text="Jackals"/>
-
-<p>The Jackals are fast-strike raiders who prize speed and evasiveness above raw firepower. They hit supply convoys, loot what they can carry, and vanish before a response can be organized. If you are chasing Jackals, you have already lost.</p>
-<ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
-  <Box Orientation="Vertical" Margin="8">
-[italic]"Strike quickly, loot efficiently, and disappear before the counterattack."[/italic]
+[italic]«Держи свою команду снабжённой, воюй с умом и стой на своём».[/italic]
   </Box>
 </ColorBox>
 
-<h3 Text="Vipers"/>
+<h3 Text="Шакалы"/>
 
-<p>The Vipers use fear as a weapon. Intimidation, ambush tactics, and psychological warfare are their tools. They break resistance before the first shot is fired - and if they have to fire, they make it count.</p>
+<p>Шакалы — рейдеры стремительных ударов, что ставят скорость и уклончивость выше грубой огневой мощи. Они нападают на караваны снабжения, забирают всё, что могут унести, и исчезают прежде, чем успеют организовать ответ. Если вы гонитесь за Шакалами, вы уже проиграли.</p>
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"Use intimidation and speed to break resistance and secure the haul."[/italic]
+[italic]«Бей быстро, грабь с толком и исчезай до контратаки».[/italic]
   </Box>
 </ColorBox>
 
-<h3 Text="Gunners"/>
+<h3 Text="Гадюки"/>
 
-<p>The Gunners are the heavy-weapons specialists of the Outlaw gangs. Where other gangs hit and run, Gunners dig in and lay down overwhelming fire. They pin targets down and grind through defenses. What they lack in subtlety, they compensate for with sheer destructive output.</p>
+<p>Гадюки используют страх как оружие. Запугивание, засады и психологическая война — их инструменты. Они ломают сопротивление ещё до первого выстрела — а если им всё же приходится стрелять, они делают это наверняка.</p>
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"Bring the heavy firepower and pin enemies down for your gang."[/italic]
+[italic]«Используй запугивание и скорость, чтобы сломить сопротивление и обеспечить себе добычу».[/italic]
   </Box>
 </ColorBox>
 
-<h3 Text="Fiends"/>
+<h3 Text="Стрелки"/>
 
-<p>The Fiends are the most dangerous and least predictable of the Outlaw gangs. Chem-fueled, aggressive, and relentless - they attack without warning and do not stop until the target is destroyed or they are. Fighting Fiends is not a tactical problem. It is a survival problem.</p>
+<p>Стрелки — специалисты по тяжёлому вооружению среди банд Преступников. Там, где другие банды бьют и убегают, Стрелки закрепляются и обрушивают подавляющий огонь. Они прижимают цели к земле и перемалывают оборону. Недостаток тонкости они восполняют чистой разрушительной мощью.</p>
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"Cause chaos, pressure the enemy line, and never let up."[/italic]
+[italic]«Принеси тяжёлую огневую мощь и прижми врагов к земле ради своей банды».[/italic]
   </Box>
 </ColorBox>
 
-## Outlaw Roles
+<h3 Text="Изверги"/>
+
+<p>Изверги — самая опасная и наименее предсказуемая из банд Преступников. Накачанные химией, агрессивные и неумолимые — они нападают без предупреждения и не останавливаются, пока цель не уничтожена или пока не уничтожат их самих. Бой с Извергами — не тактическая задача. Это задача на выживание.</p>
+<ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
+  <Box Orientation="Vertical" Margin="8">
+[italic]«Сей хаос, дави на линию врага и никогда не ослабляй натиск».[/italic]
+  </Box>
+</ColorBox>
+
+## Роли Преступников
 
 <Table Columns="3">
-  <Box>[bold]Role[/bold]</Box>
-  <Box>[bold]Description[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>Khan</Box>
-  <Box>Organized raider. Keep your crew supplied, fight smart, hold your ground.</Box>
-  <Box>Whitelist required</Box>
-  <Box>[bold]Jackal[/bold]</Box>
-  <Box>Fast-strike raider. Hit convoys, take what you can carry, disappear.</Box>
-  <Box>Whitelist required</Box>
-  <Box>[bold]Viper[/bold]</Box>
-  <Box>Intimidation specialist. Break resistance before it forms.</Box>
-  <Box>Whitelist required</Box>
-  <Box>[bold]Gunner[/bold]</Box>
-  <Box>Heavy weapons. Pin targets, grind defenses, lay down fire.</Box>
-  <Box>Whitelist required</Box>
-  <Box>[bold]Fiend[/bold]</Box>
-  <Box>Chem-fueled chaos agent. Pressure, overwhelm, never stop.</Box>
-  <Box>Whitelist required</Box>
+  <Box>[bold]Роль[/bold]</Box>
+  <Box>[bold]Описание[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>Хан</Box>
+  <Box>Организованный рейдер. Держите свою команду снабжённой, воюйте с умом, стойте на своём.</Box>
+  <Box>Требуется вайтлист</Box>
+  <Box>[bold]Шакал[/bold]</Box>
+  <Box>Рейдер стремительных ударов. Бейте конвои, забирайте всё, что можете унести, исчезайте.</Box>
+  <Box>Требуется вайтлист</Box>
+  <Box>[bold]Гадюка[/bold]</Box>
+  <Box>Специалист по запугиванию. Ломайте сопротивление, пока оно не сформировалось.</Box>
+  <Box>Требуется вайтлист</Box>
+  <Box>[bold]Стрелок[/bold]</Box>
+  <Box>Тяжёлое вооружение. Прижимайте цели, перемалывайте оборону, ведите огонь.</Box>
+  <Box>Требуется вайтлист</Box>
+  <Box>[bold]Изверг[/bold]</Box>
+  <Box>Агент хаоса на химии. Давите, подавляйте, не останавливайтесь.</Box>
+  <Box>Требуется вайтлист</Box>
 </Table>
 
-<p>All Outlaw roles require [bold]whitelist approval[/bold] and use a spawner system. All Outlaws are assigned to the [bold]PlayerRaider[/bold] faction.</p>
+<p>Все роли Преступников требуют [bold]одобрения вайтлиста[/bold] и используют систему спавнера. Все Преступники приписаны к фракции [bold]PlayerRaider[/bold].</p>
 
-## Relations
+## Отношения
 
 <Table Columns="3">
-  <Box>[bold]Faction[/bold]</Box>
-  <Box>[bold]Standing[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[textlink="NCR" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
-  <Box>Hostile</Box>
-  <Box>The NCR is law and order. Outlaws are neither.</Box>
-  <Box>[textlink="Brotherhood of Steel" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
-  <Box>Hostile</Box>
-  <Box>The Brotherhood views raiders as vermin to be swept aside.</Box>
-  <Box>[textlink="Caesar's Legion" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
-  <Box>Hostile</Box>
-  <Box>The Legion conquers or destroys. Outlaws are on the wrong side of that equation.</Box>
-  <Box>[textlink="Townsfolk" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]</Box>
-  <Box>Hostile</Box>
-  <Box>Towns are targets. The relationship is straightforward.</Box>
-  <Box>Other Outlaws</Box>
-  <Box>Uneasy</Box>
-  <Box>Gangs cooperate when it benefits them and betray each other when it does not.</Box>
-  <Box>NPC Raiders</Box>
-  <Box>Hostile</Box>
-  <Box>Player Outlaws are hostile to NPC raider mobs - no free passes.</Box>
+  <Box>[bold]Фракция[/bold]</Box>
+  <Box>[bold]Отношение[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[textlink="НКР" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>НКР — это закон и порядок. Преступники — ни то, ни другое.</Box>
+  <Box>[textlink="Братство Стали" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>Братство считает рейдеров паразитами, которых надо вымести прочь.</Box>
+  <Box>[textlink="Легион Цезаря" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>Легион либо покоряет, либо уничтожает. Преступники в этом уравнении на неверной стороне.</Box>
+  <Box>[textlink="Горожане" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>Города — это цели. Отношения просты и понятны.</Box>
+  <Box>Другие Преступники</Box>
+  <Box>Настороженно</Box>
+  <Box>Банды сотрудничают, когда это им выгодно, и предают друг друга, когда нет.</Box>
+  <Box>NPC-рейдеры</Box>
+  <Box>Враждебно</Box>
+  <Box>Преступники-игроки враждебны к мобам NPC-рейдеров — никаких поблажек.</Box>
 </Table>
 
-<p>Outlaws are one of the [bold]war-capable factions[/bold] and may declare or receive faction war declarations during a round.</p>
+<p>Преступники — одна из [bold]фракций, способных к войне[/bold], и могут объявлять о начале фракционной войны или получать такие объявления в течение раунда.</p>
 
 </Document>

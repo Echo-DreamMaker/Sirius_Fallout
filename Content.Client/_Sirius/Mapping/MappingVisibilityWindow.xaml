@@ -22,6 +22,7 @@
         <mapping:MappingVisibilityButton Name="Walls" Text="{Loc 'mapping-visibility-walls'}" Access="Public"/>
         <mapping:MappingVisibilityButton Name="Airlocks" Text="{Loc 'mapping-visibility-airlocks'}" Access="Public"/>
         <mapping:MappingVisibilityGroupButton Name="Decals" Text="{Loc 'mapping-visibility-decals'}" Access="Public"/>
+        <mapping:MappingVisibilityGroupButton Name="Roofs" Text="{Loc 'mapping-visibility-roofs'}" Access="Public"/>
         <mapping:MappingVisibilityGroupButton Name="SubFloor" Text="{Loc 'mapping-visibility-subfloor'}" Access="Public"/>
         <mapping:MappingVisibilityButton Name="Cables" Text="{Loc 'mapping-visibility-cables'}" Access="Public"/>
         <mapping:MappingVisibilityButton Name="Disposal" Text="{Loc 'mapping-visibility-disposal'}" Access="Public"/>

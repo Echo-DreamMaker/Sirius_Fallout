@@ -81,6 +81,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - PipBoyMusicCartridge   # #Sirius Add - Pip-Boy music player
       - NewsReaderCartridge
       - NanoChatCartridge
       - PipBoyContactsCartridge   # #Misfits Add - PipBoy Contacts: contact management, SOS beacon

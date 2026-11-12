@@ -1,102 +1,102 @@
 <Document>
-# Townsfolk
+# Горожане
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]
+[textlink="Посмотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]
 
-<p>◈ Townsfolk ◈ Faction Dossier ◈ Civilian ◈</p>
+<p>◈ Горожане ◈ Досье фракции ◈ Гражданские ◈</p>
 
 <Table Columns="2">
-  <Box>[bold]Townsfolk[/bold]</Box>
+  <Box>[bold]Горожане[/bold]</Box>
   <Box></Box>
-  <Box>◈ FACTION DOSSIER ◈</Box>
+  <Box>◈ ДОСЬЕ ФРАКЦИИ ◈</Box>
   <Box></Box>
-  <Box>[bold]Status[/bold]</Box>
-  <Box>Active - Established</Box>
-  <Box>[bold]Location[/bold]</Box>
-  <Box>Wendover, Utah
-Oasis Settlement</Box>
-  <Box>[bold]Commander[/bold]</Box>
-  <Box>Mayor (Elected)</Box>
-  <Box>[bold]Ideology[/bold]</Box>
-  <Box>Community Survival
-Neutral Commerce</Box>
-  <Box>[bold]Motto[/bold]</Box>
-  <Box>[italic]Keep the gates open and the peace held.[/italic]</Box>
-  <Box>[bold]Affiliation[/bold]</Box>
-  <Box>Independent - Neutral</Box>
-  <Box>⬜ RESTRICTED ACCESS ⬜</Box>
+  <Box>[bold]Статус[/bold]</Box>
+  <Box>Активна — основана</Box>
+  <Box>[bold]Расположение[/bold]</Box>
+  <Box>Уэндовер, Юта
+Поселение Оазис</Box>
+  <Box>[bold]Командир[/bold]</Box>
+  <Box>Мэр (избирается)</Box>
+  <Box>[bold]Идеология[/bold]</Box>
+  <Box>Выживание общины
+Нейтральная торговля</Box>
+  <Box>[bold]Девиз[/bold]</Box>
+  <Box>[italic]Держите ворота открытыми, а мир — нерушимым.[/italic]</Box>
+  <Box>[bold]Принадлежность[/bold]</Box>
+  <Box>Независимы — нейтралитет</Box>
+  <Box>⬜ ДОСТУП ОГРАНИЧЕН ⬜</Box>
   <Box></Box>
 </Table>
 
-<p>The [bold]Townsfolk[/bold] are the civilians, settlers, and laborers who form the backbone of Wasteland society. They are not soldiers - they are the people who keep settlements running: shopkeepers, doctors, mechanics, farmers, and the law enforcement that holds it all together.</p>
-<p>Wendover's settlement - [bold]Oasis[/bold] - is their home. Every other faction passes through it. What happens inside its walls is the Townsfolk's business.</p>
+<p>[bold]Горожане[/bold] — это гражданские, поселенцы и работники, составляющие основу общества Пустоши. Они не солдаты — они те, кто заставляет поселения работать: лавочники, врачи, механики, фермеры и правоохранители, которые удерживают всё это воедино.</p>
+<p>Поселение Уэндовера — [bold]Оазис[/bold] — их дом. Через него проходят все остальные фракции. То, что происходит внутри его стен, — дело Горожан.</p>
 
-## Core Mission
+## Основная задача
 
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"To provide a secure, neutral haven for trade, shelter, and survival, prioritizing the prosperity of our citizens and the strict enforcement of the peace, regardless of what colors you wear outside the gates."[/italic]
+[italic]"Обеспечить безопасную, нейтральную гавань для торговли, крова и выживания, ставя во главу угла процветание наших граждан и строгое соблюдение мира, независимо от того, какие цвета вы носите за воротами."[/italic]
   </Box>
 </ColorBox>
 
-## Roles
+## Роли
 
 <Table Columns="3">
-  <Box>[bold]Role[/bold]</Box>
-  <Box>[bold]Description[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>Mayor</Box>
-  <Box>Lead Oasis. Coordinate with the Sheriff on security and negotiate with outside factions on behalf of your people. Every deal you make has consequences for every person in town.</Box>
-  <Box>Town leadership. Final authority on civilian matters.</Box>
-  <Box>[bold]Sheriff[/bold]</Box>
-  <Box>Protect Oasis from threats internal and external. Manage your deputies, keep the peace, and work alongside the Mayor on anything that touches both law and politics.</Box>
-  <Box>Law enforcement command.</Box>
-  <Box>[bold]Deputy[/bold]</Box>
-  <Box>Support the Sheriff. Enforce order, investigate problems, and step up when the Sheriff is unavailable. Your loyalty to the badge - and the people it's supposed to protect - defines what law means in Oasis.</Box>
-  <Box>Requires Sheriff oversight.</Box>
-  <Box>[bold]Shopkeeper[/bold]</Box>
-  <Box>Stock and run the town's store. Trade with travelers, manage inventory, and keep the local economy moving. You may not carry a weapon to war, but caps talk - and yours talk loudly.</Box>
-  <Box>Economic backbone of the settlement.</Box>
-  <Box>[bold]Mechanic[/bold]</Box>
-  <Box>Repair and maintain the settlement's critical equipment - weapons, armor, robots, and machinery. Craft new items for the town's defense or for sale to travelers. When something breaks, everyone comes to you.</Box>
-  <Box>Engineering and crafting specialist.</Box>
-  <Box>[bold]Doctor[/bold]</Box>
-  <Box>Provide medical care to townsfolk and travelers. Charge for your services or give them freely - that is your call. Your skills will be needed before the round ends, regardless of how peacefully things start.</Box>
-  <Box>Medical care provider.</Box>
-  <Box>[bold]Townsperson[/bold]</Box>
-  <Box>Work the land, tend animals, craft goods, and do what your town needs to stay alive. You are not a soldier - but the Wasteland has a way of making everyone a fighter eventually.</Box>
-  <Box>General labor and community support.</Box>
+  <Box>[bold]Роль[/bold]</Box>
+  <Box>[bold]Описание[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>Мэр</Box>
+  <Box>Руководите Оазисом. Согласовывайте вопросы безопасности с шерифом и ведите переговоры с внешними фракциями от имени своих людей. Каждая заключённая вами сделка имеет последствия для каждого жителя города.</Box>
+  <Box>Руководство города. Высшая власть в гражданских вопросах.</Box>
+  <Box>[bold]Шериф[/bold]</Box>
+  <Box>Защищайте Оазис от внутренних и внешних угроз. Управляйте своими помощниками, поддерживайте порядок и работайте вместе с мэром во всём, что касается и закона, и политики.</Box>
+  <Box>Командование правоохранительных сил.</Box>
+  <Box>[bold]Помощник шерифа[/bold]</Box>
+  <Box>Поддерживайте шерифа. Обеспечивайте порядок, расследуйте проблемы и берите руководство на себя, когда шериф недоступен. Ваша верность значку — и людям, которых он должен защищать — определяет, что значит закон в Оазисе.</Box>
+  <Box>Требует надзора шерифа.</Box>
+  <Box>[bold]Лавочник[/bold]</Box>
+  <Box>Снабжайте городской магазин товаром и управляйте им. Торгуйте с путешественниками, ведите учёт запасов и поддерживайте движение местной экономики. Возможно, вы не носите оружие на войну, но крышки говорят — и ваши говорят громко.</Box>
+  <Box>Экономическая опора поселения.</Box>
+  <Box>[bold]Механик[/bold]</Box>
+  <Box>Ремонтируйте и обслуживайте критически важное оборудование поселения — оружие, броню, роботов и механизмы. Создавайте новые предметы для обороны города или для продажи путешественникам. Когда что-то ломается, все идут к вам.</Box>
+  <Box>Специалист по инженерии и изготовлению предметов.</Box>
+  <Box>[bold]Врач[/bold]</Box>
+  <Box>Оказывайте медицинскую помощь горожанам и путешественникам. Берите плату за свои услуги или оказывайте их бесплатно — это ваш выбор. Ваши навыки понадобятся до конца раунда, как бы мирно всё ни начиналось.</Box>
+  <Box>Оказание медицинской помощи.</Box>
+  <Box>[bold]Горожанин[/bold]</Box>
+  <Box>Возделывайте землю, ухаживайте за животными, создавайте товары и делайте то, что нужно вашему городу, чтобы выжить. Вы не солдат — но Пустошь умеет со временем сделать бойцом каждого.</Box>
+  <Box>Общий труд и поддержка общины.</Box>
 </Table>
 
-## Relations
+## Отношения
 
 <Table Columns="3">
-  <Box>[bold]Faction[/bold]</Box>
-  <Box>[bold]Standing[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[textlink="NCR" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
-  <Box>Cooperative</Box>
-  <Box>The NCR provides security presence. The town provides a trading post and staging area.</Box>
-  <Box>[textlink="Brotherhood of Steel" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
-  <Box>Cautious</Box>
-  <Box>The Brotherhood is tolerated as long as they respect town neutrality. Their technology sweeps are disruptive.</Box>
-  <Box>[textlink="Caesar's Legion" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
-  <Box>Hostile</Box>
-  <Box>The Legion views settled civilians as resources to be consumed. Towns are targets.</Box>
-  <Box>[textlink="Followers of the Apocalypse" link="https://wiki.misfitsystems.net/index.php/Followers_of_the_Apocalypse"/]</Box>
-  <Box>Friendly</Box>
-  <Box>Followers clinics are welcomed. Free medical care benefits the entire community.</Box>
-  <Box>[textlink="Wastelanders" link="https://wiki.misfitsystems.net/index.php/Wastelanders"/]</Box>
-  <Box>Open</Box>
-  <Box>Drifters and scavengers are welcome in town as long as they keep the peace.</Box>
-  <Box>[textlink="Outlaws" link="https://wiki.misfitsystems.net/index.php/Outlaws"/]</Box>
-  <Box>Hostile</Box>
-  <Box>Raiders threaten the town's supplies, people, and peace.</Box>
-  <Box>[textlink="Wasteland Tribes" link="https://wiki.misfitsystems.net/index.php/Wasteland_Tribes"/]</Box>
-  <Box>Variable</Box>
-  <Box>Relations depend on the tribe's leadership and the Mayor's diplomacy.</Box>
+  <Box>[bold]Фракция[/bold]</Box>
+  <Box>[bold]Отношение[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[textlink="НКР" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
+  <Box>Сотрудничество</Box>
+  <Box>НКР обеспечивает присутствие сил безопасности. Город предоставляет торговый пост и базу для развёртывания.</Box>
+  <Box>[textlink="Братство Стали" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
+  <Box>Настороженность</Box>
+  <Box>Братство терпят, пока оно уважает нейтралитет города. Их прочёсывания в поисках технологий нарушают спокойствие.</Box>
+  <Box>[textlink="Легион Цезаря" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
+  <Box>Враждебность</Box>
+  <Box>Легион рассматривает оседлых гражданских как ресурс, который можно потребить. Города — это цели.</Box>
+  <Box>[textlink="Последователи Апокалипсиса" link="https://wiki.misfitsystems.net/index.php/Followers_of_the_Apocalypse"/]</Box>
+  <Box>Дружелюбие</Box>
+  <Box>Клиники Последователей приветствуются. Бесплатная медицинская помощь идёт на пользу всей общине.</Box>
+  <Box>[textlink="Жители Пустоши" link="https://wiki.misfitsystems.net/index.php/Wastelanders"/]</Box>
+  <Box>Открытость</Box>
+  <Box>Бродяги и мусорщики желанны в городе, пока они соблюдают порядок.</Box>
+  <Box>[textlink="Преступники" link="https://wiki.misfitsystems.net/index.php/Outlaws"/]</Box>
+  <Box>Враждебность</Box>
+  <Box>Рейдеры угрожают припасам города, его людям и миру.</Box>
+  <Box>[textlink="Племена Пустоши" link="https://wiki.misfitsystems.net/index.php/Wasteland_Tribes"/]</Box>
+  <Box>По-разному</Box>
+  <Box>Отношения зависят от руководства племени и дипломатии мэра.</Box>
 </Table>
 
-<p>Townsfolk are one of the [bold]war-capable factions[/bold] and may declare or receive [textlink="faction war declarations" link="https://wiki.misfitsystems.net/index.php/Faction_War"/] during a round.</p>
+<p>Горожане — одна из [bold]фракций, способных вести войну[/bold], и могут объявлять [textlink="объявления о войне фракций" link="https://wiki.misfitsystems.net/index.php/Faction_War"/] или получать их в течение раунда.</p>
 
 </Document>

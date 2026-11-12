@@ -1,88 +1,88 @@
 <Document>
-# Materials
+# Материалы
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Materials"/]
+[textlink="Просмотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Materials"/]
 
-## All Materials
+## Все материалы
 
-<p>This is a list of all available crafting materials in Nuclear 14.</p>
+<p>Это список всех доступных материалов для крафта в Nuclear 14.</p>
 
-<h3 Text="Natural and Animal Products"/>
+<h3 Text="Природные и животные продукты"/>
 
-<p>Water is a valuable resource in Nuclear 14. You will often find dirty or irradiated water in the Wasteland, which must be cleaned and disinfected before drinking.</p>
-
-<Table Columns="2">
-  <Box>[bold]Material[/bold]</Box>
-  <Box>[bold]Source / Notes[/bold]</Box>
-  <Box>[bold]Filtered Water[/bold]</Box>
-  <Box>Purified water - safe to drink.</Box>
-  <Box>[bold]Dirty Water[/bold]</Box>
-  <Box>Raw Wasteland water. Purify before drinking.</Box>
-  <Box>[bold]Irradiated Water[/bold]</Box>
-  <Box>Contaminated water. Causes radiation exposure.</Box>
-  <Box>[bold]Radscorpion Tail[/bold]</Box>
-  <Box>Harvested from radscorpions with a knife. Used to produce antidote reagent.</Box>
-  <Box>[bold]Brahmin Hide[/bold]</Box>
-  <Box>Harvested from brahmin. Used in leather and hide-based crafting.</Box>
-</Table>
-
-<p>For all drink-related products, see the [textlink="Bartending" link="https://wiki.misfitsystems.net/index.php/Bartending"/] page.</p>
-
-<h3 Text="Ores, Metals, and Derivatives"/>
-
-<p>Mine lead ore and process it in a forge to get lead ingots. Break down scrap items to recover survival resources.</p>
+<p>Вода — ценный ресурс в Nuclear 14. В Пустоши вы часто будете находить грязную или облучённую воду, которую необходимо очистить и обеззаразить перед употреблением.</p>
 
 <Table Columns="2">
-  <Box>[bold]Material[/bold]</Box>
-  <Box>[bold]Process[/bold]</Box>
-  <Box>[bold]Lead Ore[/bold]</Box>
-  <Box>Mined raw. Process in a forge to get Lead Ingots.</Box>
-  <Box>[bold]Lead Ingots[/bold]</Box>
-  <Box>Smelted from Lead Ore. Used in ammunition and ballistic crafting.</Box>
-  <Box>[bold]Scrap Lead[/bold]</Box>
-  <Box>Recovered by breaking down lead-containing objects.</Box>
-  <Box>[bold]Scrap Steel[/bold]</Box>
-  <Box>Recovered by breaking down steel objects.</Box>
-  <Box>[bold]Scrap Copper[/bold]</Box>
-  <Box>Recovered from electronics, wiring, and rusted equipment.</Box>
-  <Box>[bold]Electronic Scrap[/bold]</Box>
-  <Box>Recovered from terminals, TVs, and pre-war electronics.</Box>
-  <Box>[bold]Sulfur Ore[/bold]</Box>
-  <Box>Mined raw. Process in a forge to get Sulfur Powder.</Box>
-  <Box>[bold]Sulfur Powder[/bold]</Box>
-  <Box>Processed from Sulfur Ore. Used in gunpowder and explosives.</Box>
-  <Box>[bold]Fertilizer[/bold]</Box>
-  <Box>Gathered from rocks and ground down. Also a reagent for farming.</Box>
-  <Box>[bold]Gunpowder[/bold]</Box>
-  <Box>Crafted from fertilizer + sulfur powder + carbon (coal). Used in cartridge production.</Box>
+  <Box>[bold]Материал[/bold]</Box>
+  <Box>[bold]Источник / Примечания[/bold]</Box>
+  <Box>[bold]Фильтрованная вода[/bold]</Box>
+  <Box>Очищенная вода — безопасна для питья.</Box>
+  <Box>[bold]Грязная вода[/bold]</Box>
+  <Box>Сырая вода из Пустоши. Очистите перед употреблением.</Box>
+  <Box>[bold]Облучённая вода[/bold]</Box>
+  <Box>Загрязнённая вода. Вызывает радиационное облучение.</Box>
+  <Box>[bold]Хвост радскорпиона[/bold]</Box>
+  <Box>Срезается с радскорпионов ножом. Используется для производства реагента-антидота.</Box>
+  <Box>[bold]Шкура брамина[/bold]</Box>
+  <Box>Снимается с браминов. Используется в кожевенном деле и крафте из шкур.</Box>
 </Table>
 
-<p>To make gunpowder, combine: [bold]Fertilizer + Sulfur Powder + Carbon[/bold] (from coal).</p>
-<p>If you need compost immediately, slurry dung with water to produce rotten compost for soil and farming recipes.</p>
+<p>Все продукты, связанные с напитками, смотрите на странице [textlink="Барменское дело" link="https://wiki.misfitsystems.net/index.php/Bartending"/].</p>
 
-<h3 Text="Wood and Wood Products"/>
+<h3 Text="Руды, металлы и производные"/>
 
-<p>Wooden planks can be made from wooden logs harvested from trees. Planks can then be used to make paper, and paper can be used to make cardboard.</p>
+<p>Добывайте свинцовую руду и перерабатывайте её в кузне, чтобы получить свинцовые слитки. Разбирайте предметы на лом, чтобы вернуть ресурсы для выживания.</p>
+
+<Table Columns="2">
+  <Box>[bold]Материал[/bold]</Box>
+  <Box>[bold]Обработка[/bold]</Box>
+  <Box>[bold]Свинцовая руда[/bold]</Box>
+  <Box>Добывается в сыром виде. Переработайте в кузне, чтобы получить свинцовые слитки.</Box>
+  <Box>[bold]Свинцовые слитки[/bold]</Box>
+  <Box>Выплавляются из свинцовой руды. Используются в производстве боеприпасов и баллистического снаряжения.</Box>
+  <Box>[bold]Свинцовый лом[/bold]</Box>
+  <Box>Добывается при разборке предметов, содержащих свинец.</Box>
+  <Box>[bold]Стальной лом[/bold]</Box>
+  <Box>Добывается при разборке стальных предметов.</Box>
+  <Box>[bold]Медный лом[/bold]</Box>
+  <Box>Добывается из электроники, проводки и ржавого оборудования.</Box>
+  <Box>[bold]Электронный лом[/bold]</Box>
+  <Box>Добывается из терминалов, телевизоров и довоенной электроники.</Box>
+  <Box>[bold]Серная руда[/bold]</Box>
+  <Box>Добывается в сыром виде. Переработайте в кузне, чтобы получить серный порошок.</Box>
+  <Box>[bold]Серный порошок[/bold]</Box>
+  <Box>Перерабатывается из серной руды. Используется в порохе и взрывчатке.</Box>
+  <Box>[bold]Удобрение[/bold]</Box>
+  <Box>Собирается с камней и измельчается. Также реагент для земледелия.</Box>
+  <Box>[bold]Порох[/bold]</Box>
+  <Box>Крафтится из удобрения + серного порошка + углерода (угля). Используется в производстве патронов.</Box>
+</Table>
+
+<p>Чтобы сделать порох, соедините: [bold]Удобрение + Серный порошок + Углерод[/bold] (из угля).</p>
+<p>Если компост нужен немедленно, разведите навоз водой, чтобы получить перегной для почвы и рецептов земледелия.</p>
+
+<h3 Text="Древесина и изделия из неё"/>
+
+<p>Доски можно делать из брёвен, добытых из деревьев. Из досок затем делают бумагу, а из бумаги — картон.</p>
 <ul>
-<li>[bold]Wood Plank[/bold] - Crafted from harvested wooden logs. Base material for many workbench items.</li>
+<li>[bold]Доска[/bold] — Делается из добытых брёвен. Базовый материал для многих предметов на верстаке.</li>
 </ul>
 
-<h3 Text="Other Materials"/>
+<h3 Text="Прочие материалы"/>
 
 <Table Columns="2">
-  <Box>[bold]Material[/bold]</Box>
-  <Box>[bold]Source / Notes[/bold]</Box>
-  <Box>[bold]Plastic Sheet[/bold]</Box>
-  <Box>Obtained by melting down pre-war plastic scrap with a welding tool, via chemical reaction, or with a recycler.</Box>
+  <Box>[bold]Материал[/bold]</Box>
+  <Box>[bold]Источник / Примечания[/bold]</Box>
+  <Box>[bold]Пластиковый лист[/bold]</Box>
+  <Box>Получается путём переплавки довоенного пластикового лома сварочным инструментом, химической реакцией или с помощью переработчика.</Box>
 </Table>
 
-<h3 Text="Pre-War Products"/>
+<h3 Text="Довоенные товары"/>
 
 <Table Columns="2">
-  <Box>[bold]Item[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Mr. Handy Fuel[/bold]</Box>
-  <Box>Found while exploring the Wasteland. A fuel source for welding tools and generators.</Box>
+  <Box>[bold]Предмет[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Топливо для Мистера Хенди[/bold]</Box>
+  <Box>Находится при исследовании Пустоши. Источник топлива для сварочных инструментов и генераторов.</Box>
 </Table>
 
 </Document>

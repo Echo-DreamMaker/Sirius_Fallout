@@ -1,309 +1,309 @@
 <Document>
-# New California Republic
+# Новая Калифорнийская Республика
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/New%20California%20Republic"/]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/New%20California%20Republic"/]
 
-<p>◈ New California Republic ◈ Salt Dogs Battalion ◈ Bonneville Station ◈</p>
+<p>◈ Новая Калифорнийская Республика ◈ Батальон «Солёные псы» ◈ Станция Бонневилль ◈</p>
 
 <Table Columns="2">
-  <Box>[bold]New California Republic[/bold]</Box>
+  <Box>[bold]Новая Калифорнийская Республика[/bold]</Box>
   <Box></Box>
-  <Box>◈ FACTION DOSSIER ◈</Box>
+  <Box>◈ ДОСЬЕ ФРАКЦИИ ◈</Box>
   <Box></Box>
-  <Box>[bold]Status[/bold]</Box>
-  <Box>Active - Forward Deployed</Box>
-  <Box>[bold]Location[/bold]</Box>
-  <Box>Bonneville Station, Nevada side
-Wendover Bridge Corridor</Box>
-  <Box>[bold]Commander[/bold]</Box>
-  <Box>Major Blackhawk & Major Walker
-Ranger DAGGER-02 (Intel)</Box>
-  <Box>[bold]Ideology[/bold]</Box>
-  <Box>Democratic Federalism
-Rule of Law · Expansionism</Box>
-  <Box>[bold]Motto[/bold]</Box>
-  <Box>[italic]Bear the Republic's burden[/italic]</Box>
-  <Box>[bold]Affiliation[/bold]</Box>
-  <Box>New California Republic</Box>
-  <Box>⬜ RESTRICTED ACCESS ⬜</Box>
+  <Box>[bold]Статус[/bold]</Box>
+  <Box>Активна — передовое развёртывание</Box>
+  <Box>[bold]Расположение[/bold]</Box>
+  <Box>Станция Бонневилль, сторона Невады
+Коридор моста Уэндовер</Box>
+  <Box>[bold]Командование[/bold]</Box>
+  <Box>Майор Блэкхок и майор Уокер
+Рейнджер DAGGER-02 (разведка)</Box>
+  <Box>[bold]Идеология[/bold]</Box>
+  <Box>Демократический федерализм
+Верховенство закона · Экспансионизм</Box>
+  <Box>[bold]Девиз[/bold]</Box>
+  <Box>[italic]Неси бремя Республики[/italic]</Box>
+  <Box>[bold]Принадлежность[/bold]</Box>
+  <Box>Новая Калифорнийская Республика</Box>
+  <Box>⬜ ДОСТУП ОГРАНИЧЕН ⬜</Box>
   <Box></Box>
 </Table>
 
-<p>The [bold]New California Republic[/bold] (NCR) stands as a beacon of democracy and order in the wasteland - a federal presidential republic rooted in old values of democracy, personal freedom, and the sanctity of law. Founded by Aradesh and his daughter Tandi in Shady Sands, it is now led by President Aaron Kimball. The NCR's mission is to restore civilization, uplift infrastructure and economic frameworks, and foster peace. But the Republic is not devoid of flaws: it grapples with expansion, territorial disputes, wavering loyalties, and rising corruption.</p>
+<p>[bold]Новая Калифорнийская Республика[/bold] (НКР) — маяк демократии и порядка в Пустоши: федеративная президентская республика, укоренённая в старых ценностях демократии, личной свободы и святости закона. Основанная Арадешем и его дочерью Тэнди в Шейди Сэндс, сегодня она управляется президентом Аароном Кимбаллом. Миссия НКР — возродить цивилизацию, поднять инфраструктуру и экономические устои, а также укрепить мир. Но Республика не лишена недостатков: она борется с экспансией, территориальными спорами, колеблющейся верностью и растущей коррупцией.</p>
 
-## Bonneville Station
+## Станция Бонневилль
 
-<h3 Text="The Salt Dogs Battalion"/>
+<h3 Text="Батальон «Солёные псы»"/>
 
-<p>The NCR's foothold east of Nevada is held by the [bold]Salt Dogs Battalion[/bold], garrisoned at Bonneville Station on the Nevada side of the Wendover bridge. The Utah side is maintained as a forward checkpoint on rotation. The bridge itself is a permanent NCR asset - it does not change hands.</p>
-<p>The battalion is commanded jointly by [bold]Major Blackhawk[/bold] and [bold]Major Walker[/bold]. Intelligence operations are coordinated by [bold]DAGGER-02[/bold], a Ranger attached from regional command.</p>
-<p>Wendover sits at the last real chokepoint before Utah opens into open wastes. I-80 runs through it. The salt trade runs through it. Whatever moves east or west in this region moves through Bonneville, and the Salt Dogs are there to make sure the NCR has a say in how it moves.</p>
+<p>Плацдарм НКР к востоку от Невады удерживает [bold]батальон «Солёные псы»[/bold], расквартированный на станции Бонневилль на стороне Невады у моста Уэндовер. Сторона Юты содержится как передовой контрольно-пропускной пункт на ротационной основе. Сам мост — постоянный объект НКР, он не переходит из рук в руки.</p>
+<p>Батальоном совместно командуют [bold]майор Блэкхок[/bold] и [bold]майор Уокер[/bold]. Разведывательные операции координирует [bold]DAGGER-02[/bold], рейнджер, прикомандированный от регионального командования.</p>
+<p>Уэндовер расположен в последней настоящей узкой горловине перед тем, как Юта открывается в бескрайние пустоши. Через него проходит I-80. Через него идёт торговля солью. Что бы ни двигалось на восток или запад в этом регионе, оно движется через Бонневилль, и «Солёные псы» находятся там, чтобы у НКР было право голоса в том, как это происходит.</p>
 
-<h3 Text="Strategic Context: DAGGER-02 Field Report"/>
+<h3 Text="Стратегический контекст: полевой отчёт DAGGER-02"/>
 
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"Station is established. Major Blackhawk and Major Walker are on the ground and operational. I'll be plain: given the current situation back home, I'm not certain who is reading this or in what capacity anymore. I'm filing it anyway. That's the job. We're here for I-80 and salt. Wendover is the last real chokepoint before Utah opens up. The salt funds the operation, which matters more now than it did when we were assigned here. Nevada side of the bridge is home base. Utah side is a forward checkpoint on rotation. The bridge stays ours. The Brotherhood has dug into the old airfield on the Utah side. They're not here by accident and they aren't telling us why. Nothing actionable yet. Legion presence has been noted in the region. Unknown which Legio, considering the civil war. Extent and intent unknown. Command should consider this when reviewing resupply prioritization.  - DAGGER-02, attached, Bonneville Station  Co-signed: Major Blackhawk, Major Walker - Salt Dogs Battalion, NCR"[/italic]
+[italic]«Станция развёрнута. Майор Блэкхок и майор Уокер на месте и действуют. Скажу прямо: учитывая текущее положение дел дома, я уже не уверен, кто это читает и в каком качестве. Я всё равно подаю отчёт. Такова работа. Мы здесь ради I-80 и соли. Уэндовер — последняя настоящая узкая горловина перед тем, как откроется Юта. Соль финансирует операцию, и сейчас это значит больше, чем когда нас сюда назначили. Сторона моста со стороны Невады — наша база. Сторона Юты — передовой контрольно-пропускной пункт на ротационной основе. Мост остаётся нашим. Братство окопалось на старом аэродроме на стороне Юты. Они здесь не случайно и не говорят нам, зачем. Пока ничего, что можно было бы предпринять. Присутствие Легиона отмечено в регионе. Неизвестно, какой именно Легион, учитывая гражданскую войну. Масштаб и намерения неизвестны. Командованию следует учесть это при пересмотре приоритетов снабжения.  — DAGGER-02, прикомандирован, станция Бонневилль  Составители: майор Блэкхок, майор Уокер — батальон «Солёные псы», НКР»[/italic]
   </Box>
 </ColorBox>
 
-## Laws
+## Законы
 
-<p>Dictated by the constitution of the Republic, every citizen of the NCR - civilian or military - must follow these laws.</p>
-<p>It is a crime to [bold]take the life of another[/bold], be it murder or manslaughter. These acts are harshly punished; depending on severity, punishment can reach execution. It is a crime to [bold]steal from another[/bold] regardless of circumstances, punishable by prison with the possibility of parole.</p>
+<p>Продиктованные конституцией Республики, эти законы обязан соблюдать каждый гражданин НКР — гражданский или военный.</p>
+<p>Преступлением является [bold]лишение другого человека жизни[/bold], будь то убийство или непредумышленное убийство. Эти деяния наказываются сурово; в зависимости от тяжести наказание может доходить до казни. Преступлением является [bold]кража у другого[/bold] независимо от обстоятельств, оно наказывается тюремным заключением с возможностью условно-досрочного освобождения.</p>
 
-<h3 Text="Basic Rights"/>
+<h3 Text="Основные права"/>
 
-<p>All citizens hold the following universal rights which may not be infringed upon:</p>
+<p>Все граждане обладают следующими универсальными правами, которые не могут быть нарушены:</p>
 
 <div>
 <ul>
-<li>The right to own personal property</li>
-<li>The right to freedom of expression, religion, and speech</li>
-<li>The right to self-defense</li>
-<li>The right to bear a sidearm and concealed carry inside NCR-controlled territories</li>
-<li>The right to enlist</li>
-<li>The right to an attorney</li>
-<li>The right to remain silent in cases of self-incrimination</li>
-<li>The right to a fair trial</li>
+<li>Право владеть личной собственностью</li>
+<li>Право на свободу самовыражения, вероисповедания и слова</li>
+<li>Право на самооборону</li>
+<li>Право носить пистолет и скрытое оружие на территориях, контролируемых НКР</li>
+<li>Право на вступление в армию</li>
+<li>Право на адвоката</li>
+<li>Право хранить молчание в случаях самооговора</li>
+<li>Право на справедливый суд</li>
 </ul>
 </div>
 
-<p>In the case of criminal arrest, all rights barring the right to remain silent, to a fair trial, and to an attorney are suspended.</p>
+<p>В случае уголовного ареста все права, кроме права хранить молчание, права на справедливый суд и права на адвоката, приостанавливаются.</p>
 
-<h3 Text="Treason"/>
+<h3 Text="Государственная измена"/>
 
-<p>All acts of treason are, in most cases, punishable by death. Includes: fraternizing with or providing information to an enemy of the state, terrorism, desertion, and dereliction of duty.</p>
+<p>Все акты государственной измены в большинстве случаев наказываются смертью. К ним относятся: братание с врагом государства или предоставление ему информации, терроризм, дезертирство и неисполнение служебных обязанностей.</p>
 
-<h3 Text="Fraudulent Activities"/>
+<h3 Text="Мошеннические действия"/>
 
-<p>Punishable by prison or voluntary labor. Includes: money laundering, identity theft, falsification of reports or official documents, forgery of currency, and the sale/distribution of illicit substances (Jet, Psycho, Turbo).</p>
+<p>Наказываются тюремным заключением или добровольными работами. К ним относятся: отмывание денег, кража личности, фальсификация отчётов или официальных документов, подделка валюты, а также продажа/распространение запрещённых веществ (Джет, Психо, Турбо).</p>
 
-## New California Republic Army (NCRA)
+## Армия Новой Калифорнийской Республики (Армия НКР)
 
-<p>The defense forces of the Republic. The NCRA must tackle conflicts in a non-aggressive way - de-escalate first, deal with threats using the minimum force possible.</p>
+<p>Силы обороны Республики. Армия НКР должна разрешать конфликты неагрессивным путём — сначала снижать напряжённость, разбираться с угрозами, применяя минимально возможную силу.</p>
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"The mission of the NCR is to uphold the law in the region, as well as trying to gain anything valuable - trading with major powers or settlements, or obtaining resources from the area. Expansionism is allowed but only by diplomacy or to expel a threat. Keeping a good image of the Republic is key."[/italic]
+[italic]«Миссия НКР — поддерживать закон в регионе, а также стараться получить всё ценное: торговать с крупными державами или поселениями либо добывать ресурсы на этой территории. Экспансия разрешена, но только дипломатическим путём или для устранения угрозы. Поддержание хорошего образа Республики — ключевая задача.»[/italic]
   </Box>
 </ColorBox>
 
-<h3 Text="Basic Principles"/>
+<h3 Text="Основные принципы"/>
 
 <div>
 <ul>
-<li>Follow the rules of war and human rights</li>
-<li>Obey the chain of command</li>
-<li>While on duty, do not drink alcohol or gamble</li>
-<li>Treat prisoners with respect and dignity; field execution requires officer or High Command authorization</li>
-<li>Wear your uniform at all times. Dog tags and rank pins must always be visible</li>
-<li>Going off-duty requires chain-of-command approval; always ask command before stepping down</li>
+<li>Соблюдать правила ведения войны и права человека</li>
+<li>Подчиняться командной цепочке</li>
+<li>Находясь на службе, не употреблять алкоголь и не играть в азартные игры</li>
+<li>Обращаться с пленными с уважением и достоинством; полевое приведение в исполнение приговора требует разрешения офицера или Верховного командования</li>
+<li>Всегда носить форму. Жетоны и знаки различия должны быть всегда видны</li>
+<li>Уход со службы требует одобрения по командной цепочке; всегда спрашивайте разрешение у командования, прежде чем сложить с себя обязанности</li>
 </ul>
 </div>
 
-<p>[bold]Field Promotions[/bold] are legal. An NCO may promote enlisted personnel; a CO may promote an NCO for exceptional service. Cannot promote between branches, nor skip from enlisted to officer.</p>
+<p>[bold]Полевые повышения[/bold] законны. Унтер-офицер (NCO) может повышать рядовой состав; офицер (CO) может повышать унтер-офицера за исключительную службу. Нельзя повышать между родами войск, а также перескакивать из рядового состава в офицерский.</p>
 
-<h3 Text="Chain of Command"/>
+<h3 Text="Командная цепочка"/>
 
 <Table Columns="3">
-  <Box>[bold]Rank[/bold]</Box>
-  <Box>[bold]Type[/bold]</Box>
-  <Box>[bold]Role[/bold]</Box>
-  <Box>Captain</Box>
+  <Box>[bold]Звание[/bold]</Box>
+  <Box>[bold]Тип[/bold]</Box>
+  <Box>[bold]Роль[/bold]</Box>
+  <Box>Капитан</Box>
   <Box>CO</Box>
-  <Box>Command the NCR's local detachment. All military and diplomatic decisions run through you.</Box>
-  <Box>[bold]Lieutenant[/bold]</Box>
+  <Box>Командует местным подразделением НКР. Все военные и дипломатические решения проходят через вас.</Box>
+  <Box>[bold]Лейтенант[/bold]</Box>
   <Box>CO</Box>
-  <Box>Second-in-command. Support the Captain, manage day-to-day operations, step into command when needed.</Box>
-  <Box>[bold]Medical Doctor[/bold]</Box>
-  <Box>CO (attached)</Box>
-  <Box>Senior medical officer. Keep soldiers combat-capable; advise command on medical threats. Your skills are a diplomatic asset.</Box>
-  <Box>[bold]Sergeant First Class[/bold]</Box>
+  <Box>Второй по старшинству. Поддерживайте капитана, управляйте повседневной деятельностью, принимайте командование при необходимости.</Box>
+  <Box>[bold]Военный врач[/bold]</Box>
+  <Box>CO (прикомандирован)</Box>
+  <Box>Старший медицинский офицер. Поддерживайте боеспособность солдат; консультируйте командование по медицинским угрозам. Ваши навыки — дипломатический актив.</Box>
+  <Box>[bold]Сержант первого класса[/bold]</Box>
   <Box>NCO</Box>
-  <Box>Senior NCO of the detachment. Translate officer intent into enlisted action; enforce discipline; manage formation readiness.</Box>
-  <Box>[bold]Staff Sergeant[/bold]</Box>
+  <Box>Старший унтер-офицер подразделения. Превращайте намерения офицеров в действия рядового состава; следите за дисциплиной; управляйте готовностью строя.</Box>
+  <Box>[bold]Штаб-сержант[/bold]</Box>
   <Box>NCO</Box>
-  <Box>Senior squad leader. Lead troops in the field and coordinate with the Sergeant First Class.</Box>
-  <Box>[bold]Sergeant[/bold]</Box>
+  <Box>Старший командир отделения. Ведите войска в поле и координируйте действия с сержантом первого класса.</Box>
+  <Box>[bold]Сержант[/bold]</Box>
   <Box>NCO</Box>
-  <Box>Squad leader. Know your soldiers, execute direction, and make the right call when there is no time to ask.</Box>
-  <Box>[bold]Specialist[/bold]</Box>
-  <Box>Enlisted</Box>
-  <Box>Trained specialist serving in combat, engineering, or medical roles. Pick your loadout to match the mission.</Box>
-  <Box>[bold]Private First Class[/bold]</Box>
-  <Box>Enlisted</Box>
-  <Box>Experienced private. Proven reliable - better gear, more latitude, more trust from NCOs.</Box>
-  <Box>[bold]Private[/bold]</Box>
-  <Box>Enlisted</Box>
-  <Box>Standard soldier. Enforce NCR authority, protect personnel and assets, and carry out orders.</Box>
-  <Box>[bold]Recruit[/bold]</Box>
-  <Box>Enlisted</Box>
-  <Box>Newest enlistee. You are at the bottom of a long ladder. Follow orders, learn the ropes, avoid getting yourself or your squadmates killed.</Box>
+  <Box>Командир отделения. Знайте своих солдат, выполняйте указания и принимайте верное решение, когда нет времени спрашивать.</Box>
+  <Box>[bold]Специалист[/bold]</Box>
+  <Box>Рядовой состав</Box>
+  <Box>Обученный специалист, служащий в боевой, инженерной или медицинской роли. Подбирайте снаряжение под задачу.</Box>
+  <Box>[bold]Рядовой первого класса[/bold]</Box>
+  <Box>Рядовой состав</Box>
+  <Box>Опытный рядовой. Доказал надёжность — лучше снаряжение, больше свободы, больше доверия от унтер-офицеров.</Box>
+  <Box>[bold]Рядовой[/bold]</Box>
+  <Box>Рядовой состав</Box>
+  <Box>Обычный солдат. Обеспечивайте власть НКР, защищайте личный состав и имущество, выполняйте приказы.</Box>
+  <Box>[bold]Новобранец[/bold]</Box>
+  <Box>Рядовой состав</Box>
+  <Box>Самый новый призывник. Вы в самом низу длинной лестницы. Выполняйте приказы, осваивайтесь, не дайте погибнуть себе или своим товарищам.</Box>
 </Table>
 
-## New California Republic Rangers (NCRR)
+## Рейнджеры Новой Калифорнийской Республики (Рейнджеры НКР)
 
-<p>The Rangers - originally descended from Pre-War Rangers - are the elite soldiers of the NCR. A volunteer special force renowned for survival, reconnaissance, scouting, sabotage, and martial arts. Their primary purpose is dealing with threats the regular NCRA cannot handle.</p>
-<p>The Rangers are the living image of NCR ideals of liberty, justice, and freedom from tyrants, slavers, and raiders.</p>
+<p>Рейнджеры — изначально происходящие от довоенных рейнджеров — элитные солдаты НКР. Добровольные силы специального назначения, известные своим мастерством выживания, разведки, рекогносцировки, диверсий и боевых искусств. Их главная задача — разбираться с угрозами, с которыми не справляется обычная Армия НКР.</p>
+<p>Рейнджеры — живое воплощение идеалов НКР: свободы, справедливости и освобождения от тиранов, работорговцев и рейдеров.</p>
 <ul>
-<li>A [bold]Ranger[/bold] holds authority equivalent to a Sergeant.</li>
-<li>A [bold]Veteran Ranger[/bold] holds authority equivalent to an Officer.</li>
-<li>Rangers operate with autonomy but cooperate with NCRA partners. They can give orders to the NCRA if no NCRA command is available.</li>
+<li>[bold]Рейнджер[/bold] обладает полномочиями, эквивалентными сержанту.</li>
+<li>[bold]Ветеран-рейнджер[/bold] обладает полномочиями, эквивалентными офицеру.</li>
+<li>Рейнджеры действуют автономно, но сотрудничают с коллегами из Армии НКР. Они могут отдавать приказы Армии НКР, если командование Армии НКР недоступно.</li>
 </ul>
 
-## Crime and Punishment
+## Преступления и наказания
 
-<p>Punishment in the NCR is divided between Non-Judicial and Judicial Punishment.</p>
+<p>Наказания в НКР делятся на внесудебные и судебные.</p>
 
-<h3 Text="Non-Judicial Punishment (NJP)"/>
+<h3 Text="Внесудебное наказание (NJP)"/>
 
-<p>For less severe offenses. Given by NCOs and Officers in the field. These punishments must best fit the severity of the offense and cannot be cruel or arbitrary.</p>
+<p>За менее серьёзные проступки. Назначается унтер-офицерами и офицерами в поле. Такие наказания должны наилучшим образом соответствовать тяжести проступка и не могут быть жестокими или произвольными.</p>
 <ul>
-<li>Reprimand · Forfeiture of Pay · Extra Duty · Diminished Rations</li>
-<li>Confinement to Base or Brig</li>
-<li>Loss of Rank (requires Captain or higher approval)</li>
+<li>Выговор · Лишение жалованья · Дополнительные наряды · Урезанный паёк</li>
+<li>Содержание на базе или в карцере</li>
+<li>Понижение в звании (требуется одобрение капитана или выше)</li>
 </ul>
 
-<h3 Text="Judicial Punishment (JP)"/>
+<h3 Text="Судебное наказание (JP)"/>
 
-<p>Determined after court martial for major or capital offenses.</p>
+<p>Определяется после военного трибунала за тяжкие или особо тяжкие преступления.</p>
 <ul>
-<li>Other Than Honorable Discharge · Dishonorable Discharge</li>
-<li>Execution via Firing Squad or Hanging</li>
-<li>Barred from Reenlistment</li>
+<li>Увольнение без почёта · Увольнение с позором</li>
+<li>Казнь через расстрел или повешение</li>
+<li>Запрет на повторное вступление в армию</li>
 </ul>
 
-<h3 Text="Court Martial"/>
+<h3 Text="Военный трибунал"/>
 
-<p>Requested by high-ranking members or the Military Police. Handles serious crimes between NCRA and NCRR. Non-military personnel are not sentenced to Court Martial - they receive a Civilian Court Trial. Court martials take time; they are not instantaneous.</p>
+<p>Запрашивается высокопоставленными членами или военной полицией. Рассматривает серьёзные преступления между Армией НКР и Рейнджерами НКР. Гражданский персонал не осуждается военным трибуналом — они получают гражданский суд. Военные трибуналы требуют времени; они не мгновенны.</p>
 
-## List of Offenses
+## Список правонарушений
 
 <Table Columns="4">
-  <Box>[bold]Offense[/bold]</Box>
-  <Box>[bold]Category[/bold]</Box>
-  <Box>[bold]Description[/bold]</Box>
-  <Box>[bold]Punishment[/bold]</Box>
-  <Box>Assault, Verbal</Box>
+  <Box>[bold]Правонарушение[/bold]</Box>
+  <Box>[bold]Категория[/bold]</Box>
+  <Box>[bold]Описание[/bold]</Box>
+  <Box>[bold]Наказание[/bold]</Box>
+  <Box>Нападение, словесное</Box>
   <Box>MR</Box>
-  <Box>Threatening to use physical force against a person.</Box>
-  <Box>Brig (5 min)</Box>
-  <Box>Hooliganism</Box>
+  <Box>Угроза применить физическую силу против человека.</Box>
+  <Box>Карцер (5 мин)</Box>
+  <Box>Хулиганство</Box>
   <Box>MR</Box>
-  <Box>Loud yelling on comms after being warned, throwing garbage, breaking windows.</Box>
-  <Box>Brig (5 min)</Box>
-  <Box>Insubordination, Minor</Box>
+  <Box>Громкие крики в рации после предупреждения, разбрасывание мусора, разбивание окон.</Box>
+  <Box>Карцер (5 мин)</Box>
+  <Box>Неподчинение, незначительное</Box>
   <Box>MR</Box>
-  <Box>Disobeying a lawful order; undermining authority without inciting mutiny.</Box>
-  <Box>Brig (10 min)</Box>
-  <Box>Failure of Proper Conduct</Box>
+  <Box>Невыполнение законного приказа; подрыв авторитета без подстрекательства к мятежу.</Box>
+  <Box>Карцер (10 мин)</Box>
+  <Box>Несоблюдение надлежащего поведения</Box>
   <Box>MR</Box>
-  <Box>Poor grooming, improper uniform, friendly fire, public misconduct.</Box>
-  <Box>Situational; brig (5–10 min)</Box>
-  <Box>Neglect of Duty</Box>
+  <Box>Неопрятный вид, неправильная форма, огонь по своим, публичное неподобающее поведение.</Box>
+  <Box>По ситуации; карцер (5–10 мин)</Box>
+  <Box>Халатное отношение к службе</Box>
   <Box>MR</Box>
-  <Box>Careless or intentional failure to perform official duties.</Box>
-  <Box>Loss of rank; brig (10 min)</Box>
-  <Box>Substance Abuse (legal)</Box>
+  <Box>Небрежное или намеренное невыполнение служебных обязанностей.</Box>
+  <Box>Понижение в звании; карцер (10 мин)</Box>
+  <Box>Употребление веществ (легальных)</Box>
   <Box>MR</Box>
-  <Box>Use of permitted substances (Med-X) while on-duty without medical authorization.</Box>
-  <Box>NJP (10 min)</Box>
-  <Box>AWOL</Box>
+  <Box>Употребление разрешённых веществ (Мед-Х) на службе без медицинского разрешения.</Box>
+  <Box>NJP (10 мин)</Box>
+  <Box>Самовольная отлучка (AWOL)</Box>
   <Box>MR</Box>
-  <Box>Abandoning post without authorization, with intention to return.</Box>
-  <Box>Situational; loss of rank, dismissal (10–20 min)</Box>
-  <Box>Drug Trafficking (legal)</Box>
+  <Box>Оставление поста без разрешения с намерением вернуться.</Box>
+  <Box>По ситуации; понижение в звании, увольнение (10–20 мин)</Box>
+  <Box>Торговля веществами (легальными)</Box>
   <Box>MR</Box>
-  <Box>Selling alcohol on-duty.</Box>
-  <Box>NJP (10 min)</Box>
-  <Box>Assault, Physical</Box>
+  <Box>Продажа алкоголя на службе.</Box>
+  <Box>NJP (10 мин)</Box>
+  <Box>Нападение, физическое</Box>
   <Box>MR–MO</Box>
-  <Box>Attacking with body only (MR); use of weapons escalates to MO.</Box>
-  <Box>Body: brig (10 min). Weapons: loss of rank (20 min)</Box>
-  <Box>Substance Abuse (illegal)</Box>
+  <Box>Нападение только с помощью тела (MR); использование оружия переводит в MO.</Box>
+  <Box>Тело: карцер (10 мин). Оружие: понижение в звании (20 мин)</Box>
+  <Box>Употребление веществ (нелегальных)</Box>
   <Box>MR–MO</Box>
-  <Box>Use of Jet, Psycho, etc. even off-duty. Send to medbay.</Box>
-  <Box>Loss of rank (20 min)</Box>
-  <Box>Drug Trafficking (illegal)</Box>
+  <Box>Употребление Джета, Психо и т. п. даже вне службы. Отправить в медотсек.</Box>
+  <Box>Понижение в звании (20 мин)</Box>
+  <Box>Торговля веществами (нелегальными)</Box>
   <Box>MR–MO–CO</Box>
-  <Box>Selling Jet, Psycho, etc. Can escalate to CO for repeat offenses.</Box>
-  <Box>Demotion; can reach life imprisonment</Box>
-  <Box>Fraternization</Box>
+  <Box>Продажа Джета, Психо и т. п. При повторных правонарушениях может перейти в CO.</Box>
+  <Box>Понижение; может дойти до пожизненного заключения</Box>
+  <Box>Братание</Box>
   <Box>MO</Box>
-  <Box>Undue relationship between enlisted/NCO and a Commissioned Officer.</Box>
-  <Box>Dismissal or loss of rank (20 min)</Box>
-  <Box>Manslaughter</Box>
+  <Box>Неподобающие отношения между рядовым составом/унтер-офицером и офицером.</Box>
+  <Box>Увольнение или понижение в звании (20 мин)</Box>
+  <Box>Непредумышленное убийство</Box>
   <Box>MO</Box>
-  <Box>Unintentional death through negligence.</Box>
-  <Box>Dismissal or loss of rank (until next shift)</Box>
-  <Box>Abandonment of Duty</Box>
+  <Box>Непреднамеренная смерть по небрежности.</Box>
+  <Box>Увольнение или понижение в звании (до следующей смены)</Box>
+  <Box>Оставление службы</Box>
   <Box>MO</Box>
-  <Box>Willingly failing to report to assigned post.</Box>
-  <Box>Loss of rank (20 min)</Box>
-  <Box>Assaulting/Disobeying an Officer</Box>
+  <Box>Умышленная неявка на назначенный пост.</Box>
+  <Box>Понижение в звании (20 мин)</Box>
+  <Box>Нападение на офицера / неподчинение офицеру</Box>
   <Box>MO</Box>
-  <Box>Disobeying lawful order from an Officer, or physically assaulting one.</Box>
-  <Box>Dismissal or loss of rank (20 min or until next shift)</Box>
-  <Box>Sedition</Box>
+  <Box>Невыполнение законного приказа офицера или физическое нападение на него.</Box>
+  <Box>Увольнение или понижение в звании (20 мин или до следующей смены)</Box>
+  <Box>Подстрекательство</Box>
   <Box>MO</Box>
-  <Box>Conspiring or openly opposing rightful authorities and the rule of law.</Box>
-  <Box>Dismissal or loss of rank (until next shift)</Box>
-  <Box>Desertion</Box>
+  <Box>Сговор или открытое противодействие законным властям и верховенству закона.</Box>
+  <Box>Увольнение или понижение в звании (до следующей смены)</Box>
+  <Box>Дезертирство</Box>
   <Box>MO</Box>
-  <Box>Willingly abandoning post with no intention of return.</Box>
-  <Box>Execution or life imprisonment (until next shift)</Box>
-  <Box>Fraternization with Enemy</Box>
+  <Box>Умышленное оставление поста без намерения вернуться.</Box>
+  <Box>Казнь или пожизненное заключение (до следующей смены)</Box>
+  <Box>Братание с врагом</Box>
   <Box>MO</Box>
-  <Box>Cooperating with any enemy of the NCR. Escalates to CO if an ongoing relationship exists.</Box>
-  <Box>Execution or life imprisonment (until next shift)</Box>
-  <Box>Insubordination, Major</Box>
+  <Box>Сотрудничество с любым врагом НКР. Переходит в CO, если связь продолжается.</Box>
+  <Box>Казнь или пожизненное заключение (до следующей смены)</Box>
+  <Box>Неподчинение, серьёзное</Box>
   <Box>MO–CO</Box>
-  <Box>Disobeying orders, resulting in mutiny, NCR casualties, or desertion in force.</Box>
-  <Box>Dismissal (until next shift); escalates to CO if it triggers a shootout</Box>
-  <Box>Use of Mercenaries</Box>
+  <Box>Невыполнение приказов, приведшее к мятежу, потерям среди НКР или массовому дезертирству.</Box>
+  <Box>Увольнение (до следующей смены); переходит в CO, если это вызывает перестрелку</Box>
+  <Box>Наёмничество</Box>
   <Box>CO</Box>
-  <Box>Paying civilians or non-NCR personnel to fight for the NCR.</Box>
-  <Box>Execution or life imprisonment (until next shift)</Box>
-  <Box>Treason</Box>
+  <Box>Оплата гражданских лиц или персонала, не относящегося к НКР, за участие в боях за НКР.</Box>
+  <Box>Казнь или пожизненное заключение (до следующей смены)</Box>
+  <Box>Государственная измена</Box>
   <Box>CO</Box>
-  <Box>Giving shelter or aid to enemies of the NCR, or working against the NCR while owing it allegiance.</Box>
-  <Box>Execution or life imprisonment (until next shift)</Box>
-  <Box>Murder</Box>
+  <Box>Предоставление убежища или помощи врагам НКР либо действия против НКР, будучи обязанным ей верностью.</Box>
+  <Box>Казнь или пожизненное заключение (до следующей смены)</Box>
+  <Box>Убийство</Box>
   <Box>CO</Box>
-  <Box>Intentionally killing a person, with or without forethought.</Box>
-  <Box>Execution or life imprisonment (until next shift)</Box>
-  <Box>Sabotage</Box>
+  <Box>Умышленное лишение человека жизни, заранее обдуманное или нет.</Box>
+  <Box>Казнь или пожизненное заключение (до следующей смены)</Box>
+  <Box>Саботаж</Box>
   <Box>CO</Box>
-  <Box>Hindering military operations; destroying NCR equipment, comms, medication, or weapons.</Box>
-  <Box>Execution or life imprisonment (until next shift)</Box>
-  <Box>Cannibalism</Box>
+  <Box>Воспрепятствование военным операциям; уничтожение снаряжения, средств связи, медикаментов или оружия НКР.</Box>
+  <Box>Казнь или пожизненное заключение (до следующей смены)</Box>
+  <Box>Каннибализм</Box>
   <Box>CO</Box>
-  <Box>Willingly and knowingly consuming a human, ghoul, or sapient mutant.</Box>
-  <Box>Execution or life imprisonment (until next shift)</Box>
+  <Box>Добровольное и осознанное употребление в пищу человека, гуля или разумного мутанта.</Box>
+  <Box>Казнь или пожизненное заключение (до следующей смены)</Box>
 </Table>
 
-<p>[bold]Modifiers:[/bold] Aggravating factors (repeating an offense, refusing to cooperate) make punishment harsher. Mitigating factors (surrendering, cooperating) make it less harsh.</p>
+<p>[bold]Модификаторы:[/bold] Отягчающие обстоятельства (повторное правонарушение, отказ от сотрудничества) делают наказание строже. Смягчающие обстоятельства (сдача, сотрудничество) делают его менее строгим.</p>
 
-## Dress Code
+## Дресс-код
 
-<p>All on-duty personnel must be in full uniform during all NCR operations. Cadets cannot modify their issued loadout. Upon reaching NCO rank, soldiers may wear non-NCR apparel (cowboy hats, bandanas), provided they remain identifiable as NCR personnel.</p>
+<p>Весь личный состав на службе обязан быть в полной форме во время всех операций НКР. Кадеты не могут изменять выданное им снаряжение. По достижении звания унтер-офицера солдаты могут носить не относящуюся к НКР одежду (ковбойские шляпы, банданы) при условии, что они остаются узнаваемыми как персонал НКР.</p>
 
-<h3 Text="Hair Regulations"/>
+<h3 Text="Правила относительно волос"/>
 
-<p>Hair must be well-groomed, natural color, cut no further than the shoulders or tied back, and fit underneath a helmet. Helmets may be removed indoors when appropriate.</p>
+<p>Волосы должны быть ухоженными, естественного цвета, длиной не ниже плеч или собраны назад и помещаться под шлемом. В помещениях шлемы можно снимать, когда это уместно.</p>
 
-<h3 Text="Weapon Regulations"/>
+<h3 Text="Правила относительно оружия"/>
 
-<p>Low-ranking troopers use weapons issued at shift start and may not change them without authorization. Weapons manufactured by other factions are [bold]strictly forbidden[/bold] and will be held in the armory until repurposed. High-quality weapons are distributed by logistics to where they are needed.</p>
+<p>Низкоранговые солдаты используют оружие, выданное в начале смены, и не могут менять его без разрешения. Оружие, произведённое другими фракциями, [bold]строго запрещено[/bold] и будет храниться в арсенале до перепрофилирования. Высококачественное оружие распределяется службой снабжения туда, где оно необходимо.</p>
 
-## Criminals and Prisoners of War
+## Преступники и военнопленные
 
-<h3 Text="Criminals"/>
+<h3 Text="Преступники"/>
 
-<p>Individuals not part of any faction who have broken NCR laws, committed crimes against NCR citizens or personnel, or undermined NCR operations. Criminals are protected under NCR laws - they must be treated humanely, provided with food, clothing, and shelter, and may not be abused while non-resisting. Non-lethal methods are authorized if they attempt to escape.</p>
+<p>Лица, не входящие ни в одну фракцию, которые нарушили законы НКР, совершили преступления против граждан или персонала НКР либо подорвали операции НКР. Преступники защищены законами НКР — с ними следует обращаться гуманно, обеспечивать их едой, одеждой и кровом, и их нельзя подвергать жестокому обращению, пока они не оказывают сопротивления. Если они пытаются сбежать, разрешены нелетальные методы.</p>
 
-<h3 Text="Prisoners of War (POWs)"/>
+<h3 Text="Военнопленные (POW)"/>
 
-<p>Individuals who are part of a faction currently at war with the NCR. POWs are protected under NCR laws and must be treated humanely. They are [bold]not[/bold] to be used for tactical purposes (e.g. planning an ambush), nor traded, exchanged, or released without High Command authorization. Anyone releasing a POW without authorization is charged with Sedition or Treason.</p>
+<p>Лица, входящие во фракцию, которая в данный момент находится в состоянии войны с НКР. Военнопленные защищены законами НКР, и с ними следует обращаться гуманно. Их [bold]нельзя[/bold] использовать в тактических целях (например, для планирования засады), а также обменивать, менять или освобождать без разрешения Верховного командования. Любой, кто освобождает военнопленного без разрешения, обвиняется в подстрекательстве или государственной измене.</p>
 
 </Document>

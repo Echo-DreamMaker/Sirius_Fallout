@@ -1,0 +1,21 @@
+- type: entity
+  id: SiriusWastelandSurvivalGuide
+  parent: BaseItem
+  name: wasteland survival guide
+  description: A battered survival guide.
+  components:
+  - type: Sprite
+    sprite: _Sirius/Objects/Misc/siriusbooks.rsi
+    state: icon
+  - type: HyperlinkBook
+    url: "https://siriusfallout.miraheze.org/wiki/Заглавная_страница"
+  - type: Tag
+    tags:
+    - Book
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+

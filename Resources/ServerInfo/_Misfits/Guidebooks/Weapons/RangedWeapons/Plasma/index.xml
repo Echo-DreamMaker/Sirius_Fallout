@@ -1,62 +1,62 @@
 <Document>
-# Plasma Weapons
+# Плазменное оружие
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Plasma%20Weapons"/]
+[textlink="Просмотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Plasma%20Weapons"/]
 
-## Plasma Weapons
+## Плазменное оружие
 
-<p>Plasma weapons fire superheated ionized gas that deals tremendous damage against both flesh and armor. They are some of the most destructive energy weapons in the Wasteland and are rarely seen outside advanced factions.</p>
+<p>Плазменное оружие стреляет перегретым ионизированным газом, который наносит огромный урон как по плоти, так и по броне. Это одно из самых разрушительных энергетических видов оружия в Пустоши, и его редко встретишь за пределами развитых фракций.</p>
 
-<h3 Text="Plasma Pistols"/>
+<h3 Text="Плазменные пистолеты"/>
 
-<p>Compact plasma sidearms that trade ammunition efficiency for heavy per-shot damage.</p>
+<p>Компактное плазменное оружие для самообороны, которое жертвует экономичностью боеприпасов ради тяжёлого урона за выстрел.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Plasma Pistol[/bold]</Box>
-  <Box>Standard plasma sidearm. Heavy per-shot damage.</Box>
-  <Box>[bold]Plasma Defender[/bold]</Box>
-  <Box>Enhanced plasma pistol. Better accuracy and damage than standard.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Плазменный пистолет[/bold]</Box>
+  <Box>Стандартное плазменное оружие для самообороны. Тяжёлый урон за выстрел.</Box>
+  <Box>[bold]Плазменный защитник[/bold]</Box>
+  <Box>Улучшенный плазменный пистолет. Лучше точность и урон, чем у стандартного.</Box>
 </Table>
 
-<h3 Text="Plasma Rifles"/>
+<h3 Text="Плазменные винтовки"/>
 
-<p>Plasma rifles deal heavy damage at medium range and can devastate lightly armored targets on a direct hit.</p>
+<p>Плазменные винтовки наносят тяжёлый урон на средней дистанции и способны уничтожить слабо бронированные цели прямым попаданием.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Plasma Rifle[/bold]</Box>
-  <Box>Standard pre-war plasma rifle. Reliable and devastating.</Box>
-  <Box>[bold]Auto Plasma Rifle[/bold]</Box>
-  <Box>Automatic-fire variant. High energy consumption.</Box>
-  <Box>[bold]Urban Plasma Rifle[/bold]</Box>
-  <Box>Compact profile. Better suited to settlement and interior combat.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Плазменная винтовка[/bold]</Box>
+  <Box>Стандартная довоенная плазменная винтовка. Надёжная и разрушительная.</Box>
+  <Box>[bold]Автоматическая плазменная винтовка[/bold]</Box>
+  <Box>Вариант с автоматическим огнём. Высокий расход энергии.</Box>
+  <Box>[bold]Городская плазменная винтовка[/bold]</Box>
+  <Box>Компактный профиль. Лучше подходит для боёв в поселениях и помещениях.</Box>
 </Table>
 
-<h3 Text="Advanced Plasma Weapons"/>
+<h3 Text="Продвинутое плазменное оружие"/>
 
-<p>High-end plasma technology usually tied to advanced military stockpiles or elite factions.</p>
+<p>Высококлассные плазменные технологии, обычно связанные с передовыми военными складами или элитными фракциями.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Multiplas Rifle[/bold]</Box>
-  <Box>Fires multiple plasma bolts per shot. Exceptional close-range damage.</Box>
-  <Box>[bold]Plasma Caster[/bold]</Box>
-  <Box>Heavy plasma weapon. Enormous damage output. Extremely rare.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Мультиплазменная винтовка[/bold]</Box>
+  <Box>Выстреливает несколько плазменных зарядов за выстрел. Исключительный урон на близкой дистанции.</Box>
+  <Box>[bold]Плазменный метатель[/bold]</Box>
+  <Box>Тяжёлое плазменное оружие. Огромная огневая мощь. Крайне редкое.</Box>
 </Table>
 
-<h3 Text="Improvised Plasma Weapons"/>
+<h3 Text="Импровизированное плазменное оружие"/>
 
-<p>Post-war constructed plasma weapons are rougher and less reliable, but far more obtainable than pristine military examples.</p>
+<p>Плазменное оружие послевоенной сборки грубее и менее надёжно, но заполучить его куда проще, чем безупречные военные образцы.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Crude Plasma Rifle[/bold]</Box>
-  <Box>Field-built plasma weapon. Less reliable than military hardware.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Грубая плазменная винтовка[/bold]</Box>
+  <Box>Плазменное оружие полевой сборки. Менее надёжное, чем военная техника.</Box>
 </Table>
 
 </Document>

@@ -1,47 +1,47 @@
 <Document>
-# Part Manipulation
+# Манипуляции с частями тела
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Surgery"]
+[textlink="Просмотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Surgery"/]
 
-<p>Part manipulation surgeries allow you to remove, reattach, or replace body parts. They are used for amputations, prosthetic fitting, species conversion, and limb transplants.</p>
+<p>Операции по манипуляции с частями тела позволяют удалять, прикреплять обратно или заменять части тела. Они используются для ампутаций, установки протезов, смены вида и пересадки конечностей.</p>
 
 <hr/>
 
-## Standard Anatomy
+## Стандартная анатомия
 
-<p>A typical human body has ten main parts:</p>
+<p>Типичное человеческое тело состоит из десяти основных частей:</p>
 
 <ul>
-<li>[bold]Head[/bold]</li>
-<li>[bold]Torso[/bold]</li>
-<li>[bold]Right Arm[/bold], [bold]Right Hand[/bold]</li>
-<li>[bold]Left Arm[/bold], [bold]Left Hand[/bold]</li>
-<li>[bold]Right Leg[/bold], [bold]Right Foot[/bold]</li>
-<li>[bold]Left Leg[/bold], [bold]Left Foot[/bold]</li>
+<li>[bold]Голова[/bold]</li>
+<li>[bold]Торс[/bold]</li>
+<li>[bold]Правая рука[/bold], [bold]Правая кисть[/bold]</li>
+<li>[bold]Левая рука[/bold], [bold]Левая кисть[/bold]</li>
+<li>[bold]Правая нога[/bold], [bold]Правая стопа[/bold]</li>
+<li>[bold]Левая нога[/bold], [bold]Левая стопа[/bold]</li>
 </ul>
 
-<p>Some species have additional parts such as tails, wings, or extra limbs.</p>
+<p>У некоторых видов есть дополнительные части, например хвосты, крылья или лишние конечности.</p>
 
 <hr/>
 
-## Removing and Reattaching Parts
+## Удаление и прикрепление частей
 
-<p>To [bold]remove[/bold] a limb, apply the Remove Part surgery to the target part. The limb is detached without harming the patient.</p>
+<p>Чтобы [bold]удалить[/bold] конечность, примените операцию «Удалить часть» к нужной части тела. Конечность отделяется, не причиняя вреда пациенту.</p>
 
-<p>To [bold]reattach[/bold] a limb, apply the Attach Part surgery at the correct attachment site. Hands attach to arms. Feet attach to legs. All other parts attach to the torso.</p>
-
-<hr/>
-
-## Sourcing Replacement Parts
-
-<p>When a patient needs a replacement limb, use a [bold]Medical Biofabricator[/bold] with [bold]Biomass[/bold]. The biofabricator can manufacture biosynthetic limbs for all species.</p>
-
-<p>Every Chief Medical Officer has access to a Medical Biofabricator board in their starting equipment.</p>
+<p>Чтобы [bold]прикрепить обратно[/bold] конечность, примените операцию «Прикрепить часть» в правильном месте крепления. Кисти прикрепляются к рукам. Стопы прикрепляются к ногам. Все остальные части прикрепляются к торсу.</p>
 
 <hr/>
 
-## Non-Functional Reattached Limbs
+## Поиск запасных частей
 
-<p>If a reattached limb is unresponsive, the nerve damage is too severe for reattachment alone to restore function. Treat the limb with Tend Wounds surgery or topical wound care until enough damage is healed for it to function again.</p>
+<p>Когда пациенту нужна замена конечности, используйте [bold]Медицинский биофабрикатор[/bold] с [bold]Биомассой[/bold]. Биофабрикатор может изготавливать биосинтетические конечности для всех видов.</p>
+
+<p>У каждого главного врача есть доступ к плате медицинского биофабрикатора в стартовом снаряжении.</p>
+
+<hr/>
+
+## Нефункциональные прикреплённые конечности
+
+<p>Если прикреплённая обратно конечность не отвечает, повреждение нервов слишком сильное, и одного лишь прикрепления недостаточно для восстановления функции. Лечите конечность операцией «Залечить раны» или местной обработкой ран, пока не заживёт достаточно повреждений, чтобы она снова заработала.</p>
 
 </Document>

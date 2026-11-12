@@ -1,187 +1,187 @@
 <Document>
-# The Enclave
+# Анклав
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Enclave"]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Enclave"]
 
-<p>Self-proclaimed continuation of the United States government. Founded by a secret cabal of political, military, and corporate elites who retreated to fortified installations before the Great War. The most technologically advanced — and most dangerous — human organization in the Wasteland.</p>
+<p>Самопровозглашённое продолжение правительства Соединённых Штатов. Основан тайным сговором политических, военных и корпоративных элит, которые укрылись в укреплённых объектах ещё до Великой войны. Самая технологически продвинутая — и самая опасная — человеческая организация в Пустоши.</p>
 
 <hr/>
 
-## Historical Timeline
+## Историческая хронология
 
 <ColorBox Color="#1a1a1a" OutlineColor="#336699" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-    [bold][color=#336699]2077: The Great War and the Great Retreat[/color][/bold]
-    Primary leadership fled to Control Station Enclave (oil rig off the California coast). Secretary of Agriculture Thomas Eckhart seized the Appalachian Whitespring Bunker, murdered superiors to take control, and declared himself President.
+    [bold][color=#336699]2077: Великая война и Великое отступление[/color][/bold]
+    Основное руководство бежало на Контрольную станцию «Анклав» (нефтяная платформа у берегов Калифорнии). Министр сельского хозяйства Томас Экхарт захватил бункер «Уайтспринг» в Аппалачии, убил вышестоящих, чтобы взять власть, и объявил себя президентом.
   </Box>
 </ColorBox>
 
 <ColorBox Color="#1a1a1a" OutlineColor="#336699" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-    [bold][color=#336699]2102: The Appalachian Civil War[/color][/bold]
-    [bold]Hardliners[/bold] (Thomas Eckhart): Wanted to trigger a second nuclear exchange to destroy remaining communist threats.
-    [bold]Reformers[/bold] (General Ellen Santiago): Questioned Eckhart's sanity and abandonment of American reconstruction.
-    Outcome: Bloody stalemate. Rogue AI [bold]MODUS[/bold] killed remaining human occupants after they attempted to sabotage its systems.
+    [bold][color=#336699]2102: Гражданская война в Аппалачии[/color][/bold]
+    [bold]Радикалы[/bold] (Томас Экхарт): хотели спровоцировать второй ядерный обмен, чтобы уничтожить оставшиеся коммунистические угрозы.
+    [bold]Реформисты[/bold] (генерал Эллен Сантьяго): сомневались в здравомыслии Экхарта и в его отказе от восстановления Америки.
+    Итог: кровавый тупик. Враждебный ИИ [bold]МОДУС[/bold] убил оставшихся людей на объекте после того, как они попытались саботировать его системы.
   </Box>
 </ColorBox>
 
 <ColorBox Color="#1a1a1a" OutlineColor="#336699" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-    [bold][color=#336699]2242: The Fall of Western Command[/color][/bold]
-    The Oil Rig was destroyed by the "Chosen One." Loss of the President forced transition from global superpower to migratory force. Survivors led by Scientist Autumn Senior began the "Great March" toward the East Coast.
+    [bold][color=#336699]2242: Падение Западного командования[/color][/bold]
+    Нефтяная платформа была уничтожена «Избранным». Потеря президента вынудила перейти от статуса глобальной сверхдержавы к кочевой силе. Выжившие во главе с учёным Отумом-старшим начали «Великий марш» в сторону Восточного побережья.
   </Box>
 </ColorBox>
 
 <ColorBox Color="#1a1a1a" OutlineColor="#336699" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-    [bold][color=#336699]2277: The Capital Wasteland Campaign[/color][/bold]
-    Re-established at Raven Rock and Adams Air Force Base in Washington, D.C.
-    [bold]John Henry Eden[/bold] — Sentient ZAX supercomputer. Proposed modified FEV for genocide of all mutated DNA.
-    [bold]Colonel Augustus Autumn[/bold] — Pragmatist. Rejected genocide, preferred water supply as political tool.
-    Outcome: Decisively defeated by the Brotherhood of Steel.
+    [bold][color=#336699]2277: Кампания в Столичной Пустоши[/color][/bold]
+    Вновь обосновались в Рейвен-Роке и на военно-воздушной базе Адамс в Вашингтоне, округ Колумбия.
+    [bold]Джон Генри Иден[/bold] — разумный суперкомпьютер ZAX. Предлагал изменённый ВЭИ для геноцида всех мутировавших ДНК.
+    [bold]Полковник Август Отум[/bold] — прагматик. Отверг геноцид, предпочитал использовать водоснабжение как политический инструмент.
+    Итог: решительное поражение от Братства Стали.
   </Box>
 </ColorBox>
 
 <ColorBox Color="#1a1a1a" OutlineColor="#888888" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-    [bold][color=#888888]2281: The Mojave Remnants[/color][/bold]
-    Western branch no longer existed as a political entity. Small squads in hiding under Judah Kreger. Aging veterans, no longer loyal to purist ideology. Integrated into wasteland society as doctors, pilots, and scavengers.
+    [bold][color=#888888]2281: Остатки в Мохаве[/color][/bold]
+    Западное отделение больше не существовало как политическая единица. Небольшие отряды скрывались под началом Джуда Крегера. Стареющие ветераны, уже не верные идеологии чистоты. Влились в общество Пустоши как врачи, пилоты и мусорщики.
   </Box>
 </ColorBox>
 
 <ColorBox Color="#1a1a1a" OutlineColor="#888888" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-    [bold][color=#888888]2287: Commonwealth Echoes[/color][/bold]
-    Post-D.C. defeat splinter cells and "Black Ops" units remained active. "Echo Sites" tasked with salvaging tech and establishing secret outposts. Decentralized paramilitary. Maintained old "purity" standards.
+    [bold][color=#888888]2287: Отголоски Содружества[/color][/bold]
+    После поражения в округе Колумбия остались действовать разрозненные ячейки и подразделения «чёрных операций». «Эхо-объектам» поручалось вывозить технологии и создавать тайные аванпосты. Децентрализованная военизированная структура. Сохраняли старые стандарты «чистоты».
   </Box>
 </ColorBox>
 
 <ColorBox Color="#1a1a1a" OutlineColor="#cc3333" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-    [bold][color=#cc3333]2296: The Research Resurgence[/color][/bold]
-    Shifting from open warfare to advanced bio-engineering and energy physics. Extreme secrecy. View themselves as ultimate stewards of the planet. Possess [bold]Cold Fusion[/bold] technology. Less interested in immediate genocide — more interested in total control of planetary resources.
+    [bold][color=#cc3333]2296: Возрождение исследований[/color][/bold]
+    Переход от открытой войны к передовой биоинженерии и физике энергии. Крайняя секретность. Считают себя высшими хранителями планеты. Владеют технологией [bold]холодного синтеза[/bold]. Меньше заинтересованы в немедленном геноциде — больше в полном контроле над ресурсами планеты.
   </Box>
 </ColorBox>
 
 <hr/>
 
-## Technology Assets
+## Технологические ресурсы
 
 <Table Columns="2">
   <Box>
-    [bold][color=#a4885c]Asset[/color][/bold]
+    [bold][color=#a4885c]Ресурс[/color][/bold]
   </Box>
   <Box>
-    [bold][color=#a4885c]Description[/color][/bold]
+    [bold][color=#a4885c]Описание[/color][/bold]
   </Box>
   <Box>
-    [bold]Advanced Power Armor Mk1[/bold]
+    [bold]Продвинутая силовая броня Mk1[/bold]
   </Box>
   <Box>
-    Superior to BoS equipment. Full environmental sealing, integrated HUD, servo-assisted strength.
+    Превосходит снаряжение Братства Стали. Полная герметизация от внешней среды, встроенный HUD, усиленная сервоприводами сила.
   </Box>
   <Box>
-    [bold]Advanced Power Armor Mk2[/bold]
+    [bold]Продвинутая силовая броня Mk2[/bold]
   </Box>
   <Box>
-    Top-of-the-line. Most advanced personal armor known to exist.
+    Лучшая в своём классе. Самая продвинутая персональная броня из известных.
   </Box>
   <Box>
-    [bold]Mk2 Hellfire[/bold]
+    [bold]Mk2 «Адское пламя»[/bold]
   </Box>
   <Box>
-    Incendiary-hardened Mk2 variant. Elite issue only.
+    Устойчивый к зажигательному оружию вариант Mk2. Выдаётся только элите.
   </Box>
   <Box>
-    [bold]Plasma Weaponry[/bold]
+    [bold]Плазменное оружие[/bold]
   </Box>
   <Box>
-    Enclave-manufactured plasma rifles and pistols. Superior output.
+    Плазменные винтовки и пистолеты производства Анклава. Превосходная мощность.
   </Box>
   <Box>
-    [bold]Vertibirds[/bold]
+    [bold]Вертибёрды[/bold]
   </Box>
   <Box>
-    Pre-war military transport aircraft. Unmatched strategic mobility.
+    Довоенный военный транспортный летательный аппарат. Непревзойдённая стратегическая мобильность.
   </Box>
 </Table>
 
 <hr/>
 
-## Faction Relations
+## Отношения с фракциями
 
 <Table Columns="3">
   <Box>
-    [bold][color=#a4885c]Faction[/color][/bold]
+    [bold][color=#a4885c]Фракция[/color][/bold]
   </Box>
   <Box>
-    [bold][color=#a4885c]Standing[/color][/bold]
+    [bold][color=#a4885c]Отношение[/color][/bold]
   </Box>
   <Box>
-    [bold][color=#a4885c]Notes[/color][/bold]
+    [bold][color=#a4885c]Примечания[/color][/bold]
   </Box>
   <Box>
-    Brotherhood of Steel
+    Братство Стали
   </Box>
   <Box>
-    [bold][color=#cc3333]Kill on Sight[/color][/bold]
+    [bold][color=#cc3333]Убивать на месте[/color][/bold]
   </Box>
   <Box>
-    Fought twice, won. Will not allow a third round on Enclave terms.
+    Сражались дважды, победили. Не допустят третьего раунда на условиях Анклава.
   </Box>
   <Box>
-    NCR
+    НКР
   </Box>
   <Box>
-    [color=#cc3333]Hostile[/color]
+    [color=#cc3333]Враждебно[/color]
   </Box>
   <Box>
-    Views Enclave as rogue military government, direct threat to democracy.
+    Считает Анклав мятежным военным правительством, прямой угрозой демократии.
   </Box>
   <Box>
-    Caesar's Legion
+    Легион Цезаря
   </Box>
   <Box>
-    [color=#cc3333]Hostile[/color]
+    [color=#cc3333]Враждебно[/color]
   </Box>
   <Box>
-    Enclave tech = everything Caesar sought to destroy.
+    Технологии Анклава = всё, что Цезарь стремился уничтожить.
   </Box>
   <Box>
-    Townsfolk
+    Горожане
   </Box>
   <Box>
-    [color=#ffb000]Fearful[/color]
+    [color=#ffb000]Страх[/color]
   </Box>
   <Box>
-    Means forced relocation at best, extermination at worst.
+    Означает принудительное переселение в лучшем случае, уничтожение в худшем.
   </Box>
   <Box>
-    Wastelanders
+    Жители Пустоши
   </Box>
   <Box>
-    [color=#cc3333]Hostile[/color]
+    [color=#cc3333]Враждебно[/color]
   </Box>
   <Box>
-    To Enclave: mutated subhumans. The feeling is mutual.
+    Для Анклава: мутировавшие недочеловеки. Чувство взаимно.
   </Box>
   <Box>
-    Followers
+    Последователи
   </Box>
   <Box>
-    [color=#cc3333]Hostile[/color]
+    [color=#cc3333]Враждебно[/color]
   </Box>
   <Box>
-    Represents everything Enclave despises — free knowledge, humanitarianism.
+    Олицетворяют всё, что Анклав презирает — свободное знание, гуманизм.
   </Box>
   <Box>
-    Outlaws
+    Преступники
   </Box>
   <Box>
-    [color=#cc3333]Hostile[/color]
+    [color=#cc3333]Враждебно[/color]
   </Box>
   <Box>
-    Raiders = vermin to be cleansed. No negotiation.
+    Рейдеры = паразиты, подлежащие очистке. Никаких переговоров.
   </Box>
 </Table>
 

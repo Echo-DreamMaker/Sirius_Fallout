@@ -1,0 +1,17 @@
+- type: construction
+  name: автодок
+  id: SiriusAutodoc
+  graph: SiriusAutodoc
+  startNode: start
+  targetNode: AutodocFinished
+  category: construction-category-machines
+  description: Довоенный медицинский автодок, способный выполнять сложные медицинские процедуры.
+  icon:
+    sprite: _Nuclear14/Structures/Machines/autodoc.rsi
+    state: autodoc_off
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false

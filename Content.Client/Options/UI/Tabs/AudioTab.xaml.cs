@@ -29,6 +29,8 @@ namespace Content.Client.Options.UI.Tabs
             EventMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.EventMusicEnabled);
             AdminSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AdminSoundsEnabled);
             TtsCheckBox.Pressed = _cfg.GetCVar(CorvaxVars.LocalTTSEnabled); // Corvax-TTS
+            MuteOthersPipBoyMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.MuteOthersPipBoyMusic); // Sirius
+            MuteOthersPortableMediaPlayerMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.MuteOthersPortableMediaPlayerMusic); // Sirius
 
             ApplyButton.OnPressed += OnApplyButtonPressed;
             ResetButton.OnPressed += OnResetButtonPressed;
@@ -50,7 +52,9 @@ namespace Content.Client.Options.UI.Tabs
                 EventMusicCheckBox,
                 AnnouncerDisableMultipleSoundsCheckBox,
                 AdminSoundsCheckBox,
-                TtsCheckBox // Corvax-TTS
+                TtsCheckBox, // Corvax-TTS
+                MuteOthersPipBoyMusicCheckBox, // Sirius
+                MuteOthersPortableMediaPlayerMusicCheckBox // Sirius
             );
 
             AmbienceSoundsSlider.MinValue = _cfg.GetCVar(CCVars.MinMaxAmbientSourcesConfigured);
@@ -98,7 +102,9 @@ namespace Content.Client.Options.UI.Tabs
                 EventMusicCheckBox,
                 AnnouncerDisableMultipleSoundsCheckBox,
                 AdminSoundsCheckBox,
-                TtsCheckBox // Corvax-TTS
+                TtsCheckBox, // Corvax-TTS
+                MuteOthersPipBoyMusicCheckBox, // Sirius
+                MuteOthersPortableMediaPlayerMusicCheckBox // Sirius
             );
 
             base.Dispose(disposing);
@@ -125,8 +131,6 @@ namespace Content.Client.Options.UI.Tabs
         private void OnApplyButtonPressed(BaseButton.ButtonEventArgs args)
         {
             _cfg.SetCVar(CVars.AudioMasterVolume, MasterVolumeSlider.Value / 100f * ContentAudioSystem.MasterVolumeMultiplier);
-            // Want the CVar updated values to have the multiplier applied
-            // For the UI we just display 0-100 still elsewhere
             _cfg.SetCVar(CVars.MidiVolume, MidiVolumeSlider.Value / 100f * ContentAudioSystem.MidiVolumeMultiplier);
             _cfg.SetCVar(CCVars.AmbienceVolume, AmbienceVolumeSlider.Value / 100f * ContentAudioSystem.AmbienceMultiplier);
             _cfg.SetCVar(CCVars.AmbientMusicVolume, AmbientMusicVolumeSlider.Value / 100f * ContentAudioSystem.AmbientMusicMultiplier);
@@ -135,15 +139,15 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.AnnouncerVolume, AnnouncerVolumeSlider.Value / 100f * ContentAudioSystem.AnnouncerMultiplier);
             _cfg.SetCVar(CorvaxVars.BarksVolume, BarksVolumeSlider.Value / 100f * ContentAudioSystem.BarksMultiplier); // Corvax-Fallout-Barks
             _cfg.SetCVar(CorvaxVars.TTSVolume, TtsVolumeSlider.Value / 100f * ContentAudioSystem.TtsMultiplier); // Corvax-TTS
-
-            _cfg.SetCVar(CCVars.MaxAmbientSources, (int)AmbienceSoundsSlider.Value);
-
+            _cfg.SetCVar(CCVars.MaxAmbientSources, (int) AmbienceSoundsSlider.Value);
             _cfg.SetCVar(CCVars.LobbyMusicEnabled, LobbyMusicCheckBox.Pressed);
             _cfg.SetCVar(CCVars.RestartSoundsEnabled, RestartSoundsCheckBox.Pressed);
             _cfg.SetCVar(CCVars.EventMusicEnabled, EventMusicCheckBox.Pressed);
             _cfg.SetCVar(CCVars.AnnouncerDisableMultipleSounds, AnnouncerDisableMultipleSoundsCheckBox.Pressed);
             _cfg.SetCVar(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox.Pressed);
             _cfg.SetCVar(CorvaxVars.LocalTTSEnabled, TtsCheckBox.Pressed); // Corvax-TTS
+            _cfg.SetCVar(CCVars.MuteOthersPipBoyMusic, MuteOthersPipBoyMusicCheckBox.Pressed); // Sirius
+            _cfg.SetCVar(CCVars.MuteOthersPortableMediaPlayerMusic, MuteOthersPortableMediaPlayerMusicCheckBox.Pressed); // Sirius
             _cfg.SaveToFile();
             UpdateChanges();
         }
@@ -163,7 +167,7 @@ namespace Content.Client.Options.UI.Tabs
             InterfaceVolumeSlider.Value = _cfg.GetCVar(CCVars.InterfaceVolume) * 100f / ContentAudioSystem.InterfaceMultiplier;
             AnnouncerVolumeSlider.Value = _cfg.GetCVar(CCVars.AnnouncerVolume) * 100f / ContentAudioSystem.AnnouncerMultiplier;
             BarksVolumeSlider.Value = _cfg.GetCVar(CorvaxVars.BarksVolume) * 100f / ContentAudioSystem.BarksMultiplier; // Corvax-Fallout-Barks
-            TtsVolumeSlider.Value = _cfg.GetCVar(CorvaxVars.TTSVolume)  * 100f / ContentAudioSystem.TtsMultiplier; // Corvax-TTS
+            TtsVolumeSlider.Value = _cfg.GetCVar(CorvaxVars.TTSVolume) * 100f / ContentAudioSystem.TtsMultiplier; // Corvax-TTS
 
             AmbienceSoundsSlider.Value = _cfg.GetCVar(CCVars.MaxAmbientSources);
 
@@ -173,12 +177,13 @@ namespace Content.Client.Options.UI.Tabs
             AnnouncerDisableMultipleSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AnnouncerDisableMultipleSounds);
             AdminSoundsCheckBox.Pressed = _cfg.GetCVar(CCVars.AdminSoundsEnabled);
             TtsCheckBox.Pressed = _cfg.GetCVar(CorvaxVars.LocalTTSEnabled); // Corvax-TTS
+            MuteOthersPipBoyMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.MuteOthersPipBoyMusic); // Sirius
+            MuteOthersPortableMediaPlayerMusicCheckBox.Pressed = _cfg.GetCVar(CCVars.MuteOthersPortableMediaPlayerMusic); // Sirius
             UpdateChanges();
         }
 
         private void UpdateChanges()
         {
-            // y'all need jesus.
             var isMasterVolumeSame =
                 Math.Abs(MasterVolumeSlider.Value - _cfg.GetCVar(CVars.AudioMasterVolume) * 100f / ContentAudioSystem.MasterVolumeMultiplier) < 0.01f;
             var isMidiVolumeSame =
@@ -193,22 +198,27 @@ namespace Content.Client.Options.UI.Tabs
                 Math.Abs(InterfaceVolumeSlider.Value - _cfg.GetCVar(CCVars.InterfaceVolume) * 100f / ContentAudioSystem.InterfaceMultiplier) < 0.01f;
             var isAnnouncerVolumeSame =
                 Math.Abs(AnnouncerVolumeSlider.Value - _cfg.GetCVar(CCVars.AnnouncerVolume) * 100f / ContentAudioSystem.AnnouncerMultiplier) < 0.01f;
-            var isBarksVolumeSame = // Corvax-Fallout-Barks
-                Math.Abs(BarksVolumeSlider.Value - _cfg.GetCVar(CorvaxVars.BarksVolume) * 100f / ContentAudioSystem.BarksMultiplier) < 0.01f; // Corvax-Fallout-Barks
+            var isBarksVolumeSame =
+                Math.Abs(BarksVolumeSlider.Value - _cfg.GetCVar(CorvaxVars.BarksVolume) * 100f / ContentAudioSystem.BarksMultiplier) < 0.01f;
             var isTtsVolumeSame =
-                Math.Abs(TtsVolumeSlider.Value - _cfg.GetCVar(CorvaxVars.TTSVolume) * 100f / ContentAudioSystem.TtsMultiplier) < 0.01f; // Corvax-TTS
+                Math.Abs(TtsVolumeSlider.Value - _cfg.GetCVar(CorvaxVars.TTSVolume) * 100f / ContentAudioSystem.TtsMultiplier) < 0.01f;
 
-            var isAmbientSoundsSame = (int)AmbienceSoundsSlider.Value == _cfg.GetCVar(CCVars.MaxAmbientSources);
+            var isAmbientSoundsSame = (int) AmbienceSoundsSlider.Value == _cfg.GetCVar(CCVars.MaxAmbientSources);
             var isLobbySame = LobbyMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.LobbyMusicEnabled);
             var isRestartSoundsSame = RestartSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.RestartSoundsEnabled);
             var isEventSame = EventMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.EventMusicEnabled);
             var isAnnouncerDisableMultipleSoundsSame = AnnouncerDisableMultipleSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.AnnouncerDisableMultipleSounds);
             var isAdminSoundsSame = AdminSoundsCheckBox.Pressed == _cfg.GetCVar(CCVars.AdminSoundsEnabled);
             var isTtsSoundsSame = TtsCheckBox.Pressed == _cfg.GetCVar(CorvaxVars.LocalTTSEnabled);
+            var isMutePipBoySame = MuteOthersPipBoyMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.MuteOthersPipBoyMusic); // Sirius
+            var isMutePortableSame = MuteOthersPortableMediaPlayerMusicCheckBox.Pressed == _cfg.GetCVar(CCVars.MuteOthersPortableMediaPlayerMusic); // Sirius
+
             var isEverythingSame = isMasterVolumeSame && isMidiVolumeSame && isAmbientVolumeSame
                 && isAmbientMusicVolumeSame && isAmbientSoundsSame && isLobbySame && isRestartSoundsSame && isEventSame
                 && isAnnouncerDisableMultipleSoundsSame && isAdminSoundsSame && isLobbyVolumeSame
-                && isInterfaceVolumeSame && isAnnouncerVolumeSame && isBarksVolumeSame && isTtsVolumeSame && isTtsSoundsSame; // Corvax-Fallout-Barks
+                && isInterfaceVolumeSame && isAnnouncerVolumeSame && isBarksVolumeSame && isTtsVolumeSame && isTtsSoundsSame
+                && isMutePipBoySame && isMutePortableSame; // Sirius
+
             ApplyButton.Disabled = isEverythingSame;
             ResetButton.Disabled = isEverythingSame;
             MasterVolumeLabel.Text =
@@ -225,11 +235,11 @@ namespace Content.Client.Options.UI.Tabs
                 Loc.GetString("ui-options-volume-percent", ("volume", InterfaceVolumeSlider.Value / 100));
             AnnouncerVolumeLabel.Text =
                 Loc.GetString("ui-options-volume-percent", ("volume", AnnouncerVolumeSlider.Value / 100));
-            BarksVolumeLabel.Text = // Corvax-Fallout-Barks
-                Loc.GetString("ui-options-volume-percent", ("volume", BarksVolumeSlider.Value / 100)); // Corvax-Fallout-Barks
-            TtsVolumeLabel.Text = // Corvax-TTS
-                Loc.GetString("ui-options-volume-percent", ("volume", TtsVolumeSlider.Value / 100)); // Corvax-TTS
-            AmbienceSoundsLabel.Text = ((int)AmbienceSoundsSlider.Value).ToString();
+            BarksVolumeLabel.Text =
+                Loc.GetString("ui-options-volume-percent", ("volume", BarksVolumeSlider.Value / 100));
+            TtsVolumeLabel.Text =
+                Loc.GetString("ui-options-volume-percent", ("volume", TtsVolumeSlider.Value / 100));
+            AmbienceSoundsLabel.Text = ((int) AmbienceSoundsSlider.Value).ToString();
         }
     }
 }

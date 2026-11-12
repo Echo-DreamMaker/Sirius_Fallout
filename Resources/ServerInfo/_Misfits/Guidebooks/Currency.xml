@@ -1,51 +1,51 @@
 <Document>
-# Currency
+# Валюта
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Currency"/]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Currency"/]
 
-<p>◈ Currency ◈ Wasteland Economy ◈</p>
-<p>The Wasteland runs on trade, barter, and cold hard currency. Multiple forms of money circulate in the Wendover region - each backed by different powers and carrying different weight depending on who you are dealing with.</p>
+<p>◈ Валюта ◈ Экономика Пустоши ◈</p>
+<p>Пустошь держится на торговле, бартере и звонкой монете. В регионе Уэндовер обращается несколько форм денег — каждая обеспечена разными силами и имеет разный вес в зависимости от того, с кем вы имеете дело.</p>
 
-## Currency Types
+## Виды валюты
 
 <Table Columns="4">
-  <Box>[bold]Currency[/bold]</Box>
-  <Box>[bold]Description[/bold]</Box>
-  <Box>[bold]Value[/bold]</Box>
-  <Box>[bold]Denominations[/bold]</Box>
-  <Box>Bottlecaps</Box>
-  <Box>The universal wasteland currency. Accepted everywhere, trusted by everyone. The standard unit of exchange.</Box>
-  <Box>1 cap = 1 unit</Box>
+  <Box>[bold]Валюта[/bold]</Box>
+  <Box>[bold]Описание[/bold]</Box>
+  <Box>[bold]Ценность[/bold]</Box>
+  <Box>[bold]Номиналы[/bold]</Box>
+  <Box>Крышки от бутылок</Box>
+  <Box>Универсальная валюта Пустоши. Принимается везде, ей доверяют все. Стандартная единица обмена.</Box>
+  <Box>1 крышка = 1 единица</Box>
   <Box>1, 10, 50, 100, 500</Box>
-  <Box>[bold]NCR Dollars[/bold]</Box>
-  <Box>Paper money issued by the New California Republic. Backed by the Republic's gold reserves - or what remains of them. Worth less than caps due to inflation and limited acceptance outside NCR territory.</Box>
-  <Box>[bold]0.5[/bold] per dollar</Box>
+  <Box>[bold]Доллары НКР[/bold]</Box>
+  <Box>Бумажные деньги, выпущенные Новой Калифорнийской Республикой. Обеспечены золотым запасом Республики — или тем, что от него осталось. Стоят меньше крышек из-за инфляции и ограниченного приёма за пределами территории НКР.</Box>
+  <Box>[bold]0.5[/bold] за доллар</Box>
   <Box>10, 50, 100, 500</Box>
-  <Box>[bold]Legion Aureus[/bold]</Box>
-  <Box>Gold coins minted by Caesar's Legion. Solid gold, universally recognized as valuable regardless of political opinion. One Aureus equals 10 Denarii.</Box>
-  <Box>10× Denarius</Box>
-  <Box>Individual coins</Box>
-  <Box>[bold]Legion Denarius[/bold]</Box>
-  <Box>Silver coins of the Legion. The base denomination of Legion currency. Widely accepted as a medium of exchange even by factions hostile to the Legion - silver is silver.</Box>
-  <Box>Base unit</Box>
-  <Box>Individual coins</Box>
-  <Box>[bold]Pre-War Money[/bold]</Box>
-  <Box>Old-world paper currency. Worthless as legal tender but collected as a curiosity, used as kindling, or traded to those who value pre-war artifacts.</Box>
-  <Box>Cosmetic / 1 per unit</Box>
+  <Box>[bold]Ауреус Легиона[/bold]</Box>
+  <Box>Золотые монеты, отчеканенные Легионом Цезаря. Чистое золото, признаваемое ценным повсеместно, независимо от политических взглядов. Один Ауреус равен 10 Денариям.</Box>
+  <Box>10× Денарий</Box>
+  <Box>Отдельные монеты</Box>
+  <Box>[bold]Денарий Легиона[/bold]</Box>
+  <Box>Серебряные монеты Легиона. Базовая денежная единица Легиона. Широко принимается как средство обмена даже фракциями, враждебными Легиону — серебро есть серебро.</Box>
+  <Box>Базовая единица</Box>
+  <Box>Отдельные монеты</Box>
+  <Box>[bold]Довоенные деньги[/bold]</Box>
+  <Box>Бумажная валюта старого мира. Бесполезны как платёжное средство, но собираются как диковина, используются как растопка или обмениваются тем, кто ценит довоенные артефакты.</Box>
+  <Box>Косметическая / 1 за единицу</Box>
   <Box>10, 50, 100, 500</Box>
 </Table>
 
-## Wallets
+## Бумажники
 
-<p>[bold]Wallets[/bold] (belt or ID slot) can hold multiple currency types and keep your money organized. All items tagged as [bold]Currency[/bold] are eligible for wallet storage.</p>
+<p>[bold]Бумажники[/bold] (слот на поясе или в слоте ID) могут хранить несколько видов валюты и помогают держать ваши деньги в порядке. Все предметы с меткой [bold]Валюта[/bold] подходят для хранения в бумажнике.</p>
 
-## Economic Notes
+## Экономические заметки
 
 <ul>
-<li>Bottlecaps are the [bold]default medium of exchange[/bold] throughout the Wasteland</li>
-<li>NCR Dollars trade at [bold]half value[/bold] - two dollars for one cap's worth of goods</li>
-<li>Legion currency is accepted widely due to its [bold]metal content[/bold] (gold and silver), regardless of political alignment</li>
-<li>Pre-War Money has [bold]no standardized trade value[/bold] - its worth depends entirely on who wants it</li>
+<li>Крышки от бутылок — это [bold]основное средство обмена[/bold] по всей Пустоши</li>
+<li>Доллары НКР ходят по [bold]половинной стоимости[/bold] — два доллара за товар стоимостью в одну крышку</li>
+<li>Валюта Легиона принимается широко благодаря своему [bold]содержанию металла[/bold] (золото и серебро), независимо от политической принадлежности</li>
+<li>Довоенные деньги [bold]не имеют единой торговой ценности[/bold] — их стоимость полностью зависит от того, кому они нужны</li>
 </ul>
 
 </Document>

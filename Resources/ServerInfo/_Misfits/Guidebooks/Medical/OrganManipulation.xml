@@ -1,60 +1,60 @@
 <Document>
-# Organ Manipulation
+# Манипуляции с органами
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Surgery"]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Surgery"]
 
-<p>Organ manipulation surgeries allow you to remove, transplant, or replace internal organs. Replacing a damaged or missing organ can resolve conditions that no amount of surface treatment will fix.</p>
+<p>Операции по манипуляции с органами позволяют удалять, пересаживать или заменять внутренние органы. Замена повреждённого или отсутствующего органа может устранить состояния, которые не исправит никакое наружное лечение.</p>
 
 <hr/>
 
-## Standard Anatomy
+## Стандартная анатомия
 
-<p>A typical human body contains the following organs:</p>
+<p>Типичное человеческое тело содержит следующие органы:</p>
 
 <ul>
-<li>[bold]Brain[/bold]</li>
-<li>[bold]Eyes[/bold]</li>
-<li>[bold]Heart[/bold]</li>
-<li>[bold]Kidneys[/bold]</li>
-<li>[bold]Liver[/bold]</li>
-<li>[bold]Lungs[/bold]</li>
-<li>[bold]Stomach[/bold]</li>
+<li>[bold]Мозг[/bold]</li>
+<li>[bold]Глаза[/bold]</li>
+<li>[bold]Сердце[/bold]</li>
+<li>[bold]Почки[/bold]</li>
+<li>[bold]Печень[/bold]</li>
+<li>[bold]Лёгкие[/bold]</li>
+<li>[bold]Желудок[/bold]</li>
 </ul>
 
-<p>Some species have additional or combined organs. The above list covers the standard human baseline.</p>
+<p>У некоторых видов есть дополнительные или объединённые органы. Приведённый выше список описывает стандартную человеческую норму.</p>
 
 <hr/>
 
-## Removing and Transplanting Organs
+## Удаление и пересадка органов
 
-<p>To [bold]remove[/bold] an organ, apply the corresponding Organ Removal surgery to the target body part. The organ will be extracted without harming the patient.</p>
+<p>Чтобы [bold]удалить[/bold] орган, примените соответствующую операцию по удалению органа к нужной части тела. Орган будет извлечён без вреда для пациента.</p>
 
-<p>To [bold]transplant[/bold] a replacement organ, apply the corresponding Organ Transplant surgery to the same site where the original organ was located.</p>
+<p>Чтобы [bold]пересадить[/bold] орган на замену, примените соответствующую операцию по пересадке органа к тому же месту, где находился исходный орган.</p>
 
 <hr/>
 
-## Transplant Effects
+## Эффекты пересадки
 
 <ul>
-<li>Transplanting a [color=#a4885c]brain[/color] — transfers the patient's consciousness to a new body.</li>
-<li>Transplanting a [color=#a4885c]liver[/color] — cures severe poisoning.</li>
-<li>Transplanting [color=#a4885c]lungs[/color] — treats severe asphyxiation.</li>
-<li>Transplanting a [color=#a4885c]heart[/color] — cures rot and organ decay.</li>
-<li>Transplanting [color=#a4885c]eyes[/color] — restores vision and heals eye damage.</li>
+<li>Пересадка [color=#a4885c]мозга[/color] — переносит сознание пациента в новое тело.</li>
+<li>Пересадка [color=#a4885c]печени[/color] — излечивает тяжёлое отравление.</li>
+<li>Пересадка [color=#a4885c]лёгких[/color] — лечит тяжёлое удушье.</li>
+<li>Пересадка [color=#a4885c]сердца[/color] — излечивает гниение и разложение органов.</li>
+<li>Пересадка [color=#a4885c]глаз[/color] — восстанавливает зрение и заживляет повреждения глаз.</li>
 </ul>
 
 <hr/>
 
-## Sourcing Organs
+## Получение органов
 
-<p>When a patient needs a replacement organ, their original is usually missing or too damaged to reuse. New organs can be manufactured using a [bold]Medical Biofabricator[/bold] with [bold]Biomass[/bold]. The biofabricator can produce biosynthetic organs for all species.</p>
+<p>Когда пациенту нужен орган на замену, его собственный обычно отсутствует или слишком повреждён для повторного использования. Новые органы можно изготовить с помощью [bold]медицинского биофабрикатора[/bold] из [bold]биомассы[/bold]. Биофабрикатор способен создавать биосинтетические органы для всех видов.</p>
 
-<p>Every Chief Medical Officer has access to a Medical Biofabricator board in their starting equipment.</p>
+<p>Каждый главный врач имеет доступ к плате медицинского биофабрикатора в своём стартовом снаряжении.</p>
 
 <hr/>
 
-## Organ Rejection
+## Отторжение органов
 
-<p>If an organ transplant has no effect, the patient's body has rejected it. This usually means the organ is in poor condition. Use a fresh organ from a donor or manufacture a new one using the Medical Biofabricator.</p>
+<p>Если пересадка органа не дала эффекта, значит, тело пациента его отторгло. Обычно это означает, что орган в плохом состоянии. Используйте свежий орган от донора или изготовьте новый с помощью медицинского биофабрикатора.</p>
 
 </Document>

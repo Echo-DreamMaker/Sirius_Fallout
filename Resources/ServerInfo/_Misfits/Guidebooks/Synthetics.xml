@@ -1,240 +1,240 @@
 <Document>
-# Synthetics
+# Синтетики
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Synthetics"/]
+[textlink="Смотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Synthetics"/]
 
-<p>◈ Synthetics ◈ Player-Controlled Robotics ◈ Wendover Region ◈</p>
+<p>◈ Синтетики ◈ Роботы под управлением игроков ◈ Регион Уэндовер ◈</p>
 
 <Table Columns="2">
-  <Box>[bold]Synthetics[/bold]</Box>
+  <Box>[bold]Синтетики[/bold]</Box>
   <Box></Box>
-  <Box>◈ FACTION DOSSIER ◈</Box>
+  <Box>◈ ДОСЬЕ ФРАКЦИИ ◈</Box>
   <Box></Box>
-  <Box>[bold]Status[/bold]</Box>
-  <Box>Active - Operational</Box>
-  <Box>[bold]Location[/bold]</Box>
-  <Box>Wendover Region, Utah</Box>
-  <Box>[bold]Commander[/bold]</Box>
-  <Box>N/A - Programming Directive</Box>
-  <Box>[bold]Ideology[/bold]</Box>
-  <Box>Directive Compliance
-Pre-War Operational Parameters</Box>
-  <Box>[bold]Motto[/bold]</Box>
-  <Box>[italic]Please stand back.[/italic]</Box>
-  <Box>[bold]Affiliation[/bold]</Box>
-  <Box>Independent / Faction-Assigned</Box>
-  <Box>⬜ RESTRICTED ACCESS ⬜</Box>
+  <Box>[bold]Статус[/bold]</Box>
+  <Box>Активна — в строю</Box>
+  <Box>[bold]Расположение[/bold]</Box>
+  <Box>Регион Уэндовер, Юта</Box>
+  <Box>[bold]Командир[/bold]</Box>
+  <Box>Н/Д — программная директива</Box>
+  <Box>[bold]Идеология[/bold]</Box>
+  <Box>Соблюдение директив
+Довоенные рабочие параметры</Box>
+  <Box>[bold]Девиз[/bold]</Box>
+  <Box>[italic]Просьба отойти назад.[/italic]</Box>
+  <Box>[bold]Принадлежность[/bold]</Box>
+  <Box>Независимые / приписаны к фракции</Box>
+  <Box>⬜ ДОСТУП ОГРАНИЧЕН ⬜</Box>
   <Box></Box>
 </Table>
 
-<p>[bold]Synthetics[/bold] are pre-war robotic units still operational in the Wendover region. Unlike the hostile NPC robots encountered in the wastes, these are [bold]player-controlled[/bold] units - each with distinct chassis, built-in armaments, and specialized roles. All Synthetic roles require [bold]whitelist approval[/bold] and are [bold]species-locked[/bold] to their corresponding robot chassis.</p>
-<p>Synthetics cannot pick up or equip conventional firearms. Their armament is integrated into their chassis and cannot be changed.</p>
+<p>[bold]Синтетики[/bold] — это довоенные роботизированные единицы, всё ещё действующие в регионе Уэндовер. В отличие от враждебных NPC-роботов, встречающихся в Пустоши, это единицы [bold]под управлением игроков[/bold] — у каждой свой корпус, встроенное вооружение и специализированная роль. Все роли синтетиков требуют [bold]одобрения по вайтлисту[/bold] и [bold]привязаны к виду[/bold], соответствующему их роботизированному корпусу.</p>
+<p>Синтетики не могут подбирать или экипировать обычное огнестрельное оружие. Их вооружение встроено в корпус и не может быть изменено.</p>
 
-## Chassis Overview
+## Обзор корпусов
 
 <Table Columns="6">
-  <Box>[bold]Chassis[/bold]</Box>
-  <Box>[bold]Role[/bold]</Box>
-  <Box>[bold]Walk / Sprint[/bold]</Box>
-  <Box>[bold]HP[/bold]</Box>
-  <Box>[bold]Built-In Weapon[/bold]</Box>
-  <Box>[bold]Armor[/bold]</Box>
-  <Box>Mr. Handy</Box>
-  <Box>Domestic - cleaning, gardening, general maintenance</Box>
+  <Box>[bold]Корпус[/bold]</Box>
+  <Box>[bold]Роль[/bold]</Box>
+  <Box>[bold]Ходьба / Бег[/bold]</Box>
+  <Box>[bold]ЗД[/bold]</Box>
+  <Box>[bold]Встроенное оружие[/bold]</Box>
+  <Box>[bold]Броня[/bold]</Box>
+  <Box>Мистер Хенди</Box>
+  <Box>Бытовой — уборка, садоводство, общее обслуживание</Box>
   <Box>2.5 / 4.5</Box>
   <Box>200</Box>
-  <Box>Flamer (30 fuel)</Box>
-  <Box>None</Box>
-  <Box>[bold]Protectron[/bold]</Box>
-  <Box>Civil Service - utility, patrol, civic duties</Box>
+  <Box>Огнемёт (30 топлива)</Box>
+  <Box>Отсутствует</Box>
+  <Box>[bold]Протектрон[/bold]</Box>
+  <Box>Гражданская служба — коммунальные работы, патрулирование, гражданские обязанности</Box>
   <Box>2.0 / 3.5</Box>
   <Box>200</Box>
-  <Box>Hand-Laser (9 cap)</Box>
-  <Box>0.7× blunt/slash</Box>
-  <Box>[bold]Protectron Police[/bold]</Box>
-  <Box>Law Enforcement - detainment, patrols</Box>
+  <Box>Ручной лазер (9 ёмк.)</Box>
+  <Box>0.7× дробящий/режущий</Box>
+  <Box>[bold]Протектрон-полицейский[/bold]</Box>
+  <Box>Правоохранительная деятельность — задержание, патрулирование</Box>
   <Box>2.0 / 3.5</Box>
   <Box>200</Box>
-  <Box>Electro-Shock (10 blunt + 12 shock)</Box>
-  <Box>0.7× blunt/slash</Box>
-  <Box>[bold]Protectron Builder[/bold]</Box>
-  <Box>Engineering - construction, repair</Box>
+  <Box>Электрошок (10 дробящий + 12 удар током)</Box>
+  <Box>0.7× дробящий/режущий</Box>
+  <Box>[bold]Протектрон-строитель[/bold]</Box>
+  <Box>Инженерия — строительство, ремонт</Box>
   <Box>2.0 / 3.5</Box>
   <Box>200</Box>
-  <Box>RCD + construction tools</Box>
-  <Box>0.7× blunt/slash</Box>
-  <Box>[bold]Protectron Firefighter[/bold]</Box>
-  <Box>Emergency - fire suppression, rescue</Box>
+  <Box>РСД + строительные инструменты</Box>
+  <Box>0.7× дробящий/режущий</Box>
+  <Box>[bold]Протектрон-пожарный[/bold]</Box>
+  <Box>Экстренные службы — пожаротушение, спасение</Box>
   <Box>2.0 / 3.5</Box>
   <Box>200</Box>
-  <Box>Cryo Emitter (6 cap)</Box>
-  <Box>0.7× blunt/slash</Box>
-  <Box>[bold]Mr. Gutsy[/bold]</Box>
-  <Box>Military - combat patrol, area denial</Box>
+  <Box>Криоизлучатель (6 ёмк.)</Box>
+  <Box>0.7× дробящий/режущий</Box>
+  <Box>[bold]Мистер Гатси[/bold]</Box>
+  <Box>Военный — боевое патрулирование, блокирование территории</Box>
   <Box>2.5 / 4.5</Box>
   <Box>200</Box>
-  <Box>Plasma Caster (15 cap)</Box>
-  <Box>None</Box>
-  <Box>[bold]Assaultron[/bold]</Box>
-  <Box>Combat - close-quarters assault</Box>
+  <Box>Плазменный метатель (15 ёмк.)</Box>
+  <Box>Отсутствует</Box>
+  <Box>[bold]Ассаултрон[/bold]</Box>
+  <Box>Боевой — ближний бой</Box>
   <Box>3.0 / 6.0</Box>
   <Box>200</Box>
-  <Box>Head Laser (charged, 2s charge + 3s cooldown) + Claw (30 slash)</Box>
-  <Box>None</Box>
-  <Box>[bold]Assaultron Tesla[/bold]</Box>
-  <Box>Combat - area denial, chain lightning</Box>
+  <Box>Головной лазер (заряжаемый, зарядка 2 с + перезарядка 3 с) + Клешня (30 режущий)</Box>
+  <Box>Отсутствует</Box>
+  <Box>[bold]Ассаултрон Тесла[/bold]</Box>
+  <Box>Боевой — блокирование территории, цепная молния</Box>
   <Box>3.0 / 6.0</Box>
   <Box>200</Box>
-  <Box>Tesla Discharge (arcing chain-lightning)</Box>
-  <Box>None</Box>
-  <Box>Sentry Bot Minigun</Box>
-  <Box>Heavy Siege - suppression, defense</Box>
+  <Box>Разряд Теслы (цепная молния)</Box>
+  <Box>Отсутствует</Box>
+  <Box>Робот-часовой с миниганом</Box>
+  <Box>Тяжёлая осада — подавление, оборона</Box>
   <Box>1.0 / 1.5</Box>
   <Box>[bold]350[/bold]</Box>
-  <Box>5mm Gatling (30 cap)</Box>
-  <Box>[bold]0.65×[/bold] + 50% reflect</Box>
-  <Box>Sentry Bot Laser</Box>
-  <Box>Heavy Siege - suppression, defense</Box>
+  <Box>5-мм гатлинг (30 ёмк.)</Box>
+  <Box>[bold]0.65×[/bold] + 50% отражение</Box>
+  <Box>Робот-часовой с лазером</Box>
+  <Box>Тяжёлая осада — подавление, оборона</Box>
   <Box>1.0 / 1.5</Box>
   <Box>[bold]350[/bold]</Box>
-  <Box>Gatling Laser (20 cap)</Box>
-  <Box>[bold]0.65×[/bold] + 50% reflect</Box>
-  <Box>[bold]Robobrain[/bold]</Box>
-  <Box>Medical / Utility - diagnosis, treatment</Box>
+  <Box>Гатлинг-лазер (20 ёмк.)</Box>
+  <Box>[bold]0.65×[/bold] + 50% отражение</Box>
+  <Box>[bold]Робомозг[/bold]</Box>
+  <Box>Медицина / коммунальные работы — диагностика, лечение</Box>
   <Box>1.5 / 3.0</Box>
   <Box>200</Box>
-  <Box>None (tool + medical modules)</Box>
-  <Box>None</Box>
-  <Box>[bold]Robobrain Laser[/bold]</Box>
-  <Box>Medical / Combat - mixed role</Box>
+  <Box>Отсутствует (инструмент + медицинские модули)</Box>
+  <Box>Отсутствует</Box>
+  <Box>[bold]Робомозг с лазером[/bold]</Box>
+  <Box>Медицина / бой — смешанная роль</Box>
   <Box>1.5 / 3.0</Box>
   <Box>200</Box>
-  <Box>Hand-Laser (9 cap)</Box>
-  <Box>None</Box>
+  <Box>Ручной лазер (9 ёмк.)</Box>
+  <Box>Отсутствует</Box>
 </Table>
 
-<h3 Text="Scale"/>
+<h3 Text="Масштаб"/>
 
 <ul>
-<li>[bold]Sentry Bots[/bold] are [bold]2.0× scale[/bold] - visually massive and physically imposing</li>
-<li>[bold]All other robots[/bold] are standard 1.0× scale</li>
+<li>[bold]Роботы-часовые[/bold] имеют [bold]масштаб 2.0×[/bold] — визуально огромны и физически внушительны</li>
+<li>[bold]Все остальные роботы[/bold] имеют стандартный масштаб 1.0×</li>
 </ul>
 
-## Synthetic Jobs
+## Профессии синтетиков
 
 <Table Columns="3">
-  <Box>[bold]Job[/bold]</Box>
-  <Box>[bold]Chassis Options[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>Mr. Handy</Box>
-  <Box>Mr. Handy</Box>
-  <Box>Whitelist, 3-handed</Box>
-  <Box>[bold]Protectron[/bold]</Box>
-  <Box>Protectron, Police, Builder, Firefighter</Box>
-  <Box>Whitelist, 4 model variants</Box>
-  <Box>[bold]Mr. Gutsy[/bold]</Box>
-  <Box>Mr. Gutsy</Box>
-  <Box>Whitelist, military</Box>
-  <Box>[bold]Assaultron[/bold]</Box>
-  <Box>Assaultron, Assaultron Tesla</Box>
-  <Box>Whitelist, fastest chassis</Box>
-  <Box>[bold]Sentry Bot[/bold]</Box>
-  <Box>Sentry Bot Minigun, Sentry Bot Laser</Box>
-  <Box>Whitelist, heaviest chassis</Box>
-  <Box>[bold]Robobrain[/bold]</Box>
-  <Box>Robobrain, Robobrain Laser</Box>
-  <Box>Whitelist, medical focus</Box>
+  <Box>[bold]Профессия[/bold]</Box>
+  <Box>[bold]Варианты корпуса[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>Мистер Хенди</Box>
+  <Box>Мистер Хенди</Box>
+  <Box>Вайтлист, 3 руки</Box>
+  <Box>[bold]Протектрон[/bold]</Box>
+  <Box>Протектрон, полицейский, строитель, пожарный</Box>
+  <Box>Вайтлист, 4 варианта модели</Box>
+  <Box>[bold]Мистер Гатси[/bold]</Box>
+  <Box>Мистер Гатси</Box>
+  <Box>Вайтлист, военный</Box>
+  <Box>[bold]Ассаултрон[/bold]</Box>
+  <Box>Ассаултрон, Ассаултрон Тесла</Box>
+  <Box>Вайтлист, самый быстрый корпус</Box>
+  <Box>[bold]Робот-часовой[/bold]</Box>
+  <Box>Робот-часовой с миниганом, робот-часовой с лазером</Box>
+  <Box>Вайтлист, самый тяжёлый корпус</Box>
+  <Box>[bold]Робомозг[/bold]</Box>
+  <Box>Робомозг, Робомозг с лазером</Box>
+  <Box>Вайтлист, медицинская направленность</Box>
 </Table>
 
-<p>All Synthetic jobs require [bold]whitelisted: true[/bold] status and restrict the player to robot-specific species and customization.</p>
+<p>Все профессии синтетиков требуют статуса [bold]whitelisted: true[/bold] и ограничивают игрока видом и настройкой, специфичными для робота.</p>
 
-## Borg Modules
+## Модули боргов
 
-<p>Synthetics carry integrated modules that define their utility beyond combat:</p>
+<p>Синтетики несут встроенные модули, определяющие их полезность за пределами боя:</p>
 
 <Table Columns="2">
-  <Box>[bold]Module[/bold]</Box>
-  <Box>[bold]Function[/bold]</Box>
-  <Box>[bold]Integrated Hand-Laser[/bold]</Box>
-  <Box>Semi-auto laser, 9 capacity, rechargeable</Box>
-  <Box>[bold]Plasma Caster[/bold]</Box>
-  <Box>Plasma projector, internal battery, self-recharging</Box>
-  <Box>[bold]Integrated Flamer[/bold]</Box>
-  <Box>Full-auto incendiary, 30 fuel, auto-refill</Box>
-  <Box>[bold]Cryo Emitter[/bold]</Box>
-  <Box>Cryo projector, 6 capacity, fire suppression</Box>
-  <Box>[bold]Security Module[/bold]</Box>
-  <Box>Stun baton, handcuffs, flashlight - law enforcement loadout</Box>
-  <Box>[bold]Diagnosis Module[/bold]</Box>
-  <Box>Medical scanner and patient assessment</Box>
-  <Box>[bold]Treatment Module[/bold]</Box>
-  <Box>Medical treatment - surgical tools, healing capability</Box>
-  <Box>[bold]Tool Module[/bold]</Box>
-  <Box>Engineering tools - wrench, screwdriver, welder</Box>
-  <Box>[bold]GPS Module[/bold]</Box>
-  <Box>Navigation and mapping - ties into Wendover tactical map</Box>
+  <Box>[bold]Модуль[/bold]</Box>
+  <Box>[bold]Функция[/bold]</Box>
+  <Box>[bold]Встроенный ручной лазер[/bold]</Box>
+  <Box>Полуавтоматический лазер, ёмкость 9, перезаряжаемый</Box>
+  <Box>[bold]Плазменный метатель[/bold]</Box>
+  <Box>Плазменный проектор, внутренняя батарея, самозаряжающийся</Box>
+  <Box>[bold]Встроенный огнемёт[/bold]</Box>
+  <Box>Полностью автоматический зажигательный, 30 топлива, автопополнение</Box>
+  <Box>[bold]Криоизлучатель[/bold]</Box>
+  <Box>Криопроектор, ёмкость 6, пожаротушение</Box>
+  <Box>[bold]Модуль охраны[/bold]</Box>
+  <Box>Шоковая дубинка, наручники, фонарик — снаряжение правоохранителя</Box>
+  <Box>[bold]Модуль диагностики[/bold]</Box>
+  <Box>Медицинский сканер и оценка состояния пациента</Box>
+  <Box>[bold]Модуль лечения[/bold]</Box>
+  <Box>Медицинское лечение — хирургические инструменты, способность исцелять</Box>
+  <Box>[bold]Модуль инструментов[/bold]</Box>
+  <Box>Инженерные инструменты — гаечный ключ, отвёртка, сварочный аппарат</Box>
+  <Box>[bold]Модуль GPS[/bold]</Box>
+  <Box>Навигация и картография — связан с тактической картой Уэндовера</Box>
 </Table>
 
-## Hostile NPC Robots
+## Враждебные NPC-роботы
 
-<p>The Wasteland is home to many [bold]hostile NPC robots[/bold] that are [bold]not[/bold] player-controlled. These are pre-war units whose programming has degraded into permanent hostility. They belong to the [bold]HostileRobot[/bold] NPC faction and attack on sight.</p>
+<p>В Пустоши обитает множество [bold]враждебных NPC-роботов[/bold], которыми [bold]не[/bold] управляют игроки. Это довоенные единицы, чья программа деградировала до постоянной враждебности. Они принадлежат к NPC-фракции [bold]HostileRobot[/bold] и атакуют при виде.</p>
 
 <Table Columns="4">
-  <Box>[bold]NPC Robot[/bold]</Box>
-  <Box>[bold]HP[/bold]</Box>
-  <Box>[bold]Armament[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>Protectron (Melee)</Box>
+  <Box>[bold]NPC-робот[/bold]</Box>
+  <Box>[bold]ЗД[/bold]</Box>
+  <Box>[bold]Вооружение[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>Протектрон (ближний бой)</Box>
   <Box>100</Box>
-  <Box>Melee (5 brute)</Box>
-  <Box>Slow patrol, weakest NPC robot</Box>
-  <Box>Protectron Police</Box>
+  <Box>Ближний бой (5 дробящий)</Box>
+  <Box>Медленное патрулирование, самый слабый NPC-робот</Box>
+  <Box>Протектрон-полицейский</Box>
   <Box>100</Box>
-  <Box>Hand-Laser (9 cap)</Box>
-  <Box>Ranged, slightly more dangerous</Box>
-  <Box>Mr. Handy (Claw / Saw / Gun)</Box>
+  <Box>Ручной лазер (9 ёмк.)</Box>
+  <Box>Дальний бой, немного опаснее</Box>
+  <Box>Мистер Хенди (клешня / пила / пушка)</Box>
   <Box>100</Box>
-  <Box>Claw / Saw / Hand-Laser</Box>
-  <Box>Three variants, domestic-speed</Box>
-  <Box>Mr. Gutsy</Box>
+  <Box>Клешня / пила / ручной лазер</Box>
+  <Box>Три варианта, бытовая скорость</Box>
+  <Box>Мистер Гатси</Box>
   <Box>100</Box>
-  <Box>Plasma Caster (9 cap)</Box>
-  <Box>Military variant, same HP as Mr. Handy</Box>
-  <Box>Assaultron</Box>
+  <Box>Плазменный метатель (9 ёмк.)</Box>
+  <Box>Военный вариант, столько же ЗД, сколько у Мистера Хенди</Box>
+  <Box>Ассаултрон</Box>
   <Box>200</Box>
-  <Box>Claw (15 slash)</Box>
-  <Box>Fast (3.0/6.0), melee-focused</Box>
-  <Box>Eyebot</Box>
+  <Box>Клешня (15 режущий)</Box>
+  <Box>Быстрый (3.0/6.0), ориентирован на ближний бой</Box>
+  <Box>Айбот</Box>
   <Box>100</Box>
-  <Box>Hand-Laser (9 cap)</Box>
-  <Box>Fast scout, plays ambient music</Box>
-  <Box>Robobrain</Box>
+  <Box>Ручной лазер (9 ёмк.)</Box>
+  <Box>Быстрый разведчик, воспроизводит фоновую музыку</Box>
+  <Box>Робомозг</Box>
   <Box>100</Box>
-  <Box>Hand-Laser (9 cap)</Box>
-  <Box>Slow, ranged</Box>
-  <Box>Sentry Bot (Gatling Laser)</Box>
+  <Box>Ручной лазер (9 ёмк.)</Box>
+  <Box>Медленный, дальний бой</Box>
+  <Box>Робот-часовой (гатлинг-лазер)</Box>
   <Box>[bold]350[/bold]</Box>
-  <Box>Gatling Laser (6 shots/sec) + Stomp (40 brute)</Box>
-  <Box>2× scale, heavy armor, [bold]8-second death explosion[/bold]</Box>
-  <Box>Sentry Bot (Ballistic)</Box>
+  <Box>Гатлинг-лазер (6 выстрелов/с) + Топот (40 дробящий)</Box>
+  <Box>Масштаб 2×, тяжёлая броня, [bold]взрыв через 8 секунд после смерти[/bold]</Box>
+  <Box>Робот-часовой (баллистический)</Box>
   <Box>[bold]350[/bold]</Box>
-  <Box>Missile Launcher</Box>
-  <Box>2× scale, heavy armor</Box>
+  <Box>Ракетная установка</Box>
+  <Box>Масштаб 2×, тяжёлая броня</Box>
 </Table>
 
-<p>[bold]Warning:[/bold] NPC Sentry Bots explode on death with an 8-second fuse. Clear the area immediately.</p>
+<p>[bold]Внимание:[/bold] NPC-роботы-часовые взрываются после смерти с задержкой в 8 секунд. Немедленно покиньте зону.</p>
 
-## Equipment
+## Снаряжение
 
 <Table Columns="2">
-  <Box>[bold]Item[/bold]</Box>
-  <Box>[bold]Description[/bold]</Box>
-  <Box>[bold]General Atomics Navigation Card[/bold]</Box>
-  <Box>Wendover tactical map - standard issue</Box>
-  <Box>[bold]RobCo Industries Navigation Card[/bold]</Box>
-  <Box>Wendover tactical map - RobCo branded</Box>
-  <Box>[bold]Wasteland Scrap Headset[/bold]</Box>
-  <Box>Inter-robot and faction communication radio</Box>
+  <Box>[bold]Предмет[/bold]</Box>
+  <Box>[bold]Описание[/bold]</Box>
+  <Box>[bold]Навигационная карта General Atomics[/bold]</Box>
+  <Box>Тактическая карта Уэндовера — стандартный выпуск</Box>
+  <Box>[bold]Навигационная карта RobCo Industries[/bold]</Box>
+  <Box>Тактическая карта Уэндовера — под маркой RobCo</Box>
+  <Box>[bold]Гарнитура из хлама Пустоши[/bold]</Box>
+  <Box>Радио для связи между роботами и внутри фракции</Box>
 </Table>
 
 </Document>

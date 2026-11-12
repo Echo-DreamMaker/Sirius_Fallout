@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseItem
+  id: PipBoyMusicCartridge
+  name: pip-boy music cartridge
+  description: A program that plays music directly to your Pip-Boy's speaker. Others won't hear a thing.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-y
+  - type: Icon
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-y
+  - type: UIFragment
+    ui: !type:PipBoyMusicUi
+  - type: Cartridge
+    programName: pipboy-music-program-name
+    icon:
+      sprite: _Nuclear14/Objects/Misc/pipboy.rsi
+      state: pda
+  - type: PipBoyMusicCartridge

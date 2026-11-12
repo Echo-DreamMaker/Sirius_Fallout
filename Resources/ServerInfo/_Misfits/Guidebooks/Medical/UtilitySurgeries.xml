@@ -1,37 +1,37 @@
 <Document>
-# Utility Surgeries
+# Прикладные операции
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Surgery"]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Surgery"]
 
-<p>Utility surgeries handle common medical procedures that do not involve organ or part transplantation — wound care, cavity work, and restorative techniques that every field medic should know.</p>
+<p>Прикладные операции охватывают распространённые медицинские процедуры, не связанные с пересадкой органов или частей тела, — обработку ран, работу с полостями и восстановительные методики, которые должен знать каждый полевой медик.</p>
 
 <hr/>
 
-## Tend Wounds
+## Обработка ран
 
-<p>Tend Wounds heals brute or burn damage directly without requiring topical treatments. It is most effective on heavily damaged patients and can bring otherwise unsalvageable cases back from the brink.</p>
+<p>Обработка ран напрямую лечит механические и термические повреждения, не требуя наружных средств. Она наиболее эффективна для тяжело раненых пациентов и может вытащить с того света тех, кого иначе уже не спасти.</p>
 
-<p>[bold]Procedure:[/bold]</p>
+<p>[bold]Порядок действий:[/bold]</p>
 <ul>
-<li>Open an incision on the damaged body part using a [bold]Scalpel[/bold].</li>
-<li>Apply a [bold]Hemostat[/bold] to the incision repeatedly until the part is fully healed.</li>
-<li>Close the incision with a [bold]Cautery[/bold].</li>
+<li>Сделайте разрез на повреждённой части тела с помощью [bold]скальпеля[/bold].</li>
+<li>Прикладывайте [bold]зажим[/bold] к разрезу, пока часть тела не заживёт полностью.</li>
+<li>Закройте разрез с помощью [bold]каутера[/bold].</li>
 </ul>
 
 <hr/>
 
-## Cavity Implant
+## Имплантация в полость
 
-<p>Cavity Implant surgery embeds a Tiny or Small item into a patient's torso. The patient cannot normally access the implanted item through standard inventory interaction.</p>
+<p>Операция по имплантации в полость помещает крошечный или маленький предмет в торс пациента. Обычно пациент не может получить доступ к имплантированному предмету через стандартное взаимодействие с инвентарём.</p>
 
-<p>[bold]Procedure:[/bold]</p>
+<p>[bold]Порядок действий:[/bold]</p>
 <ul>
-<li>Open an incision on the torso using a [bold]Scalpel[/bold].</li>
-<li>Open the ribcage with a [bold]Retractor[/bold].</li>
-<li>Insert the item to be implanted.</li>
-<li>Close the ribcage and incision with a [bold]Cautery[/bold].</li>
+<li>Сделайте разрез на торсе с помощью [bold]скальпеля[/bold].</li>
+<li>Раскройте грудную клетку с помощью [bold]ретрактора[/bold].</li>
+<li>Вставьте предмет, который нужно имплантировать.</li>
+<li>Закройте грудную клетку и разрез с помощью [bold]каутера[/bold].</li>
 </ul>
 
-<p>Uses include concealing important items from searches, such as critical documents or the Nuclear Authentication Disk.</p>
+<p>Это применяется в том числе для сокрытия важных предметов от обысков, например критически важных документов или диска ядерной аутентификации.</p>
 
 </Document>

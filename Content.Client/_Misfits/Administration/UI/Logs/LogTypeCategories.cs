@@ -101,6 +101,7 @@ public static class LogTypeCategories
         { LogType.GhostRoleTaken, "Admin" },
         { LogType.Identity, "Admin" },
         { LogType.RateLimited, "Admin" },
+        { LogType.PanicBunkerToggle, "Admin" },
 
         // Construction
         { LogType.Construction, "Construction" },

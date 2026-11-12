@@ -1,0 +1,49 @@
+<cartridges:PipBoyMusicUiFragment
+    xmlns:cartridges="clr-namespace:Content.Client._Sirius.CartridgeLoader.Cartridges;assembly=Content.Client"
+    xmlns="https://spacestation14.io"
+    Margin="1 0 2 0">
+    <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <LineEdit Name="SearchBar"
+                  HorizontalExpand="True"
+                  SetHeight="32"
+                  PlaceHolder="{Loc 'pipboy-music-search-placeholder'}"
+                  Margin="4 4 4 2"/>
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Name="TrackList"
+                          Orientation="Vertical"
+                          HorizontalExpand="True"
+                          VerticalExpand="True"
+                          VerticalAlignment="Top"
+                          Margin="4 0"/>
+        </ScrollContainer>
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="4 2">
+            <Slider Name="PlaybackSlider" HorizontalExpand="True"/>
+            <Label Name="DurationLabel"
+                   Text="00:00 / 00:00"
+                   HorizontalAlignment="Right"
+                   HorizontalExpand="True"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      Margin="4 4">
+            <Button Name="PlayPauseButton"
+                    Text="{Loc 'pipboy-music-button-play'}"
+                    HorizontalExpand="True"
+                    MinWidth="64"/>
+            <Button Name="StopButton"
+                    Text="{Loc 'pipboy-music-button-stop'}"
+                    HorizontalExpand="True"
+                    MinWidth="64"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      Margin="4 0 4 4">
+            <CheckBox Name="RepeatCheckBox"
+                      Text="{Loc 'pipboy-music-checkbox-repeat'}"/>
+            <CheckBox Name="AutoNextCheckBox"
+                      Text="{Loc 'pipboy-music-checkbox-autonext'}"
+                      Margin="8 0 0 0"/>
+        </BoxContainer>
+    </BoxContainer>
+</cartridges:PipBoyMusicUiFragment>

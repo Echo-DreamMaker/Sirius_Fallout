@@ -22,7 +22,7 @@
       min: 0
   startingGear: BoSMidSerfGear
   alwaysUseSpawner: true
-  icon: "JobIconRabMBos"
+  icon: "JobIconBosMSerf"
   supervisors: job-supervisors-bos-mid-serf
   accessGroups:
   - BOSInitiate

@@ -1,67 +1,67 @@
 <Document>
-# Laser Weapons
+# Лазерное оружие
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Laser%20Weapons"/]
+[textlink="Просмотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Laser%20Weapons"/]
 
-## Energy Weapons (Laser)
+## Энергетическое оружие (лазерное)
 
-<p>Energy weapons use focused laser technology to deliver precise, armor-punching hits. They do not use conventional ammunition, relying instead on power cells and other specialized energy feeds.</p>
-<p>These weapons are rare and expensive, and are most often seen in the hands of the Brotherhood of Steel, the Enclave, and elite scavengers.</p>
+<p>Энергетическое оружие использует технологию сфокусированного лазера, чтобы наносить точные удары, пробивающие броню. Оно не использует обычные боеприпасы, полагаясь вместо этого на энергоячейки и другие специализированные источники энергии.</p>
+<p>Такое оружие редко и дорого, и чаще всего его можно увидеть в руках Братства Стали, Анклава и элитных мусорщиков.</p>
 
-<h3 Text="Laser Pistols"/>
+<h3 Text="Лазерные пистолеты"/>
 
-<p>Compact laser sidearms useful for self-defense, patrol work, and precision shooting.</p>
+<p>Компактные лазерные пистолеты, полезные для самообороны, патрулирования и точной стрельбы.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Laser Pistol[/bold]</Box>
-  <Box>Standard laser sidearm. Common in Brotherhood inventory.</Box>
-  <Box>[bold]Laser Revolver[/bold]</Box>
-  <Box>Revolver-frame laser weapon. Craftable via blueprint.</Box>
-  <Box>[bold]Recharger Pistol[/bold]</Box>
-  <Box>Self-recharging laser pistol. No ammunition required, but lower output.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Лазерный пистолет[/bold]</Box>
+  <Box>Стандартный лазерный пистолет. Часто встречается в арсенале Братства.</Box>
+  <Box>[bold]Лазерный револьвер[/bold]</Box>
+  <Box>Лазерное оружие на револьверной базе. Изготавливается по чертежу.</Box>
+  <Box>[bold]Пистолет-перезарядник[/bold]</Box>
+  <Box>Самозаряжающийся лазерный пистолет. Не требует боеприпасов, но выдаёт меньшую мощность.</Box>
 </Table>
 
-<h3 Text="Laser Rifles"/>
+<h3 Text="Лазерные винтовки"/>
 
-<p>Laser rifles deliver reliable ranged damage and are iconic weapons for advanced factions.</p>
+<p>Лазерные винтовки наносят надёжный урон на дистанции и являются знаковым оружием для развитых фракций.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Laser Rifle[/bold]</Box>
-  <Box>Standard pre-war laser rifle. Precision and reliable.</Box>
-  <Box>[bold]Auto Laser Rifle[/bold]</Box>
-  <Box>Automatic-fire variant. Higher rate of fire, more energy consumption.</Box>
-  <Box>[bold]AER14 Prototype[/bold]</Box>
-  <Box>Experimental pre-war design. High performance, extremely rare.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Лазерная винтовка[/bold]</Box>
+  <Box>Стандартная довоенная лазерная винтовка. Точная и надёжная.</Box>
+  <Box>[bold]Автоматическая лазерная винтовка[/bold]</Box>
+  <Box>Вариант с автоматическим огнём. Выше темп стрельбы, больше расход энергии.</Box>
+  <Box>[bold]Прототип AER14[/bold]</Box>
+  <Box>Экспериментальная довоенная разработка. Высокие характеристики, встречается крайне редко.</Box>
   <Box>[bold]Wattz 3000[/bold]</Box>
-  <Box>Pre-war high-end laser rifle. Superior range and damage.</Box>
+  <Box>Довоенная лазерная винтовка высшего класса. Превосходные дальность и урон.</Box>
 </Table>
 
-<h3 Text="Gatling Laser"/>
+<h3 Text="Гатлинг-лазер"/>
 
-<p>The Gatling Laser is a heavy beam weapon capable of sustained fire that can shred exposed targets very quickly.</p>
+<p>Гатлинг-лазер — это тяжёлое лучевое оружие, способное вести непрерывный огонь и очень быстро разрывать незащищённые цели.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Gatling Laser[/bold]</Box>
-  <Box>Heavy beam weapon. Sustained fire, devastating against exposed targets.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Гатлинг-лазер[/bold]</Box>
+  <Box>Тяжёлое лучевое оружие. Непрерывный огонь, сокрушительный против незащищённых целей.</Box>
 </Table>
 
-<h3 Text="Improvised Energy Weapons"/>
+<h3 Text="Самодельное энергетическое оружие"/>
 
-<p>Makeshift and crude laser weapons built from salvaged parts. Usually less reliable than pre-war models, but far more accessible.</p>
+<p>Кустарное и грубое лазерное оружие, собранное из найденных деталей. Обычно менее надёжно, чем довоенные образцы, но гораздо доступнее.</p>
 
 <Table Columns="2">
-  <Box>[bold]Weapon[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Crude Laser Rifle[/bold]</Box>
-  <Box>Post-war construction. Less accurate, lower output than pre-war.</Box>
-  <Box>[bold]Makeshift Laser Rifle[/bold]</Box>
-  <Box>Craftable via blueprint. Better than crude but still imprecise.</Box>
+  <Box>[bold]Оружие[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Кустарная лазерная винтовка[/bold]</Box>
+  <Box>Послевоенная сборка. Менее точная и менее мощная, чем довоенная.</Box>
+  <Box>[bold]Самодельная лазерная винтовка[/bold]</Box>
+  <Box>Изготавливается по чертежу. Лучше кустарной, но всё ещё неточная.</Box>
 </Table>
 
 </Document>

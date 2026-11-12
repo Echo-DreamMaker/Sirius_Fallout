@@ -23,7 +23,9 @@
     - type: NpcFactionMember
       friendlyOrderable: true
       factions:
-      - TownsfolkSecureArea # Especialy made for the clinic & store, will attack anyone who steps in the storage and not a legal resident.
+      - Townsfolk
+    - type: NPCRetaliation
+      attackMemoryLength: 30
     - type: Gun
       minAngle: 23
       maxAngle: 104
@@ -99,6 +101,18 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/combat_shotgun.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
+- type: entity
+  name: Town Enforcer
+  parent: N14MobNPCTownGuard
+  id: N14MobNPCTownGuardGuard
+  suffix: NPC
+  description: Professional mercenary armed with a combat shotgun. He won't show mercy to anyone if they can't prove proof of their citizenship in a moment's notice.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - TownsfolkSecureArea
+
 # Midwestern chapter's humanoid NPCs for event making and such.
 - type: entity
   name: Chapter Serf
@@ -125,7 +139,9 @@
     - type: NpcFactionMember
       friendlyOrderable: true
       factions:
-      - BrotherhoodOfSteelSecureArea
+      - BrotherhoodOfSteel
+    - type: NPCRetaliation
+      attackMemoryLength: 30
     - type: Gun
       minAngle: 4
       maxAngle: 9
@@ -201,6 +217,16 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/assaultcarbine.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
+- type: entity
+  name: BoS Knight
+  parent: N14MobNPCMBoSKnight
+  id: N14MobNPCMBoSKnightGuard
+  description: A soldier of the Brotherhood, not the most skilled and easily forgetable. Still, he might be dangerous.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - BrotherhoodOfSteelSecureArea
 #Misfits Change /Comment-out/: Washington chapter NPC humanoids removed — loadouts commented out.
 ## Washington chapter's humanoid NPCs for event making and such.
 #- type: entity
@@ -330,7 +356,9 @@
     - type: NpcFactionMember
       friendlyOrderable: true
       factions:
-      - NCRSecureArea
+      - NCR
+    - type: NPCRetaliation
+      attackMemoryLength: 30
     - type: Gun
       minAngle: 2
       maxAngle: 14
@@ -405,6 +433,18 @@
         visible: false
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/servicerifle.rsi
         state: inhand-right  # Only part we change, the gun sprite.
+
+- type: entity
+  name: NCR Army Trooper
+  parent: N14MobNPCNCRTrooper
+  id: N14MobNPCNCRTrooperGuard
+  suffix: NPC
+  description: An Army trooper of the NCR. He's tasked to guard places and is quite easy to forget, but he's still dangerous.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - NCRSecureArea
 
 # The Blue Line caravan's humanoid NPCs for event making and such.
 - type: entity
@@ -504,7 +544,9 @@
     - type: NpcFactionMember
       friendlyOrderable: true
       factions:
-      - TribalSecureArea
+      - Tribal
+    - type: NPCRetaliation
+      attackMemoryLength: 30
     - type: Gun
       minAngle: 4
       maxAngle: 20
@@ -581,6 +623,18 @@
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
+  name: Tribal Skirmisher
+  parent: N14MobNPCTribeSkir
+  id: N14MobNPCTribeSkirGuard
+  suffix: NPC
+  description: A skirmisher of the local tribes, he bears a firearm to protect his kin. A silent hero.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - TribalSecureArea
+
+- type: entity
   name: Tribal Warrior
   parent: N14BaseMobRaider
   id: N14MobNPCTribeWarr
@@ -590,7 +644,9 @@
     - type: NpcFactionMember
       friendlyOrderable: true
       factions:
-      - TribalSecureArea
+      - Tribal
+    - type: NPCRetaliation
+      attackMemoryLength: 30
     - type: MobThresholds
       thresholds:
         0: Alive
@@ -598,6 +654,18 @@
     - type: Loadout
       prototypes:
         - TribalWarriorNPC
+
+- type: entity
+  name: Tribal Warrior
+  parent: N14MobNPCTribeWarr
+  id: N14MobNPCTribeWarrGuard
+  suffix: NPC
+  description: A large and tough warrior, not many could best him in a melee battle. He shall stand guard.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - TribalSecureArea
 
 - type: entity
   name: ChinesePartisan

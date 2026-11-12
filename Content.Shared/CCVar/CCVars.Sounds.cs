@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Configuration;
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
 
@@ -27,4 +27,10 @@ public sealed partial class CCVars
 
     public static readonly CVarDef<string> AHelpSound =
         CVarDef.Create("audio.ahelp_sound", "/Audio/Effects/adminhelp.ogg", CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    public static readonly CVarDef<bool> MuteOthersPipBoyMusic =
+        CVarDef.Create("audio.mute_others_pipboy_music", false, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    public static readonly CVarDef<bool> MuteOthersPortableMediaPlayerMusic =
+        CVarDef.Create("audio.mute_others_portable_media_player_music", false, CVar.ARCHIVE | CVar.CLIENTONLY);
 }

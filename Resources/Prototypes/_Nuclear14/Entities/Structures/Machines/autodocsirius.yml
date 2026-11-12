@@ -1,8 +1,6 @@
 - type: entity
   parent: BaseStructureDynamic
   id: SiriusAutodoc
-  name: autodoc
-  description: A pre-war medical autodoc, capable of performing complex medical procedures.
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Machines/autodoc.rsi
@@ -214,3 +212,6 @@
             - BodyPart
   - type: ContainerFill
     containers: {}
+  - type: Construction
+    graph: SiriusAutodoc
+    node: AutodocFinished

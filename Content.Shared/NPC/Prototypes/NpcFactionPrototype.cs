@@ -17,6 +17,9 @@ public sealed partial class NpcFactionPrototype : IPrototype
 
     [DataField]
     public List<ProtoId<NpcFactionPrototype>> Hostile = new();
+
+    [DataField]
+    public List<ProtoId<NpcFactionPrototype>> Neutral = new();
 }
 
 /// <summary>
@@ -32,4 +35,7 @@ public record struct FactionData
 
     [ViewVariables]
     public HashSet<ProtoId<NpcFactionPrototype>> Hostile;
+
+    [ViewVariables]
+    public HashSet<ProtoId<NpcFactionPrototype>> Neutral;
 }

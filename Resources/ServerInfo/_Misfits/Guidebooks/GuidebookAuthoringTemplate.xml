@@ -1,27 +1,27 @@
-<GuidePage Title="Template Page Title" Subtitle="Replace this sentence with a one-line summary of the page." Link="https://wiki.misfitsystems.net/index.php/Main_Page">
-<GuideInfoBox Title="At a Glance">
-<p>Open with one short box only if the reader needs immediate context, scope, or an operational warning.</p>
+<GuidePage Title="Название шаблонной страницы" Subtitle="Замените это предложение однострочным описанием страницы." Link="https://siriusfallout.miraheze.org/wiki/Заглавная_страница">
+<GuideInfoBox Title="Кратко">
+<p>Открывайте одним коротким блоком, только если читателю нужен немедленный контекст, охват темы или операционное предупреждение.</p>
 </GuideInfoBox>
 
-<GuideSection Title="First Major Topic">
-<p>Start every section with one lead paragraph before lists, tables, or procedures.</p>
+<GuideSection Title="Первая основная тема">
+<p>Начинайте каждый раздел с одного вводного абзаца перед списками, таблицами или процедурами.</p>
 
-<GuideSubSection Title="Procedure or Checklist">
+<GuideSubSection Title="Процедура или контрольный список">
 <ul>
-<li>Keep steps short and action oriented.</li>
-<li>Split long procedures into multiple subsections instead of one wall of text.</li>
-<li>Use tables only when readers truly need side-by-side comparison.</li>
+<li>Держите шаги короткими и ориентированными на действие.</li>
+<li>Разбивайте длинные процедуры на несколько подразделов вместо одной стены текста.</li>
+<li>Используйте таблицы только тогда, когда читателям действительно нужно сравнение бок о бок.</li>
 </ul>
 </GuideSubSection>
 </GuideSection>
 
-<GuideSection Title="Supporting Material">
-<GuideExampleBlock Title="Recommended Pattern">
-<p>Use example blocks for a preferred workflow, rotation, or decision rule.</p>
+<GuideSection Title="Вспомогательный материал">
+<GuideExampleBlock Title="Рекомендуемый шаблон">
+<p>Используйте блоки-примеры для предпочтительного рабочего процесса, порядка действий или правила принятия решений.</p>
 </GuideExampleBlock>
 
-<GuideWarningBox Title="Common Failure State">
-<p>Reserve warning boxes for things that can waste supplies, lock out progress, or get the reader killed.</p>
+<GuideWarningBox Title="Типичная ошибка">
+<p>Приберегайте предупреждающие блоки для того, что может израсходовать припасы, заблокировать прогресс или привести к гибели читателя.</p>
 </GuideWarningBox>
 </GuideSection>
 </GuidePage>

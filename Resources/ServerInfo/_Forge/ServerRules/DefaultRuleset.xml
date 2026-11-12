@@ -2,12 +2,12 @@
   <ColorBox Color="#3a3a3a" OutlineColor="#5a5a5a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Misfits: Nuclear Wasteland Server Rules
+        Misfits: Правила сервера Nuclear Wasteland
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        Misfits: Nuclear Wasteland is a roleplaying server. The primary goal of this server is not only to provide players with engaging gameplay but also to create stories that they can share even with friends outside standard Space Station 14.
+        Misfits: Nuclear Wasteland — ролевой сервер. Главная цель этого сервера не только дать игрокам увлекательный игровой процесс, но и создать истории, которыми они смогут поделиться даже с друзьями за пределами обычного Space Station 14.
 
-        Please note: Your own skills and actions will determine the path of your story. The Wasteland is a harsh place. Do not expect divine intervention except in the most extreme cases.
+        Обратите внимание: путь вашей истории определят ваши собственные навыки и действия. Пустошь — суровое место. Не ожидайте божественного вмешательства, кроме самых крайних случаев.
       </Box>
     </Box>
   </ColorBox>
@@ -15,22 +15,22 @@
   <ColorBox Color="#2a2a3a" OutlineColor="#4a4a5a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 0: Don't Be A Jerk.
+        Правило 0: не будьте мудаком.
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        This rule may not be liked by all, but it is necessary. This rule applies to players who display excessive toxicity and play solely for their own gain. Those who play exclusively for themselves and try to 'win' at any cost, suppressing others and ignoring rules."
+        Это правило может нравиться не всем, но оно необходимо. Оно касается игроков, которые проявляют чрезмерную токсичность и играют исключительно ради собственной выгоды. Тех, кто играет только для себя и пытается «победить» любой ценой, подавляя других и игнорируя правила."
         <Box Orientation="Vertical" Margin="10">
-          Don't be a toxic player. Our server is a space for collaborative creativity, not an arena for personal victories at any cost. Avoid actions that suppress other players or disrupt the game atmosphere.
+          Не будьте токсичным игроком. Наш сервер — пространство для совместного творчества, а не арена для личных побед любой ценой. Избегайте действий, которые подавляют других игроков или разрушают игровую атмосферу.
 
-          Respect the work of administrators and developers. Remember that they are volunteers with their own lives outside the project. Be patient and constructive in communication.
+          Уважайте труд администраторов и разработчиков. Помните, что они добровольцы со своей жизнью вне проекта. Будьте терпеливы и конструктивны в общении.
 
-          Cooperate in solving problems. Do not disconnect during an admin ticket without a valid reason. If technical problems arise, report them within 15 minutes.
+          Сотрудничайте в решении проблем. Не отключайтесь во время административного тикета без уважительной причины. Если возникли технические проблемы, сообщите о них в течение 15 минут.
 
-          The administration reserves the right to make decisions in situations not covered by the rules if a player's behavior elicits a negative community response.
+          Администрация оставляет за собой право принимать решения в ситуациях, не охваченных правилами, если поведение игрока вызывает негативную реакцию сообщества.
 
-          Remember that the goal of the server is to create an engaging gaming experience for all participants. Act in the spirit of mutual respect and common sense.
+          Помните, что цель сервера — создать увлекательный игровой опыт для всех участников. Действуйте в духе взаимного уважения и здравого смысла.
         </Box>
-        Violation of these principles may result in server access restrictions. All punishments are determined at the discretion of the administration based on the context of the situation.
+        Нарушение этих принципов может привести к ограничению доступа к серверу. Все наказания определяются на усмотрение администрации исходя из контекста ситуации.
       </Box>
     </Box>
   </ColorBox>
@@ -38,14 +38,14 @@
   <ColorBox Color="#2a3a2a" OutlineColor="#4a5a4a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 1: Griefing
+        Правило 1: Гриферство
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        Griefing, or deliberately ruining gameplay for other players, is strictly forbidden. This includes actions committed solely to harm or inconvenience other players with no benefit or reason other than the desire to ruin the game.
+        Гриферство, то есть намеренное порча игрового процесса другим игрокам, строго запрещено. Это включает действия, совершаемые исключительно для того, чтобы навредить другим игрокам или создать им неудобства, без какой-либо выгоды или причины, кроме желания испортить игру.
 
-        Griefing is characterized by the absence of personal benefit for the offender. This rule also applies to events that caused significant damage to gameplay, even if this happened without the intent to ruin the game for others. The simplest example is planting mines in players' homes.
+        Гриферство характеризуется отсутствием личной выгоды для нарушителя. Это правило также распространяется на события, причинившие значительный ущерб игровому процессу, даже если это произошло без намерения испортить игру другим. Простейший пример — установка мин в домах игроков.
 
-        Any actions that harm gameplay and ruin the experience for other players not covered by other rules will be punished in accordance with this rule.
+        Любые действия, которые вредят игровому процессу и портят впечатление других игроков и не охвачены другими правилами, будут наказаны в соответствии с этим правилом.
       </Box>
     </Box>
   </ColorBox>
@@ -53,48 +53,48 @@
   <ColorBox Color="#3a2a2a" OutlineColor="#5a4a4a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 2: Fair Play
+        Правило 2: Честная игра
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        2.1. Metagaming and Meta-Information Use
+        2.1. Метагейминг и использование мета-информации
 
-        Metagaming, that is, the use or distribution of in-game information through third-party communication or OOC chats, is strictly forbidden and punishable by ban. This includes:
+        Метагейминг, то есть использование или распространение игровой информации через сторонние средства связи или OOC-чаты, строго запрещён и наказывается блокировкой. Это включает:
         <Box Orientation="Vertical" Margin="10">
-          Obtaining information from OOC chats, observing in guest mode, Discord messages or streams.
+          Получение информации из OOC-чатов, наблюдения в режиме гостя, сообщений Discord или трансляций.
 
-          Cooperative play (COOP) is metagaming and is punished particularly harshly.
+          Совместная игра (COOP) является метагеймингом и наказывается особенно строго.
 
-          Streaming is not forbidden, but it is recommended to warn the administration of your intention to stream. Educational coop is allowed with prior notification to administration.
+          Стриминг не запрещён, но рекомендуется предупредить администрацию о намерении вести трансляцию. Обучающий кооп разрешён при предварительном уведомлении администрации.
 
-          Information obtained from any external sources or chats outside the game cannot be used by your character without violating this rule.
+          Информация, полученная из любых внешних источников или чатов вне игры, не может использоваться вашим персонажем без нарушения этого правила.
         </Box>
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        2.2. Multi-Account
+        2.2. Мультиаккаунт
 
-        Using multiple SS14 accounts to gain advantage is forbidden. This includes:
+        Использование нескольких аккаунтов SS14 для получения преимущества запрещено. Это включает:
         <Box Orientation="Vertical" Margin="10">
-          Using more than one account simultaneously in a round (multiboxing).
+          Использование более одного аккаунта одновременно в раунде (мультибоксинг).
 
-          Ban evasion through creating a new account. Any attempt to log into the game with a different account while having a ban on the main account is considered ban evasion.
+          Уклонение от блокировки путём создания нового аккаунта. Любая попытка войти в игру с другого аккаунта при наличии блокировки на основном аккаунте считается уклонением от блокировки.
 
-          Creating a new account to hide previous violations. Notify administration if you create a new account or change your current login.
+          Создание нового аккаунта для сокрытия прошлых нарушений. Уведомите администрацию, если вы создаёте новый аккаунт или меняете текущий логин.
         </Box>
-        Violation of this rule is punishable by permanent ban.
+        Нарушение этого правила наказывается бессрочной блокировкой.
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        2.3. Unfair Play
+        2.3. Нечестная игра
 
-        Using software and game exploits to gain an advantage in gameplay is forbidden. This includes:
+        Использование программного обеспечения и игровых эксплойтов для получения преимущества в игре запрещено. Это включает:
         <Box Orientation="Vertical" Margin="10">
-          Using bugs, cheats, scripts, clickers and other third-party software is forbidden.
+          Использование багов, читов, скриптов, кликеров и другого стороннего программного обеспечения запрещено.
 
-          Intentionally creating significant server load is forbidden in any way.
+          Намеренное создание значительной нагрузки на сервер запрещено любым способом.
         </Box>
-        If you find a bug, report it immediately to the appropriate Discord server channels.
+        Если вы обнаружили баг, немедленно сообщите о нём в соответствующие каналы Discord-сервера.
       </Box>
     </Box>
   </ColorBox>
@@ -102,132 +102,132 @@
   <ColorBox Color="#2a3a3a" OutlineColor="#4a5a5a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 3: Play a Role and Character Appropriate to the Game Setting
+        Правило 3: Играйте роль и персонажа, соответствующих игровому сеттингу
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        Your character must fully correspond to the role and Fallout universe setting.
+        Ваш персонаж должен полностью соответствовать роли и сеттингу вселенной Fallout.
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        3.1 Character Behavior
+        3.1 Поведение персонажа
         <Box Orientation="Vertical" Margin="10">
-          Your character must behave appropriately for the game setting. The game takes place in a post-apocalyptic future, and character behavior should reflect this. Your goal is to create a realistic and believable character that matches the Fallout theme.
+          Ваш персонаж должен вести себя соответственно игровому сеттингу. Игра происходит в постапокалиптическом будущем, и поведение персонажа должно это отражать. Ваша цель — создать реалистичного и правдоподобного персонажа, соответствующего тематике Fallout.
 
-          When choosing a name for your character, stick to Fallout themes. Avoid obvious real-world references or ridiculous naming schemes.
+          Выбирая имя для персонажа, придерживайтесь тематики Fallout. Избегайте очевидных отсылок к реальному миру и нелепых схем именования.
 
-          Take character creation seriously. Direct real-life names of famous real or fictional characters, as well as ridiculous names or those unsuitable for the character's race, are forbidden. Administration may ask you to change your name if it violates the rules.
+          Относитесь к созданию персонажа серьёзно. Прямые реальные имена известных реальных или вымышленных персонажей, а также нелепые имена или имена, не подходящие расе персонажа, запрещены. Администрация может попросить вас сменить имя, если оно нарушает правила.
 
-          Copying character names from a character you or someone played after death or permanent imprisonment is forbidden without the permission of the character owner and/or administration.
+          Копирование имён персонажей с персонажа, за которого играли вы или кто-то другой, после смерти или бессрочного заключения запрещено без разрешения владельца персонажа и/или администрации.
         </Box>
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        3.2 Chat Channel Interaction
+        3.2 Взаимодействие в чат-каналах
         <Box Orientation="Vertical" Margin="10">
-          Do not abuse chat channels. This includes but is not limited to: emotes, OOC, LOOC, Ahelp or prayers. Abuse of them will result in severe measures.
+          Не злоупотребляйте чат-каналами. Это включает, помимо прочего: эмоции, OOC, LOOC, Ahelp и молитвы. Злоупотребление ими повлечёт суровые меры.
 
-          Don't break the fourth wall, don't use real-world memes or internet slang, don't try to enforce rules or resolve OOC issues in IC chat (use ahelp).
+          Не разрушайте четвёртую стену, не используйте мемы реального мира и интернет-сленг, не пытайтесь применять правила или решать OOC-вопросы в IC-чате (используйте ahelp).
 
-          Using IC chats to discuss OOC topics (politics, memes, etc.) is forbidden. Emotion chat is not intended for direct communication or for depicting political, erotic or unflattering actions.
+          Использование IC-чатов для обсуждения OOC-тем (политика, мемы и т. п.) запрещено. Чат эмоций не предназначен для прямого общения или для изображения политических, эротических или неприглядных действий.
 
-          Insults directed at other players in OOC chats, both direct and veiled, are forbidden. It is also forbidden to use OOC chats to discuss political, extremist, erotic and other resonant topics.
+          Оскорбления в адрес других игроков в OOC-чатах, как прямые, так и завуалированные, запрещены. Также запрещено использовать OOC-чаты для обсуждения политических, экстремистских, эротических и других резонансных тем.
         </Box>
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        3.3 Immersion Violation
+        3.3 Нарушение погружения
         <Box Orientation="Vertical" Margin="10">
-          Do not draw attention to game mechanics, conventions or admin actions that ruin game atmosphere or immersion.
+          Не привлекайте внимание к игровым механикам, условностям или действиям администрации, которые разрушают игровую атмосферу или погружение.
 
           <ColorBox Color="#3a3a3a" OutlineColor="#5a5a5a" OutlineThickness="2" Margin="5">
             <Box Orientation="Vertical">
               <Box Orientation="Horizontal" HorizontalAlignment="Center">
-                Examples
+                Примеры
               </Box>
               <Box Orientation="Vertical" Margin="10">
-                If someone accidentally typed in IC chat with the wrong keyboard layout, don't draw attention to it. Better write the correct message.
+                Если кто-то случайно написал в IC-чат с неправильной раскладкой клавиатуры, не обращайте на это внимания. Лучше напишите правильное сообщение.
 
-                If an admin accidentally hugged you or performed an action in the IC world, don't discuss it as an admin action.
+                Если администратор случайно обнял вас или совершил действие в IC-мире, не обсуждайте это как действие администратора.
               </Box>
             </Box>
           </ColorBox>
-          Avoid shouting about 'gods' or 'admins' if something strange happens. Better roleplay it as an anomaly or strange event.
+          Избегайте криков о «богах» или «админах», если произошло что-то странное. Лучше отыграйте это как аномалию или странное событие.
 
-          In-game, treat administrators like ordinary players, without special privileges or excessive flattery.
+          В игре относитесь к администраторам как к обычным игрокам, без особых привилегий или чрезмерной лести.
         </Box>
 
         <Box Orientation="Vertical" Margin="10">
-          3.3.1 RP Roleplay
+          3.3.1 RP-отыгрыш
           <Box Orientation="Vertical" Margin="10">
-            Avoid expressions and actions that don't match the Fallout setting. Examples: 'I'll go to sleep'. If you need to leave the game, use an RP reason, such as 'I'm tired, going to bed'.
+            Избегайте выражений и действий, не соответствующих сеттингу Fallout. Примеры: «Пойду посплю». Если вам нужно выйти из игры, используйте RP-причину, например «Я устал, пойду спать».
 
-            Don't climb over counters unnecessarily. If there's no bartender, call one or use a soda machine.
+            Не перелезайте через стойки без необходимости. Если бармена нет, позовите его или воспользуйтесь автоматом с газировкой.
 
-            There are no rollbacks in-game. If you accidentally typed something incorrectly, come up with an RP reason or apologize and write what you wanted without drawing attention to the mistake.
+            В игре нет откатов. Если вы случайно написали что-то неправильно, придумайте RP-причину или извинитесь и напишите то, что хотели, не привлекая внимания к ошибке.
 
-            If someone mistypes or uses the wrong keyboard, don't draw attention to it. It's an awkward situation that's best left alone.
+            Если кто-то опечатался или использовал неправильную раскладку, не обращайте на это внимания. Это неловкая ситуация, которую лучше оставить без внимания.
 
-            Paper and other in-game media should not be used to create drawings with political, erotic or unflattering content.
+            Бумагу и другие игровые носители информации не следует использовать для создания рисунков с политическим, эротическим или неприглядным содержанием.
           </Box>
         </Box>
 
         <Box Orientation="Vertical" Margin="10">
-          3.3.2 Communication Culture and Atmosphere
+          3.3.2 Культура общения и атмосфера
           <Box Orientation="Vertical" Margin="10">
-            Communicate in any language without breaking the game atmosphere. Avoid spam and emoticons in IC chat.
+            Общайтесь на любом языке, не разрушая игровую атмосферу. Избегайте спама и смайликов в IC-чате.
 
-            Maintain literacy and purity of speech. Characters at a scientific station should speak appropriately to their education level. Avoid abbreviations like 'plz', 'thx', 'hey' and ridiculous RP abbreviations like 'art', unless justified by role.
+            Поддерживайте грамотность и чистоту речи. Персонажи на научной станции должны говорить соответственно уровню своего образования. Избегайте сокращений вроде «плиз», «спс», «прив» и нелепых RP-сокращений вроде «арт», если это не оправдано ролью.
 
-            Write expansively and stylistically appropriately. Try to create readable messages following English language standards.
+            Пишите развёрнуто и стилистически уместно. Старайтесь создавать читаемые сообщения, соответствующие нормам языка.
 
-            Avoid excessive and unjustified insults. Expressions directed at a character (for example, 'vile mutant') are permissible, but not at a player or their mental abilities. Repeated baseless insults may be regarded as meta-hate.
+            Избегайте чрезмерных и необоснованных оскорблений. Выражения, направленные на персонажа (например, «мерзкий мутант»), допустимы, но не на игрока или его умственные способности. Повторяющиеся безосновательные оскорбления могут расцениваться как мета-ненависть.
 
-            Remember that your speech affects the game atmosphere. Try to maintain immersion and respect the gaming experience of other participants.
+            Помните, что ваша речь влияет на игровую атмосферу. Старайтесь поддерживать погружение и уважать игровой опыт других участников.
           </Box>
         </Box>
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        3.4 Character Appearance and Description
+        3.4 Внешность и описание персонажа
         <Box Orientation="Vertical" Margin="10">
-          Character appearance should match the lore, exceptions are only possible with administration approval.
+          Внешность персонажа должна соответствовать лору, исключения возможны только с одобрения администрации.
 
-          Character description should describe appearance, description of permanent actions ('heavy breathing', 'limping gait') is allowed.
+          Описание персонажа должно описывать внешность, допускается описание постоянных действий («тяжёлое дыхание», «хромающая походка»).
 
-          Description must be objective, without imposing subjective assessments ('beautiful eyes' -> 'blue eyes').
+          Описание должно быть объективным, без навязывания субъективных оценок («красивые глаза» -> «голубые глаза»).
 
-          Character description should not describe clothing, accessory descriptions are acceptable.
+          Описание персонажа не должно описывать одежду, описания аксессуаров допустимы.
 
-          Avoid excessive description of minor details and use of artistic means. This is character inspection, not scrutiny with a magnifying glass.
+          Избегайте чрезмерного описания мелких деталей и использования художественных средств. Это осмотр персонажа, а не изучение под лупой.
         </Box>
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        3.5 Game Mechanics and RP
+        3.5 Игровые механики и RP
         <Box Orientation="Vertical" Margin="10">
-          Don't specify specific technology requiring research. This technology is not researched within the round.
+          Не указывайте конкретные технологии, требующие исследования. Эта технология не исследуется в рамках раунда.
 
-          Try not to use game mechanic terms such as 'research points'.
+          Старайтесь не использовать термины игровых механик, такие как «очки исследований».
 
-          Your character is not all-knowing: their knowledge and skills have limitations. Play the role you chose, and don't teach others how to play their role unless asked.
+          Ваш персонаж не всезнающ: его знания и навыки ограничены. Играйте выбранную роль и не учите других, как играть их роль, если вас не просили.
         </Box>
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        3.6 Slot Play
+        3.6 Слот-плей
         <Box Orientation="Vertical" Margin="10">
-          Slot play - persistent ignoring of the surrounding world - is unacceptable. The surrounding world exists even in the absence of players: there will always be someone maintaining the viability of towns and maintaining order.
+          Слот-плей — постоянное игнорирование окружающего мира — недопустим. Окружающий мир существует даже при отсутствии игроков: всегда найдётся тот, кто поддерживает жизнеспособность городов и поддерживает порядок.
 
-          Violation of this rule will be regarded as LRP.
+          Нарушение этого правила будет расцениваться как LRP.
           <ColorBox Color="#3a3a3a" OutlineColor="#5a5a5a" OutlineThickness="2" Margin="5">
             <Box Orientation="Vertical">
               <Box Orientation="Horizontal" HorizontalAlignment="Center">
-                Examples
+                Примеры
               </Box>
               <Box Orientation="Vertical" Margin="10">
-                Discussing planned raids on the general radio channel.
+                Обсуждение запланированных рейдов на общем радиоканале.
 
-                Open wearing of contraband on NCR territory, even if there are no players who can stop you.
+                Открытое ношение контрабанды на территории НКР, даже если рядом нет игроков, способных вас остановить.
               </Box>
             </Box>
           </ColorBox>
@@ -239,31 +239,31 @@
   <ColorBox Color="#3a2a3a" OutlineColor="#5a4a5a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 4: Erotic Roleplaying (ERP) is Not Allowed
+        Правило 4: Эротическая ролевая игра (ERP) не разрешена
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        Erotic roleplaying (ERP) is strictly forbidden. This includes any erotic stories recorded by your character in books, paper and other in-game information media.
+        Эротическая ролевая игра (ERP) строго запрещена. Это включает любые эротические истории, записанные вашим персонажем в книгах, на бумаге и других игровых носителях информации.
 
-        Use common sense: if an administrator orders you to stop something that is 'on the edge', you must stop immediately. Even if you are the only participant in ERP and no one sees you, it is still a violation.
+        Руководствуйтесь здравым смыслом: если администратор требует прекратить что-то, что «на грани», вы должны немедленно остановиться. Даже если вы единственный участник ERP и никто вас не видит, это всё равно нарушение.
 
-        Punishment for violating this rule may not come immediately, but the fact of violation will definitely be discovered later. In most cases, violation of this rule results in permanent ban.
+        Наказание за нарушение этого правила может прийти не сразу, но факт нарушения обязательно будет обнаружен позже. В большинстве случаев нарушение этого правила приводит к бессрочной блокировке.
 
-        However, sexual topics are allowed to a limited extent, including mild sexual comments and mild intimacy, such as kisses and hugs.
+        Однако сексуальные темы разрешены в ограниченной степени, включая мягкие сексуальные комментарии и мягкую близость, например поцелуи и объятия.
       </Box>
       <ColorBox Color="#3a3a3a" OutlineColor="#5a5a5a" OutlineThickness="2" Margin="10">
         <Box Orientation="Vertical">
           <Box Orientation="Horizontal" HorizontalAlignment="Center">
-            Examples of Acceptable Comments
+            Примеры допустимых комментариев
           </Box>
             <Box Orientation="Vertical" Margin="10">
-              'You look particularly sexy today.'
+              «Сегодня ты выглядишь особенно сексуально.»
 
-              'You're a seductive devil.'
+              «Ты соблазнительный дьявол.»
             </Box>
           </Box>
       </ColorBox>
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Be careful and respect the boundaries of what is acceptable.
+        Будьте осторожны и уважайте границы допустимого.
       </Box>
     </Box>
   </ColorBox>
@@ -271,14 +271,14 @@
   <ColorBox Color="#2a3a3a" OutlineColor="#4a5a5a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 5: AFK-Characters are Protected from Harmful Hostile Actions
+        Правило 5: AFK-персонажи защищены от вредоносных враждебных действий
       </Box>
       <Box Orientation="Vertical" Margin="5">
-        Player characters who have disconnected and are considered 'AFK' (Away From Keyboard) cannot be subjected to harm, including direct physical attacks, abduction and any other actions related to direct harm to this character. However, AFK characters can be robbed and have items stolen from them, provided that no harm is caused to the AFK character.
+        Персонажи игроков, которые отключились и считаются «AFK» (Away From Keyboard), не могут подвергаться вреду, включая прямые физические атаки, похищение и любые другие действия, связанные с прямым вредом этому персонажу. Однако AFK-персонажей можно грабить и красть у них предметы при условии, что AFK-персонажу не причиняется вред.
 
-        Abuse of this rule and disconnecting in the middle of combat is a punishable violation; characters that become AFK in the middle of combat or escalation are not protected from harm.
+        Злоупотребление этим правилом и отключение посреди боя — наказуемое нарушение; персонажи, ставшие AFK посреди боя или эскалации, не защищены от вреда.
 
-        Faction members are not considered protected when AFK inside their faction base during a raid.
+        Члены фракции не считаются защищёнными, когда находятся AFK внутри своей фракционной базы во время рейда.
       </Box>
     </Box>
   </ColorBox>
@@ -286,107 +286,107 @@
   <ColorBox Color="#412227" OutlineColor="#61323a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 6: Armed Conflicts and Escalation
+        Правило 6: Вооружённые конфликты и эскалация
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        6.1 Armed Conflicts
+        6.1 Вооружённые конфликты
         <Box Orientation="Vertical" Margin="10">
-          Talk first - then shoot! In almost any situation you need to try to start a dialog first before starting a firefight.
+          Сначала говорите — потом стреляйте! Почти в любой ситуации нужно сначала попытаться начать диалог, прежде чем начинать перестрелку.
 
-          Exceptions: animal hunting, pursuit from an active RP situation, faction war, direct threat to character's life, event zones and danger zones (for example, dungeons and open PvP zones).
+          Исключения: охота на животных, преследование из активной RP-ситуации, война фракций, прямая угроза жизни персонажа, зоны событий и зоны опасности (например, подземелья и открытые PvP-зоны).
 
-          When robbing, do not take the entire inventory from victims. Leave at least one weapon (for example, a knife) and some food/medicine.
+          При ограблении не забирайте у жертв весь инвентарь. Оставьте хотя бы одно оружие (например, нож) и немного еды/медицины.
 
-          All wasteland residents except raiders need substantial reasons to start robbery.
+          Всем жителям Пустоши, кроме рейдеров, нужны существенные причины для начала ограбления.
 
-          If the victim did not offer armed resistance during the robbery, you are obliged to leave them alive.
+          Если жертва не оказала вооружённого сопротивления при ограблении, вы обязаны оставить её в живых.
 
-          If the victim tried to fight back - their life and property remain in the hands of the raider.
+          Если жертва попыталась дать отпор — её жизнь и имущество остаются в руках рейдера.
 
-          Raiding faction bases by wasteland residents is unacceptable under any circumstances. Faction members can only rob captured enemy bases during wartime.
+          Рейды жителей Пустоши на фракционные базы недопустимы ни при каких обстоятельствах. Члены фракции могут грабить только захваченные вражеские базы во время войны.
 
-          Enslavement is an alternative to permanent imprisonment. For this reason, it is permissible only as a punitive or voluntary measure, if this is acceptable within the faction at all.
+          Порабощение — альтернатива бессрочному заключению. По этой причине оно допустимо только как карательная или добровольная мера, если это вообще приемлемо внутри фракции.
         </Box>
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        6.2 Escalation Rules
+        6.2 Правила эскалации
         <Box Orientation="Vertical" Margin="10">
-          Escalation is required for all participants in the conflict.
+          Эскалация обязательна для всех участников конфликта.
 
-          Escalation must be stated face-to-face; radio escalation is invalid.
+          Эскалация должна быть заявлена лицом к лицу; эскалация по радио недействительна.
 
-          Escalation must last at least four seconds or until receiving a response from the other party before attacking the enemy.
+          Эскалация должна длиться не менее четырёх секунд или до получения ответа от другой стороны, прежде чем атаковать противника.
 
-          Good/valid escalation includes a demand that can be fulfilled or agreed to by the person being escalated upon, for example: 'Give me your bag!' or 'Leave here and stay alive!'.
+          Хорошая/действительная эскалация включает требование, которое может быть выполнено или принято тем, к кому обращена эскалация, например: «Отдай мне свою сумку!» или «Уходи отсюда и останься жив!».
 
-          Running from escalation counts as a response to escalation and will make any attack against you from the escalating party valid.
+          Бегство от эскалации считается ответом на эскалацию и делает любую атаку против вас со стороны эскалирующего действительной.
 
-          Do not use escalation as a means to free validhunting and get justification for killing others at your discretion.
+          Не используйте эскалацию как средство для свободного валидхантинга и получения оправдания для убийства других по своему усмотрению.
 
-          Escalate and engage in conflict within reasonable bounds and moderately.
+          Эскалируйте и вступайте в конфликт в разумных пределах и умеренно.
         </Box>
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        6.3 Behavior Under Crossfire
+        6.3 Поведение под перекрёстным огнём
         <Box Orientation="Vertical" Margin="10">
-          If you are under crossfire, you are NOT allowed to return fire unless you first conduct escalation against the attackers.
+          Если вы под перекрёстным огнём, вам НЕ разрешено отвечать огнём, если вы сначала не проведёте эскалацию против нападающих.
 
-          As a participant in the conflict, minimize casualties and injuries among bystanders when possible.
+          Как участник конфликта, по возможности минимизируйте потери и ранения среди посторонних.
 
-          Act realistically, avoid combat zones without good reason.
+          Действуйте реалистично, избегайте боевых зон без веской причины.
 
-          As a participant in the conflict, minimize casualties and injuries among bystanders when possible.
+          Как участник конфликта, по возможности минимизируйте потери и ранения среди посторонних.
         </Box>
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        6.4 Early Faction Base Raid
+        6.4 Ранний рейд на фракционную базу
         <Box Orientation="Vertical" Margin="10">
-          Do not raid an enemy faction base earlier than 30 minutes after the start of the round.
+          Не совершайте рейд на вражескую фракционную базу раньше чем через 30 минут после начала раунда.
 
-          You can still attack members of this faction outside their base, but you are forbidden from entering their territory and starting an attack before 30 minutes have passed.
+          Вы по-прежнему можете атаковать членов этой фракции за пределами их базы, но вам запрещено входить на их территорию и начинать атаку до истечения 30 минут.
 
-          This protection applies to all groups: Town, NCR, Brotherhood of Steel, Raiders, Rangers, Legion, etc.
+          Эта защита распространяется на все группы: Город, НКР, Братство Стали, Рейдеры, Рейнджеры, Легион и т. д.
         </Box>
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        6.5.1 Faction Wars
+        6.5.1 Войны фракций
         <Box Orientation="Vertical" Margin="10">
-          All factions on the map are neutral to each other at the start of the round.
+          Все фракции на карте нейтральны друг к другу в начале раунда.
 
-          The senior rank is the highest rank in hierarchy currently present on the map and is the head and representative of the faction in the Region. Only representatives from each faction can start escalations or wars/negotiations.
+          Старшее звание — это высшее звание в иерархии, присутствующее на карте в данный момент, и оно является главой и представителем фракции в Регионе. Только представители каждой фракции могут начинать эскалации или войны/переговоры.
 
-          A reason for war (Casus Belli) must be substantial and understandable, this can be a response to covert actions/attacks, capture of a point of interest, hostage-taking, conflict of interests in territorial expansion in the wasteland.
+          Причина для войны (Casus Belli) должна быть существенной и понятной; это может быть ответ на тайные действия/атаки, захват важной точки, взятие заложников, конфликт интересов при территориальной экспансии в пустоши.
 
-          War is considered to have begun only five minutes after representatives of the factions have face-to-face stated their intention to begin hostilities. In this case, these actions are aimed at providing a last opportunity for negotiations with an existing ultimatum before the war begins.
+          Война считается начавшейся только через пять минут после того, как представители фракций лично заявили о намерении начать военные действия. При этом эти действия направлены на предоставление последней возможности для переговоров с существующим ультиматумом до начала войны.
         </Box>
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        6.5.2 Faction Wars
+        6.5.2 Войны фракций
         <Box Orientation="Vertical" Margin="10">
-          After capturing an enemy faction base, holding it and obvious lack of organized resistance, or by agreement of two faction representatives from each side, the war is considered complete.
+          После захвата вражеской фракционной базы, её удержания и очевидного отсутствия организованного сопротивления, либо по договорённости двух представителей фракций с каждой стороны, война считается завершённой.
 
-          Hostile actions against individual faction members in the wasteland for reasons unrelated to membership in a particular faction are not considered the start of war, however, they can be grounds for issuing an ultimatum from one faction to another; attempting to 'cheat' and destroy or significantly weaken a faction in this way before the start of war will be considered a violation of this rule.
+          Враждебные действия против отдельных членов фракции в пустоши по причинам, не связанным с принадлежностью к конкретной фракции, не считаются началом войны, однако они могут быть основанием для выставления ультиматума одной фракцией другой; попытка «схитрить» и уничтожить или значительно ослабить фракцию таким образом до начала войны будет считаться нарушением этого правила.
 
-          Killing diplomats before/during or immediately after negotiations is unacceptable.
+          Убийство дипломатов до/во время или сразу после переговоров недопустимо.
 
-          Players who have obviously surrendered and do not wish to offer resistance must not be killed in situations of no crossfire, this also applies to arriving faction players after the start of conflict who know nothing of the conflict's beginning.
+          Игроков, которые очевидно сдались и не желают оказывать сопротивление, нельзя убивать в ситуациях отсутствия перекрёстного огня; это также относится к прибывающим игрокам фракции после начала конфликта, которые ничего не знают о его начале.
           <ColorBox Color="#3a3a3a" OutlineColor="#5a5a5a" OutlineThickness="2">
             <Box Orientation="Vertical">
               <Box Orientation="Horizontal" HorizontalAlignment="Center">
-                Exceptions to Escalation Rules
+                Исключения из правил эскалации
               </Box>
               <Box Orientation="Vertical" Margin="10">
-                Saving a faction comrade dressed in appropriate uniform from an enemy.
+                Спасение соратника по фракции, одетого в соответствующую форму, от врага.
 
-                Participation in war is permitted only to faction members or characters recruited with armbands. Only the senior rank can recruit.
+                Участие в войне разрешено только членам фракции или персонажам, набранным с нарукавными повязками. Набирать может только старшее звание.
 
-                The enemy faction is besieging your Headquarters/Camp. This does NOT mean the enemy faction is at your gates. There must be active conflict for you to intervene with weapons drawn.
+                Вражеская фракция осаждает вашу Штаб-квартиру/Лагерь. Это НЕ означает, что вражеская фракция у ваших ворот. Должен быть активный конфликт, чтобы вы вмешались с оружием наготове.
               </Box>
             </Box>
           </ColorBox>
@@ -398,30 +398,30 @@
   <ColorBox Color="#38282d" OutlineColor="#573e46" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Rule 7: New Life Rules (NLR)
+        Правило 7: Правила новой жизни (NLR)
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        7.1. Within the Round
+        7.1. В рамках раунда
         <Box Orientation="Vertical" Margin="10">
-          Respawning with the same character after death or being sent to permanent imprisonment to circumvent death or punishment is forbidden.
+          Возрождение с тем же персонажем после смерти или отправки в бессрочное заключение, чтобы обойти смерть или наказание, запрещено.
 
-          After resurrection, the character forgets the cause of death, circumstances and the last 5 minutes before death. Ghosts do not retain memories of their past life. Transitioning from a ghost role to a normal one also retains no data or memories of past life.
+          После воскрешения персонаж забывает причину смерти, обстоятельства и последние 5 минут перед смертью. Призраки не сохраняют воспоминаний о своей прошлой жизни. Переход из роли призрака в обычную также не сохраняет данных или воспоминаний о прошлой жизни.
 
-          Attempting to bypass the rule through notes, indirect memories and other tricks is punishable.
+          Попытка обойти правило через записки, косвенные воспоминания и другие уловки наказуема.
         </Box>
       </Box>
 
       <Box Orientation="Vertical" Margin="10">
-        7.2. Between Rounds
+        7.2. Между раундами
         <Box Orientation="Vertical" Margin="10">
-          Characters can remember information about other characters only if this does not give obvious advantages.
+          Персонажи могут помнить информацию о других персонажах только в том случае, если это не даёт очевидных преимуществ.
 
-          For example, an officer cannot grant access to a bum due to real-life relationship.
+          Например, офицер не может предоставить доступ бродяге из-за отношений в реальной жизни.
 
-          Characters do not remember events that violate the logic of the current round: death in another round, belonging to another faction, etc.
+          Персонажи не помнят события, нарушающие логику текущего раунда: смерть в другом раунде, принадлежность к другой фракции и т. п.
 
-          When mentioning past events, avoid the names of other players, as they may be playing different roles in this round or may not want to be mentioned.
+          Упоминая прошлые события, избегайте имён других игроков, так как они могут играть другие роли в этом раунде или не захотеть быть упомянутыми.
         </Box>
       </Box>
     </Box>
@@ -430,16 +430,16 @@
   <ColorBox Color="#3a3a3a" OutlineColor="#5a5a5a" OutlineThickness="2" Margin="5">
     <Box Orientation="Vertical">
       <Box Orientation="Horizontal" HorizontalAlignment="Center">
-        Additional Points
+        Дополнительные пункты
       </Box>
       <Box Orientation="Vertical" Margin="10">
-        The Project Lead, Assistant Lead and Senior Moderator have the right to make their own decision on any situation not mentioned in the rules.
+        Project Lead, Assistant Lead и Senior Moderator имеют право принимать собственное решение по любой ситуации, не упомянутой в правилах.
 
-        All punishments for rule violations are set at their discretion.
+        Все наказания за нарушения правил устанавливаются на их усмотрение.
 
-        Misfits: Nuclear Wasteland Server has a 17+ age restriction; no one will check your passport of course, however, violation of this point may be regarded as grounds for permanent ban.
+        Сервер Misfits: Nuclear Wasteland имеет возрастное ограничение 17+; никто, конечно, не будет проверять ваш паспорт, однако нарушение этого пункта может рассматриваться как основание для бессрочной блокировки.
 
-        At this time, the rules are incomplete and significant changes are possible in the future.
+        На данный момент правила неполны, и в будущем возможны значительные изменения.
       </Box>
     </Box>
   </ColorBox>

@@ -1,119 +1,119 @@
 <Document>
-# Followers of the Apocalypse
+# Последователи Апокалипсиса
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Followers_of_the_Apocalypse"]
+[textlink="Просмотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Followers_of_the_Apocalypse"]
 
-<p>Founded in the ruins of the Los Angeles Public Library. The Followers believe knowledge, medicine, and education are more powerful than weapons. Non-violent, non-aligned. Will help anyone.</p>
-
-<hr/>
-
-## Philosophy
-
-<p>The Great War was caused by humanity's unwillingness to share knowledge and resources. The Followers' response is radical openness — free clinics, free education, freely shared pre-war records. This puts them in direct conflict with the Brotherhood of Steel, who lock away technology.</p>
-
-<p>The Followers maintain the largest accessible archive of pre-war knowledge in the Wasteland. They run free clinics and teach the illiterate. Their neutrality is both their strength and their vulnerability.</p>
+<p>Основаны в руинах Публичной библиотеки Лос-Анджелеса. Последователи верят, что знания, медицина и образование могущественнее оружия. Они не применяют насилие и не примыкают к фракциям. Помогут любому.</p>
 
 <hr/>
 
-## Roles
+## Философия
+
+<p>Великая война была вызвана нежеланием человечества делиться знаниями и ресурсами. Ответ Последователей — радикальная открытость: бесплатные клиники, бесплатное образование, свободно передаваемые довоенные записи. Это ставит их в прямой конфликт с Братством Стали, которое запирает технологии.</p>
+
+<p>Последователи содержат крупнейший доступный архив довоенных знаний в Пустоши. Они держат бесплатные клиники и обучают неграмотных. Их нейтралитет — одновременно и сила, и уязвимость.</p>
+
+<hr/>
+
+## Роли
 
 <ColorBox Color="#1a1a1a" OutlineColor="#6bba5e" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-    [bold][color=#6bba5e]Followers Doctor[/color][/bold]
-    Provide medical care to anyone. Your neutrality and skills make you welcome almost anywhere. Factions will try to co-opt your resources — do not let them. Most trusted figures across all faction lines.
+    [bold][color=#6bba5e]Врач Последователей[/color][/bold]
+    Оказывайте медицинскую помощь любому. Ваш нейтралитет и навыки делают вас желанным почти везде. Фракции будут пытаться прибрать к рукам ваши ресурсы — не позволяйте им. Вы — самая доверенная фигура по обе стороны фракционных границ.
   </Box>
 </ColorBox>
 
 <ColorBox Color="#1a1a1a" OutlineColor="#a4885c" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-    [bold][color=#a4885c]Followers Scholar[/color][/bold]
-    Record events, teach, collect pre-war documents and technical knowledge. The events of a single round may matter to generations. Archivists and educators whose records are genuinely valuable.
+    [bold][color=#a4885c]Учёный Последователей[/color][/bold]
+    Записывайте события, обучайте, собирайте довоенные документы и технические знания. События одного раунда могут иметь значение для целых поколений. Архивариусы и просветители, чьи записи по-настоящему ценны.
   </Box>
 </ColorBox>
 
 <ColorBox Color="#1a1a1a" OutlineColor="#4a6a99" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-    [bold][color=#4a6a99]Followers Aid Worker[/color][/bold]
-    Assist in crises. Distribute food, water, and basic medical supplies. You are the organization's human face. First to arrive, last to leave.
+    [bold][color=#4a6a99]Работник помощи Последователей[/color][/bold]
+    Помогайте в кризисах. Распределяйте еду, воду и базовые медикаменты. Вы — человеческое лицо организации. Приходите первым, уходите последним.
   </Box>
 </ColorBox>
 
 <hr/>
 
-## Faction Relations
+## Отношения с фракциями
 
 <Table Columns="3">
   <Box>
-    [bold][color=#a4885c]Faction[/color][/bold]
+    [bold][color=#a4885c]Фракция[/color][/bold]
   </Box>
   <Box>
-    [bold][color=#a4885c]Standing[/color][/bold]
+    [bold][color=#a4885c]Отношение[/color][/bold]
   </Box>
   <Box>
-    [bold][color=#a4885c]Notes[/color][/bold]
+    [bold][color=#a4885c]Примечания[/color][/bold]
   </Box>
   <Box>
-    NCR
+    НКР
   </Box>
   <Box>
-    [color=#6bba5e]Allies[/color]
+    [color=#6bba5e]Союзники[/color]
   </Box>
   <Box>
-    Values Followers' medical expertise and public goodwill. Occasionally strained.
+    Ценят медицинский опыт Последователей и их добрую репутацию среди людей. Иногда отношения напряжены.
   </Box>
   <Box>
-    Brotherhood of Steel
+    Братство Стали
   </Box>
   <Box>
-    [color=#cc3333]Hostile[/color]
+    [color=#cc3333]Враждебно[/color]
   </Box>
   <Box>
-    Views free tech sharing as reckless and dangerous.
+    Считают свободный обмен технологиями безрассудным и опасным.
   </Box>
   <Box>
-    Caesar's Legion
+    Легион Цезаря
   </Box>
   <Box>
-    [color=#cc3333]Hostile[/color]
+    [color=#cc3333]Враждебно[/color]
   </Box>
   <Box>
-    Despises pacifism and egalitarianism. Captured Followers rarely survive.
+    Презирают пацифизм и эгалитаризм. Захваченные Последователи редко выживают.
   </Box>
   <Box>
-    Townsfolk
+    Горожане
   </Box>
   <Box>
-    [color=#6bba5e]Friendly[/color]
+    [color=#6bba5e]Дружелюбно[/color]
   </Box>
   <Box>
-    Clinics and schools welcomed. Often the only organized medical presence.
+    Клиникам и школам здесь рады. Часто это единственное организованное медицинское присутствие.
   </Box>
   <Box>
-    Wastelanders
+    Жители Пустоши
   </Box>
   <Box>
-    [color=#6bba5e]Friendly[/color]
+    [color=#6bba5e]Дружелюбно[/color]
   </Box>
   <Box>
-    Rely on Followers clinics for affordable treatment.
+    Полагаются на клиники Последователей в доступном лечении.
   </Box>
   <Box>
-    Wasteland Tribes
+    Племена Пустоши
   </Box>
   <Box>
-    [color=#6bba5e]Friendly[/color]
+    [color=#6bba5e]Дружелюбно[/color]
   </Box>
   <Box>
-    Respect willingness to share knowledge without conditions.
+    Уважают готовность делиться знаниями без всяких условий.
   </Box>
   <Box>
-    Outlaws
+    Преступники
   </Box>
   <Box>
-    [color=#ffb000]Cautious[/color]
+    [color=#ffb000]Настороженно[/color]
   </Box>
   <Box>
-    Will treat anyone including raiders, but no illusions about the danger.
+    Будут лечить любого, включая рейдеров, но не питают иллюзий насчёт опасности.
   </Box>
 </Table>
 

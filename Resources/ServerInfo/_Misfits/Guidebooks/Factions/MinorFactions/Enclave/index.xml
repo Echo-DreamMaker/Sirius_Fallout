@@ -1,163 +1,163 @@
 <Document>
-# The Enclave
+# Анклав
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/The%20Enclave"/]
+[textlink="Посмотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/The%20Enclave"/]
 
-<p>◈ THE ENCLAVE ◈ Remnants of the United States ◈ CLASSIFIED ◈</p>
+<p>◈ АНКЛАВ ◈ Остатки Соединённых Штатов ◈ СЕКРЕТНО ◈</p>
 
 <Table Columns="2">
-  <Box>[bold]The Enclave[/bold]</Box>
+  <Box>[bold]Анклав[/bold]</Box>
   <Box></Box>
-  <Box>◈ FACTION DOSSIER ◈</Box>
+  <Box>◈ ДОСЬЕ ФРАКЦИИ ◈</Box>
   <Box></Box>
-  <Box>[bold]Status[/bold]</Box>
-  <Box>Active - Covert</Box>
-  <Box>[bold]Location[/bold]</Box>
-  <Box>Classified
-Wendover Region (Suspected)</Box>
-  <Box>[bold]Commander[/bold]</Box>
-  <Box>Classified</Box>
-  <Box>[bold]Ideology[/bold]</Box>
-  <Box>American Continuity
-Genetic & Technological Supremacy</Box>
-  <Box>[bold]Motto[/bold]</Box>
-  <Box>[italic]God Bless the Enclave. God Bless America.[/italic]</Box>
-  <Box>[bold]Affiliation[/bold]</Box>
-  <Box>United States Government (Self-Proclaimed)</Box>
-  <Box>⬜ RESTRICTED ACCESS ⬜</Box>
+  <Box>[bold]Статус[/bold]</Box>
+  <Box>Активен — скрытно</Box>
+  <Box>[bold]Местоположение[/bold]</Box>
+  <Box>Засекречено
+Регион Уэндовер (предположительно)</Box>
+  <Box>[bold]Командир[/bold]</Box>
+  <Box>Засекречено</Box>
+  <Box>[bold]Идеология[/bold]</Box>
+  <Box>Американская преемственность
+Генетическое и технологическое превосходство</Box>
+  <Box>[bold]Девиз[/bold]</Box>
+  <Box>[italic]Боже, благослови Анклав. Боже, благослови Америку.[/italic]</Box>
+  <Box>[bold]Принадлежность[/bold]</Box>
+  <Box>Правительство Соединённых Штатов (самопровозглашённое)</Box>
+  <Box>⬜ ДОСТУП ОГРАНИЧЕН ⬜</Box>
   <Box></Box>
 </Table>
 
-<p>The [bold]Enclave[/bold] is the self-proclaimed continuation of the United States government. Founded by a secret cabal of political, military, and corporate elites, they retreated to fortified bunkers and offshore installations just before the Great War to survive the nuclear apocalypse they helped facilitate.</p>
-<p>They are the most technologically advanced human organization in the known world. They are also the most dangerous.</p>
+<p>[bold]Анклав[/bold] — самопровозглашённый преемник правительства Соединённых Штатов. Основанный тайным заговором политических, военных и корпоративных элит, он укрылся в укреплённых бункерах и морских объектах незадолго до Великой войны, чтобы пережить ядерный апокалипсис, приближению которого сам же и способствовал.</p>
+<p>Это самая технологически развитая человеческая организация известного мира. И самая опасная.</p>
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"We are the United States of America. We never fell. We never surrendered. And we are coming back."[/italic]
+[italic]«Мы — Соединённые Штаты Америки. Мы не пали. Мы не сдались. И мы возвращаемся.»[/italic]
   </Box>
 </ColorBox>
 
-## History
+## История
 
-<h3 Text="2077: The Great War and the Great Retreat"/>
+<h3 Text="2077: Великая война и Великое отступление"/>
 
-<p>Immediately following the nuclear exchange, the Enclave leadership activated their continuity of government protocols. While the primary leadership fled to the [bold]Control Station Enclave[/bold] (an oil rig off the coast of California), regional branches took command of specialized bunkers across the continent.</p>
+<p>Сразу после ядерного обмена руководство Анклава привело в действие протоколы преемственности правительства. Пока основное руководство бежало на [bold]Контрольную станцию «Анклав»[/bold] (нефтяную платформу у побережья Калифорнии), региональные отделения приняли под командование специализированные бункеры по всему континенту.</p>
 <ul>
-<li>[bold]The Appalachian Branch:[/bold] Led by Secretary of Agriculture Thomas Eckhart, this group occupied the Whitespring Bunker. Eckhart was an extremist who believed the war was not "won." He murdered his superiors to seize control and declare himself President.</li>
-<li>[bold]The Poseidon Oil Rig:[/bold] The "Main Branch" established their base of operations here, overseeing the various regional outposts from afar.</li>
+<li>[bold]Аппалачское отделение:[/bold] Под руководством министра сельского хозяйства Томаса Экхарта эта группа заняла бункер «Уайтспринг». Экхарт был экстремистом, считавшим, что война не «выиграна». Он убил своих начальников, чтобы захватить власть и объявить себя президентом.</li>
+<li>[bold]Нефтяная платформа «Посейдон»:[/bold] «Главное отделение» разместило здесь свою базу операций, издалека управляя различными региональными аванпостами.</li>
 </ul>
 
-<h3 Text="2102: The Appalachian Civil War"/>
+<h3 Text="2102: Аппалачская гражданская война"/>
 
-<p>The Enclave in West Virginia faced an internal ideological split that would ultimately lead to their localized extinction.</p>
-
-<Table Columns="2">
-  <Box>[bold]Faction[/bold]</Box>
-  <Box>[bold]Position[/bold]</Box>
-  <Box>The Hardliners</Box>
-  <Box>Led by Thomas Eckhart. Wanted to trigger a second nuclear exchange to destroy any remaining communist threats.</Box>
-  <Box>The Reformers</Box>
-  <Box>Led by General Ellen Santiago. Questioned Eckhart's sanity and his abandonment of actual American reconstruction in favor of global destruction.</Box>
-</Table>
-
-<p>[bold]The Outcome:[/bold] The conflict ended in a bloody stalemate. A rogue AI named [bold]MODUS[/bold] (Multi-Operation Direction and Utility System) eventually killed the remaining human occupants after they attempted to sabotage its systems.</p>
-
-<h3 Text="2242: The Fall of Western Command"/>
-
-<p>The destruction of the Oil Rig by the "Chosen One" is a pivotal moment in Enclave history. The loss of the President and the Rig forced the Enclave to transition from a global superpower to a migratory force. Surviving members, led by Scientist Autumn Senior, began a "Great March" toward the East Coast.</p>
-
-<h3 Text="2277: The Capital Wasteland Campaign"/>
-
-<p>By this year, the Enclave had re-established a massive presence at [bold]Raven Rock[/bold] and [bold]Adams Air Force Base[/bold] in Washington, D.C.</p>
+<p>Анклав в Западной Виргинии столкнулся с внутренним идеологическим расколом, который в конечном итоге привёл к его локальному исчезновению.</p>
 
 <Table Columns="2">
-  <Box>[bold]Leader[/bold]</Box>
-  <Box>[bold]Position[/bold]</Box>
-  <Box>John Henry Eden</Box>
-  <Box>A sentient ZAX supercomputer that believed it was the reincarnation of all great American Presidents. Hardliner - proposed using a modified FEV to commit global genocide against anyone with mutated DNA.</Box>
-  <Box>Colonel Augustus Autumn</Box>
-  <Box>Son of Autumn Senior. [bold]Pragmatist[/bold] - rejected Eden's genocidal plan, preferring to use the region's water supply as a political tool to force the population to accept Enclave rule.</Box>
+  <Box>[bold]Фракция[/bold]</Box>
+  <Box>[bold]Позиция[/bold]</Box>
+  <Box>Непримиримые</Box>
+  <Box>Во главе с Томасом Экхартом. Хотели спровоцировать второй ядерный обмен, чтобы уничтожить любые оставшиеся коммунистические угрозы.</Box>
+  <Box>Реформаторы</Box>
+  <Box>Во главе с генералом Эллен Сантьяго. Сомневались в здравомыслии Экхарта и в его отказе от реального восстановления Америки в пользу глобального уничтожения.</Box>
 </Table>
 
-<p>[bold]The Outcome:[/bold] The Enclave was decisively defeated by the Brotherhood of Steel. This marked the end of the Enclave as an organized, open military government on the East Coast.</p>
+<p>[bold]Итог:[/bold] Конфликт закончился кровавым тупиком. Взбунтовавшийся ИИ по имени [bold]MODUS[/bold] (Multi-Operation Direction and Utility System) в конечном счёте убил оставшихся людей, после того как они попытались саботировать его системы.</p>
 
-<h3 Text="2281: The Mojave Remnants"/>
+<h3 Text="2242: Падение Западного командования"/>
 
-<p>In the West, the Enclave no longer existed as a political entity. Instead, small squads of soldiers from the original Western branch lived in hiding.</p>
-<p>[bold]The Remnants:[/bold] Led by Judah Kreger, this "branch" was actually a group of aging veterans. They were no longer loyal to the Enclave's purist ideology, having integrated into wasteland society as doctors, pilots, and scavengers. They represented the "humanized" Enclave - choosing to use their technology to assist in the Battle of Hoover Dam based on personal conviction.</p>
+<p>Уничтожение нефтяной платформы «Избранным» — переломный момент в истории Анклава. Потеря президента и платформы вынудила Анклав перейти от глобальной сверхдержавы к мигрирующей силе. Уцелевшие члены во главе с учёным Отумом-старшим начали «Великий поход» к Восточному побережью.</p>
 
-<h3 Text="2287: Commonwealth Echoes"/>
+<h3 Text="2277: Кампания в Столичной Пустоши"/>
 
-<p>Following the defeat in D.C., small splinter cells and "Black Ops" units remained active in the North.</p>
-<p>These units, referred to in logs as [bold]Echo Sites[/bold], were tasked with salvaging lost technology and establishing secret outposts. They operated without a central President, functioning more like a decentralized paramilitary organization. They remained hostile to all outsiders, maintaining the old "purity" standards.</p>
-
-<h3 Text="2296: The Research Resurgence"/>
-
-<p>Decades after their major defeats, a highly organized and secretive Enclave branch has emerged.</p>
+<p>К этому году Анклав восстановил огромное присутствие в [bold]Рейвен-Рок[/bold] и на [bold]военно-воздушной базе Адамс[/bold] в Вашингтоне.</p>
 
 <Table Columns="2">
-  <Box>[bold]Aspect[/bold]</Box>
-  <Box>[bold]Details[/bold]</Box>
-  <Box>[bold]Strategy[/bold]</Box>
-  <Box>Shifting away from open warfare, this branch focuses on advanced bio-engineering and energy physics. They operate with extreme secrecy.</Box>
-  <Box>[bold]Ideology[/bold]</Box>
-  <Box>This version of the Enclave is more calculated. They view themselves as the ultimate stewards of the planet's future, possessing [bold]Cold Fusion[/bold] technology required to restart civilization.</Box>
-  <Box>[bold]Goal[/bold]</Box>
-  <Box>Less interested in immediate genocide - more interested in the total control of planetary resources and the technological infrastructure of the new world.</Box>
+  <Box>[bold]Лидер[/bold]</Box>
+  <Box>[bold]Позиция[/bold]</Box>
+  <Box>Джон Генри Иден</Box>
+  <Box>Разумный суперкомпьютер ZAX, считавший себя перевоплощением всех великих американских президентов. Непримиримый — предлагал использовать модифицированный FEV для глобального геноцида против всех, у кого мутировавшая ДНК.</Box>
+  <Box>Полковник Август Отум</Box>
+  <Box>Сын Отума-старшего. [bold]Прагматик[/bold] — отверг геноцидный план Идена, предпочитая использовать водоснабжение региона как политический инструмент, чтобы заставить население принять правление Анклава.</Box>
 </Table>
 
-## Technology
+<p>[bold]Итог:[/bold] Анклав был решительно разгромлен Братством Стали. Это ознаменовало конец Анклава как организованного, открытого военного правительства на Восточном побережье.</p>
 
-<p>The Enclave fields the most advanced equipment in the known world:</p>
+<h3 Text="2281: Остатки в Мохаве"/>
+
+<p>На Западе Анклав больше не существовал как политическая единица. Вместо этого небольшие отряды солдат из первоначального Западного отделения жили в укрытии.</p>
+<p>[bold]Остатки:[/bold] Возглавляемые Джудой Крегером, это «отделение» на самом деле было группой стареющих ветеранов. Они больше не были верны пуристской идеологии Анклава, интегрировавшись в общество Пустоши как врачи, пилоты и собиратели. Они представляли «очеловеченный» Анклав — решив использовать свои технологии, чтобы помочь в битве за плотину Гувера, исходя из личных убеждений.</p>
+
+<h3 Text="2287: Отголоски Содружества"/>
+
+<p>После поражения в Вашингтоне на Севере остались действовать небольшие отколовшиеся ячейки и подразделения «чёрных операций».</p>
+<p>Эти подразделения, именуемые в журналах [bold]эхо-точками[/bold], занимались сбором утраченных технологий и созданием тайных аванпостов. Они действовали без центрального президента, функционируя скорее как децентрализованная военизированная организация. Они оставались враждебны ко всем чужакам, сохраняя старые стандарты «чистоты».</p>
+
+<h3 Text="2296: Возрождение исследований"/>
+
+<p>Спустя десятилетия после своих крупных поражений появилось высокоорганизованное и скрытное отделение Анклава.</p>
 
 <Table Columns="2">
-  <Box>[bold]Asset[/bold]</Box>
-  <Box>[bold]Description[/bold]</Box>
-  <Box>Advanced Power Armor Mk1</Box>
-  <Box>Superior to anything the Brotherhood fields. Full environmental sealing, integrated HUD, and servo-assisted strength amplification.</Box>
-  <Box>[bold]Advanced Power Armor Mk2[/bold]</Box>
-  <Box>Top-of-the-line Enclave engineering. The most advanced personal armor in the known world.</Box>
-  <Box>[bold]Mk2 Hellfire[/bold]</Box>
-  <Box>Incendiary-hardened Mk2 variant designed for extreme combat environments. Elite issue only.</Box>
-  <Box>[bold]Plasma Weaponry[/bold]</Box>
-  <Box>Enclave-manufactured plasma rifles and pistols - superior output to any wasteland equivalent.</Box>
-  <Box>[bold]Vertibirds[/bold]</Box>
-  <Box>Pre-war military transport aircraft. Gives the Enclave unmatched strategic mobility.</Box>
+  <Box>[bold]Аспект[/bold]</Box>
+  <Box>[bold]Подробности[/bold]</Box>
+  <Box>[bold]Стратегия[/bold]</Box>
+  <Box>Отойдя от открытой войны, это отделение сосредоточено на передовой биоинженерии и физике энергии. Оно действует с чрезвычайной скрытностью.</Box>
+  <Box>[bold]Идеология[/bold]</Box>
+  <Box>Эта версия Анклава более расчётлива. Они видят себя высшими хранителями будущего планеты, владея технологией [bold]холодного синтеза[/bold], необходимой для перезапуска цивилизации.</Box>
+  <Box>[bold]Цель[/bold]</Box>
+  <Box>Меньше заинтересованы в немедленном геноциде — больше в полном контроле над планетарными ресурсами и технологической инфраструктурой нового мира.</Box>
 </Table>
 
-## Threat Assessment
+## Технологии
+
+<p>Анклав располагает самым передовым снаряжением известного мира:</p>
+
+<Table Columns="2">
+  <Box>[bold]Ресурс[/bold]</Box>
+  <Box>[bold]Описание[/bold]</Box>
+  <Box>Улучшенная силовая броня Mk1</Box>
+  <Box>Превосходит всё, что выставляет Братство. Полная герметизация от окружающей среды, встроенный HUD и усиление силы с помощью сервоприводов.</Box>
+  <Box>[bold]Улучшенная силовая броня Mk2[/bold]</Box>
+  <Box>Высшее достижение инженерии Анклава. Самая совершенная персональная броня в известном мире.</Box>
+  <Box>[bold]Mk2 «Адское пламя»[/bold]</Box>
+  <Box>Закалённый против зажигательного оружия вариант Mk2, созданный для экстремальных боевых условий. Выдаётся только элите.</Box>
+  <Box>[bold]Плазменное оружие[/bold]</Box>
+  <Box>Производимые Анклавом плазменные винтовки и пистолеты — превосходят по мощности любые аналоги из Пустоши.</Box>
+  <Box>[bold]Вертибёрды[/bold]</Box>
+  <Box>Довоенные военные транспортные летательные аппараты. Дают Анклаву непревзойдённую стратегическую мобильность.</Box>
+</Table>
+
+## Оценка угрозы
 
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"The Enclave is not a faction. The Enclave is a threat classification. Treat accordingly." - Brotherhood Field Manual, 509th Chapter[/italic]
+[italic]«Анклав — это не фракция. Анклав — это классификация угрозы. Действуйте соответственно.» — Полевой устав Братства, 509-е отделение[/italic]
   </Box>
 </ColorBox>
-<p>Every major faction in the Wendover region views the Enclave as a threat:</p>
+<p>Каждая крупная фракция в регионе Уэндовер считает Анклав угрозой:</p>
 
 <Table Columns="3">
-  <Box>[bold]Faction[/bold]</Box>
-  <Box>[bold]Standing[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[textlink="Brotherhood of Steel" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
-  <Box>[bold]Kill on Sight[/bold]</Box>
-  <Box>The Brotherhood has fought the Enclave twice and won. They will not allow a third round to begin on Enclave terms.</Box>
-  <Box>[textlink="NCR" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
-  <Box>Hostile</Box>
-  <Box>The NCR views the Enclave as a rogue military government and a direct threat to democratic governance.</Box>
-  <Box>[textlink="Caesar's Legion" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
-  <Box>Hostile</Box>
-  <Box>The Legion respects strength but the Enclave's technology represents everything Caesar sought to destroy.</Box>
-  <Box>[textlink="Townsfolk" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]</Box>
-  <Box>Fearful</Box>
-  <Box>Civilians have heard the stories. The Enclave means forced relocation at best, extermination at worst.</Box>
-  <Box>[textlink="Wastelanders" link="https://wiki.misfitsystems.net/index.php/Wastelanders"/]</Box>
-  <Box>Hostile</Box>
-  <Box>To the Enclave, unaffiliated wastelanders are mutated subhumans. The feeling is mutual.</Box>
-  <Box>[textlink="Followers of the Apocalypse" link="https://wiki.misfitsystems.net/index.php/Followers_of_the_Apocalypse"/]</Box>
-  <Box>Hostile</Box>
-  <Box>The Followers represent everything the Enclave despises - freely shared knowledge and humanitarian weakness.</Box>
-  <Box>[textlink="Outlaws" link="https://wiki.misfitsystems.net/index.php/Outlaws"/]</Box>
-  <Box>Hostile</Box>
-  <Box>Raiders are vermin to be cleansed. The Enclave does not negotiate with bandits.</Box>
+  <Box>[bold]Фракция[/bold]</Box>
+  <Box>[bold]Отношение[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[textlink="Братство Стали" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
+  <Box>[bold]Убивать на месте[/bold]</Box>
+  <Box>Братство сражалось с Анклавом дважды и победило. Оно не позволит начаться третьему раунду на условиях Анклава.</Box>
+  <Box>[textlink="НКР" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>НКР рассматривает Анклав как мятежное военное правительство и прямую угрозу демократическому правлению.</Box>
+  <Box>[textlink="Легион Цезаря" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>Легион уважает силу, но технологии Анклава олицетворяют всё то, что Цезарь стремился уничтожить.</Box>
+  <Box>[textlink="Горожане" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]</Box>
+  <Box>Страх</Box>
+  <Box>Гражданские слышали эти истории. Анклав означает принудительное переселение в лучшем случае и уничтожение в худшем.</Box>
+  <Box>[textlink="Жители Пустоши" link="https://wiki.misfitsystems.net/index.php/Wastelanders"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>Для Анклава неприсоединившиеся жители Пустоши — мутировавшие недочеловеки. Чувство взаимно.</Box>
+  <Box>[textlink="Последователи Апокалипсиса" link="https://wiki.misfitsystems.net/index.php/Followers_of_the_Apocalypse"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>Последователи олицетворяют всё, что Анклав презирает, — свободно передаваемые знания и гуманитарную слабость.</Box>
+  <Box>[textlink="Преступники" link="https://wiki.misfitsystems.net/index.php/Outlaws"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>Рейдеры — паразиты, подлежащие очищению. Анклав не ведёт переговоров с бандитами.</Box>
 </Table>
 
 </Document>

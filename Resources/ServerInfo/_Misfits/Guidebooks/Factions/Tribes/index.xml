@@ -1,93 +1,93 @@
 <Document>
-# Wasteland Tribes
+# Племена Пустоши
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Wasteland%20Tribes"/]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Wasteland%20Tribes"/]
 
-<p>◈ Wasteland Tribes ◈ Faction Dossier ◈ Tribals ◈</p>
+<p>◈ Племена Пустоши ◈ Досье фракции ◈ Племенные ◈</p>
 
 <Table Columns="2">
-  <Box>[bold]Wasteland Tribes[/bold]</Box>
+  <Box>[bold]Племена Пустоши[/bold]</Box>
   <Box></Box>
-  <Box>◈ FACTION DOSSIER ◈</Box>
+  <Box>◈ ДОСЬЕ ФРАКЦИИ ◈</Box>
   <Box></Box>
-  <Box>[bold]Status[/bold]</Box>
-  <Box>Active - Scattered</Box>
-  <Box>[bold]Location[/bold]</Box>
-  <Box>Utah Wastes
-Wendover Region</Box>
-  <Box>[bold]Commander[/bold]</Box>
-  <Box>Tribal Chieftain (Per Tribe)</Box>
-  <Box>[bold]Ideology[/bold]</Box>
-  <Box>Community Survival
-Oral Tradition</Box>
-  <Box>[bold]Motto[/bold]</Box>
-  <Box>[italic]The land provides. The tribe endures.[/italic]</Box>
-  <Box>[bold]Affiliation[/bold]</Box>
-  <Box>Independent - Tribal</Box>
-  <Box>⬜ RESTRICTED ACCESS ⬜</Box>
+  <Box>[bold]Статус[/bold]</Box>
+  <Box>Активны — разрознены</Box>
+  <Box>[bold]Расположение[/bold]</Box>
+  <Box>Пустоши Юты
+Регион Уэндовер</Box>
+  <Box>[bold]Командир[/bold]</Box>
+  <Box>Племенной вождь (у каждого племени)</Box>
+  <Box>[bold]Идеология[/bold]</Box>
+  <Box>Выживание общины
+Устная традиция</Box>
+  <Box>[bold]Девиз[/bold]</Box>
+  <Box>[italic]Земля даёт. Племя живёт.[/italic]</Box>
+  <Box>[bold]Принадлежность[/bold]</Box>
+  <Box>Независимые — племенные</Box>
+  <Box>⬜ ОГРАНИЧЕННЫЙ ДОСТУП ⬜</Box>
   <Box></Box>
 </Table>
 
-<p>[bold]Tribes[/bold] are among the oldest post-war social structures in the Wasteland. Long before the NCR organized a government or the Brotherhood fortified a bunker, tribal communities formed from survivors who stayed together through kinship, shared land, and shared belief. They have endured for over two centuries through deep environmental knowledge, oral tradition, and fierce community bonds.</p>
-<p>Each tribe is shaped entirely by its Chieftain. The Chieftain's philosophy defines whether the tribe is peaceful or aggressive, isolationist or open to trade, suspicious of technology or eager to adopt it.</p>
+<p>[bold]Племена[/bold] — одна из старейших послевоенных общественных структур Пустоши. Задолго до того, как НКР создала правительство, а Братство укрепило бункер, племенные общины формировались из выживших, которые держались вместе благодаря родству, общей земле и общей вере. Они существуют уже более двух столетий благодаря глубокому знанию окружающей среды, устной традиции и крепким общинным связям.</p>
+<p>Каждое племя полностью формируется своим вождём. Философия вождя определяет, будет ли племя мирным или агрессивным, замкнутым или открытым для торговли, подозрительным к технологиям или готовым их перенимать.</p>
 
-## Philosophy
+## Философия
 
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"Tribal societies place community over individual ambition and oral history over written records. They possess environmental knowledge that outsiders entirely miss - which plants are edible, which ruins are stable, which seasonal patterns the Wasteland follows. What all tribes share is a fierce will to survive on their own terms."[/italic]
+[italic]«Племенные общества ставят общину выше личных амбиций, а устную историю — выше письменных записей. Они обладают знанием об окружающей среде, которое чужаки совершенно не замечают — какие растения съедобны, какие руины устойчивы, каким сезонным закономерностям следует Пустошь. Но все племена объединяет яростная воля выживать на своих собственных условиях».[/italic]
   </Box>
 </ColorBox>
 
-## Roles
+## Роли
 
 <Table Columns="3">
-  <Box>[bold]Role[/bold]</Box>
-  <Box>[bold]Description[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>Tribal Chieftain</Box>
-  <Box>Set your tribe's character for the round. Decide how your people relate to the town, the NCR, the Brotherhood, and the wider Wasteland. Your choices shape everyone beneath you - make them with intention.</Box>
-  <Box>Tribe leadership. Defines the tribe's identity.</Box>
-  <Box>[bold]Tribal Warrior[/bold]</Box>
-  <Box>Protect the tribe and enforce the Chieftain's will in the field. When conflict arrives - and it will - you are the tribe's first and last line of defense.</Box>
-  <Box>Combat and enforcement.</Box>
-  <Box>[bold]Tribal Shaman[/bold]</Box>
-  <Box>Heal the tribe, maintain its traditions, and counsel the Chieftain. You are the keeper of what the tribe was and the guide toward what it might become. Your expertise makes you valuable to outsiders as well.</Box>
-  <Box>Medical and spiritual role.</Box>
-  <Box>[bold]Tribesperson[/bold]</Box>
-  <Box>Keep the tribe alive. Hunt, gather, farm, and craft. Your labor is the foundation that every Chieftain's decision rests on. Without you, there is no tribe.</Box>
-  <Box>General labor. The tribe's backbone.</Box>
+  <Box>[bold]Роль[/bold]</Box>
+  <Box>[bold]Описание[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>Племенной вождь</Box>
+  <Box>Определите характер своего племени на раунд. Решите, как ваши люди относятся к городу, НКР, Братству и всей остальной Пустоши. Ваши решения формируют всех, кто под вами — принимайте их осознанно.</Box>
+  <Box>Руководство племени. Определяет самобытность племени.</Box>
+  <Box>[bold]Племенной воин[/bold]</Box>
+  <Box>Защищайте племя и исполняйте волю вождя на деле. Когда приходит конфликт — а он придёт — вы первая и последняя линия обороны племени.</Box>
+  <Box>Бой и правоприменение.</Box>
+  <Box>[bold]Племенной шаман[/bold]</Box>
+  <Box>Лечите племя, поддерживайте его традиции и давайте советы вождю. Вы хранитель того, чем племя было, и проводник к тому, чем оно может стать. Ваши знания делают вас ценным и для чужаков.</Box>
+  <Box>Медицинская и духовная роль.</Box>
+  <Box>[bold]Соплеменник[/bold]</Box>
+  <Box>Поддерживайте жизнь племени. Охотьтесь, собирайте, возделывайте землю и мастерите. Ваш труд — основание, на котором держится каждое решение вождя. Без вас нет племени.</Box>
+  <Box>Общий труд. Хребет племени.</Box>
 </Table>
 
-## Relations
+## Отношения
 
-<p>Tribal relations with other factions are complex and vary by Chieftain decision. Historically, tribes have traded with townspeople and cautiously engaged with caravans.</p>
+<p>Отношения племён с другими фракциями сложны и зависят от решений вождя. Исторически племена торговали с горожанами и осторожно взаимодействовали с караванами.</p>
 
 <Table Columns="3">
-  <Box>[bold]Faction[/bold]</Box>
-  <Box>[bold]Standing[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[textlink="Townsfolk" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]</Box>
-  <Box>Variable</Box>
-  <Box>Trade is common. Trust depends entirely on the Chieftain's attitude and past dealings.</Box>
-  <Box>[textlink="NCR" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
-  <Box>Distrustful</Box>
-  <Box>The NCR sees tribal land as territory to be annexed. Tribes see the NCR as a threat to their independence.</Box>
-  <Box>[textlink="Brotherhood of Steel" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
-  <Box>Mixed</Box>
-  <Box>Some Brotherhood commanders see value in recruiting tribal warriors. Others view tribals with open suspicion or hostility.</Box>
-  <Box>[textlink="Caesar's Legion" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
-  <Box>[bold]Dangerous[/bold]</Box>
-  <Box>The Legion absorbs tribes by force - enslaving or assimilating them into their ranks. This is the greatest existential threat to tribal independence.</Box>
-  <Box>[textlink="Followers of the Apocalypse" link="https://wiki.misfitsystems.net/index.php/Followers_of_the_Apocalypse"/]</Box>
-  <Box>Friendly</Box>
-  <Box>The Followers share knowledge freely and respect tribal autonomy. They are among the few outsiders tribes welcome.</Box>
-  <Box>[textlink="Wastelanders" link="https://wiki.misfitsystems.net/index.php/Wastelanders"/]</Box>
-  <Box>Open</Box>
-  <Box>Drifters and tribals often share the same roads and resources. Relations are generally neutral.</Box>
-  <Box>[textlink="Outlaws" link="https://wiki.misfitsystems.net/index.php/Outlaws"/]</Box>
-  <Box>Hostile</Box>
-  <Box>Raiders take what they want. Tribes defend what is theirs.</Box>
+  <Box>[bold]Фракция[/bold]</Box>
+  <Box>[bold]Отношение[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[textlink="Горожане" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]</Box>
+  <Box>Переменное</Box>
+  <Box>Торговля обычна. Доверие полностью зависит от настроя вождя и прошлых дел.</Box>
+  <Box>[textlink="НКР" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
+  <Box>Недоверчивое</Box>
+  <Box>НКР рассматривает земли племён как территорию для аннексии. Племена видят в НКР угрозу своей независимости.</Box>
+  <Box>[textlink="Братство Стали" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
+  <Box>Смешанное</Box>
+  <Box>Некоторые командиры Братства видят пользу в наборе племенных воинов. Другие относятся к племенным с открытым подозрением или враждебностью.</Box>
+  <Box>[textlink="Легион Цезаря" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
+  <Box>[bold]Опасное[/bold]</Box>
+  <Box>Легион поглощает племена силой — обращая их в рабство или ассимилируя в свои ряды. Это величайшая экзистенциальная угроза независимости племён.</Box>
+  <Box>[textlink="Последователи Апокалипсиса" link="https://wiki.misfitsystems.net/index.php/Followers_of_the_Apocalypse"/]</Box>
+  <Box>Дружелюбное</Box>
+  <Box>Последователи свободно делятся знаниями и уважают автономию племён. Они одни из немногих чужаков, которых племена принимают.</Box>
+  <Box>[textlink="Жители Пустоши" link="https://wiki.misfitsystems.net/index.php/Wastelanders"/]</Box>
+  <Box>Открытое</Box>
+  <Box>Скитальцы и племенные часто делят одни и те же дороги и ресурсы. Отношения обычно нейтральные.</Box>
+  <Box>[textlink="Преступники" link="https://wiki.misfitsystems.net/index.php/Outlaws"/]</Box>
+  <Box>Враждебное</Box>
+  <Box>Рейдеры берут то, что хотят. Племена защищают то, что принадлежит им.</Box>
 </Table>
 
 </Document>

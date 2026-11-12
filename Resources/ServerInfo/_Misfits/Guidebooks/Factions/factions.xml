@@ -1,163 +1,163 @@
 <Document>
-# Factions Overview
+# Обзор фракций
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Factions%20Overview"/]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Factions%20Overview"/]
 
 <p><Document></p>
 
-## Factions & Roles
+## Фракции и роли
 
-<p>The town of Wendover sits on the old WWII-era Wendover Airfield, straddling the Utah-Nevada salt flats. It is a natural crossroads — remote enough to avoid the worst of organized civilization's collapse, close enough to old roads that travelers, traders, and soldiers still find their way here. The flats stretch in every direction. Pre-war ruins dot the terrain. And something beneath the old airfield has drawn the attention of factions powerful enough to reshape the region if they choose to.</p>
-<p>Every faction here has a reason to be in Wendover. Whether those reasons can coexist is the question every round answers differently.</p>
+<p>Город Уэндовер стоит на месте старого аэродрома Уэндовер времён Второй мировой войны, на границе солончаков Юты и Невады. Это естественный перекрёсток — достаточно удалённый, чтобы избежать худших последствий краха организованной цивилизации, и достаточно близкий к старым дорогам, чтобы путешественники, торговцы и солдаты всё ещё находили сюда путь. Солончаки тянутся во все стороны. Довоенные руины усеивают землю. А нечто под старым аэродромом привлекло внимание фракций, достаточно могущественных, чтобы при желании изменить облик всего региона.</p>
+<p>У каждой фракции здесь есть причина находиться в Уэндовере. Вопрос в том, могут ли эти причины сосуществовать, — и каждый раунд отвечает на него по-разному.</p>
 <p>---</p>
 
-<h3 Text="New California Republic"/>
+<h3 Text="Новая Калифорнийская Республика"/>
 
-<p>The largest post-war democracy, the NCR was built on the ruins of Shady Sands and has spent two centuries expanding outward — carrying its flags, laws, and bureaucracy into increasingly hostile and distant territory. The Republic believes in representative government, rule of law, and economic expansion. Critics say it has grown too fast to deliver on its promises. Supporters say it remains the best foundation for lasting civilization anyone has managed to build.</p>
-<p>[bold]Why Wendover:[/bold] NCR intelligence identified the old Wendover airfield as a pre-war military and logistics hub with intact infrastructure. The Republic wants a forward operating base between California and the eastern frontier — and they want it before anyone else moves in.</p>
-<p>[bold]Roles:[/bold]</p>
+<p>Крупнейшая послевоенная демократия, НКР была построена на руинах Шейди-Сэндс и два столетия расширялась во все стороны, неся свои флаги, законы и бюрократию во всё более враждебные и далёкие земли. Республика верит в представительное правление, верховенство закона и экономическую экспансию. Критики говорят, что она росла слишком быстро, чтобы выполнять свои обещания. Сторонники отвечают, что она остаётся лучшим фундаментом для прочной цивилизации из всех, что кому-либо удалось построить.</p>
+<p>[bold]Зачем Уэндовер:[/bold] Разведка НКР определила старый аэродром Уэндовер как довоенный военный и логистический узел с неповреждённой инфраструктурой. Республике нужна передовая оперативная база между Калифорнией и восточным фронтиром — и она хочет получить её раньше, чем туда войдёт кто-либо другой.</p>
+<p>[bold]Роли:[/bold]</p>
 <ul>
-<li>Captain — Commands the NCR's local detachment. Handles all military and diplomatic operations on behalf of the Republic.</li>
-<li>Lieutenant — Second-in-command. Supports the Captain and manages day-to-day operations.</li>
-<li>Medical Doctor — Senior medical officer attached to the NCR detachment.</li>
-<li>Sergeant First Class — The senior NCO. Bridges command intent to the enlisted ranks.</li>
-<li>Staff Sergeant / Sergeant — Mid-level non-commissioned officers leading small units in the field.</li>
-<li>Specialist — Trained enlisted soldier specializing in combat, engineering, or medicine. Loadout determines focus.</li>
-<li>Private First Class / Private / Recruit — The rank-and-file soldiers and new enlistees of the NCR. Their boots are what hold the line.</li>
-<li>Prisoner — Individuals held in NCR custody pending processing or release.</li>
+<li>Капитан — Командует местным отрядом НКР. Отвечает за все военные и дипломатические операции от имени Республики.</li>
+<li>Лейтенант — Второй по званию. Поддерживает капитана и управляет повседневной деятельностью.</li>
+<li>Военный врач — Старший медицинский офицер при отряде НКР.</li>
+<li>Сержант первого класса — Старший сержантский состав. Связывает намерения командования с рядовым составом.</li>
+<li>Штаб-сержант / сержант — Сержантский состав среднего звена, возглавляющий небольшие подразделения в поле.</li>
+<li>Специалист — Обученный солдат рядового состава, специализирующийся на боевых действиях, инженерии или медицине. Снаряжение определяет его профиль.</li>
+<li>Рядовой первого класса / рядовой / новобранец — Рядовые солдаты и новобранцы НКР. Именно их сапоги держат строй.</li>
+<li>Заключённый — Лица, содержащиеся под стражей НКР в ожидании разбирательства или освобождения.</li>
 </ul>
 <p>---</p>
 
-<h3 Text="Rangers"/>
+<h3 Text="Рейнджеры"/>
 
-<p>The Desert Rangers were an independent frontier lawmen organization that merged with the NCR after the Ranger Unification Treaty. They carry that tradition into the present: small units, wide operational latitude, and a reputation built in some of the harshest country in the Wasteland. Rangers operate ahead of regular NCR forces — gathering intelligence, neutralizing threats, and moving through terrain that conventional soldiers cannot reach effectively.</p>
-<p>[bold]Why Wendover:[/bold] The Rangers were deployed before the main NCR force arrived. Their mission is to chart the terrain, assess local power structures, and establish safe corridors. They know Wendover before most NCR command does — and that advantage matters.</p>
-<p>[bold]Roles:[/bold]</p>
+<p>Пустынные рейнджеры были независимой организацией пограничных блюстителей закона, которая присоединилась к НКР после Договора об объединении рейнджеров. Они несут эту традицию в настоящее: малые отряды, широкая оперативная свобода и репутация, заработанная в самых суровых краях Пустоши. Рейнджеры действуют впереди регулярных сил НКР — собирают разведданные, нейтрализуют угрозы и перемещаются по местности, которую обычные солдаты не могут эффективно преодолеть.</p>
+<p>[bold]Зачем Уэндовер:[/bold] Рейнджеры были развёрнуты до прибытия основных сил НКР. Их задача — нанести на карту местность, оценить местные структуры власти и установить безопасные коридоры. Они знают Уэндовер раньше, чем большая часть командования НКР, — и это преимущество имеет значение.</p>
+<p>[bold]Роли:[/bold]</p>
 <ul>
-<li>Veteran Ranger — Elite. Years of hard experience in the field. Operates with near-complete independence and is among the most feared individuals on the frontier.</li>
-<li>Field Ranger — Experienced Ranger with full operating authority. Works alone or in small teams across wide areas.</li>
-<li>Patrol Ranger — New Ranger on probationary status, proving their worth. Expected to scout, report, and survive.</li>
+<li>Ветеран-рейнджер — Элита. Годы тяжёлого опыта в поле. Действует почти полностью независимо и считается одним из самых опасных людей на фронтире.</li>
+<li>Полевой рейнджер — Опытный рейнджер с полными оперативными полномочиями. Работает в одиночку или в малых группах на обширных территориях.</li>
+<li>Патрульный рейнджер — Новый рейнджер на испытательном сроке, доказывающий свою ценность. От него ожидают разведки, докладов и выживания.</li>
 </ul>
 <p>---</p>
 
-<h3 Text="Brotherhood of Steel"/>
+<h3 Text="Братство Стали"/>
 
-<p>Founded when U.S. Army Captain Roger Maxson refused his government's final orders and sealed his troops inside a California missile silo, the Brotherhood of Steel has spent two centuries hoarding, studying, and controlling pre-war technology. Their internal hierarchy is absolute and their methods are uncompromising. They do not negotiate from weakness. They do not share technology with those they deem unworthy. And they are very difficult to stop once they decide something belongs to them.</p>
-<p>[bold]Why Wendover:[/bold] Confirmed reports of an intact pre-war military cache beneath the Wendover airfield reached Brotherhood intelligence before they reached anyone else. A chapter detachment has been dispatched with orders to secure the site, assess its contents, and deny access to all competing parties — starting with the NCR.</p>
-<p>[bold]Roles:[/bold]</p>
+<p>Основанное, когда капитан армии США Роджер Максон отказался выполнить последние приказы своего правительства и запечатал своих людей в калифорнийской ракетной шахте, Братство Стали два столетия копило, изучало и контролировало довоенные технологии. Их внутренняя иерархия абсолютна, а методы бескомпромиссны. Они не ведут переговоров с позиции слабости. Они не делятся технологиями с теми, кого считают недостойными. И их очень трудно остановить, когда они решают, что что-то принадлежит им.</p>
+<p>[bold]Зачем Уэндовер:[/bold] Подтверждённые сообщения о нетронутом довоенном военном складе под аэродромом Уэндовер дошли до разведки Братства раньше, чем до кого-либо ещё. Отряд части был направлен с приказом закрепиться на объекте, оценить его содержимое и закрыть доступ всем конкурирующим сторонам — начиная с НКР.</p>
+<p>[bold]Роли:[/bold]</p>
 <ul>
-<li>Elder — Supreme commander of the chapter. All significant operations, alliances, and acquisitions require the Elder's authorization.</li>
-<li>Head Paladin — Senior field commander. Leads all Brotherhood combat operations in the region.</li>
-<li>Head Knight — Oversees the tactical structure and operational readiness of the Knight order.</li>
-<li>Head Scribe — Chief scholar. Manages technology documentation, recovery priorities, and Scribe operations.</li>
-<li>Senior Paladin — Veteran warrior with leadership responsibility over Paladin field elements.</li>
-<li>Senior Knight — Experienced Knight with supervisory authority over the Knight rank.</li>
-<li>Senior Scribe — Advanced Scribe overseeing research programs and junior Scribes.</li>
-<li>Paladin — Elite warrior in full power armor. The Brotherhood's enforcement arm in any engagement.</li>
-<li>Knight — The Brotherhood's core combat and technical personnel. Backbone of any operation.</li>
-<li>Scribe — Scholar and technician. Documents, repairs, and maintains recovered technology.</li>
-<li>Squire — Junior member in training under Brotherhood Knights. Not yet fully trusted with the chapter's assets.</li>
-<li>Initiate — Newest member of the Brotherhood. Assigned the most demanding, least glamorous duties while proving their worth.</li>
+<li>Старейшина — Верховный командующий части. Все значимые операции, союзы и приобретения требуют санкции старейшины.</li>
+<li>Глава паладинов — Старший полевой командир. Возглавляет все боевые операции Братства в регионе.</li>
+<li>Глава рыцарей — Курирует тактическую структуру и оперативную готовность ордена рыцарей.</li>
+<li>Глава писарей — Главный учёный. Управляет документированием технологий, приоритетами восстановления и работой писарей.</li>
+<li>Старший паладин — Опытный воин, отвечающий за руководство полевыми силами паладинов.</li>
+<li>Старший рыцарь — Опытный рыцарь с надзорными полномочиями над званием рыцаря.</li>
+<li>Старший писарь — Продвинутый писарь, курирующий исследовательские программы и младших писарей.</li>
+<li>Паладин — Элитный воин в полной силовой броне. Силовая рука Братства в любом столкновении.</li>
+<li>Рыцарь — Основной боевой и технический состав Братства. Костяк любой операции.</li>
+<li>Писарь — Учёный и техник. Документирует, ремонтирует и обслуживает найденные технологии.</li>
+<li>Оруженосец — Младший член ордена, проходящий обучение под началом рыцарей Братства. Ему ещё не полностью доверяют ресурсы части.</li>
+<li>Послушник — Новейший член Братства. Ему поручают самые тяжёлые и наименее почётные обязанности, пока он доказывает свою ценность.</li>
 </ul>
 <p>---</p>
 
-<h3 Text="Tribes"/>
+<h3 Text="Племена"/>
 
-<p>Tribal communities have existed in and around the Bonneville Salt Flats and the high desert long before any organized faction arrived. Shaped by generations of survival in harsh, unforgiving terrain, they possess knowledge of the land — its resources, dangers, and seasonal rhythms — that no outsider map or Pip-Boy can replicate. Every tribe is distinct, defined by its Elder's philosophy, values, and judgment.</p>
-<p>[bold]Why Wendover:[/bold] They never left. This has been their territory for as long as anyone in the tribe remembers. The arrival of the NCR, the Brotherhood, and every other armed faction seeking dominion over the region is the latest in a long line of external pressures their people have endured — and outlasted. What they do next depends entirely on the Tribal Elder.</p>
-<p>[bold]Roles:[/bold]</p>
+<p>Племенные общины существовали на землях вокруг солончаков Бонневилл и в высокогорной пустыне задолго до прихода любой организованной фракции. Закалённые поколениями выживания в суровой, беспощадной местности, они обладают знанием земли — её ресурсов, опасностей и сезонных ритмов, — которое не сможет воспроизвести ни одна карта чужака и ни один Пип-Бой. Каждое племя уникально и определяется философией, ценностями и суждениями своего старейшины.</p>
+<p>[bold]Зачем Уэндовер:[/bold] Они никогда не уходили. Эта земля была их территорией столько, сколько помнит любой в племени. Прибытие НКР, Братства и всех прочих вооружённых фракций, жаждущих власти над регионом, — лишь очередное в череде внешних давлений, которые их народ вытерпел и пережил. Что они сделают дальше, полностью зависит от старейшины племени.</p>
+<p>[bold]Роли:[/bold]</p>
 <ul>
-<li>Tribal Elder — Chieftain and sole decision-maker. Sets the tribe's stance toward every outside faction for the round.</li>
-<li>Tribal Healer — Medicine person. Provides healing, herbal knowledge, and spiritual guidance to the community.</li>
-<li>Tribal Farmer — Cultivates food and manages the tribe's agricultural resources.</li>
-<li>Tribesperson — The backbone of tribal society. Hunters, gatherers, craftspeople — the labor that keeps the tribe alive.</li>
+<li>Старейшина племени — Вождь и единственный, кто принимает решения. Определяет отношение племени к каждой внешней фракции на раунд.</li>
+<li>Племенной лекарь — Знахарь. Обеспечивает лечение, знание трав и духовное наставничество для общины.</li>
+<li>Племенной земледелец — Выращивает пищу и управляет сельскохозяйственными ресурсами племени.</li>
+<li>Член племени — Костяк племенного общества. Охотники, собиратели, ремесленники — труд, который поддерживает жизнь племени.</li>
 </ul>
 <p>---</p>
 
-<h3 Text="Vault Dwellers"/>
+<h3 Text="Жители Убежища"/>
 
-<p>Vault-Tec Corporation constructed its vaults not merely as shelters, but as controlled experiments on sealed human populations — run for generations without the knowledge or consent of the residents inside. The vault beneath the Wendover region has survived intact, its residents living in regulated isolation, educated in vault systems but wholly unprepared for what exists outside the door.</p>
-<p>[bold]Why Wendover:[/bold] They are here because they have always been here — beneath it. The vault's location was engineered to remain secret. But systems age, power cells fail, and some secrets eventually surface whether the Overseer intends them to or not.</p>
-<p>[bold]Roles:[/bold]</p>
+<p>Корпорация Vault-Tec строила свои убежища не просто как укрытия, а как контролируемые эксперименты над изолированными группами людей — эксперименты, длившиеся поколениями без ведома и согласия тех, кто находился внутри. Убежище под регионом Уэндовера уцелело в целости; его жители живут в упорядоченной изоляции, обучены работе с системами убежища, но совершенно не готовы к тому, что находится за дверью.</p>
+<p>[bold]Зачем Уэндовер:[/bold] Они здесь потому, что всегда были здесь — под ним. Расположение убежища было спроектировано так, чтобы оставаться тайной. Но системы стареют, энергоячейки отказывают, и некоторые тайны в конце концов всплывают наружу — хочет того смотритель или нет.</p>
+<p>[bold]Роли:[/bold]</p>
 <ul>
-<li>Overseer — Administrator of the vault. May hold knowledge of the vault's true purpose — and alone must decide what to do with it.</li>
-<li>Vault Security — Internal enforcement. Maintains order inside the vault and protects it if the door opens.</li>
-<li>Vault Scientist — Manages life support, medical systems, and technical research. May know more than they should.</li>
-<li>Vault Engineer — Keeps the vault's aging infrastructure operational. When systems fail, it falls to them.</li>
-<li>Vault Dweller — General resident. Educated, disciplined, and completely unprepared for the surface world.</li>
+<li>Смотритель — Администратор убежища. Может обладать знанием об истинном предназначении убежища — и в одиночку должен решить, что с ним делать.</li>
+<li>Охрана Убежища — Внутренние силовые структуры. Поддерживает порядок внутри убежища и защищает его, если дверь откроется.</li>
+<li>Учёный Убежища — Управляет системами жизнеобеспечения, медицинскими системами и техническими исследованиями. Может знать больше, чем следовало бы.</li>
+<li>Инженер Убежища — Поддерживает работу стареющей инфраструктуры убежища. Когда системы отказывают, всё ложится на него.</li>
+<li>Житель Убежища — Обычный обитатель. Образованный, дисциплинированный и совершенно не готовый к жизни на поверхности.</li>
 </ul>
 <p>---</p>
 
-<h3 Text="Townsfolk"/>
+<h3 Text="Горожане"/>
 
-<p>The people of Wendover are there because they chose to stop moving and build something worth defending. Farmers, merchants, deputies, doctors, mechanics — ordinary survivors who put roots down and now have more to lose than anyone else in the region. No faction arriving with demands can change the fact that this is their home. Every negotiation, every faction deal, every compromise made on their behalf is felt first by them.</p>
-<p>[bold]Why Wendover:[/bold] Because they built it. The town exists because these people refused to abandon it. Every external faction wants something from Wendover — its location, its resources, its labor, or its loyalty. The Mayor and Sheriff are the only thing standing between the community and whatever any of those factions decide to take.</p>
-<p>[bold]Roles:[/bold]</p>
+<p>Люди Уэндовера здесь потому, что решили перестать кочевать и построить нечто, что стоит защищать. Фермеры, торговцы, помощники шерифа, врачи, механики — обычные выжившие, которые пустили корни и теперь могут потерять больше, чем кто-либо другой в регионе. Ни одна фракция, приходящая с требованиями, не изменит того факта, что это их дом. Каждый договор, каждая сделка между фракциями, каждый компромисс, заключённый от их имени, в первую очередь отражается на них.</p>
+<p>[bold]Зачем Уэндовер:[/bold] Потому что они его построили. Город существует потому, что эти люди отказались его бросить. Каждая внешняя фракция хочет от Уэндовера чего-то — его расположения, ресурсов, рабочей силы или лояльности. Мэр и шериф — единственное, что стоит между общиной и всем, что любая из этих фракций решит забрать.</p>
+<p>[bold]Роли:[/bold]</p>
 <ul>
-<li>Mayor — Elected leader of the community. Negotiates with outside factions on behalf of every person in town.</li>
-<li>Sheriff — Chief law enforcement. Protects Wendover from threats internal and external.</li>
-<li>Deputy — Supports the Sheriff. Enforces the law and steps up when the Sheriff cannot be everywhere.</li>
-<li>Doctor — Provides medical care to townsfolk, travelers, and anyone else who needs it.</li>
-<li>Shopkeeper — Runs the town store. Core of the local economy and usually the best-informed person in Wendover.</li>
-<li>Mechanic — Repairs weapons, armor, vehicles, and critical equipment. When something breaks, everyone comes to them.</li>
-<li>Bartender — Runs the local establishment. Hears everything. Says the right things to the right people.</li>
-<li>Reporter — Chronicles Wasteland events. Information is a currency, and they trade in it.</li>
-<li>Chaplain — Provides spiritual guidance and pastoral care to the community.</li>
-<li>Farmer — Grows the food the town depends on. The most essential and least glamorous job in Wendover.</li>
-<li>Townsperson — The backbone of daily life. Without them, nothing else functions.</li>
+<li>Мэр — Избранный глава общины. Ведёт переговоры с внешними фракциями от имени каждого жителя города.</li>
+<li>Шериф — Главный представитель закона. Защищает Уэндовер от внутренних и внешних угроз.</li>
+<li>Помощник шерифа — Поддерживает шерифа. Следит за соблюдением закона и подменяет его, когда тот не может быть везде сразу.</li>
+<li>Врач — Оказывает медицинскую помощь горожанам, путешественникам и всем остальным, кому она нужна.</li>
+<li>Лавочник — Управляет городским магазином. Основа местной экономики и обычно самый осведомлённый человек в Уэндовере.</li>
+<li>Механик — Ремонтирует оружие, броню, транспорт и важное оборудование. Когда что-то ломается, все идут к нему.</li>
+<li>Бармен — Управляет местным заведением. Слышит всё. Говорит нужные слова нужным людям.</li>
+<li>Репортёр — Ведёт хронику событий Пустоши. Информация — это валюта, и он торгует ею.</li>
+<li>Капеллан — Обеспечивает духовное наставничество и пастырскую заботу об общине.</li>
+<li>Фермер — Выращивает пищу, от которой зависит город. Самая необходимая и самая неблагодарная работа в Уэндовере.</li>
+<li>Горожанин — Костяк повседневной жизни. Без них ничего не работает.</li>
 </ul>
 <p>---</p>
 
-<h3 Text="Wastelanders"/>
+<h3 Text="Жители Пустоши"/>
 
-<p>Independent survivors who belong to no faction you can name and answer to no chain of command. They are the wanderers, scavengers, freelancers, and drifters of the open Wasteland — people who make their way through skill, instinct, and personal code. No two are the same. All of them have a story.</p>
-<p>[bold]Why Wendover:[/bold] Various reasons. A rumor about salvage. A lead on caps. Old business in the region. Passing through on the way to somewhere else. Or nowhere else left to go. Wastelanders do not always explain themselves — and on the open road, that is their right.</p>
-<p>[bold]Roles:[/bold]</p>
+<p>Независимые выжившие, не принадлежащие ни к одной известной фракции и не подчиняющиеся ничьей командной цепочке. Это странники, собиратели, наёмники и бродяги открытой Пустоши — люди, которые пробиваются благодаря умению, инстинкту и собственному кодексу. Двух одинаковых не бывает. У каждого своя история.</p>
+<p>[bold]Зачем Уэндовер:[/bold] Причины разные. Слух о находках. Наводка на крышки. Старые дела в регионе. Проездом по пути куда-то ещё. Или потому, что идти больше некуда. Жители Пустоши не всегда объясняются — и в открытой дороге это их право.</p>
+<p>[bold]Роли:[/bold]</p>
 <ul>
-<li>Survivor — Hardened drifter who has seen the worst the Wasteland offers and kept going anyway.</li>
-<li>Wastelander — The open road, a worn weapon, and no fixed address. You live by your own terms.</li>
-<li>Scavenger — Hunter of ruins, recoverer of the discarded and forgotten. The regional economy depends on people like them.</li>
-<li>Wasteland Musician — Keeper of old songs and new stories. In the Wasteland, culture is survival too.</li>
-<li>Followers of the Apocalypse — Humanitarian aid workers crossing faction lines to provide education, healing, and care to anyone who needs it.</li>
+<li>Выживший — Закалённый бродяга, повидавший худшее, что может предложить Пустошь, и всё равно продолживший путь.</li>
+<li>Житель Пустоши — Открытая дорога, потрёпанное оружие и никакого постоянного адреса. Вы живёте по своим правилам.</li>
+<li>Собиратель — Охотник за руинами, добытчик выброшенного и забытого. Региональная экономика зависит от таких, как он.</li>
+<li>Музыкант Пустоши — Хранитель старых песен и новых историй. В Пустоши культура — это тоже способ выжить.</li>
+<li>Последователи Апокалипсиса — Гуманитарные работники, пересекающие линии фракций, чтобы дать образование, лечение и заботу каждому, кому они нужны.</li>
 </ul>
 <p>---</p>
 
-<h3 Text="Caravan Company"/>
+<h3 Text="Караванная компания"/>
 
-<p>Trade caravans are the lifeline connecting isolated settlements — carrying goods, caps, information, and the occasional weapon across roads that regular travelers avoid. The Caravan Company has established supply routes throughout the region, and their continued operation is the difference between local economic activity and slow stagnation. They will sell to anyone who can pay. They stay out of wars that are bad for business. And they are harder to replace than most factions realize.</p>
-<p>[bold]Why Wendover:[/bold] A crossroads town between multiple major factions and a number of desperate settlements is exactly the kind of opportunity the Caravan Company looks for. They moved a crew into Wendover to establish a depot before someone else cornered the local market. The timing was intentional.</p>
-<p>[bold]Roles:[/bold]</p>
+<p>Торговые караваны — это спасительная нить, связывающая изолированные поселения: они везут товары, крышки, информацию и иногда оружие по дорогам, которых обычные путники избегают. Караванная компания наладила маршруты снабжения по всему региону, и её непрерывная работа — разница между местной экономической активностью и медленным застоем. Они продадут любому, кто может заплатить. Они держатся в стороне от войн, вредных для бизнеса. И заменить их труднее, чем понимает большинство фракций.</p>
+<p>[bold]Зачем Уэндовер:[/bold] Город на перекрёстке между несколькими крупными фракциями и рядом отчаянных поселений — именно та возможность, которую ищет Караванная компания. Они перебросили в Уэндовер команду, чтобы основать склад раньше, чем кто-то другой займёт местный рынок. Выбор времени был намеренным.</p>
+<p>[bold]Роли:[/bold]</p>
 <ul>
-<li>Caravan Master — Senior CC representative. Manages logistics, relationships, and the operation's bottom line.</li>
-<li>Merchant — Buys, sells, and trades across faction lines. The regional economy runs through their hands.</li>
-<li>Caravan Guard — Professional protection for CC personnel and cargo. Not looking for a fight — but ready for one.</li>
+<li>Мастер каравана — Старший представитель КК. Управляет логистикой, связями и прибыльностью операции.</li>
+<li>Торговец — Покупает, продаёт и обменивает через линии фракций. Региональная экономика проходит через его руки.</li>
+<li>Охрана каравана — Профессиональная защита персонала и грузов КК. Не ищет драки — но готов к ней.</li>
 </ul>
 <p>---</p>
 
-<h3 Text="Minor Factions"/>
+<h3 Text="Малые фракции"/>
 
-<p>Other organizations operate in and around the Wendover region — some ancient, some recent, some still assembling their intentions. Most work from the shadows. All have their own agendas that may or may not align with anyone else's survival.</p>
-<p>See the [bold]Minor Factions[/bold] tab for details on the Children of Atom, the Enclave, the Followers of the Apocalypse, and others present in the region.</p>
+<p>В регионе Уэндовера и вокруг него действуют и другие организации — некоторые древние, некоторые недавние, некоторые всё ещё определяют свои намерения. Большинство работает из тени. У всех свои цели, которые могут совпадать с чьим-то выживанием, а могут и нет.</p>
+<p>Подробности о Детях Атома, Анклаве, Последователях Апокалипсиса и других силах, присутствующих в регионе, смотрите на вкладке [bold]Малые фракции[/bold].</p>
 <p>---</p>
 
-<h3 Text="Caesar's Legion"/>
+<h3 Text="Легион Цезаря"/>
 
-<p>An autocratic, slaveholding military empire modeled on ancient Rome — built on conquest, rigid hierarchy, and the belief that weakness in any form must be purged. Caesar does not negotiate as an equal. His Legion does not share power, territory, or prisoners.</p>
-<p>[bold]Why Wendover:[/bold] The Legion assessed Wendover as a strategic asset worth securing. Scouts and advance agents have been operating in the region. By the time most factions realize the Legion is actively present, the groundwork has already been laid.</p>
-<p>[bold]Roles:[/bold]</p>
+<p>Автократическая рабовладельческая военная империя, построенная по образцу древнего Рима, — основанная на завоевании, жёсткой иерархии и убеждении, что слабость в любой форме должна быть искоренена. Цезарь не ведёт переговоров как равный. Его Легион не делит власть, территорию или пленных.</p>
+<p>[bold]Зачем Уэндовер:[/bold] Легион оценил Уэндовер как стратегический объект, который стоит закрепить за собой. Разведчики и передовые агенты уже действуют в регионе. К тому времени, когда большинство фракций осознаёт, что Легион действительно присутствует, основа уже заложена.</p>
+<p>[bold]Роли:[/bold]</p>
 <ul>
-<li>Legate — Supreme military commander. Caesar's will made manifest in the field.</li>
-<li>Centurion — Senior field commander. Leads combat operations and directs all Legion military action in the region.</li>
-<li>Veteran Decanus / Prime Decanus / Decanus — The Legion's NCO ladder. Squad leaders of increasing experience who enforce discipline and lead contubernium-level forces.</li>
-<li>Veteran Legionnaire / Legionnaire Warrior / Legionnaire Recruit — The Legion's military backbone. Inducted soldiers from proven veterans to newly forged recruits.</li>
-<li>Explorer (Venator) — Scout and hunter. Ranges ahead of the main force to gather intelligence and track targets.</li>
-<li>Frumentarii — Covert intelligence and infiltration specialist. Operates in the shadows; does not officially exist.</li>
-<li>Vexillarius — Standard-bearer. The Legion's visible rallying point in any engagement.</li>
-<li>Optio —  Second in command behind the centurion, who manages diplomacy and assists the Centurion with general management of the Legion.</li>
-<li>Auxilia — Support personnel on the path to full induction. Not yet Legionnaires, but working toward it.</li>
-<li>Houndmaster — Specialist handler of the Legion's trained combat dogs.</li>
-<li>Recruit — Bottom of the military ladder. Follows every order and earns advancement through compliance and survival.</li>
-<li>Slave — Conquered labor. The foundation of the Legion's economy, with no path to freedom except through demonstrated value.</li>
+<li>Легат — Верховный военный командующий. Воля Цезаря, воплощённая в поле.</li>
+<li>Центурион — Старший полевой командир. Возглавляет боевые операции и направляет все военные действия Легиона в регионе.</li>
+<li>Ветеран-деканус / первый деканус / деканус — Сержантская лестница Легиона. Командиры отделений с растущим опытом, которые поддерживают дисциплину и ведут силы уровня контуберния.</li>
+<li>Ветеран-легионер / легионер-воин / легионер-новобранец — Военный костяк Легиона. Принятые солдаты — от проверенных ветеранов до только что обученных новобранцев.</li>
+<li>Разведчик (венатор) — Скаут и охотник. Действует впереди основных сил, чтобы собирать разведданные и выслеживать цели.</li>
+<li>Фрументарии — Специалист по тайной разведке и внедрению. Работает в тени; официально не существует.</li>
+<li>Вексиллярий — Знаменосец. Видимая точка сбора Легиона в любом столкновении.</li>
+<li>Оптион — Второй после центуриона, который ведёт дипломатию и помогает центуриону в общем управлении Легионом.</li>
+<li>Ауксилия — Вспомогательный персонал на пути к полному принятию в Легион. Ещё не легионеры, но стремятся к этому.</li>
+<li>Псарь — Специалист по обращению с обученными боевыми собаками Легиона.</li>
+<li>Новобранец — Низ военной лестницы. Выполняет любой приказ и продвигается через послушание и выживание.</li>
+<li>Раб — Покорённая рабочая сила. Основа экономики Легиона, без пути к свободе, кроме как через доказанную ценность.</li>
 </ul>
 
 </Document>

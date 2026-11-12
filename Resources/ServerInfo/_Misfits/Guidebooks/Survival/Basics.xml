@@ -1,75 +1,75 @@
 <Document>
-# Survival Basics
+# Основы выживания
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Survival%20Basics"/]
+[textlink="Смотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Survival%20Basics"/]
 
-## Survival Basics
+## Основы выживания
 
-<p>Life in the Wasteland is hostile by default. Food, water, radiation, and weather all matter - neglecting any of them for too long will kill you.</p>
-<p>To survive long term, you need [bold]food[/bold] and [bold]water[/bold]. The day-night cycle lasts one hour, and during that span you need to eat and drink at least once.</p>
+<p>Жизнь в Пустоши по умолчанию враждебна. Еда, вода, радиация и погода — всё это имеет значение: если долго пренебрегать чем-то из этого, вы погибнете.</p>
+<p>Чтобы выжить надолго, вам нужны [bold]еда[/bold] и [bold]вода[/bold]. Цикл дня и ночи длится один час, и за это время вам нужно хотя бы раз поесть и попить.</p>
 
-<h3 Text="Water"/>
+<h3 Text="Вода"/>
 
-<p>Clean water is one of the most important resources in Nuclear 14. Many water sources are dirty or irradiated, so drinking whatever you find is a fast way to get sick.</p>
+<p>Чистая вода — один из важнейших ресурсов в Nuclear 14. Многие источники воды грязны или облучены, поэтому пить всё, что найдёте, — быстрый способ заболеть.</p>
 
 <Table Columns="2">
-  <Box>[bold]Water Type[/bold]</Box>
-  <Box>[bold]Safety[/bold]</Box>
-  <Box>[bold]Filtered Water[/bold]</Box>
-  <Box>Safe to drink. Purified from a clean source.</Box>
-  <Box>[bold]Dirty Water[/bold]</Box>
-  <Box>Illness risk. Carries bacteria and contaminants.</Box>
-  <Box>[bold]Irradiated Water[/bold]</Box>
-  <Box>Radiation exposure. Avoid unless treated.</Box>
+  <Box>[bold]Тип воды[/bold]</Box>
+  <Box>[bold]Безопасность[/bold]</Box>
+  <Box>[bold]Отфильтрованная вода[/bold]</Box>
+  <Box>Безопасна для питья. Очищена из чистого источника.</Box>
+  <Box>[bold]Грязная вода[/bold]</Box>
+  <Box>Риск заболевания. Содержит бактерии и загрязнения.</Box>
+  <Box>[bold]Облучённая вода[/bold]</Box>
+  <Box>Радиационное облучение. Избегайте, если вода не очищена.</Box>
 </Table>
 
-<p>Purify water with filters, chemistry, or boiling whenever you can. See [textlink="Materials" link="https://wiki.misfitsystems.net/index.php/Materials"/] for water purification recipes.</p>
+<p>Очищайте воду фильтрами, химией или кипячением, когда это возможно. Смотрите [textlink="Материалы" link="https://wiki.misfitsystems.net/index.php/Materials"/] для рецептов очистки воды.</p>
 
-<h3 Text="Food"/>
+<h3 Text="Еда"/>
 
-<p>You need a steady food supply. Gather wild plants, hunt animals, trade for supplies, or grow crops if your settlement has the space.</p>
+<p>Вам нужен постоянный запас еды. Собирайте дикие растения, охоттесь на животных, выменивайте припасы или выращивайте урожай, если в вашем поселении есть место.</p>
 <ul>
-<li>Cook raw meat before eating it - raw meat carries illness risk.</li>
-<li>Do not assume every plant or scavenged meal is safe.</li>
-<li>See [textlink="Cooking" link="https://wiki.misfitsystems.net/index.php/Cooking"/] for meal recipes and [textlink="Botany" link="https://wiki.misfitsystems.net/index.php/Botany"/] for growing your own food supply.</li>
+<li>Готовьте сырое мясо перед едой — сырое мясо несёт риск заболевания.</li>
+<li>Не считайте, что любое растение или найденная еда безопасны.</li>
+<li>Смотрите [textlink="Кулинария" link="https://wiki.misfitsystems.net/index.php/Cooking"/] для рецептов блюд и [textlink="Ботаника" link="https://wiki.misfitsystems.net/index.php/Botany"/] для выращивания собственного запаса еды.</li>
 </ul>
-<p>[bold]Quick food options:[/bold]</p>
+<p>[bold]Быстрые варианты еды:[/bold]</p>
 <ul>
-<li>[bold]Raw plants[/bold] (carrots, cabbage, corn) - safe to eat immediately.</li>
-<li>[bold]Pre-war packaged food[/bold] (Blamco, Cram, Instamash) - safe and filling.</li>
-<li>[bold]Cooked meals[/bold] - best value for nutrition and safety.</li>
+<li>[bold]Сырые растения[/bold] (морковь, капуста, кукуруза) — безопасны для немедленного употребления.</li>
+<li>[bold]Довоенная упакованная еда[/bold] (Blamco, Cram, Instamash) — безопасна и питательна.</li>
+<li>[bold]Приготовленные блюда[/bold] — лучшее сочетание питательности и безопасности.</li>
 </ul>
 
-<h3 Text="Radiation"/>
+<h3 Text="Радиация"/>
 
-<p>Radiation is everywhere in the Wasteland. Watch your exposure levels, carry treatment when possible, and avoid contaminated areas unless you are equipped for them.</p>
-
-<Table Columns="2">
-  <Box>[bold]Tool / Treatment[/bold]</Box>
-  <Box>[bold]Use[/bold]</Box>
-  <Box>[bold]Geiger Counter[/bold]</Box>
-  <Box>Measures current radiation level in your environment.</Box>
-  <Box>[bold]RadAway Inhaler[/bold]</Box>
-  <Box>Flushes accumulated radiation from your body. See [textlink="Medicine Crafting" link="https://wiki.misfitsystems.net/index.php/Medicine_Crafting"/] to craft your own.</Box>
-  <Box>[bold]Rad-X[/bold]</Box>
-  <Box>Reduces radiation absorption rate while active. Found in medical caches or purchased from doctors.</Box>
-</Table>
-
-<p>If a zone is hot: move quickly, wear protection, and clear the dose before it stacks up.</p>
-
-<h3 Text="Weather and Exposure"/>
-
-<p>Weather can be as deadly as combat. Sandstorms, acid rain, and sharp temperature swings all punish unprepared survivors.</p>
+<p>Радиация повсюду в Пустоши. Следите за уровнем облучения, носите с собой средства лечения, когда это возможно, и избегайте заражённых зон, если у вас нет снаряжения для них.</p>
 
 <Table Columns="2">
-  <Box>[bold]Gear[/bold]</Box>
-  <Box>[bold]Protection[/bold]</Box>
-  <Box>[bold]Gas Mask[/bold]</Box>
-  <Box>Covers airways during sandstorms and toxic environments.</Box>
-  <Box>[bold]Leather Duster Coat[/bold]</Box>
-  <Box>Full-body weather protection for open Wasteland travel.</Box>
+  <Box>[bold]Прибор / средство[/bold]</Box>
+  <Box>[bold]Применение[/bold]</Box>
+  <Box>[bold]Счётчик Гейгера[/bold]</Box>
+  <Box>Измеряет текущий уровень радиации в вашем окружении.</Box>
+  <Box>[bold]Ингалятор РадАуэй[/bold]</Box>
+  <Box>Выводит накопленную радиацию из организма. Смотрите [textlink="Изготовление лекарств" link="https://wiki.misfitsystems.net/index.php/Medicine_Crafting"/], чтобы изготовить его самостоятельно.</Box>
+  <Box>[bold]Рад-Х[/bold]</Box>
+  <Box>Снижает скорость поглощения радиации, пока действует. Находится в медицинских схронах или покупается у врачей.</Box>
 </Table>
 
-<p>Keep protective clothing, a face covering, and spare supplies ready before you travel far from shelter.</p>
+<p>Если зона «горячая»: двигайтесь быстро, носите защиту и выводите дозу, пока она не накопилась.</p>
+
+<h3 Text="Погода и воздействие среды"/>
+
+<p>Погода может быть так же смертоносна, как бой. Песчаные бури, кислотный дождь и резкие перепады температуры наказывают неподготовленных выживших.</p>
+
+<Table Columns="2">
+  <Box>[bold]Снаряжение[/bold]</Box>
+  <Box>[bold]Защита[/bold]</Box>
+  <Box>[bold]Противогаз[/bold]</Box>
+  <Box>Закрывает дыхательные пути во время песчаных бурь и в токсичной среде.</Box>
+  <Box>[bold]Кожаный пыльник[/bold]</Box>
+  <Box>Защита всего тела от погоды для путешествий по открытой Пустоши.</Box>
+</Table>
+
+<p>Держите защитную одежду, закрывающую лицо, и запасные припасы наготове, прежде чем уходить далеко от укрытия.</p>
 
 </Document>

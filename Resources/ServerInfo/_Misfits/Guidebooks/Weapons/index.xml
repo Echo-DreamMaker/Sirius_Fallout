@@ -1,52 +1,52 @@
 <Document>
-# Weapons
+# Оружие
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Weapons"/]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Weapons"/]
 
-## Weapons & Ammo
+## Оружие и боеприпасы
 
-<p>Weapons in Nuclear 14 range from improvised pistols to military-grade energy guns and heavy weapons. Ammunition matters just as much as the weapon itself - learn what your gear uses before you head into a fight.</p>
+<p>Оружие в Nuclear 14 варьируется от самодельных пистолетов до военных энергетических ружей и тяжёлого вооружения. Боеприпасы важны не меньше, чем само оружие, — узнайте, что использует ваше снаряжение, прежде чем ввязываться в бой.</p>
 
-<h3 Text="Weapon Families"/>
-
-<Table Columns="2">
-  <Box>[bold]Category[/bold]</Box>
-  <Box>[bold]Description[/bold]</Box>
-  <Box>[textlink="[bold]Ranged Weapons[/bold]" link="https://wiki.misfitsystems.net/index.php/Ranged_Weapons"/]</Box>
-  <Box>Firearms, energy guns, and heavy weapons.</Box>
-  <Box>[textlink="[bold]Melee Weapons[/bold]" link="https://wiki.misfitsystems.net/index.php/Melee_Weapons"/]</Box>
-  <Box>Knives, clubs, spears, and other close-combat gear.</Box>
-  <Box>[textlink="[bold]Explosives[/bold]" link="https://wiki.misfitsystems.net/index.php/Explosives"/]</Box>
-  <Box>Grenades, launchers, mines, and demolition tools.</Box>
-  <Box>[textlink="[bold]Other Weapons[/bold]" link="https://wiki.misfitsystems.net/index.php/Other_Weapons"/]</Box>
-  <Box>Miscellaneous and specialty weapons.</Box>
-</Table>
-
-<h3 Text="Ammunition Basics"/>
-
-<p>Always match the weapon to the correct magazine, cartridge, cell, or shell. Running dry in the middle of a fight is usually fatal.</p>
+<h3 Text="Семейства оружия"/>
 
 <Table Columns="2">
-  <Box>[bold]Ammo Type[/bold]</Box>
-  <Box>[bold]Used By[/bold]</Box>
-  <Box>[bold]9mm Magazine[/bold]</Box>
-  <Box>9mm Pistol, SMG</Box>
-  <Box>[bold]10mm Magazine[/bold]</Box>
-  <Box>10mm Pistol, Revolver, SMG</Box>
-  <Box>[bold].45 Magazine[/bold]</Box>
-  <Box>.45 Pistol, Revolver</Box>
-  <Box>[bold]5.56 Magazine[/bold]</Box>
-  <Box>R91 Rifle, Carbine, Varmint Rifle, Tribal variants</Box>
-  <Box>[bold]7.62 Magazine[/bold]</Box>
-  <Box>Chinese Assault Rifle</Box>
-  <Box>[bold].308 Magazine[/bold]</Box>
-  <Box>.308 Lever Rifle, Hunting Sniper</Box>
-  <Box>[bold]Energy Cell[/bold]</Box>
-  <Box>Laser Pistols, Laser Rifles, Gatling Laser</Box>
-  <Box>[bold]Plasma Cell[/bold]</Box>
-  <Box>Plasma Pistols, Plasma Rifles, Plasma Caster</Box>
+  <Box>[bold]Категория[/bold]</Box>
+  <Box>[bold]Описание[/bold]</Box>
+  <Box>[textlink="[bold]Дальнобойное оружие[/bold]" link="https://wiki.misfitsystems.net/index.php/Ranged_Weapons"/]</Box>
+  <Box>Огнестрельное оружие, энергетические ружья и тяжёлое вооружение.</Box>
+  <Box>[textlink="[bold]Оружие ближнего боя[/bold]" link="https://wiki.misfitsystems.net/index.php/Melee_Weapons"/]</Box>
+  <Box>Ножи, дубинки, копья и прочее снаряжение для ближнего боя.</Box>
+  <Box>[textlink="[bold]Взрывчатка[/bold]" link="https://wiki.misfitsystems.net/index.php/Explosives"/]</Box>
+  <Box>Гранаты, пусковые установки, мины и подрывные инструменты.</Box>
+  <Box>[textlink="[bold]Прочее оружие[/bold]" link="https://wiki.misfitsystems.net/index.php/Other_Weapons"/]</Box>
+  <Box>Разнообразное и специализированное оружие.</Box>
 </Table>
 
-<p>See the sub-sections for detailed listings on each weapon category.</p>
+<h3 Text="Основы боеприпасов"/>
+
+<p>Всегда подбирайте к оружию правильный магазин, патрон, ячейку или заряд. Остаться без боеприпасов посреди боя обычно смертельно.</p>
+
+<Table Columns="2">
+  <Box>[bold]Тип боеприпасов[/bold]</Box>
+  <Box>[bold]Где используется[/bold]</Box>
+  <Box>[bold]Магазин 9 мм[/bold]</Box>
+  <Box>Пистолет 9 мм, пистолет-пулемёт</Box>
+  <Box>[bold]Магазин 10 мм[/bold]</Box>
+  <Box>Пистолет 10 мм, револьвер, пистолет-пулемёт</Box>
+  <Box>[bold]Магазин .45[/bold]</Box>
+  <Box>Пистолет .45, револьвер</Box>
+  <Box>[bold]Магазин 5.56[/bold]</Box>
+  <Box>Винтовка R-91, карабин, варминт-винтовка, племенные варианты</Box>
+  <Box>[bold]Магазин 7.62[/bold]</Box>
+  <Box>Китайская штурмовая винтовка</Box>
+  <Box>[bold]Магазин .308[/bold]</Box>
+  <Box>Винтовка с рычажным затвором .308, охотничья снайперская винтовка</Box>
+  <Box>[bold]Энергобатарея[/bold]</Box>
+  <Box>Лазерные пистолеты, лазерные винтовки, лазерный гатлинг</Box>
+  <Box>[bold]Плазменная батарея[/bold]</Box>
+  <Box>Плазменные пистолеты, плазменные винтовки, плазменный метатель</Box>
+</Table>
+
+<p>Смотрите подразделы с подробными перечнями по каждой категории оружия.</p>
 
 </Document>

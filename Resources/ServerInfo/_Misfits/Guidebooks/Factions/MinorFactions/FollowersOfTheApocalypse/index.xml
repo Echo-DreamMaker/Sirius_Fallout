@@ -1,91 +1,91 @@
 <Document>
-# Followers of the Apocalypse
+# Последователи Апокалипсиса
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Followers%20of%20the%20Apocalypse"/]
+[textlink="Смотреть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Followers%20of%20the%20Apocalypse"/]
 
-<p>◈ Followers of the Apocalypse ◈ Faction Dossier ◈ Humanitarian ◈</p>
+<p>◈ Последователи Апокалипсиса ◈ Досье фракции ◈ Гуманитарная ◈</p>
 
 <Table Columns="2">
-  <Box>[bold]Followers of the Apocalypse[/bold]</Box>
+  <Box>[bold]Последователи Апокалипсиса[/bold]</Box>
   <Box></Box>
-  <Box>◈ FACTION DOSSIER ◈</Box>
+  <Box>◈ ДОСЬЕ ФРАКЦИИ ◈</Box>
   <Box></Box>
-  <Box>[bold]Status[/bold]</Box>
-  <Box>Active - Neutral</Box>
-  <Box>[bold]Location[/bold]</Box>
-  <Box>Wendover Region, Utah
-Mobile Field Clinics</Box>
-  <Box>[bold]Commander[/bold]</Box>
-  <Box>Regional Coordinator</Box>
-  <Box>[bold]Ideology[/bold]</Box>
-  <Box>Humanitarian Pacifism
-Knowledge Preservation</Box>
-  <Box>[bold]Motto[/bold]</Box>
-  <Box>[italic]Knowledge. Medicine. Hope.[/italic]</Box>
-  <Box>[bold]Affiliation[/bold]</Box>
-  <Box>Independent - Non-Aligned</Box>
-  <Box>⬜ RESTRICTED ACCESS ⬜</Box>
+  <Box>[bold]Статус[/bold]</Box>
+  <Box>Активны — Нейтральны</Box>
+  <Box>[bold]Расположение[/bold]</Box>
+  <Box>Регион Уэндовер, Юта
+Мобильные полевые клиники</Box>
+  <Box>[bold]Командир[/bold]</Box>
+  <Box>Региональный координатор</Box>
+  <Box>[bold]Идеология[/bold]</Box>
+  <Box>Гуманитарный пацифизм
+Сохранение знаний</Box>
+  <Box>[bold]Девиз[/bold]</Box>
+  <Box>[italic]Знание. Медицина. Надежда.[/italic]</Box>
+  <Box>[bold]Принадлежность[/bold]</Box>
+  <Box>Независимы — вне блоков</Box>
+  <Box>⬜ ОГРАНИЧЕННЫЙ ДОСТУП ⬜</Box>
   <Box></Box>
 </Table>
 
-<p>The [bold]Followers of the Apocalypse[/bold] were founded in the ruins of the Los Angeles Public Library - a group that believed knowledge, medicine, and education were more powerful tools for rebuilding civilization than any weapon or army. They have grown into one of the most respected organizations in the post-war West, running free clinics, teaching the illiterate, and maintaining one of the largest accessible archives of pre-war knowledge.</p>
-<p>They are non-violent. They are non-aligned. And they will help anyone.</p>
+<p>[bold]Последователи Апокалипсиса[/bold] были основаны в руинах Публичной библиотеки Лос-Анджелеса — группой людей, веривших, что знания, медицина и образование являются куда более мощными инструментами для восстановления цивилизации, чем любое оружие или армия. Они выросли в одну из самых уважаемых организаций послевоенного Запада, содержат бесплатные клиники, обучают неграмотных и поддерживают один из крупнейших доступных архивов довоенных знаний.</p>
+<p>Они не применяют насилия. Они вне блоков. И они помогут любому.</p>
 
-## Philosophy
+## Философия
 
 <ColorBox Color="#1a1a1a" OutlineColor="#666666" OutlineThickness="1" Margin="5">
   <Box Orientation="Vertical" Margin="8">
-[italic]"The old world ended because people chose power over people. Our answer is to refuse that choice entirely. We document so mistakes are not forgotten. We educate so the cycle of ignorance cannot repeat. We treat the sick because suffering is not a political variable."[/italic]
+[italic]«Старый мир погиб, потому что люди выбрали власть вместо людей. Наш ответ — полностью отказаться от этого выбора. Мы документируем, чтобы ошибки не были забыты. Мы обучаем, чтобы цикл невежества не мог повториться. Мы лечим больных, потому что страдание — не политическая переменная.»[/italic]
   </Box>
 </ColorBox>
-<p>The Followers believe that the Great War was caused by humanity's unwillingness to share knowledge and resources. Their response is radical openness - free clinics, free education, and freely shared pre-war records. This philosophy puts them in direct conflict with the Brotherhood of Steel, who believe dangerous technology must be locked away rather than distributed.</p>
+<p>Последователи считают, что Великая война была вызвана нежеланием человечества делиться знаниями и ресурсами. Их ответ — радикальная открытость: бесплатные клиники, бесплатное образование и свободно распространяемые довоенные записи. Эта философия ставит их в прямой конфликт с Братством Стали, которое считает, что опасные технологии должны быть заперты, а не распределены.</p>
 
-## Roles
+## Роли
 
 <Table Columns="3">
-  <Box>[bold]Role[/bold]</Box>
-  <Box>[bold]Description[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>Followers Doctor</Box>
-  <Box>Provide medical care to anyone who needs it. Your neutrality and your skills make you welcome almost anywhere. You will be tested by factions who want your resources turned toward their cause - hold your principles.</Box>
-  <Box>Among the most trusted figures across all faction lines.</Box>
-  <Box>[bold]Followers Scholar[/bold]</Box>
-  <Box>Record what happens and why. Teach anyone willing to learn. Collect pre-war documents and technical knowledge. The events of a single round may matter to generations - document them accordingly.</Box>
-  <Box>Archivists and educators. Their records are genuinely valuable to civilizations trying to rebuild.</Box>
-  <Box>[bold]Followers Aid Worker[/bold]</Box>
-  <Box>Assist in crisis situations. Distribute food, water, and basic medical supplies to those in need. You are the human face of the Followers' mission - how you conduct yourself in the field is the organization's reputation.</Box>
-  <Box>First to arrive in a crisis, last to leave.</Box>
+  <Box>[bold]Роль[/bold]</Box>
+  <Box>[bold]Описание[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>Доктор Последователей</Box>
+  <Box>Оказывайте медицинскую помощь любому, кто в ней нуждается. Ваш нейтралитет и ваши навыки делают вас желанным почти везде. Фракции, желающие направить ваши ресурсы на своё дело, будут вас испытывать — держитесь своих принципов.</Box>
+  <Box>Одна из самых доверенных фигур по обе стороны фракционных границ.</Box>
+  <Box>[bold]Учёный Последователей[/bold]</Box>
+  <Box>Записывайте, что происходит и почему. Обучайте каждого, кто готов учиться. Собирайте довоенные документы и технические знания. События одного раунда могут иметь значение для поколений — документируйте их соответственно.</Box>
+  <Box>Архивисты и просветители. Их записи по-настоящему ценны для цивилизаций, пытающихся восстановиться.</Box>
+  <Box>[bold]Гуманитарный работник Последователей[/bold]</Box>
+  <Box>Помогайте в кризисных ситуациях. Распределяйте еду, воду и базовые медицинские припасы среди нуждающихся. Вы — человеческое лицо миссии Последователей, и то, как вы ведёте себя на месте, и есть репутация организации.</Box>
+  <Box>Первыми приходят в кризис, последними уходят.</Box>
 </Table>
 
-## Relations
+## Отношения
 
-<p>The Followers are welcomed by most factions as neutral common ground. They serve as natural mediators in conflict and provide critical support during crises. Their strict non-violence principle is both their most respected quality and their most frequently exploited vulnerability.</p>
+<p>Последователей привечают большинство фракций как нейтральную общую почву. Они служат естественными посредниками в конфликтах и оказывают критически важную поддержку в кризисах. Их строгий принцип ненасилия — одновременно и самое уважаемое их качество, и самая часто используемая против них уязвимость.</p>
 
 <Table Columns="3">
-  <Box>[bold]Faction[/bold]</Box>
-  <Box>[bold]Standing[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[textlink="NCR" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
-  <Box>Allies</Box>
-  <Box>The NCR values the Followers' medical expertise and public goodwill. The relationship is cooperative but occasionally strained by political differences.</Box>
-  <Box>[textlink="Brotherhood of Steel" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
-  <Box>Hostile</Box>
-  <Box>The Brotherhood views the Followers' policy of freely sharing technology as reckless and dangerous. [italic]"Your 'charity' is dangerous, Follower."[/italic]</Box>
-  <Box>[textlink="Caesar's Legion" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
-  <Box>Hostile</Box>
-  <Box>The Legion despises the Followers' pacifism and egalitarianism. Followers captured by the Legion rarely survive.</Box>
-  <Box>[textlink="Townsfolk" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]</Box>
-  <Box>Friendly</Box>
-  <Box>Towns welcome Followers clinics and schools. The Followers are often the only organized medical presence available.</Box>
-  <Box>[textlink="Wastelanders" link="https://wiki.misfitsystems.net/index.php/Wastelanders"/]</Box>
-  <Box>Friendly</Box>
-  <Box>Wastelanders rely on Followers clinics for treatment they cannot afford elsewhere.</Box>
-  <Box>[textlink="Wasteland Tribes" link="https://wiki.misfitsystems.net/index.php/Wasteland_Tribes"/]</Box>
-  <Box>Friendly</Box>
-  <Box>Tribes respect the Followers' willingness to share knowledge without conditions.</Box>
-  <Box>[textlink="Outlaws" link="https://wiki.misfitsystems.net/index.php/Outlaws"/]</Box>
-  <Box>Cautious</Box>
-  <Box>The Followers will treat anyone - including raiders - but they are under no illusions about the danger.</Box>
+  <Box>[bold]Фракция[/bold]</Box>
+  <Box>[bold]Отношение[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[textlink="НКР" link="https://wiki.misfitsystems.net/index.php/New_California_Republic"/]</Box>
+  <Box>Союзники</Box>
+  <Box>НКР ценит медицинскую квалификацию Последователей и их добрую репутацию среди населения. Отношения носят характер сотрудничества, но временами омрачаются политическими разногласиями.</Box>
+  <Box>[textlink="Братство Стали" link="https://wiki.misfitsystems.net/index.php/Brotherhood_of_Steel"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>Братство считает политику Последователей по свободному распространению технологий безрассудной и опасной. [italic]«Ваша „благотворительность“ опасна, Последователь.»[/italic]</Box>
+  <Box>[textlink="Легион Цезаря" link="https://wiki.misfitsystems.net/index.php/Caesar%27s_Legion"/]</Box>
+  <Box>Враждебно</Box>
+  <Box>Легион презирает пацифизм и эгалитаризм Последователей. Последователи, захваченные Легионом, редко выживают.</Box>
+  <Box>[textlink="Горожане" link="https://wiki.misfitsystems.net/index.php/Townsfolk"/]</Box>
+  <Box>Дружелюбно</Box>
+  <Box>Города приветствуют клиники и школы Последователей. Часто Последователи — единственное организованное медицинское присутствие в округе.</Box>
+  <Box>[textlink="Жители Пустоши" link="https://wiki.misfitsystems.net/index.php/Wastelanders"/]</Box>
+  <Box>Дружелюбно</Box>
+  <Box>Жители Пустоши полагаются на клиники Последователей в лечении, которое не могут позволить себе где-либо ещё.</Box>
+  <Box>[textlink="Племена Пустоши" link="https://wiki.misfitsystems.net/index.php/Wasteland_Tribes"/]</Box>
+  <Box>Дружелюбно</Box>
+  <Box>Племена уважают готовность Последователей делиться знаниями без каких-либо условий.</Box>
+  <Box>[textlink="Преступники" link="https://wiki.misfitsystems.net/index.php/Outlaws"/]</Box>
+  <Box>Настороженно</Box>
+  <Box>Последователи будут лечить кого угодно — включая рейдеров, — но они не питают никаких иллюзий насчёт опасности.</Box>
 </Table>
 
 </Document>

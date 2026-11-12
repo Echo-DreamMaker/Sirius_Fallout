@@ -1,172 +1,172 @@
 <Document>
-# Chems & Addiction
+# Химия и зависимость
 
-[textlink="View Full Wiki Page" link="https://wiki.misfitsystems.net/index.php/Chems%20%26%20Addiction"/]
+[textlink="Открыть полную страницу вики" link="https://wiki.misfitsystems.net/index.php/Chems%20%26%20Addiction"/]
 
-<p>◈ Chems & Addiction ◈ Wasteland Pharmacology ◈</p>
-<p>The Wasteland offers a range of chemical substances - some that save lives, others that ruin them. Understanding what each chem does, how it affects the body, and [bold]what happens when you stop taking it[/bold] is the difference between using a tool and becoming a slave to one.</p>
+<p>◈ Химия и зависимость ◈ Фармакология Пустоши ◈</p>
+<p>Пустошь предлагает целый ряд химических веществ — одни спасают жизни, другие их губят. Понимание того, что делает каждая химия, как она влияет на организм и [bold]что происходит, когда вы прекращаете её принимать[/bold], — это разница между использованием инструмента и превращением в его раба.</p>
 
-## Stimpaks
+## Стимпаки
 
-<p>The backbone of Wasteland medicine. Stimpaks are injectable serums that rapidly accelerate the body's healing. Multiple variants exist with different potency and risk.</p>
-
-<Table Columns="4">
-  <Box>[bold]Item[/bold]</Box>
-  <Box>[bold]Effect[/bold]</Box>
-  <Box>[bold]Overdose[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>Stimpak</Box>
-  <Box>Heals Brute, Burn, and Airloss at -2.5 per tick. Stops bleeding (-2). Grants recovery drug status (can stand from crit).</Box>
-  <Box>30u: bonus healing but +0.3 poison/tick. 50u: +1.5 poison/tick (pushes to crit, cannot kill).</Box>
-  <Box>Primary healing item. Crafted from Broc Flower + Xander Root + Empty Syringe + Bloodpack.</Box>
-  <Box>[bold]Dirty Stimpak[/bold]</Box>
-  <Box>Heals Brute, Burn, and Airloss at -1.5 per tick. Applies +0.1 radiation per tick. Stops bleeding (-1).</Box>
-  <Box>30u: weaker bonus healing but +0.2 poison/tick. 50u: +1.0 poison/tick.</Box>
-  <Box>Contaminated variant. Weaker than a clean stimpak but still effective. Found in loot or purchased cheaply.</Box>
-  <Box>Super Stimpak</Box>
-  <Box>Heals Brute, Burn, and Airloss at -6.125 per tick. Stops bleeding (-3). Grants recovery drug status.</Box>
-  <Box>30u: bonus healing but +4.5 poison and +0.75 cellular damage per tick. Also halves movement speed.</Box>
-  <Box>Extremely powerful. Taking two at once is near-guaranteed crit. Cellular damage is [bold]permanent[/bold]. Found in elite medical kits or high-value loot.</Box>
-</Table>
-
-## Other Medical Items
-
-<p>Non-stimpak healing items and medical supplies.</p>
-
-<Table Columns="3">
-  <Box>[bold]Item[/bold]</Box>
-  <Box>[bold]Effect[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>Healing Powder</Box>
-  <Box>Heals Brute and Burn at -1.5 per tick. Causes vision blur (haze overlay). Stops bleeding (-0.5).</Box>
-  <Box>Slow metabolism (0.1 rate). Tribal remedy crafted from Broc Flower + Xander Root. Vomiting at 30u. Standard issue for Legion and tribal roles.</Box>
-  <Box>Healing Poultice</Box>
-  <Box>Heals Brute and Burn at -3.0 per tick. Stops bleeding (-1.0). Causes jitter.</Box>
-  <Box>Faster metabolism (0.2 rate). Stronger than healing powder. Crafted from Broc Flower + Xander Root + Cave Fungus + Agave Leaf. Vomiting at 25u.</Box>
-  <Box>RadAway</Box>
-  <Box>Removes accumulated radiation damage.</Box>
-  <Box>Critical for survival in irradiated areas. Non-addictive.</Box>
-  <Box>[bold]Antidote[/bold]</Box>
-  <Box>Neutralizes poison damage and effects.</Box>
-  <Box>Counter to poisoning.</Box>
-</Table>
-
-## Combat Chems
-
-<p>Combat chems provide powerful temporary bonuses but carry [bold]addiction risk[/bold]. Continued use builds dependency. Stopping use triggers [bold]withdrawal[/bold].</p>
+<p>Основа медицины Пустоши. Стимпаки — это инъекционные сыворотки, которые быстро ускоряют заживление организма. Существует несколько вариантов с разной силой действия и риском.</p>
 
 <Table Columns="4">
-  <Box>[bold]Chem[/bold]</Box>
-  <Box>[bold]Effect[/bold]</Box>
-  <Box>[bold]Overdose[/bold]</Box>
-  <Box>[bold]Withdrawal[/bold]</Box>
-  <Box>Jet</Box>
-  <Box>+10% walk and sprint speed. Removes stun/knockdown effects.</Box>
-  <Box>30+ units: asphyxiation</Box>
-  <Box>Speed penalty (0.80×), stamina drain 5.0</Box>
-  <Box>[bold]Turbo[/bold]</Box>
-  <Box>+20% walk and sprint speed. Drunk effect. Removes stun.</Box>
-  <Box>15+ units: asphyxiation</Box>
-  <Box>Speed penalty (0.70×), stamina drain 7.0</Box>
-  <Box>[bold]Psycho[/bold]</Box>
-  <Box>+2 melee strength. Drunk effect.</Box>
-  <Box>30+ units: asphyxiation</Box>
-  <Box>Brute damage 0.2/tick, stamina drain 6.0</Box>
-  <Box>[bold]Buffout[/bold]</Box>
-  <Box>+2 strength. Minor brute healing (-0.3).</Box>
-  <Box>30+ units: asphyxiation</Box>
-  <Box>Brute damage 0.2/tick, stamina drain 8.0</Box>
-  <Box>[bold]Mentats[/bold]</Box>
-  <Box>Intelligence and perception boost.</Box>
-  <Box>-</Box>
-  <Box>Stamina drain (moderate)</Box>
-  <Box>[bold]Cateye[/bold]</Box>
-  <Box>Night vision (5 seconds per dose).</Box>
-  <Box>-</Box>
-  <Box>Stamina drain 2.0</Box>
-  <Box>[bold]Daytripper[/bold]</Box>
-  <Box>Visual hallucinations, rainbow vision.</Box>
-  <Box>-</Box>
-  <Box>Speed penalty (0.90×), stamina drain 4.0</Box>
-  <Box>[bold]Buffjet[/bold]</Box>
-  <Box>Combined Buffout + Jet effects.</Box>
-  <Box>Combined</Box>
-  <Box>Combined withdrawal effects</Box>
-  <Box>[bold]Bufftats[/bold]</Box>
-  <Box>Combined Mentats + Buffout effects.</Box>
-  <Box>Combined</Box>
-  <Box>Combined withdrawal effects</Box>
+  <Box>[bold]Предмет[/bold]</Box>
+  <Box>[bold]Эффект[/bold]</Box>
+  <Box>[bold]Передозировка[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>Стимпак</Box>
+  <Box>Лечит Brute, ожоги и кислородное голодание на -2.5 за тик. Останавливает кровотечение (-2). Даёт статус восстановительного препарата (позволяет встать из критического состояния).</Box>
+  <Box>30 ед.: бонусное лечение, но +0.3 яда за тик. 50 ед.: +1.5 яда за тик (доводит до критического состояния, но не может убить).</Box>
+  <Box>Основной лечебный предмет. Создаётся из цветка Брока + корня Ксандера + пустого шприца + пакета крови.</Box>
+  <Box>[bold]Грязный стимпак[/bold]</Box>
+  <Box>Лечит Brute, ожоги и кислородное голодание на -1.5 за тик. Добавляет +0.1 радиации за тик. Останавливает кровотечение (-1).</Box>
+  <Box>30 ед.: более слабое бонусное лечение, но +0.2 яда за тик. 50 ед.: +1.0 яда за тик.</Box>
+  <Box>Загрязнённый вариант. Слабее чистого стимпака, но всё ещё эффективен. Встречается в добыче или дёшево покупается.</Box>
+  <Box>Суперстимпак</Box>
+  <Box>Лечит Brute, ожоги и кислородное голодание на -6.125 за тик. Останавливает кровотечение (-3). Даёт статус восстановительного препарата.</Box>
+  <Box>30 ед.: бонусное лечение, но +4.5 яда и +0.75 клеточного урона за тик. Также вдвое снижает скорость передвижения.</Box>
+  <Box>Чрезвычайно мощный. Два сразу — почти гарантированное критическое состояние. Клеточный урон [bold]необратим[/bold]. Встречается в элитных медицинских наборах или ценной добыче.</Box>
 </Table>
 
-<p>[bold]Overdose rule:[/bold] Overdose can push you to [bold]critical but never kill you[/bold] directly. Damage scales with excess chemical concentration (0.05 per excess unit).</p>
+## Прочие медицинские предметы
 
-## Addiction System
-
-<p>Using combat chems builds chemical dependency over time. When a chem wears off, [bold]withdrawal[/bold] begins.</p>
-
-<h3 Text="Withdrawal Tiers"/>
-
-<p>Withdrawal severity depends on how long ago the chem wore off:</p>
+<p>Лечебные предметы, не являющиеся стимпаками, и медикаменты.</p>
 
 <Table Columns="3">
-  <Box>[bold]Tier[/bold]</Box>
-  <Box>[bold]Time Remaining[/bold]</Box>
-  <Box>[bold]Symptoms[/bold]</Box>
-  <Box>Severe</Box>
-  <Box>> 120 seconds</Box>
-  <Box>Maximum speed penalty, stamina drain, health damage, mood effects</Box>
-  <Box>[bold]Moderate[/bold]</Box>
-  <Box>60 – 120 seconds</Box>
-  <Box>Reduced penalties, still noticeable performance impact</Box>
-  <Box>[bold]Mild[/bold]</Box>
-  <Box>15 – 60 seconds</Box>
-  <Box>Minor penalties, the worst has passed</Box>
-  <Box>[bold]Fading[/bold]</Box>
-  <Box>< 15 seconds</Box>
-  <Box>Nearly clean. Hold on.</Box>
+  <Box>[bold]Предмет[/bold]</Box>
+  <Box>[bold]Эффект[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>Лечебный порошок</Box>
+  <Box>Лечит Brute и ожоги на -1.5 за тик. Вызывает помутнение зрения (эффект пелены). Останавливает кровотечение (-0.5).</Box>
+  <Box>Медленный метаболизм (скорость 0.1). Племенное средство, создаётся из цветка Брока + корня Ксандера. Рвота при 30 ед. Стандартное средство для Легиона и племенных ролей.</Box>
+  <Box>Лечебная припарка</Box>
+  <Box>Лечит Brute и ожоги на -3.0 за тик. Останавливает кровотечение (-1.0). Вызывает дрожь.</Box>
+  <Box>Быстрый метаболизм (скорость 0.2). Сильнее лечебного порошка. Создаётся из цветка Брока + корня Ксандера + пещерного гриба + листа агавы. Рвота при 25 ед.</Box>
+  <Box>РадАуэй</Box>
+  <Box>Выводит накопленный радиационный урон.</Box>
+  <Box>Критически важен для выживания в заражённых радиацией областях. Не вызывает зависимости.</Box>
+  <Box>[bold]Антидот[/bold]</Box>
+  <Box>Нейтрализует урон и эффекты от отравления.</Box>
+  <Box>Противоядие от отравления.</Box>
 </Table>
 
-<p>Withdrawal effects tick every [bold]15 seconds[/bold] and include:</p>
+## Боевая химия
+
+<p>Боевая химия даёт мощные временные бонусы, но несёт [bold]риск зависимости[/bold]. Постоянное употребление формирует привыкание. Прекращение употребления вызывает [bold]абстиненцию[/bold].</p>
+
+<Table Columns="4">
+  <Box>[bold]Химия[/bold]</Box>
+  <Box>[bold]Эффект[/bold]</Box>
+  <Box>[bold]Передозировка[/bold]</Box>
+  <Box>[bold]Абстиненция[/bold]</Box>
+  <Box>Джет</Box>
+  <Box>+10% к скорости ходьбы и бега. Снимает эффекты оглушения и сбивания с ног.</Box>
+  <Box>30+ единиц: удушье</Box>
+  <Box>Штраф к скорости (0.80×), расход выносливости 5.0</Box>
+  <Box>[bold]Турбо[/bold]</Box>
+  <Box>+20% к скорости ходьбы и бега. Эффект опьянения. Снимает оглушение.</Box>
+  <Box>15+ единиц: удушье</Box>
+  <Box>Штраф к скорости (0.70×), расход выносливости 7.0</Box>
+  <Box>[bold]Психо[/bold]</Box>
+  <Box>+2 к силе ближнего боя. Эффект опьянения.</Box>
+  <Box>30+ единиц: удушье</Box>
+  <Box>Урон Brute 0.2 за тик, расход выносливости 6.0</Box>
+  <Box>[bold]Баффаут[/bold]</Box>
+  <Box>+2 к силе. Незначительное лечение Brute (-0.3).</Box>
+  <Box>30+ единиц: удушье</Box>
+  <Box>Урон Brute 0.2 за тик, расход выносливости 8.0</Box>
+  <Box>[bold]Ментаты[/bold]</Box>
+  <Box>Повышение интеллекта и восприятия.</Box>
+  <Box>-</Box>
+  <Box>Расход выносливости (умеренный)</Box>
+  <Box>[bold]Кошачий глаз[/bold]</Box>
+  <Box>Ночное зрение (5 секунд за дозу).</Box>
+  <Box>-</Box>
+  <Box>Расход выносливости 2.0</Box>
+  <Box>[bold]Триппер[/bold]</Box>
+  <Box>Визуальные галлюцинации, радужное зрение.</Box>
+  <Box>-</Box>
+  <Box>Штраф к скорости (0.90×), расход выносливости 4.0</Box>
+  <Box>[bold]Баффджет[/bold]</Box>
+  <Box>Объединённые эффекты Баффаута и Джета.</Box>
+  <Box>Объединённая</Box>
+  <Box>Объединённые эффекты абстиненции</Box>
+  <Box>[bold]Баффтаты[/bold]</Box>
+  <Box>Объединённые эффекты Ментатов и Баффаута.</Box>
+  <Box>Объединённая</Box>
+  <Box>Объединённые эффекты абстиненции</Box>
+</Table>
+
+<p>[bold]Правило передозировки:[/bold] передозировка может довести вас до [bold]критического состояния, но никогда не убьёт[/bold] напрямую. Урон растёт с избыточной концентрацией вещества (0.05 за каждую лишнюю единицу).</p>
+
+## Система зависимости
+
+<p>Употребление боевой химии со временем формирует химическую зависимость. Когда действие химии заканчивается, начинается [bold]абстиненция[/bold].</p>
+
+<h3 Text="Стадии абстиненции"/>
+
+<p>Тяжесть абстиненции зависит от того, как давно закончилось действие химии:</p>
+
+<Table Columns="3">
+  <Box>[bold]Стадия[/bold]</Box>
+  <Box>[bold]Оставшееся время[/bold]</Box>
+  <Box>[bold]Симптомы[/bold]</Box>
+  <Box>Тяжёлая</Box>
+  <Box>> 120 секунд</Box>
+  <Box>Максимальный штраф к скорости, расход выносливости, урон здоровью, влияние на настроение</Box>
+  <Box>[bold]Средняя[/bold]</Box>
+  <Box>60 – 120 секунд</Box>
+  <Box>Сниженные штрафы, но заметное влияние на работоспособность</Box>
+  <Box>[bold]Лёгкая[/bold]</Box>
+  <Box>15 – 60 секунд</Box>
+  <Box>Незначительные штрафы, худшее уже позади</Box>
+  <Box>[bold]Угасающая[/bold]</Box>
+  <Box>< 15 секунд</Box>
+  <Box>Почти чисто. Держитесь.</Box>
+</Table>
+
+<p>Эффекты абстиненции срабатывают каждые [bold]15 секунд[/bold] и включают:</p>
 <ul>
-<li>[bold]Speed penalties[/bold] - movement speed reduced (per-drug, 0.70× to 0.90×)</li>
-<li>[bold]Stamina drain[/bold] - stamina depletes faster (2.0 to 8.0 per tick)</li>
-<li>[bold]Health damage[/bold] - some drugs cause direct brute or burn damage during withdrawal</li>
-<li>[bold]Mood effects[/bold] - negative mood modifiers until clean</li>
+<li>[bold]Штрафы к скорости[/bold] — скорость передвижения снижена (зависит от препарата, от 0.70× до 0.90×)</li>
+<li>[bold]Расход выносливости[/bold] — выносливость истощается быстрее (от 2.0 до 8.0 за тик)</li>
+<li>[bold]Урон здоровью[/bold] — некоторые препараты наносят прямой урон Brute или ожогами во время абстиненции</li>
+<li>[bold]Влияние на настроение[/bold] — отрицательные модификаторы настроения до полного очищения</li>
 </ul>
 
-<h3 Text="Chem Recipes"/>
+<h3 Text="Рецепты химии"/>
 
 <Table Columns="3">
-  <Box>[bold]Chem[/bold]</Box>
-  <Box>[bold]Recipe[/bold]</Box>
-  <Box>[bold]Notes[/bold]</Box>
-  <Box>[bold]Jet[/bold]</Box>
-  <Box>Ammonia 1 + Abraxo 1 (heated to 374°C)</Box>
-  <Box>Requires heat source</Box>
-  <Box>[bold]Psycho[/bold]</Box>
-  <Box>Bloatfly Acid 1 + Broc Extract 2 + Blood 1 + Antiseptic 2</Box>
-  <Box>Complex recipe, rare ingredients</Box>
-  <Box>[bold]Turbo[/bold]</Box>
-  <Box>Cazador Acid 1 + Broc Extract 1 + Jet 1 + Turpentine 1</Box>
-  <Box>Requires Jet as base ingredient</Box>
-  <Box>[bold]Mentats[/bold]</Box>
-  <Box>Abraxo 1 + Lead 1</Box>
-  <Box>Simple recipe</Box>
-  <Box>[bold]Buffjet[/bold]</Box>
-  <Box>Jet 1 + Buffout 1</Box>
-  <Box>Combination drug</Box>
-  <Box>[bold]Bufftats[/bold]</Box>
-  <Box>Mentats 1 + Buffout 1</Box>
-  <Box>Combination drug</Box>
-  <Box>[bold]Hydra[/bold]</Box>
-  <Box>Scorpion Tail 1 + Fungus Extract 1 + Nightstalker Blood 1</Box>
-  <Box>Healing/stat hybrid</Box>
-  <Box>[bold]RadAway[/bold]</Box>
-  <Box>Fungus Extract (Rad) 1 + Antiseptic 2 + Water 2</Box>
-  <Box>Medical, non-addictive</Box>
-  <Box>[bold]Stimpak[/bold]</Box>
-  <Box>Broc Extract 1 + Xander Extract 1 + Blood 1</Box>
-  <Box>Medical, non-addictive</Box>
+  <Box>[bold]Химия[/bold]</Box>
+  <Box>[bold]Рецепт[/bold]</Box>
+  <Box>[bold]Примечания[/bold]</Box>
+  <Box>[bold]Джет[/bold]</Box>
+  <Box>Аммиак 1 + Абраксо 1 (нагреть до 374°C)</Box>
+  <Box>Требуется источник тепла</Box>
+  <Box>[bold]Психо[/bold]</Box>
+  <Box>Кислота мухи-вздутия 1 + экстракт Брока 2 + кровь 1 + антисептик 2</Box>
+  <Box>Сложный рецепт, редкие ингредиенты</Box>
+  <Box>[bold]Турбо[/bold]</Box>
+  <Box>Кислота казадора 1 + экстракт Брока 1 + Джет 1 + скипидар 1</Box>
+  <Box>Требуется Джет в качестве основы</Box>
+  <Box>[bold]Ментаты[/bold]</Box>
+  <Box>Абраксо 1 + свинец 1</Box>
+  <Box>Простой рецепт</Box>
+  <Box>[bold]Баффджет[/bold]</Box>
+  <Box>Джет 1 + Баффаут 1</Box>
+  <Box>Комбинированный препарат</Box>
+  <Box>[bold]Баффтаты[/bold]</Box>
+  <Box>Ментаты 1 + Баффаут 1</Box>
+  <Box>Комбинированный препарат</Box>
+  <Box>[bold]Гидра[/bold]</Box>
+  <Box>Хвост скорпиона 1 + грибной экстракт 1 + кровь найтсталкера 1</Box>
+  <Box>Гибрид лечения и характеристик</Box>
+  <Box>[bold]РадАуэй[/bold]</Box>
+  <Box>Грибной экстракт (рад) 1 + антисептик 2 + вода 2</Box>
+  <Box>Медицинский, не вызывает зависимости</Box>
+  <Box>[bold]Стимпак[/bold]</Box>
+  <Box>Экстракт Брока 1 + экстракт Ксандера 1 + кровь 1</Box>
+  <Box>Медицинский, не вызывает зависимости</Box>
 </Table>
 
 </Document>
