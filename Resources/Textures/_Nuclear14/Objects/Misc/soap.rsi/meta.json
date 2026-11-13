@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-NC-4.0",
-  "copyright": "Fallout sprites for RU Sirius Fallout, by Ray",
+  "copyright": "Fallout sprites for RU Sirius Fallout, by Ray. Bitten fill and in-hand states generated for Sirius from Ray's art.",
   "size": {
     "x": 32,
     "y": 32
@@ -21,6 +21,96 @@
     },
     {
       "name": "wildberryssoap"
+    },
+    {
+      "name": "oldsoap-4"
+    },
+    {
+      "name": "oldsoap-3"
+    },
+    {
+      "name": "oldsoap-2"
+    },
+    {
+      "name": "oldsoap-1"
+    },
+    {
+      "name": "oldsoap-inhand-left"
+    },
+    {
+      "name": "oldsoap-inhand-right"
+    },
+    {
+      "name": "sweatIsotopsoap-4"
+    },
+    {
+      "name": "sweatIsotopsoap-3"
+    },
+    {
+      "name": "sweatIsotopsoap-2"
+    },
+    {
+      "name": "sweatIsotopsoap-1"
+    },
+    {
+      "name": "sweatIsotopsoap-inhand-left"
+    },
+    {
+      "name": "sweatIsotopsoap-inhand-right"
+    },
+    {
+      "name": "wildberryssoap-4"
+    },
+    {
+      "name": "wildberryssoap-3"
+    },
+    {
+      "name": "wildberryssoap-2"
+    },
+    {
+      "name": "wildberryssoap-1"
+    },
+    {
+      "name": "wildberryssoap-inhand-left"
+    },
+    {
+      "name": "wildberryssoap-inhand-right"
+    },
+    {
+      "name": "lavandasoap-4"
+    },
+    {
+      "name": "lavandasoap-3"
+    },
+    {
+      "name": "lavandasoap-2"
+    },
+    {
+      "name": "lavandasoap-1"
+    },
+    {
+      "name": "lavandasoap-inhand-left"
+    },
+    {
+      "name": "lavandasoap-inhand-right"
+    },
+    {
+      "name": "bluelagoonsoap-4"
+    },
+    {
+      "name": "bluelagoonsoap-3"
+    },
+    {
+      "name": "bluelagoonsoap-2"
+    },
+    {
+      "name": "bluelagoonsoap-1"
+    },
+    {
+      "name": "bluelagoonsoap-inhand-left"
+    },
+    {
+      "name": "bluelagoonsoap-inhand-right"
     }
   ]
 }

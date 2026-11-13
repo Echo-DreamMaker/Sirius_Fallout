@@ -1,6 +1,8 @@
 - type: lobbyBackground
   id: N14Vault
   background: /Textures/_Nuclear14/LobbyScreens/n14vault.png
+  name: Vault 14 # #Sirius Add - подпись фона в лобби
+  artist: ʞɔn𝟟 # #Sirius Add - см. Resources/Textures/_Nuclear14/LobbyScreens/attributions.yml
 
 - type: lobbyBackground
   id: enclavebunkersirius

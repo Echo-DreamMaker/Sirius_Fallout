@@ -1,6 +1,7 @@
 - type: gameMap
   id: NewIsland
   mapName: 'New Island'
+  mapAuthor: 'Kompok' # #Sirius Add - подпись карты в лобби
   mapPath: /Maps/N14/Island.yml
   minPlayers: 0
   stations:
