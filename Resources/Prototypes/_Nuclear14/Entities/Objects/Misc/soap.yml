@@ -10,11 +10,14 @@
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/soap.rsi
     layers:
-    - state: oldsoap
+    # #Sirius Fix: the old prototype used maxFillLevels: 1 with fillBaseName
+    # "oldsoap", so appearance tried to set a non-existent "oldsoap1" state and
+    # the soap rendered as an error sprite. Use the real bitten states instead.
+    - state: oldsoap-4
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    fillBaseName: oldsoap
+    maxFillLevels: 4
+    fillBaseName: oldsoap-
     changeColor: false
   - type: Appearance
   - type: Item
@@ -33,10 +36,11 @@
   components:
   - type: Sprite
     layers:
-    - state: sweatIsotopsoap
+    # #Sirius Fix: -4 (full bar) + fillBaseName with a trailing hyphen, see N14SoapSirius.
+    - state: sweatIsotopsoap-4
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
-    fillBaseName: sweatIsotopsoap
+    fillBaseName: sweatIsotopsoap- # #Sirius Fix: hyphen required, states are <name>-1..4
   - type: Item
     heldPrefix: sweatIsotopsoap
   - type: SolutionContainerManager
@@ -58,10 +62,11 @@
   components:
   - type: Sprite
     layers:
-    - state: wildberryssoap
+    # #Sirius Fix: -4 (full bar) + fillBaseName with a trailing hyphen, see N14SoapSirius.
+    - state: wildberryssoap-4
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
-    fillBaseName: wildberryssoap
+    fillBaseName: wildberryssoap- # #Sirius Fix: hyphen required, states are <name>-1..4
   - type: Item
     heldPrefix: wildberryssoap
   - type: SolutionContainerManager
@@ -83,10 +88,11 @@
   components:
   - type: Sprite
     layers:
-    - state: lavandasoap
+    # #Sirius Fix: -4 (full bar) + fillBaseName with a trailing hyphen, see N14SoapSirius.
+    - state: lavandasoap-4
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
-    fillBaseName: lavandasoap
+    fillBaseName: lavandasoap- # #Sirius Fix: hyphen required, states are <name>-1..4
   - type: Item
     heldPrefix: lavandasoap
   - type: SolutionContainerManager
@@ -108,10 +114,11 @@
   components:
   - type: Sprite
     layers:
-    - state: bluelagoonsoap
+    # #Sirius Fix: -4 (full bar) + fillBaseName with a trailing hyphen, see N14SoapSirius.
+    - state: bluelagoonsoap-4
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: SolutionContainerVisuals
-    fillBaseName: bluelagoonsoap
+    fillBaseName: bluelagoonsoap- # #Sirius Fix: hyphen required, states are <name>-1..4
   - type: Item
     heldPrefix: bluelagoonsoap
   - type: SolutionContainerManager

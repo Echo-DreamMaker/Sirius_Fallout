@@ -5,18 +5,19 @@ using Content.Client.Lobby.UI;
 using Content.Client.Message;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.Voting;
-using Robust.Client;
+using Content.Shared._Sirius.Audio; // #Sirius Add - метаданные треков лобби
 using Robust.Client.Console;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Prototypes; // #Sirius Add
 using Robust.Shared.Timing;
+using Robust.Shared.Utility; // #Sirius Add
 
 namespace Content.Client.Lobby
 {
     public sealed class LobbyState : Robust.Client.State.State
     {
-        [Dependency] private readonly IBaseClient _baseClient = default!;
         [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IResourceCache _resourceCache = default!;
@@ -24,12 +25,16 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
         [Dependency] private readonly IUriOpener _uriOpener = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // #Sirius Add
 
         private const string DiscordInviteLink = "https://discord.gg/fvckxZG9q";
 
         private ISawmill _sawmill = default!;
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
+
+        // #Sirius Add - путь трека -> прототип с названием и исполнителем
+        private readonly Dictionary<string, LobbyMusicPrototype> _lobbyMusicMetadata = new();
 
         protected override Type? LinkedScreenType { get; } = typeof(LobbyGui);
         public LobbyGui? Lobby;
@@ -51,7 +56,12 @@ namespace Content.Client.Lobby
 
             _voteManager.SetPopupContainer(Lobby.VoteContainer);
             LayoutContainer.SetAnchorPreset(Lobby, LayoutContainer.LayoutPreset.Wide);
-            Lobby.ServerName.Text = _baseClient.GameInfo?.ServerName; // The eye of refactor gazes upon you...
+
+            // #Sirius Add - собираем таблицу метаданных треков лобби
+            foreach (var prototype in _prototypeManager.EnumeratePrototypes<LobbyMusicPrototype>())
+            {
+                _lobbyMusicMetadata[prototype.File.CanonPath] = prototype;
+            }
 
             UpdateLobbyUi();
 
@@ -187,26 +197,42 @@ namespace Content.Client.Lobby
         private void UpdateLobbySoundtrackInfo(LobbySoundtrackChangedEvent ev)
         {
             if (ev.SoundtrackFilename == null)
-                Lobby!.LobbySong.SetMarkup(Loc.GetString("lobby-state-song-no-song-text"));
-            else if (ev.SoundtrackFilename != null
-                && _resourceCache.TryGetResource<AudioResource>(ev.SoundtrackFilename, out var lobbySongResource))
             {
-                var lobbyStream = lobbySongResource.AudioStream;
-
-                var title = string.IsNullOrEmpty(lobbyStream.Title)
-                    ? Loc.GetString("lobby-state-song-unknown-title")
-                    : lobbyStream.Title;
-
-                var artist = string.IsNullOrEmpty(lobbyStream.Artist)
-                    ? Loc.GetString("lobby-state-song-unknown-artist")
-                    : lobbyStream.Artist;
-
-                var markup = Loc.GetString("lobby-state-song-text",
-                    ("songTitle", title),
-                    ("songArtist", artist));
-
-                Lobby!.LobbySong.SetMarkup(markup);
+                Lobby!.LobbySong.SetMarkup(Loc.GetString("lobby-state-song-no-song-text"));
+                return;
             }
+
+            if (!_resourceCache.TryGetResource<AudioResource>(ev.SoundtrackFilename, out var lobbySongResource))
+                return;
+
+            var lobbyStream = lobbySongResource.AudioStream;
+            var metadata = GetLobbyMusicMetadata(ev.SoundtrackFilename); // #Sirius Add
+
+            // #Sirius Change: название и исполнитель сначала из прототипа, затем из Vorbis-тегов файла
+            var title = metadata?.Title ?? lobbyStream.Title ?? string.Empty;
+            if (title.Length == 0)
+                title = Loc.GetString("lobby-state-song-unknown-title");
+
+            var artist = metadata?.Artist ?? lobbyStream.Artist ?? string.Empty;
+            if (artist.Length == 0)
+                artist = Loc.GetString("lobby-state-song-unknown-artist");
+
+            var markup = Loc.GetString("lobby-state-song-text",
+                ("songTitle", title),
+                ("songArtist", artist));
+
+            Lobby!.LobbySong.SetMarkup(markup);
+        }
+
+        // #Sirius Add - прототип трека по пути файла
+        private LobbyMusicPrototype? GetLobbyMusicMetadata(string file)
+        {
+            if (_lobbyMusicMetadata.TryGetValue(file, out var metadata))
+                return metadata;
+
+            return _lobbyMusicMetadata.TryGetValue(new ResPath(file).CanonPath, out metadata)
+                ? metadata
+                : null;
         }
 
         private void UpdateLobbyBackground()

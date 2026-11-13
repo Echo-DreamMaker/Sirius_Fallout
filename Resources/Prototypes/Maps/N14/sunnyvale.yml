@@ -1,6 +1,7 @@
 - type: gameMap
   id: Sunnyvale
   mapName: 'Sunnyvale'
+  mapAuthor: 'Peptide90' # #Sirius Add - подпись карты в лобби
   mapPath: /Maps/N14/SunnyvaleSurface.yml
   minPlayers: 0
   stations:

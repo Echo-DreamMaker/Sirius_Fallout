@@ -1,0 +1,104 @@
+# #Sirius Add - названия и исполнители треков, играющих в лобби.
+# Клиент берёт данные отсюда; если поле пустое, используется Vorbis-тег из .ogg.
+# Список соответствует Resources/Prototypes/_Nuclear14/SoundCollections/lobby.yml.
+- type: lobbyMusic
+  id: LobbyMusicAKissToBuildADreamOn
+  file: /Audio/_Nuclear14/Lobby/a_kiss_to_build_a_dream_on.ogg
+  title: A Kiss to Build a Dream On
+  artist: Louis Armstrong
+
+- type: lobbyMusic
+  id: LobbyMusicFallout3Title
+  file: /Audio/_Nuclear14/Lobby/fallout_3_title.ogg
+  title: Main Title
+  artist: Inon Zur
+
+- type: lobbyMusic
+  id: LobbyMusicFallout4Title
+  file: /Audio/_Nuclear14/Lobby/fallout_4_title.ogg
+  title: Fallout 4 Main Theme
+  artist: Inon Zur
+
+- type: lobbyMusic
+  id: LobbyMusicFallout4Commonwealth
+  file: /Audio/_Nuclear14/Lobby/fallout_4_commonwealth.ogg
+  title: The Commonwealth
+  artist: Inon Zur
+
+- type: lobbyMusic
+  id: LobbyMusicMaintitle
+  file: /Audio/_Nuclear14/Lobby/maintitle.ogg
+  title: "Fallout: New Vegas Main Title"
+  artist: Inon Zur
+
+- type: lobbyMusic
+  id: LobbyMusicAintThatAKickInTheHead
+  file: /Audio/_Nuclear14/Lobby/MUS_Aint_That_A_Kick_In_the_Head.ogg
+  title: "Ain't That a Kick in the Head?"
+  artist: Dean Martin
+
+- type: lobbyMusic
+  id: LobbyMusicAmericanSwing
+  file: /Audio/_Nuclear14/Lobby/MUS_American_Swing.ogg
+  title: American Swing
+  artist: Gerhard Trede
+
+- type: lobbyMusic
+  id: LobbyMusicBigIron
+  file: /Audio/_Nuclear14/Lobby/MUS_Big_Iron.ogg
+  title: Big Iron
+  artist: Marty Robbins
+
+- type: lobbyMusic
+  id: LobbyMusicJingleJangleJingle
+  file: /Audio/_Nuclear14/Lobby/MUS_Jingle_Jangle_Jingle.ogg
+  title: Jingle Jangle Jingle
+  artist: Kay Kyser
+
+- type: lobbyMusic
+  id: LobbyMusicJoeCool
+  file: /Audio/_Nuclear14/Lobby/MUS_Joe_Cool_CAS.ogg
+  title: Joe Cool
+  artist: Georges Tesperin
+
+- type: lobbyMusic
+  id: LobbyMusic1983RadioChatter
+  file: /Audio/_Nuclear14/Lobby/1983_radio_chatter_eng.ogg
+  title: 1983 Radio Chatter
+  artist: Various Artists
+
+- type: lobbyMusic
+  id: LobbyMusicBlueMoon
+  file: /Audio/_Nuclear14/Lobby/Blue_Moon.ogg
+  title: Blue Moon
+  artist: Frank Sinatra
+
+- type: lobbyMusic
+  id: LobbyMusicGoinUnder
+  file: /Audio/_Nuclear14/Lobby/Goin_Under.ogg
+  title: "Goin' Under"
+  artist: Darrell Wayne Perry, Tommy Smith
+
+- type: lobbyMusic
+  id: LobbyMusicHalloMisterX
+  file: /Audio/_Nuclear14/Lobby/Hallo_Mister_X.ogg
+  title: Hallo Mister X
+  artist: Gerhard Trede
+
+- type: lobbyMusic
+  id: LobbyMusicStrahlendeTrompete
+  file: /Audio/_Nuclear14/Lobby/Strahlende_Trompete.ogg
+  title: Strahlende Trompete
+  artist: Gerhard Trede
+
+- type: lobbyMusic
+  id: LobbyMusicTakeMeHome
+  file: /Audio/_Nuclear14/Lobby/takemehome.ogg
+  title: Take Me Home, Country Roads
+  artist: John Denver
+
+- type: lobbyMusic
+  id: LobbyMusicWhyDontYouDoRight
+  file: /Audio/_Nuclear14/Lobby/WhyDontYouDoRight.ogg
+  title: "Why Don't You Do Right?"
+  artist: Peggy Lee

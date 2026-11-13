@@ -2,6 +2,7 @@
 - type: gameMap
   id: VaultW
   mapName: 'Vault W'
+  mapAuthor: 'RavenReaper & Faragozik' # #Sirius Add - подпись карты в лобби
   mapPath: /Maps/N14/VaultW.yml
   minPlayers: 0
   stations:

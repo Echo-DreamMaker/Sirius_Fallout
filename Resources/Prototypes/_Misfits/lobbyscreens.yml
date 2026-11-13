@@ -1,6 +1,8 @@
 - type: lobbyBackground
   id: MisfitsPSB
   background: /Textures/_Misfits/LobbyScreens/1920x1080PSB.jpg
+  name: Please Stand By # #Sirius Add - подпись фона в лобби
+  artist: Misfits # #Sirius Add - автор спрайта в репозитории не указан
 
 # - type: lobbyBackground
 #  id: MisfitsSolaceGrace

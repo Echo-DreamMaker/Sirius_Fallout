@@ -75,10 +75,11 @@
                     <!-- Top row -->
                     <BoxContainer Orientation="Horizontal" MinSize="0 40" Name="HeaderContainer" Access="Public"
                                   SeparationOverride="4">
+                        <!-- #Sirius Change - заголовок лобби одним центрированным лейблом;
+                             имя сервера больше не дублируется в шапке (оно длинное и растягивало HUD) -->
                         <Label Margin="8 0 0 0" StyleClasses="PipBoyHeading" VAlign="Center"
+                               HorizontalExpand="True" HorizontalAlignment="Center"
                                Text="{Loc 'ui-lobby-title'}" />
-                        <Label Name="ServerName" Access="Public" StyleClasses="PipBoyHeading" VAlign="Center"
-                               HorizontalExpand="True" HorizontalAlignment="Center" />
                     </BoxContainer>
                     <!-- Accent divider -->
                     <PanelContainer StyleClasses="PipBoyDivider" MinSize="0 2" />
