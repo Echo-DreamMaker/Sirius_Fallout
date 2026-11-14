@@ -1,0 +1,153 @@
+# Sirius Change - Super Mutant roundstart gear replacements for wastelander/townsfolk roles.
+# These subgears are applied when the character is species SuperMutant so they spawn with
+# SuperMutantWearable clothing instead of normal inner/outer clothing.
+
+- type: startingGear
+  id: SuperMutantWastelanderGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    jumpsuit: ClothingSuperMutantJumpsuit
+    shoes: ClothingSuperMutantShoes
+  innerClothingSkirt: ClothingSuperMutantJumpsuit
+
+- type: startingGear
+  id: SuperMutantWasterTraderGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    jumpsuit: ClothingSuperMutantZootSuit
+    shoes: ClothingSuperMutantZootBoot
+  innerClothingSkirt: ClothingSuperMutantZootSuit
+
+- type: startingGear
+  id: SuperMutantTownspersonGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    jumpsuit: ClothingSuperMutantJumpsuit
+    shoes: ClothingSuperMutantShoes
+  innerClothingSkirt: ClothingSuperMutantJumpsuit
+
+- type: startingGear
+  id: SuperMutantFarmerGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    jumpsuit: ClothingSuperMutantJumpsuit
+    shoes: ClothingSuperMutantLeatherBoots
+    outerClothing: ClothingSuperMutantOuterClothing
+  innerClothingSkirt: ClothingSuperMutantJumpsuit
+
+- type: startingGear
+  id: SuperMutantChaplainGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    jumpsuit: ClothingSuperMutantJumpsuit
+    shoes: ClothingSuperMutantShoes
+  innerClothingSkirt: ClothingSuperMutantJumpsuit
+
+- type: startingGear
+  id: SuperMutantBartenderGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    head: ClothingSuperMutantZootHat
+    jumpsuit: ClothingSuperMutantZootSuit
+    shoes: ClothingSuperMutantZootBoot
+    outerClothing: ClothingSuperMutantOuterClothing
+  innerClothingSkirt: ClothingSuperMutantZootSuit
+
+- type: startingGear
+  id: SuperMutantReporterGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    jumpsuit: ClothingSuperMutantZootSuit
+    shoes: ClothingSuperMutantShoes
+  innerClothingSkirt: ClothingSuperMutantZootSuit
+
+- type: startingGear
+  id: SuperMutantTownDeputyGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    jumpsuit: ClothingSuperMutantJumpsuit
+    shoes: ClothingSuperMutantLeatherBoots
+  innerClothingSkirt: ClothingSuperMutantJumpsuit
+
+- type: startingGear
+  id: SuperMutantTownDoctorGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    jumpsuit: ClothingSuperMutantLabcoat
+    shoes: ClothingSuperMutantShoes
+    gloves: SupermutantFollowerGloves
+    outerClothing: MisfitsFOTASuperMutantArmoredLabcoat
+  innerClothingSkirt: ClothingSuperMutantLabcoat
+
+- type: startingGear
+  id: SuperMutantTownMayorGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    head: ClothingSuperMutantZootHat
+    jumpsuit: ClothingSuperMutantZootSuit
+    shoes: ClothingSuperMutantZootBoot
+  innerClothingSkirt: ClothingSuperMutantZootSuit
+
+- type: startingGear
+  id: SuperMutantTownMechanicGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    jumpsuit: ClothingSuperMutantJumpsuit
+    shoes: ClothingSuperMutantShoes
+    gloves: SupermutantBlackGloves
+  innerClothingSkirt: ClothingSuperMutantJumpsuit
+
+- type: startingGear
+  id: SuperMutantTownSheriffGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    jumpsuit: ClothingSuperMutantJumpsuit
+    shoes: ClothingSuperMutantLeatherBoots
+  innerClothingSkirt: ClothingSuperMutantJumpsuit
+
+- type: startingGear
+  id: SuperMutantTownShopkeeperGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+  equipment:
+    jumpsuit: ClothingSuperMutantZootSuit
+    shoes: ClothingSuperMutantZootBoot
+  innerClothingSkirt: ClothingSuperMutantZootSuit

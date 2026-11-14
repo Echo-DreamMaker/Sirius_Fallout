@@ -8,12 +8,13 @@
   name: job-name-towndeputy
   description: job-description-towndeputy
   playTimeTracker: TownDeputy
-  requirements:
+  requirements: #Sirius Change - allow SuperMutant
     - !type:CharacterSpeciesRequirement
       species:
       - Human
       - Ghoul
       - GhoulGlowing
+      - SuperMutant
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - re-enable timelock, 5h Townsfolk requirement
       department: Townsfolk
       min: 18000 # 5 hours
@@ -35,6 +36,8 @@
 
 - type: startingGear
   id: TownDeputyGear
+  subGear: # Sirius Change - SuperMutant roundstart clothing
+  - SuperMutantTownDeputyGear
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitTownGuard

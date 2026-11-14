@@ -11,18 +11,21 @@
   icon: "JobIconWastelandFarmer" # Corvax-Change
   supervisors: job-supervisors-wastelander
   alwaysUseSpawner: true
-  requirements:
+  requirements: #Sirius Change - allow SuperMutant
     - !type:CharacterSpeciesRequirement
       species:
       - Human
       - Ghoul
       - GhoulGlowing
+      - SuperMutant
   access:
   - WastelandFarmer
   - TownsPerson # Corvax-Change
 
 - type: startingGear
   id: FarmerGear
+  subGear: # Sirius Change - SuperMutant roundstart clothing
+  - SuperMutantFarmerGear
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer

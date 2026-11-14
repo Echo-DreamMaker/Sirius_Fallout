@@ -8,12 +8,13 @@
   name: job-name-towndoctor
   description: job-description-towndoctor
   playTimeTracker: TownDoctor
-  requirements:
+  requirements: #Sirius Change - allow SuperMutant
     - !type:CharacterSpeciesRequirement
       species:
       - Human
       - Ghoul
       - GhoulGlowing
+      - SuperMutant
     #- !type:CharacterDepartmentTimeRequirement # TEMP REMOVED
     #  department: Townsfolk
     #  min: 18000 # 5 hours
@@ -35,6 +36,8 @@
 
 - type: startingGear
   id: TownDoctorGear
+  subGear: # Sirius Change - SuperMutant roundstart clothing
+  - SuperMutantTownDoctorGear
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitWastelandDoc

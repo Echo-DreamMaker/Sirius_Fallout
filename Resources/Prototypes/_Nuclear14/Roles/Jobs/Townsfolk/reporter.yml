@@ -7,12 +7,13 @@
   name: job-name-townreporter
   description: job-description-townreporter
   playTimeTracker: WastelandReporter
-  requirements:
+  requirements: #Sirius Change - allow SuperMutant
     - !type:CharacterSpeciesRequirement
       species:
       - Human
       - Ghoul
       - GhoulGlowing
+      - SuperMutant
   startingGear: WastelandReporterGear
   icon: "JobIconTownReporter" # Corvax-Change
   supervisors: job-supervisors-townsfolk
@@ -30,6 +31,8 @@
 
 - type: startingGear
   id: WastelandReporterGear
+  subGear: # Sirius Change - SuperMutant roundstart clothing
+  - SuperMutantReporterGear
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitDetectiveAlt
