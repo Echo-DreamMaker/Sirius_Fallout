@@ -46,6 +46,7 @@ public sealed class CarSystem : EntitySystem
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; //Sirius Fix - engine animation visuals
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
@@ -125,6 +126,9 @@ public sealed class CarSystem : EntitySystem
             else
                 RemComp<RelayInputMoverComponent>(mech.PilotSlot.ContainedEntity.Value);
         }
+
+        //Sirius Fix - engine animation must follow engine state (key+battery), not pilot boarding/ejection.
+        _appearance.SetData(uid, MechVisuals.EngineOn, mech.EngineRunning);
 
         // Keep ambient engine sound in sync with engine state.
         if (TryComp<AmbientSoundComponent>(uid, out var ambient))
@@ -330,6 +334,7 @@ public sealed class CarSystem : EntitySystem
         mech.Integrity = mech.MaxIntegrity;
         mech.Energy = mech.MaxEnergy;
         mech.EngineRunning = false; //Sirius Fix - engine starts only with key+power
+        _appearance.SetData(uid, MechVisuals.EngineOn, false); //Sirius Fix
 
         // #Misfits Merge: MechAirComponent not present in this merge; airtight air handled by mech/car systems as applicable.
 
