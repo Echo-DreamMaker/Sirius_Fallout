@@ -45,3 +45,19 @@
     - EnclaveReformer
     outerSprite: _Misfits/Clothing/OuterClothing/PowerArmor/jacksontownley_pa.rsi
     helmetSprite: _Misfits/Clothing/Head/PowerArmorHelmets/jacksontownley_helmet.rsi
+- type: personalLoadoutProfile
+  id: MisfitsPersonalLoadoutCruorisMandex
+  accountNames:
+  - Barkuaad
+  characterNames:
+  - Cruoris Mendax
+  equipment:
+  - jobs:
+    - CaesarLegionFrumentarii
+    replacements:
+      head: MisfitsCruorisMandexHood
+      jumpsuit: MisfitsCruorisMandexCloth
+      gloves: MisfitsCruorisMandexGloves
+      outerClothing: MisfitsCruorisMandexOuter
+      mask: MisfitsCruorisMandexMask
+      shoes: MisfitsCruorisMandexBoots

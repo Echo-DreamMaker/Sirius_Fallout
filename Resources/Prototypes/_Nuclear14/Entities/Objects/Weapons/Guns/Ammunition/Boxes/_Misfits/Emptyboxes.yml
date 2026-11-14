@@ -1,0 +1,95 @@
+﻿- type: entity
+  id: MagazineBox9mmEmpty
+  suffix: empty
+  parent: MagazineBox9mm
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0
+
+- type: entity
+  id: MagazineBox12gaugeEmpty
+  suffix: empty
+  parent: MagazineBox12gauge
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0
+
+- type: entity
+  id: MagazineBox20gaugeEmpty
+  suffix: empty
+  parent: MagazineBox20gauge
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0
+
+- type: entity
+  id: MagazineBox556Empty
+  suffix: empty
+  parent: MagazineBox556
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0
+
+- type: entity
+  id: MagazineBox545Empty
+  suffix: empty
+  parent: MagazineBox545
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0
+
+- type: entity
+  id: MagazineBox44Empty
+  suffix: empty
+  parent: MagazineBox44
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0
+
+- type: entity
+  id: N14AmmoBox556Empty
+  suffix: empty
+  parent: N14AmmoBox556
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0
+
+- type: entity
+  id: N14AmmoBox357Empty
+  suffix: empty
+  parent: N14AmmoBox357
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0
+
+- type: entity
+  id: N14AmmoBox10mmEmpty
+  suffix: empty
+  parent: N14AmmoBox10mm
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0
+
+- type: entity
+  id: N14AmmoBox762Empty
+  suffix: empty
+  parent: N14AmmoBox762
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0
+
+- type: entity
+  id: MagazineBox45Empty
+  suffix: empty
+  parent: MagazineBox45
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0
+
+- type: entity
+  id: MagazineBox308Empty
+  suffix: empty
+  parent: MagazineBox308
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0

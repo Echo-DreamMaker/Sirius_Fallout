@@ -234,7 +234,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherhoodCap
-  name: Brotherhood of Steel Cap
+  name: Brotherhood of steel cap
   description: A cap worn by members of the Brotherhood of Steel.
   components:
   - type: Sprite
@@ -259,6 +259,19 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: N14ClothingHeadHatBrotherhoodBeret509
+  name: Brotherhood of Steel 509th beret
+  description: A beret worn by members of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/bos_beret.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/bos_beret.rsi
+  - type: ClothingSpecialModifier
+    perceptionModifier: 1
+
+- type: entity
+  parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherhoodFieldCap
   name: BoS Field Cap
   description: A cap worn by Paladins of the Brotherhood of Steel during their field duties.
@@ -267,6 +280,19 @@
     sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodhat.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodhat.rsi
+  - type: ClothingSpecialModifier
+    perceptionModifier: 1
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadHatBrotherhoodFieldCap509
+  name: Brotherhood of Steel 509th field cap
+  description: A cap worn by members of the 509th chapter of the Brotherhood of Steel during their field duties.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/bos_field_cap.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/bos_field_cap.rsi
   - type: ClothingSpecialModifier
     perceptionModifier: 1
 
@@ -421,8 +447,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatTribalOutcastHood
-  name: tribal outcast hood
-  description: Shame! A hood worn by outcasts.
+  name: Tribal Outcast Hood
+  description: Worn by those who have been exiled by their community, these ragged coverings traditionally mark one who has yet to redeem themselves, seeking out some impossible task to do so. Yet many more mark those who have given up on coming home.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/tribalhoodoutcast.rsi
@@ -448,8 +474,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingDrylanderGoggles
-  name: tribal goggled wraps
-  description: Headgear fashioned of rags with a pair of goggles.
+  name: Tribal Fire Hand Headwrap
+  description: Made to maintain clear sight in even the worst of duststorms, these goggles and rags have become a traditional garb of Fire Hand skirmishers in the local tribe. They help keep sand out of the eyes, along with the acrid sting of the thundering guns.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-goggles.rsi
@@ -680,8 +706,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatCaravan
-  name: railwayman's cap
-  description: A hat perfect for the working man/woman/person/ghoul.
+  name: Blue Line Worker Hat
+  description: Commonly worn by the lower class in the Kingdom of Manitoba, this cap is a popular choice for cargo haulers and security guards in the Blue Line Company.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanyhat.rsi
@@ -693,8 +719,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatCaravanUniform
-  name: Blue Line Caravan Co. employee hat
-  description: Serving the Blue Line Caravan Company loudly and proudly.
+  name: Blue Line Merchant Hat
+  description: Once these caps were worn by American pilots from Horizon Skyways, but their acquisition of the Winnipeg International Airport was shortlived before the bombs dropped. Now the transit center serves as the headquarters of a post-war caravan company.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanyuniformhat.rsi
@@ -706,8 +732,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatCaravanSuit
-  name: Blue Line Caravan Co. boss' hat
-  description: Hat worn by those affectionately known as the Big Cheese, the Head Honcho, or simply Boss
+  name: Blue Line Head Merchant Hat
+  description: The little golden wings on the front of this cap used to be a badge for experienced  pilots from Horizon Skyways, now they mark the head merchants of the Blue Line Company. These caps signify very influential citizens of the Kingdom of Manitoba.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanysuithat.rsi

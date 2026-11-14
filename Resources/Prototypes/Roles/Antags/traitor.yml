@@ -16,6 +16,7 @@
 - type: startingGear
   id: SyndicateOperativeGearMonkey
   equipment:
+    wallet: N14Wallet
     head: ClothingHeadHatOutlawHat
     jumpsuit: ClothingUniformJumpsuitOperative
     mask: CigaretteSyndicate
@@ -26,6 +27,7 @@
   subGear:
   - SyndicatePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackSyndicate
     shoes: ClothingShoesBootsCombatFilled
@@ -42,6 +44,7 @@
   id: SyndicateOperativeGearBasic
   parent: SyndicateOperativeGearExtremelyBasic
   equipment:
+    wallet: N14Wallet
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
     pocket1: BaseUplinkRadio40TC

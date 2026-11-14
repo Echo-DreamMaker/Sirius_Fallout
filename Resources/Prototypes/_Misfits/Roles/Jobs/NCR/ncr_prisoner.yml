@@ -37,6 +37,7 @@
 - type: startingGear
   id: NCRPrisonerGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitPrisoner
     shoes: N14ClothingShoesBlack
     bandage: NCClothingBraceletNCRPrisoner

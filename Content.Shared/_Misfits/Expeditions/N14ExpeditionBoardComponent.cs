@@ -14,7 +14,7 @@ public enum N14ExpeditionBoardUiKey : byte
 }
 
 /// <summary>
-/// BUI state sent from server → client when the expedition board UI is open.
+/// BUI state sent from server в†’ client when the expedition board UI is open.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class N14ExpeditionBoardState : BoundUserInterfaceState
@@ -66,7 +66,7 @@ public sealed record N14ExpeditionTierInfo(
     float DurationMinutes);
 
 /// <summary>
-/// Message sent from client → server to launch an expedition at the chosen difficulty.
+/// Message sent from client в†’ server to launch an expedition at the chosen difficulty.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class N14ExpeditionLaunchMessage : BoundUserInterfaceMessage
@@ -87,6 +87,17 @@ public sealed class N14ExpeditionLaunchMessage : BoundUserInterfaceMessage
 public sealed partial class N14ExpeditionBoardComponent : Component
 {
     /// <summary>
+    /// Launch directly from world interaction instead of opening the legacy board UI.
+    /// Used by randomly placed expedition entrances.
+    /// </summary>
+    [DataField]
+    public bool DirectLaunch;
+
+    /// <summary>Difficulty pool launched by a direct world entrance.</summary>
+    [DataField]
+    public string DirectDifficultyId = "N14ExpeditionUnknownProcedural";
+
+    /// <summary>
     /// Radius around the board to detect players for group teleportation.
     /// </summary>
     [DataField]
@@ -102,7 +113,7 @@ public sealed partial class N14ExpeditionBoardComponent : Component
     /// Cooldown in seconds between expeditions from this board.
     /// </summary>
     [DataField]
-    public float CooldownSeconds = 300f;
+    public float CooldownSeconds = 600f;
 
     /// <summary>
     /// Server time when the pending launch will fire, null if idle.
@@ -133,3 +144,9 @@ public sealed partial class N14ExpeditionBoardComponent : Component
     [DataField]
     public TimeSpan? CooldownEnd;
 }
+
+/// <summary>
+/// Marks a round-scoped surface entrance for tactical-map display.
+/// </summary>
+[RegisterComponent]
+public sealed partial class N14ExpeditionEntranceLandmarkComponent : Component;

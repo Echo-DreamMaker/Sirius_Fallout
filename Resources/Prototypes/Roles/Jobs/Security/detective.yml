@@ -44,6 +44,7 @@
   - DetectivePlasmamanGear
 
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitDetective
     back: ClothingBackpackSecurity
     shoes: ClothingShoesBootsCombatFilled
@@ -61,6 +62,7 @@
   id: DetectivePlasmamanGear
   parent: BasePlasmamanSecurityGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitDetective
     head: ClothingHeadEnvirohelmDetective
     gloves: ClothingHandsGlovesEnviroglovesWhite

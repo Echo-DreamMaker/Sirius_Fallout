@@ -1,4 +1,5 @@
 using Content.Server.Access.Systems;
+using Content.Server._Misfits.Requisitions;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
@@ -27,6 +28,8 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.NPC.Prototypes;
+using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
 using Content.Shared.Storage;
@@ -58,8 +61,10 @@ namespace Content.Server.Mail.Systems
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
+        [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
         [Dependency] private readonly OpenableSystem _openable = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly RequisitionsSystem _requisitionsSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
@@ -229,8 +234,17 @@ namespace Content.Server.Mail.Systems
                 return;
             }
 
-            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, args.User);
             component.IsProfitable = false;
+
+            // Misifits
+            if (component.VaultReqBudget != 0)
+            {
+                _requisitionsSystem.TryAddBudget("Vault", component.VaultReqBudget);
+                _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward-vault", ("amount", component.VaultReqBudget)), uid, args.User);
+                return;
+            }
+
+            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, args.User);
 
             var query = EntityQueryEnumerator<StationBankAccountComponent>();
             while (query.MoveNext(out var station, out var account))
@@ -480,6 +494,7 @@ namespace Content.Server.Mail.Systems
 
             mailComp.RecipientJob = recipient.Job;
             mailComp.Recipient = recipient.Name;
+            mailComp.VaultReqBudget = component.VaultReqBudget;
 
             // Frontier: Large mail bonus
             var mailEntityStrings = mailComp.IsLarge ? MailConstants.MailLarge : MailConstants.Mail;
@@ -567,13 +582,9 @@ namespace Content.Server.Mail.Systems
         public bool TryGetMailTeleporterForReceiver(EntityUid receiverUid, [NotNullWhen(true)] out MailTeleporterComponent? teleporterComponent, [NotNullWhen(true)] out EntityUid? teleporterUid)
         {
             var query = EntityQueryEnumerator<MailTeleporterComponent>();
-            var receiverStation = _stationSystem.GetOwningStation(receiverUid);
 
             while (query.MoveNext(out var uid, out var mailTeleporter))
             {
-                var teleporterStation = _stationSystem.GetOwningStation(uid);
-                if (receiverStation != teleporterStation)
-                    continue;
                 teleporterComponent = mailTeleporter;
                 teleporterUid = uid;
                 return true;
@@ -613,16 +624,17 @@ namespace Content.Server.Mail.Systems
         /// <summary>
         /// Get the list of valid mail recipients for a mail teleporter.
         /// </summary>
-        private List<MailRecipient> GetMailRecipientCandidates(EntityUid uid, MailDeliveryPoolPrototype? pool = null) // misfits
+        private List<MailRecipient> GetMailRecipientCandidates(EntityUid uid, MailDeliveryPoolPrototype? pool = null, HashSet<ProtoId<NpcFactionPrototype>>? excludedFactions = null) // misfits
         {
             var candidateList = new List<MailRecipient>();
             var query = EntityQueryEnumerator<MailReceiverComponent>();
-            var teleporterStation = _stationSystem.GetOwningStation(uid);
 
+            // Mail recipients are no longer restricted to the teleporter's own
+            // station/grid/map - any active MailReceiverComponent anywhere counts.
             while (query.MoveNext(out var receiverUid, out _))
             {
-                var receiverStation = _stationSystem.GetOwningStation(receiverUid);
-                if (receiverStation != teleporterStation)
+                // Misfits
+                if (excludedFactions is { Count: > 0 } && _npcFaction.IsMemberOfAny(receiverUid, excludedFactions))
                     continue;
 
                 if (TryGetMailRecipientForReceiver(receiverUid, out var recipient))
@@ -668,7 +680,7 @@ namespace Content.Server.Mail.Systems
                 return;
             }
 
-            var candidateList = GetMailRecipientCandidates(uid, pool);
+            var candidateList = GetMailRecipientCandidates(uid, pool, component.ExcludedFactions);
 
             if (candidateList.Count <= 0)
             {

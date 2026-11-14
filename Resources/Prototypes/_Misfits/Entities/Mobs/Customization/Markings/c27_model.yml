@@ -1,7 +1,7 @@
-# C-27 Humanoid Robot — cosmetic Model selector (Phase C). #Misfits Add
+# C-27 Humanoid Robot вЂ” cosmetic Model selector (Phase C). #Misfits Add
 # Three "factory paint" variants exposed as required Chest markings. They tint the body
 # torso sprite with a faction-themed color so the player can pick which manufacturer chassis
-# their C-27 was built as. Purely cosmetic — armor whitelists are gated separately in Phase D.
+# their C-27 was built as. Purely cosmetic вЂ” armor whitelists are gated separately in Phase D.
 
 - type: marking
   id: C27ModelGeneric
@@ -13,7 +13,7 @@
     default:
       type:
         !type:SimpleColoring
-          color: "#9a8a72" # neutral wasteland gunmetal — matches default skin tone
+          color: "#9a8a72" # neutral wasteland gunmetal вЂ” matches default skin tone
   sprites:
   - sprite: _Misfits/Mobs/Species/C27/parts.rsi
     state: torso_m
@@ -59,6 +59,54 @@
       type:
         !type:SimpleColoring
           color: "#7fb6bf"
+  sprites:
+  - sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: torso_m
+
+# Integrator вЂ” brown/tan for biomechanical
+- type: marking
+  id: C27ModelIntegrator
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [C27]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#8a7a62"
+  sprites:
+  - sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: torso_m
+
+# Assault вЂ” dark brown for heavy armor
+- type: marking
+  id: C27ModelAssault
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [C27]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#4a3a2a"
+  sprites:
+  - sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: torso_m
+
+# Recon вЂ” green for stealth/recon
+- type: marking
+  id: C27ModelRecon
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [C27]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#3a5a4a"
   sprites:
   - sprite: _Misfits/Mobs/Species/C27/parts.rsi
     state: torso_m

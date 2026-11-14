@@ -1,0 +1,411 @@
+- type: entity
+  abstract: true
+  parent: BaseMail
+  id: BaseMailWasteland
+  components:
+  - type: Mail
+    bounty: 750
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandSupplyBox
+  suffix: wasteland-supply-box
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteSupplyBox
+    - id: N14BoxPlasticFilledWastelander
+      orGroup: box
+    - id: N14BoxPlasticFilledMilitary
+      orGroup: box
+    - id: N14BoxCardboardMREBoxCFilled
+      orGroup: box
+    - id: N14BoxCardboardMREBoxKFilled
+      orGroup: box
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandAidOutreach
+  suffix: wasteland-aid-outreach
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandOutreachLetter
+    - id: N14Bandage
+      maxAmount: 3
+    - id: DrinkWaterBottleFull
+      maxAmount: 2
+    - id: N14CurrencyPrewarMoney100
+      maxAmount: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandAidBulletin
+  suffix: wasteland-aid-bulletin
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandProsperityBulletin
+    - id: N14Bandage
+      maxAmount: 2
+    - id: DrinkWaterBottleFull
+      maxAmount: 3
+    - id: N14CurrencyPrewarMoney100
+      maxAmount: 1
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandPlushie
+  suffix: wasteland-plushie
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNotePlushie
+    - id: PlushieBee
+      prob: 0.1
+      orGroup: plushie
+    - id: PlushieCorgi
+      prob: 0.1
+      orGroup: plushie
+    - id: PlushieCatBlack
+      prob: 0.1
+      orGroup: plushie
+    - id: PlushieCatOrange
+      prob: 0.1
+      orGroup: plushie
+    - id: PlushieCatTabby
+      prob: 0.1
+      orGroup: plushie
+    - id: PlushieCatTuxedo
+      prob: 0.08
+      orGroup: plushie
+    - id: PlushieHampter
+      prob: 0.1
+      orGroup: plushie
+    - id: PlushieGhost
+      prob: 0.08
+      orGroup: plushie
+    - id: PlushieSharkBlue
+      prob: 0.08
+      orGroup: plushie
+    - id: PlushieLizard
+      prob: 0.08
+      orGroup: plushie
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandScarf
+  suffix: wasteland-scarf
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteScarf
+    - id: ClothingNeckScarfStripedRed
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedBlue
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedGreen
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedOrange
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedPurple
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedLightBlue
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedBlack
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedBrown
+      prob: 0.14
+      orGroup: scarf
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandVodka
+  suffix: wasteland-vodka
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteVodka
+    - id: DrinkVodkaBottleFull
+    - id: DrinkShotGlass
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandWine
+  suffix: wasteland-wine
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteWine
+    - id: DrinkWineBottleFull
+    - id: DrinkWineGlass
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandBirthdayCake
+  suffix: wasteland-birthday-cake
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteBirthdayCake
+    - id: FoodCakeBirthday
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandPreWarMoney
+  suffix: wasteland-prewar-money
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNotePreWarMoney
+    - id: N14CurrencyPrewarMoney100
+      maxAmount: 3
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandCigars
+  suffix: wasteland-cigars
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteCigars
+    - id: CigarCase
+      prob: 0.7
+      orGroup: cigar-case
+    - id: CigarGoldCase
+      prob: 0.3
+      orGroup: cigar-case
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandFortuneCookies
+  suffix: wasteland-fortune-cookies
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteFortuneCookies
+    - id: FoodSnackCookieFortune
+      maxAmount: 3
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandChems
+  suffix: wasteland-chems
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteChems
+    - id: N14Jet
+      prob: 0.4
+      orGroup: chem
+    - id: N14Psycho
+      prob: 0.35
+      orGroup: chem
+    - id: N14Turbo
+      prob: 0.25
+      orGroup: chem
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandPills
+  suffix: wasteland-pills
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNotePills
+    - id: N14BuffoutPill
+      maxAmount: 4
+      prob: 0.4
+      orGroup: pill
+    - id: N14MentatsPill
+      maxAmount: 4
+      prob: 0.35
+      orGroup: pill
+    - id: N14FixerPill
+      maxAmount: 2
+      prob: 0.25
+      orGroup: pill
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandRadTreatment
+  suffix: wasteland-rad-treatment
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteRadTreatment
+    - id: N14RadAwayInhaler
+      prob: 0.6
+      orGroup: radaway
+    - id: N14RadAwayPhial
+      prob: 0.4
+      orGroup: radaway
+    - id: DrinkWaterBottleFull
+      maxAmount: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandDogTreat #lmao
+  suffix: wasteland-dog-treat
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteDogTreat
+    - id: N14FoodDogfood
+      maxAmount: 4
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandSeedAid
+  suffix: wasteland-seed-aid
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteSeedAid
+    - id: N14FloraWildCarrotClippingSeed
+    - id: N14FloraWildTatoClippingSeed
+    - id: N14FloraWildOnionClippingSeed
+    - id: N14FloraWildMutfruitClippingSeed
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandToolKit
+  suffix: wasteland-tool-kit
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteToolKit
+    - id: N14Multitool
+    - id: N14Flashlight
+    - id: N14Wrench
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandMedicalAid
+  suffix: wasteland-medical-aid
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteMedicalAid
+    - id: N14MedkitFilled
+    - id: N14Stimpak
+      maxAmount: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandSaltAid
+  suffix: wasteland-salt-aid
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteSaltAid
+    - id: N14FoodCondimentPacketSalt
+      maxAmount: 8
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandHygieneKit
+  suffix: wasteland-hygiene-kit
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteHygieneKit
+    - id: Soap
+    - id: TowelColorWhite
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandCorrespondent
+  suffix: wasteland-correspondent
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteCorrespondent
+    - id: N14PenReporter
+    - id: Paper
+    - id: N14Pipboy
+    - id: ClothingUniformJumpsuitReporter
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandHeritage
+  suffix: wasteland-heritage
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteHeritage
+    - id: N14DecorationFlagpoleUSA
+    - id: N14CookedFoodBurgerBig
+    - id: N14CookedFoodMealFries
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandInvoice
+  suffix: wasteland-invoice
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteInvoice
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandTrickGrenades
+  suffix: wasteland-trick-grenades
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteTrickGrenades
+    - id: GrenadeDummy
+      amount: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandHealthyFood
+  suffix: wasteland-healthy-food
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteHealthyFood
+    - id: N14CookedFoodSaladCaesar
+      prob: 0.35
+      orGroup: salad
+    - id: N14CookedFoodSaladHerb
+      prob: 0.35
+      orGroup: salad
+    - id: N14CookedFoodSaladFruit
+      prob: 0.3
+      orGroup: salad
+    - id: N14FoodCarrot
+      maxAmount: 2

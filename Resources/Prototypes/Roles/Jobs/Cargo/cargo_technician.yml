@@ -20,6 +20,7 @@
   subGear:
   - CargoTechPlasmamanGear
   equipment:
+    wallet: N14Wallet
     head: ClothingHeadHatCargosoft
     jumpsuit: ClothingUniformJumpsuitCargo
     back: ClothingBackpackCargoFilled
@@ -35,6 +36,7 @@
   id: CargoTechPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitCargo
     head: ClothingHeadEnvirohelmCargo
     gloves: ClothingHandsGlovesEnviroglovesCargo

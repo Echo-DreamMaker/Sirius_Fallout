@@ -274,3 +274,35 @@
       amount: 3
     - id: N14DrinkGammagulpBeer
       amount: 6
+- type: entity
+  id: MisfitsFridgeCookSuppliesEssential
+  suffix: Filled, Fridge, Cook Supplies
+  parent: ClosetFridgeWideDirty
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14FoodCondimentPacketPepper
+      amount: 3
+    - id: N14ReagentContainerFlour
+      amount: 2
+    - id: N14ReagentContainerFlourSmall
+      amount: 2
+    - id: N14DrinkMilkBrahmin
+      amount: 4
+    - id: BoxMousetrap
+      amount: 2
+    - id: RadCubeBox
+      amount: 2
+    - id: N14FoodCondimentPacketSalt
+      amount: 3
+    - id: MisfitsDrinkZoyMilk
+      amount: 4
+    - id: SprayBottleWater
+      amount: 1
+    - id: N14ReagentContainerSugar
+      amount: 2
+    - id: N14ReagentContainerSugarSmall
+      amount: 2
+    - id: N14FoodCondimentBottleEnzyme
+      amount: 2
+

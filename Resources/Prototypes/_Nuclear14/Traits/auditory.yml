@@ -37,11 +37,13 @@
         - type: FootstepVolumeModifier
           sprintVolumeModifier: -10
           walkVolumeModifier: -10
+          # Half the footstep reduction; 0 would make sneak not affect armor at all.
+          clothVolumeModifier: -5
 
 - type: trait
   id: N14Singer
   category: Auditory
-  points: -3
+  points: 0
   requirements:
     - !type:CharacterTraitRequirement
       inverted: true

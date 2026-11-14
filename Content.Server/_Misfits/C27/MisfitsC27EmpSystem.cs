@@ -1,5 +1,6 @@
 using Content.Server.Emp;
 using Content.Shared._Misfits.C27;
+using Content.Shared._Misfits.Emp;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Popups;
@@ -13,11 +14,13 @@ namespace Content.Server._Misfits.C27;
 
 // #Misfits Add - C-27 humanoid robot EMP handler. Spec: EMP pulses drain power cells AND inflict
 // posibrain damage; optional PA-style stun. We model the posibrain damage as Shock damage to the
-// chassis (the brain is an organ inside the body — damaging the mob propagates through the
+// chassis (the brain is an organ inside the body вЂ” damaging the mob propagates through the
 // damageable). Battery drain is left to the existing Battery / power-cell EmpPulseEvent
-// subscribers — if the C-27 ever gets a power cell slot, it will already be handled.
+// subscribers вЂ” if the C-27 ever gets a power cell slot, it will already be handled.
 public sealed class MisfitsC27EmpSystem : EntitySystem
 {
+    private static readonly ProtoId<DamageTypePrototype> ShockDamage = "Shock";
+
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -30,16 +33,16 @@ public sealed class MisfitsC27EmpSystem : EntitySystem
 
     private void OnEmpPulse(Entity<MisfitsC27Component> ent, ref EmpPulseEvent args)
     {
-        // Scale damage by pulse energy: a stronger EMP fries the posibrain harder.
-        var energyMultiplier = args.EnergyConsumption / 1000f;
-        var totalShock = ent.Comp.EmpShockDamage + ent.Comp.EmpDamagePerKiloJoule * energyMultiplier;
+        // A hand pulse grenade is full strength. Chemical and other weaker EMPs deal the same
+        // fraction of this prototype's configured damage ceiling as their battery-drain energy.
+        var totalShock = ent.Comp.MaxEmpShockDamage * MisfitsEmpScaling.GetStrength(args.EnergyConsumption);
 
-        // Apply the shock as a single damage spec — no need to allocate via prototype lookups
-        // for every pulse, but we do need a DamageSpecifier with the correct type lookup.
-        if (_proto.TryIndex<DamageTypePrototype>("Shock", out var shockProto))
+        // Apply the electrical trauma once to the chassis. Originless damage is otherwise treated
+        // like an explosion by the body system and copied to every limb.
+        if (_proto.TryIndex(ShockDamage, out var shockProto))
         {
             var damage = new DamageSpecifier(shockProto, totalShock);
-            _damageable.TryChangeDamage(ent, damage, ignoreResistances: true, origin: null);
+            _damageable.TryChangeDamage(ent, damage, ignoreResistances: true, origin: null, doPartDamage: false);
         }
 
         // Mark Affected so the EMP visual effect spawns over the chassis.

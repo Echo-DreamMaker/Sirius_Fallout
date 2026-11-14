@@ -1,17 +1,17 @@
-// #Misfits Add — Ug-Qualtoth tribal worship and gradual transformation system.
+// #Misfits Add вЂ” Ug-Qualtoth tribal worship and gradual transformation system.
 //
 // Mechanic overview:
-//   • When a tribal player walks within ProximityRange of the idol they receive a private ambient
-//     message ("You feel an ominous presence...") — once per ProximityCooldown.
-//   • Right-clicking the idol within that same range reveals "Pray to Ug-Qualtoth".
-//   • Praying starts a 20-second DoAfter ritual. Three private flavor messages are delivered at
+//   вЂў When a tribal player walks within ProximityRange of the idol they receive a private ambient
+//     message ("You feel an ominous presence...") вЂ” once per ProximityCooldown.
+//   вЂў Right-clicking the idol within that same range reveals "Pray to Ug-Qualtoth".
+//   вЂў Praying starts a 20-second DoAfter ritual. Three private flavor messages are delivered at
 //     ~5 s / ~10 s / ~15 s so only the praying player sees the idol's "voice".
-//   • Moving or taking damage cancels the ritual.
-//   • Each completed prayer + kills near the idol build devotion, advancing stages 0→4:
-//       Stage 1 — left arm transformed; +10% speed, +5 slash
-//       Stage 2 — arm + both legs; +20% speed, more damage, minor resistance
-//       Stage 3 — both arms + legs + chest (full body); +30% speed, heavy resistance
-//       Stage 4 — full body polymorph into UgQualtothAbomination
+//   вЂў Moving or taking damage cancels the ritual.
+//   вЂў Each completed prayer + kills near the idol build devotion, advancing stages 0в†’4:
+//       Stage 1 вЂ” left arm transformed; +10% speed, +5 slash
+//       Stage 2 вЂ” arm + both legs; +20% speed, more damage, minor resistance
+//       Stage 3 вЂ” both arms + legs + chest (full body); +30% speed, heavy resistance
+//       Stage 4 вЂ” full body polymorph into UgQualtothAbomination
 
 using Content.Server.Chat.Systems;
 using Content.Server.Chat.Managers;
@@ -47,30 +47,30 @@ namespace Content.Server._Misfits.UgQualtoth;
 /// </summary>
 public sealed class UgQualtothSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speedMod = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MovementSpeedModifierSystem _speedMod = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
-    // Marking prototype IDs — one overlay per stage, each replaces the previous.
+    // Marking prototype IDs вЂ” one overlay per stage, each replaces the previous.
     private const string MarkingStage1 = "UgQualtothStage1";
     private const string MarkingStage2 = "UgQualtothStage2";
     private const string MarkingStage3 = "UgQualtothStage3";
 
     // Damage modifier set IDs.
-    private const string Stage2DamageModifier      = "UgQualtothStage2";
-    private const string Stage3DamageModifier      = "UgQualtothStage3";
+    private const string Stage2DamageModifier = "UgQualtothStage2";
+    private const string Stage3DamageModifier = "UgQualtothStage3";
     private const string AbominationDamageModifier = "UgQualtothAbomination";
 
     // DoAfter ritual duration in seconds.
@@ -84,7 +84,7 @@ public sealed class UgQualtothSystem : EntitySystem
         TimeSpan.FromSeconds(15),
     };
 
-    // Update throttle — proximity + flavour checks run once per second.
+    // Update throttle вЂ” proximity + flavour checks run once per second.
     private float _updateAccum;
     private const float UpdateInterval = 1f;
 
@@ -104,9 +104,9 @@ public sealed class UgQualtothSystem : EntitySystem
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateDeath);
     }
 
-    // ──────────────────────────────────────────────────────────────────────────
+    // в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
     //  Update: proximity ambient messages + in-prayer flavor text
-    // ──────────────────────────────────────────────────────────────────────────
+    // в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     public override void Update(float frameTime)
     {
@@ -119,9 +119,9 @@ public sealed class UgQualtothSystem : EntitySystem
 
         var curTime = _timing.CurTime;
 
-        // ── Proximity: add component + ambient message ───────────────────────────
+        // в”Ђв”Ђ Proximity: add component + ambient message в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
         // Any tribal who walks within ProximityRange of the idol is drawn into the
-        // system (component added). Stage 0 has no mechanical effects — the component
+        // system (component added). Stage 0 has no mechanical effects вЂ” the component
         // just means they can accumulate devotion from blood sacrifices and receive
         // the eerie flavor messages. Actual transformation only starts once devotion
         // thresholds are crossed through prayer or sacrifice.
@@ -148,7 +148,7 @@ public sealed class UgQualtothSystem : EntitySystem
             }
         }
 
-        // ── In-prayer flavor text ─────────────────────────────────────────────────
+        // в”Ђв”Ђ In-prayer flavor text в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
         var worshipperQuery = EntityQueryEnumerator<UgQualtothWorshipperComponent>();
         while (worshipperQuery.MoveNext(out var worshipperUid, out var worshipper))
         {
@@ -179,8 +179,8 @@ public sealed class UgQualtothSystem : EntitySystem
     private void SendProximityMessage(EntityUid uid, UgQualtothWorshipperComponent comp, TimeSpan curTime)
     {
         // Pick one of the three proximity strings based on how many times the player has been near.
-        // Cycles through 1→2→3→1... so each visit feels slightly different.
-        var variant = (int)(curTime.TotalMinutes % 3) + 1;
+        // Cycles through 1в†’2в†’3в†’1... so each visit feels slightly different.
+        var variant = (int) (curTime.TotalMinutes % 3) + 1;
         _popup.PopupEntity(
             Loc.GetString($"ug-qualtoth-proximity-{variant}"),
             uid, uid, PopupType.SmallCaution);
@@ -188,9 +188,9 @@ public sealed class UgQualtothSystem : EntitySystem
         comp.NextProximityMessageAt = curTime + comp.ProximityCooldown;
     }
 
-    // ──────────────────────────────────────────────────────────────────────────
+    // в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
     //  Verb: right-click "Pray to Ug-Qualtoth" on the idol
-    // ──────────────────────────────────────────────────────────────────────────
+    // в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     private void OnGetPrayVerb(Entity<UgQualtothArtifactComponent> idol, ref GetVerbsEvent<ActivationVerb> args)
     {
@@ -219,7 +219,7 @@ public sealed class UgQualtothSystem : EntitySystem
         {
             var remaining = (worshipper.NextPrayAllowedAt.Value - _timing.CurTime).TotalMinutes;
             _popup.PopupEntity(
-                Loc.GetString("ug-qualtoth-pray-cooldown", ("minutes", (int)Math.Ceiling(remaining))),
+                Loc.GetString("ug-qualtoth-pray-cooldown", ("minutes", (int) Math.Ceiling(remaining))),
                 idol, user, PopupType.SmallCaution);
             return;
         }
@@ -272,7 +272,7 @@ public sealed class UgQualtothSystem : EntitySystem
             if (!IsTribalHumanoid(nearby.Owner))
                 continue;
 
-            // Add component if not already present — this is the moment they're "drawn in".
+            // Add component if not already present вЂ” this is the moment they're "drawn in".
             EnsureComp<UgQualtothWorshipperComponent>(nearby.Owner);
 
             _popup.PopupEntity(
@@ -305,7 +305,7 @@ public sealed class UgQualtothSystem : EntitySystem
             _audio.PlayPvs(idol.Comp.PraySound, idol);
 
         _popup.PopupEntity(
-            Loc.GetString("ug-qualtoth-pray-success", ("devotion", (int)worshipper.Devotion)),
+            Loc.GetString("ug-qualtoth-pray-success", ("devotion", (int) worshipper.Devotion)),
             user, user, PopupType.MediumCaution);
 
         _chat.TrySendInGameICMessage(user,
@@ -318,9 +318,9 @@ public sealed class UgQualtothSystem : EntitySystem
         DrawInNearbyTribals(idol, user);
     }
 
-    // ──────────────────────────────────────────────────────────────────────────
+    // в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
     //  Blood sacrifice
-    // ──────────────────────────────────────────────────────────────────────────
+    // в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     private void OnMobStateDeath(MobStateChangedEvent args)
     {
@@ -329,7 +329,7 @@ public sealed class UgQualtothSystem : EntitySystem
 
         var victim = args.Target;
 
-        // Ignore entities that are already mid-deletion — their transform is unreliable.
+        // Ignore entities that are already mid-deletion вЂ” their transform is unreliable.
         if (TerminatingOrDeleted(victim))
             return;
 
@@ -366,7 +366,7 @@ public sealed class UgQualtothSystem : EntitySystem
                     new Entity<UgQualtothArtifactComponent>(idolUid, idolComp));
 
                 _popup.PopupEntity(
-                    Loc.GetString("ug-qualtoth-sacrifice-reward", ("devotion", (int)worshipperComp.Devotion)),
+                    Loc.GetString("ug-qualtoth-sacrifice-reward", ("devotion", (int) worshipperComp.Devotion)),
                     worshipperUid, worshipperUid, PopupType.Medium);
             }
 
@@ -374,9 +374,9 @@ public sealed class UgQualtothSystem : EntitySystem
         }
     }
 
-    // ──────────────────────────────────────────────────────────────────────────
+    // в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
     //  Devotion + stage transitions
-    // ──────────────────────────────────────────────────────────────────────────
+    // в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     private void AddDevotion(EntityUid uid, UgQualtothWorshipperComponent comp, float amount,
         Entity<UgQualtothArtifactComponent> idol)
@@ -410,7 +410,7 @@ public sealed class UgQualtothSystem : EntitySystem
     private void ApplyStageEffects(EntityUid uid, UgQualtothWorshipperComponent comp,
         Entity<UgQualtothArtifactComponent> idol)
     {
-        // Apply stat/visual changes first — audio is non-critical and must not block the transformation.
+        // Apply stat/visual changes first вЂ” audio is non-critical and must not block the transformation.
         switch (comp.Stage)
         {
             case 1: ApplyStage1(uid); break;
@@ -431,7 +431,7 @@ public sealed class UgQualtothSystem : EntitySystem
             _audio.PlayPvs(idol.Comp.TransformSound, idol);
     }
 
-    // ── Stage 1 ───────────────────────────────────────────────────────────────
+    // в”Ђв”Ђ Stage 1 в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     private void ApplyStage1(EntityUid uid)
     {
@@ -453,7 +453,7 @@ public sealed class UgQualtothSystem : EntitySystem
         HumanoidVisualLayers.LFoot,
     };
 
-    // ── Stage 2 ───────────────────────────────────────────────────────────────
+    // в”Ђв”Ђ Stage 2 в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     private void ApplyStage2(EntityUid uid)
     {
@@ -476,7 +476,7 @@ public sealed class UgQualtothSystem : EntitySystem
             _damageable.SetDamageModifierSetId(uid, Stage2DamageModifier);
     }
 
-    // ── Stage 3 ───────────────────────────────────────────────────────────────
+    // в”Ђв”Ђ Stage 3 в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     private static readonly HumanoidVisualLayers[] Stage3HiddenLayers =
     {
@@ -509,7 +509,7 @@ public sealed class UgQualtothSystem : EntitySystem
             _damageable.SetDamageModifierSetId(uid, Stage3DamageModifier);
     }
 
-    // ── Stage 4 ──────────────────────────────────────────────────────────────
+    // в”Ђв”Ђ Stage 4 в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     private void ApplyStage4(EntityUid uid, UgQualtothWorshipperComponent comp)
     {
@@ -560,18 +560,18 @@ public sealed class UgQualtothSystem : EntitySystem
         _chatManager.DispatchServerAnnouncement(Loc.GetString("ug-qualtoth-stage4-announcement"));
     }
 
-    // ──────────────────────────────────────────────────────────────────────────
+    // в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
     //  Marking helper
-    // ──────────────────────────────────────────────────────────────────────────
+    // в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     private void ApplyMarking(EntityUid uid, string markingId)
     {
         _humanoid.AddMarking(uid, markingId, forced: true);
     }
 
-    // ──────────────────────────────────────────────────────────────────────────
+    // в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
     //  Speed modifier
-    // ──────────────────────────────────────────────────────────────────────────
+    // в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     private void OnEquipAttempt(Entity<UgQualtothWorshipperComponent> ent,
         ref IsEquippingAttemptEvent args)

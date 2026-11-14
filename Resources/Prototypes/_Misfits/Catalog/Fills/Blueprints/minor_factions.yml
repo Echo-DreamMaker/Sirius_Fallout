@@ -49,3 +49,23 @@
     - id: N14BlueprintEnclaveWeapons
     - id: N14BlueprintEnclaveAmmo
     - id: N14enclaveheavyordnancet5
+- type: entity
+  id: MisfitsCrateAluminiumBlueprintsTown
+  suffix: Filled, Blueprints, Town
+  parent: N14CrateAluminium
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14BlueprintTownAmmoT4
+    - id: N14BlueprintTownAmmoT3
+    - id: N14BlueprintTownAmmoT2
+    - id: N14BlueprintTownAmmoT1
+    - id: N14BlueprintTownWeaponsT4
+    - id: N14BlueprintTownWeaponsT3
+    - id: N14BlueprintTownWeaponsT2
+    - id: N14BlueprintTownWeaponsT1
+    - id: N14BlueprintTownArmorT4
+    - id: N14BlueprintTownArmorT3
+    - id: N14BlueprintTownArmorT2
+    - id: N14BlueprintTownArmorT1
+

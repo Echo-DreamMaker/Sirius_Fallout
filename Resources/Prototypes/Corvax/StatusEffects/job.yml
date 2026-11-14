@@ -455,3 +455,10 @@
   icon:
     sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
     state: investigator
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconKhan
+  icon:
+    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    state: Khan
+

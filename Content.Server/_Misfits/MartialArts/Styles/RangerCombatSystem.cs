@@ -13,10 +13,10 @@ using Robust.Shared.Audio.Systems;
 namespace Content.Server._Misfits.MartialArts.Styles;
 
 /// <summary>
-/// Ranger Combat Technique — the precision fighting doctrine of the Desert Rangers.
+/// Ranger Combat Technique вЂ” the precision fighting doctrine of the Desert Rangers.
 /// Veteran Rangers and Ranger Chiefs begin with this style.
 /// Focuses on quick disarms, joint locks (armbar at Suffocate), and takedown throws.
-/// Combos: QuickDisarm (Disarm+Harm), PressurePoint (Harm+Disarm+Disarm), TakedownThrow (Grab+Harm), ArmBar (Grab+Grab at Hard+).
+/// Combos: TakedownThrow (Harm x3), ArmBar (Harm, Harm, Disarm), PressurePoint (Harm then Disarm), QuickDisarm (Disarm).
 /// </summary>
 public sealed class RangerCombatSystem : EntitySystem
 {
@@ -29,7 +29,7 @@ public sealed class RangerCombatSystem : EntitySystem
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
 
-    // Combo handler is called by MisfitsComboDispatcherSystem — no direct subscription here
+    // Combo handler is called by MisfitsComboDispatcherSystem вЂ” no direct subscription here
     // to avoid duplicate directed (Component, Event) registration.
 
     public void OnComboTriggered(EntityUid uid, MartialArtsKnowledgeComponent comp, MisfitsComboTriggeredEvent args)
@@ -57,7 +57,7 @@ public sealed class RangerCombatSystem : EntitySystem
         }
     }
 
-    /// <summary>Quick Disarm: Disarm+Harm — strip the target's weapon and stagger them.</summary>
+    /// <summary>Quick Disarm: Disarm+Harm вЂ” strip the target's weapon and stagger them.</summary>
     private void ExecuteQuickDisarm(EntityUid uid, EntityUid target, MisfitsComboPrototype combo)
     {
         if (TryComp<HandsComponent>(target, out var targetHands))
@@ -69,7 +69,7 @@ public sealed class RangerCombatSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("martial-arts-ranger-quick-disarm", ("target", target)), target, uid, PopupType.Medium);
     }
 
-    /// <summary>Pressure Point: Harm+Disarm+Disarm — stun and drain stamina from a precision nerve strike.</summary>
+    /// <summary>Pressure Point: Harm+Disarm+Disarm вЂ” stun and drain stamina from a precision nerve strike.</summary>
     private void ExecutePressurePoint(EntityUid uid, EntityUid target, MisfitsComboPrototype combo)
     {
         ApplyComboEffects(uid, target, combo);
@@ -77,7 +77,7 @@ public sealed class RangerCombatSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("martial-arts-ranger-pressure-point", ("target", target)), target, uid, PopupType.Medium);
     }
 
-    /// <summary>Takedown Throw: Grab+Harm — leveraged throw dealing blunt damage on landing.</summary>
+    /// <summary>Takedown Throw: Grab+Harm вЂ” leveraged throw dealing blunt damage on landing.</summary>
     private void ExecuteTakedownThrow(EntityUid uid, EntityUid target, MisfitsComboPrototype combo)
     {
         var dir = (Transform(target).WorldPosition - Transform(uid).WorldPosition).Normalized();
@@ -88,15 +88,17 @@ public sealed class RangerCombatSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("martial-arts-ranger-takedown-throw", ("target", target)), target, uid, PopupType.Medium);
     }
 
-    /// <summary>Arm Bar: Grab+Grab at Hard+ — locks the target in an arm bar; high stamina drain and paralysis.</summary>
+    /// <summary>Arm Bar: Grab x3 вЂ” locks the target in an arm bar; high stamina drain and paralysis.</summary>
     private void ExecuteArmBar(EntityUid uid, EntityUid target, MisfitsComboPrototype combo)
     {
-        if (!TryComp<GrabIntentComponent>(uid, out var grabComp) || grabComp.GrabStage < GrabStage.Hard)
-            return;
-
-        // Force to Suffocate stage to represent the lock
-        if (TryComp<GrabbableComponent>(target, out var grabbable))
+        // #Misfits Fix - no longer bails when the grab is missing or below Hard; the lock still lands
+        // and the Suffocate stage is only forced when the performer is actually holding the target.
+        if (TryComp<GrabIntentComponent>(uid, out var grabComp)
+            && grabComp.GrabStage >= GrabStage.Hard
+            && TryComp<GrabbableComponent>(target, out var grabbable))
+        {
             _grab.TrySetGrabStages(uid, grabComp, target, grabbable, GrabStage.Suffocate);
+        }
 
         ApplyComboEffects(uid, target, combo);
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(combo.ParalyzeTime), true);

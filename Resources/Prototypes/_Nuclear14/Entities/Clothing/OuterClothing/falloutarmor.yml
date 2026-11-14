@@ -2529,3 +2529,110 @@
     priceMultiplier: 0.4
   - type: ExplosionResistance
     damageCoefficient: 0.8
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterEnclaveAdvancedCombatArmor
+  name: Enclave Advanced Combat Armor
+  description: An updated suit of Enclave Combat Armor with advanced reinforced plating.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_advanced_combat_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_advanced_combat_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.6
+    priceMultiplier: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+
+# --- Zulu Squad Grunt Combat Armor (Heavy Armor (Slowdown))---
+- type: entity
+  parent: N14ClothingOuterCombatArmorMK2
+  id: N14ClothingOuterBoSCombatArmorMK3
+  name: Brotherhood combat armor mk3
+  description: A finely made suit of armor reverse-engineered by the Brotherhood using advanced pre-war schematics.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutbosmk3armor.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutbosmk3armor.rsi
+
+- type: entity
+  parent: N14ClothingOuterCombatArmorMK2
+  id: N14ClothingOuterBoSCombatArmorMK3509
+  name: Brotherhood 509th combat armor mk3
+  description: A finely made suit of armor used by the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor_mk3.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor_mk3.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.55 # mk3 better than Mk2, on par with marine
+        Heat: 0.55
+    priceMultiplier: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+
+# New Washington BoS stuff after rework
+
+- type: entity
+  parent: N14ClothingOuterCombatArmor
+  id: N14ClothingOuterBoSCombatArmor
+  name: Brotherhood combat armor
+  description: A standard suit of Brotherhood combat armor for general field use.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutmidbosarmor.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutmidbosarmor.rsi
+
+- type: entity
+  parent: N14ClothingOuterCombatArmor
+  id: N14ClothingOuterBoSCombatArmor509
+  name: Brotherhood 509th combat armor
+  description: A standard suit of combat armor used by the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor.rsi
+  - type: Armor #sirius change
+    modifiers:
+      coefficients:
+        Blunt: 0.775
+        Slash: 0.775
+        Piercing: 0.775
+        Heat: 0.725
+
+- type: entity
+  parent: N14ClothingOuterCombatArmorMK2
+  id: N14ClothingOuterBoSCombatArmorMK2
+  name: Brotherhood combat armor mk2
+  description: A more complete version of standard Brotherhood combat armor, reinforced with extra armor on the extremities.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutbosmk2armor.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutbosmk2armor.rsi
+
+- type: entity
+  parent: N14ClothingOuterCombatArmorMK2
+  id: N14ClothingOuterBoSCombatArmorMK2509
+  name: Brotherhood 509th combat armor mk2
+  description: A reinforced suit of combat armor used by the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor_mk2.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor_mk2.rsi
+

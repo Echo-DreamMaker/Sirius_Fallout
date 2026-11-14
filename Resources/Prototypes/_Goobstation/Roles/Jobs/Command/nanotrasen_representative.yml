@@ -50,6 +50,7 @@
   subGear:
   - NanotrasenRepresentativePlasmamanGear
   equipment:
+    wallet: N14Wallet
     shoes: ClothingShoesColorBlack
     id: CentcomPDA
     jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
@@ -60,6 +61,7 @@
   id: NanotrasenRepresentativePlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitNanotrasenRepresentative
     head: ClothingHeadEnvirohelmNanotrasenRepresentative
     gloves: ClothingHandsGlovesEnviroglovesBlack

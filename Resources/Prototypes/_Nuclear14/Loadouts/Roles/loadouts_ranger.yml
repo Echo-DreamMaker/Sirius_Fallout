@@ -1,0 +1,95 @@
+# MARK: Ranger
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRRangerVest
+#  category: Roles
+#  cost: 1
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRanger
+#  items:
+#    - N14ClothingOuterRangerVest
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRRangerRedwood
+#  category: Roles
+#  cost: 4
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRanger
+#    - !type:CharacterPlaytimeRequirement # Forge-change
+#      tracker: NCRRanger
+#      min: 72000
+#  items:
+#    - N14ClothingOuterRangerRedwood # Forge-change
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRRangerCombat
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRanger
+#    - !type:CharacterPlaytimeRequirement # Forge-change
+#      tracker: NCRRanger
+#      min: 54000
+#  items:
+#    - N14ClothingOuterRangerArmorOld # Forge-change
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRRangerCoyote
+#  category: Roles
+#  cost: 6
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRanger
+#    - !type:CharacterPlaytimeRequirement # Forge-change
+#      tracker: NCRRanger
+#      min: 144000
+#  items:
+#    - N14ClothingOuterRangerCoyote # Forge-change
+#
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRRangerScorpion
+#  category: Roles
+#  cost: 4
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRanger
+#    - !type:CharacterPlaytimeRequirement # Forge-change
+#      tracker: NCRRanger
+#      min: 54000
+#  items:
+#    - N14ClothingOuterRangerScorpion # Forge-change
+#
+- type: loadout
+  id: LoadoutNCRgloves
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+        - NCRVeteranRanger
+  items:
+    - N14ClothingHandsGlovesNCR
+
+# misc

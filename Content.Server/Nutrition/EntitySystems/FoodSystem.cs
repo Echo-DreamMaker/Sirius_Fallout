@@ -76,7 +76,7 @@ public sealed class FoodSystem : EntitySystem
 
         // TODO add InteractNoHandEvent for entities like mice.
         // run after openable for wrapped/peelable foods
-        SubscribeLocalEvent<FoodComponent, UseInHandEvent>(OnUseFoodInHand, after: [ typeof(OpenableSystem), typeof(ServerInventorySystem), ]);
+        SubscribeLocalEvent<FoodComponent, UseInHandEvent>(OnUseFoodInHand, after: [typeof(OpenableSystem), typeof(ServerInventorySystem),]);
         SubscribeLocalEvent<FoodComponent, AfterInteractEvent>(OnFeedFood);
         SubscribeLocalEvent<FoodComponent, GetVerbsEvent<AlternativeVerb>>(AddEatVerb);
         SubscribeLocalEvent<FoodComponent, ConsumeDoAfterEvent>(OnDoAfter);
@@ -250,8 +250,8 @@ public sealed class FoodSystem : EntitySystem
             InGameICChatType.Emote,
             ChatTransmitRange.Normal,
             ignoreActionBlocker: true);
-        // #Misfits Fix: removed victim emote — it broke because the emote system prepends the
-        // entity name, causing "TargetName UserName is trying to force you…" and "you" is wrong
+        // #Misfits Fix: removed victim emote вЂ” it broke because the emote system prepends the
+        // entity name, causing "TargetName UserName is trying to force youвЂ¦" and "you" is wrong
         // for a message visible to everyone. The user emote above already covers it.
     }
 
@@ -363,10 +363,13 @@ public sealed class FoodSystem : EntitySystem
         if (TryComp<StackComponent>(entity, out var stack))
         {
             //Not deleting whole stack piece will make troubles with grinding object
-            if (stack.Count > 1)
+            // Misfit Fix: was >, transfered only half of solution on last stack
+            if (stack.Count >= 1)
             {
                 _stack.SetCount(entity.Owner, stack.Count - 1);
-                _solutionContainer.TryAddSolution(soln.Value, split);
+                // Misfit Fix:(typo) _solutionContainer.TryAddSolution(soln.Value, split);
+                _stomach.TryTransferSolution(stomachToUse.Owner, split, stomachToUse);
+
                 return;
             }
         }

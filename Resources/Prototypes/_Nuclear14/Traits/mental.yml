@@ -49,7 +49,7 @@
         - NCRVeteranRanger
         - NCRFieldRanger
         - NCRPatrolRanger
-        - NCRDoctor
+     #  - NCRDoctor         I saw hacksaw ridge and thought it was cool, the BOS and legion equivalents in POM and scribes can all be pacifist so a doctor who is largely going to be a noncombatant isn't insane to let be pacifst
         - NCRFirstSergeant
         - NCRStaffSergeant
         - NCRNCO
@@ -70,7 +70,6 @@
         - BoSHonorGuard # #Cythisiax Added - personal-whitelist HONOR GUARD is a combat role
         - BoSMidPaladin
         - BoSMidKnight
-        - BoSLancerCaptain
         - BoSLancerKnight
         # #Cythisiax Removed - Lancer rank folded into Lancer-Knight
         - BoSMidSquire
@@ -92,7 +91,8 @@
         - CaesarLegionLegionnaireRecruit
         - CaesarLegionHoundmaster
         - CaesarLegionAuxilia
-        # #Misfits Change: CaesarLegionRecruit removed — Legionnaire covers entry-level.
+        - CaesarLegionTempleGuard
+        # #Misfits Change: CaesarLegionRecruit removed вЂ” Legionnaire covers entry-level.
         # Forge-Change-End
         - VaultSecurity
   functions:
@@ -264,7 +264,7 @@
       prototypes:
         - MisfitsPetSpawnerEyebotMBoS
 
-#Misfits Change /Comment-out/: Washington BoS eyebot pet trait removed — locale commented out.
+#Misfits Change /Comment-out/: Washington BoS eyebot pet trait removed вЂ” locale commented out.
 #- type: trait
 #  id: N14PetEyebotWBoS
 #  category: Mental
@@ -323,7 +323,7 @@
       prototypes:
         - MisfitsPetSpawnerDogMBoS
 
-#Misfits Change /Comment-out/: Washington BoS dog pet trait removed — locale commented out.
+#Misfits Change /Comment-out/: Washington BoS dog pet trait removed вЂ” locale commented out.
 #- type: trait
 #  id: N14PetDogWBoS
 #  category: Mental

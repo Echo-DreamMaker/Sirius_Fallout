@@ -16,8 +16,12 @@ public sealed class CMAutomatedVendorState : BoundUserInterfaceState
     public int Points { get; }
     public int ReplenishmentPoints { get; }
     public bool CanReplenish { get; }
+    public string ReplenishmentPrompt { get; }
+    public TimeSpan? NextReplenishment { get; }
+    public TimeSpan ReplenishmentInterval { get; }
     public bool CanStoreEquipment { get; }
     public string DepartmentName { get; }
+    public string VendorTitle { get; }
     public List<string> AllocationCategories { get; }
     public List<string> SharedEquipmentCategories { get; }
 
@@ -27,8 +31,12 @@ public sealed class CMAutomatedVendorState : BoundUserInterfaceState
         int points,
         int replenishmentPoints,
         bool canReplenish,
+        string replenishmentPrompt,
+        TimeSpan? nextReplenishment,
+        TimeSpan replenishmentInterval,
         bool canStoreEquipment,
         string departmentName,
+        string vendorTitle,
         List<string> allocationCategories,
         List<string> sharedEquipmentCategories)
     {
@@ -37,29 +45,41 @@ public sealed class CMAutomatedVendorState : BoundUserInterfaceState
         Points = points;
         ReplenishmentPoints = replenishmentPoints;
         CanReplenish = canReplenish;
+        ReplenishmentPrompt = replenishmentPrompt;
+        NextReplenishment = nextReplenishment;
+        ReplenishmentInterval = replenishmentInterval;
         CanStoreEquipment = canStoreEquipment;
         DepartmentName = departmentName;
+        VendorTitle = vendorTitle;
         AllocationCategories = allocationCategories;
         SharedEquipmentCategories = sharedEquipmentCategories;
     }
 }
 
 [Serializable, NetSerializable]
-public sealed record CMVendorSectionState(string Name, int? Choices, int Purchases, List<CMVendorEntryState> Entries);
+public sealed record CMVendorSectionState(
+    int CatalogIndex,
+    string Name,
+    int? Choices,
+    int Purchases,
+    List<CMVendorEntryState> Entries);
 
 [Serializable, NetSerializable]
 public sealed record CMVendorEntryState(
     string Name,
     EntProtoId Id,
     int? Amount,
+    int? MaxAmount,
     int? Points,
     int Tier,
     bool HasAuthority,
     string? RequiredAuthority,
+    bool HasRequiredJob,
+    string? RequiredJob,
     string Category);
 
 [Serializable, NetSerializable]
-public sealed record CMVendorStoredItemState(string Name, EntProtoId Id, string Category);
+public sealed record CMVendorStoredItemState(NetEntity Entity, string Name, EntProtoId Id, string Category);
 
 [Serializable, NetSerializable]
 public sealed class CMAutomatedVendorVendMessage : BoundUserInterfaceMessage
@@ -83,10 +103,10 @@ public sealed class CMAutomatedVendorStoreHeldMessage : BoundUserInterfaceMessag
 [Serializable, NetSerializable]
 public sealed class CMAutomatedVendorWithdrawStoredMessage : BoundUserInterfaceMessage
 {
-    public int Index { get; }
+    public NetEntity Item { get; }
 
-    public CMAutomatedVendorWithdrawStoredMessage(int index)
+    public CMAutomatedVendorWithdrawStoredMessage(NetEntity item)
     {
-        Index = index;
+        Item = item;
     }
 }

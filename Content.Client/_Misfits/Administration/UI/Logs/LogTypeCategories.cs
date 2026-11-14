@@ -1,4 +1,4 @@
-// #Misfits Add - Static mapping of LogType → human-readable categories for the admin logs
+// #Misfits Add - Static mapping of LogType в†’ human-readable categories for the admin logs
 // category rail. Each LogType is assigned exactly one category. Unknown/unmapped types
 // fall back to "Other". Used by AdminLogsControl to build collapsible category groups
 // and by AdminLogRow to pick the badge color.
@@ -91,6 +91,7 @@ public static class LogTypeCategories
         { LogType.ChatRateLimited, "Chat" },
 
         // Admin
+        { LogType.AdminAudit, "Admin" },
         { LogType.AdminMessage, "Admin" },
         { LogType.Vote, "Admin" },
         { LogType.Verb, "Admin" },
@@ -101,7 +102,7 @@ public static class LogTypeCategories
         { LogType.GhostRoleTaken, "Admin" },
         { LogType.Identity, "Admin" },
         { LogType.RateLimited, "Admin" },
-        { LogType.PanicBunkerToggle, "Admin" },
+        { LogType.AdminAudit, "Admin" },
 
         // Construction
         { LogType.Construction, "Construction" },
@@ -142,7 +143,7 @@ public static class LogTypeCategories
         { LogType.ChemicalReaction, "Science" },
         { LogType.ReagentEffect, "Science" },
 
-        // Other — explicit entries for completeness; anything not listed also maps here
+        // Other вЂ” explicit entries for completeness; anything not listed also maps here
         { LogType.Hunger, "Other" },
         { LogType.Thirst, "Other" },
         { LogType.Action, "Other" },

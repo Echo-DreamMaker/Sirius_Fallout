@@ -1,0 +1,47 @@
+
+#temp!!!
+- type: entityTable
+  id: M14WeaponLootTier4_GunsBulletRifleAuto
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponRifle762Fal
+      weight: 5
+      #AK 5.45
+    - !type:EntSelector
+      id: N14WeaponRifleAk112pn # extended mag
+      weight: 5
+
+
+#temp!!!
+- type: entityTable
+  id: M14WeaponLootTier4_GunsBulletRifleSemi
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponSniper50Pipe
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponRifle308SniperRifle
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponRifle762Rangemaster # bayonet
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponRifle762SKS
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponSniperEnfield
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponSniper44LeverCarbine
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponSniper308LeverRifle
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponRifle308Battle
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponRifleM1Garand
+      weight: 5

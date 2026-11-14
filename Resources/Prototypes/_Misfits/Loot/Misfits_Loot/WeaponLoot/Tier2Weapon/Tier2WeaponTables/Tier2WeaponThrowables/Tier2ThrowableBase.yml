@@ -1,0 +1,10 @@
+- type: entityTable
+  id: M14WeaponLootTier2_ThrowablesAll
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier2_Throwables
+          weight: 2
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier2_ThrowablesExplosive
+          weight: 5

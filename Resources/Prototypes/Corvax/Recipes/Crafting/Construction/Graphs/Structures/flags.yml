@@ -256,3 +256,53 @@
               prototype: MaterialCloth1
               amount: 5
             - !type:DeleteEntity 
+- type: constructionGraph
+  id: DecorationLegionCross
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: LegionCross
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+    - node: LegionCross
+      entity: N14DecorationLegionCross
+
+# new canaan town subfaction flag
+- type: constructionGraph
+  id: DecorationFlagNewCanaan
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: FlagNewCanaan
+      steps:
+      - material: WoodPlank
+        amount: 5
+        doAfter: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+  - node: FlagNewCanaan
+    entity: N14DecorationFlagpoleNCR
+    edges:
+    - to: start
+      steps:
+      - tool: Prying
+        doAfter: 3
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 5
+      - !type:DeleteEntity

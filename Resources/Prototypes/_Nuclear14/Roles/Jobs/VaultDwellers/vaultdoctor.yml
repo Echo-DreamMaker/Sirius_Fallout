@@ -39,6 +39,7 @@
 - type: startingGear
   id: VaultDoctorGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitVault14
     back: ClothingBackpackSatchelLeather
     shoes: N14ClothingBootsBlack

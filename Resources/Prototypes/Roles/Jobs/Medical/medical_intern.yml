@@ -28,6 +28,7 @@
   subGear:
   - DoctorPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: UniformScrubsColorBlue # DeltaV - Intern starts with blue scrubs
     back: ClothingBackpackMedicalFilled
     shoes: ClothingShoesColorWhite

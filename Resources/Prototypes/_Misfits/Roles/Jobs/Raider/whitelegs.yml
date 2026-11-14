@@ -4,7 +4,7 @@
 
 - type: job
   id: WhiteLegs
-  setPreference: true
+  setPreference: false # #Misfits Change - White Legs is retained for compatibility, not character setup.
   name: job-name-whitelegs
   description: job-description-whitelegs
   playTimeTracker: WhiteLegs
@@ -31,6 +31,7 @@
 - type: startingGear
   id: WhiteLegsGear
   equipment:
+    wallet: N14Wallet
     bandage: NCClothingBandageRaiders
     jumpsuit: M14ClothingUniformWhiteLegsUniform
     outerClothing: MisfitsClothingOuterWhiteLegsArmor

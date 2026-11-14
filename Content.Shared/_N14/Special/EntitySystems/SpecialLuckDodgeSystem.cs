@@ -25,19 +25,19 @@ public sealed class SpecialLuckDodgeSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SpecialComponent, ProjectileReflectAttemptEvent>(OnProjectileReflect);
+        SubscribeLocalEvent<SpecialComponent, ProjectileDeflectAttemptEvent>(OnProjectileDeflect);
         SubscribeLocalEvent<SpecialComponent, HitScanReflectAttemptEvent>(OnHitScanReflect);
     }
 
-    private void OnProjectileReflect(EntityUid uid, SpecialComponent component, ref ProjectileReflectAttemptEvent args)
+    private void OnProjectileDeflect(EntityUid uid, SpecialComponent component, ref ProjectileDeflectAttemptEvent args)
     {
-        if (args.Cancelled ||
+        if (args.Deflected ||
             !TryDodge(uid))
         {
             return;
         }
 
-        args.Cancelled = true;
+        args.Deflected = true;
         _popup.PopupEntity(Loc.GetString("special-lucky-evasion"), uid, PopupType.Medium);
     }
 

@@ -59,16 +59,17 @@
         - CaesarLegionLegate
         - CaesarLegionOrator
         - CaesarLegionPriestessOfMars
+        - CaesarLegionAcolyteOfMars
   - !type:AddTraitSpecial
     traits: [ LanguageLatin ]
 
 - type: startingGear
   id: CaesarLegionOratorGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    wallet: N14Wallet
+    jumpsuit: MisfitsOptioTunic
     ears: N14ClothingHeadsetLegion
-    neck: M14ClothingNeckLegionMantle
-    mask: N14ClothingMaskBrownMask
+    neck: MisfitsOptioScarf
     back: N14ClothingBackpackMilitary
     shoes: N14ClothingShoesKaligi
     head: N14ClothingHeadHatLegionHood

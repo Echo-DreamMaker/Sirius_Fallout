@@ -67,4 +67,5 @@
 - type: startingGear
   id: BwonsamdiGear
   equipment:
+    wallet: N14Wallet
     back: ClothingBackpackBwonsamdiHarness

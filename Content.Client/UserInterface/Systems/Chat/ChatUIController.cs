@@ -68,8 +68,7 @@ public sealed class ChatUIController : UIController
     [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
     [UISystemDependency] private readonly RoleCodewordSystem? _roleCodewordSystem = default!;
 
-    [ValidatePrototypeId<ColorPalettePrototype>]
-    private const string ChatNamePalette = "ChatNames";
+    private static readonly ProtoId<ColorPalettePrototype> ChatNamePalette = "ChatNames";
     private string[] _chatNameColors = default!;
     private bool _chatNameColorsEnabled;
 
@@ -85,7 +84,7 @@ public sealed class ChatUIController : UIController
         {SharedChatSystem.EmotesPrefix, ChatSelectChannel.Emotes},
         {SharedChatSystem.EmotesAltPrefix, ChatSelectChannel.Emotes},
         {SharedChatSystem.AdminPrefix, ChatSelectChannel.Admin},
-        // #Misfits Change — disabled ';' auto-consuming to Radio/Common channel.
+        // #Misfits Change вЂ” disabled ';' auto-consuming to Radio/Common channel.
         // {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
         {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
         {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic} //Nyano - Summary: adds the telepathic prefix =.
@@ -100,7 +99,7 @@ public sealed class ChatUIController : UIController
         {ChatSelectChannel.OOC, SharedChatSystem.OOCPrefix},
         {ChatSelectChannel.Emotes, SharedChatSystem.EmotesPrefix},
         {ChatSelectChannel.Admin, SharedChatSystem.AdminPrefix},
-        // #Misfits Change — disabled ';' auto-consuming to Radio/Common channel.
+        // #Misfits Change вЂ” disabled ';' auto-consuming to Radio/Common channel.
         // {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
         {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
         {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix } //Nyano - Summary: associates telepathic with =.
@@ -646,7 +645,7 @@ public sealed class ChatUIController : UIController
 
             queueData.TimeLeft += BubbleDelayBase + msg.Message.Message.Length * BubbleDelayFactor;
 
-            // Don't create speech bubbles for entities that are out of LOS — discard the message
+            // Don't create speech bubbles for entities that are out of LOS вЂ” discard the message
             // instead of creating a hidden bubble that would spam the screen when LOS is regained.
             if (entity != player)
             {
@@ -735,8 +734,8 @@ public sealed class ChatUIController : UIController
 
         if (prefixChannel == ChatSelectChannel.None)
         {
-            // #Misfits Change — when Radio is selected with no explicit :x prefix, display the headset's
-            // default channel (e.g. BoS → "Brotherhood of Steel") instead of the generic "Radio" label.
+            // #Misfits Change вЂ” when Radio is selected with no explicit :x prefix, display the headset's
+            // default channel (e.g. BoS в†’ "Brotherhood of Steel") instead of the generic "Radio" label.
             RadioChannelPrototype? defaultRadio = null;
             if (box.SelectedChannel == ChatSelectChannel.Radio)
                 TryGetRadioChannel(SharedChatSystem.DefaultChannelPrefix, out defaultRadio);
@@ -771,7 +770,7 @@ public sealed class ChatUIController : UIController
         return TryAssignSlashAlias(text, "./me", ChatSelectChannel.Emotes, ref channel, ref strippedText, ref forceRadioPrefix)
             || TryAssignSlashAlias(text, "./em", ChatSelectChannel.Emotes, ref channel, ref strippedText, ref forceRadioPrefix)
             || TryAssignSlashAlias(text, "./do", ChatSelectChannel.Emotes, ref channel, ref strippedText, ref forceRadioPrefix)
-            || TryAssignSlashAlias(text, "./aemote", ChatSelectChannel.Emotes, ref channel, ref strippedText, ref forceRadioPrefix) // #Misfits Change — admin area emote alias
+            || TryAssignSlashAlias(text, "./aemote", ChatSelectChannel.Emotes, ref channel, ref strippedText, ref forceRadioPrefix) // #Misfits Change вЂ” admin area emote alias
             || TryAssignSlashAlias(text, "./looc", ChatSelectChannel.LOOC, ref channel, ref strippedText, ref forceRadioPrefix)
             || TryAssignSlashAlias(text, "./ooc", ChatSelectChannel.OOC, ref channel, ref strippedText, ref forceRadioPrefix)
             || TryAssignSlashAlias(text, "./admin", ChatSelectChannel.Admin, ref channel, ref strippedText, ref forceRadioPrefix)
@@ -907,7 +906,7 @@ public sealed class ChatUIController : UIController
             channel = prefixChannel;
         else if (channel == ChatSelectChannel.Radio)
         {
-            // #Misfits Change — use :h (DefaultChannelKey) so the server routes via the
+            // #Misfits Change вЂ” use :h (DefaultChannelKey) so the server routes via the
             // player's equipped headset default channel. ; (Common prefix) is disabled.
             text = $"{SharedChatSystem.DefaultChannelPrefix}{text}";
         }
@@ -1086,10 +1085,10 @@ public sealed class ChatUIController : UIController
         return MapLocalIfGhost(PreferredChannel);
     }
 
-    // #Misfits Change — true when the local player is any kind of ghost.
+    // #Misfits Change вЂ” true when the local player is any kind of ghost.
     public bool IsGhost => _ghost?.IsGhost ?? false;
 
-    // #Misfits Change — true when the local player is currently in admin ghost (aghost) mode.
+    // #Misfits Change вЂ” true when the local player is currently in admin ghost (aghost) mode.
     public bool IsAdminGhost =>
         _ghost is { IsGhost: true } &&
         _ghost.Player?.CanGhostInteract == true &&

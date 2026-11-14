@@ -164,7 +164,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
     private bool IsChunkLoaded(EntityUid uid, TransformComponent xform)
     {
         if (!_worldMapQuery.TryGetComponent(xform.MapUid, out var worldComponent))
-            return true; // Not a worldgen map — always active.
+            return true; // Not a worldgen map вЂ” always active.
 
         var chunk = _worldController.GetOrCreateChunk(
             WorldGen.WorldToChunkCoords(_transform.GetWorldPosition(xform)).Floored(),
@@ -269,13 +269,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         if (!_enabled)
             return;
 
-        // Not every mob has the modifier component so do it as a separate query.
-        var count = Count<ActiveNPCComponent>();
-
-        // Grow pooled array if needed (never shrink to avoid churn).
-        if (_npcPool.Length < count)
-            _npcPool = new (EntityUid, NPCSteeringComponent, InputMoverComponent, TransformComponent)[count];
-
+        // #Cythisiax Edited - size the pool from steering NPCs encountered, not every active NPC.
         var query = EntityQueryEnumerator<ActiveNPCComponent, NPCSteeringComponent, InputMoverComponent, TransformComponent>();
         var index = 0;
 
@@ -286,6 +280,10 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
             // are skipped together, preventing wasted CPU on frozen mobs.
             if (!IsChunkLoaded(uid, xform))
                 continue;
+
+            // #Cythisiax Added - grow geometrically only when the reusable pool is full.
+            if (index == _npcPool.Length)
+                Array.Resize(ref _npcPool, Math.Max(16, _npcPool.Length * 2));
 
             _npcPool[index] = (uid, steering, mover, xform);
             index++;
@@ -425,7 +423,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         // Blend last and current tick
         Blend(steering, frameTime, interest, danger);
 
-        // #Misfits Fix — Tie-breaking hysteresis: prefer the previously chosen direction
+        // #Misfits Fix вЂ” Tie-breaking hysteresis: prefer the previously chosen direction
         // when values are within a small epsilon to prevent frame-to-frame oscillation.
         // Remove the danger map from the interest map.
         var desiredDirection = -1;
@@ -508,7 +506,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         var pathfindToken = new CancellationTokenSource();
         var pathfindTarget = steering.Coordinates;
         steering.PathfindToken = pathfindToken;
-        // #Misfits Fix — Reset the stuck clock when we start a new path request.
+        // #Misfits Fix вЂ” Reset the stuck clock when we start a new path request.
         // This ensures the anti-stuck window only measures time the NPC spends
         // truly immobile *after* pathfinding completes, not queue-wait time.
         ResetStuck(steering, xform.Coordinates);

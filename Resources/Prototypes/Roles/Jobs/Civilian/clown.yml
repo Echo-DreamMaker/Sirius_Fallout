@@ -33,6 +33,7 @@
   subGear:
   - ClownPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitClown
     back: ClothingBackpackClownFilled
     shoes: ClothingShoesClown
@@ -48,6 +49,7 @@
   id: ClownPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitClown
     head: ClothingHeadEnvirohelmClown
     gloves: ClothingHandsGlovesEnviroglovesClown

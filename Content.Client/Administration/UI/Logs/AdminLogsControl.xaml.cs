@@ -30,7 +30,7 @@ namespace Content.Client.Administration.UI.Logs;
 [GenerateTypedNameReferences]
 public sealed partial class AdminLogsControl : Control
 {
-    // #Misfits Add — category rail state: maps category name → header button + child container
+    // #Misfits Add вЂ” category rail state: maps category name в†’ header button + child container
     private readonly Dictionary<string, CategoryEntry> _categoryEntries = new();
 
     // Comparers kept for player button sorting (same as original)
@@ -38,11 +38,16 @@ public sealed partial class AdminLogsControl : Control
         Comparer<AdminLogPlayerButton>.Create((a, b) =>
             string.Compare(a.Text, b.Text, StringComparison.Ordinal));
 
-    // #Misfits Add — severity pill button references (built dynamically from LogImpact enum)
+    // #Misfits Add вЂ” severity pill button references (built dynamically from LogImpact enum)
     private readonly Dictionary<LogImpact, Button> _impactButtons = new();
 
-    // #Misfits Add — advanced filter popup, lazily created on first "Filters" click
+    // #Misfits Add вЂ” advanced filter popup, lazily created on first "Filters" click
     private Popup? _filterPopup;
+
+    // The EUI state provides the account name for every player participating in
+    // the selected round. Log text normally contains a character/entity name,
+    // so retain this lookup to show both identities in each rendered row.
+    private readonly Dictionary<Guid, string> _playerUsernames = new();
 
     public AdminLogsControl()
     {
@@ -70,16 +75,16 @@ public sealed partial class AdminLogsControl : Control
         // Filters button text
         FiltersButton.Text = "Filters \u25BE";
 
-        // #Misfits Add — build severity impact pills in the filter row
+        // #Misfits Add вЂ” build severity impact pills in the filter row
         SetImpacts(Enum.GetValues<LogImpact>().OrderBy(impact => impact).ToArray());
 
-        // #Misfits Add — build category rail from LogTypeCategories
+        // #Misfits Add вЂ” build category rail from LogTypeCategories
         BuildCategoryRail();
 
-        // #Misfits Add — wire advanced filters popup
+        // #Misfits Add вЂ” wire advanced filters popup
         FiltersButton.OnPressed += ToggleFilterPopup;
 
-        // #Misfits Add — apply flat button styles matching bwoink panel conventions
+        // #Misfits Add вЂ” apply flat button styles matching bwoink panel conventions
         ApplyButtonStyles();
     }
 
@@ -96,9 +101,9 @@ public sealed partial class AdminLogsControl : Control
     public HashSet<Guid> SelectedPlayers { get; } = new();
     public HashSet<LogImpact> SelectedImpacts { get; } = new();
 
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
     //  Round stepper
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
 
     public void SetCurrentRound(int round)
     {
@@ -128,11 +133,11 @@ public sealed partial class AdminLogsControl : Control
         RoundSpinBox.Value = CurrentRound;
     }
 
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
     //  Severity impact pills
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
 
-    // #Misfits Change — severity pills are inline toggle buttons in the filter row.
+    // #Misfits Change вЂ” severity pills are inline toggle buttons in the filter row.
     // Styled with category-tinted StyleBoxOverride instead of ButtonSquare/OpenLeft/OpenRight.
     private static readonly Dictionary<LogImpact, (Color Bg, Color Text)> ImpactColors = new()
     {
@@ -191,9 +196,9 @@ public sealed partial class AdminLogsControl : Control
         }
     }
 
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
     //  Category rail
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
 
     /// <summary>
     /// Internal state for one category in the left rail.
@@ -208,7 +213,7 @@ public sealed partial class AdminLogsControl : Control
         public List<LogType> Types = new();
     }
 
-    // #Misfits Add — builds the collapsible category tree in the left rail.
+    // #Misfits Add вЂ” builds the collapsible category tree in the left rail.
     // Each category is a header button with live count + left accent bar.
     // Clicking expands/collapses its LogType children as checkboxes.
     private void BuildCategoryRail()
@@ -232,7 +237,7 @@ public sealed partial class AdminLogsControl : Control
                 MinHeight = 28,
             };
 
-            // Left accent bar — thicker (4px) so selection state is obvious at a glance
+            // Left accent bar вЂ” thicker (4px) so selection state is obvious at a glance
             var accent = new PanelContainer
             {
                 MinWidth = 4,
@@ -243,7 +248,7 @@ public sealed partial class AdminLogsControl : Control
             entry.AccentBar = accent;
             headerRow.AddChild(accent);
 
-            // Header button — toggles expand/collapse
+            // Header button вЂ” toggles expand/collapse
             var headerBtn = new Button
             {
                 Text = $"  {category}",
@@ -264,7 +269,7 @@ public sealed partial class AdminLogsControl : Control
             entry.HeaderButton = headerBtn;
             headerRow.AddChild(headerBtn);
 
-            // Count label — shows "(12)" next to category name
+            // Count label вЂ” shows "(12)" next to category name
             var countLabel = new Label
             {
                 FontColorOverride = Color.FromHex("#6a6a88"),
@@ -277,7 +282,7 @@ public sealed partial class AdminLogsControl : Control
 
             CategoriesContainer.AddChild(headerRow);
 
-            // Child container for LogType checkboxes — starts collapsed
+            // Child container for LogType checkboxes вЂ” starts collapsed
             var childContainer = new BoxContainer
             {
                 Orientation = BoxContainer.LayoutOrientation.Vertical,
@@ -316,7 +321,7 @@ public sealed partial class AdminLogsControl : Control
 
             CategoriesContainer.AddChild(childContainer);
 
-            // Wire header click to toggle expand/collapse — highlight header with
+            // Wire header click to toggle expand/collapse вЂ” highlight header with
             // category tint when expanded so it's immediately obvious what's active
             var capturedEntry = entry;
             var capturedCategory = category;
@@ -325,14 +330,14 @@ public sealed partial class AdminLogsControl : Control
                 capturedEntry.Expanded = !capturedEntry.Expanded;
                 capturedEntry.TypesContainer.Visible = capturedEntry.Expanded;
                 // Update header text with expand indicator
-                var prefix = capturedEntry.Expanded ? "▾ " : "▸ ";
+                var prefix = capturedEntry.Expanded ? "в–ѕ " : "в–ё ";
                 capturedEntry.HeaderButton.Text = $"{prefix}{capturedCategory}";
                 // Tint the header background when expanded
                 UpdateCategoryHeaderStyle(capturedCategory, capturedEntry);
             };
 
             // Set initial collapsed text
-            headerBtn.Text = $"▸ {category}";
+            headerBtn.Text = $"в–ё {category}";
 
             _categoryEntries[category] = entry;
         }
@@ -340,7 +345,7 @@ public sealed partial class AdminLogsControl : Control
         UpdateCategoryAccents();
     }
 
-    // #Misfits Add — category accent colors, shared between accent bar / header / type buttons.
+    // #Misfits Add вЂ” category accent colors, shared between accent bar / header / type buttons.
     // Stored at class level to avoid re-allocating every update.
     private static readonly Dictionary<string, (Color Accent, Color DimBg)> CategoryAccentColors = new()
     {
@@ -371,13 +376,13 @@ public sealed partial class AdminLogsControl : Control
                 ? colors.Accent
                 : Color.FromHex("#252540");
 
-            // Accent bar — bright category color when any child is selected
+            // Accent bar вЂ” bright category color when any child is selected
             entry.AccentBar.PanelOverride = new StyleBoxFlat { BackgroundColor = accentColor };
 
-            // Header button — tinted when expanded, default when collapsed
+            // Header button вЂ” tinted when expanded, default when collapsed
             UpdateCategoryHeaderStyle(category, entry);
 
-            // Type buttons — tinted background when selected, dim when unselected
+            // Type buttons вЂ” tinted background when selected, dim when unselected
             UpdateTypeButtonStyles(category, entry);
         }
     }
@@ -394,7 +399,7 @@ public sealed partial class AdminLogsControl : Control
 
         if (entry.Expanded && CategoryAccentColors.TryGetValue(category, out var colors))
         {
-            // Expanded — blend category tint into the base for a visible highlight
+            // Expanded вЂ” blend category tint into the base for a visible highlight
             var baseBg = Color.FromHex("#181830");
             bg = new Color(
                 baseBg.R * 0.5f + colors.DimBg.R * 0.5f,
@@ -475,11 +480,11 @@ public sealed partial class AdminLogsControl : Control
         }
     }
 
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
     //  Advanced filters popup
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
 
-    // #Misfits Add — popup for rarely-used advanced filter controls.
+    // #Misfits Add вЂ” popup for rarely-used advanced filter controls.
     // Built lazily on first click, reused afterward.
     private void ToggleFilterPopup(ButtonEventArgs args)
     {
@@ -541,9 +546,9 @@ public sealed partial class AdminLogsControl : Control
         _filterPopup.Open(UIBox2.FromDimensions(globalPos + new Vector2(0, FiltersButton.Height), new Vector2(220, 130)));
     }
 
-    // ═══════════════════════════════════════════════════════════════
-    //  Button styles — bwoink panel convention (flat StyleBoxOverride)
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
+    //  Button styles вЂ” bwoink panel convention (flat StyleBoxOverride)
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
 
     private void ApplyButtonStyles()
     {
@@ -567,9 +572,9 @@ public sealed partial class AdminLogsControl : Control
         FiltersButton.StyleBoxOverride = slateBox;
     }
 
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
     //  Search / filter handlers (preserved from original)
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
 
     private void TypeSearchChanged(LineEditEventArgs args) => UpdateTypes();
     private void PlayerSearchChanged(LineEditEventArgs args) => UpdatePlayers();
@@ -789,12 +794,22 @@ public sealed partial class AdminLogsControl : Control
         UpdateLogs();
     }
 
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
     //  Log management (preserved public API)
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
 
     public void SetPlayers(Dictionary<Guid, string> players)
     {
+        _playerUsernames.Clear();
+        foreach (var (id, username) in players)
+        {
+            _playerUsernames[id] = username;
+        }
+
+        // This method removes entries as it reconciles the filter controls.
+        // Work on a copy so the EUI state's player lookup remains intact.
+        players = new Dictionary<Guid, string>(players);
+
         var buttons = new SortedSet<AdminLogPlayerButton>(_adminLogPlayerButtonComparer);
         var allSelected = true;
 
@@ -837,7 +852,7 @@ public sealed partial class AdminLogsControl : Control
         UpdateLogs();
     }
 
-    // #Misfits Change — AddLogs now creates AdminLogRow instances instead of AdminLogLabel.
+    // #Misfits Change вЂ” AddLogs now creates AdminLogRow instances instead of AdminLogLabel.
     // Each row gets a category from LogTypeCategories and renders with color-coded segments.
     public void AddLogs(List<SharedAdminLog> logs)
     {
@@ -847,7 +862,7 @@ public sealed partial class AdminLogsControl : Control
             ref var log = ref span[i];
             var separator = new HSeparator();
             var row = new AdminLogRow();
-            row.Setup(ref log);
+            row.Setup(ref log, _playerUsernames);
             row.Separator = separator;
             row.Visible = ShouldShowLog(row);
 
@@ -890,9 +905,9 @@ public sealed partial class AdminLogsControl : Control
         );
     }
 
-    // ═══════════════════════════════════════════════════════════════
-    //  Dispose — unsubscribe everything (bwoink panel pattern)
-    // ═══════════════════════════════════════════════════════════════
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
+    //  Dispose вЂ” unsubscribe everything (bwoink panel pattern)
+    // в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ
 
     protected override void Dispose(bool disposing)
     {

@@ -23,6 +23,7 @@
   subGear:
   - AtmosphericTechnicianPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitAtmos
     back: ClothingBackpackAtmospherics
     shoes: ClothingShoesColorWhite
@@ -36,6 +37,7 @@
   id: AtmosphericTechnicianPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitAtmos
     head: ClothingHeadEnvirohelmAtmos
     gloves: ClothingHandsGlovesEnviroglovesAtmos

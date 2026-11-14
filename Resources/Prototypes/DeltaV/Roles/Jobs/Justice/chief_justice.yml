@@ -42,6 +42,7 @@
   subGear:
   - PassengerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitChiefJustice
     back: ClothingBackpackFilled # TODO- make Justice department bags
     shoes: ClothingShoesLeather

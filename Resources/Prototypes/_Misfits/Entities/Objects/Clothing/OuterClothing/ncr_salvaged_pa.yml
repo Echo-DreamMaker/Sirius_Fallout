@@ -1,4 +1,4 @@
-# #Misfits Add - NCR salvaged T-45 PA variant for Heavy Trooper.
+﻿# #Misfits Add - NCR salvaged T-45 PA variant for Heavy Trooper.
 # Stripped of full servo linkage; no PA training required, no servo-lock on break.
 # Provides 50% passive mitigation (via armor coefficients alone) once integrity is depleted. # #Misfits Tweak - raised from 35% to match nerf request
 
@@ -12,7 +12,7 @@
     complete suit demands, but provides formidable protection and an integrated
     minigun hard-mount while the plates hold.
   components:
-  # No PA training required — servos stripped to basics.
+  # No PA training required тАФ servos stripped to basics.
   - type: N14PowerArmor
     requiresProficiency: false # #Misfits Add - waive training gate for this salvaged variant
   - type: Armor # #Misfits Add - weaker than stock NCR T45 (0.70 coeff) to reflect stripped-down state
@@ -24,7 +24,7 @@
         Heat: 0.50
         Caustic: 0.75
         Radiation: 0.50
-  # 35% speed penalty while wearing — no fusion core needed for this salvaged variant.
+  # 35% speed penalty while wearing тАФ no fusion core needed for this salvaged variant.
   # Standalone modifier (does NOT rely on fusion core 4.5x compensation).
   - type: ClothingSpeedModifier # #Misfits Tweak - standalone 35% slowdown, no fusion core required
     walkModifier: 0.65

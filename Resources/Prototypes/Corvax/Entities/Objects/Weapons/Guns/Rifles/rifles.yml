@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: M7 Spear Rifle Scope
   parent: N14WeaponRifleBase
   id: N14WeaponRifleM7SpearScope

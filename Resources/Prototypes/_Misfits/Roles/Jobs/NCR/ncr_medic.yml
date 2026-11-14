@@ -42,14 +42,14 @@
   id: NCRMedicGear
   equipment:
     jumpsuit: N14ClothingUniformNCRMedicVariant # Corvax-Change
-    outerClothing: N14ClothingOuterCoatFollowersArmored
+    outerClothing: MisfitsClothingOuterNCRMedicLabCoat # #Misfits Change - NCR medic lab coat replaces Followers armored coat
     back: N14ClothingBackpackNCR # Corvax-Change
     shoes: N14ClothingBootsLeatherFilled
     ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
     head: N14ClothingHeadHatNCRBeretMedic #Misfits Add - Medics can spawn with a beret, since helmets are given in loadouts.
     belt: ClothingBeltNCR
     id: N14IDNCRDogtagDoctor
-    pocket2: NCRmedicloadoutkits
+    # #Cythisiax Removed - Main NCR job slots now obtain selectable equipment from the requisitions vendors.
   innerClothingSkirt: N14ClothingUniformNCRDesert # Corvax-Change
   satchel: N14ClothingBackpackSatchelNCRFilled
   storage: # Corvax-Change

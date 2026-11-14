@@ -5,14 +5,14 @@ using Content.Server.Administration.Notes;
 using Content.Server.Administration.Systems;
 using Content.Server.Database;
 using Content.Server.EUI;
-using Content.Server.GameTicking; // #Misfits Add — GameTicker.Respawn for online players
+using Content.Server.GameTicking; // #Misfits Add вЂ” GameTicker.Respawn for online players
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Eui;
 using Content.Shared.Follower; // #Misfits Change
 using Content.Shared.Ghost; // #Misfits Change
-using Content.Shared.Mind; // #Misfits Add — MindComponent for offline entity lookup
-using Content.Shared.Players; // #Misfits Add — ContentData() extension for offline mind lookup
+using Content.Shared.Mind; // #Misfits Add вЂ” MindComponent for offline entity lookup
+using Content.Shared.Players; // #Misfits Add вЂ” ContentData() extension for offline mind lookup
 using Robust.Server.Console; // #Misfits Change
 using Robust.Server.Player;
 using Robust.Shared.Player;
@@ -51,6 +51,15 @@ public sealed class PlayerPanelEui : BaseEui
     {
         base.Opened();
         _admins.OnPermsChanged += OnPermsChanged;
+        try
+        {
+            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+                $"{Player:actor} viewed player panel for {_targetPlayer.Username} ({_targetPlayer.UserId.UserId:targetPlayerId})");
+        }
+        catch (Exception e)
+        {
+            Logger.Error($"Failed to audit player panel opening: {e}");
+        }
     }
 
     public override void Closed()
@@ -62,7 +71,7 @@ public sealed class PlayerPanelEui : BaseEui
     public override EuiStateBase GetNewState()
     {
         _player.TryGetSessionById(_targetPlayer.UserId, out var session);
-        // #Misfits Add — pass whether the player is currently online so the client can reflect it.
+        // #Misfits Add вЂ” pass whether the player is currently online so the client can reflect it.
         var connected = session != null;
 
         return new PlayerPanelEuiState(_targetPlayer.UserId,
@@ -105,7 +114,7 @@ public sealed class PlayerPanelEui : BaseEui
 
                 if (_entity.HasComponent<AdminFrozenComponent>(session.AttachedEntity))
                 {
-                    _adminLog.Add(LogType.Action,$"{Player:actor} unfroze {_entity.ToPrettyString(session.AttachedEntity):subject}");
+                    _adminLog.Add(LogType.AdminAudit,$"{Player:actor} unfroze {_entity.ToPrettyString(session.AttachedEntity):subject}");
                     _entity.RemoveComponent<AdminFrozenComponent>(session.AttachedEntity.Value);
                     SetPlayerState();
                     return;
@@ -113,12 +122,12 @@ public sealed class PlayerPanelEui : BaseEui
 
                 if (freezeMsg.Mute)
                 {
-                    _adminLog.Add(LogType.Action,$"{Player:actor} froze and muted {_entity.ToPrettyString(session.AttachedEntity):subject}");
+                    _adminLog.Add(LogType.AdminAudit,$"{Player:actor} froze and muted {_entity.ToPrettyString(session.AttachedEntity):subject}");
                     frozenSystem.FreezeAndMute(session.AttachedEntity.Value);
                 }
                 else
                 {
-                    _adminLog.Add(LogType.Action,$"{Player:actor} froze {_entity.ToPrettyString(session.AttachedEntity):subject}");
+                    _adminLog.Add(LogType.AdminAudit,$"{Player:actor} froze {_entity.ToPrettyString(session.AttachedEntity):subject}");
                     _entity.EnsureComponent<AdminFrozenComponent>(session.AttachedEntity.Value);
                 }
                 SetPlayerState();
@@ -128,12 +137,12 @@ public sealed class PlayerPanelEui : BaseEui
                 if (!_admins.HasAdminFlag(Player, AdminFlags.Logs))
                     return;
 
-                _adminLog.Add(LogType.Action, $"{Player:actor} opened logs on {_targetPlayer.Username:subject}");
+                _adminLog.Add(LogType.AdminAudit, $"{Player:actor} opened logs on {_targetPlayer.Username:subject}");
                 var ui = new AdminLogsEui();
                 _eui.OpenEui(ui, Player);
                 ui.SetLogFilter(search: _targetPlayer.Username);
                 break;
-            // #Misfits Change — Ghost Follow: ensure admin is in aghost mode, then orbit the target player's entity.
+            // #Misfits Change вЂ” Ghost Follow: ensure admin is in aghost mode, then orbit the target player's entity.
             case PlayerPanelGhostFollowMessage:
                 if (!_admins.HasAdminFlag(Player, AdminFlags.Admin))
                     return;
@@ -153,7 +162,7 @@ public sealed class PlayerPanelEui : BaseEui
                 if (Player.AttachedEntity != null &&
                     _entity.TrySystem<FollowerSystem>(out var followerSystem))
                 {
-                    _adminLog.Add(LogType.Action,
+                    _adminLog.Add(LogType.AdminAudit,
                         $"{Player:actor} ghost-followed {_entity.ToPrettyString(session.AttachedEntity.Value):subject}");
                     followerSystem.StartFollowingEntity(Player.AttachedEntity.Value, session.AttachedEntity.Value);
                 }
@@ -168,7 +177,7 @@ public sealed class PlayerPanelEui : BaseEui
 
                 if (msg is PlayerPanelRejuvenationMessage)
                 {
-                    _adminLog.Add(LogType.Action,$"{Player:actor} rejuvenated {_entity.ToPrettyString(session.AttachedEntity):subject}");
+                    _adminLog.Add(LogType.AdminAudit,$"{Player:actor} rejuvenated {_entity.ToPrettyString(session.AttachedEntity):subject}");
                     if (!_entity.TrySystem<RejuvenateSystem>(out var rejuvenate))
                         return;
 
@@ -176,12 +185,12 @@ public sealed class PlayerPanelEui : BaseEui
                 }
                 else
                 {
-                    _adminLog.Add(LogType.Action,$"{Player:actor} deleted {_entity.ToPrettyString(session.AttachedEntity):subject}");
+                    _adminLog.Add(LogType.AdminAudit,$"{Player:actor} deleted {_entity.ToPrettyString(session.AttachedEntity):subject}");
                     _entity.DeleteEntity(session.AttachedEntity);
                 }
                 break;
 
-            // #Misfits Add — Respawn/Despawn: deletes the lingering entity and frees the spawn slot.
+            // #Misfits Add вЂ” Respawn/Despawn: deletes the lingering entity and frees the spawn slot.
             case PlayerPanelRespawnMessage:
                 if (!_admins.HasAdminFlag(Player, AdminFlags.Admin))
                     return;
@@ -193,7 +202,7 @@ public sealed class PlayerPanelEui : BaseEui
                 if (_player.TryGetSessionById(_targetPlayer.UserId, out session))
                 {
                     // Online player: standard respawn kicks them to lobby and cleans up their entity.
-                    _adminLog.Add(LogType.Action,
+                    _adminLog.Add(LogType.AdminAudit,
                         $"{Player:actor} respawned online player {_targetPlayer.Username} via Player Panel");
                     gameTicker.Respawn(session);
                 }
@@ -209,13 +218,13 @@ public sealed class PlayerPanelEui : BaseEui
                         _entity.TryGetComponent<MindComponent>(mindEnt.Value, out var mindComp) &&
                         mindComp.CurrentEntity is { } bodyEnt)
                     {
-                        _adminLog.Add(LogType.Action,
+                        _adminLog.Add(LogType.AdminAudit,
                             $"{Player:actor} despawned entity of offline player {_targetPlayer.Username}");
                         _entity.DeleteEntity(bodyEnt);
                     }
 
                     mindSystem.WipeMind(mindEnt);
-                    _adminLog.Add(LogType.Action,
+                    _adminLog.Add(LogType.AdminAudit,
                         $"{Player:actor} wiped mind of offline player {_targetPlayer.Username} via Player Panel");
                 }
                 break;

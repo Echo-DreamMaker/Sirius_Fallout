@@ -53,6 +53,7 @@
 - type: startingGear
   id: TribalShamanGear # #Misfits Change - renamed from TribalHealerGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitTribal
     outerClothing: N14ClothingOuterTribalArmor
     shoes: N14ClothingShoesTribal

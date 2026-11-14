@@ -1,19 +1,19 @@
-# Misfits Add — Ticket system localization for admin help & mentor help
+# Misfits Add вЂ” Ticket system localization for admin help & mentor help
 
 ticket-system-claim-button = Claim
 ticket-system-unclaim-button = Unclaim
 ticket-system-resolve-button = Resolve
 ticket-system-reopen-button = Reopen
-ticket-system-status-open = Open — Unclaimed
+ticket-system-status-open = Open вЂ” Unclaimed
 ticket-system-status-claimed = Claimed by {$admin}
 ticket-system-status-resolved = Resolved by {$admin}
 ticket-system-created = [{$type} TICKET #{$id}] {$player} created a new ticket.
 ticket-system-claimed = [{$type} TICKET #{$id}] Claimed by {$admin}.
-ticket-system-unclaimed = [{$type} TICKET #{$id}] Unclaimed by {$admin} — ticket is open.
+ticket-system-unclaimed = [{$type} TICKET #{$id}] Unclaimed by {$admin} вЂ” ticket is open.
 ticket-system-resolved = [{$type} TICKET #{$id}] Resolved by {$admin}.
 ticket-system-reopened = [{$type} TICKET #{$id}] Reopened by {$admin}.
 ticket-system-auto-claimed = [{$type} TICKET #{$id}] Auto-claimed by {$admin} on first reply.
-ticket-system-auto-resolved-disconnect = [{$type} TICKET #{$id}] Auto-resolved — player disconnected.
+ticket-system-auto-resolved-disconnect = [{$type} TICKET #{$id}] Auto-resolved вЂ” player disconnected.
 # #Misfits Add - Player-facing resolve notification (sent only to the player, not admin panel)
 ticket-system-resolved-with-cooldown = Your ticket has been resolved. If you need further assistance, please wait 1 minute before opening a new one.
 # #Misfits Add - Player-facing cooldown block message (sent only to the player when they attempt to re-ticket too quickly)
@@ -33,7 +33,7 @@ ticket-system-reminder-ahelp = [AHELP TICKET] {$count} unclaimed ticket(s) waiti
 ticket-system-reminder-mhelp = [MHELP TICKET] {$count} unclaimed ticket(s) waiting. Use the Help panel to claim them.
 
 # Quick Reply window (opened from player info panel Ahelp button)
-ticket-system-quick-reply-title = AHelp — {$player}
+ticket-system-quick-reply-title = AHelp вЂ” {$player}
 ticket-system-quick-reply-target = Messaging: {$player}
 ticket-system-quick-reply-placeholder = Type a message to send...
 
@@ -43,9 +43,9 @@ ticket-audit-log-window-title = Help Ticket Audit Log
 
 # #Misfits Add - expanded filter panel locale keys
 ticket-audit-filter-player-label = Player (Name or ID):
-ticket-audit-filter-player-placeholder = Enter name or GUID…
+ticket-audit-filter-player-placeholder = Enter name or GUIDвЂ¦
 ticket-audit-filter-admin-label = Admin Name:
-ticket-audit-filter-admin-placeholder = Search by admin name…
+ticket-audit-filter-admin-placeholder = Search by admin nameвЂ¦
 ticket-audit-filter-date-from = From Date:
 ticket-audit-filter-date-to = To Date:
 ticket-audit-filter-date-placeholder = YYYY-MM-DD
@@ -53,10 +53,15 @@ ticket-audit-filter-search = Search
 ticket-audit-filter-clear = Clear Filters
 ticket-audit-filter-month-this = This Month
 ticket-audit-filter-month-last = Last Month
+ticket-audit-filter-month-two-ago = Two Months Ago
 
 # Tab titles
 ticket-audit-tab-events = Audit Events
 ticket-audit-tab-stats = Admin Statistics
+ticket-audit-tab-actions = Admin Actions
+ticket-audit-tab-player-logs = Player Logs
+ticket-audit-actions-requires-logs = Admin Logs permission is required to view these records.
+ticket-audit-player-logs-select = Enter an exact player name or GUID and press Search to view their logs.
 
 # Events list headers
 ticket-audit-header-time = Time
@@ -66,10 +71,10 @@ ticket-audit-header-player = Player
 ticket-audit-header-admin = Admin
 
 # Pagination
-ticket-audit-pagination-prev = ← Prev
-ticket-audit-pagination-next = Next →
+ticket-audit-pagination-prev = в†ђ Prev
+ticket-audit-pagination-next = Next в†’
 ticket-audit-pagination-label = Page {$page} of {$total} ({$count} total events)
-ticket-audit-pagination-placeholder = Loading…
+ticket-audit-pagination-placeholder = LoadingвЂ¦
 
 # Statistics tab
 ticket-audit-stats-label = Admin Ticket Handling Statistics (for selected period)
@@ -80,15 +85,15 @@ ticket-audit-stats-ratio = Share
 ticket-audit-stats-empty = No statistics available for the selected period.
 ticket-audit-stats-ahelp-section = Admin Help (AHELP)
 ticket-audit-stats-mhelp-section = Mentor Help (MHELP)
-ticket-audit-stats-summary-ahelp = AHELP: {$created} created — {$answered} answered ({$pct})
-ticket-audit-stats-summary-mhelp = MHELP: {$created} created — {$answered} answered ({$pct})
+ticket-audit-stats-summary-ahelp = AHELP: {$created} created вЂ” {$answered} answered ({$pct})
+ticket-audit-stats-summary-mhelp = MHELP: {$created} created вЂ” {$answered} answered ({$pct})
 
 # General
 ticket-audit-log-empty = No ticket events found.
 
 # Chat history window
-ticket-chat-history-window-title = Ticket #{$id} — {$player}
-ticket-chat-history-loading = Loading chat history…
+ticket-chat-history-window-title = Ticket #{$id} вЂ” {$player}
+ticket-chat-history-loading = Loading chat historyвЂ¦
 ticket-chat-history-empty = No messages found for this ticket.
 
 # Audit event type display names

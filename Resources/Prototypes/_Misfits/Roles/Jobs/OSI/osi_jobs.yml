@@ -3,7 +3,7 @@
 # one of three branch loadout kits (Mechanical / Medical / Field) on spawn.
 # The OSI Agent is whitelist-only (hidden from the job picker without an admin whitelist).
 
-# OSI Chief Scientist — head of the detachment's science program.
+# OSI Chief Scientist вЂ” head of the detachment's science program.
 - type: job
   id: OSIChiefScientist
   setPreference: true
@@ -52,11 +52,12 @@
 - type: startingGear
   id: OSIChiefScientistGear
   equipment:
+    wallet: N14Wallet
     head: N14ClothingHeadHatNCRBeretMedic
     jumpsuit: N14ClothingUniformJumpsuitRDFormal
     outerClothing: N14ClothingOuterCoatFollowersArmored
     back: N14ClothingBackpackNCR
-    shoes: ClothingShoesColorBlack
+    shoes: N14ClothingShoesBlack
     eyes: N14ClothingEyesGlassesWelding
     belt: ClothingBeltUtility
     ears: MisfitsClothingHeadsetOSI
@@ -74,7 +75,7 @@
 - type: playTimeTracker
   id: OSIChiefScientist
 
-# OSI Scientist — mid-tier science specialist.
+# OSI Scientist вЂ” mid-tier science specialist.
 - type: job
   id: OSIScientist
   setPreference: true
@@ -117,6 +118,7 @@
 - type: startingGear
   id: OSIScientistGear
   equipment:
+    wallet: N14Wallet
     head: N14ClothingHeadHatNCRBeretMedic
     jumpsuit: N14ClothingUniformJumpsuitRDFormal
     outerClothing: N14ClothingOuterCoatLab
@@ -138,7 +140,7 @@
 - type: playTimeTracker
   id: OSIScientist
 
-# OSI Assistant — entry-level science aide.
+# OSI Assistant вЂ” entry-level science aide.
 - type: job
   id: OSIAssistant
   setPreference: true
@@ -181,6 +183,7 @@
 - type: startingGear
   id: OSIAssistantGear
   equipment:
+    wallet: N14Wallet
     head: N14ClothingHeadHatNCRBeretMedic
     jumpsuit: N14ClothingUniformJumpsuitRDFormal
     outerClothing: N14ClothingOuterCoatLab
@@ -202,7 +205,7 @@
 - type: playTimeTracker
   id: OSIAssistant
 
-# OSI Agent — whitelist-only field operative attached to the science office.
+# OSI Agent вЂ” whitelist-only field operative attached to the science office.
 - type: job
   id: OSIAgent
   setPreference: true
@@ -243,6 +246,7 @@
 - type: startingGear
   id: OSIAgentGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformNCRDesert
     outerClothing: N14ClothingOuterNCRPouchedVestDesert
     back: N14ClothingBackpackNCR

@@ -76,6 +76,7 @@
       tags:
       - HighRiskItem #ian meat
     efficiency: 0.9
+    chopsLogs: true # Misfits
   - type: Sprite
     sprite: Structures/Machines/recycling.rsi
     layers:
@@ -103,3 +104,13 @@
     solution: output
   - type: ExaminableSolution
     solution: output
+  # #Misfits
+  - type: AutomationSlots
+    slots:
+    - !type:AutomatedSolution
+      input: AutomationSlotSolution
+      output: AutomationSlotSolution
+      solutionName: output
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice

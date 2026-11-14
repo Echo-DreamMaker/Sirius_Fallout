@@ -34,11 +34,14 @@
       - type: NpcFactionMember
         factions:
           - Rangers
+      - type: FactionRoster # #Cythisiax Added - roster GUI: the Chief Ranger can manage every Ranger up to Ranger Lead
+        roster: Rangers
 
 - type: startingGear
   id: NCRChiefRangerGear
   # The admin-only Chief Ranger is the sole round-start Ranger issued the PA suit.
   equipment:
+    wallet: N14Wallet
     head: N14ClothingHeadHatRangerHelmetFox      # fox ranger helmet
     back: N14ClothingBackpackMilitary
     jumpsuit: N14ClothingUniformRangerV3

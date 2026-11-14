@@ -235,27 +235,6 @@
      - ClothingNeckScarfStripedLightBlue
 
  - type: loadout
-   id: MisfitsLoadoutNeckTownGuardMantle
-   category: Neck
-   cost: 2
-   exclusive: true
-   requirements:
-    - !type:CharacterDepartmentRequirement
-        inverted: true
-        departments:
-        - Vault
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutNeck
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - BoSMidSerf
-        - CaesarLegionSlave
-        - NCRPrisoner
-   items:
-    - N14ClothingNeckTownGuardMantle
-
- - type: loadout
    id: ClothingNeckCrucifixColor
    category: Neck
    cost: 2

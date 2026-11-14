@@ -7,7 +7,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Misfits.RaidRequest;
 
-// ── Static configuration ──────────────────────────────────────────────────
+// в”Ђв”Ђ Static configuration в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 /// <summary>
 /// Eligibility configuration for the raid-request system. Lists factions that can submit raids.
@@ -26,6 +26,7 @@ public static class RaidRequestConfig
         "Tribal", "Vault", "Followers",
         "Enclave", // #Misfits Add - Enclave remnant faction may submit faction-tier raid requests.
         "Eighties", // #Misfits Add - 80s biker gang may submit faction-tier raid requests.
+        "Rangers", // #Misfits Add - NCR Rangers raid as their own faction, not under the NCR Army.
     };
 
     /// <summary>
@@ -39,7 +40,7 @@ public static class RaidRequestConfig
     };
 
     /// <summary>
-    /// All NPC faction IDs that can submit a raid request (faction-tier ∪ individual-tier).
+    /// All NPC faction IDs that can submit a raid request (faction-tier в€Є individual-tier).
     /// </summary>
     public static readonly HashSet<string> AllEligibleFactionIds = BuildAllEligible();
 
@@ -67,6 +68,7 @@ public static class RaidRequestConfig
         "Followers"   => "Followers of the Apocalypse",
         "Wastelander" => "Wastelander",
         "Eighties"    => "80s",
+        "Rangers"     => "NCR Rangers", // #Misfits Add
         _             => canonicalFaction,
     };
 
@@ -82,7 +84,7 @@ public enum RaidRequestTargetKind : byte
     Group,
 }
 
-// ── Lifecycle types ───────────────────────────────────────────────────────
+// в”Ђв”Ђ Lifecycle types в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 [Serializable, NetSerializable]
 public enum RaidRequestStatus : byte
@@ -95,7 +97,7 @@ public enum RaidRequestStatus : byte
     Denied,
     /// <summary>Round ended without an admin decision; flipped from Pending on cleanup.</summary>
     Unclaimed,
-    /// <summary>Approved raid was concluded — either manually by an admin or by the 15-minute auto-expiry. Overlay tags removed.</summary>
+    /// <summary>Approved raid was concluded вЂ” either manually by an admin or by the 15-minute auto-expiry. Overlay tags removed.</summary>
     Concluded,
     /// <summary>Prep period elapsed; raid is live, [ALLY]/[ENEMY] overlay tags drawn, 15-minute auto-conclude timer running.</summary>
     Active,
@@ -118,7 +120,7 @@ public sealed class RaidRequestEntry
     /// <summary>Canonical faction id of the requester (e.g. "NCR", "Wastelander").</summary>
     public string RequesterFaction = string.Empty;
 
-    /// <summary>True if this is an individual-tier request (Wastelander) — only the requester is notified, not the whole faction.</summary>
+    /// <summary>True if this is an individual-tier request (Wastelander) вЂ” only the requester is notified, not the whole faction.</summary>
     public bool IsIndividual;
 
     /// <summary>Target kind selected by the requester.</summary>
@@ -133,7 +135,7 @@ public sealed class RaidRequestEntry
     /// <summary>Optional free-text location description.</summary>
     public string LocationNotes = string.Empty;
 
-    /// <summary>Required reason / casus belli (≥ 5 words).</summary>
+    /// <summary>Required reason / casus belli (в‰Ґ 5 words).</summary>
     public string Reason = string.Empty;
 
     /// <summary>Wall-clock UTC timestamp of submission (used for client-side display).</summary>
@@ -153,13 +155,13 @@ public sealed class RaidRequestEntry
 
 }
 
-// ── Network messages: requester ↔ server ──────────────────────────────────
+// в”Ђв”Ђ Network messages: requester в†” server в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
-/// <summary>Client → server: open the raid request panel; server replies with panel data.</summary>
+/// <summary>Client в†’ server: open the raid request panel; server replies with panel data.</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestOpenPanelMsg : EntityEventArgs { }
 
-/// <summary>Server → requester: pre-computed panel state (faction, eligibility, target list, history).</summary>
+/// <summary>Server в†’ requester: pre-computed panel state (faction, eligibility, target list, history).</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestPanelDataMsg : EntityEventArgs
 {
@@ -178,6 +180,9 @@ public sealed class RaidRequestPanelDataMsg : EntityEventArgs
 
     /// <summary>This player's own raid requests this round (lets them see their pending submissions).</summary>
     public List<RaidRequestEntry> MyRequests = new();
+
+    /// <summary>#Misfits Add - Approved (prep) and Active faction raids, with join state for this player.</summary>
+    public List<RaidJoinInfo> OpenRaids = new();
 }
 
 [Serializable, NetSerializable]
@@ -188,7 +193,7 @@ public sealed class RaidRequestTargetInfo
     public string DisplayName = string.Empty;
 }
 
-/// <summary>Client → server: submit a new raid request.</summary>
+/// <summary>Client в†’ server: submit a new raid request.</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestSubmitMsg : EntityEventArgs
 {
@@ -198,7 +203,7 @@ public sealed class RaidRequestSubmitMsg : EntityEventArgs
     public string Reason        = string.Empty;
 }
 
-/// <summary>Server → requester: result of a submit attempt.</summary>
+/// <summary>Server в†’ requester: result of a submit attempt.</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestSubmitResultMsg : EntityEventArgs
 {
@@ -206,27 +211,27 @@ public sealed class RaidRequestSubmitResultMsg : EntityEventArgs
     public string Message = string.Empty;
 }
 
-// ── Network messages: admin ↔ server ──────────────────────────────────────
+// в”Ђв”Ђ Network messages: admin в†” server в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
-/// <summary>Client → server: admin opened (or refreshed) the raid requests tab; server starts pushing updates.</summary>
+/// <summary>Client в†’ server: admin opened (or refreshed) the raid requests tab; server starts pushing updates.</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestAdminSubscribeMsg : EntityEventArgs { }
 
-/// <summary>Server → subscribed admin: full snapshot of all raid requests this round.</summary>
+/// <summary>Server в†’ subscribed admin: full snapshot of all raid requests this round.</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestAdminListMsg : EntityEventArgs
 {
     public List<RaidRequestEntry> Requests = new();
 }
 
-/// <summary>Server → all subscribed admins: a single request was created or updated.</summary>
+/// <summary>Server в†’ all subscribed admins: a single request was created or updated.</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestAdminUpdateMsg : EntityEventArgs
 {
     public RaidRequestEntry Entry = new();
 }
 
-/// <summary>Client → server: admin approves or denies a request with a comment.</summary>
+/// <summary>Client в†’ server: admin approves or denies a request with a comment.</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestDecisionMsg : EntityEventArgs
 {
@@ -235,7 +240,7 @@ public sealed class RaidRequestDecisionMsg : EntityEventArgs
     public string Comment = string.Empty;
 }
 
-/// <summary>Server → admin: result of a decision attempt (e.g. validation failure).</summary>
+/// <summary>Server в†’ admin: result of a decision attempt (e.g. validation failure).</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestDecisionResultMsg : EntityEventArgs
 {
@@ -244,14 +249,14 @@ public sealed class RaidRequestDecisionResultMsg : EntityEventArgs
     public string Message = string.Empty;
 }
 
-/// <summary>Client → server: admin manually ends an approved raid (clears [ALLY]/[ENEMY] tags).</summary>
+/// <summary>Client в†’ server: admin manually ends an approved raid (clears [ALLY]/[ENEMY] tags).</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestEndMsg : EntityEventArgs
 {
     public int RequestId;
 }
 
-/// <summary>Server → admin: result of an end-raid attempt. Reuses the decision-result UI path.</summary>
+/// <summary>Server в†’ admin: result of an end-raid attempt. Reuses the decision-result UI path.</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestEndResultMsg : EntityEventArgs
 {
@@ -260,10 +265,10 @@ public sealed class RaidRequestEndResultMsg : EntityEventArgs
     public string Message = string.Empty;
 }
 
-// ── Peer-faction approval (target leader bypasses admin) ──────────────────
+// в”Ђв”Ђ Peer-faction approval (target leader bypasses admin) в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 /// <summary>
-/// Server → highest-ranking online member of the TARGET faction when a faction-tier raid is
+/// Server в†’ highest-ranking online member of the TARGET faction when a faction-tier raid is
 /// submitted. Carries the full entry so the popup window can render context. If no eligible
 /// leader is online this is never sent and the request stays Pending for admin review.
 /// </summary>
@@ -273,7 +278,7 @@ public sealed class RaidRequestPeerPromptMsg : EntityEventArgs
     public RaidRequestEntry Entry = new();
 }
 
-/// <summary>Client → server: target faction leader’s YES/NO with optional remark.</summary>
+/// <summary>Client в†’ server: target faction leaderвЂ™s YES/NO with optional remark.</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestPeerDecisionMsg : EntityEventArgs
 {
@@ -282,7 +287,7 @@ public sealed class RaidRequestPeerDecisionMsg : EntityEventArgs
     public string Comment = string.Empty;
 }
 
-/// <summary>Server → leader: result feedback for the popup (e.g. “already decided”).</summary>
+/// <summary>Server в†’ leader: result feedback for the popup (e.g. вЂњalready decidedвЂќ).</summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestPeerDecisionResultMsg : EntityEventArgs
 {
@@ -291,10 +296,10 @@ public sealed class RaidRequestPeerDecisionResultMsg : EntityEventArgs
     public string Message = string.Empty;
 }
 
-// ── Network messages: server → faction (decision broadcast) ───────────────
+// в”Ђв”Ђ Network messages: server в†’ faction (decision broadcast) в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 /// <summary>
-/// Server → affected players (requester + their faction for faction-tier; just requester for
+/// Server в†’ affected players (requester + their faction for faction-tier; just requester for
 /// individual-tier; plus all members of the target faction). Carries the full decided entry so
 /// the client can render the popup + chat banner.
 /// </summary>
@@ -317,18 +322,62 @@ public sealed class RaidRequestConcludedAnnouncementMsg : EntityEventArgs
     public RaidRequestEntry Entry = new();
 }
 
-// ── Network messages: server → all clients (overlay participants) ─────────
+// в”Ђв”Ђ Network messages: server в†’ all clients (overlay participants) в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 /// <summary>
-/// Server → all clients. Periodic broadcast of every entity participating in an
+/// Server в†’ all clients. Periodic broadcast of every entity participating in an
 /// approved faction-tier raid, mirroring <c>FactionWarParticipantsUpdatedEvent</c>.
 /// Each value is the canonical faction side ID for that entity (requester or target).
 /// Used by the AllyTagOverlay to draw [ALLY]/[ENEMY] labels for raid participants
 /// when no war is active. Individual (Wastelander) raids are intentionally excluded
-/// — they don't put a whole faction on alert.
+/// вЂ” they don't put a whole faction on alert.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class RaidRequestParticipantsUpdatedMsg : EntityEventArgs
 {
     public Dictionary<NetEntity, string> Participants = new();
+}
+
+// в”Ђв”Ђ Joining a raid (#Misfits Add) в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
+
+/// <summary>
+/// One approved or live faction raid as shown on the /raid "Raids" tab. Side 1 is the raiders
+/// (requester faction), side 2 the defenders (target faction or group). Players who are not
+/// already on either side may volunteer for one while the raid is in prep, like /war.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class RaidJoinInfo
+{
+    public RaidRequestEntry Entry = new();
+    public string RaiderSideName = string.Empty;
+    public string DefenderSideName = string.Empty;
+    public int RaiderVolunteers;
+    public int DefenderVolunteers;
+
+    /// <summary>0 = not involved, 1 = raiders, 2 = defenders.</summary>
+    public byte MySide;
+
+    /// <summary>True when <see cref="MySide"/> comes from volunteering rather than faction or group membership.</summary>
+    public bool MySideIsVolunteer;
+
+    public bool CanJoin;
+
+    /// <summary>Why <see cref="CanJoin"/> is false, when there is something to tell the player.</summary>
+    public string? CannotJoinReason;
+}
+
+/// <summary>Client в†’ server. Volunteer for a side of an approved raid. Side: 1 = raiders, 2 = defenders.</summary>
+[Serializable, NetSerializable]
+public sealed class RaidRequestJoinMsg : EntityEventArgs
+{
+    public int  RequestId;
+    public byte Side;
+}
+
+/// <summary>Server в†’ the requesting client. Result of a join attempt.</summary>
+[Serializable, NetSerializable]
+public sealed class RaidRequestJoinResultMsg : EntityEventArgs
+{
+    public bool   Success;
+    public string Message = string.Empty;
 }

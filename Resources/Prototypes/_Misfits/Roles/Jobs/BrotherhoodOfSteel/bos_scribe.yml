@@ -1,4 +1,4 @@
-#Misfits Change /Comment-out/: Washington BoS Scribe job removed — will create new prototypes.
+#Misfits Change /Comment-out/: Washington BoS Scribe job removed вЂ” will create new prototypes.
 #- type: job
 #  id: BoSWashingtonScribe
 #  setPreference: true
@@ -93,13 +93,14 @@
 - type: startingGear
   id: BoSScribeGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitBOSScribe
     back: N14ClothingBackpackSatchelMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     # outerClothing: N14ClothingOuterBrotherhoodMidwestFieldScribeCoat # #Misfits Removed - Coat now comes from loadout kit selection
     id: N14IDBrotherhoodOfSteelHolotagScribe
     ears: N14ClothingHeadsetBrotherhoodOfSteelScribe
-    belt: ClothingBeltMilitary
+    # belt: ClothingBeltMilitary # #Misfits Removed - Belt now comes from loadout kit selection
   storage:
     back:
     - N14BoxPlasticFilledMilitary

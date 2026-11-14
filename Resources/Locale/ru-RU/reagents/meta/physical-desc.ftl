@@ -115,3 +115,5 @@ reagent-physical-desc-scouring = очищающее
 reagent-physical-desc-skunky = скунсовое
 
 reagent-physical-desc-swirling = закручивающееся
+
+reagent-physical-desc-clear = clear

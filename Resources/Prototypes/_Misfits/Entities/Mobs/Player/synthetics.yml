@@ -91,7 +91,7 @@
 #        containers:
 #        - borg_module
 #        - cell_slot
-#        # borg_brain intentionally omitted — player mind is destroyed with the chassis
+#        # borg_brain intentionally omitted вЂ” player mind is destroyed with the chassis
 #      - !type:DoActsBehavior
 #        acts: [ "Destruction" ]
 
@@ -130,7 +130,7 @@
     speechSounds: Pai
   - type: BorgHands # #Misfits Change: Mr. Handy gets a third usable item slot
     handCount: 3
-  # #Misfits Change: Disabled idle/aggro auto-sounds for player-controlled robots — sounds fire uncontrollably while the player is present
+  # #Misfits Change: Disabled idle/aggro auto-sounds for player-controlled robots вЂ” sounds fire uncontrollably while the player is present
   # - type: IdleSound
   # - type: SpamEmitSound
   #   minInterval: 15
@@ -158,7 +158,7 @@
   - type: RobotSelfRepairAnnouncer # #Misfits Change: hull integrity warnings + self-repair popups
   - type: Sanitized # #Misfits Change: makes mr handy not do damage in surgery
 
-  - type: Gun # #Misfits Add: built-in flamer — right-click in combat mode to fire
+  - type: Gun # #Misfits Add: built-in flamer вЂ” right-click in combat mode to fire
     cameraRecoilScalar: 0
     fireRate: 10
     selectedMode: FullAuto
@@ -189,7 +189,7 @@
     nextChargeTime: 10
   # #Misfits Fix - Removed RobotGunPowerDrain: the flamer drained the same chassis cell_slot that
   # powers the built-in flashlight (HandheldLight). Spraying killed the light and it could not be
-  # re-enabled until the cell recharged — the reported "flashlight breaks when using blaster" bug.
+  # re-enabled until the cell recharged вЂ” the reported "flashlight breaks when using blaster" bug.
   # The flamer is already fuel/ammo-limited, so this doesn't make it free.
   - type: ContainerFill
     containers:
@@ -199,13 +199,12 @@
         - BorgModuleDiagnosis
         - BorgModuleTreatment
         - BorgModuleSurgery
-        - BorgModuleCleaning # #Misfits Add: Mr. Handy is a domestic servant — cleaning module is thematic
-        - BorgModuleGardening # #Misfits Add: domestic servant — gardening fits the Handy role
+        - BorgModuleCleaning # #Misfits Add: Mr. Handy is a domestic servant вЂ” cleaning module is thematic
+        - BorgModuleGardening # #Misfits Add: domestic servant вЂ” gardening fits the Handy role
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCard
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -217,7 +216,7 @@
   id: N14PlayerSyntheticProtectron
   name: protectron
   suffix: player, synthetic
-  description: A RobCo Industries Protectron civil service robot, now guided by a living mind. The baseline model — equipped with an integrated hand-laser for self-defense and a general utility toolkit. Functional but unremarkable; the jack-of-all-trades among Protectron chassis types.
+  description: A RobCo Industries Protectron civil service robot, now guided by a living mind. The baseline model вЂ” equipped with an integrated hand-laser for self-defense and a general utility toolkit. Functional but unremarkable; the jack-of-all-trades among Protectron chassis types.
   components:
   - type: HumanoidAppearance
     species: RobotProtectron
@@ -244,7 +243,7 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai
-  # #Misfits Change: Disabled idle/aggro auto-sounds for player-controlled robots — sounds fire uncontrollably while the player is present
+  # #Misfits Change: Disabled idle/aggro auto-sounds for player-controlled robots вЂ” sounds fire uncontrollably while the player is present
   # - type: IdleSound
   # - type: SpamEmitSound
   #   minInterval: 15
@@ -294,14 +293,13 @@
     containers:
       borg_brain:
         - PositronicBrain
-      borg_module: # #Misfits Add: civil-service general loadout — integrated laser for self-defense + basic utility toolkit
+      borg_module: # #Misfits Add: civil-service general loadout вЂ” integrated laser for self-defense + basic utility toolkit
         - N14BorgModuleLaser # integrated hand-laser, matches Fallout canon dual hand-lasers
         - BorgModuleTool     # wrench/screwdriver/welder kit for general civil service tasks
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCardRobCo # RobCo Industries Navigation
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -341,7 +339,7 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai
-  # #Misfits Change: Disabled idle/aggro auto-sounds for player-controlled robots — sounds fire uncontrollably while the player is present
+  # #Misfits Change: Disabled idle/aggro auto-sounds for player-controlled robots вЂ” sounds fire uncontrollably while the player is present
   # - type: IdleSound
   # - type: SpamEmitSound
   #   minInterval: 15
@@ -368,7 +366,7 @@
         Caustic: -0.5
   - type: RobotSelfRepairAnnouncer # #Misfits Change: hull integrity warnings + self-repair popups
 
-  - type: Gun # #Misfits Add: built-in plasma caster — right-click in combat mode to fire
+  - type: Gun # #Misfits Add: built-in plasma caster вЂ” right-click in combat mode to fire
     fireRate: 2
     soundGunshot:
       collection: N14PlasmaPistolGunshot
@@ -392,12 +390,11 @@
       borg_brain:
         - PositronicBrain
       borg_module:
-        - BorgModuleTool # #Misfits Add: military utility — field repair and maintenance tools
+        - BorgModuleTool # #Misfits Add: military utility вЂ” field repair and maintenance tools
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCard # General Atomics Navigation
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -409,7 +406,7 @@
   id: N14PlayerSyntheticProtectronPolice
   name: protectron police
   suffix: player, synthetic, police
-  description: A RobCo Industries Protectron police model specialising in close-quarters detainment. Equipped with a heavy electro-shock melee strike, a stun baton, and restraint tools. No ranged weapons — this unit subdues, not suppresses.
+  description: A RobCo Industries Protectron police model specialising in close-quarters detainment. Equipped with a heavy electro-shock melee strike, a stun baton, and restraint tools. No ranged weapons вЂ” this unit subdues, not suppresses.
   components:
   - type: HumanoidAppearance
     species: RobotProtectronPolice
@@ -447,7 +444,7 @@
   #   rechargeCooldown: 2
   #   rechargeSound:
   #     path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-  - type: MeleeWeapon # #Misfits Add: electro-shock close combat — Fallout Police Protectron uses powerful melee strikes and painful electric shock
+  - type: MeleeWeapon # #Misfits Add: electro-shock close combat вЂ” Fallout Police Protectron uses powerful melee strikes and painful electric shock
     hidden: true
     soundHit:
       path: /Audio/Effects/sparks4.ogg
@@ -457,7 +454,7 @@
     damage:
       types:
         Blunt: 10  # moderate impact force
-        Shock: 12  # painful electric discharge — the signature Police Protectron incapacitation tool
+        Shock: 12  # painful electric discharge вЂ” the signature Police Protectron incapacitation tool
   - type: ContainerFill # #Misfits Change: security module provides stun baton, cuffs, and flashlight for patrol and detainment
     containers:
       borg_brain:
@@ -468,7 +465,6 @@
         - MisfitsRobotNavCardRobCo
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
 
 - type: entity
   parent: N14PlayerSyntheticProtectron
@@ -504,14 +500,14 @@
         - MisfitsRobotNavCardRobCo
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
+
 
 - type: entity
   parent: N14PlayerSyntheticProtectron
   id: N14PlayerSyntheticProtectronFire
   name: protectron firefighter
   suffix: player, synthetic, firefighter
-  description: A RobCo Industries Protectron firefighter model equipped for fire suppression and emergency response. Features an integrated cryo emitter — its signature cryogenic projector that freezes flames and slows targets — backed by a standard water extinguisher module.
+  description: A RobCo Industries Protectron firefighter model equipped for fire suppression and emergency response. Features an integrated cryo emitter вЂ” its signature cryogenic projector that freezes flames and slows targets вЂ” backed by a standard water extinguisher module.
   components:
   - type: HumanoidAppearance
     species: RobotProtectronFire
@@ -528,7 +524,7 @@
       shader: unshaded
       map: ["light"]
       visible: false
-  - type: Gun # #Misfits Add: integrated cryo emitter — Fallout canon firefighter Protectrons carry an internal cryo gun
+  - type: Gun # #Misfits Add: integrated cryo emitter вЂ” Fallout canon firefighter Protectrons carry an internal cryo gun
     minAngle: 9
     maxAngle: 18
     angleIncrease: 3
@@ -540,7 +536,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: BasicEntityAmmoProvider # cryo bursts: slower recharge than the laser — cryo emitter is a utility tool not a spam weapon
+  - type: BasicEntityAmmoProvider # cryo bursts: slower recharge than the laser вЂ” cryo emitter is a utility tool not a spam weapon
     proto: BulletCryo
     capacity: 6
     count: 6
@@ -559,7 +555,6 @@
         - MisfitsRobotNavCardRobCo
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
 
 # Tribal Protectron
 - type: entity
@@ -779,7 +774,7 @@
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai
-  # #Misfits Change: Disabled idle/aggro auto-sounds for player-controlled robots — sounds fire uncontrollably while the player is present
+  # #Misfits Change: Disabled idle/aggro auto-sounds for player-controlled robots вЂ” sounds fire uncontrollably while the player is present
   # - type: IdleSound
   # - type: SpamEmitSound
   #   minInterval: 15
@@ -856,11 +851,11 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellAntiqueProto
 
-# ────────────────────────────────────────────────────────
-# Assaultron — Tesla variant (model picker variant of RobotAssaultron)
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
+# Assaultron вЂ” Tesla variant (model picker variant of RobotAssaultron)
 # Same chassis and speed as the beam variant, but fires a tesla energy ball
 # with chain-lightning arcs instead of a focused heat beam.
-# ────────────────────────────────────────────────────────
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 - type: entity
   parent: N14PlayerSyntheticAssaultron
@@ -874,11 +869,11 @@
   - type: ActionGun
     action: ActionAssaultronTesla
     gunProto: N14AssaultronTeslaActionGun
-# ────────────────────────────────────────────────────────
-# Sentry Bot — Minigun variant (base sentry bot species default)
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
+# Sentry Bot вЂ” Minigun variant (base sentry bot species default)
 # Heavy assault platform with built-in 5mm minigun, missile launcher, and heavy armor.
 # Trades speed for firepower and durability. 50% reflect on all projectile types.
-# ────────────────────────────────────────────────────────
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 - type: entity
   parent: N14BasePlayerSynthetic
@@ -916,7 +911,7 @@
   - type: MovementSpeedModifier # Sentry bots are extremely slow
     baseWalkSpeed: 1.0
     baseSprintSpeed: 1.5
-  - type: MobThresholds # Heavy-class robot — much more durable than standard borgs
+  - type: MobThresholds # Heavy-class robot вЂ” much more durable than standard borgs
     thresholds:
       0: Alive
       350: Dead
@@ -933,7 +928,7 @@
         Heat: 0.60
   - type: ExplosionResistance # #Misfits Add: sentry bots shrug off most explosions
     damageCoefficient: 0.50
-  - type: Reflect # #Misfits Add: 50% reflect on all projectile types — sentry bot heavy plating
+  - type: Reflect # #Misfits Add: 50% reflect on all projectile types вЂ” sentry bot heavy plating
     innate: true
     reflectProb: 0.5
     spread: 150
@@ -943,7 +938,7 @@
     - SmallCaliber
     - MediumCaliber
   - type: NoPull # Too heavy to drag
-  # Sentry bot 360-degree red glow — spawns 4 cone PointLight emitters at cardinal
+  # Sentry bot 360-degree red glow вЂ” spawns 4 cone PointLight emitters at cardinal
   # rotations on init (matching the NPC sentry bot). Also drives overload flash.
   - type: SentryBotOverloadLight
     steadyLightEnabled: true
@@ -954,7 +949,7 @@
     enabled: false
     radius: 0
     softness: 0
-  - type: Gun # #Misfits Add: built-in 5mm minigun — fires in bursts, then overheats
+  - type: Gun # #Misfits Add: built-in 5mm minigun вЂ” fires in bursts, then overheats
     minAngle: 5
     maxAngle: 20
     angleIncrease: 5
@@ -966,7 +961,7 @@
     selectedMode: FullAuto
     availableModes:
       - FullAuto
-  - type: BasicEntityAmmoProvider # #Misfits Add: limited magazine — overheat system refills after cooldown
+  - type: BasicEntityAmmoProvider # #Misfits Add: limited magazine вЂ” overheat system refills after cooldown
     proto: N14Bullet5mm
     capacity: 30
     count: 30
@@ -991,7 +986,7 @@
     tags:
     - DoorBumpOpener
     - CanPilot
-    # No FootstepSound — sentry bots move on wheels/treads, not feet
+    # No FootstepSound вЂ” sentry bots move on wheels/treads, not feet
   - type: ContainerFill
     containers:
       borg_brain:
@@ -1008,7 +1003,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
   # #Misfits Fix: override base chassis Destructible so the player SentryBot behaves like
-  # the NPC variants — the chassis stays in Dead state after the damage threshold fires,
+  # the NPC variants вЂ” the chassis stays in Dead state after the damage threshold fires,
   # then the TriggerOnMobstateChange explosion below destroys it 8 seconds later.
   # DoActsBehavior: Destruction is intentionally absent (explosion handles cleanup).
   # borg_brain is excluded from EmptyContainersBehaviour so the brain is destroyed
@@ -1053,8 +1048,8 @@
         containers:
         - borg_module
         - cell_slot
-        # borg_brain intentionally omitted — destroyed with chassis in the explosion below
-  # #Misfits Add: death explosion matching the NPC SentryBot — 8-second beeping fuse
+        # borg_brain intentionally omitted вЂ” destroyed with chassis in the explosion below
+  # #Misfits Add: death explosion matching the NPC SentryBot вЂ” 8-second beeping fuse
   # triggered when the chassis enters Dead mob state, then fires a structural explosion.
   - type: TriggerOnMobstateChange
     mobState:
@@ -1075,10 +1070,10 @@
     totalIntensity: 24
     canCreateVacuum: false
 
-# ────────────────────────────────────────────────────────
-# Sentry Bot — Laser Gatling variant
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
+# Sentry Bot вЂ” Laser Gatling variant
 # Same heavy chassis as minigun variant but armed with a gatling laser.
-# ────────────────────────────────────────────────────────
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 - type: entity
   parent: N14PlayerSyntheticSentryBotMinigun
@@ -1089,7 +1084,7 @@
   components:
   - type: HumanoidAppearance
     species: RobotSentryBotLaser
-  - type: Gun # #Misfits Add: built-in gatling laser — fires in bursts then overheats
+  - type: Gun # #Misfits Add: built-in gatling laser вЂ” fires in bursts then overheats
     minAngle: 3
     maxAngle: 15
     angleIncrease: 4
@@ -1106,11 +1101,11 @@
     capacity: 20
     count: 20
 
-# ────────────────────────────────────────────────────────
-# Robobrain — Standard variant (base robobrain species default)
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
+# Robobrain вЂ” Standard variant (base robobrain species default)
 # Slower than other robots but versatile. Utility and medical borg modules.
 # Uses species-based spawning (roundstart), unlike the MMI-insertion chassis.
-# ────────────────────────────────────────────────────────
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 - type: entity
   parent: N14BasePlayerSynthetic
@@ -1182,17 +1177,16 @@
         - MisfitsRobotNavCardRobCo
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
 
-# ────────────────────────────────────────────────────────
-# Robobrain — Laser variant
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
+# Robobrain вЂ” Laser variant
 # Same chassis as standard but with a built-in laser emitter (like Police Protectron).
-# ────────────────────────────────────────────────────────
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 - type: entity
   parent: N14PlayerSyntheticRobobrain
@@ -1203,7 +1197,7 @@
   components:
   - type: HumanoidAppearance
     species: RobotRobobrainLaser
-  - type: Gun # #Misfits Add: built-in laser — same pattern as Police Protectron eyebot-class
+  - type: Gun # #Misfits Add: built-in laser вЂ” same pattern as Police Protectron eyebot-class
     minAngle: 9
     maxAngle: 18
     angleIncrease: 3
@@ -1234,4 +1228,3 @@
         - MisfitsRobotNavCardRobCo
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault

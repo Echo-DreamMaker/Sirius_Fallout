@@ -3,6 +3,7 @@ using Content.Shared.Armor;
 using Content.Shared.Clothing;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Explosion.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
@@ -25,9 +26,9 @@ namespace Content.Shared._Misfits.PowerArmor;
 ///     so that armor coefficients have already reduced the incoming damage before
 ///     this system applies absorption.
 ///
-///     Flow: raw damage → ArmorComponent coefficients → IntegritySystem absorption split
-///       → portion to armor HP (via DamageableComponent on the item)
-///       → remainder to the wearer
+///     Flow: raw damage в†’ ArmorComponent coefficients в†’ IntegritySystem absorption split
+///       в†’ portion to armor HP (via DamageableComponent on the item)
+///       в†’ remainder to the wearer
 ///
 ///     As the armor accumulates damage its effective absorption ratio degrades
 ///     through configurable tiers. When fully broken (0 integrity), all damage
@@ -157,7 +158,7 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
 
         // #Misfits Change - broken armor: ArmorComponent stays active (coefficients still apply).
         // Apply BrokenBleedthroughRatio (20%) so the wearer takes only 20% of post-coefficient damage.
-        // OLD behavior: returned early → ArmorComponent had been removed → wearer took full damage.
+        // OLD behavior: returned early в†’ ArmorComponent had been removed в†’ wearer took full damage.
         if (comp.Broken)
         {
             var brokenShare = new DamageSpecifier();
@@ -184,7 +185,7 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
         if (integrity <= 0)
             return;
 
-        // Only absorb positive (incoming) damage — don't interfere with healing.
+        // Only absorb positive (incoming) damage вЂ” don't interfere with healing.
         var incomingDamage = args.Args.Damage;
         if (!incomingDamage.AnyPositive())
             return;
@@ -322,7 +323,7 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
     /// <summary>
     ///     Prevents other mobs from displacing a power armor wearer via the mob
     ///     collision system. A Paladin blocking a corridor should be an immovable
-    ///     wall — others cannot push through or around them by walking into them.
+    ///     wall вЂ” others cannot push through or around them by walking into them.
     /// </summary>
     private void OnAttemptMobTargetCollide(EntityUid uid, PowerArmorWornComponent comp, ref AttemptMobTargetCollideEvent args)
     {
@@ -374,7 +375,7 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
         }
         else if (integrity > 0 && wasBroken)
         {
-            // Armor was repaired above 0 — clear the speed debuff.
+            // Armor was repaired above 0 вЂ” clear the speed debuff.
             comp.Broken = false;
 
             // #Misfits Removed - ArmorComponent restoration from cache is no longer needed;

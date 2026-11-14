@@ -37,7 +37,8 @@
 - type: startingGear
   id: BoSMidSquireGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack  #Misfits Change /Tweak/: New consolidated BoS gear
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitBOSGreen  #Misfits Change /Tweak/: New consolidated BoS gear
     back: MisfitsClothingBackpackSquire # #Misfits Add - Squire Bag starting back item
     shoes: N14ClothingBootsLeatherFilled
     head: N14ClothingHeadHatBanganeBoS

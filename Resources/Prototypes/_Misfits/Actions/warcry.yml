@@ -83,7 +83,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 720
     icon: _Misfits/Interface/Actions/warcry.png
     range: 2
     checkCanAccess: false

@@ -36,6 +36,7 @@
 - type: startingGear
   id: TownDeputyGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitTownGuard
     ears: MisfitsClothingHeadsetTown
     back: N14ClothingBackpackSatchelMilitary # Forge-Change

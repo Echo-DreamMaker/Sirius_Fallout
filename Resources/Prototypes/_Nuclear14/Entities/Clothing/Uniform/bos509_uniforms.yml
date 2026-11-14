@@ -1,0 +1,164 @@
+﻿- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSInitiate509
+  name: Brotherhood 509th initiate jumpsuit
+  description: A jumpsuit worn by initiates of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_initiate_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_initiate_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSSquire509
+  name: Brotherhood 509th squire jumpsuit
+  description: A jumpsuit worn by squires of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_squire_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_squire_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSKnight509
+  name: Brotherhood 509th knight jumpsuit
+  description: A jumpsuit worn by knights of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_knight_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_knight_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSSeniorKnight509
+  name: Brotherhood 509th senior knight jumpsuit
+  description: A jumpsuit worn by senior knights of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_senior_knight_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_senior_knight_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSPaladin509
+  name: Brotherhood 509th paladin jumpsuit
+  description: A jumpsuit worn by paladins of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_paladin_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_paladin_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSLancer509
+  name: Brotherhood 509th lancer jumpsuit
+  description: A jumpsuit worn by lancers of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_lancer_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_lancer_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSScribe509
+  name: Brotherhood 509th scribe jumpsuit
+  description: A jumpsuit worn by scribes of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_scribe_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_scribe_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSFieldScribe509
+  name: Brotherhood 509th field scribe jumpsuit
+  description: A jumpsuit worn by field scribes of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_field_scribe_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_field_scribe_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSMedicalScribe509
+  name: Brotherhood 509th medical scribe jumpsuit
+  description: A jumpsuit worn by medical scribes of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_medical_scribe_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_medical_scribe_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSScienceScribe509
+  name: Brotherhood 509th science scribe jumpsuit
+  description: A jumpsuit worn by science scribes of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_science_scribe_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_science_scribe_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSElderScribe509
+  name: Brotherhood 509th elder scribe jumpsuit
+  description: A jumpsuit worn by elder scribes of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_elder_scribe.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_elder_scribe.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSCasual509
+  name: Brotherhood 509th casual jumpsuit
+  description: A casual jumpsuit worn by members of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_casual_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_casual_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSParade509
+  name: Brotherhood 509th parade jumpsuit
+  description: A parade jumpsuit worn by members of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_parade_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_parade_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSBlackUndersuit509
+  name: Brotherhood 509th black undersuit
+  description: A black undersuit worn by members of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_black_undersuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_black_undersuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitBOSBlackPantsUndersuit509
+  name: Brotherhood 509th black pants undersuit
+  description: A black pants undersuit worn by members of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_black_pants_undersuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_black_pants_undersuit.rsi

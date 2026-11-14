@@ -39,20 +39,24 @@
 - type: startingGear
   id: NCRMilitaryPoliceSergeantGear
   equipment:
+    wallet: N14Wallet
+    ears: N14ClothingHeadsetNCR
     back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingMPUniformNCRDesert
     outerClothing: MisfitsNCRMPCombatArmor
     shoes: N14ClothingBootsCombatFilled
     belt: ClothingBeltNCR
     eyes: ClothingEyesGlassesSunglasses
-    ears: N14ClothingHeadsetNCR
     id: N14IDNCRDogtagMPSergeant
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
   satchel: N14ClothingBackpackSatchelNCRFilled
   storage:
     back:
       - N14BoxPlasticFilledMilitaryNCR
-      - N14PoliceBaton
+      - N14WeaponShotgunAuto
+      - Handcuffs
+      - TearGasGrenade
+      - MisfitsNCRMPShockBaton
       - N14SpeedLoader44Magnum
       - N14SpeedLoader44Magnum
 

@@ -27,6 +27,7 @@
   subGear:
   - ChemistPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitChemistry
     back: ClothingBackpackChemistryFilled
     shoes: ClothingShoesColorWhite
@@ -40,6 +41,7 @@
   id: ChemistPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitChemist
     head: ClothingHeadEnvirohelmChemist
     gloves: ClothingHandsGlovesEnviroglovesWhite

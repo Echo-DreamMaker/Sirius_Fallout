@@ -19,6 +19,7 @@
   subGear:
   - ReporterPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitReporter
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorWhite
@@ -32,6 +33,7 @@
   id: ReporterPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitReporter
     head: ClothingHeadEnvirohelmReporter
     gloves: ClothingHandsGlovesEnviroglovesReporter

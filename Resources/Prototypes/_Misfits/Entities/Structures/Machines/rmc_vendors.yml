@@ -20,7 +20,8 @@
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
   - type: CMAutomatedVendor
-    maxAuthorityTier: 4
+    vendorTitle: Weapon Vendor
+    maxAuthorityTier: 5
     populateFromBlueprints: true
     allocationCategories: [ Ballistic, Laser, Plasma, Energy, Melee, Other weapons ]
     sharedEquipmentCategories: [ Ballistic, Laser, Plasma, Energy, Melee, Other weapons ]
@@ -50,7 +51,8 @@
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
   - type: CMAutomatedVendor
-    maxAuthorityTier: 4
+    vendorTitle: Equipment Vendor
+    maxAuthorityTier: 5
     populateFromBlueprints: true
     allocationCategories: [ Helmet, Armor, Uniform, Gloves, Belt, Boots, Backpack, Pouches, Other equipment ]
     sharedEquipmentCategories: [ Helmet, Armor, Uniform, Gloves, Belt, Boots, Backpack, Pouches, Other equipment ]

@@ -31,6 +31,11 @@ public sealed class LoreMasterClientSystem : EntitySystem
         RaiseNetworkEvent(new RequestLoreMasterFactionInfoEvent { FactionId = factionId });
     }
 
+    public void UploadLocalAudio(byte[] data, string extension)
+    {
+        RaiseNetworkEvent(new UploadLoreMasterAudioEvent(data, extension));
+    }
+
     /// <summary>Ask the server to issue an objective to the highest-ranking online faction member.</summary>
     public void IssueObjective(string factionId, string objectivePrototype)
     {
@@ -43,7 +48,7 @@ public sealed class LoreMasterClientSystem : EntitySystem
 
     /// <summary>
     /// Ask the server to issue a fully custom (admin-typed) objective to a specific faction member.
-    /// No prototype is involved — title and description are freeform.
+    /// No prototype is involved вЂ” title and description are freeform.
     /// </summary>
     // #Misfits Tweak - added targetPlayerName so admin can pick any member, not just highest-ranked.
     public void IssueCustomObjective(string factionId, string targetPlayerName, string customTitle, string customDescription)

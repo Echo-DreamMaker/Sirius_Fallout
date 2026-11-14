@@ -27,6 +27,7 @@ public enum SlotFlags
     FEET = 1 << 14,
     SUITSTORAGE = 1 << 15,
     BANDAGE = 1 << 16,
+    WALLET = 1 << 17, // Frontier: dedicated wallet inventory slot
     All = ~NONE,
 
     WITHOUT_POCKET = All & ~POCKET

@@ -1,0 +1,8 @@
+#temp!!!!
+- type: entityTable
+  id: M14WeaponLootTier1_Throwables
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: ThrowingKnife
+      weight: 5

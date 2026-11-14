@@ -52,6 +52,7 @@
   subGear:
   - CorpsmanPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitBrigmedic
     outerClothing: ClothingOuterArmorPlateCarrier
     back: ClothingBackpackBrigmedicFilled
@@ -70,6 +71,7 @@
   id: CorpsmanPlasmamanGear
   parent: BasePlasmamanSecurityGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitBrigmedic
     head: ClothingHeadEnvirohelmBrigmedic
     gloves: ClothingHandsGlovesEnviroglovesBlack

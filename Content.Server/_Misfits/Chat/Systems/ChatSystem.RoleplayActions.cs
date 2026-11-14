@@ -98,7 +98,7 @@ public sealed partial class ChatSystem
         var wrappedMessage = BuildDoWrappedMessage(action);
 
         // Loop over recipients manually and pass EntityUid.Invalid so no speech bubble
-        // appears over the sender's head — matching /aemote (anonymous local-area RP) behavior.
+        // appears over the sender's head вЂ” matching /aemote (anonymous local-area RP) behavior.
         foreach (var (session, data) in GetRecipients(source, Transform(source).GridUid == null ? 0.3f : VoiceRange))
         {
             if (session.AttachedEntity != null
@@ -116,7 +116,7 @@ public sealed partial class ChatSystem
                 ChatChannel.Emotes,
                 action,
                 wrappedMessage,
-                EntityUid.Invalid,   // no entity → no speech bubble over sender
+                EntityUid.Invalid,   // no entity в†’ no speech bubble over sender
                 entHideChat,
                 session.Channel,
                 author: author);
@@ -174,13 +174,17 @@ public sealed partial class ChatSystem
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Nameless emote from {ToPrettyString(source):user}: {action}");
     }
 
-    private string BuildEmoteWrappedMessage(EntityUid source, string escapedName, string action)
+    private string BuildEmoteWrappedMessage(EntityUid source, string escapedName, string action, int? fontSizeOverride = null)
     {
         var ent = Identity.Entity(source, EntityManager);
+        var message = FormatRoleplayActionMarkup(action);
+        if (fontSizeOverride is { } fontSize)
+            message = $"[font size={fontSize}]{message}[/font]";
+
         return Loc.GetString("chat-manager-entity-me-wrap-message",
             ("entityName", escapedName),
             ("entity", ent),
-            ("message", FormatRoleplayActionMarkup(action)));
+            ("message", message));
     }
 
     private string BuildDoWrappedMessage(string action)
@@ -189,7 +193,7 @@ public sealed partial class ChatSystem
             ("message", FormatRoleplayActionMarkup(action)));
     }
 
-    // #Misfits Change /Modify/ — made non-static to access sanitizer helpers; now sanitizes each quoted speech segment independently.
+    // #Misfits Change /Modify/ вЂ” made non-static to access sanitizer helpers; now sanitizes each quoted speech segment independently.
     private string FormatRoleplayActionMarkup(string action)
     {
         if (string.IsNullOrEmpty(action))
@@ -217,7 +221,7 @@ public sealed partial class ChatSystem
             if (openQuote > index)
                 builder.Append(FormattedMessage.EscapeText(action[index..openQuote]));
 
-            // #Misfits Change /Add/ — sanitize the speech content inside each quote pair independently.
+            // #Misfits Change /Add/ вЂ” sanitize the speech content inside each quote pair independently.
             var speech = action[(openQuote + 1)..closeQuote];
             speech = SanitizeMessageCapital(speech);
             speech = SanitizeMessageCapitalizeTheWordI(speech, "i");

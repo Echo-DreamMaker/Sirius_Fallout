@@ -1,6 +1,7 @@
 # NCR Rank Pin Progressions
-# NCRRankPinSpawnSystem reads these at round start and places the appropriate pin
-# in the player's hand based on their playtime in the tracker or department.
+# NCRRankPinSpawnSystem reads these at round start. It only places the appropriate
+# pin in the player's hand when that progression has spawnOnRoundstart enabled;
+# NCR Army and Military Police progressions issue the earned pin when the job spawns.
 #
 # Tracker quick-reference (use with: playtime_addrole <user> <tracker> <time>)
 #   NCRCommander         вЂ” NCR Commander
@@ -17,6 +18,7 @@
 # Command Officers: Captain (O-3) в†’ Major (O-4) at 20h NCR dept time  в†’ LTC (O-5) at 35h NCR dept time в†’ Colonel (O-6) at 50h NCR dept time в†’ General Major (O-7) at 100h NCR dept time
 - type: ncrRankPinProgression
   id: NCRCommandOfficerPins
+  spawnOnRoundstart: true
   jobs:
     - NCRCommander
   tracker: NCRCommander
@@ -36,6 +38,7 @@
 # Executive Officer: 2LT (O-1) в†’ 1LT (O-2) at 20h в†’ Captain (O-3) at 35h в†’ Major (O-4) at 50h
 - type: ncrRankPinProgression
   id: NCRExecutiveOfficerPins
+  spawnOnRoundstart: true
   jobs:
     - NCRExecutiveOfficer
   tracker: NCRExecutiveOfficer
@@ -132,6 +135,7 @@
 # All 4 map slots share the NCRSquadLeader tracker so time accumulates across slots.
 - type: ncrRankPinProgression
   id: NCRNCOPins
+  spawnOnRoundstart: true
   jobs:
     - NCRNCO
   tracker: NCRSquadLeader
@@ -149,6 +153,7 @@
 # Medic: PFC (E-3) в†’ CPL (E-4) at 10h NCR dept в†’ SPC (E-5) at 20h NCR dept в†’ SGT (E-6) at 40h
 - type: ncrRankPinProgression
   id: NCRMedicPins
+  spawnOnRoundstart: true
   jobs:
     - NCRMedic
   tracker: NCRMedic
@@ -166,6 +171,7 @@
 # Specialists: PVT (E-2) в†’ PFC (E-3) at 20h NCR dept в†’ CPL (E-4) at 40h NCR dept в†’ SCP (E-5) at 60h NCR dept
 - type: ncrRankPinProgression
   id: NCRSpecialistPins
+  spawnOnRoundstart: true
   jobs:
     - NCRWS
     - NCREngineer
@@ -187,6 +193,7 @@
 # Troopers: Recruit (E-1) в†’ PV2 at 20h NCR dept в†’ PFC at 40h NCR dept в†’ SPC at 60h NCR dept
 - type: ncrRankPinProgression
   id: NCRTrooperPins
+  spawnOnRoundstart: true
   jobs:
     - NCRCadet
   tracker: NCR

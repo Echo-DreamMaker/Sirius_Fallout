@@ -223,3 +223,35 @@
   - CaesarLegion
   - SuperMutant
   - Enclave
+- type: npcFaction
+  id: EnclaveSecureArea
+  friendly:
+  - Enclave
+  hostile:
+  - Wastelander
+  - BrotherhoodOfSteel
+  - BrotherhoodOfSteelSecureArea
+  - CaravanCompany
+  - CaravanCompanySecureArea
+  - NCR
+  - NCRSecureArea
+  - Rangers
+  - Townsfolk
+  - TownsfolkSecureArea
+  - Tribal
+  - TribalSecureArea
+  - Vault
+  - VaultSecureArea
+  - Zetan
+  - WastelandAnimal
+  - WastelandInsect
+  - Deathclaw
+  - Raider
+  - HostileRobot
+  - Feral
+  - CaesarLegion
+  - SuperMutant
+
+# #Misfits Add - Followers of the Apocalypse player faction.
+# Used by BuildFactionFilter to target death-alert chat messages at Followers players.
+# Neutral to all factions вЂ” Followers are non-hostile humanitarians.

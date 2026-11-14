@@ -10,7 +10,7 @@
   overrideConsoleVisibility: false
   canBeAntag: false
   name: job-name-ncr-heavy-trooper-lead
-  overwatchCategory: OverwatchNcrEnlisted
+  overwatchCategory: OverwatchNcrNcos
   description: job-description-ncr-heavy-trooper-lead
   playTimeTracker: NCRHeavyTrooperLead
   requirements:
@@ -50,13 +50,14 @@
 - type: startingGear
   id: NCRHeavyTrooperLeadGear
   equipment:
+    wallet: N14Wallet
+    ears: N14ClothingHeadsetNCR
     back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingOfficerUniformNCRDesert
     outerClothing: MisfitsNCRHeavyTrooperLeadPowerArmorT51
     shoes: N14ClothingBootsCombatFilled
-    ears: N14ClothingHeadsetNCR
     belt: ClothingBeltNCR
-    pocket1: NCRHeavyTrooperLoadoutKits
+    # #Cythisiax Removed - Main NCR job slots now obtain selectable equipment from the requisitions vendors.
     pocket2: RadioHandheld
     id: N14IDNCRDogtagWS
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert

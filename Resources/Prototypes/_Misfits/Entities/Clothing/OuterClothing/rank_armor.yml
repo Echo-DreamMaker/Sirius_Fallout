@@ -276,3 +276,59 @@
     priceMultiplier: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.70
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsBoSInitiateArmor
+  name: Brotherhood initiate armor
+  description: A set of light armor used by the Brotherhood's Initiates. It's quite light on actual plating, but cheap to make.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_initiate_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_initiate_armor.rsi
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsBoSInitiateArmor509
+  name: Brotherhood 509th initiate armor
+  description: A set of light armor used by Initiates of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_initiate_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_initiate_armor.rsi
+  - type: Armor
+    modifiers: # #Misfits Tweak: Initiate is the lowest BoS rank - weakest armor in the ladder (T2, 0.85/0.80), now below Squire
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.80
+        Heat: 0.80
+    priceMultiplier: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+# T3 — Squire (one step above Initiate, below Knight; still in training)
+- type: entity
+  parent: N14ClothingOuterCombatArmorMK2
+  id: MisfitsBoSSeniorKnightArmor
+  name: Senior knight combat armor
+  description: A suit of combat armor used by the Senior Knights of the Brotherhood of Steel. #Misfits Tweak - Removed Washington reference
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_senior_knight_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_senior_knight_armor.rsi
+
+- type: entity
+  parent: N14ClothingOuterCombatArmorMK2
+  id: MisfitsBoSSeniorKnightArmor509
+  name: 509th senior knight combat armor
+  description: A suit of combat armor used by Senior Knights of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_senior_knight_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_senior_knight_armor.rsi
+
+# T6 — Head Knight (equivalent to NCR Staff Sergeant / Legion Prime Decanus)

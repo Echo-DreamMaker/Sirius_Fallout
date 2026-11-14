@@ -104,9 +104,9 @@
       id: N14MeleeHandsGoldenKnuckleSpecial
     - !type:EntSelector
       id: MisfitsWeaponRangerPowerArmorLMG
-    # #Misfits Remove - N14WeaponGaussRifle prototype disabled.
+    # #Misfits Remove - N14WeaponSniper50AntiMateriel prototype disabled.
     # - !type:EntSelector
-    #   id: N14WeaponGaussRifle
+    #   id: N14WeaponSniper50AntiMateriel
     - !type:EntSelector
       id: N14WeaponZAXPulseRifle
     - !type:EntSelector

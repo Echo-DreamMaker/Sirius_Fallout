@@ -1158,3 +1158,110 @@
     state: rifleman
   content:
   - KitTownGuard_Riot
+- type: entity
+  id: NCRrangermedicloadoutkits
+  name: Undecided NCR Ranger Medic Loadout Kit
+  parent: NCRcadetloadoutkits
+  components:
+  - type: Sprite
+    state: medic
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - RangerMedicSet
+    - RangerCorpsmanSet
+
+# Brotherhood Initiates
+- type: UndecidedLoadoutBackpackSet
+  id: NCRA_OperativeSet
+  name: undecided-loadout-category-ws-operative-name
+  description: undecided-loadout-category-ws-operative-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: rifleman
+  content:
+  - KitNCR_WSOperative
+
+# NCRA Sergeant Kits
+- type: UndecidedLoadoutBackpackSet
+  id: RangerOperativeSet
+  name: undecided-loadout-category-ranger-operative-name
+  description: undecided-loadout-category-ranger-operative-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: marksman
+  content:
+  - KitOperativeRanger
+
+- type: UndecidedLoadoutBackpackSet
+  id: RangerMedicSet
+  name: undecided-loadout-category-ranger-medic-name
+  description: undecided-loadout-category-ranger-medic-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: medic
+  content:
+  - KitRangerMedic
+
+- type: UndecidedLoadoutBackpackSet
+  id: RangerCorpsmanSet
+  name: undecided-loadout-category-ranger-corpsman-name
+  description: undecided-loadout-category-ranger-corpsman-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: medic
+  content:
+  - KitRangerCorpsman
+
+#MARK: Veteran Kits
+- type: UndecidedLoadoutBackpackSet
+  id: Head_KniBun_Set
+  name: undecided-loadout-category-head-knight-bunker-name
+  description: undecided-loadout-category-head-knight-bunker-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: gunner
+  content:
+  - KitHead_KniBun
+
+- type: UndecidedLoadoutBackpackSet
+  id: Head_KniSup_Set
+  name: undecided-loadout-category-head-knight-support-name
+  description: undecided-loadout-category-head-knight-support-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: gunner
+  content:
+  - KitHead_KniSup
+
+# Regular/Senior Scribes
+- type: UndecidedLoadoutBackpackSet
+  id: Head_ScrMed_Set
+  name: undecided-loadout-category-head-scribe-medic-name
+  description: undecided-loadout-category-head-scribe-medic-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: medic
+  content:
+  - KitHead_ScrMed
+
+- type: UndecidedLoadoutBackpackSet
+  id: Head_ScrFld_Set
+  name: undecided-loadout-category-head-scribe-field-name
+  description: undecided-loadout-category-head-scribe-field-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: gunner
+  content:
+  - KitHead_ScrFld
+
+- type: UndecidedLoadoutBackpackSet
+  id: Head_ScrEng_Set
+  name: undecided-loadout-category-head-scribe-engineer-name
+  description: undecided-loadout-category-headscribe-engineer-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: gunner
+  content:
+  - KitHead_ScrEng
+
+# MBoS Paladin

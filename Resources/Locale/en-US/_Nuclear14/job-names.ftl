@@ -13,7 +13,7 @@ job-description-bos-mid-scribe = Coordinate research, catalog technology, and ad
 job-name-bos-mid-squire = Brotherhood Squire
 job-description-bos-mid-squire = Train under the Brotherhood's veterans and prove you are ready for higher duties.
 
-# Misfits Change /Comment-out/: Washington BoS job names removed — will create new prototypes.
+# Misfits Change /Comment-out/: Washington BoS job names removed вЂ” will create new prototypes.
 ## Washington Brotherhood
 # job-name-bos-washington-commander = Brotherhood Head Knight
 # job-description-bos-washington-commander = Oversee the Brotherhood's knightly orders, logistics, and battlefield readiness.
@@ -46,7 +46,7 @@ job-description-ncr-medic = Stabilise and treat casualties on the line; follow o
 job-name-ncr-heavy-trooper-lead = NCR Heavy Trooper Lead
 job-description-ncr-heavy-trooper-lead = Lead NCR heavy troopers in the field, coordinate heavy weapons, and hold the line.
 job-name-ncr-first-sergeant = NCR First Sergeant
-job-description-ncr-first-sergeant = Senior NCO responsible for enlisted discipline and unit administration; implement orders from command and issue direction to the enlisted line — take and give orders through your Senior NCO and Officer.
+job-description-ncr-first-sergeant = Senior NCO responsible for enlisted discipline and unit administration; implement orders from command and issue direction to the enlisted line вЂ” take and give orders through your Senior NCO and Officer.
 job-name-ncr-staff-sergeant = NCR Staff Sergeant
 job-description-ncr-staff-sergeant = Lead squads or sections in the field; issue and execute orders within the chain of command and act on directions from your Senior NCO and Officer.
 job-name-ncr-sergeant = NCR Sergeant
@@ -95,6 +95,8 @@ job-description-osi-eyebot = Serve the NCR Office of Science and Industry as a l
 # Rangers
 job-name-ranger-patrol = Patrol Ranger
 job-description-ranger-patrol = Scout ahead, patrol the frontier, and prove you belong among the Rangers.
+job-name-ranger = Ranger
+job-description-ranger = Work the frontier as a full Ranger of the station. Enforce Ranger law, scout the wastes, and answer to the Ranger Lead above you.
 job-name-ranger-recruit = Patrol Ranger
 job-description-ranger-recruit = Scout ahead, patrol the frontier, and prove you belong among the Rangers.
 job-name-ranger-field = Field Ranger
@@ -103,10 +105,12 @@ job-name-ranger-ranking = Field Ranger
 job-description-ranger-ranking = Operate independently or in small teams, enforce Ranger law, and protect the frontier.
 job-name-ranger-chief = Chief Desert Ranger
 job-description-ranger-chief = As Chief Desert Ranger, you lead all ranger operations, ensuring the safety and training of your ranks. Your mission is to forge alliances, direct large-scale missions, and maintain the legacy of justice in the wasteland.
-job-name-ranger-veteran-n14 = Veteran Ranger
+job-name-ranger-veteran-n14 = Ranger Lead
 job-description-ranger-veteran-n14 = Lead Ranger operations in the region, choose your methods, and answer only to your mission and your code.
 job-name-ranger-veteran = Veteran Ranger
 job-description-ranger-veteran = Lead Ranger operations in the region, choose your methods, and answer only to your mission and your code.
+job-name-ranger-medic = Ranger Medic
+job-description-ranger-medic = Keep your patrol alive out on the frontier - patch wounds, hand out stimpaks and pull Rangers back from the edge.
 
 # #Misfits Change - rename tribe role display names to Willowers variants without changing job IDs.
 # Tribal
@@ -130,11 +134,11 @@ job-name-vault-engineer = Vault Engineer
 job-description-vault-engineer = Maintain the Vault and all its vital systems to ensure a comfortable and safe life.
 job-name-vault-security = Vault Security
 job-description-vault-security = Keep order within the Vault and report to the Overseer. For the good of the Vault!
-job-name-vault-cargo-specialist = Cargo Specialist
+job-name-vault-cargo-specialist = Vault Cargo Specialist
 job-description-vault-cargo-specialist = Manage the Vault's stockpiles and requisition supplies.
-job-name-vault-courier = Courier
+job-name-vault-courier = Vault Courier
 job-description-vault-courier = Carry messages, mail, and small packages between the Vault and potentially wasteland beyond.
-job-name-vault-salvage-specialist = Salvage Specialist
+job-name-vault-salvage-specialist = Vault Salvage Specialist
 job-description-vault-salvage-specialist = Venture into the caves to extract resources & even the wasteland if times get desperate.
 
 # Wasteland

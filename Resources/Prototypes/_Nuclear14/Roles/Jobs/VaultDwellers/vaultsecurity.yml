@@ -37,6 +37,7 @@
 - type: startingGear
   id: VaultSecurityGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitVault14
     back: M14VaultSecuritySatchel #Misfits Add
     shoes: N14ClothingBootsBlack

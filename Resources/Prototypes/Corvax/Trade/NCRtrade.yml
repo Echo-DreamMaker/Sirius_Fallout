@@ -703,3 +703,78 @@
   - NCRSell2_Currency
   - NCRSell2_Melee
   - NCRSell2_Storage
+- type: storeCategoryStructured
+  id: NCRSell2_Bulk
+  name: "Bulk"
+  entries:
+  - proto: N14MaterialThread1
+    price: 8
+  - proto: N14JunkDuctTape
+    price: 6
+  - proto: N14ScrapGold1
+    price: 12
+  - proto: N14FoodMeatPigrat
+    price: 10
+  - proto: N14FoodMeatRadRaw
+    price: 10
+  - proto: N14JunkAbraxoCleaner
+    price: 16
+  - proto: N14MaterialLeather1
+    price: 20
+  - proto: N14MaterialAntChitin1
+    price: 20
+  - proto: N14MaterialHideGecko
+    price: 40
+  - proto: N14MaterialHideGeckoFire
+    price: 40
+  - proto: N14FoodFireantNectar
+    price: 40
+  - proto: N14FoodMeatGeckoGolden
+    price: 40
+  - proto: N14FoodMeatMirelurkClaw
+    price: 40
+  - proto: N14FoodMeatRadlurkClaw
+    price: 50
+  - proto: N14FoodEggDeathclaw
+    price: 80
+  - proto: N14MaterialYaoguaiHide
+    price: 80
+  - proto: N14MaterialNightstalkerPelt
+    price: 80
+  - proto: N14FoodCazadorAcidSac
+    price: 90
+  - proto: N14MaterialRadscorpionTail
+    price: 100
+  - proto: N14FoodMeatBrahmin
+    price: 50
+  - proto: N14FoodMeatRadstag
+    price: 60
+  - proto: FoodMeatRedfishRaw
+    price: 40
+  - proto: FoodMeatWhitefishRaw
+    price: 30
+  - proto: FoodRedCaviar
+    price: 60
+  - proto: FishBone
+    price: 20
+  - proto: PowerCellHigh
+    price: 50
+  - proto: N14Flashlight
+    price: 20
+  - proto: Charcoal1
+    amount: 1
+    price: 10
+  - proto: Torch
+    price: 2
+  - proto: DrinkWaterBottleFull
+    price: 50
+  - proto: Pickaxe
+    price: 80
+  - proto: GeigerCounter
+    price: 100
+  - proto: N14RadXCanisterFilled
+    price: 200
+  - proto: MisfitsWendoverMap
+    price: 300
+
+

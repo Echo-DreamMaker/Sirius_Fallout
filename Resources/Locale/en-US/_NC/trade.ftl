@@ -55,6 +55,18 @@ nc-store-difficulty-junktown-rat = Junktown Rat
 nc-store-difficulty-hub-mercenary = Hub Mercenary
 nc-store-difficulty-bunker-buster = Bunker Buster
 nc-store-difficulty-wasteland-legend = Wasteland Legend
+nc-store-difficulty-servus = Servus
+nc-store-difficulty-plebeian = Plebeian
+nc-store-difficulty-auxiliary = Auxiliary
+nc-store-difficulty-legionary = Legionary
+nc-store-difficulty-decanus = Decanus
+nc-store-difficulty-centurion = Centurion
+nc-store-difficulty-tribal = Tribal
+nc-store-difficulty-settler = Settler
+nc-store-difficulty-citizen = Citizen
+nc-store-difficulty-caravaneer = Caravaneer
+nc-store-difficulty-caravan-master = Caravan Master
+nc-store-difficulty-brahmin-baron = Brahmin Baron
 nc-store-contract-title = Contract ({ $difficulty })
 nc-store-contract-badge-single = One-time
 nc-store-contract-badge-single-tooltip =
@@ -80,14 +92,14 @@ nc-store-contract-title-pretty-nogoal = Contract: { $difficulty }
 
 nc-store-contract-desc-default = Fulfill the contract requirements and claim the reward.
 
-# Misfits Add — 6-tier contract system UI strings
-nc-contract-tier-first-access = You've registered with the caravan network — Road Kill tier unlocked!
+# Misfits Add вЂ” 6-tier contract system UI strings
+nc-contract-tier-first-access = You've registered with the caravan network вЂ” Road Kill tier unlocked!
 nc-contract-tier-unlocked = { $tier } tier unlocked! Keep pushing.
 nc-store-tab-tier-hall-of-fame = Hall of Fame
 nc-store-hall-of-fame-empty = No one has completed contracts yet this round.
-nc-store-hall-of-fame-entry = { $name } — { $tier } ({ $count } completed)
-nc-contract-tier-locked = Locked — complete { $prevTier } tier contracts to unlock.
-nc-contract-card-locked-hint = { $tier } tier — not yet unlocked.
+nc-store-hall-of-fame-entry = { $name } вЂ” { $tier } ({ $count } completed)
+nc-contract-tier-locked = Locked вЂ” complete { $prevTier } tier contracts to unlock.
+nc-contract-card-locked-hint = { $tier } tier вЂ” not yet unlocked.
 nc-store-contract-desc-generated = Required: { $goals }
 
 nc-store-contract-goal-inline = { $item } x{ $count }

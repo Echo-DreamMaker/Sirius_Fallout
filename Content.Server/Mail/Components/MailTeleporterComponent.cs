@@ -1,4 +1,6 @@
+using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Mail.Components;
 
@@ -28,6 +30,12 @@ public sealed partial class MailTeleporterComponent : Component
     /// </summary>
     [DataField]
     public string MailPool = "RandomDeltaVMailDeliveryPool";
+
+    /// <summary>
+    ///     members of any of these factions are never considered candidates
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<NpcFactionPrototype>> ExcludedFactions = new();
 
     /// <summary>
     ///     How many mail candidates do we need per actual delivery sent when
@@ -115,4 +123,7 @@ public sealed partial class MailTeleporterComponent : Component
     /// </summary>
     [DataField]
     public int LargeMalus = -500;
+
+    [DataField]
+    public int VaultReqBudget;
 }

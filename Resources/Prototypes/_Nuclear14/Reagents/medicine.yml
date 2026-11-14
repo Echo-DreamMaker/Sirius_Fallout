@@ -641,3 +641,27 @@
           groups:
             Brute: -5 # 5 HP
             Burn: -5 # 5 HP
+- type: reagent
+  id: AntidoteWeak
+  name: reagent-name-antidote-mixture
+  group: Chems
+  desc: reagent-desc-antidote-mixture
+  physicalDesc: reagent-physical-desc-soothing
+  color: "#982d1e"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1 # Slow
+      effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: AntidoteWeakAmbient
+        cooldown: 50
+        messageKeys:
+        - drug-ambience-antidote-mixture-1
+        - drug-ambience-antidote-mixture-2
+      - !type:HealthChange
+        damage:
+          groups:
+            Toxin: -1 # TODO: Change this to poison only once we add toxin syringes.
+      - !type:ChemVomit
+        probability: 0.01 # TODO: rework antidotes to heal rad/poison by vomitting
+

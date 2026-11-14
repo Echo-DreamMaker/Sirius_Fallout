@@ -934,3 +934,95 @@
         Piercing: 0.9
         Heat: 0.9
 # #Misfits tweak: NCRMP helmet relocated to _Misfits proto
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMetal
+  id: N14ClothingHeadHatBrotherhoodHelmetSeniorKnight
+  name: Brotherhood senior knight helmet
+  description: A helmet worn by Senior Knights of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmetsenior.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmetsenior.rsi
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMetal
+  id: N14ClothingHeadHatBrotherhoodHelmetSeniorKnight509
+  name: Brotherhood 509th senior knight helmet
+  description: A helmet worn by Senior Knights of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/Helmets/bos_senior_knight_helmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/Helmets/bos_senior_knight_helmet.rsi
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMK2
+  id: N14ClothingHeadHatBrotherhoodHelmetHeadKnight
+  name: Brotherhood head knight helmet
+  description: A helmet worn by Head Knights of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmetknight.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmetknight.rsi
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMK2
+  id: N14ClothingHeadHatBrotherhoodHelmetHeadKnight509
+  name: Brotherhood 509th head knight helmet
+  description: A helmet worn by Head Knights of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/Helmets/bos_head_knight_helmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/Helmets/bos_head_knight_helmet.rsi
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMetal
+  id: N14ClothingHeadHatEnclaveSecurityHelmet
+  name: Enclave Security Helmet
+  description: A white security helmet worn by Enclave guards.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_security_helmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_security_helmet.rsi
+
+# --- Enclave Pilot Helmet ---
+#- type: entity
+#  parent: N14ClothingHeadHatBaseHelmetMK2
+#  id: N14ClothingHeadHatEnclavePilotHelmet
+#  name: Enclave Vertibird Pilot Helmet
+#  description: A combat helmet worn by Enclave Vertibird Pilots.
+#  components:
+#  - type: Sprite
+#    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_pilot_helmet.rsi
+#  - type: Clothing
+#    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_pilot_helmet.rsi
+
+# --- Enclave Scout Helmet ---
+#- type: entity
+#  parent: N14ClothingHeadHatBaseHelmetMK2
+#  id: N14ClothingHeadHatEnclaveScoutHelmet
+#  name: Enclave Covert Scout Helmet
+#  description: A combat helmet worn by Enclave Scouts.
+#  components:
+#  - type: Sprite
+#    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_scout_helmet.rsi
+#  - type: Clothing
+#    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_scout_helmet.rsi
+
+# --- Enclave Combat Helmet (Grey)---
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetmarine
+  id: N14ClothingHeadHatEnclaveHelmetAdvanced
+  name: Enclave Advanced Combat Helmet
+  description: An advanced combat helmet worn by elite Enclave soldiers.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/enclavehelmetadvanced.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/enclavehelmetadvanced.rsi
+
+# --- Enclave Combat Helmet (Hooded)---

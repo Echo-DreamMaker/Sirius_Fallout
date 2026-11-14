@@ -32,7 +32,7 @@
   adminJobs:
   - FollowerHead
 
-# ── Brotherhood of Steel: 509th Archive ──────────────────────────────────────
+# -- Brotherhood of Steel: 509th Archive --------------------------------------
 # Leadership = Heads (Knight / Paladin Commander / Scribe).
 # Admin      = Elder Commander.
 - type: misfitsTerminalDatabase
@@ -51,8 +51,9 @@
   - BoSWestScribe          # "Head Scribe" job id
   adminJobs:
   - BoSWestElderCommander  # "Elder Commander" job id
+  - BoSArchivist           # "Archivist" job id
 
-# ── NCR: Salt Dogs ───────────────────────────────────────────────────────────
+# -- NCR: Salt Dogs -----------------------------------------------------------
 # Leadership = Captain, Lieutenant, First Sergeant.
 # Admin      = Major.
 - type: misfitsTerminalDatabase
@@ -74,8 +75,9 @@
   - OSIChiefScientist
   adminJobs:
   - NCRMajor
+  - OSIChiefScientist
 
-# ── Caesar's Legion: Legio Vera ──────────────────────────────────────────────
+# -- Caesar's Legion: Legio Vera ----------------------------------------------
 # #Misfits Tweak - Legion has no canonical "leadership tier"; using the closest
 # analogues: Centurion / Optio / Priestess / Houndmaster as Leadership, Legate
 # as Admin (HIGH FRUMENTARII). Adjust if Legion gets a dedicated rank pass.
@@ -96,7 +98,7 @@
   adminJobs:
   - CaesarLegionLegate
 
-# ── Vault: Longwatch ─────────────────────────────────────────────────────────
+# -- Vault: Longwatch ---------------------------------------------------------
 # Leadership = Overseer.
 # Admin      = Vault Management.
 - type: misfitsTerminalDatabase
@@ -113,7 +115,7 @@
   adminJobs:
   - VaultManagement
 
-# ── Enclave: Autumn Harvest ──────────────────────────────────────────────────
+# -- Enclave: Autumn Harvest --------------------------------------------------
 # Leadership = Head Scientist, Senior Officer.
 # Admin      = Reformer + Commander.
 - type: misfitsTerminalDatabase
@@ -132,7 +134,7 @@
   - EnclaveReformer
   - EnclaveCommander
 
-# ── Wendover Town: Mayoral Notice ────────────────────────────────────────────
+# -- Wendover Town: Mayoral Notice --------------------------------------------
 # #Misfits Tweak - Townie governance is informal; only the Mayor exists. Mayor
 # acts as both Leadership and Admin tiers (Admin checkbox is essentially the
 # mayor's official seal). Leadership list intentionally empty; Admin grants

@@ -1,4 +1,5 @@
 using Content.Shared.Inventory;
+using Content.Shared.Whitelist;
 
 namespace Content.Server.Storage.Components;
 
@@ -20,4 +21,10 @@ public sealed partial class MagnetPickupComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField("range")]
     public float Range = 1f;
+
+    /// <summary>
+    /// Optional pickup filter. When omitted, the attached storage whitelist is used.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("whitelist")]
+    public EntityWhitelist? Whitelist;
 }

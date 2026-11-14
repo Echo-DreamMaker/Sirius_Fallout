@@ -38,6 +38,7 @@
 - type: startingGear
   id: EnclaveEnlistedGear
   equipment:
+    wallet: N14Wallet
     head: N14ClothingHeadHatEnclavePeacekeeperCap
     back: N14ClothingBackpackMilitary
     jumpsuit: N14ClothingUniformJumpsuitEnclave

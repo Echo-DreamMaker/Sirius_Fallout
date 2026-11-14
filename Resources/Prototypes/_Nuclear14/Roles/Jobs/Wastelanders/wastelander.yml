@@ -83,6 +83,7 @@
 - type: startingGear
   id: WastelanderGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitRags
     ears: MisfitsClothingHeadsetWastelandScrap
     back: N14ClothingBackpackExplorer # Corvax-Change
@@ -103,7 +104,7 @@
     back: N14ClothingBackpackExplorer # Corvax-Change
     shoes: N14ClothingShoesRags
     id: N14ClothingNeckDogtagsTrader # #Tytos add, waster trader has a special id to use his shop
-    belt: N14WalletCash
+    wallet: N14WalletCash
     pocket1: MisfitsWasterTraderFlatpack
     pocket2: N14Multitool
   innerClothingSkirt: N14ClothingUniformJumpskirtFalloutBlack

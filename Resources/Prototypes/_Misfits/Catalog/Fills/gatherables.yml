@@ -13,3 +13,7 @@
     prob: 1
     amount: 1
     maxAmount: 1
+- type: entityLootTable
+  id: WildKokoaClippers
+  entries: []
+

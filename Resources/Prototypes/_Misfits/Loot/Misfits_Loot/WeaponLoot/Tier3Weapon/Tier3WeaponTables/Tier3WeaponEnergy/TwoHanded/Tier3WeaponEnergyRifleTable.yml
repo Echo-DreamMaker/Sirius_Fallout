@@ -1,0 +1,56 @@
+- type: entityTable
+  id: M14WeaponLootTier3_LaserRifleAuto
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponLaserRifleAuto
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponLaserRCW
+      weight: 5
+
+- type: entityTable
+  id: M14WeaponLootTier3_PlasmaRifleAuto
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error
+
+- type: entityTable
+  id: M14WeaponLootTier3_OtherRifleAuto
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponFlamer
+      weight: 5
+
+
+- type: entityTable
+  id: M14WeaponLootTier3_LaserRifleSemi
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponLaserRifleWattz2000
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponLaserRifleRecharger
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponLaserRifle
+      weight: 5
+
+- type: entityTable
+  id: M14WeaponLootTier3_PlasmaRifleSemi
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponPlasmaRifleCrude
+      weight: 5
+
+
+- type: entityTable
+  id: M14WeaponLootTier3_OtherRifleSemi
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error

@@ -39,6 +39,7 @@
 - type: startingGear
   id: TownSheriffGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitTownGuardLight
     ears: MisfitsClothingHeadsetTown
     back: N14ClothingBackpackSatchelMilitary
@@ -49,6 +50,7 @@
   storage: # Forge-Change
     back:
     - N14BoxPlasticFilledWastelander
+    - N14Binoculars
 
 - type: playTimeTracker
   id: TownSheriff

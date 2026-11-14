@@ -24,6 +24,7 @@
 - type: startingGear
   id: SurvivorGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitRags
     back: N14ClothingBackpackWastelanderFilled
     shoes: ClothingShoesColorBlack

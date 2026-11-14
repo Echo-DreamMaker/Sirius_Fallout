@@ -86,6 +86,8 @@
     - N14ArrowBroadHead # #Misfits Add
     - ArrowRegular
     # Melee
+    - N14Goldenknuckles
+    - N14Brassknuckles
     - N14ScrapMachete
     - N14WastelandSpear
     - N14WastelandTribalJavelin
@@ -677,7 +679,7 @@
   # place SheetSteel or MaterialCloth into the bench for combat-armor recipes would have those
   # items absorbed into the lathe material pool instead of the physical storage container.
   # Trade-off: the bench's lathe recipes (leather/metal armor etc.) can no longer auto-consume
-  # materials via direct interaction — materials must be inserted into the Storage UI for crafting,
+  # materials via direct interaction вЂ” materials must be inserted into the Storage UI for crafting,
   # or a dedicated lathe bench should be used for the purely lathe-based recipe set.
   - type: MaterialStorage
     insertOnInteract: false
@@ -809,6 +811,8 @@
     - N14GeigerCounter
     - N14HandheldHealthAnalyzer
     - N14RemoteSignaller
+    - N14Binoculars
+    - N14LaserRangefinder # #Misfits Add: laser rangefinder for mortar crews
     #Misc
     - N14FlashlightLantern
     - N14GlowstickRed
@@ -832,6 +836,7 @@
     - SignalTrigger
     - VoiceTrigger
     - N14ChemicalPayload
+    - MisfitsMortarShellChemical # #Misfits Add: chemical mortar casing beside the chemical payload
     - N14ExplosivePayload
     - N14FlashPayload
     # #Misfits Add: Circuits
@@ -844,6 +849,11 @@
     - N14StationRadioRigCircuitboard
     - N14StationRadioCircuitboard
     - N14DoorElectronics
+    # Misfits: synthetic repair supplies, tinker batches (8)
+    - MisfitsMakeshiftRepairPatchTinker
+    - MisfitsReinforcedPlatingPatchTinker
+    - MisfitsInsulationPatchTinker
+    - MisfitsAdvancedRepairPatchTinker
   - type: ActivatableUIRequiresPower
 
 - type: entity
@@ -934,6 +944,16 @@
     solution: buffer
   - type: Anchorable
   - type: Rotatable
+  # #Misfits
+  - type: AutomationSlots
+    slots:
+    - !type:AutomatedSolution
+      input: AutomationSlotSolution
+      output: AutomationSlotSolution
+      solutionName: buffer
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
 
 - type: entity
   parent: BaseStructure
@@ -1079,6 +1099,11 @@
     #Paperwork
     - N14WoodPencil # Forge-Change
     - N14PenReporter # Forge-Change
+    # Misfits: synthetic repair supplies
+    - MisfitsMakeshiftRepairPatchMetal
+    - MisfitsReinforcedPlatingPatchMetal
+    - MisfitsInsulationPatchMetal
+    - MisfitsAdvancedRepairPatchMetal
 
 - type: entity
   parent: N14WorkbenchBase
@@ -1274,7 +1299,7 @@
     - HolotagEnclaveScientist
     - HolotagEnclaveJuniorScientist
 
-# Misfits Fix: N14WorkbenchIDPrinterBrotherhoodWashington commented out — all WBOS holotag recipe prototypes are commented out
+# Misfits Fix: N14WorkbenchIDPrinterBrotherhoodWashington commented out вЂ” all WBOS holotag recipe prototypes are commented out
 #- type: entity
 #  parent: N14WorkbenchIDPrinter
 #  id: N14WorkbenchIDPrinterBrotherhoodWashington

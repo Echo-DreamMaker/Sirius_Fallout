@@ -2,6 +2,7 @@
 - type: startingGear
   id: CultLeaderGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorBlack
     back: ClothingBackpackFilled
     head: ClothingHeadHelmetCult
@@ -17,6 +18,7 @@
 - type: startingGear
   id: CultistGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorBlack
     back: ClothingBackpackFilled
     head: ClothingHeadHatHoodCulthood

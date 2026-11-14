@@ -3582,3 +3582,66 @@
             - N14Cartridge556Rifle
   - type: StaticPrice
     price: 40
+- type: entity
+  name: Operative
+  parent: N14WeaponRifle556R91
+  id: N14WeaponRifleOperative
+  description: A heavily modified R91 assault rifle with an integrated suppressor and polymer furniture. No official designation — whoever built it just started calling it the Infiltrator. Runs quiet and runs hot.
+  components:
+  - type: ContainerContainer
+    containers:
+      gun_top: !type:ContainerSlot
+      gun_muzzle: !type:ContainerSlot
+      gun_bottom: !type:ContainerSlot
+      gun_handle: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      craft_grip: !type:Container
+      craft_bolt: !type:Container
+      craft_barrel: !type:Container
+      craft_stock: !type:Container
+      craft_magazine: !type:Container
+  - type: ContainerFill
+    ignoreConstructionSpawn: true
+    containers:
+      craft_grip:
+        - N14WeaponPartGrip
+      craft_bolt:
+        - N14WeaponPartBoltGas
+      craft_barrel:
+        - N14WeaponPartBarrel556Suppressed
+      craft_stock:
+        - N14WeaponPartStockPolymer
+  - type: Construction
+    graph: N14WeaponPartFrameAssaultGraph
+    node: done_N14WeaponRifleInfiltrator
+    deconstructionTarget: start
+    containers:
+      - craft_grip
+      - craft_bolt
+      - craft_barrel
+      - craft_stock
+      - craft_magazine
+  - type: WeaponFrame
+    assemblyTarget: done_N14WeaponRifleInfiltrator
+  - type: WeaponDurability
+    frameMax: 500
+    modular: true
+  - type: Damageable
+    damageContainer: WeaponDurability
+  - type: Gun
+    fireRate: 5
+    minAngle: 24
+    maxAngle: 45
+    angleIncrease: 3
+    angleDecay: 16
+    selectedMode: Fullauto
+    availableModes:
+    - Fullauto
+    soundGunshot:
+      collection: N14RifleR91Gunshot
+  # #Misfits Add - Modular receiver (suppressed-barrel R91 variant).
+  - type: StaticPrice
+    price: 500
+
+#sirius change start

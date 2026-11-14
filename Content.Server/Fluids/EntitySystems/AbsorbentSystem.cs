@@ -56,14 +56,14 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
 
         var oldProgress = component.Progress.ShallowClone();
         component.Progress.Clear();
-        //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
-        var water = solution.GetTotalPrototypeQuantity(PuddleSystem.FastEvaporationReagents);
+
+        var water = solution.GetTotalPrototypeQuantity(SharedPuddleSystem.EvaporationReagents);
         if (water > FixedPoint2.Zero)
-        { //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
-            component.Progress[solution.GetColorWithOnly(_prototype, PuddleSystem.FastEvaporationReagents)] = water.Float();
+        {
+            component.Progress[solution.GetColorWithOnly(_prototype, SharedPuddleSystem.EvaporationReagents)] = water.Float();
         }
-        //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
-        var otherColor = solution.GetColorWithout(_prototype, PuddleSystem.FastEvaporationReagents);
+
+        var otherColor = solution.GetColorWithout(_prototype, SharedPuddleSystem.EvaporationReagents);
         var other = (solution.Volume - water).Float();
 
         if (other > 0f)
@@ -95,8 +95,26 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
 
     private void OnAfterInteract(EntityUid uid, AbsorbentComponent component, AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Handled || args.Target == null)
+        if (!args.CanReach || args.Handled)
             return;
+
+        // Decals are grid data rather than entities, so a click on a bare blood
+        // splatter has no target. Clean those directly at the clicked tile.
+        if (args.Target == null)
+        {
+            if (TryComp<UseDelayComponent>(args.Used, out var useDelay)
+                && _useDelay.IsDelayed((args.Used, useDelay)))
+                return;
+
+            if (TryCleanNearbyDecals(args.ClickLocation, component) <= 0)
+                return;
+
+            if (useDelay != null)
+                _useDelay.TryResetDelay((args.Used, useDelay));
+
+            args.Handled = true;
+            return;
+        }
 
         Mop(args.User, args.Target.Value, args.Used, component);
         args.Handled = true;
@@ -111,15 +129,24 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
             && _useDelay.IsDelayed((used, useDelay)))
             return;
 
-        // If it's a puddle try to grab from
-        if (!TryPuddleInteract(user, used, target, component, useDelay, absorberSoln.Value))
+        // If it's a puddle try to grab from.
+        var interacted = TryPuddleInteract(user, used, target, component, useDelay, absorberSoln.Value);
+        if (!interacted)
         {
             // If it's refillable try to transfer
-            if (!TryRefillableInteract(user, used, target, component, useDelay, absorberSoln.Value))
-                return;
+            interacted = TryRefillableInteract(user, used, target, component, useDelay, absorberSoln.Value);
         }
 
-        TryCleanNearbyFootprints(user, target, (used, component), absorberSoln.Value);
+        var footprints = TryCleanNearbyFootprints(user, target, (used, component), absorberSoln.Value);
+        var decals = TryCleanNearbyDecals(Transform(target).Coordinates, component);
+
+        // A mop can clean floor decals even when no puddle or refillable is targeted.
+        // Give that successful interaction the same use delay as regular mopping.
+        if (!interacted && decals > 0 && useDelay != null)
+            _useDelay.TryResetDelay((used, useDelay));
+
+        if (!interacted && footprints == 0 && decals == 0)
+            return;
     }
 
     /// <summary>
@@ -182,8 +209,7 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
         }
 
         // Prioritize transferring non-evaporatives if absorbent has any
-        //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
-        var contaminants = _solutionContainerSystem.SplitSolutionWithout(absorbentSoln, transferAmount, PuddleSystem.FastEvaporationReagents);
+        var contaminants = _solutionContainerSystem.SplitSolutionWithout(absorbentSoln, transferAmount, SharedPuddleSystem.EvaporationReagents);
         if (contaminants.Volume > 0)
         {
             _solutionContainerSystem.TryAddSolution(refillableSoln, contaminants);
@@ -207,8 +233,8 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
         AbsorbentComponent component,
         Entity<SolutionComponent> absorbentSoln,
         Entity<SolutionComponent> refillableSoln)
-    {   //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
-        var contaminantsFromAbsorbent = _solutionContainerSystem.SplitSolutionWithout(absorbentSoln, component.PickupAmount, PuddleSystem.FastEvaporationReagents);
+    {
+        var contaminantsFromAbsorbent = _solutionContainerSystem.SplitSolutionWithout(absorbentSoln, component.PickupAmount, SharedPuddleSystem.EvaporationReagents);
 
         var absorbentSolution = absorbentSoln.Comp.Solution;
         if (contaminantsFromAbsorbent.Volume == FixedPoint2.Zero && absorbentSolution.AvailableVolume == FixedPoint2.Zero)
@@ -225,8 +251,7 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
             absorbentSolution.AvailableVolume;
 
         var refillableSolution = refillableSoln.Comp.Solution;
-        //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
-        var waterFromRefillable = refillableSolution.SplitSolutionWithOnly(waterPulled, PuddleSystem.FastEvaporationReagents);
+        var waterFromRefillable = refillableSolution.SplitSolutionWithOnly(waterPulled, SharedPuddleSystem.EvaporationReagents);
         _solutionContainerSystem.UpdateChemicals(refillableSoln);
 
         if (waterFromRefillable.Volume == FixedPoint2.Zero && contaminantsFromAbsorbent.Volume == FixedPoint2.Zero)
@@ -282,12 +307,11 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
         // #Cythisiax Fixed - Since EvaporationReagents now contains every reagent (ReagentPrototype.Evaporates
         // defaults true and no N14 reagent overrides it), CanFullyEvaporate() was true for ALL puddles, so this
         // guard always fired and mops could never clean a spill ("is evaporating"). Mirrors upstream #38743
-        // "allow mopping evaporating puddles" — mops should clean any puddle.
+        // "allow mopping evaporating puddles" вЂ” mops should clean any puddle.
 
         // Check if we have any FAST evaporative reagents (water) on our absorber to transfer
-        //CHANGED PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
         var absorberSolution = absorberSoln.Comp.Solution;
-        var available = absorberSolution.GetTotalPrototypeQuantity(PuddleSystem.FastEvaporationReagents);
+        var available = absorberSolution.GetTotalPrototypeQuantity(SharedPuddleSystem.EvaporationReagents);
 
         // No material
         if (available == FixedPoint2.Zero)
@@ -300,10 +324,10 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
         var transferAmount = available > transferMax ? transferMax : available;
 
         // Pick up the spilled liquid directly, then leave water behind so the spill becomes
-        // a water puddle (changes color) that evaporates faster — the expected mop behavior.
+        // a water puddle (changes color) that evaporates faster вЂ” the expected mop behavior.
         var puddleSplit = puddleSolution.SplitSolution(transferAmount);
-        var absorberSplit = absorberSolution.SplitSolutionWithOnly(puddleSplit.Volume, PuddleSystem.FastEvaporationReagents);
-        // AND THIS ONE TOO, FROM PuddleSystem.EvaporationReagents TO PuddleSystem.FastEvaporationReagents
+        var absorberSplit = absorberSolution.SplitSolutionWithOnly(puddleSplit.Volume, SharedPuddleSystem.EvaporationReagents);
+
 
         // Do tile reactions first
         var transform = Transform(target);

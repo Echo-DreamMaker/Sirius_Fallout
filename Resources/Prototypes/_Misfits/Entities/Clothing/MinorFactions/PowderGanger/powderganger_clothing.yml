@@ -1,0 +1,51 @@
+# #Misfits Add - Powder Ganger standalone spawnable wearables.
+# No faction or job assignment вЂ” no Powder Ganger role/faction anchor exists in the repo.
+# All items are available via admin spawn for future loadout/loot integration.
+
+# --- Powder Ganger Jacket ---
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingPowderGangerJacket
+  name: powder ganger jacket
+  description: A scuffed and stained canvas jacket worn by members of the Powder Gangers. Smells faintly of black powder and desperation.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/PowderGanger/powderganger_jacket.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/PowderGanger/powderganger_jacket.rsi
+
+# --- Powder Ganger Outfit ---
+- type: entity
+  parent: N14ClothingUniformBase
+  id: ClothingPowderGangerOutfit
+  name: powder ganger outfit
+  description: The rough and patched clothing of a Powder Ganger вЂ” practical enough to work in, durable enough to run in.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/PowderGanger/powderganger_outfit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/PowderGanger/powderganger_outfit.rsi
+
+# --- Powder Ganger Vest ---
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingPowderGangerVest
+  name: powder ganger vest
+  description: A reinforced vest common among Powder Gangers who prefer range of motion over extra protection.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/PowderGanger/powderganger_vest.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/PowderGanger/powderganger_vest.rsi
+
+# --- Powder Ganger Duds ---
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingPowderGangerDuds
+  name: powder ganger duds
+  description: The worn outer layer of a Powder Ganger's typical kit вЂ” marked with grime, char, and old bloodstains.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/PowderGanger/powderganger_duds.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/PowderGanger/powderganger_duds.rsi

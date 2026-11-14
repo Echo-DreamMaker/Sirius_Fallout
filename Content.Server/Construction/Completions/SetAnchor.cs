@@ -12,7 +12,7 @@ namespace Content.Server.Construction.Completions
         public void PerformAction(EntityUid uid, EntityUid? userUid, IEntityManager entityManager)
         {
             var transform = entityManager.GetComponent<TransformComponent>(uid);
-            transform.Anchored = Value;
+            if (Value) entityManager.System<SharedTransformSystem>().AnchorEntity(uid, transform); else entityManager.System<SharedTransformSystem>().Unanchor(uid, transform);
         }
     }
 }

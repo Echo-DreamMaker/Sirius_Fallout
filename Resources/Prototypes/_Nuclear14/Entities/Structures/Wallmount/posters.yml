@@ -74,9 +74,9 @@
 - type: entity
   parent: N14SignNotice
   id: N14PosterNCR1
-  name: NCR Propaganda - Rebuild Your Country!
+  name: NCR Propaganda - Help Build Your Future!
   suffix: wrench
-  description: Never forget Shady Sands! We won't let madmen drag us back to living in a wasteland, help rebuild YOUR home with us!
+  description: Don't settle for living in filth and rubble! Pick up some tools and apply to a federal trade program, help build a better world with your own two hands!
   components:
   - type: Sprite
     state: ncr_sign
@@ -171,8 +171,8 @@
 - type: entity
   parent: N14PosterBase
   id: N14PosterVaultTec07
-  name: Your Future Matters. Protect It With Vault-Tec™
-  description: "A near-pristine poster advertisement from Vault-Tec that boasts of the 100% nuclear detonation resistant vault doors, and how their shelters have electricity, clean water, RobCo™ Robot Service, and Rad-Away™ Care."
+  name: Your Future Matters. Protect It With Vault-Tecв„ў
+  description: "A near-pristine poster advertisement from Vault-Tec that boasts of the 100% nuclear detonation resistant vault doors, and how their shelters have electricity, clean water, RobCoв„ў Robot Service, and Rad-Awayв„ў Care."
   components:
   - type: Sprite
     state: vault-tec07

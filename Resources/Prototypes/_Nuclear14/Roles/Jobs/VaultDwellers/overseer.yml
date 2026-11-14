@@ -37,6 +37,7 @@
 - type: startingGear
   id: OverseerGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitVault14
     back: N14ClothingBackpackVaultBlue # Forge-Change
     shoes: N14ClothingBootsBlack

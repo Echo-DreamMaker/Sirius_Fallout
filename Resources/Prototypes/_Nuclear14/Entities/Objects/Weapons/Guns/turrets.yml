@@ -247,6 +247,15 @@
     factions:
     - HostileRobot
 
+- type: entity
+  parent: N14BaseWeaponTurret
+  id: N14WeaponTurretEnclaveSecureArea
+  suffix: EnclaveSecureArea, Hostile
+  components:
+  - type: NpcFactionMember
+    factions:
+    - EnclaveSecureArea
+
 # Spawn Point Turrets
 # These are meta turrets designed to stop spawn point abuse
 - type: entity

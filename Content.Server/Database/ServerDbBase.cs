@@ -109,7 +109,7 @@ namespace Content.Server.Database
             }
             else
             {
-                // New slot — create and attach to the preference row.
+                // New slot вЂ” create and attach to the preference row.
                 var newProfile = ConvertProfiles(humanoid, slot);
                 var prefs = await db.DbContext
                     .Preference
@@ -1054,6 +1054,12 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 query = query.Where(log => log.RoundId == filter.Round);
             }
 
+            if (!string.IsNullOrWhiteSpace(filter.PlayerName))
+                query = query.Where(log => log.Message.ToLower().Contains(filter.PlayerName.ToLower()));
+
+            if (!string.IsNullOrWhiteSpace(filter.AdminName))
+                query = query.Where(log => log.Message.ToLower().Contains(filter.AdminName.ToLower()));
+
             if (filter.Types != null)
             {
                 query = query.Where(log => filter.Types.Contains(log.Type));
@@ -1115,6 +1121,8 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             };
 
             const int hardLogLimit = 500_000;
+            if (filter.Offset > 0)
+                query = query.Skip(Math.Min(filter.Offset, hardLogLimit));
             if (filter.Limit != null)
             {
                 query = query.Take(Math.Min(filter.Limit.Value, hardLogLimit));
@@ -1877,6 +1885,24 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return true;
         }
 
+        // #Cythisiax Added - Faction roster: list every player holding any of the given job
+        // whitelists, with their last seen username, for the faction lead's roster GUI.
+        public async Task<List<JobWhitelistHolder>> GetJobWhitelistHolders(
+            IReadOnlyCollection<string> roles,
+            CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            var roleList = roles.ToList();
+            var rows = await db.DbContext.RoleWhitelists
+                .Where(w => roleList.Contains(w.RoleId))
+                .Select(w => new { w.PlayerUserId, w.Player.LastSeenUserName, w.RoleId })
+                .ToListAsync(cancel);
+
+            return rows
+                .Select(r => new JobWhitelistHolder(r.PlayerUserId, r.LastSeenUserName, r.RoleId))
+                .ToList();
+        }
+
         #endregion
 
         // #Misfits Change - Persistent currency
@@ -2329,7 +2355,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return (stats, summary);
         }
 
-        // #Misfits Add — persist / retrieve individual bwoink/mhelp chat messages
+        // #Misfits Add вЂ” persist / retrieve individual bwoink/mhelp chat messages
         public async Task AddHelpTicketMessageAsync(HelpTicketMessage message)
         {
             await using var db = await GetDb();

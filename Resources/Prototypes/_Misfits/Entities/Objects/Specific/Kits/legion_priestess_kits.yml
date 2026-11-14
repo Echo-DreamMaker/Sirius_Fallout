@@ -117,3 +117,36 @@
     sound:
       path: /Audio/Effects/unwrap.ogg
 
+- type: entity
+  name: Acolyte Slaver
+  parent: KitBase
+  id: KitAcolyteSlaver
+  description: "Equipped with all a Priestess needs to catch and control slaves."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponShotgunAuto
+      - id: MisfitsMagazineBox12GaugeBeanbag
+        amount: 3
+      - id: N14Bandage
+        amount: 1
+      - id: N14HealingPoultice
+        amount: 1
+      - id: N14HealingPowder
+        amount: 1
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+      - id: N14PoliceBaton
+      - id: N14WeaponPistol45Colt
+      - id: BoxHandcuff
+      - id: Bola
+        amount: 2
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+

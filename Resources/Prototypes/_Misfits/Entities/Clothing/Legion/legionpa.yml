@@ -8,7 +8,7 @@
   components:
   - type: N14PowerArmor
     requiresProficiency: false # #Misfits Add - waive training gate for this salvaged variant
-  # #Misfits Add: Power armor integrity — separate HP pool. While intact, 98.5% of incoming
+  # #Misfits Add: Power armor integrity вЂ” separate HP pool. While intact, 98.5% of incoming
   # damage is absorbed by the armor and only 1.5% bleeds through to the wearer.
   # At 0 integrity the ArmorComponent is stripped and the wearer takes full damage.
   # Repair with a welder to restore the pool and re-enable absorption.
@@ -39,7 +39,7 @@
       head: N14ClothingHeadHatLegionpa
       gloves: N14ClothingPAGauntlets
       shoes: N14ClothingPABoots
-  - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
+  - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients вЂ” pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
         Blunt: 0.70
@@ -58,7 +58,7 @@
   - type: Reflect # #Misfits Change Tweak: Small-caliber rounds (sub-5.56mm) ricochet off power armor at 30% chance. Innate - always active regardless of movement.
     reflects:
       - SmallCaliber
-      - MediumCaliber
+      - MediumCaliber # See: N14 PA file line 75.
     reflectProb: 0.35
     reflectProbByType:
       MediumCaliber: 0.10 #less armor. less reflect.

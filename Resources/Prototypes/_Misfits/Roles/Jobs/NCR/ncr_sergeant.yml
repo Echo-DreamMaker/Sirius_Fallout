@@ -39,12 +39,12 @@
 - type: startingGear
   id: NCRNCOGear
   equipment:
+    wallet: N14Wallet
+    ears: MisfitsClothingHeadsetNCRCommand
     back: N14ClothingBackpackNCR
     hands: N14ClothingHandsGlovesCombat
     jumpsuit: N14ClothingOfficerUniformNCRDesert
     shoes: N14ClothingBootsCombatFilled
-    ears: N14ClothingHeadsetNCR
-
     belt: ClothingBeltNCR
     outerClothing: MisfitsNCRHeavyCombatArmor # T5 armor (0.70/0.65)
     pocket2: RadioHandheld
@@ -54,6 +54,7 @@
   storage:
     back:
     - N14BoxPlasticFilledMilitaryNCR
+    - SyndicateWhistle
 
 - type: playTimeTracker
   id: NCRSquadLeader

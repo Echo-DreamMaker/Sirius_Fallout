@@ -1,0 +1,83 @@
+- type: entity
+  parent: [BaseStructure, ConstructibleMachine]
+  id: MisfitsCryoPod
+  name: reagent cryo pod
+  description: A Vault 14 cryo pod that has been modified to run off reagents.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/cryogenics.rsi
+    drawdepth: Mobs
+    noRot: true
+    offset: 0, 0.5
+    layers:
+      - state: pod-open
+        map: [ "enum.CryoPodVisualLayers.Base" ]
+      - state: cover-on
+        map: [ "enum.CryoPodVisualLayers.Cover" ]
+        visible: false
+  - type: InteractionOutline
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.90"
+        density: 200
+        mask:
+          - MachineMask
+        layer:
+          - MachineLayer
+  - type: ContainerContainer
+    containers:
+      scanner-body:
+        !type:ContainerSlot
+        showEnts: true
+  - type: Appearance
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:EmptyAllContainersBehaviour
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WindowShatter
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: ApcPowerReceiver
+    powerLoad: 2000
+  - type: ExtensionCableReceiver
+  - type: ItemToggle
+  - type: SolutionContainerManager
+    solutions:
+      cryoChamber:
+        maxVol: 150
+  - type: ItemSlots
+    slots:
+      beaker:
+        whitelist:
+          components:
+            - FitsInDispenser
+  - type: UserInterface
+    interfaces:
+      enum.MisfitsCryoPodUiKey.Key:
+        type: MisfitsCryoPodBoundUserInterface
+  - type: ActivatableUI
+    key: enum.MisfitsCryoPodUiKey.Key
+    requiresComplex: false
+  - type: ActivatableUIRequiresPower
+  - type: PointLight
+    color: "#3a807f"
+    radius: 2
+    energy: 10
+    enabled: false
+  - type: CryoPod
+  - type: MisfitsCryoPod
+  - type: ContainerTemperatureDamageThresholds
+    coldDamageThreshold: 10

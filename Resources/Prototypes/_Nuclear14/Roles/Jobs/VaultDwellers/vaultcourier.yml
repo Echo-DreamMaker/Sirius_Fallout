@@ -22,7 +22,7 @@
   access:
   - VaultDweller
   - VaultCourier
-  - VaultEngineer # TODO: remove once VaultCourier doors are mapped — stopgap so this role isn't locked out
+  - VaultEngineer # TODO: remove once VaultCourier doors are mapped вЂ” stopgap so this role isn't locked out
   special:
   - !type:AddComponentSpecial
     components:
@@ -34,6 +34,7 @@
 - type: startingGear
   id: VaultCourierGear
   equipment:
+    wallet: N14Wallet
     head: ClothingHeadMailCarrier
     jumpsuit: ClothingUniformMailCarrier
     back: N14ClothingBackpackSatchelTrekker

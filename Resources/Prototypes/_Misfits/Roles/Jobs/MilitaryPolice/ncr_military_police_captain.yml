@@ -39,14 +39,15 @@
 - type: startingGear
   id: NCRMilitaryPoliceCaptainGear
   equipment:
+    wallet: N14Wallet
     head: N14ClothingHeadHatNCRBeretOfficer
+    ears: N14ClothingHeadsetNCR
     back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingMPUniformNCRDesert
     outerClothing: MisfitsNCRMPLieutenantArmor
     shoes: N14ClothingBootsCombatFilled
     belt: ClothingBeltNCR
     eyes: ClothingEyesGlassesSunglasses
-    ears: N14ClothingHeadsetNCR
     pocket2: SiriusRubberStampNCRChiefMP
     id: N14IDNCRDogtagMPCaptain
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
@@ -54,7 +55,10 @@
   storage:
     back:
       - N14BoxPlasticFilledMilitaryNCR
-      - N14PoliceBaton
+      - N14WeaponShotgunAuto
+      - Handcuffs
+      - TearGasGrenade
+      - MisfitsNCRMPShockBaton
       - N14MagazineShotgun20
 
 - type: playTimeTracker

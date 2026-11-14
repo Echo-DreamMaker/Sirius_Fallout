@@ -41,6 +41,7 @@
   subGear:
   - ChiefEngineerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitChiefEngineer
     back: ClothingBackpackChiefEngineerFilled
     shoes: ClothingShoesColorBrown
@@ -54,6 +55,7 @@
   id: ChiefEngineerPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitChiefEngineer
     head: ClothingHeadEnvirohelmChiefEngineer
     gloves: ClothingHandsGlovesEnviroglovesChiefEngineer

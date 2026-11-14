@@ -3,6 +3,7 @@
   subGear:
   - CourierPlasmamanGear
   equipment:
+    wallet: N14Wallet
     head: ClothingHeadCourier
     jumpsuit: ClothingUniformCourier
     back: ClothingBackpackFilled
@@ -18,6 +19,7 @@
   id: CourierPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitCourier
     head: ClothingHeadEnvirohelmCourier
     gloves: ClothingHandsGlovesEnviroglovesCargo

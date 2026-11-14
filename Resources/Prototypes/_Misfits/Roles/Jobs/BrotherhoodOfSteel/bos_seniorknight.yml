@@ -36,9 +36,10 @@
 - type: startingGear
   id: BoSMidKnightGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack  #Misfits Change /Tweak/: New consolidated BoS gear
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitBOSRed  #Misfits Change /Tweak/: New consolidated BoS gear
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     head: N14ClothingHeadHatCapkhighBoS
     pocket1: BoSBrotherhoodSeniorKnightKits
     hands: N14ClothingHandsGlovesCombat
@@ -47,7 +48,6 @@
     belt: ClothingBeltBoSWebbing
   storage:
     back:
-    - N14ClothingHeadHatBrotherhoodHelmetKnight
     - N14BoxPlasticFilledMilitary
 
 - type: playTimeTracker

@@ -36,6 +36,7 @@
   subGear:
   - ParamedicPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitParamedic
     back: ClothingBackpackParamedicFilledDV
     shoes: ClothingShoesColorBlue
@@ -52,6 +53,7 @@
   id: ParamedicPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitParamedic
     head: ClothingHeadEnvirohelmParamedic
     gloves: ClothingHandsGlovesEnviroglovesNitrile

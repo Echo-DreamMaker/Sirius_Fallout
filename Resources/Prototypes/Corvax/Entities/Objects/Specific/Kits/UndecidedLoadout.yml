@@ -1241,3 +1241,53 @@
     state: rifleman
   content:
   - KitNCRMPbailiff
+- type: UndecidedLoadoutBackpackSet
+  id: VenatorOperativeSet
+  name: undecided-loadout-category-corvax-venator-operative-name
+  description: undecided-loadout-category-corvax-venator-operative-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitVenatorOperative
+
+- type: UndecidedLoadoutBackpackSet
+  id: DecanusCrusherSet
+  name: undecided-loadout-category-corvax-decanus-crusher-name
+  description: undecided-loadout-category-corvax-decanus-crusher-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitDeanCrusher
+
+- type: UndecidedLoadoutBackpackSet
+  id: DecanusDemolitionistSet
+  name: undecided-loadout-category-corvax-decanus-demolitionist-name
+  description: undecided-loadout-category-corvax-decanus-demolitionist-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitDeanDemolitionist
+
+- type: UndecidedLoadoutBackpackSet
+  id: DecanusSharpshooterSet
+  name: undecided-loadout-category-corvax-decanus-sharpshooter-name
+  description: undecided-loadout-category-corvax-decanus-sharpshooter-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitDeanSharpshooter
+
+- type: UndecidedLoadoutBackpackSet
+  id: DecanusDestroyerSet
+  name: undecided-loadout-category-corvax-decanus-destroyer-name
+  description: undecided-loadout-category-corvax-decanus-destroyer-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitDeanDestroyer
+

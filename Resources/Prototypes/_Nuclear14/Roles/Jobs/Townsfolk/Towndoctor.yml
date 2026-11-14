@@ -36,6 +36,7 @@
 - type: startingGear
   id: TownDoctorGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitWastelandDoc
     ears: MisfitsClothingHeadsetTown
     back: N14ClothingBackpackExplorer # Corvax-Change

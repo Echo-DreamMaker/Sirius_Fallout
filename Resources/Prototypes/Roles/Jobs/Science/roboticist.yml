@@ -20,6 +20,7 @@
   subGear:
   - RoboticistPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitRoboticist
     back: ClothingBackpackRoboticsFilled
     shoes: ClothingShoesColorBlack
@@ -34,6 +35,7 @@
   id: RoboticistPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitRoboticist
     head: ClothingHeadEnvirohelmRoboticist
     gloves: ClothingHandsGlovesEnviroglovesRoboticist

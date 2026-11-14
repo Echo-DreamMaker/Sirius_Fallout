@@ -4,6 +4,7 @@
 - type: startingGear
   id: SkeletonBiker
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorBlack
     back: ClothingBackpackFilled
     head: ClothingHeadBandSkull
@@ -23,6 +24,7 @@
   subGear:
   - SyndicatePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitSyndieFormal
     back: ClothingBackpackDuffelSyndicate
     shoes: ClothingShoesBootsCombat
@@ -36,6 +38,7 @@
   subGear:
   - SpaceNinjaPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitNinja
     # belt holds katana so satchel has the tools for sabotaging things
     back: ClothingBackpackSatchelTools
@@ -60,6 +63,7 @@
   subGear:
   - ERTPlasmamanGear # TODO: death squad envirosuit
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitDeathSquad
     back: ClothingBackpackDeathSquadFilled
     mask: ClothingMaskGasDeathSquad
@@ -81,6 +85,7 @@
   subGear:
   - SyndicateOperativePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackDuffelSyndicateOperative
     mask: ClothingMaskGasSyndicate
@@ -103,6 +108,7 @@
   subGear:
   - SyndicateOperativePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackDuffelSyndicateOperative
     mask: ClothingMaskGasSyndicate
@@ -128,6 +134,7 @@
   subGear:
   - SyndicateOperativePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackDuffelSyndicateOperativeMedic
     mask: ClothingMaskGasSyndicate
@@ -150,6 +157,7 @@
   subGear:
   - SyndicateOperativePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitOperative
     head: ClothingHeadHelmetSwatSyndicate
     mask: ClothingMaskGas
@@ -169,6 +177,7 @@
   subGear:
   - SyndicateOperativePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitOperative
     head: ClothingHeadHelmetSwatSyndicate
     mask: ClothingMaskGas
@@ -187,6 +196,7 @@
   subGear:
   - SecurityOfficerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitSec
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsCombatFilled
@@ -206,6 +216,7 @@
   subGear:
   - CBURNPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURNFilled
     mask: ClothingMaskGasERT
@@ -226,11 +237,13 @@
 - type: startingGear
   id: BoxingKangarooGear
   equipment:
+    wallet: N14Wallet
     gloves: ClothingHandsGlovesBoxingBlue
 
 - type: startingGear
   id: MobMonkeyGear
   equipment:
+    wallet: N14Wallet
     head: ClothingHeadHatTophat
     ears: ClothingHeadsetService
     jumpsuit: ClothingUniformJumpsuitJacketMonkey
@@ -243,6 +256,7 @@
   subGear:
   - PassengerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorGrey
     shoes: ClothingShoesColorBlack
   innerClothingSkirt: ClothingUniformJumpskirtColorGrey
@@ -254,6 +268,7 @@
   subGear:
   - DeathMatchPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorWhite
     shoes: ClothingShoesBootsJack
     ears: ClothingHeadsetGrey
@@ -267,6 +282,7 @@
 - type: startingGear
   id: BrigmedicGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitBrigmedic
     outerClothing: ClothingOuterCoatAMG
     back: ClothingBackpackBrigmedic
@@ -286,6 +302,7 @@
 - type: startingGear
   id: MobAghostGear
   equipment:
+    wallet: N14Wallet
     back: ClothingBackpackSatchelHoldingAdmin
     id: AdminPDA
 
@@ -309,6 +326,7 @@
 - type: startingGear
   id: GladiatorGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitGladiator
     back: SpearBone
     head: ClothingHeadHatGladiator
@@ -318,6 +336,7 @@
 - type: startingGear
   id: AshWalker
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitGladiator
     outerClothing: ClothingOuterArmorBone
     back: SpearBone
@@ -330,6 +349,7 @@
   subGear:
   - ClownPlasmamanGear # TODO: Banana clown plasmaman starting gear
   equipment:
+    wallet: N14Wallet
     shoes: ClothingShoesClownBanana
     jumpsuit: ClothingUniformJumpsuitClownBanana
     mask: ClothingMaskClownBanana

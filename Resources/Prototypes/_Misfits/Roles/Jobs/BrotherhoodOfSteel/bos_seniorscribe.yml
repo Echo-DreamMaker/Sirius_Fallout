@@ -44,12 +44,13 @@
 - type: startingGear
   id: BoSMidScribeGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack  #Misfits Change /Tweak/: New consolidated BoS gear
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitBOSScribe  #Misfits Change /Tweak/: New consolidated BoS gear
     back: N14ClothingBackpackSatchelMilitary
     shoes: N14ClothingBootsLeatherFilled
     id: N14IDBrotherhoodOfSteelHolotagSeniorScribe
     ears: N14ClothingHeadsetBrotherhoodOfSteelScribe
-    belt: ClothingBeltMilitary
+    # belt: ClothingBeltMilitary # #Misfits Removed - Belt now comes from loadout kit selection
   storage:
     back:
     - N14BoxPlasticFilledMilitary

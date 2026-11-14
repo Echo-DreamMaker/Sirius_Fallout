@@ -117,7 +117,7 @@ namespace Content.Shared.Damage
             }
             RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin, canSever ?? true)); // Shitmed Change
         }
-
+        //TODO: due for a massssssive refactor
         /// <summary>
         ///     Applies damage specified via a <see cref="DamageSpecifier"/>.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Content.Shared.Damage
             bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
             // Shitmed Change
             bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null, bool doPartDamage = true,
-            float armorPenetration = 0f)
+            float armorPiercing = 0f) // #Misfits Add
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -153,18 +153,6 @@ namespace Content.Shared.Damage
             if (before.Cancelled)
                 return null;
 
-            // Shitmed Change Start
-            if (doPartDamage)
-            {
-                var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
-                RaiseLocalEvent(uid.Value, ref partDamage);
-
-                if (partDamage.Evaded || partDamage.Cancelled)
-                    return null;
-            }
-
-            // Shitmed Change End
-
             // Apply resistances
             if (!ignoreResistances)
             {
@@ -174,17 +162,16 @@ namespace Content.Shared.Damage
                     // TODO DAMAGE PERFORMANCE
                     // use a local private field instead of creating a new dictionary here..
                     // TODO: We need to add a check to see if the given armor covers the targeted part (if any) to modify or not.
-                    damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet, armorPenetration);
+                    damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
                 }
 
                 // From Solidus: If you are reading this, I owe you a more comprehensive refactor of this entire system.
                 if (damageable.DamageModifierSets.Count > 0)
                     foreach (var enumerableModifierSet in damageable.DamageModifierSets)
                         if (_prototypeManager.TryIndex<DamageModifierSetPrototype>(enumerableModifierSet, out var enumerableModifier))
-                            damage = DamageSpecifier.ApplyModifierSet(damage, enumerableModifier, armorPenetration);
+                            damage = DamageSpecifier.ApplyModifierSet(damage, enumerableModifier);
 
-                var ev = new DamageModifyEvent(damage, origin, targetPart); // Shitmed Change
-                ev.ArmorPenetration = armorPenetration; // #Misfits Add
+                var ev = new DamageModifyEvent(damage, origin, targetPart, armorPiercing); // Shitmed Change
                 RaiseLocalEvent(uid.Value, ev);
                 damage = ev.Damage;
 
@@ -193,7 +180,19 @@ namespace Content.Shared.Damage
                     return damage;
                 }
             }
+            //Misfit fix: just shifted the instructions down here
+            // so part damage is actually based on modified damage and doesnt ignore entire dmg systems
+            // Shitmed Change Start
+            if (doPartDamage)
+            {
+                var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f, armorPiercing);
+                RaiseLocalEvent(uid.Value, ref partDamage);
 
+                if (partDamage.Evaded || partDamage.Cancelled)
+                    return null;
+            }
+
+            // Shitmed Change End
             // TODO DAMAGE PERFORMANCE
             // Consider using a local private field instead of creating a new dictionary here.
             // Would need to check that nothing ever tries to cache the delta.
@@ -351,6 +350,7 @@ namespace Content.Shared.Damage
         bool CanSever = true,
         bool CanEvade = false,
         float PartMultiplier = 1.00f,
+        float ArmorPiercing = 0f, // #Misfits Add
         bool Evaded = false,
         bool Cancelled = false);
 
@@ -369,16 +369,15 @@ namespace Content.Shared.Damage
         public DamageSpecifier Damage;
         public EntityUid? Origin;
         public readonly TargetBodyPart? TargetPart; // Shitmed Change
+        public readonly float ArmorPiercing; // #Misfits Add
 
-        // #Misfits Add - fraction of the target's armor ignored by this attack (0..1)
-        public float ArmorPenetration;
-
-        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null) // Shitmed Change
+        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null, float armorPiercing = 0f) // Shitmed Change
         {
             OriginalDamage = damage;
             Damage = damage;
             Origin = origin;
             TargetPart = targetPart; // Shitmed Change
+            ArmorPiercing = armorPiercing; // #Misfits Add
         }
     }
 

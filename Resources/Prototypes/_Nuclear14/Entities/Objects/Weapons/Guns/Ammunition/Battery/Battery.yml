@@ -39,14 +39,14 @@
     proto: N14MFLaserRed
     fireCost: 100
 
-#MARK: Microfusion Cell — single consolidated type
+#MARK: Microfusion Cell С‚РђР¤ single consolidated type
 # #Misfits Change - Consolidated from 4 colored variants into one generic MFC.
 # Weapons now control their own beam color and damage via GunDamageBonusComponent.hitscanProtoOverride.
 # The cell just provides charge. Default fallback hitscan is Red (used if no override on gun).
 
 - type: entity
   name: microfusion cell
-  description: A standard microfusion cell used as ammunition for energy weapons. The weapon's internal optics determine beam color and output — the cell simply provides charge.
+  description: A standard microfusion cell used as ammunition for energy weapons. The weapon's internal optics determine beam color and output С‚РђР¤ the cell simply provides charge.
   id: N14MicrofusionCell
   suffix: Full
   parent: N14BasePowerCell
@@ -66,7 +66,7 @@
     proto: N14MFLaserRed
     fireCost: 100
 
-# Backward-compatible aliases — colored variants redirect to the single generic MFC.
+# Backward-compatible aliases С‚РђР¤ colored variants redirect to the single generic MFC.
 # Kept so existing map files, kits, crates, and trade references continue to work.
 - type: entity
   name: microfusion cell (red)
@@ -124,7 +124,7 @@
     proto: N14MFLaserViolet
     fireCost: 50
 
-#MARK: Fusion Core — single consolidated type
+#MARK: Fusion Core С‚РђР¤ single consolidated type
 # #Misfits Change - Consolidated from 4 colored variants into one generic fusion core.
 # Only the Laser Gatling accepts these (N14FusionCore tag). Weapon controls beam via override.
 # 5000 charge / 50 fireCost = 100 shots. Intended for heavy sustained-fire weapons.
@@ -178,14 +178,14 @@
   parent: N14FusionCore
   suffix: Full
 
-#MARK: Electron Charge Pack — single consolidated type
+#MARK: Electron Charge Pack С‚РђР¤ single consolidated type
 # #Misfits Change - Consolidated from 4 colored variants into one generic ECP.
 # Weapons control their own pulse beam via GunDamageBonusComponent.hitscanProtoOverride.
 # Pulse weapons deal Heat + Shock damage (effective against mechanical targets).
 
 - type: entity
   name: electron charge pack
-  description: An electron charge pack used as ammunition for pulse weapons. The weapon's emitter array determines pulse characteristics — the pack simply provides charge.
+  description: An electron charge pack used as ammunition for pulse weapons. The weapon's emitter array determines pulse characteristics С‚РђР¤ the pack simply provides charge.
   id: N14ElectronChargePack
   suffix: Full
   parent: N14BasePowerCell
@@ -256,7 +256,7 @@
     proto: N14PulseViolet
     fireCost: 50
 
-#MARK: Legacy Power Cells (commented out — replaced by tiered microfusion/ECP system above)
+#MARK: Legacy Power Cells (commented out С‚РђР¤ replaced by tiered microfusion/ECP system above)
 
 # - type: entity
 #   name: microfusion cell
@@ -448,7 +448,7 @@
     maxCharge: 1800
     startingCharge: 1800
 
-#MARK: Legacy Plasma Cells (commented out — all plasma weapons now use N14PlasmaCartridge)
+#MARK: Legacy Plasma Cells (commented out С‚РђР¤ all plasma weapons now use N14PlasmaCartridge)
 
 # - type: entity
 #   name: plasma cell

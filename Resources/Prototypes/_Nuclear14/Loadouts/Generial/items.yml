@@ -407,3 +407,37 @@
   cost: 1
   items:
     - PortableMediaPlayer
+- type: loadout
+  id: FlippoLighter
+  category: Items
+  cost: 0
+  items:
+  - FlippoLighter
+
+- type: loadout
+  id: FlippoEngravedLighter
+  category: Items
+  cost: 1
+  items:
+  - FlippoEngravedLighter
+
+
+
+# Misc
+# Misfits Change: Removed bottlecap (N14CurrencyCap100) loadout entry a€” caps are no longer granted to players at round start via loadouts.
+#- type: loadout
+#  id: N14CurrencyCap100
+#  category: Items
+#  cost: 5
+#  requirements:
+#  - !type:CharacterJobRequirement # Forge-Change
+#      inverted: true
+#      jobs:
+#      - BoSMidSerf
+#      - CaesarLegionSlave
+#      - NCRPrisoner
+#  items:
+#    - N14CurrencyCap100
+
+# Heals and Drugs
+

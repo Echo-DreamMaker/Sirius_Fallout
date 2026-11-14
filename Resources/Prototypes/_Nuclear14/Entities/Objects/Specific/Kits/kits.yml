@@ -1879,3 +1879,256 @@
       - id: N14JunkCeramicFlask
       - id: N14FoodTinC1
       - id: N14FoodTinC2
+- type: entity
+  name: specialist's operative kit
+  parent: KitBase
+  id: KitNCR_WSOperative
+  description: A crate containing all an NCR weapon specialist needs to perform their job.
+  components:
+  - type: Sprite
+    state: pointman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingUniformNCRRecon
+      - id: ClothingBeltNCR
+      - id: N14ClothingHeadHatNCRBeretRecon
+      - id: N14ClothingNeckCloakNCR # Forge-Change
+      - id: N14WeaponRifleOperative
+      - id: Magazine556Rifle
+        amount: 3
+      - id: N14WeaponPistol45Colt
+      - id: N14MagazinePistol45
+        amount: 2
+      - id: N14BoxCardboardMREBoxCFilled
+      - id: N14Stimpak
+      - id: N14RadAwayBloodbag
+      - id: N14CleanGauze10
+      - id: N14Flare
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+# NCRA Sergeant Kits
+
+- type: entity
+  name: ranger operative kit
+  parent: KitBase
+  id: KitOperativeRanger
+  description: A crate containing advanced weaponry for members of the Rangers.
+  components:
+  - type: Sprite
+    state: rifleman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltNCR
+      - id: N14WeaponRifleOperative
+      - id: Magazine556Rifle
+        amount: 3
+      - id: MagazineBox556
+      - id: N14Stimpak
+      - id: N14BoxCardboardMREBoxKFilled
+      - id: N14CombatKnife
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+#MARK: Veteran Kits
+
+- type: entity
+  name: Head Knight Bunker Warden Kit
+  parent: KitBase
+  id: KitHead_KniBun
+  description: A crate containing everything a member of the Brotherhood might need.
+  components:
+  - type: Sprite
+    state: rifleman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+    - id: N14WeaponShotgunRiot
+    - id: MagazineBox12gauge
+      amount: 1
+    - id: N14WeaponPistolT60
+    - id: N14MagazinePistol44
+      amount: 2
+    - id: N14CleanGauze10
+    - id: N14Stimpak
+      amount: 2
+    - id: N14BoxCardboardMREBoxKFilled
+
+- type: entity
+  name: Head Knight Support Fire Kit
+  parent: KitBase
+  id: KitHead_KniSup
+  description: A crate containing everything a member of the Brotherhood might need.
+  components:
+  - type: Sprite
+    state: rifleman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+    - id: N14WeaponRifle556Carbine
+    - id: LongMagazine556Rifle
+      amount: 2
+    - id: N14WeaponPistolT60
+    - id: N14MagazinePistol44
+      amount: 2
+    - id: N14CleanGauze10
+    - id: N14Stimpak
+      amount: 2
+    - id: N14BoxCardboardMREBoxKFilled
+
+# MBoS Scribe Medic Kit
+- type: entity
+  name: BoS Head Scribe Medical Kit
+  parent: KitBase
+  id: KitHead_ScrMed
+  description: A crate containing everything a Head Scribe might need for keeping the fighting forces alive.
+  components:
+  - type: Sprite
+    state: medic
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+    - id: N14HandheldHealthAnalyzer # #Misfits Add - BoS medics should spawn with health analyzer
+    - id: N14CleanGauze10
+    - id: N14Ointment10
+    - id: N14SuperStimpak
+    - id: N14ClothingBeltMedicalFilled
+    - id: ClothingMaskSterile
+    - id: MisfitsClothingOuterBrotherhoodMagnifier
+    - id: N14ClothingUniformJumpsuitBOSScribe
+    - id: ClothingBeltMedicalFilled
+    - id: ClothingHandsGlovesChemist
+    - id: N14BoxCardboardMREBoxKFilled
+    - id: N14WeaponLaserRifle
+    - id: N14MicrofusionCell
+      amount: 2
+    - id: N14WeaponLaserPistolRecharger
+    - id: MisfitsGrenadeWhitePhosphorus # #Misfits Add - faction council Medical Scribe ordnance
+
+# Head Scribe Field Kit
+- type: entity
+  name: BoS Scribe Field Kit
+  parent: KitBase
+  id: KitHead_ScrFld
+  description: A crate containing everything a Head Scribe might need for supporting their Chapter in the field.
+  components:
+  - type: Sprite
+    state: pointman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+    - id: N14CleanGauze10
+    - id: N14Ointment10
+    - id: N14MedkitCombatFilled
+    - id: N14HandheldHealthAnalyzer
+    - id: N14ClothingHandsGlovesDriver
+    - id: N14ClothingMaskBrownMask
+    - id: MisfitsClothingOuterBrotherhoodFieldCoat
+    - id: N14ClothingUniformJumpsuitBOSFieldScribe
+    - id: ClothingBeltBoSWebbing
+    - id: N14BoxCardboardMREBoxKFilled
+    - id: N14WeaponLaserRifle
+    - id: N14MicrofusionCell
+      amount: 2
+    - id: N14WeaponLaserPistolRecharger
+    - id: MisfitsGrenadePlasma # #Misfits Add - faction council Field Scribe ordnance
+
+# Head Scribe Engineer Kit
+- type: entity
+  name: BoS Scribe Engineer Kit
+  parent: KitBase
+  id: KitHead_ScrEng
+  description: A crate containing everything a Head Scribe might need for their general engineering needs.
+  components:
+  - type: Sprite
+    state: pointman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+    - id: N14CleanGauze10
+    - id: N14Ointment10
+    - id: MisfitsClothingOuterBrotherhoodMagnifier
+    - id: N14ClothingUniformJumpsuitBOSScribe
+    - id: N14ClothingHeadHatBrotherhoodBeret
+    - id: ClothingBeltBoSWebbing
+    - id: N14ClothingEyesGlassesWelding
+    - id: N14ClothingHandsGlovesCombat
+    - id: N14ClothingMaskBrownMask
+    - id: N14ClothingBeltUtilityFilled
+    - id: N14BoxCardboardMREBoxKFilled
+    - id: N14WeaponLaserRifle
+    - id: N14MicrofusionCell
+      amount: 2
+    - id: N14WeaponLaserPistolRecharger
+    - id: EmpGrenade # #Misfits Add - faction council Engineering Scribe ordnance
+    - id: MisfitsMilitaryDetonator # #Misfits Add - long-range initiator for Scribe demolition work
+
+# MBoS Paladin Kits
+#Misfits Change /Tweak/: Replaced auto laser rifle with auto shotgun + laser pistol sidearm.
+- type: entity
+  name: ranger medic kit
+  parent: KitBase
+  id: KitRangerMedic
+  description: A Ranger field kit carrying a scoped 7.62 marksman rifle, a combat defibrillator and a full medical pouch.
+  components:
+  - type: Sprite
+    state: medic
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltNCR
+      - id: N14WeaponRifle762Marksman
+      - id: Magazine762Rifle
+        amount: 4
+      - id: N14AmmoBox762
+      - id: N14HandheldHealthAnalyzer
+      - id: DefibrillatorCompact
+      - id: N14Stimpak
+        amount: 4
+      - id: N14MedkitCombatFilled
+      - id: N14Bandage
+        amount: 3
+      - id: N14CombatKnife
+      - id: N14BoxCardboardMREBoxKFilled
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: ranger corpsman kit
+  parent: KitBase
+  id: KitRangerCorpsman
+  description: A heavier Ranger medical cache - an automatic combat shotgun, a combat defibrillator and the gear to work under fire.
+  components:
+  - type: Sprite
+    state: medic
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltMedicalFilled
+      - id: N14WeaponShotgunAuto
+      - id: N14MagazineShotgun12
+        amount: 3
+      - id: N14AmmoBox12gauge
+      - id: N14HandheldHealthAnalyzer
+      - id: DefibrillatorCompact
+      - id: N14Stimpak
+        amount: 5
+      - id: N14MedkitCombatFilled
+      - id: N14Bandage
+        amount: 2
+      - id: N14CombatKnife
+      - id: N14BoxCardboardMREBoxKFilled
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+

@@ -79,33 +79,21 @@
     - ClothingEyesGlassesChemist
 
 - type: loadout
-  id: MisfitsLoadoutEyesPilotGoggles
-  category: Eyes
-  cost: 2
+  id: N14ClothingEyesJamjars
+  category: Accessories
+  cost: 0
   requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutEyes
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - BoSMidSerf
-        - CaesarLegionSlave
-        - NCRPrisoner
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutEyes
+  - !type:CharacterTraitRequirement
+    traits:
+    - N14Nearsighted
+  - !type:CharacterJobRequirement # Forge-Change
+    inverted: true
+    jobs:
+    - BoSMidSerf
+    - CaesarLegionSlave
+    - NCRPrisoner
   items:
-    - N14ClothingEyesGlassesPilot
+  - N14ClothingEyesJamjars
 
-- type: loadout
-  id: MisfitsLoadoutEyesGoggles
-  category: Eyes
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutEyes
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - BoSMidSerf
-        - CaesarLegionSlave
-        - NCRPrisoner
-  items:
-    - N14ClothingEyesGlassesGoggles

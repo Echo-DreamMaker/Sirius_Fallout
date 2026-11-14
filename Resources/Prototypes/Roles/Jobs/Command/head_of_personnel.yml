@@ -69,6 +69,7 @@
   subGear:
   - HoPPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitHoP
     back: ClothingBackpackHOPFilled
     shoes: ClothingShoesLeather # DeltaV - HoP needs something better than plebe shoes.
@@ -82,6 +83,7 @@
   id: HoPPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitHoP
     head: ClothingHeadEnvirohelmHoP
     gloves: ClothingHandsGlovesEnviroglovesHoP

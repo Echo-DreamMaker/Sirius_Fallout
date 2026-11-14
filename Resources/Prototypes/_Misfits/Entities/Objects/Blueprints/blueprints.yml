@@ -1298,3 +1298,24 @@
     - N14BPTribeAmmoBox50
     - N14BPTribeAmmoBox45-70
     - N14BPTribeAmmoMag556Pipe
+- type: entity
+  parent: N14BlueprintBase
+  id: MisfitsBlueprintLegionMortarOrdnance
+  name: Legion mortar munitions codex
+  description: Mortar loads scratched onto hide by Legion armorsmiths. High-explosive, fragmentation, incendiary, smoke, illumination and kinetic rounds.
+  components:
+  - type: Blueprint
+    recipes:
+    - MisfitsBPLegionMortarShellHE
+    - MisfitsBPLegionMortarShellFrag
+    - MisfitsBPLegionMortarShellIncendiary
+    - MisfitsBPLegionMortarShellSmoke
+    - MisfitsBPLegionMortarShellIllumination
+    - MisfitsBPLegionMortarShellKinetic
+
+
+# =====================================================================
+# BROTHERHOOD OF STEEL BLUEPRINTS
+# =====================================================================
+
+# --- BoS Weapons ---

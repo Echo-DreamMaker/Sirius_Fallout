@@ -64,3 +64,28 @@
 #    state: green
 #    visible: true
 #  - type: Appearance
+- type: entity
+  parent: MarkerBase
+  id: N14ExpeditionWarpMarker
+  name: expedition transit target
+  categories: [ HideSpawnMenu ]
+
+# DEPRECATED вЂ” Expedition spawn marker is no longer used by the system.
+# Spawn location is now determined by majority-faction voting in difficulties.yml.
+# Kept commented out for history.
+
+#- type: entity
+#  id: N14ExpeditionSpawnPoint
+#  name: n14-expedition-spawn-name
+#  description: n14-expedition-spawn-desc
+#  placement:
+#    mode: SnapgridCenter
+#  components:
+#  - type: N14ExpeditionSpawn
+#  - type: Transform
+#    anchored: true
+#  - type: Sprite
+#    sprite: Markers/cross.rsi
+#    state: green
+#    visible: true
+#  - type: Appearance

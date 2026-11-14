@@ -1,5 +1,5 @@
-# #Misfits Add - C-27 humanoid robot helmets: 3 tiers × 3 factions = 9 concrete entities.
-# Gated by MisfitsC27ArmorComponent (Phase D species check) — the c27 inventory template HEAD
+# #Misfits Add - C-27 humanoid robot helmets: 3 tiers Г— 3 factions = 9 concrete entities.
+# Gated by MisfitsC27ArmorComponent (Phase D species check) вЂ” the c27 inventory template HEAD
 # slot has no tag whitelist, so the species gate is the only barrier. Helmets are equipped
 # separately (not bundled into the heavy armor's ToggleableClothing) so players can mix tiers
 # / faction skins for visual variety.
@@ -52,6 +52,9 @@
     - C27
     - C27NCR
     - C27BoS
+    - C27Integrator # #Misfits Add - chassis configurations may wear the heavy helmet
+    - C27Assault
+    - C27Recon
   - type: Armor
     modifiers:
       coefficients:

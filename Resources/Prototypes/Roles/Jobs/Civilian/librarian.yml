@@ -34,6 +34,7 @@
   subGear:
   - LibrarianPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitLibrarian
     back: ClothingBackpackLibrarianFilled
     shoes: ClothingShoesBootsLaceup
@@ -50,6 +51,7 @@
   id: LibrarianPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitAncientVoid
     head: ClothingHeadEnvirohelmAncientVoid
     gloves: ClothingHandsGlovesEnviroglovesPrototype

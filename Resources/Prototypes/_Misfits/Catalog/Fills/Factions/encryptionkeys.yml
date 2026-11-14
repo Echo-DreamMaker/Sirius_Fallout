@@ -168,3 +168,41 @@
     whitelist:
       components:
       - EncryptionKey
+- type: entity
+  name: ncr rangers encryption key box
+  parent: BoxCardboard
+  id: BoxEncryptionKeyNCRRangers
+  description: A box of encryption keys manufactured in the Boneyard, used by the NCR rangers exclusively.
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeyNCRRangers
+      amount: 6
+  - type: Sprite
+    layers:
+    - state: box
+    - state: encryptokey
+  - type: Storage
+    whitelist:
+      components:
+      - EncryptionKey
+
+- type: entity
+  name: ncr government encryption key box
+  parent: BoxCardboard
+  id: BoxEncryptionKeyOSI
+  description: A box of encryption keys manufactured in the Boneyard, used by civilian government employees.
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeyOSI
+      amount: 6
+  - type: Sprite
+    layers:
+    - state: box
+    - state: encryptokey
+  - type: Storage
+    whitelist:
+      components:
+      - EncryptionKey
+

@@ -1,4 +1,4 @@
-# #Misfits Add - White Legs Pain Maker prototype for the dedicated White Legs department.
+﻿# #Misfits Add - White Legs Pain Maker prototype for the dedicated White Legs department.
 
 - type: job
   id: WhiteLegsPainMaker
@@ -33,6 +33,7 @@
 - type: startingGear
   id: WhiteLegsPainMakerGear
   equipment:
+    wallet: N14Wallet
     bandage: NCClothingBandageRaiders
     jumpsuit: M14ClothingUniformWhiteLegsUniform
     outerClothing: MisfitsClothingOuterWhiteLegsArmor
@@ -49,3 +50,4 @@
 
 - type: playTimeTracker
   id: WhiteLegsPainMaker
+

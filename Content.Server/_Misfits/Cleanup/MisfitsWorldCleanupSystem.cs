@@ -12,18 +12,24 @@ namespace Content.Server._Misfits.Cleanup;
 /// Automatically cleans up entities that would otherwise persist forever and silently
 /// accumulate over a long round:
 /// <list type="bullet">
-///   <item>Blood puddles — created every bleed tick, blood never evaporates (via <see cref="TimedDespawnComponent"/>).</item>
-///   <item>Footprints — spawned every step through a puddle (via <see cref="TimedDespawnComponent"/>).</item>
-///   <item>Giblets (body parts + organs) — dropped when mobs are gibbed (via <see cref="GibletCleanupComponent"/>).</item>
+///   <item>Blood puddles вЂ” created every bleed tick, blood never evaporates (via <see cref="TimedDespawnComponent"/>).</item>
+///   <item>Footprints вЂ” spawned every step through a puddle (via <see cref="TimedDespawnComponent"/>).</item>
+///   <item>Giblets (body parts + organs) вЂ” dropped when mobs are gibbed (via <see cref="GibletCleanupComponent"/>).</item>
 /// </list>
 /// </summary>
 public sealed class MisfitsWorldCleanupSystem : EntitySystem
 {
-    // Puddles (blood, chemicals, water) — 10 minutes gives plenty of time
+    // #Cythisiax Added - one-second expiry resolution avoids scanning ten-minute giblets every tick.
+    private const float GibletSweepInterval = 1f;
+    private float _gibletSweepAccumulator;
+    private readonly List<EntityUid> _toStop = new();
+    private readonly List<EntityUid> _toDelete = new();
+
+    // Puddles (blood, chemicals, water) вЂ” 10 minutes gives plenty of time
     // for gameplay interaction (slip, forensics, mopping) before cleanup.
     private const float PuddleLifetime = 600f;
 
-    // Body parts and organs scattered during gibbing — 10 minutes.
+    // Body parts and organs scattered during gibbing вЂ” 10 minutes.
     private const float GibletLifetime = 600f;
 
     public override void Initialize()
@@ -44,29 +50,36 @@ public sealed class MisfitsWorldCleanupSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        // #Cythisiax Edited - accumulate elapsed time and reuse buffers during periodic cleanup sweeps.
+        _gibletSweepAccumulator += frameTime;
+        if (_gibletSweepAccumulator < GibletSweepInterval)
+            return;
+
+        var elapsed = _gibletSweepAccumulator;
+        _gibletSweepAccumulator = 0f;
+        _toStop.Clear();
+        _toDelete.Clear();
+
         // Giblet cleanup is driven from this system's own tick rather than subscribing to
-        // SharedBodySystem's attach events — the directed (component, event) pairs for body
+        // SharedBodySystem's attach events вЂ” the directed (component, event) pairs for body
         // part attachment are already owned by SharedBodySystem and its _Shitmed partials
         // (e.g. (BodyPartComponent, EntInsertedIntoContainerMessage), (BodyComponent,
         // BodyPartAddedEvent)), so hooking them caused "Duplicate Subscriptions" at startup.
         // # #Cythisiax Fixed - duplicate directed subscription crash; cleanup now runs from own Update loop
-        var toStop = new List<EntityUid>();
-        var toDelete = new List<EntityUid>();
-
         var parts = EntityQueryEnumerator<BodyPartComponent, GibletCleanupComponent>();
         while (parts.MoveNext(out var uid, out var part, out var cleanup))
         {
-            // Attached to a body (e.g. a surgeon recovered it) — stop cleanup so the limb never despawns.
+            // Attached to a body (e.g. a surgeon recovered it) вЂ” stop cleanup so the limb never despawns.
             if (part.Body != null)
             {
-                toStop.Add(uid);
+                _toStop.Add(uid);
                 continue;
             }
             if (TerminatingOrDeleted(uid))
                 continue;
-            cleanup.Accumulator += frameTime;
+            cleanup.Accumulator += elapsed;
             if (cleanup.Accumulator >= cleanup.Lifetime)
-                toDelete.Add(uid);
+                _toDelete.Add(uid);
         }
 
         var organs = EntityQueryEnumerator<OrganComponent, GibletCleanupComponent>();
@@ -74,19 +87,19 @@ public sealed class MisfitsWorldCleanupSystem : EntitySystem
         {
             if (organ.Body != null)
             {
-                toStop.Add(uid);
+                _toStop.Add(uid);
                 continue;
             }
             if (TerminatingOrDeleted(uid))
                 continue;
-            cleanup.Accumulator += frameTime;
+            cleanup.Accumulator += elapsed;
             if (cleanup.Accumulator >= cleanup.Lifetime)
-                toDelete.Add(uid);
+                _toDelete.Add(uid);
         }
 
-        foreach (var uid in toStop)
+        foreach (var uid in _toStop)
             RemComp<GibletCleanupComponent>(uid);
-        foreach (var uid in toDelete)
+        foreach (var uid in _toDelete)
             QueueDel(uid);
     }
 
@@ -104,7 +117,7 @@ public sealed class MisfitsWorldCleanupSystem : EntitySystem
 
     private void OnBodyPartLand(EntityUid uid, BodyPartComponent comp, ref LandEvent args)
     {
-        // Part is still attached to a living body — don't despawn (e.g. held limbs).
+        // Part is still attached to a living body вЂ” don't despawn (e.g. held limbs).
         if (comp.Body != null)
             return;
 
@@ -113,7 +126,7 @@ public sealed class MisfitsWorldCleanupSystem : EntitySystem
 
     private void OnOrganLand(EntityUid uid, OrganComponent comp, ref LandEvent args)
     {
-        // Organ is still inside a body — don't despawn.
+        // Organ is still inside a body вЂ” don't despawn.
         if (comp.Body != null)
             return;
 

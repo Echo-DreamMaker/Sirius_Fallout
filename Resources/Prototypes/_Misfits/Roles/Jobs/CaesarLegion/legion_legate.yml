@@ -58,6 +58,7 @@
         - CaesarLegionLegate
         - CaesarLegionOrator
         - CaesarLegionPriestessOfMars
+        - CaesarLegionAcolyteOfMars
   - !type:AddTraitSpecial
     traits: [ LanguageLatin ]
   # #Misfits Removed - Disabled auto-grant pending testing; use training manuals instead
@@ -68,6 +69,7 @@
 - type: startingGear
   id: CaesarLegionLegateGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitLegionnaire
     ears: N14ClothingHeadsetLegion
     neck: ClothingNeckRedScarf

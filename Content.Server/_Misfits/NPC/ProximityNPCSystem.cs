@@ -3,6 +3,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared._Misfits.CCVar;
 using Content.Shared._Misfits.NPC;
+using Content.Shared._NC.Mountable.Components;
 using Content.Shared.Movement.Components;
 /// Misfit Change: sound handling moved to NPCSystem wake and sleep methods
 // using Content.Shared.Audio;
@@ -22,7 +23,7 @@ namespace Content.Server._Misfits.NPC;
 /// Keeps NPCs with <see cref="ProximityNPCComponent"/> asleep until a player enters
 /// their wake radius, then re-sleeps them when all players leave.
 ///
-/// Why: Wendover is ~8000×4190 tiles. Running HTN planning on every creature at all
+/// Why: Wendover is ~8000Г—4190 tiles. Running HTN planning on every creature at all
 /// times saturates server CPU long before the player pop limit matters. By sleeping
 /// distant NPCs we get near-zero per-tick cost for the majority of the map's fauna.
 ///
@@ -30,7 +31,7 @@ namespace Content.Server._Misfits.NPC;
 /// We instead perform a periodic spatial query against connected player positions,
 /// which works for an always-on-grid (no vessel/space) game mode.
 ///
-/// Performance: Uses a work-queue pattern — every <c>_checkInterval</c> seconds it
+/// Performance: Uses a work-queue pattern вЂ” every <c>_checkInterval</c> seconds it
 /// snapshots all proximity NPCs, then processes a small batch each tick until done.
 /// This spreads the spatial query cost evenly across ticks and prevents a single
 /// burst from blowing the tick budget and causing movement rubberbanding.
@@ -105,7 +106,7 @@ public sealed partial class ProximityNPCSystem : EntitySystem
             return;
         }
 
-        // No pending work — wait for the next check interval.
+        // No pending work вЂ” wait for the next check interval.
         _accumulator += frameTime;
         if (_accumulator < _checkInterval)
             return;
@@ -123,7 +124,7 @@ public sealed partial class ProximityNPCSystem : EntitySystem
         _pendingIndex = 0;
 
         // Budget: spread evenly so all NPCs are checked within one interval.
-        // e.g. 500 NPCs / (5s × 30 tick/s) = ~3.3 → 4 per tick.
+        // e.g. 500 NPCs / (5s Г— 30 tick/s) = ~3.3 в†’ 4 per tick.
         var ticksAvailable = _checkInterval * _timing.TickRate;
         _budgetPerTick = Math.Max(1, (int) Math.Ceiling(_pending.Count / ticksAvailable));
 
@@ -152,10 +153,14 @@ public sealed partial class ProximityNPCSystem : EntitySystem
             if (xform.MapID == MapId.Nullspace)
                 continue;
             if (!TryComp(uid, out MobStateComponent? state)) continue;
-            // #Misfits Fix — skip player-possessed mobs entirely. HTNSystem already
+            // #Misfits Fix вЂ” skip player-possessed mobs entirely. HTNSystem already
             // sleeps the AI on PlayerAttachedEvent; re-waking it here would re-enable
             // hostile NPC behaviour while a player/admin is in control.
             if (HasComp<ActorComponent>(uid))
+                continue;
+
+            // Misifts skip mounts while a rider is on them
+            if (TryComp<MountableComponent>(uid, out var mountable) && mountable.Rider != null && mountable.RiderControlsMovement)
                 continue;
 
 

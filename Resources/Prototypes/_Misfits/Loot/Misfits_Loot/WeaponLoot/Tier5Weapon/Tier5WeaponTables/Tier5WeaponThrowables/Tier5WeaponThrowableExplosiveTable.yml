@@ -1,0 +1,10 @@
+- type: entityTable
+  id: M14WeaponLootTier5_ThrowablesExplosive
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: MisfitsGrenadeWhitePhosphorus
+    - !type:EntSelector
+      id: N14PlasmaGrenade
+    - !type:EntSelector
+      id: N14CryoGrenade

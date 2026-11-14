@@ -26,6 +26,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Verbs;
@@ -149,6 +150,19 @@ public sealed class SurgerySystem : SharedSurgerySystem
 
         _ui.OpenUi(target, SurgeryUIKey.Key, user);
         RefreshUI(target);
+        
+        // Delay 1 tick before refreshing UI state to ensure contents load on first open.
+        // remove when actual underlying problem is found
+        Timer.Spawn(TimeSpan.Zero, () =>
+        {
+            if (Deleted(target))
+                return;
+
+            if (!_ui.HasUi(target, SurgeryUIKey.Key))
+                return;
+
+            RefreshUI(target);
+        });
     }
 
     private void OnUtilityVerb(Entity<SurgeryToolComponent> ent, ref GetVerbsEvent<UtilityVerb> args)
@@ -238,7 +252,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
             }
         }
 
-        // Remove the patient's own DNA — operating on yourself doesn't count as cross-contamination
+        // Remove the patient's own DNA вЂ” operating on yourself doesn't count as cross-contamination
         if (target.Comp1.DNA is { } dna)
             _dirtyDnas.Remove(dna);
 
@@ -272,7 +286,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         if (HasComp<SanitizedComponent>(args.User))
             return;
 
-        // Sepsis damage — only for contaminable species (humanoids with DNA). Animals (monkeys, etc.)
+        // Sepsis damage вЂ” only for contaminable species (humanoids with DNA). Animals (monkeys, etc.)
         // lack SurgeryContaminableComponent/DnaComponent, so they don't get sepsis but still dirty tools.
         if (TryComp<SurgeryContaminableComponent>(ent, out var contaminable)
             && TryComp<DnaComponent>(ent, out var dnaComp))

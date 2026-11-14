@@ -24,6 +24,7 @@
 - type: startingGear
   id: FarmerGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
     ears: MisfitsClothingHeadsetTown #Misfits-Change
     back: N14ClothingBackpackExplorer # Corvax-Change

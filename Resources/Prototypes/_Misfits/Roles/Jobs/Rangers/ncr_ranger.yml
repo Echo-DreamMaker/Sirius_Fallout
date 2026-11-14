@@ -31,12 +31,12 @@
     components:
       - type: NpcFactionMember
         factions:
-          - Wastelander
-          - NCR
+          - Rangers # #Misfits Change - Rangers are their own faction, not NCR Army (keeps them out of NCR wars/raids)
 
 - type: startingGear
   id: NCRRangerGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformRangerPatrol
     shoes: N14ClothingBootsCombatFilled
     ears: MisfitsClothingHeadsetNCRRanger

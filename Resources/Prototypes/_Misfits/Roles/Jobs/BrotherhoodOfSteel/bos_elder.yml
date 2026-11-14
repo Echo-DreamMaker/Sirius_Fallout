@@ -61,6 +61,7 @@
         - BoSMidPaladinCommander
         - BoSHonorGuard # #Cythisiax Added - personal-whitelist HONOR GUARD warcry
         - BoSWestScribe
+        - BoSArchivist
         - BoSInitiate
         - BoSKnight
         - BoSPaladin
@@ -73,10 +74,11 @@
 - type: startingGear
   id: BoSWestElderCommanderGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack  #Misfits Change /Tweak/: New consolidated BoS gear
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitBOSBlack  #Misfits Change /Tweak/: New consolidated BoS gear
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
-    outerClothing: N14ClothingOuterBrotherhoodElderCoat
+    shoes: N14ClothingBootsCombatMK2Filled
+    outerClothing: MisfitsClothingOuterBrotherhoodElderBomber
     hands: N14ClothingHandsGlovesCombat
     id: N14IDBrotherhoodOfSteelHolotagElder
     ears: N14ClothingHeadsetBrotherhoodOfSteel

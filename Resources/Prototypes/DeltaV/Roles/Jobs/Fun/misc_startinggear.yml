@@ -12,6 +12,7 @@
 - type: startingGear
   id: OldstationMedic
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitMedicalDoctor
     neck: ClothingNeckStethoscope
     shoes: ClothingShoesColorWhite
@@ -24,6 +25,7 @@
 - type: startingGear
   id: OldstationGuard
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitSec
     shoes: ClothingShoesBootsJack
     id: SecurityIDCard
@@ -33,6 +35,7 @@
 - type: startingGear
   id: OldstationEngi
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitEngineering
     shoes: ClothingShoesBootsWork
     id: EngineeringIDCard
@@ -45,6 +48,7 @@
 - type: startingGear
   id: OldstationScientist
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitScientist
     shoes: ClothingShoesColorWhite
     id: ResearchIDCard
@@ -58,6 +62,7 @@
   subGear:
   - SyndicatePlasmamanGear # TODO: syndicate listener enviropyjamas
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitPyjamaSyndicateBlack
     head: ClothingHeadPyjamaSyndicateBlack
     ears: ClothingHeadsetAltSyndicateListening
@@ -72,6 +77,7 @@
 - type: startingGear
   id: MobsterGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitSuitBlackMob
     back: ClothingBackpackMafiaFilled
     head: ClothingHeadHatFedoraBlack
@@ -87,6 +93,7 @@
 - type: startingGear
   id: MobsterGearAlt
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitSuitBrown
     back: ClothingBackpackMafiaFilled
     head: ClothingHeadHatFlatBrown

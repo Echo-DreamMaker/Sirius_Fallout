@@ -32,6 +32,7 @@
   subGear:
   - PassengerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitClerk
     back: ClothingBackpackFilled
     shoes: ClothingShoesBootsLaceup

@@ -14,8 +14,7 @@
   - type: Clothing
     quickEquip: false
     slots:
-    - belt
-    - idcard
+    - wallet
   - type: Storage
     grid:
     - 0,0,2,1
@@ -24,8 +23,15 @@
     areaInsert: true
     whitelist:
       tags:
+      - BottleCap
       - Currency
       - DoorBumpOpener
+  - type: MagnetPickup
+    slotFlags: WALLET
+    range: 1
+    whitelist:
+      tags:
+      - Currency
   - type: Dumpable
   - type: Construction
     graph: N14Wallet
@@ -49,6 +55,7 @@
   - type: Tag
     tags:
       - Currency
+      - BottleCap
   - type: ConsumableCurrency
     currencyType: Bottlecaps
     valuePerUnit: 1
@@ -185,6 +192,17 @@
     layers:
     - state: prewar
       map: ["base"]
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        density: 30
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.2,0.25,0.1"
+        mask:
+        - ItemMask
   - type: Appearance
   - type: Item
     size: Tiny

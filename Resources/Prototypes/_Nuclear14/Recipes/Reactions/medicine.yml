@@ -216,3 +216,13 @@
       amount: 1
   products:
     BetaEpoetine: 3
+- type: reaction
+  id: AntidoteWeak
+  reactants:
+    Ethanol:
+      amount: 1
+    ScorpionTail:
+      amount: 1
+  products:
+    AntidoteWeak: 2
+

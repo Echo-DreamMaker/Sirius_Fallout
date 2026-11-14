@@ -29,7 +29,7 @@ namespace Content.Shared.Preferences;
 [Serializable, NetSerializable]
 public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 {
-    private static readonly Regex RestrictedNameRegex = new(@"[^a-zA-Zа-яА-ЯёЁ0-9' \-]");
+    private static readonly Regex RestrictedNameRegex = new(@"[^a-zA-Zа-яА-ЯёЁ0-9\' \-]");
     private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
     public const int MaxNameLength = 37; // #Misfits Tweak - reduced from 64 to cap character name length
@@ -92,7 +92,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     [DataField] // #Misfits Add - vocal style preference
     public string SpeechVerbPreference { get; set; } = "Default";
-
+    
     [DataField] // Corvax-TTS
     public string Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice; // Corvax-TTS
 
@@ -282,7 +282,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             sex = random.Pick(speciesPrototype.Sexes);
             age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
         }
-
+        
         // Corvax-TTS-Start
         var voiceId = random.Pick(prototypeManager
             .EnumeratePrototypes<TTSVoicePrototype>()
@@ -739,7 +739,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
         Special = special;
     }
-
+    
     // #Cythisiax Added - trait category hierarchy helpers (mirror the client editor's
     // BuildTraitCategoryRoots / GetRootTraitCategory in Content.Client/.../HumanoidProfileEditor.xaml.cs)
     // so the server-side EnsureValid species filter agrees with what the client shows as selectable.

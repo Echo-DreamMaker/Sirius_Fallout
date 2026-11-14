@@ -92,3 +92,15 @@
     sprite: _Nuclear14/Clothing/Eyes/ncrgoggles.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Eyes/ncrgoggles.rsi
+- type: entity
+  parent: ClothingEyesBase
+  id: N14ClothingEyesJamjars
+  name: jamjar glasses
+  description: A pair of inch-thick glasses for the truly visually impaired. Golly!
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/jamjar.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/jamjar.rsi
+  - type: VisionCorrection
+

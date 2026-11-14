@@ -15,6 +15,7 @@
   subGear:
   - PassengerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorGrey
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorBlack
@@ -28,6 +29,7 @@
   id: PassengerPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitColorGrey
     head: ClothingHeadEnvirohelmColorGrey
     gloves: ClothingHandsGlovesEnviroglovesColorDarkGrey

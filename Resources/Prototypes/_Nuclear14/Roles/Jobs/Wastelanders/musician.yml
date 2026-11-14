@@ -26,6 +26,7 @@
 - type: startingGear
   id: WastelandMusicianGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitManagerSuit
     ears: MisfitsClothingHeadsetWastelandScrap
     back: N14ClothingBackpackTrekker # Corvax-Change

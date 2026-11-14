@@ -36,6 +36,7 @@
 - type: startingGear
   id: BoSMidSerfGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitSettlerRags
     shoes: N14ClothingShoesRaider
     hands: N14ClothingHandsGlovesCloth

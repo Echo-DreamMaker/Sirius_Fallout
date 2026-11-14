@@ -19,6 +19,7 @@
   subGear:
   - PsychologistPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitPsychologist
     back: ClothingBackpackPsychologistFilled #DeltaV - stamp included
     shoes: ClothingShoesLeather
@@ -32,6 +33,7 @@
   id: PsychologistPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitEnviroslacksPsychologist
     head: ClothingHeadEnvirohelmMedicalDoctor
     gloves: ClothingHandsGlovesEnviroglovesWhite

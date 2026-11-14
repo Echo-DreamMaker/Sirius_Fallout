@@ -10,3 +10,14 @@
 # #Cythisiax Removed - Head Paladin T-51bc loadout: the 509th T-51bc is no longer
 # accessible to the Head Paladin. The suit (now "MisfitsClothingOuterPowerArmorBoS509HonorGuard")
 # was moved to the hidden Honor Guard rank's starting gear (see bos_honor_guard.yml).
+- type: loadout
+  id: LoadoutBoS509HeadPaladinT51BC
+  category: Roles
+  cost: 16
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - BoSMidPaladinCommander
+  items:
+    - MisfitsClothingOuterPowerArmorBoS509HeadPaladin

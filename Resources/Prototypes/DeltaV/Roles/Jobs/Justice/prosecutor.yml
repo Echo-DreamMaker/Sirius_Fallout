@@ -21,6 +21,7 @@
   subGear:
   - PassengerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitProsecutor
     neck: ClothingNeckProsecutorbadge
     back: ClothingBackpackLawyerFilled

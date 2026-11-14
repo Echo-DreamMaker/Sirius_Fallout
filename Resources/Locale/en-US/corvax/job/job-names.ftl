@@ -11,10 +11,10 @@ job-name-caesar-legion-veteran-decanus = Legion Veteran Decanus
 job-description-caesar-legion-veteran-decanus = Serve as a seasoned decanus trusted to command veteran legionaries and enforce discipline in Caesar's ranks.
 job-name-caesar-legion-frumentarii = Legion Frumentarii
 job-description-caesar-legion-frumentarii = Serve as Caesar's most trusted eyes, ears, and blades. The Frumentarii gather intelligence, eliminate threats from the shadows, and ensure Caesar's will is carried out beyond the Legion's main force.
-job-name-caesar-legion-prime-decanus = Legion Prime Decanus
-job-description-caesar-legion-prime-decanus = Command a unit of hardened legionaries as a Prime Decanus. You are the proven backbone of the Legion's officer corps — battle-experienced, disciplined, and trusted with greater authority than a common Decanus.
 job-name-caesar-legion-vexillarius = Legion Vexillarius
 job-description-caesar-legion-vexillarius = Carry the Legion's standard into battle and rally Caesar's warriors wherever the line begins to falter.
+job-name-caesar-legion-prime-decanus = Legion Prime Decanus
+job-description-caesar-legion-prime-decanus = Command a unit of hardened legionaries as a Prime Decanus. You are the proven backbone of the Legion's officer corps вЂ” battle-experienced, disciplined, and trusted with greater authority than a common Decanus.
 job-name-caesar-legion-explorer = Legion Explorer
 job-description-caesar-legion-explorer = Range ahead of the Legion's main force as a scout and hunter. Your eyes and your blade are Caesar's reach into the wilds.
 job-name-caesar-legion-optio = Legion Optio
@@ -37,7 +37,7 @@ job-name-caesar-legion-auxilia = Legion Auxilia
 job-description-caesar-legion-auxilia = Keep Caesar's warriors in the fight with wasteland medicine, battlefield triage, and discipline equal to any other legionary.
 job-name-caesar-legion-priestess-of-mars = Priestess of Mars
 job-description-caesar-legion-priestess-of-mars = Serve as a sacred woman of the Legion, tending to the spiritual needs of Caesar's warriors, ministering holy rites in the name of Mars, and lending aid to those who fight in his name.
-# #Misfits Change: Legion Recruit removed — replaced by Legionnaire as the entry-level rank.
+# #Misfits Change: Legion Recruit removed вЂ” replaced by Legionnaire as the entry-level rank.
 # job-name-caesar-legion-recruit = Legion Recruit
 # job-description-caesar-legion-recruit = Enter the Legion at its lowest free rank and prove you deserve to join the legionaries.
 job-name-caesar-legion-citizen = Legion Civilian

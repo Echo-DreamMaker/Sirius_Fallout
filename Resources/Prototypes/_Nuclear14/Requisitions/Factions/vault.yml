@@ -432,3 +432,35 @@
     - id: N14FoodCram
     - id: N14FoodPorkBeans
     - id: N14FoodSalisburysteak
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsVaultComms
+  name: vault comms crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: BoxHeadsetVault
+    - id: BoxEncryptionKeyVault
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsVaultIndustrialGrinder
+  name: industrial grinder board crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: ReagentGrinderIndustrialMachineCircuitboard
+
+# Security

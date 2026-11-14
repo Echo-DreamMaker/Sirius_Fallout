@@ -19,6 +19,7 @@
   subGear:
   - StationEngineerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorYellow
     back: ClothingBackpackEngineeringFilled
     shoes: ClothingShoesBootsWork

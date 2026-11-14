@@ -20,6 +20,7 @@
   subGear:
   - BotanistPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitHydroponics
     back: ClothingBackpackHydroponicsFilled
     shoes: ClothingShoesColorBrown
@@ -35,6 +36,7 @@
   id: BotanistPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitHydroponics
     head: ClothingHeadEnvirohelmHydroponics
     gloves: ClothingHandsGlovesEnviroglovesLeather

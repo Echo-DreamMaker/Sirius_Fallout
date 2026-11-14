@@ -17,6 +17,7 @@
   subGear:
   - ZookeeperPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitSafari
     back: ClothingBackpackFilled
     head: ClothingHeadSafari
@@ -31,6 +32,7 @@
   id: ZookeeperPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitSafari
     head: ClothingHeadEnvirohelmSafari
     gloves: ClothingHandsGlovesEnviroglovesPurple

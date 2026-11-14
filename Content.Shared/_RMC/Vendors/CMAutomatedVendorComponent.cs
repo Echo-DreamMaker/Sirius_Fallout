@@ -12,6 +12,14 @@ namespace Content.Shared._RMC.Vendors;
 [Access(typeof(SharedCMAutomatedVendorSystem))]
 public sealed partial class CMAutomatedVendorComponent : Component
 {
+    // #Cythisiax Removed - Retired the temporary vendor-disable field now that NCR requisitions are active again.
+    /// <summary>
+    /// Optional runtime stock pool shared by every automated vendor with the same identifier.
+    /// When omitted, this vendor retains independent stock, resupply, and equipment storage.
+    /// </summary>
+    [DataField]
+    public string? SharedPool;
+
     [DataField, AutoNetworkedField]
     public List<CMVendorSection> Sections = new();
 
@@ -32,15 +40,28 @@ public sealed partial class CMAutomatedVendorComponent : Component
     [DataField, AutoNetworkedField]
     public List<ProtoId<JobPrototype>> FullAllocationJobs = new();
 
+    /// <summary>
+    /// Jobs allowed to contribute physical currency to this vendor's resupply pool.
+    /// Empty preserves the legacy behavior where every authorized vendor user may contribute.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public List<ProtoId<JobPrototype>> ReplenishmentJobs = new();
+
     [DataField, AutoNetworkedField]
     public List<ProtoId<AccessLevelPrototype>> Access = new();
 
     /// <summary>
-    /// Maximum blueprint-style authority tier exposed by this vendor.
-    /// Misfits vendor tiers intentionally stop at four.
+    /// Maximum authority tier exposed by this vendor.
     /// </summary>
     [DataField]
-    public int MaxAuthorityTier = 4;
+    public int MaxAuthorityTier = 5;
+
+    /// <summary>
+    /// Vendor-local authority tier by job. This supports faction role structures that do not mirror their
+    /// physical access-card hierarchy, without granting broader door access.
+    /// </summary>
+    [DataField]
+    public Dictionary<ProtoId<JobPrototype>, int> AuthorityJobTiers = new();
 
     /// <summary>
     /// Required cumulative access tag(s) for each authority tier.
@@ -60,6 +81,12 @@ public sealed partial class CMAutomatedVendorComponent : Component
     /// </summary>
     [DataField]
     public string DepartmentName = "department";
+
+    /// <summary>
+    /// Player-facing machine title. Weapon and equipment vendors intentionally identify themselves separately.
+    /// </summary>
+    [DataField]
+    public string VendorTitle = "Armory Vendor";
 
     /// <summary>
     /// Ordered allocation sub-tabs shown by this vendor. Additional categories used by entries are appended.
@@ -117,6 +144,7 @@ public sealed partial class CMAutomatedVendorComponent : Component
         [2] = 8,
         [3] = 5,
         [4] = 2,
+        [5] = 1,
     };
 
     /// <summary>
@@ -131,6 +159,25 @@ public sealed partial class CMAutomatedVendorComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public int ReplenishmentPoints;
+
+    /// <summary>
+    /// Player-facing description of the physical items accepted by the resupply action.
+    /// </summary>
+    [DataField]
+    public string ReplenishmentPrompt = "accepted resupply supplies";
+
+    /// <summary>
+    /// Optional delay between funding a depleted allocation and receiving one replacement unit.
+    /// Zero preserves immediate replenishment for faction catalogs that have not opted into timed resupply.
+    /// </summary>
+    [DataField]
+    public TimeSpan ReplenishmentInterval = TimeSpan.Zero;
+
+    /// <summary>
+    /// Runtime game time for the next funded resupply shipment. A zero value means no shipment is queued.
+    /// </summary>
+    [DataField]
+    public TimeSpan NextReplenishment = TimeSpan.Zero;
 
     /// <summary>
     /// Cost in replenishment points for one unit of stock at each authority tier.

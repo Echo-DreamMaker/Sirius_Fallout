@@ -61,7 +61,7 @@ public sealed class EyeImplantSystem : EntitySystem
         if (!HasComp<ShowHealthBarsComponent>(args.Body))
         {
             var comp = AddComp<ShowHealthBarsComponent>(args.Body);
-            comp.DamageContainers = new List<string> { "Inorganic", "Silicon" };
+            comp.DamageContainers = new() { "Inorganic", "Silicon" }; // #Sirius Fix: ProtoId list
             Dirty(args.Body, comp);
         }
     }
@@ -90,14 +90,14 @@ public sealed class EyeImplantSystem : EntitySystem
         if (!HasComp<ShowHealthBarsComponent>(args.Body))
         {
             var barsComp = AddComp<ShowHealthBarsComponent>(args.Body);
-            barsComp.DamageContainers = new List<string> { "Biological" };
+            barsComp.DamageContainers = new() { "Biological" }; // #Sirius Fix: ProtoId list
             Dirty(args.Body, barsComp);
         }
 
         if (!HasComp<ShowHealthIconsComponent>(args.Body))
         {
             var iconsComp = AddComp<ShowHealthIconsComponent>(args.Body);
-            iconsComp.DamageContainers = new List<string> { "Biological" };
+            iconsComp.DamageContainers = new() { "Biological" }; // #Sirius Fix: ProtoId list
             Dirty(args.Body, iconsComp);
         }
     }
@@ -192,14 +192,14 @@ public sealed class EyeImplantSystem : EntitySystem
         if (!HasComp<ShowHealthBarsComponent>(args.Body))
         {
             var barsComp = AddComp<ShowHealthBarsComponent>(args.Body);
-            barsComp.DamageContainers = new List<string> { "Biological" };
+            barsComp.DamageContainers = new() { "Biological" }; // #Sirius Fix: ProtoId list
             Dirty(args.Body, barsComp);
         }
 
         if (!HasComp<ShowHealthIconsComponent>(args.Body))
         {
             var iconsComp = AddComp<ShowHealthIconsComponent>(args.Body);
-            iconsComp.DamageContainers = new List<string> { "Biological" };
+            iconsComp.DamageContainers = new() { "Biological" }; // #Sirius Fix: ProtoId list
             Dirty(args.Body, iconsComp);
         }
 

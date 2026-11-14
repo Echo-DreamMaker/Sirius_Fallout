@@ -263,3 +263,19 @@
 
     - node: healing poultice
       entity: N14HealingPoultice
+- type: constructionGraph
+  id: N14BarkskinPowder
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: barkskinpowder
+          steps:
+            - material: DaturaFlower
+            - material: CaveFungus
+            - material: WildStarlightBerries
+
+    - node: barkskinpowder
+      entity: N14BarkskinPowder
+
+# Stimpaks

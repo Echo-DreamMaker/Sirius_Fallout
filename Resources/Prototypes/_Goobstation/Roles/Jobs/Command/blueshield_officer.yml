@@ -61,6 +61,7 @@
   subGear:
   - BlueshieldPlasmamanGear
   equipment:
+    wallet: N14Wallet
     back: ClothingBackpackBlueshield
     jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
     shoes: ClothingShoesBootsCombatFilled
@@ -80,6 +81,7 @@
   id: BlueshieldPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitBlueshield
     head: ClothingHeadEnvirohelmBlueshield
     gloves: ClothingHandsGlovesEnviroglovesBlack

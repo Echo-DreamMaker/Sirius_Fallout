@@ -1,6 +1,7 @@
 - type: startingGear
   id: PirateGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitPirate
     back: ClothingBackpackPirateFilled
     head: ClothingHeadBandBlack
@@ -15,6 +16,7 @@
 - type: startingGear
   id: PirateCaptainGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitPirate
     back: ClothingBackpackPirateFilled
     head: ClothingHeadHatPirate
@@ -31,6 +33,7 @@
 - type: startingGear
   id: PirateFirstmateGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitPirate
     back: ClothingBackpackPirateFilled
     head: ClothingHeadHatPirateTricord

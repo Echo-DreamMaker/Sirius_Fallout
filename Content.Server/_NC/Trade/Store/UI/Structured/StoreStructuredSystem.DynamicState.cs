@@ -1,5 +1,5 @@
-using Content.Server._Misfits.Trade; // #Misfits Add — NcContractRosterComponent
-using Content.Shared._Misfits.Trade; // #Misfits Add — NcTierProgressComponent, TierRosterEntry
+using Content.Server._Misfits.Trade; // #Misfits Add вЂ” NcContractRosterComponent
+using Content.Shared._Misfits.Trade; // #Misfits Add вЂ” NcTierProgressComponent, TierRosterEntry
 using Content.Shared._NC.Trade;
 using Content.Shared.Stacks;
 using Robust.Shared.Containers;
@@ -115,30 +115,42 @@ public sealed partial class StoreStructuredSystem : EntitySystem
                     buf.CrateTotals[kvp.Key] = kvp.Value;
         }
 
-        // #Misfits Add — retrieve player's unlocked tiers for locking contracts on the client
-        // #Misfits Fix — snapshot the set so the StoreDynamicState doesn't hold a mutable reference
+        // #Misfits Add вЂ” retrieve player's unlocked tiers for locking contracts on the client
+        // #Misfits Fix вЂ” snapshot the set so the StoreDynamicState doesn't hold a mutable reference
         HashSet<string>? unlockedTiers = null;
         if (hasContractsTab && TryComp(user, out NcTierProgressComponent? tp))
-            unlockedTiers = new HashSet<string>(tp.UnlockedTiers);
+            unlockedTiers = new HashSet<string>(tp.GetUnlockedTiers(comp.ContractTierProfile));
 
         if (hasContractsTab && comp.Contracts.Count > 0)
         {
             foreach (var c in comp.Contracts.Values)
             {
                 var cd = MapContractToClient(c, user);
-                // #Misfits Add — lock contract if this tier is not yet unlocked by the player
+                // #Misfits Add вЂ” lock contract if this tier is not yet unlocked by the player
                 if (unlockedTiers != null && !unlockedTiers.Contains(c.Difficulty))
                     cd.Locked = true;
                 buf.Contracts.Add(cd);
             }
         }
 
-        if (scratch.EqualsLast(buf, comp.CatalogRevision, hasBuyTab, hasSellTab, hasContractsTab))
+        var stateUnlockedTiers = unlockedTiers ?? new HashSet<string>
+        {
+            NcTierProgressComponent.GetEntryTier(comp.ContractTierProfile)
+        };
+
+        if (scratch.EqualsLast(
+                buf,
+                comp.CatalogRevision,
+                hasBuyTab,
+                hasSellTab,
+                hasContractsTab,
+                comp.ContractTierProfile,
+                stateUnlockedTiers))
             return;
 
         comp.UiRevision = unchecked(comp.UiRevision + 1);
 
-        // #Misfits Add — gather Hall of Fame roster from vendor component
+        // #Misfits Add вЂ” gather Hall of Fame roster from vendor component
         var roster = TryComp(uid, out NcContractRosterComponent? rosterComp)
             ? rosterComp.GetSnapshot()
             : new List<TierRosterEntry>();
@@ -158,13 +170,20 @@ public sealed partial class StoreStructuredSystem : EntitySystem
                 hasBuyTab,
                 hasSellTab,
                 hasContractsTab,
-                // #Misfits Add — tier progression data for the client
-                unlockedTiers ?? new HashSet<string> { "Road Kill" },
+                // #Misfits Add вЂ” tier progression data for the client
+                comp.ContractTierProfile,
+                stateUnlockedTiers,
                 roster
             )
         );
 
-        scratch.Commit(comp.CatalogRevision, hasBuyTab, hasSellTab, hasContractsTab);
+        scratch.Commit(
+            comp.CatalogRevision,
+            hasBuyTab,
+            hasSellTab,
+            hasContractsTab,
+            comp.ContractTierProfile,
+            stateUnlockedTiers);
     }
 
     private bool TryFindWatchedRoot(EntityUid start, out EntityUid watchedRoot)

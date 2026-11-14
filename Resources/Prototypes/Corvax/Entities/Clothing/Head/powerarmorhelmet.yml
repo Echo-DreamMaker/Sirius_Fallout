@@ -31,7 +31,7 @@
 - type: entity
   parent: N14ClothingHeadHelmetPowerArmorX01
   id: N14ClothingHeadHelmetPowerArmorX01NCR
-  name: x-01 NCR power armor helmet
+  name: X-01 NCR power armor helmet
   description: A high-tech helmet used by the NCR with their advanced X-01 power armor. Offers superior protection and advanced features for elite troops.
   components:
   - type: Sprite

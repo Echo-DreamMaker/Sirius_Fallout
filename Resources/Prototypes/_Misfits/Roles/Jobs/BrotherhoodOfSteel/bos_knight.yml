@@ -1,4 +1,4 @@
-#Misfits Change /Comment-out/: Washington BoS Knight job removed — will create new prototypes.
+#Misfits Change /Comment-out/: Washington BoS Knight job removed вЂ” will create new prototypes.
 #- type: job
 #  id: BoSWashingtonKnight
 #  setPreference: true
@@ -87,20 +87,22 @@
 - type: startingGear
   id: BoSKnightGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitBOSGreen
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     head: N14ClothingHeadHatCapkhighBoS
-    outerClothing: MisfitsBoSKnightArmor # #Misfits Tweak: T4 armor (0.75/0.70) — Knight tier, equal to NCR Specialist / Legion Veteran Legionnaire
+    outerClothing: MisfitsBoSKnightArmor # #Misfits Tweak: T4 armor (0.75/0.70) вЂ” Knight tier, equal to NCR Specialist / Legion Veteran Legionnaire
     hands: N14ClothingHandsGlovesCombat
     id: N14IDBrotherhoodOfSteelHolotagKnight
     ears: N14ClothingHeadsetBrotherhoodOfSteel
     belt: ClothingBeltBoSWebbing
   storage:
     back:
-    - N14ClothingHeadHatBrotherhoodHelmetMK2
+    - N14ClothingHeadHatBrotherhoodHelmet
     - N14BoxPlasticFilledMilitary
     - N14Binoculars # #Misfits Add - Knights spawn with binoculars for field operations
+    - MisfitsGrenadeFragDefensive # #Misfits Add - faction council standard Knight ordnance
 
 - type: playTimeTracker
   id: BoSKnight

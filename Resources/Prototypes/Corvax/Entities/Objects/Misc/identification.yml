@@ -640,3 +640,23 @@
   components:
   - type: PresetIdCard
     job: BoSWestElderCommander
+- type: entity
+  parent: N14IDPassportBlank
+  id: N14IDLegionaryBadgeTempleGuard
+  name: distinctive sign
+  description: "This amulet marks one who has been entrusted with a sacred and specific duty, the protection of the Priestess of Mars and her Temple's sanctity. Let none defile it, or it will be your head."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/identification.rsi
+    state: sign
+  - type: IdCard # #Misfits Add - display "medallion" instead of default "ID card"
+    nameLocId: n14-id-medallion-name
+    fullNameLocId: n14-id-medallion-full-name
+  - type: PresetIdCard
+    job: CaesarLegionTempleGuard
+  #Misfits Add - IdCardLegion enables this badge to appear on the Centurion's tactical map terminal
+  - type: Tag
+    tags:
+    - IdCardLegion
+
+#Misfits Change /Add/: Legion Slave sign so the role carries the same legion badge style with its own access data.

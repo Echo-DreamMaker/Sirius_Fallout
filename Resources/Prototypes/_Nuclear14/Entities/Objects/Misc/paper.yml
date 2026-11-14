@@ -313,3 +313,162 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_live
+- type: entity
+  name: live and love
+  suffix: random, dirty
+  parent: N14Magazine
+  id: N14MagazineLiveDirty
+  description: "An issue of Live and Love, though it's a bit dirty"
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Misc/magazines.rsi
+    layers:
+    - state: magazine_live_dirty
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_liveandlovedirty
+    - falloutmagazine_liveandloverandom
+
+- type: entity
+  name: Tales from the Great Salt Lake Desert
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineAstonishingTales
+  description: "A magazine about folklore in the local area"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_astonishingtales
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_astonishingtales
+    - falloutmagazine_astonishingtalesrandom
+
+- type: entity
+  name: Chinese Army Special Ops
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineChineseArmySpecOps
+  description: "A training manual for the Chinese Army"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_chinesearmyspecops
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_chinesearmyspecops
+    - falloutmagazine_chinesearmyspecopsrandom
+
+- type: entity
+  name: Enclave Entrenchment Manual
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineEnclaveEntrenchmentManual
+  description: "A training manual for the Enclave"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_enclaveentrenchmentmanual
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_enclaveentrenchmentmanual
+    - falloutmagazine_enclaveentrenchmentmanualrandom
+
+- type: entity
+  name: Hot Rodder
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineHotRodder
+  description: "A Pre-War magazine for automotive enthusiasts"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_hotrodder
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_hotrodder
+    - falloutmagazine_hotrodderrandom
+
+- type: entity
+  name: Picket Fences
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazinePicketFences
+  description: "A magazine edition of Picket Fences, focusing on home design"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_picketfences
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_picketfences
+    - falloutmagazine_picketfencesrandom
+
+- type: entity
+  name: RobCo Fun
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineRobCoFun
+  description: "An issue of RobCo Fun, covering common pipboy games"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_robcofun
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_robcofun
+    - falloutmagazine_robcofunrandom
+
+- type: entity
+  name: Scouts' Life
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineScoutsLife
+  description: "An issue of Scouts' Life, covering outdoor survival"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_scoutslife
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_scoutslife
+    - falloutmagazine_scoutsliferandom
+
+- type: entity
+  name: Taboo Tattoos
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineTabooTattoos
+  description: "An issue of TabooTattoos, with some unique designs"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_tabootattoos
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_tabootattoos
+    - falloutmagazine_tabootattoosrandom
+
+- type: entity
+  name: Total Hack
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineTotalHack
+  description: "An issue of Total Hack, focusing on controlling electronics"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_totalhack
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_totalhack
+    - falloutmagazine_totalhackrandom

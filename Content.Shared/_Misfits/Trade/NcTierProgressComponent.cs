@@ -7,18 +7,41 @@ namespace Content.Shared._Misfits.Trade;
 [RegisterComponent]
 public sealed partial class NcTierProgressComponent : Component
 {
-    // Ordered list of all six tiers from lowest to highest.
-    public static readonly string[] AllTiers =
-        { "Road Kill", "Lazy Lizard", "Junktown Rat", "Hub Mercenary", "Bunker Buster", "Wasteland Legend" };
+    public const string BaseProfile = "Base";
+    public const string NcrProfile = "NCR";
+    public const string LegionProfile = "Legion";
+
+    private static readonly IReadOnlyDictionary<string, string[]> TierProfiles =
+        new Dictionary<string, string[]>(StringComparer.Ordinal)
+        {
+            [BaseProfile] = new[] { "Road Kill", "Lazy Lizard", "Junktown Rat", "Hub Mercenary", "Bunker Buster", "Wasteland Legend" },
+            [NcrProfile] = new[] { "Tribal", "Settler", "Citizen", "Caravaneer", "Caravan Master", "Brahmin Baron" },
+            [LegionProfile] = new[] { "Servus", "Plebeian", "Auxiliary", "Legionary", "Decanus", "Centurion" },
+        };
+
+    public static IReadOnlyList<string> GetTiers(string profile) =>
+        TierProfiles.TryGetValue(profile, out var tiers) ? tiers : TierProfiles[BaseProfile];
+
+    public static string GetEntryTier(string profile) => GetTiers(profile)[0];
 
     // Number of contracts a player must complete in a tier before the next tier unlocks.
     public const int ContractsToAdvance = 3;
 
-    // Tiers this player currently has access to (starting empty; Road Kill is granted on first vendor access).
+    // Progress is kept separately for each trader profile.
     [ViewVariables]
-    public HashSet<string> UnlockedTiers { get; } = new();
+    public Dictionary<string, HashSet<string>> UnlockedTiersByProfile { get; } = new();
 
-    // How many contracts have been completed per tier this round.
+    // How many contracts have been completed per profile and tier this round.
     [ViewVariables]
-    public Dictionary<string, int> CompletedByTier { get; } = new();
+    public Dictionary<string, Dictionary<string, int>> CompletedByTierByProfile { get; } = new();
+
+    public HashSet<string> GetUnlockedTiers(string profile) =>
+        UnlockedTiersByProfile.TryGetValue(profile, out var tiers)
+            ? tiers
+            : UnlockedTiersByProfile[profile] = new();
+
+    public Dictionary<string, int> GetCompletedByTier(string profile) =>
+        CompletedByTierByProfile.TryGetValue(profile, out var completed)
+            ? completed
+            : CompletedByTierByProfile[profile] = new();
 }

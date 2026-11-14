@@ -1,11 +1,11 @@
 # #Misfits Add - Full Eighties faction department with 5 ranked job prototypes.
 # Named after Interstate 80. Replaces the single "Eighties" placeholder from Raider/eighties.yml.
-# Ranks top-to-bottom: The Block (1) → Cylinders (2) → Pistons (3) → Oilers (4) → Road Rash (4).
+# Ranks top-to-bottom: The Block (1) > Cylinders (2) > Pistons (3) > Oilers (4) > Road Rash (4).
 # Slot counts are enforced by spawner placement on the map, not by this file.
 
-# ──────────────────────────────────────────────
+# ----------------------------------------------
 # THE BLOCK — leader (1 slot)
-# ──────────────────────────────────────────────
+# ----------------------------------------------
 - type: job
   id: EightiesTheBlock
   setPreference: true
@@ -46,6 +46,7 @@
 - type: startingGear
   id: EightiesTheBlockGear
   equipment:
+    wallet: N14Wallet
     bandage: NCClothingBandageRaiders
     gloves: N14ClothingHandsGlovesBlackBiker
     jumpsuit: MisfitsClothingTheBlockPants
@@ -62,14 +63,14 @@
     id: SiriusID80sDogtagBlock
   storage:
     back:
-    - N14BoxPlasticFilledWastelander
+    - N14BoxPlasticFilledRaider
 
 - type: playTimeTracker
   id: EightiesTheBlock
 
-# ──────────────────────────────────────────────
+# ----------------------------------------------
 # CYLINDERS — officer tier (2 slots)
-# ──────────────────────────────────────────────
+# ----------------------------------------------
 - type: job
   id: EightiesCylinders
   setPreference: true
@@ -110,6 +111,7 @@
 - type: startingGear
   id: EightiesCylindersGear
   equipment:
+    wallet: N14Wallet
     bandage: NCClothingBandageRaiders
     gloves: N14ClothingHandsGlovesBlackBiker
     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
@@ -125,14 +127,14 @@
     id: SiriusID80sDogtagCylinder
   storage:
     back:
-    - N14BoxPlasticFilledWastelander
+    - N14BoxPlasticFilledRaider
 
 - type: playTimeTracker
   id: EightiesCylinders
 
-# ──────────────────────────────────────────────
+# ----------------------------------------------
 # PISTONS — NCO tier (3 slots)
-# ──────────────────────────────────────────────
+# ----------------------------------------------
 - type: job
   id: EightiesPistons
   setPreference: true
@@ -172,6 +174,7 @@
 - type: startingGear
   id: EightiesPistonsGear
   equipment:
+    wallet: N14Wallet
     bandage: NCClothingBandageRaiders
     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
     gloves: N14ClothingHandsGlovesBlackBiker
@@ -187,14 +190,14 @@
     id: SiriusID80sDogtagPiston
   storage:
     back:
-    - N14BoxPlasticFilledWastelander
+    - N14BoxPlasticFilledRaider
 
 - type: playTimeTracker
   id: EightiesPistons
 
-# ──────────────────────────────────────────────
+# ----------------------------------------------
 # OILERS — specialist tier (4 slots)
-# ──────────────────────────────────────────────
+# ----------------------------------------------
 - type: job
   id: EightiesOilers
   setPreference: true
@@ -234,6 +237,7 @@
 - type: startingGear
   id: EightiesOilersGear
   equipment:
+    wallet: N14Wallet
     bandage: NCClothingBandageRaiders
     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
     gloves: N14ClothingHandsGlovesBlackBiker
@@ -249,14 +253,14 @@
     id: SiriusID80sDogtagOilers
   storage:
     back:
-    - N14BoxPlasticFilledWastelander
+    - N14BoxPlasticFilledRaider
 
 - type: playTimeTracker
   id: EightiesOilers
 
-# ──────────────────────────────────────────────
+# ----------------------------------------------
 # ROAD RASH — recruit tier (4 slots)
-# ──────────────────────────────────────────────
+# ----------------------------------------------
 - type: job
   id: EightiesRoadRash
   setPreference: true
@@ -293,6 +297,7 @@
 - type: startingGear
   id: EightiesRoadRashGear
   equipment:
+    wallet: N14Wallet
     bandage: NCClothingBandageRaiders
     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
     gloves: N14ClothingHandsGlovesBlackBiker
@@ -307,7 +312,7 @@
     id: SiriusID80sDogtagRoadRash
   storage:
     back:
-    - N14BoxPlasticFilledWastelander
+    - N14BoxPlasticFilledRaider
 
 - type: playTimeTracker
   id: EightiesRoadRash

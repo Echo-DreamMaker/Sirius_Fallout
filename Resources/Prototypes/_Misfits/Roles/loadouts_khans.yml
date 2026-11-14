@@ -1,0 +1,115 @@
+﻿- type: loadout
+  id: MisfitsLoadoutHeadKhanHelmet
+  category: Head
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - WhiteLegs
+  items:
+    - MisfitsClothingHeadKhanHelmet
+
+#If and when I figure out how to make handcrafting exclusive to khans then this will stay. -Oli
+- type: loadout
+  id: MisfitsLoadoutHeadKhanFullHelmet
+  category: Head
+  cost: 2 #following the N14ClothingHeadHatCombatHelmet loadout points
+  exclusive: true
+  requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - WhiteLegs
+  items:
+    - MisfitsClothingHeadKhanFullHelmet
+
+# Armors / Outerwear
+
+- type: loadout
+  id: MisfitsLoadoutOuterKhansJacket
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - WhiteLegs
+  items:
+    -  MisfitsClothingOuterKhansJacket
+
+- type: loadout
+  id: MisfitsLoadoutOuterKhansVest
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - WhiteLegs
+  items:
+    -  MisfitsClothingOuterKhansVest
+
+#If and when I figure out how to make handcrafting exclusive to khans then this will stay. -Oli
+- type: loadout
+  id: MisfitsLoadoutOuterKhansBattlecoatBlack
+  category: Outer
+  cost: 6
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - WhiteLegs
+  items:
+    -  MisfitsClothingOuterKhansBattlecoatBlack
+
+
+# Uniforms
+- type: loadout
+  id: MisfitsLoadoutUniformKhansUniform
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - WhiteLegs
+  items:
+    - M14ClothingUniformKhansUniform
+
+- type: loadout
+  id: MisfitsLoadoutUniformKhansUniformShorts
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - WhiteLegs
+  items:
+    - M14ClothingUniformKhansUniformShorts
+
+#Shoes / Boots
+- type: loadout
+  id: MisfitsLoadoutShoesPeltBoots
+  category: Shoes
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutShoes
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - WhiteLegs
+  items:
+    - MisfitsMilitaryPeltBoots
+

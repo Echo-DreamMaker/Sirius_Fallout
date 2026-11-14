@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: hunting rifle
   parent: BaseWeaponSniper
   id: N14WeaponSniperHunting
@@ -1325,7 +1325,7 @@
     price: 175
 # Forge-add-end
 
-# #Misfits Add — Cowboy Repeater, Paciencia, Ratslayer, M1 Carbine, Rangemaster
+# #Misfits Add тАФ Cowboy Repeater, Paciencia, Ratslayer, M1 Carbine, Rangemaster
 # Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
 - type: entity
   name: cowboy repeater
@@ -1758,7 +1758,7 @@
       path: /Audio/Weapons/spinon.ogg
     soundDeactivate:
       path: /Audio/Weapons/spinoff.ogg
-  # #Misfits Change - art and magazine handling taken from N14WeaponGaussRifle, the finished M72 in
+  # #Misfits Change - art and magazine handling taken from N14WeaponSniper50AntiMateriel, the finished M72 in
   # _Misfits/.../Rifles/rifles.yml. The Sirius prototype had been pointing at the loose
   # _Nuclear14 snipers/gaussrifle.rsi, which carries no inhand or equipped layers, so the gun had no
   # world sprite at all. Split RSI like the source: gaussrifleicon.rsi holds base+mag-0 for the
@@ -1778,7 +1778,7 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   # #Misfits Change - size deliberately left at Huge; only the art came from the reference gun, and
-  # this is the long-ranged battle rifle rather than the carbine-sized N14WeaponGaussRifle.
+  # this is the long-ranged battle rifle rather than the carbine-sized N14WeaponSniper50AntiMateriel.
   - type: Item
     size: Huge
     sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifle.rsi
@@ -1813,7 +1813,7 @@
       gun_magazine:
         name: Magazine
         startingItem: N14MagazineRifle2mmEC
-        # #Misfits Change - magazine handling sounds match N14WeaponGaussRifle's, so swapping a cell
+        # #Misfits Change - magazine handling sounds match N14WeaponSniper50AntiMateriel's, so swapping a cell
         # into either M72 sounds the same. Was batrifle_magin/magout.
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg

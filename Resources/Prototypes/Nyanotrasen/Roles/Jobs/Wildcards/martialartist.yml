@@ -22,6 +22,7 @@
   subGear:
   - MartialArtistPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformMartialGi
     belt: ClothingBeltMartialBlack
     back: ClothingBackpackFilled
@@ -36,6 +37,7 @@
   id: MartialArtistPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitMartialGi
     head: ClothingHeadEnvirohelmMartialGi
     # No envirogloves, use the boxing gloves instead

@@ -17,7 +17,7 @@ namespace Content.Shared._Misfits.PowerArmor;
 ///     When integrity reaches zero the armor enters a <b>broken</b> state:
 ///     <list type="bullet">
 ///       <item>
-///         <see cref="Content.Shared.Armor.ArmorComponent"/> is <b>NOT removed</b> —
+///         <see cref="Content.Shared.Armor.ArmorComponent"/> is <b>NOT removed</b> вЂ”
 ///         damage coefficients still apply.
 ///       </item>
 ///       <item>
@@ -44,10 +44,10 @@ public sealed partial class PowerArmorIntegrityComponent : Component
 
     /// <summary>
     ///     Fraction of post-coefficient damage that bleeds through to the
-    ///     wearer while integrity is above zero (0.0–1.0).
-    ///     Default 0.100 = 10% bleedthrough — player feels hits but is
+    ///     wearer while integrity is above zero (0.0вЂ“1.0).
+    ///     Default 0.100 = 10% bleedthrough вЂ” player feels hits but is
     ///     effectively protected until the armor breaks.
-    ///     The remaining (1 − BleedthroughRatio) is absorbed by the armor HP pool.
+    ///     The remaining (1 в€’ BleedthroughRatio) is absorbed by the armor HP pool.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float BleedthroughRatio = 0.100f;
@@ -55,10 +55,10 @@ public sealed partial class PowerArmorIntegrityComponent : Component
     /// <summary>
     ///     Fraction of post-coefficient damage that reaches the wearer when
     ///     the armor is in the broken state (integrity = 0).
-    ///     Default 0.20 = 20% — wearer is still partially protected but
+    ///     Default 0.20 = 20% вЂ” wearer is still partially protected but
     ///     the remaining 80% is not absorbed anywhere (no HP pool left).
     ///     Combined with the ArmorComponent coefficients still being active,
-    ///     the wearer takes coefficient × 0.20 of raw damage.
+    ///     the wearer takes coefficient Г— 0.20 of raw damage.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float BrokenBleedthroughRatio = 0.20f;
@@ -75,7 +75,7 @@ public sealed partial class PowerArmorIntegrityComponent : Component
     ///     <see cref="Content.Shared.Armor.ArmorComponent"/> while the suit is
     ///     broken.
     ///     <para>
-    ///         Retained for serialization compatibility — <b>no longer used at runtime</b>.
+    ///         Retained for serialization compatibility вЂ” <b>no longer used at runtime</b>.
     ///         ArmorComponent is no longer removed when integrity hits zero, so this
     ///         cache is never written. Kept to avoid breaking existing saved state.
     ///     </para>
@@ -106,6 +106,10 @@ public sealed partial class PowerArmorIntegrityComponent : Component
     // #Misfits Add - allows per-armor-variant control over the servo-lock mechanic
     [DataField, AutoNetworkedField]
     public bool DisableServosLock;
+
+    ///     Whether the 25% integrity steam warning has been triggered.
+    [DataField, AutoNetworkedField]
+    public bool SteamWarned;
 }
 
 /// <summary>

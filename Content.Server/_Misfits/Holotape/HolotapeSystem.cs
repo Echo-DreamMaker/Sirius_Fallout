@@ -12,7 +12,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-
+using Robust.Shared.Timing;
 // #Misfits Add - Server system for holotape reading and terminal random content.
 // Handles: holotape insertion into readers, terminal click-to-read, MapInit content setup.
 // #Misfits Add - Integrates with TerminalNotebookSystem to include notes in terminal state.
@@ -179,6 +179,23 @@ public sealed class HolotapeSystem : EntitySystem
         // #Misfits Add - Single state builder shared with RefreshTerminalState.
         var state = BuildTerminalState(uid, args.User, openDatabaseDocumentId: null);
         _ui.SetUiState(uid, HolotapeUiKey.Key, state);
+        
+        var target = uid; 
+        var user = args.User;
+
+        // Delay 1 tick before refreshing UI state to ensure contents load on first open.
+        // remove when actual underlying problem is found
+        Timer.Spawn(TimeSpan.Zero, () =>
+            {
+                if (Deleted(target))
+                    return;
+
+                if (!_ui.HasUi(target, HolotapeUiKey.Key))
+                    return;
+
+                var freshState = BuildTerminalState(target, user, openDatabaseDocumentId: null);
+                _ui.SetUiState(target, HolotapeUiKey.Key, freshState);
+            });
     }
 
     // #Misfits Add - Public re-entry point used by TerminalDatabaseSystem after every
@@ -203,7 +220,7 @@ public sealed class HolotapeSystem : EntitySystem
     /// </summary>
     private HolotapeBoundUserInterfaceState BuildTerminalState(EntityUid uid, EntityUid actor, Guid? openDatabaseDocumentId)
     {
-        // ── DATA tab content ───────────────────────────────────────────────
+        // в”Ђв”Ђ DATA tab content в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
         var title = string.Empty;
         var content = string.Empty;
         if (TryComp<HolotapeDataComponent>(uid, out var data))
@@ -212,7 +229,7 @@ public sealed class HolotapeSystem : EntitySystem
             content = data.Content;
         }
 
-        // ── LINKS tab: gather device link source port data ─────────────────
+        // в”Ђв”Ђ LINKS tab: gather device link source port data в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
         var hasLinkSource = false;
         List<string>? linkPorts = null;
         if (TryComp<DeviceLinkSourceComponent>(uid, out var linkSource))
@@ -227,7 +244,7 @@ public sealed class HolotapeSystem : EntitySystem
             }
         }
 
-        // ── NOTES tab: include notebook notes + viewer ID ──────────────────
+        // в”Ђв”Ђ NOTES tab: include notebook notes + viewer ID в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
         List<TerminalNoteEntry>? notes = null;
         NetUserId? viewerId = null;
         if (TryComp<TerminalNotebookComponent>(uid, out var notebook)
@@ -238,7 +255,7 @@ public sealed class HolotapeSystem : EntitySystem
                 viewerId = actorComp.PlayerSession.UserId;
         }
 
-        // ── DATABASE tab: viewer-driven faction database resolution ────────
+        // в”Ђв”Ђ DATABASE tab: viewer-driven faction database resolution в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
         // #Misfits Change - DATABASE is exposed only by explicit terminal gateways.
         // The viewer's ID still determines which faction database (if any) they see.
         TerminalDatabaseState? databaseState = null;

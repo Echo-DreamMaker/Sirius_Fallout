@@ -45,11 +45,11 @@
   equipment:
     jumpsuit: N14ClothingUniformJumpskirtBOSBlack  #Misfits Change /Tweak/: New consolidated BoS gear
     back: N14ClothingBackpackSatchelMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     head: N14ClothingScribeBeret
     id: N14HeadScribe_PipBoy
     ears: N14ClothingHeadsetBrotherhoodOfSteelScribe
-    belt: ClothingBeltMilitary
+    # belt: ClothingBeltMilitary # #Misfits Removed - Belt now comes from loadout kit selection
   storage:
     back:
     - N14BoxPlasticFilledMilitary

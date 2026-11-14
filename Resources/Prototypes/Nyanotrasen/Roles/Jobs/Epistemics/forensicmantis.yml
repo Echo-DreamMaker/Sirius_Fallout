@@ -55,6 +55,7 @@
   subGear:
   - ForensicMantisPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitMantis
     back: ClothingBackpackMantisFilled
     shoes: ClothingShoesBootsMantis
@@ -74,6 +75,7 @@
   id: ForensicMantisPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitMantis
     head: ClothingHeadEnvirohelmMantis
     gloves: ClothingHandsGlovesEnviroglovesWhite

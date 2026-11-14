@@ -24,6 +24,7 @@
   subGear:
   - StationEngineerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitEngineering
     back: ClothingBackpackEngineeringFilled
     shoes: ClothingShoesBootsWork
@@ -39,6 +40,7 @@
   id: StationEngineerPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitEngineering
     head: ClothingHeadEnvirohelmEngineering
     gloves: ClothingHandsGlovesEnviroglovesEngineering

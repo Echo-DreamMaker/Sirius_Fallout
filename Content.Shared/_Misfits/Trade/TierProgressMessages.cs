@@ -10,13 +10,15 @@ public sealed class MisfitsContractClaimedEvent : EntityEventArgs
     public readonly EntityUid User;
     public readonly string ContractId;
     public readonly string Difficulty;
+    public readonly string Profile;
 
-    public MisfitsContractClaimedEvent(EntityUid store, EntityUid user, string contractId, string difficulty)
+    public MisfitsContractClaimedEvent(EntityUid store, EntityUid user, string contractId, string difficulty, string profile)
     {
         Store = store;
         User = user;
         ContractId = contractId;
         Difficulty = difficulty;
+        Profile = profile;
     }
 }
 
@@ -26,11 +28,13 @@ public sealed class MisfitsContractFirstAccessEvent : EntityEventArgs
 {
     public readonly EntityUid Store;
     public readonly EntityUid User;
+    public readonly string Profile;
 
-    public MisfitsContractFirstAccessEvent(EntityUid store, EntityUid user)
+    public MisfitsContractFirstAccessEvent(EntityUid store, EntityUid user, string profile)
     {
         Store = store;
         User = user;
+        Profile = profile;
     }
 }
 

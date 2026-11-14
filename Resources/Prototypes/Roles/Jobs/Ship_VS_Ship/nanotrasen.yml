@@ -7,6 +7,7 @@
 - type: startingGear
   id: RecruitNTGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitRecruitNT
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorBlack
@@ -21,6 +22,7 @@
 - type: startingGear
   id: RepairmanNTGear
   equipment:
+    wallet: N14Wallet
     head: ClothingHeadHatHardhatYellow
     jumpsuit: ClothingUniformJumpsuitRepairmanNT
     back: ClothingBackpackEngineeringFilled
@@ -38,6 +40,7 @@
 - type: startingGear
   id: ParamedicNTGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitParamedicNT
     back: ClothingBackpackFilled #The medical backpack sprite looks way worse so this will do for now.
     shoes: ClothingShoesColorBlue
@@ -55,6 +58,7 @@
 - type: startingGear
   id: ChiefEngineerNTGear
   equipment:
+    wallet: N14Wallet
     head: ClothingHeadHatHardhatArmored
     jumpsuit: ClothingUniformJumpsuitChiefEngineerNT
     back: ClothingBackpackFilled #Again, the regular sprite here looks way worse than the regular backpack.

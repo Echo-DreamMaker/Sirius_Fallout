@@ -9,6 +9,7 @@ mail-desc-priority-inactive = The anti-tamper lock's [color=#886600]yellow prior
 mail-unlocked = Anti-tamper system unlocked.
 mail-unlocked-by-emag = Anti-tamper system *BZZT*.
 mail-unlocked-reward = Anti-tamper system unlocked. {$bounty} spesos have been added to logistics' account.
+mail-unlocked-reward-vault = ${$amount} added to the Vault's requisitions budget.
 mail-penalty-lock = ANTI-TAMPER LOCK BROKEN. LOGISTICS BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
 mail-penalty-fragile = INTEGRITY COMPROMISED. LOGISTICS BANK ACCOUNT PENALIZED BY {$credits} SPESOS.
 mail-penalty-expired = DELIVERY PAST DUE. LOGISTICS BANK ACCOUNT PENALIZED BY {$credits} SPESOS.

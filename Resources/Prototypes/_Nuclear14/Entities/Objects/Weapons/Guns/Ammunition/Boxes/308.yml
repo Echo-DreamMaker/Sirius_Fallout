@@ -38,3 +38,20 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
 
+- type: entity
+  parent: BaseMagazineBox308
+  id: MagazineBoxOver308
+  name: ammunition box (Overpressure .308)
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - N14CartridgeOver308Rifle
+    proto: N14CartridgeOver308Rifle
+    capacity: 24
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

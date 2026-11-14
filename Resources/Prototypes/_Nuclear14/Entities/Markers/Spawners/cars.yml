@@ -1,0 +1,71 @@
+# #Sirius: car and car key spawners
+
+- type: entity
+  name: Highwayman Spawner
+  id: N14SpawnCarHighwayman
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Objects/Vehicles/highwayman.rsi
+        state: highwayman3
+  - type: ConditionalSpawner
+    prototypes:
+      - N14Highwayman
+
+- type: entity
+  name: HMMWV 1 Spawner
+  id: N14SpawnCarHMMWV1
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Objects/Vehicles/MWBoS_HMMWV1.rsi
+        state: MWBoS_HMMWV_Metall12
+  - type: ConditionalSpawner
+    prototypes:
+      - N14HMMWV1
+
+- type: entity
+  name: HMMWV 2 Spawner
+  id: N14SpawnCarHMMWV2
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Objects/Vehicles/MWBoS_HMMWV2.rsi
+        state: MWBoS_HMMWV_Metall22
+  - type: ConditionalSpawner
+    prototypes:
+      - N14HMMWV2
+
+- type: entity
+  name: Redneck Pickup Spawner
+  id: N14SpawnCarRedneckPickup
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Objects/Vehicles/pickup.rsi
+        state: pickup3
+  - type: ConditionalSpawner
+    prototypes:
+      - N14RedneckPickup
+
+- type: entity
+  name: Car Key Spawner
+  id: N14SpawnCarKey
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Vehicles/motorbike.rsi
+        state: keys
+  - type: ConditionalSpawner
+    prototypes:
+      - N14CarKey #Sirius Fix - renamed car key

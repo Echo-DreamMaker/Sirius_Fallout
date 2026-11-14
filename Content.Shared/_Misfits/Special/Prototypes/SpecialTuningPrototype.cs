@@ -32,6 +32,12 @@ public sealed partial class SpecialTuningPrototype : IPrototype
     [DataField("perceptionSpreadMultiplierPerPoint")]
     public float PerceptionSpreadMultiplierPerPoint = 0.03333333f;
 
+    [DataField("perceptionVehicleSpreadMultiplierLow")]
+    public float PerceptionVehicleSpreadMultiplierLow = 1.30f;
+
+    [DataField("perceptionVehicleSpreadMultiplierHigh")]
+    public float PerceptionVehicleSpreadMultiplierHigh = 1.06f;
+
     [DataField("perceptionHeavyGunMultiplierPerPoint")]
     public float PerceptionHeavyGunMultiplierPerPoint = 0.01333333f;
 
