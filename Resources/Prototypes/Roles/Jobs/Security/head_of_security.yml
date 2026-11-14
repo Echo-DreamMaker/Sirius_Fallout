@@ -49,6 +49,7 @@
   subGear:
   - HoSPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitHoS
     back: ClothingBackpackHOSFilled
     shoes: ClothingShoesBootsCombatFilled
@@ -65,6 +66,7 @@
   id: HoSPlasmamanGear
   parent: BasePlasmamanSecurityGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitHoS
     head: ClothingHeadEnvirohelmHoS
     gloves: ClothingHandsGlovesEnviroglovesBlack

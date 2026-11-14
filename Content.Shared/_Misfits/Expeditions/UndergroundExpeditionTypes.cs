@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Content.Shared._Misfits.Expeditions;
 
-// ─────────────────────────────────────────────────────────────────────────────
+// в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 // #Misfits Add - Structured generation profile enums and data types
-// ─────────────────────────────────────────────────────────────────────────────
+// в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 /// <summary>
 /// Overall layout strategy for the procedural map. Influences corridor shape,
@@ -29,15 +29,15 @@ public enum LayoutStyle
 /// </summary>
 public enum EnvironmentalState
 {
-    /// <summary>Relatively intact — minimal debris, all lights functional.</summary>
+    /// <summary>Relatively intact вЂ” minimal debris, all lights functional.</summary>
     Pristine,
-    /// <summary>Long abandoned — heavy decals, extra junk, reduced lighting.</summary>
+    /// <summary>Long abandoned вЂ” heavy decals, extra junk, reduced lighting.</summary>
     Abandoned,
-    /// <summary>Water intrusion — water channels may appear in non-Sewer themes.</summary>
+    /// <summary>Water intrusion вЂ” water channels may appear in non-Sewer themes.</summary>
     Flooded,
-    /// <summary>Structural collapse — rubble tiles replace floor, wall gaps, more hazards.</summary>
+    /// <summary>Structural collapse вЂ” rubble tiles replace floor, wall gaps, more hazards.</summary>
     Damaged,
-    /// <summary>Nature reclaiming — organic decals, reduced mob count.</summary>
+    /// <summary>Nature reclaiming вЂ” organic decals, reduced mob count.</summary>
     Overgrown,
 }
 
@@ -231,8 +231,11 @@ public sealed class ThemeProfile
     /// <summary>Furniture entity pools keyed by pool name (matched via RoomTypeDefinition.FurniturePoolKey).</summary>
     public Dictionary<string, string[]> FurniturePools { get; init; } = new();
 
-    /// <summary>Mob faction sub-groups: each room randomly picks one group, then weighted-random within it.</summary>
-    public (string, int)[][] MobGroups { get; init; } = System.Array.Empty<(string, int)[]>();
+    /// <summary>
+    /// Expedition-wide hostile population themes. The generator chooses one
+    /// focused theme (or one faction-safe hodgepodge theme) for the whole map.
+    /// </summary>
+    public MobThemeDefinition[] MobThemes { get; init; } = System.Array.Empty<MobThemeDefinition>();
 
     /// <summary>Decal pool for thematic visual overlays.</summary>
     public string[] DecalPool { get; init; } = System.Array.Empty<string>();
@@ -249,7 +252,7 @@ public sealed class ThemeProfile
     /// <summary>Blueprint reward pool.</summary>
     public string[] BlueprintPool { get; init; } = System.Array.Empty<string>();
 
-    // ── Helpers ──────────────────────────────────────────────────────────────
+    // в”Ђв”Ђ Helpers в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     /// <summary>
     /// Looks up the RoomTypeDefinition for the given room type. Returns null
@@ -280,6 +283,40 @@ public sealed class ThemeProfile
 }
 
 /// <summary>
+/// Broad encounter family used for population caps and family-specific bosses.
+/// Every member of a definition must share its declared NPC faction.
+/// </summary>
+public enum ExpeditionMobFamily
+{
+    Wildlife,
+    Mirelurk,
+    Nightstalker,
+    Radscorpion,
+    Ant,
+    Deathclaw,
+    SuperMutant,
+    Ghoul,
+    Robot,
+    Raider,
+}
+
+/// <summary>
+/// A coherent population that can occupy an entire procedural expedition.
+/// SelectionWeight applies within either the focused or hodgepodge category;
+/// individual mob weights apply after the expedition theme has been selected.
+/// </summary>
+public sealed class MobThemeDefinition
+{
+    public string Name { get; init; } = string.Empty;
+    public string Faction { get; init; } = string.Empty;
+    public ExpeditionMobFamily Family { get; init; }
+    public int SelectionWeight { get; init; } = 1;
+    public bool IsHodgepodge { get; init; }
+    public (string Prototype, int Weight)[] MobPool { get; init; } =
+        System.Array.Empty<(string Prototype, int Weight)>();
+}
+
+/// <summary>
 /// The three visual/structural themes for procedural underground expedition maps.
 /// </summary>
 public enum UndergroundTheme
@@ -295,7 +332,7 @@ public enum UndergroundTheme
 /// <summary>
 /// Cell types for the procedural 2D grid.
 /// <list type="bullet">
-/// <item>Empty = void space — no tile, no entity</item>
+/// <item>Empty = void space вЂ” no tile, no entity</item>
 /// <item>Corridor = carved passage between rooms</item>
 /// <item>Room = standard interior room</item>
 /// <item>FactionHub = large faction staging hub (one per faction group)</item>
@@ -334,13 +371,19 @@ public sealed class UndergroundGenParams
     /// <summary>0 = Easy, 1 = Medium, 2 = Hard.</summary>
     public int DifficultyTier { get; set; }
 
+    /// <summary>
+    /// Number of player-controlled expedition members present at launch.
+    /// Captured once by the server and used to scale encounter density and apex selection.
+    /// </summary>
+    public int PartySize { get; set; } = 1;
+
     /// <summary>Minimum number of standard rooms to guarantee.</summary>
     public int MinRooms { get; set; } = 6;
 
     /// <summary>Maximum number of standard rooms to attempt.</summary>
     public int MaxRooms { get; set; } = 12;
 
-    /// <summary>Number of faction staging hubs (1–4, clamped to 4 corners).</summary>
+    /// <summary>Number of faction staging hubs (1вЂ“4, clamped to 4 corners).</summary>
     public int HubCount { get; set; } = 2;
 
     /// <summary>
@@ -398,7 +441,7 @@ public sealed class RoomDef
 
 /// <summary>
 /// Classifies what a room is used for during generation and dressing.
-/// #Misfits Change - Expanded to 16 thematic variants per Underground Expedition design spec
+/// #Misfits Change - Expanded to thematic variants per Underground Expedition design spec
 /// </summary>
 public enum RoomType
 {
@@ -426,6 +469,12 @@ public enum RoomType
 
     /// <summary>Research and medical laboratory.</summary>
     VaultLab,
+
+    /// <summary>Entrance screening, monitoring, and guard station.</summary>
+    VaultSecurity,
+
+    /// <summary>Mechanical plant and service access supporting the reactor.</summary>
+    VaultMaintenance,
 
     /// <summary>Weapons cache and security armory.</summary>
     VaultArmory,
@@ -476,9 +525,9 @@ public enum RoomType
     MetroTunnel,
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
+// в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 // #Misfits Add - BSP zone division types for spatially-aware room placement
-// ─────────────────────────────────────────────────────────────────────────────
+// в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 /// <summary>
 /// Functional role assigned to a map zone based on its distance from faction hub corners.
@@ -486,21 +535,21 @@ public enum RoomType
 /// </summary>
 public enum ZoneRole
 {
-    /// <summary>Near hub entry point — safe, familiar rooms (barracks, junctions).</summary>
+    /// <summary>Near hub entry point вЂ” safe, familiar rooms (barracks, junctions).</summary>
     Entry,
-    /// <summary>Medium distance — transitional rooms (kitchens, tunnels, grotto).</summary>
+    /// <summary>Medium distance вЂ” transitional rooms (kitchens, tunnels, grotto).</summary>
     Transit,
     /// <summary>Functional rooms away from hubs (labs, pumps, maintenance).</summary>
     Utility,
     /// <summary>High-value rooms in protected interior (overseer, vault, depot).</summary>
     Secure,
-    /// <summary>Map center — most dangerous rooms (reactor, nest, command).</summary>
+    /// <summary>Map center вЂ” most dangerous rooms (reactor, nest, command).</summary>
     Hazard,
 }
 
 /// <summary>
 /// A rectangular zone within the map grid assigned a <see cref="ZoneRole"/>.
-/// The map is divided into a 3×3 grid of zones with roles assigned by
+/// The map is divided into a 3Г—3 grid of zones with roles assigned by
 /// Manhattan distance from hub corners.
 /// </summary>
 public struct MapZone
@@ -513,15 +562,15 @@ public struct MapZone
     public int W;
     /// <summary>Height in tiles.</summary>
     public int H;
-    /// <summary>Functional role — controls which room types belong here.</summary>
+    /// <summary>Functional role вЂ” controls which room types belong here.</summary>
     public ZoneRole Role;
     /// <summary>Manhattan distance (in zone-grid steps) from the nearest hub corner zone.</summary>
     public int DepthFromHub;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
+// в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 // #Misfits Add - System 4 placement rule enum for entity placement constraints
-// ─────────────────────────────────────────────────────────────────────────────
+// в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 /// <summary>
 /// Determines how an entity is spatially placed within a room during dressing.
@@ -534,7 +583,7 @@ public enum PlacementRule
     WallAdjacent,
     /// <summary>Spawns on same tile as a previously placed parent entity. Terminal on desk, weapon on shelf.</summary>
     OnSurface,
-    /// <summary>Default — any open floor tile, edge-biased.</summary>
+    /// <summary>Default вЂ” any open floor tile, edge-biased.</summary>
     FreeStanding,
     /// <summary>Consecutive floor tiles along the longest wall. Kitchen tables.</summary>
     WallRow,

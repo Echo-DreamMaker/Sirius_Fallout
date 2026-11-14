@@ -1,0 +1,989 @@
+# reward money here should be double what it is in bazaar, as this pays in ncr dollars
+
+- type: storeContractPack
+  id: PackNCR
+  contracts:
+  - id: NCR_contract_N14FoodMeatRadRaw
+    weight: 50
+  - id: NCR_contract_N14MaterialThread
+    weight: 50
+  - id: NCR_contract_MaterialCloth
+    weight: 50
+  - id: NCR_contract_N14FloraLogTimber
+    weight: 50
+  - id: NCR_contract_MaterialWoodPlank1
+    weight: 50
+  - id: NCR_contract_N14FloraProduceWildCoyoteTobacco
+    weight: 50
+  - id: NCR_contract_N14FoodDogfood
+    weight: 50
+  - id: NCR_contract_N14WeaponSniper556VarmintRifle
+    weight: 50
+  - id: NCR_contract_N14Scrap1
+    weight: 50
+  - id: NCR_contract_N14Scraps
+    weight: 50
+  - id: NCR_contract_N14Weapon9mm
+    weight: 50
+  - id: NCR_contract_N14MaterialLeather1
+    weight: 50
+  - id: NCR_contract_N14FloraProduceWildCaveFungusRad
+    weight: 50
+  - id: NCR_contract_N14BrassKnife
+    weight: 50
+  - id: NCR_contract_N14FloraProduceWildCarrot
+    weight: 50
+  - id: NCR_contract_N14DrinkNukaCola
+    weight: 50
+  - id: NCR_contract_N14MobRaiderPsycho
+    weight: 50
+  - id: NCR_contract_N14MobGhoulFeral
+    weight: 50
+  # - id: NCR_contract_N14CookedFoodEggDeathclawBoiled- you're not finding one blud -pierow
+    # weight: 50
+  - id: NCR_contract_N14MobDeathclawMetal
+    weight: 50
+  - id: NCR_contract_N14SuperSledgeHammer
+    weight: 50
+  - id: NCR_contract_N14MobCazador
+    weight: 50
+  - id: NCR_contract_N14MobRaiderBoss
+    weight: 50
+  - id: NCR_contract_N14MobDeathclaw
+    weight: 50
+  - id: NCR_contract_N14FloraProduceWildBrocFlower
+    weight: 50
+  # Misfits Add — new contracts: Easy
+  #- id: NCR_contract_N14FoodCannedFish # fish aint mapped
+  #  weight: 50
+  - id: NCR_contract_N14FoodEggChicken
+    weight: 50
+  # - id: NCR_contract_N14MobJackal - removed, impossible to complete -pierow
+    # weight: 50
+  # Misfits Add — new contracts: Medium
+  - id: NCR_contract_N14MobRadscorpion
+    weight: 50
+  - id: NCR_contract_N14MobMirelurk
+    weight: 50
+  - id: NCR_contract_N14WeaponRifleAk112
+    weight: 50
+  - id: NCR_contract_N14ClothingLegionReconArmor
+    weight: 50
+  - id: NCR_contract_N14PilumSpear
+    weight: 50
+  # Misfits Add — new contracts: Hard
+  #- id: NCR_contract_N14MobDeathclawicy -this is impossible; not mapped in. We're in Utah for god's sake man! -pierow
+    #weight: 50
+  - id: NCR_contract_N14MobRadMirelurk
+    weight: 50
+  # Misfits Add — new Gold contracts
+  - id: NCR_contract_N14Gladius
+    weight: 50
+  #- id: NCR_contract_N14WeaponLaserRifleYk42b -another impossible contract; item not obtainable -pierow
+    #weight: 50
+  - id: NCR_contract_N14VeteranLegionArmor
+    weight: 50
+  # Misfits Add — new Mithril contract
+  # - id: NCR_contract_N14MobCazador #removed, just buggy -pierow
+    # weight: 50
+  # Misfits Add — new Diamond contracts
+  - id: NCR_contract_N14MobDeathclawGrandHunt
+    weight: 50
+  - id: NCR_contract_N14WeaponPlasmaRifleDelivery
+    weight: 50
+  - id: NCR_contract_N14VaultPDA #5 new contracts -pierow  N14CurrencyPrewar
+    weight: 50
+  - id: NCR_contract_N14ChineseSword
+    weight: 50
+  - id: NCR_contract_N14HolotapeQuestGECK
+    weight: 50
+  - id: NCR_contract_N14HolotapeEnclave
+    weight: 50
+  - id: NCR_contract_N14CurrencyPrewar
+    weight: 50
+
+- type: storeContractsPreset
+  id: PresetNCR
+  # #Misfits Change — retier system: 6 tiers replace Easy/Medium/Hard -TWEAKED, lower tiers more abundent, higher tiers more scarce
+  limits:
+    Tribal: 5
+    Settler: 3
+    Citizen: 2
+    Caravaneer: 2
+    Caravan Master: 1
+    Brahmin Baron: 1
+  packs:
+  - id: PackNCR
+    weight: 1
+
+- type: storeContract
+  id: NCR_contract_N14MaterialThread
+  name: "Open Wide Your Hand"
+  description: "Refugees from conflict zones have arrived with rags on their backs. The Followers of the Apocalypse need thread to mend their attire."
+  difficulty: Tribal
+  targets:
+  - id: N14MaterialThread1
+    required: { min: 10, max: 15 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 100, max: 180 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: NCR_contract_N14FloraProduceWildBrocFlower
+  name: "Flowers for the Needy"
+  description: "The Followers of the Apocalypse meed to restock their medical supplies, provide broc flowers for the overworked volunteers."
+  difficulty: Tribal
+  targets:
+  - id: N14FloraProduceWildBrocFlower
+    required: { min: 5, max: 10 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 120, max: 200 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: NCR_contract_MaterialCloth
+  name: "Tinker, Tailor, Soldier, Spy"
+  description: "The State of Dayglow has a new wave of recruits ready to enter training, but they're short on material. Supply some cloth for new NCR uniforms, quickly."
+  difficulty: Tribal
+  targets:
+  - id: MaterialCloth1
+    required: { min: 10, max: 20 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 200, max: 240 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: NCR_contract_N14FloraLogTimber
+  name: "The Unfriendly North"
+  description: "The City of Arroyo needs firewood to help keep all its citizens warm in the approaching cold season. Provide it and help the NCR care for its people."
+  difficulty: Tribal
+  targets:
+  - id: N14FloraLogTimber
+    required: { min: 6, max: 10 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 200, max: 300 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: NCR_contract_N14FoodDogfood
+  name: "Let Loose the Dogs of War"
+  description: "The major settlement of Junktown is training dogs for the New California Republic Army, but they're running low on dog food."
+  difficulty: Tribal
+  repeatable: false
+  targets:
+  - id: N14FoodDogfood
+    required: { min: 2, max: 5 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 150, max: 200 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: NCR_contract_MaterialWoodPlank1
+  name: "Carry coal to newcastle."
+  description: "Cascadian loggers have recently been having trouble with resistance from local tribes, and now ironically need wood imported."
+  difficulty: Tribal
+  targets:
+  - id: MaterialWoodPlank1
+    required: { min: 15, max: 30 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 100, max: 160 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: NCR_contract_N14Scraps
+  name: "Military Industrial Complex? No, Its Quite Simple!"
+  description: "The NCRA always needs more supplies to feed the arsenal of democracy, expect a lot of orders like this one."
+  difficulty: Tribal
+  targetCount: 1
+  targets:
+  - id: N14ScrapCopper1
+    required: { min: 5, max: 10 }
+    weight: 60
+  - id: N14ScrapBrass1
+    required: { min: 5, max: 10 }
+    weight: 60
+  - id: N14ScrapLead1
+    required: { min: 5, max: 10 }
+    weight: 60
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 200, max: 240}
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: NCR_contract_N14Scrap1
+  name: "Recycling for Victory"
+  description: "One of the remaining vaults from Vault-Tec needs more scrap metal to help repair damage to their water purifier tank, and will pay generously for the material."
+  difficulty: Tribal
+  targets:
+  - id: N14Scrap1
+    required: { min: 15, max: 30 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 200, max: 300 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: NCR_contract_N14FloraProduceWildCoyoteTobacco
+  name: "Smoking out the Hive"
+  description: "While they normally attack on sight, the local Locust raiders are willing to deal. Provide them some coyote tobacco, and they'll let a few of our caravans pass by."
+  difficulty: Tribal
+  targets:
+  - id: N14FloraProduceWildCoyoteTobacco
+    required: { min: 5, max: 10 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 100, max: 150 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: NCR_contract_N14FloraProduceWildCarrot
+  name: "What's Up Doc?"
+  description: "The Followers of the Apocalypse need to feed hungry refugees from nearby conflict zones, and they are requesting wild carrots en masse."
+  difficulty: Settler
+  targets:
+  - id: N14FloraProduceWildCarrot
+    required: { min: 5, max: 10 }
+    weight: 60
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 200, max: 300 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron
+
+- type: storeContract
+  id: NCR_contract_N14WeaponSniper556VarmintRifle
+  name: "To Arms, Countrymen!"
+  description: "The little settlement of Sac-Town in the NCR is expanding its molerat ranches, but that means more troopers are needed to guard the herd. Send over some rifles!"
+  difficulty: Settler
+  targets:
+  - id: N14WeaponSniper556VarmintRifle
+    required: { min: 3, max: 5 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 200, max: 240 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron_nonweapons
+
+- type: storeContract
+  id: NCR_contract_N14FoodMeatRadRaw
+  name: "You Call This Food?"
+  description: "The New California Republic Correctional Facility needs to feed their prisoners. Don't worry, they'll cook the meat first. Its a slight improvement."
+  difficulty: Settler
+  targets:
+  - id: N14FoodMeatRadRaw
+    required: { min: 5, max: 10 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 200, max: 240 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron
+
+- type: storeContract
+  id: NCR_contract_N14Weapon9mm
+  name: "Shit Out of Luck"
+  description: "A bouncer for one of the casinos in New Reno dropped his gun in the toilet. He's not about to reach in to get it, so he needs a replacement before his boss finds out."
+  difficulty: Settler
+  targetCount: 1
+  targets:
+  - id: N14WeaponPistol9mm
+    required: 1
+    weight: 60
+  - id: N14WeaponRevolver9mm
+    required: 1
+    weight: 60
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 100, max: 150 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron_nonweapons
+
+- type: storeContract
+  id: NCR_contract_N14BrassKnife
+  name: "Knife to Meat You!"
+  description: "A professional chef in New Vegas requires new knives for his kitchen staff. Pre-war tools won't do, chipped, dulled and rusted; he wants a fresh brass knife."
+  difficulty: Settler
+  targets:
+  - id: N14BrassKnife
+    required: { min: 1, max: 3 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 200, max: 350 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron_nonweapons
+
+- type: storeContract
+  id: NCR_contract_N14FloraProduceWildCaveFungusRad
+  name: "Rad-Ical Science"
+  description: "A rogue Vault-Tec scientist believes that research into irradiated fungus could lead to a future where America is radiation free. They are willing to pay handsomely for samples."
+  difficulty: Settler
+  targets:
+  - id: N14FloraProduceWildCaveFungusRad
+    required: { min: 3, max: 6 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 240, max: 300 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron
+
+- type: storeContract
+  id: NCR_contract_N14MaterialLeather1
+  name: "Doing Your Patriotic Duty"
+  description: "One of the vaults requires material to produce new dweller jumpsuits. Normally the caravan network doesn't deal with these fanatics, but they have caps instead of pre-war dollars this time."
+  difficulty: Settler
+  targets:
+  - id: N14MaterialLeather1
+    required: { min: 5, max: 15 }
+  rewards:
+  - type: Currency
+    id: NCRDolar
+    amount: { min: 160, max: 240 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron
+
+- type: storeContract
+  id: NCR_contract_N14MobGhoulFeral
+  name: "The Long, Violent Goodbye"
+  description: "The Followers of the Apocalypse want to properly understand why ghouls go feral, and how to possibly stop or reverse it. Send them some fresh research material."
+  difficulty: Citizen
+  targets:
+  - id: N14MobGhoulFeral
+    required: { min: 2, max: 3 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 300, max: 500 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver
+
+- type: storeContract
+  id: NCR_contract_N14MobRaiderPsycho
+  name: "Headhunting for Profit"
+  description: "Raiders continue to be a problem, and their attacks on NCR tourists has reached a tipping point. There is now a bounty on local outlaws, until the voters are satisfied."
+  difficulty: Citizen
+  targets:
+  - id: N14BaseMobRaider # Misfits Fix — accept any raider variant (abstract = auto-Descendants)
+    required: { min: 2, max: 5 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 300, max: 500}
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver
+
+- type: storeContract
+  id: NCR_contract_N14DrinkNukaCola
+  name: "Water, Water Everywhere, Not a Drop to Drink!"
+  description: "Even with a lack of new branded merchandise for over two centuries, Nuka Cola still has die-hard loyalists. These fanatics will pay absurd amounts to the caravan network for just a bottle."
+  difficulty: Citizen
+  targetCount: 1
+  targets:
+  - id: N14DrinkNukaColaCherry
+    required: 1
+    weight: 60
+  - id: N14DrinkNukaCola
+    required: 1
+    weight: 60
+  - id: N14DrinkNukaColaOrange
+    required: 1
+    weight: 60
+  - id: N14DrinkNukaColaGrape
+    required: 1
+    weight: 60
+  - id: N14DrinkNukaColaWild
+    required: 1
+    weight: 60
+  - id: N14DrinkNukaColaYellow
+    required: 1
+    weight: 60
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 200, max: 400 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver
+
+- type: storeContract
+  id: NCR_contract_N14MobRaiderBoss
+  name: "California Blues"
+  description: "The local raider bosses have expanded from attacking drifters and NCR settlers, and begun ambushing their rangers and soldiers. The NCR is paying a bounty on local outlaw leaders now."
+  difficulty: Caravaneer
+  targets:
+  - id: N14MobEnforcerWarden
+    required: 1
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 1200, max: 2000 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_gold
+
+- type: storeContract
+  id: NCR_contract_N14MobCazador
+  name: "Pest Control"
+  description: "Cazador nests continue to spread and kill the native wildlife, thin out their population and bring the caravan network proof the job was done. Pack some antidote, as well."
+  difficulty: Caravaneer
+  targets:
+  - id: N14MobCazador
+    required: 3
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 1200, max: 2000 }
+  - type: Pool
+    amount: { min: 3, max: 5 }
+    options:
+    - type: Pool
+      id: caravan_gold
+
+- type: storeContract
+  id: NCR_contract_N14SuperSledgeHammer
+  name: "Hammer Time"
+  description: "Most of the NCRA use rifles, but theres one NCR Major further west who really loves getting up close and personal. He's willing to pay a premium to anyone who can get him a super sledge."
+  difficulty: Caravaneer
+  targets:
+  - id: N14SuperSledgeHammer
+    required: 1
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 750, max: 1500 }
+  - type: Pool
+    amount: { min: 2, max: 4 }
+    options:
+    - type: Pool
+      id: caravan_gold_nonweapons
+# Misfits Add — new contracts: tier Diamond+
+
+- type: storeContract
+  id: NCR_contract_N14MobDeathclaw
+  name: "Payback, With Interest"
+  description: "Deathclaws have begun predating on NCR caravaneers and settlers in the region. The Rangers are now paying a generous bounty for proof of any deathclaws killed by our contractors."
+  difficulty: Caravan Master
+  targets:
+  - id: N14MobDeathclaw
+    required: 1
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 1200, max: 2000 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_mithril
+
+- type: storeContract
+  id: NCR_contract_N14MobDeathclawMetal
+  name: "Didn't Stop to Think if They Should"
+  description: "The caravan network has heard reports of armored deathclaws in the region, which would be a serious threat to our expansion efforts. Send us proof you've eliminated the issue for payment."
+  difficulty: Brahmin Baron
+  targets:
+  - id: N14MobDeathclawMetal
+    required: 1
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 1500, max: 2500 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_diamond
+
+# - type: storeContract -removed, see above
+  # id: NCR_contract_N14CookedFoodEggDeathclawBoiled
+  # name: "Deathclaw Delicacy"
+  # description: "A gourmet with peculiar taste urgently needs a boiled deathclaw egg. Good luck sourcing one."
+  # difficulty: Caravan Master
+  # targets:
+  # - id: N14CookedFoodEggDeathclawBoiled
+    # required: 1
+  # rewards:
+  # - type: Currency
+    # id: NCRDollar
+    # amount: { min: 1200, max: 2000 }
+  # - type: Pool
+    # amount: { min: 1, max: 3 }
+    # options:
+    # - type: Pool
+      # id: caravan_mithril
+
+# Misfits Add — new Easy contracts
+- type: storeContract
+  id: NCR_contract_N14FoodCannedFish
+  name: "Prepare for the Future"
+  description: "Some people suspect the world might end again soon, that some maniac might get their hands on a surviving nuclear warhead and bury us all. These wastelanders want to stock up for disaster, and quickly."
+  difficulty: Tribal
+  targets:
+  - id: N14FoodCannedFish
+    required: { min: 5, max: 10 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 120, max: 200 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: NCR_contract_N14FoodEggChicken
+  name: "Eggs, Over Easy"
+  description: "In large industrial cities such as The Hub, things like fresh eggs can be hard to get. Citizens of the NCR will pay generously for clean, fresh food from the frontiers."
+  difficulty: Tribal
+  targets:
+  - id: N14FoodEggChicken
+    required: { min: 5, max: 8 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 120, max: 180 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+# - type: storeContract - removed, unmapped -pierow
+  # id: NCR_contract_N14MobJackal
+  # name: "Jackal Pack"
+  # description: "Those damn jackals are harassing the locals. Come back with proof you cleared them out."
+  # difficulty: Iron
+  # targets:
+  # - id: N14MobJackal
+    # required: { min: 3, max: 6 }
+  # rewards:
+  # - type: Currency
+    # id: NCRDollar
+    # amount: { min: 160, max: 240 }
+  # - type: Pool
+    # amount: { min: 1, max: 3 }
+    # options:
+    # - type: Pool
+      # id: caravan_iron
+
+# Misfits Add — new Medium contracts
+- type: storeContract
+  id: NCR_contract_N14MobRadscorpion
+  name: "Sting of the Scorpion"
+  description: "Radscorpions have begun getting bold and now attack NCR scouts, even far afield from their nests. Remove these invasive pests and you'll be generously compensated."
+  difficulty: Citizen
+  targets:
+  - id: N14MobRadscorpion
+    required: { min: 2, max: 4 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 300, max: 500 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver
+
+- type: storeContract
+  id: NCR_contract_N14MobMirelurk
+  name: "Operation Fish-in-a-Barrel"
+  description: "Mirelurks in the region have proven to be a consistent bother to the local Brotherhood of Steel. Allied chapters with an interest in their success are paying a bounty on local mirelurks as a result."
+  difficulty: Citizen
+  targets:
+  - id: N14MobMirelurk
+    required: { min: 1, max: 3 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 300, max: 500 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver
+
+- type: storeContract
+  id: NCR_contract_N14WeaponRifleAk112
+  name: "One for my baby"
+  description: "A rogue NCR corporal is looking to buy some extra armaments for a private vendetta against the Legion. its not our job to ask questions, just to deliver."
+  difficulty: Citizen
+  targets:
+  - id: N14WeaponRifleAk112
+    required: { min: 1, max: 2 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 300, max: 450 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver_nonweapons
+
+- type: storeContract
+  id: NCR_contract_N14ClothingLegionReconArmor
+  name: "Revenge, for Charity"
+  description: "Escaped slaves of Caesar's Legion have pooled together their savings to see at least a few of their tormentors dead. Instead of taking ears, the refugees will be satisfied with this as proof instead."
+  difficulty: Citizen
+  targets:
+  - id: N14ClothingLegionReconArmor
+    required: { min: 1, max: 2 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 350, max: 550 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver
+
+- type: storeContract
+  id: NCR_contract_N14PilumSpear
+  name: "Spears of Destiny"
+  description: "A collector of authentic Legion weaponry back in The Hub is looking to complete his display with a few more pilum spears. Satisfy his request and this eccentric will compensate the caravan network handsomely."
+  difficulty: Citizen
+  targets:
+  - id: N14PilumSpear
+    required: { min: 1, max: 3 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 200, max: 350 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver_nonweapons
+
+# # Misfits Add — new Hard contracts
+# - type: storeContract -removed, see above
+  # id: NCR_contract_N14MobDeathclawicy
+  # name: "Icy Deathclaw"
+  # description: "A pale terror has been spotted north. Kill it and bring proof."
+  # difficulty: Caravan Master
+  # targets:
+  # - id: N14MobDeathclawicy
+    # required: 1
+  # rewards:
+  # - type: Currency
+    # id: NCRDollar
+    # amount: { min: 1200, max: 2000 }
+  # - type: Pool
+    # amount: { min: 1, max: 3 }
+    # options:
+    # - type: Pool
+      # id: caravan_mithril
+
+- type: storeContract
+  id: NCR_contract_N14MobRadMirelurk
+  name: "Gone Fishing"
+  description: "Glowing mirelurks have proven to be a nuisance to Caesar's Legion, with their shells deflecting bullets like power armor. Remove this obstacle to their explorers, and be richly rewarded."
+  difficulty: Caravaneer
+  targets:
+  - id: N14MobRadMirelurk
+    required: { min: 2, max: 3 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 800, max: 1500 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_gold
+
+# Misfits Add — new Gold tier contracts
+
+- type: storeContract
+  id: NCR_contract_N14Gladius
+  name: "Cut to the Marrow"
+  description: "There are disagreements among those of Caesar's Legion, and some Old Guard elements are paying quite well for proof you've eliminated 'false legion' in their eyes. Send the trophies to get paid."
+  difficulty: Caravaneer
+  targets:
+  - id: N14Gladius
+    required: { min: 2, max: 3 }
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 600, max: 1000 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_gold_nonweapons
+
+# - type: storeContract -removed, see above
+  # id: NCR_contract_N14WeaponLaserRifleYk42b
+  # name: "Laser Technology"
+  # description: "Pre-war energy weapons are in high demand. Bring us a YK-42b laser rifle."
+  # difficulty: Gold
+  # targets:
+  # - id: N14WeaponLaserRifleYk42b
+    # required: 1
+  # rewards:
+  # - type: Currency
+    # id: NCRDollar
+    # amount: { min: 800, max: 1300 }
+  # - type: Pool
+    # amount: { min: 1, max: 3 }
+    # options:
+    # - type: Pool
+      # id: caravan_gold_nonweapons
+
+- type: storeContract
+  id: NCR_contract_N14VeteranLegionArmor
+  name: "Blood and Sand"
+  description: "The New California Republic is paying well for proof of dead Legion scum. Strip a set of veteran armor off a fresh corpse as evidence you finished the job, and send it in for your payment."
+  difficulty: Caravaneer
+  targets:
+  - id: N14ClothingOuterDeanLegionnaireVeteranArmor
+    required: 1
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 700, max: 1200 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_gold
+
+# Misfits Add — new Mithril tier contract
+
+# - type: storeContract -this is just broke and never works. better off not having it tbh -pierow
+  # id: NCR_contract_N14MobCazador
+  # name: "Cazador Nest"
+  # description: "A full cazador nest has been spotted. We need five dead to clear it properly."
+  # difficulty: Caravan Master
+  # targets:
+  # - id: N14MobCazador
+    # required: 5
+  # rewards:
+  # - type: Currency
+    # id: NCRDollar
+    # amount: { min: 1600, max: 2400 }
+  # - type: Pool
+    # amount: { min: 2, max: 4 }
+    # options:
+    # - type: Pool
+      # id: caravan_mithril
+
+# Misfits Add — new Diamond tier contracts
+
+- type: storeContract
+  id: NCR_contract_N14MobDeathclawGrandHunt
+  name: "The Bottom Line"
+  description: "Deathclaws have attacked local merchants, leading to signficant losses of trusted caravaneers. The caravan network is offering a generous reward for those who will thin out their nests."
+  difficulty: Brahmin Baron
+  targets:
+  - id: N14MobDeathclaw
+    required: 2
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 2400, max: 4000 }
+  - type: Pool
+    amount: { min: 2, max: 4 }
+    options:
+    - type: Pool
+      id: caravan_diamond
+
+- type: storeContract
+  id: NCR_contract_N14WeaponPlasmaRifleDelivery
+  name: "Ad Victorium"
+  description: "The Brotherhood of Steel is paying a fortune for a functional plasma rifle in working condition. They don't care how you get it, and the caravan network agrees with the sentiment."
+  difficulty: Brahmin Baron
+  targets:
+  - id: N14WeaponPlasmaRifleUrban
+    required: 1
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 2000, max: 3600 }
+  - type: Pool
+    amount: { min: 2, max: 4 }
+    options:
+    - type: Pool
+      id: caravan_diamond
+
+#Misfits Add - more contracts to compensate for the ones removes and then some ---pierow
+- type: storeContract
+  id: NCR_contract_N14VaultPDA
+  name: "Corporate Espionage"
+  description: "The pip-boys from the local vault have valuable data and the demand among the caravan network's clientelle is significant. We don't care if you have to saw it off their wrists, get it done."
+  difficulty: Brahmin Baron
+  targets:
+  - id: N14VaultPDA
+    required: 2
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 3000, max: 4000 }
+  - type: Pool
+    amount: { min: 2, max: 4 }
+    options:
+    - type: Pool
+      id: caravan_diamond
+
+- type: storeContract
+  id: NCR_contract_N14ChineseSword
+  name: "People's Liberation Army"
+  description: "While most ghoulified remnants of the PLA or their descendents have moved on from the past or died out, some take up the banner still. A new group needs a symbol of the past to fight drifters with."
+  difficulty: Caravaneer
+  targets:
+  - id: N14ChineseSword
+    required: 2
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 1400, max: 2400 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_gold
+
+- type: storeContract
+  id: NCR_contract_N14HolotapeQuestGECK
+  name: "Grow Me A Paradise"
+  description: "OSI scientists in the City of Dayglow are interested in GECK holotape data, and are willing to pay a generous sum. They assure us the government can be trusted not to mishandle this information."
+  difficulty: Caravan Master
+  targets:
+  - id: N14HolotapeQuestGECK
+    required: 1
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 3000, max: 5000 }
+  - type: Pool
+    amount: { min: 2, max: 4 }
+    options:
+    - type: Pool
+      id: caravan_mithril
+
+- type: storeContract
+  id: NCR_contract_N14HolotapeEnclave
+  name: "America the Not-So Beautiful"
+  description: "Information pulled from the cold dead hands of the Enclave is always valuable to the Brotherhood of Steel, and their representatives are interested in more data stolen from the remnants of America's elite."
+  difficulty: Brahmin Baron
+  targets:
+  - id: N14HolotapeEnclave
+    required: 1
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 4000, max: 5400 }
+  - type: Pool
+    amount: { min: 2, max: 4 }
+    options:
+    - type: Pool
+      id: caravan_diamond
+
+- type: storeContract
+  id: NCR_contract_N14CurrencyPrewar
+  name: "Cash is Still King"
+  description: "A delusional Vault-Tec Overseer believes that pre-war currency is still valuable, and wishes to stockpile it. As long as they have caps to trade for it with the caravan network, we'll feed this fantasy."
+  difficulty: Caravan Master
+  targets:
+  - id: N14CurrencyPrewar
+    required: 1000
+  rewards:
+  - type: Currency
+    id: NCRDollar
+    amount: { min: 1200, max: 2200 }
+  - type: Pool
+    amount: { min: 2, max: 4 }
+    options:
+    - type: Pool
+      id: caravan_mithril
+

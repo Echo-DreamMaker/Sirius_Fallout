@@ -1,7 +1,7 @@
 // #Misfits Change/Add: Server-side handler for admin self-teleport via drag-and-drop.
 // Receives the AdminSelfDragTeleportEvent from the client, validates admin permissions,
 // and teleports the sender's attached entity to the requested coordinates.
-// #Misfits Tweak: Restricted to aghost mode only — sender must be a ghost with CanGhostInteract.
+// #Misfits Tweak: Restricted to aghost mode only вЂ” sender must be a ghost with CanGhostInteract.
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared._Misfits.Administration;
@@ -35,7 +35,7 @@ public sealed class AdminDragTeleportSystem : EntitySystem
 
     private void OnAdminDragTeleport(AdminSelfDragTeleportEvent ev, EntitySessionEventArgs args)
     {
-        // Server-side admin check — never trust the client alone.
+        // Server-side admin check вЂ” never trust the client alone.
         if (!_adminManager.IsAdmin(args.SenderSession))
             return;
 
@@ -63,7 +63,7 @@ public sealed class AdminDragTeleportSystem : EntitySystem
 
         // Log the admin action for accountability.
         _adminLogger.Add(
-            LogType.Action,
+            LogType.AdminAudit,
             LogImpact.Low,
             $"{ToPrettyString(args.SenderSession.AttachedEntity ?? entity):actor} drag-teleported {ToPrettyString(entity):subject} to {targetCoords}");
     }

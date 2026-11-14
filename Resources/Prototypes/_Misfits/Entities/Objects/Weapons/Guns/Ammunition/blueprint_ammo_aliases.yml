@@ -5,7 +5,6 @@
   parent: MagazineBox10mm
   id: N14AmmoBox10mm
 
-
 - type: entity
   parent: MagazineBox44
   id: N14AmmoBox44Magnum
@@ -29,6 +28,14 @@
 - type: entity
   parent: MagazineBox308
   id: N14AmmoBox308
+
+- type: entity
+  parent: MagazineBox68
+  id: N14AmmoBox68
+
+- type: entity
+  parent: MagazineBoxOver308
+  id: N14AmmoBoxOver308
 
 - type: entity
   parent: SpeedLoader45-70

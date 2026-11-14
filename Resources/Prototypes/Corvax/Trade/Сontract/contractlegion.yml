@@ -1,0 +1,943 @@
+# reward money here should be 1/4th what it is in bazaar, as this pays in denarii
+- type: storeContractPack
+  id: PackLegion
+  contracts:
+  - id: legion_contract_N14MaterialThread
+    weight: 50
+  - id: legion_contract_N14FloraProduceWildBrocFlower
+    weight: 50
+  - id: legion_contract_MaterialCloth
+    weight: 50
+  - id: legion_contract_N14FloraLogTimber
+    weight: 50
+  - id: legion_contract_MaterialWoodPlank1
+    weight: 50
+  - id: legion_contract_N14FoodDogfood
+    weight: 50
+  - id: legion_contract_N14ScrapMachete
+    weight: 50
+  - id: legion_contract_N14Scrap1
+    weight: 50
+  - id: legion_contract_N14Scraps
+    weight: 50
+  - id: legion_contract_N14FloraProduceWildXander
+    weight: 50
+  - id: legion_contract_N14Weapon9mm
+    weight: 50
+  - id: legion_contract_N14MaterialLeather1
+    weight: 50
+  - id: legion_contract_N14FloraProduceWildCaveFungusRad
+    weight: 50
+  - id: legion_contract_N14BrassKnife
+    weight: 50
+  - id: legion_contract_N14FloraProduceWildCarrot
+    weight: 50
+  - id: legion_contract_N14DrinkNukaCola
+    weight: 50
+  - id: legion_contract_N14MobRaiderPsycho
+    weight: 50
+  - id: legion_contract_N14MobGhoulFeral
+    weight: 50
+  # - id: caravan_contract_N14CookedFoodEggDeathclawBoiled- you're not finding one blud -pierow
+    # weight: 50
+  - id: legion_contract_N14MobDeathclawMetal
+    weight: 50
+  - id: legion_contract_N14SuperSledgeHammer
+    weight: 50
+  - id: legion_contract_N14MobCazador
+    weight: 50
+  - id: legion_contract_N14MobRaiderBoss
+    weight: 50
+  - id: legion_contract_N14MobDeathclaw
+    weight: 50
+  # Misfits Add — new contracts: Easy
+  #- id: legion_contract_N14FoodCannedFish # fish aint mapped
+  #  weight: 50
+  - id: legion_contract_N14FoodEggChicken
+    weight: 50
+  - id: legion_contract_N14Whip
+    weight: 50
+  # Misfits Add — new contracts: Medium
+  - id: legion_contract_N14MobRadscorpion
+    weight: 50
+  - id: legion_contract_N14MobMirelurk
+    weight: 50
+  - id: legion_contract_N14WeaponRifle556Carbine
+    weight: 50
+  # Misfits Add — new contracts: Hard
+  - id: legion_contract_N14MobRadMirelurk
+    weight: 50
+  # Misfits Add — new Gold contracts
+  - id: legion_contract_N14Gladius
+    weight: 50
+  # Misfits Add — new Mithril contract
+  # - id: legion_contract_N14MobCazador #removed, just buggy -pierow
+    # weight: 50
+  # Misfits Add — new Diamond contracts
+  - id: legion_contract_N14WeaponPlasmaRifleDelivery
+    weight: 50
+  - id: legion_contract_N14VaultPDA #5 new contracts -pierow  N14CurrencyPrewar
+    weight: 50
+  - id: legion_contract_N14ChineseSword
+    weight: 50
+  - id: legion_contract_N14HolotapeQuestGECK
+    weight: 50
+  - id: legion_contract_N14HolotapeEnclave
+    weight: 50
+  - id: legion_contract_N14CurrencyPrewar
+    weight: 50
+  - id: legion_contract_DrinkBeerBottleFull
+    weight: 10
+
+- type: storeContractsPreset
+  id: PresetLegion
+  # #Misfits Change — retier system: 6 tiers replace Easy/Medium/Hard -TWEAKED, lower tiers more abundent, higher tiers more scarce
+  limits:
+    Servus: 5
+    Plebeian: 3
+    Auxiliary: 2
+    Legionary: 2
+    Decanus: 1
+    Centurion: 1
+  packs:
+  - id: PackLegion
+    weight: 1
+
+- type: storeContract
+  id: legion_contract_N14MaterialThread
+  name: "Clothe the Slaves"
+  description: "The Consul Offciorum have recently captured a glut of slaves and require materials for their new rags. Render unto them thread and you shall be rewarded."
+  difficulty: Servus
+  targets:
+  - id: N14MaterialThread1
+    required: { min: 10, max: 15 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 12, max: 22 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: legion_contract_N14FloraProduceWildBrocFlower
+  name: "Broc for powder"
+  description: "The Auxilia are running low on broc flowers for healing powder. Find some."
+  difficulty: Servus
+  targets:
+  - id: N14FloraProduceWildBrocFlower
+    required: { min: 5, max: 10 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 15, max: 25 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: legion_contract_MaterialCloth
+  name: "New meat for Mars"
+  description: "A newly conquered tribe requires cloth for their new Legio uniforms. provide it quickly."
+  difficulty: Servus
+  targets:
+  - id: MaterialCloth1
+    required: { min: 10, max: 20 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 25, max: 30 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: legion_contract_N14FloraLogTimber
+  name: "Timber for the pyres."
+  description: "The priesthood is preparing a ceremony to burn profligates, wood is needed for the pyres."
+  difficulty: Servus
+  targets:
+  - id: N14FloraLogTimber
+    required: { min: 6, max: 10 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 25, max: 38 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: legion_contract_N14FoodDogfood
+  name: "Let Loose the Dogs of War"
+  description: "The houndmasters need dogfood for their mongrels."
+  difficulty: Servus
+  repeatable: false
+  targets:
+  - id: N14FoodDogfood
+    required: { min: 2, max: 5 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 19, max: 25 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: legion_contract_MaterialWoodPlank1
+  name: "Always Look on the Bright Side of Life"
+  description: "Caesar's Legion needs wood to construct new crucifixes for their enemies, and they have plenty of enemies. This will likely be a repeat job."
+  difficulty: Servus
+  targets:
+  - id: MaterialWoodPlank1
+    required: { min: 15, max: 30 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 13, max: 20 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: legion_contract_N14Scraps
+  name: "Feed the Machine"
+  description: "The Legion never rests, and so its demand for fuel never ends. Power the Bellum Machine."
+  difficulty: Servus
+  targetCount: 1
+  targets:
+  - id: N14ScrapCopper1
+    required: { min: 5, max: 10 }
+    weight: 60
+  - id: N14ScrapBrass1
+    required: { min: 5, max: 10 }
+    weight: 60
+  - id: N14ScrapLead1
+    required: { min: 5, max: 10 }
+    weight: 60
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 25, max: 30}
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: legion_contract_N14Scrap1
+  name: "Recycling for Victory"
+  description: "One of the remaining vaults from Vault-Tec needs more scrap metal to help repair damage to their water purifier tank, and will pay generously for the material."
+  difficulty: Servus
+  targets:
+  - id: N14Scrap1
+    required: { min: 15, max: 30 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 25, max: 38 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: legion_contract_N14FloraProduceWildXander
+  name: "Root of my desire."
+  description: "The Legion always needs more Xander root, nearly all of their medicine uses it."
+  difficulty: Servus
+  targets:
+  - id: N14FloraProduceWildXander
+    required: { min: 5, max: 20 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 25, max: 38 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: legion_contract_N14FloraProduceWildCarrot
+  name: "What's Up Doc?"
+  description: "The Followers of the Apocalypse need to feed hungry refugees from nearby conflict zones, and they are requesting wild carrots en masse."
+  difficulty: Plebeian
+  targets:
+  - id: N14FloraProduceWildCarrot
+    required: { min: 5, max: 10 }
+    weight: 60
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 25, max: 38 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron
+
+- type: storeContract
+  id: legion_contract_N14ScrapMachete
+  name: "Kill and conquer"
+  description: "Nova Canaan is doing a 'recruitment drive', and that means they need more weapons to arm the new 'recruits.' "
+  difficulty: Plebeian
+  targets:
+  - id: N14ScrapMachete
+    required: { min: 3, max: 5 }
+  rewards:
+  - type: Currency
+    id: Caps
+    amount: { min: 25, max: 30 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron_nonweapons
+
+- type: storeContract
+  id: legion_contract_N14FoodMeatRadRaw
+  name: "Food for Bellators"
+  description: "Legionaries fight on their stomaches."
+  difficulty: Plebeian
+  targets:
+  - id: N14FoodMeatRadRaw
+    required: { min: 5, max: 10 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 25, max: 30 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron
+
+- type: storeContract
+  id: legion_contract_N14Weapon9mm
+  name: "I shot him nine times with my nine."
+  description: "A local Decanus REALLY likes the 9mm. Something about a prewar song he heard. I don't know, just get one."
+  difficulty: Plebeian
+  targetCount: 1
+  targets:
+  - id: N14WeaponPistol9mm
+    required: 1
+    weight: 60
+  - id: N14WeaponRevolver9mm #a gun, of the short-ass variety
+    required: 1
+    weight: 60
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 13, max: 19 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron_nonweapons
+
+- type: storeContract
+  id: legion_contract_N14BrassKnife
+  name: "Wife to war"
+  description: "The Wives of Mars sect use brass knives in their rituals, they always seem to need more."
+  difficulty: Plebeian
+  targets:
+  - id: N14BrassKnife
+    required: { min: 1, max: 3 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 25, max: 44 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron_nonweapons
+
+- type: storeContract
+  id: legion_contract_N14FloraProduceWildCaveFungusRad
+  name: "Rad-Ical Science"
+  description: "A rogue Vault-Tec scientist believes that research into irradiated fungus could lead to a future where America is radiation free. They are willing to pay handsomely for samples."
+  difficulty: Plebeian
+  targets:
+  - id: N14FloraProduceWildCaveFungusRad
+    required: { min: 3, max: 6 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 30, max: 38 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron
+
+- type: storeContract
+  id: legion_contract_N14MaterialLeather1
+  name: "An exploration into trade"
+  description: "A veteran Legion Explorer has ruined his leather armor, he needs materials for repairs."
+  difficulty: Plebeian
+  targets:
+  - id: N14MaterialLeather1
+    required: { min: 5, max: 15 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 20, max: 30 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron
+
+- type: storeContract
+  id: legion_contract_N14MobGhoulFeral
+  name: "Monstrum Purge"
+  description: "These pitiful creatures, cursed by Pluto, are both monstrum and mad, The Legio will pay for proof of their extermination."
+  difficulty: Auxiliary
+  targets:
+  - id: N14MobGhoulFeral
+    required: { min: 2, max: 3 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 38, max: 63 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver
+
+- type: storeContract
+  id: legion_contract_N14MobRaiderPsycho
+  name: "Headhunting for Profit"
+  description: "You know the Legio's stance on banditry, Kill them and be rewarded."
+  difficulty: Auxiliary
+  targets:
+  - id: N14BaseMobRaider # Misfits Fix — accept any raider variant (abstract = auto-Descendants)
+    required: { min: 2, max: 5 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 38, max: 63}
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver
+
+- type: storeContract
+  id: legion_contract_N14DrinkNukaCola
+  name: "As a treat."
+  description: "While Nuka is frowned upon in the Legio, it has never been outright banned, and some Decanii and Centurions have developed a strong taste for its increasingly rare flavor."
+  difficulty: Auxiliary
+  targetCount: 1
+  targets:
+  - id: N14DrinkNukaColaCherry
+    required: 1
+    weight: 60
+  - id: N14DrinkNukaCola
+    required: 1
+    weight: 60
+  - id: N14DrinkNukaColaOrange
+    required: 1
+    weight: 60
+  - id: N14DrinkNukaColaGrape
+    required: 1
+    weight: 60
+  - id: N14DrinkNukaColaWild
+    required: 1
+    weight: 60
+  - id: N14DrinkNukaColaYellow
+    required: 1
+    weight: 60
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 25, max: 50 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver
+
+- type: storeContract
+  id: legion_contract_N14MobRaiderBoss
+  name: "California Blues"
+  description: "To slay the leader of one of these profligate bands- an honorable kill worthy of a fair reward."
+  difficulty: Legionary
+  targets:
+  - id: N14MobEnforcerWarden
+    required: 1
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 150, max: 250 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_gold
+
+- type: storeContract
+  id: legion_contract_N14MobCazador
+  name: "Pest Control"
+  description: "Cazador nests continue to spread and kill the native wildlife, thin out their population and bring the caravan network proof the job was done. Pack some bitterdrink, as well."
+  difficulty: Legionary
+  targets:
+  - id: N14MobCazador
+    required: 3
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 150, max: 250 }
+  - type: Pool
+    amount: { min: 3, max: 5 }
+    options:
+    - type: Pool
+      id: caravan_gold
+
+- type: storeContract
+  id: legion_contract_N14SuperSledgeHammer
+  name: "Hammer Time"
+  description: "We should not need to explain why these are desirable, we will pay top Denarius."
+  difficulty: Legionary
+  targets:
+  - id: N14SuperSledgeHammer
+    required: 1
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 250, max: 500 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_gold_nonweapons
+# Misfits Add — new contracts: tier Diamond+
+
+- type: storeContract
+  id: legion_contract_N14MobDeathclaw
+  name: "To hunt the biggest game"
+  description: "To kill a Deathclaw warrants reward in any case, but in this region they are particularly abundant, and need culling. You shall be rewarded fairly."
+  difficulty: Decanus
+  targets:
+  - id: N14MobDeathclaw
+    required: 1
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 150, max: 250 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_mithril
+
+- type: storeContract
+  id: legion_contract_N14MobDeathclawMetal
+  name: "Didn't Stop to Think if They Should"
+  description: "What profligate madmen are putting ARMOR on DEATHCLAWS? Slay one and riches shall be yours."
+  difficulty: Centurion
+  targets:
+  - id: N14MobDeathclawMetal
+    required: 1
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 300, max: 450 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_diamond
+
+- type: storeContract
+  id: legion_contract_DrinkBeerBottleFull
+  name: "The Forbidden liquid."
+  description: "Keep this anonymous and discreet, i will pay you top Aureus for even one bottle. I admit i am not proud, but it is something that i've never been able to give up, Mars fogive me. "
+  difficulty: Centurion
+  targets:
+  - id: DrinkBeerBottleFull
+    required: 1
+  rewards:
+  - type: Currency
+    id: LegionAureus
+    amount: { min: 20, max: 30 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_diamond
+
+
+
+# - type: storeContract -removed, see above
+  # id: legion_contract_N14CookedFoodEggDeathclawBoiled
+  # name: "Deathclaw Delicacy"
+  # description: "A gourmet with peculiar taste urgently needs a boiled deathclaw egg. Good luck sourcing one."
+  # difficulty: Bunker Buster
+  # targets:
+  # - id: N14CookedFoodEggDeathclawBoiled
+    # required: 1
+  # rewards:
+  # - type: Currency
+    # id: Caps
+    # amount: { min: 600, max: 1000 }
+  # - type: Pool
+    # amount: { min: 1, max: 3 }
+    # options:
+    # - type: Pool
+      # id: caravan_mithril
+
+# Misfits Add — new Easy contracts
+- type: storeContract
+  id: legion_contract_N14FoodCannedFish
+  name: "Prepare for the Future"
+  description: "Some people suspect the world might end again soon, that some maniac might get their hands on a surviving nuclear warhead and bury us all. These wastelanders want to stock up for disaster, and quickly."
+  difficulty: Servus
+  targets:
+  - id: N14FoodCannedFish
+    required: { min: 5, max: 10 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 60, max: 100 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: legion_contract_N14FoodEggChicken
+  name: "Eggs, Over Easy"
+  description: "Good chicken eggs are hard to come by in the deserts of Arizona, chickens don't do well there. People of that area will pay well for fresh eggs."
+  difficulty: Servus
+  targets:
+  - id: N14FoodEggChicken
+    required: { min: 5, max: 8 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 15, max: 30 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+# - type: storeContract - removed, unmapped -pierow
+  # id: legion_contract_N14MobJackal
+  # name: "Jackal Pack"
+  # description: "Those damn jackals are harassing the locals. Come back with proof you cleared them out."
+  # difficulty: Iron
+  # targets:
+  # - id: N14MobJackal
+    # required: { min: 3, max: 6 }
+  # rewards:
+  # - type: Currency
+    # id: Caps
+    # amount: { min: 80, max: 120 }
+  # - type: Pool
+    # amount: { min: 1, max: 3 }
+    # options:
+    # - type: Pool
+      # id: caravan_iron
+
+- type: storeContract
+  id: legion_contract_N14Whip
+  name: "Where There's A Whip, There's A Way!"
+  description: "Our slavemasters have broken their whips from overuse on lazy servus; send them replacements to continue their work."
+  difficulty: Plebeian
+  targets:
+  - id: N14Whip
+    required: { min: 1, max: 2 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 20, max: 30 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_iron_nonweapons
+
+# Misfits Add — new Medium contracts
+- type: storeContract
+  id: legion_contract_N14MobRadscorpion
+  name: "Sting of the Scorpion"
+  description: "Radscorpions have begun getting bold and now attack the explorers of Caesar's Legion, even far afield from their nests. Remove these invasive pests and you'll be generously compensated."
+  difficulty: Auxiliary
+  targets:
+  - id: N14MobRadscorpion
+    required: { min: 2, max: 4 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 38, max: 63 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver
+
+- type: storeContract
+  id: legion_contract_N14MobMirelurk
+  name: "Operation Fish-in-a-Barrel"
+  description: "Mirelurks in the region have proven to be a consistent bother to the locals, a bounty has been placed on the foul creatures."
+  difficulty: Auxiliary
+  targets:
+  - id: N14MobMirelurk
+    required: { min: 1, max: 3 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 38, max: 63 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver
+
+- type: storeContract
+  id: legion_contract_N14WeaponRifle556Carbine
+  name: "Remember Helios One"
+  description: "A group of rogue Brotherhood of Steel knights are looking to go against orders, and honor their lost brothers of the Mojave Chapter by baptising some NCR recruits in machine gun fire."
+  difficulty: Auxiliary
+  targets:
+  - id: N14WeaponRifle556Carbine
+    required: { min: 1, max: 2 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 38, max: 56 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_silver_nonweapons
+
+
+# # Misfits Add — new Hard contracts
+# - type: storeContract -removed, see above
+  # id: legion_contract_N14MobDeathclawicy
+  # name: "Icy Deathclaw"
+  # description: "A pale terror has been spotted north. Kill it and bring proof."
+  # difficulty: Bunker Buster
+  # targets:
+  # - id: N14MobDeathclawicy
+    # required: 1
+  # rewards:
+  # - type: Currency
+    # id: Caps
+    # amount: { min: 600, max: 1000 }
+  # - type: Pool
+    # amount: { min: 1, max: 3 }
+    # options:
+    # - type: Pool
+      # id: caravan_mithril
+
+- type: storeContract
+  id: legion_contract_N14MobRadMirelurk
+  name: "Gone Fishing"
+  description: "Glowing mirelurks have proven to be a nuisance to Caesar's Legion, with their shells deflecting bullets like power armor. Remove this obstacle to their explorers, and be richly rewarded."
+  difficulty: Legionary
+  targets:
+  - id: N14MobRadMirelurk
+    required: { min: 2, max: 3 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 100, max: 188 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_gold
+
+# Misfits Add — new Gold tier contracts
+
+- type: storeContract
+  id: legion_contract_N14Gladius
+  name: "Cut to the Marrow"
+  description: "Bring us the Gladii of those false Legion who claim Lacerta to be the heir of Caesar, the traitors' deaths will be rewarded."
+  difficulty: Legionary
+  targets:
+  - id: N14Gladius
+    required: { min: 2, max: 3 }
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 19, max: 31 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_gold_nonweapons
+
+# - type: storeContract -removed, see above
+  # id: legion_contract_N14WeaponLaserRifleYk42b
+  # name: "Laser Technology"
+  # description: "Pre-war energy weapons are in high demand. Bring us a YK-42b laser rifle."
+  # difficulty: Gold
+  # targets:
+  # - id: N14WeaponLaserRifleYk42b
+    # required: 1
+  # rewards:
+  # - type: Currency
+    # id: Caps
+    # amount: { min: 400, max: 650 }
+  # - type: Pool
+    # amount: { min: 1, max: 3 }
+    # options:
+    # - type: Pool
+      # id: caravan_gold_nonweapons
+
+# Misfits Add — new Mithril tier contract
+
+# - type: storeContract -this is just broke and never works. better off not having it tbh -pierow
+  # id: legion_contract_N14MobCazador
+  # name: "Cazador Nest"
+  # description: "A full cazador nest has been spotted. We need five dead to clear it properly."
+  # difficulty: Bunker Buster
+  # targets:
+  # - id: N14MobCazador
+    # required: 5
+  # rewards:
+  # - type: Currency
+    # id: Caps
+    # amount: { min: 800, max: 1200 }
+  # - type: Pool
+    # amount: { min: 2, max: 4 }
+    # options:
+    # - type: Pool
+      # id: caravan_mithril
+
+# Misfits Add — new Diamond tier contracts
+
+
+- type: storeContract
+  id: legion_contract_N14WeaponPlasmaRifleDelivery
+  name: "Steel Doesn't rust."
+  description: "The Brotherhood of Steel is paying a fortune for a functional plasma rifle in working condition."
+  difficulty: Decanus
+  targets:
+  - id: N14WeaponPlasmaRifleUrban
+    required: 1
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 250, max: 500 }
+  - type: Pool
+    amount: { min: 2, max: 4 }
+    options:
+    - type: Pool
+      id: caravan_mithril
+
+#Misfits Add - more contracts to compensate for the ones removes and then some ---pierow
+- type: storeContract
+  id: legion_contract_N14VaultPDA
+  name: "A memento."
+  description: "The pip-boys from the local vault have valuable data and are in high demand for strategic use by Legion Centurions and Frumentarii alike."
+  targets:
+  - id: N14VaultPDA
+    required: 1
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 375, max: 500 }
+  - type: Pool
+    amount: { min: 2, max: 4 }
+    options:
+    - type: Pool
+      id: caravan_diamond
+
+- type: storeContract
+  id: legion_contract_N14ChineseSword
+  name: "A collector's request"
+  description: "A somewhat eccentric Centurion likes to collect genuine pre-war Chinese army gear. he needs an officer's sword for his collection and will pay handsomely."
+  difficulty: Legionary
+  targets:
+  - id: N14ChineseSword
+    required: 1
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 200, max: 200 }
+  - type: Pool
+    amount: { min: 2, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_gold
+
+- type: storeContract
+  id: legion_contract_N14HolotapeQuestGECK
+  name: "Fertility for Nova Canaan"
+  description: "The officium Frumentariius are very interested in the GECKS and their potential use to make fertile the barren deserts of the Legion."
+  difficulty: Decanus
+  targets:
+  - id: N14HolotapeQuestGECK
+    required: 1
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 500, max: 600 }
+  - type: Pool
+    amount: { min: 2, max: 4 }
+    options:
+    - type: Pool
+      id: caravan_mithril
+
+- type: storeContract
+  id: legion_contract_N14HolotapeEnclave
+  name: "America the Not-So Beautiful"
+  description: "Information pulled from the cold dead hands of the Enclave is always valuable to the Brotherhood of Steel, and their representatives are interested in more data stolen from the remnants of America's elite."
+  difficulty: Centurion
+  targets:
+  - id: N14HolotapeEnclave
+    required: 1
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 500, max: 675 }
+  - type: Pool
+    amount: { min: 2, max: 4 }
+    options:
+    - type: Pool
+      id: caravan_diamond
+
+- type: storeContract
+  id: legion_contract_N14CurrencyPrewar
+  name: "Cash is Still King"
+  description: "A delusional Vault-Tec Overseer believes that pre-war currency is still valuable, and wishes to stockpile it. As long as they have silver to trade for it, we'll feed this fantasy."
+  difficulty: Decanus
+  targets:
+  - id: N14CurrencyPrewar
+    required: 1000
+  rewards:
+  - type: Currency
+    id: LegionDenarius
+    amount: { min: 150, max: 300 }
+  - type: Pool
+    amount: { min: 2, max: 4 }
+    options:
+    - type: Pool
+      id: caravan_mithril
+

@@ -50,6 +50,7 @@
   subGear:
   - ChaplainPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitChaplain
     back: ClothingBackpack
     shoes: ClothingShoesColorBlack
@@ -64,6 +65,7 @@
   id: ChaplainPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitChaplain
     head: ClothingHeadEnvirohelmChaplain
     gloves: ClothingHandsGlovesEnviroglovesBlack

@@ -51,6 +51,7 @@
 - type: startingGear
   id: TribalGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitTribal
     outerClothing: N14ClothingOuterTribalArmor
     shoes: N14ClothingShoesTribal

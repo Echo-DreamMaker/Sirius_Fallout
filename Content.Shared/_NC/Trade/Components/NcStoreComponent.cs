@@ -36,6 +36,9 @@ public sealed partial class NcStoreComponent : Component
     [DataField("contractPresets")]
     public List<string> ContractPresets { get; set; } = new();
 
+    [DataField("contractTierProfile")]
+    public string ContractTierProfile { get; set; } = "Base";
+
     public Dictionary<string, ContractServerData> Contracts { get; } = new();
 
     [DataField("rewardCurrencies")]

@@ -1,0 +1,35 @@
+- type: entityTable
+  id: M14WeaponLootTier5_MeleeBluntOneHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14TribalClub
+    - !type:EntSelector
+      id: N14TrenchClub
+
+- type: entityTable
+  id: M14WeaponLootTier5_MeleeSharpOneHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14ripper
+
+- type: entityTable
+  id: M14WeaponLootTier5_MeleeOtherOneHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponKebab
+
+- type: entityTable
+  id: M14WeaponLootTier5_Shield
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14LegionnaireShield
+    - !type:EntSelector
+      id: N14LegionnaireBuckler
+    - !type:EntSelector
+      id: N14InsectShield
+    - !type:EntSelector
+      id: MakeshiftShield

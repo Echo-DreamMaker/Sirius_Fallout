@@ -26,3 +26,61 @@
               doAfter: 2
     - node: cigarette
       entity: N14CigaretteRollie
+- type: constructionGraph
+  id: N14GroundCannabis
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ground
+          steps:
+            - material: N14LeavesCannabisDried
+              amount: 2
+              doAfter: 5
+    - node: ground
+      entity: N14GroundCannabis
+
+# Ground Tobacco (Powder)
+- type: constructionGraph
+  id: N14GroundTobacco
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ground
+          steps:
+            - material: N14LeavesTobaccoDried
+              amount: 2
+              doAfter: 5
+    - node: ground
+      entity: N14GroundTobacco
+      
+# Rollie
+- type: constructionGraph
+  id: N14Joint
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: joint
+          steps:
+            - material: N14RollingPaper
+            - material: N14GroundCannabis
+              doAfter: 2
+    - node: joint
+      entity: N14Joint
+      
+# Blunt
+- type: constructionGraph
+  id: N14Blunt
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: blunt
+          steps:
+            - material: N14LeavesTobaccoDried
+            - material: N14GroundCannabis
+              doAfter: 2
+    - node: blunt
+      entity: N14Blunt

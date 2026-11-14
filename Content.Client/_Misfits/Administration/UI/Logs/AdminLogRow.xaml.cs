@@ -20,7 +20,7 @@ namespace Content.Client._Misfits.Administration.UI.Logs;
 public sealed partial class AdminLogRow : PanelContainer
 {
     // Category badge colors: background + text, keyed by category name.
-    // Matches the bwoink panel convention — static readonly Color fields, no CSS.
+    // Matches the bwoink panel convention вЂ” static readonly Color fields, no CSS.
     private static readonly Dictionary<string, (Color Bg, Color Text)> CategoryColors = new()
     {
         { "Combat",       (Color.FromHex("#2d1515"), Color.FromHex("#fca5a5")) },
@@ -43,7 +43,7 @@ public sealed partial class AdminLogRow : PanelContainer
     private static readonly Color ActionTextColor = Color.FromHex("#d4d4d8");  // white-ish
     private static readonly Color ExtremeRowBg = Color.FromHex("#1a0808");      // faint red
 
-    /// <summary>The raw log data — used for filtering and tooltip/detail rendering.</summary>
+    /// <summary>The raw log data вЂ” used for filtering and tooltip/detail rendering.</summary>
     public SharedAdminLog Log { get; private set; }
 
     /// <summary>The category this log belongs to (e.g. "Combat", "Atmos").</summary>
@@ -84,22 +84,22 @@ public sealed partial class AdminLogRow : PanelContainer
     /// <summary>
     /// Populates all row fields from a log entry.
     /// </summary>
-    public void Setup(ref SharedAdminLog log)
+    public void Setup(ref SharedAdminLog log, IReadOnlyDictionary<Guid, string> playerUsernames)
     {
         Log = log;
         Category = LogTypeCategories.GetCategory(log.Type);
 
-        // Timestamp — compact HH:mm:ss
+        // Timestamp вЂ” compact HH:mm:ss
         TimestampLabel.Text = log.Date.ToString("HH:mm:ss");
 
-        // Type badge — short name with category-tinted background
+        // Type badge вЂ” short name with category-tinted background
         var shortType = TruncateTypeName(log.Type.ToString(), 10);
         TypeBadgeLabel.Text = shortType;
         ApplyBadgeColors(Category);
 
-        // Message body — parse and render with color-coded segments
+        // Message body вЂ” parse and render with color-coded segments
         _parsedSegments = LogMessageParser.Parse(log.Message);
-        BuildCompactMessage(_parsedSegments);
+        BuildCompactMessage(_parsedSegments, GetPlayerUsernamePrefix(playerUsernames));
 
         // Extreme severity highlight
         if (log.Impact == LogImpact.Extreme)
@@ -114,16 +114,24 @@ public sealed partial class AdminLogRow : PanelContainer
             };
         }
 
-        // Tooltip — full raw message for quick reference without clicking
+        // Tooltip вЂ” full raw message for quick reference without clicking
         ToolTip = log.Message;
     }
 
     /// <summary>
     /// Builds the compact message view: player names in blue, entity refs hidden, text in white.
     /// </summary>
-    private void BuildCompactMessage(List<MessageSegment> segments)
+    private void BuildCompactMessage(List<MessageSegment> segments, string usernamePrefix)
     {
         var msg = new FormattedMessage();
+
+        if (usernamePrefix.Length > 0)
+        {
+            msg.PushColor(PlayerNameColor);
+            msg.AddText(usernamePrefix);
+            msg.Pop();
+        }
+
         foreach (var seg in segments)
         {
             switch (seg.Kind)
@@ -134,7 +142,7 @@ public sealed partial class AdminLogRow : PanelContainer
                     msg.Pop();
                     break;
                 case SegmentKind.EntityRef:
-                    // Hidden in compact view — entity IDs suppressed
+                    // Hidden in compact view вЂ” entity IDs suppressed
                     break;
                 case SegmentKind.Text:
                     msg.PushColor(ActionTextColor);
@@ -145,6 +153,23 @@ public sealed partial class AdminLogRow : PanelContainer
         }
 
         MessageLabel.SetMessage(msg);
+    }
+
+    /// <summary>
+    /// Admin log messages identify a body by character name, while the structured
+    /// player IDs identify its account. Show the latter in compact rows so staff
+    /// can immediately distinguish accounts using the same character name.
+    /// </summary>
+    private string GetPlayerUsernamePrefix(IReadOnlyDictionary<Guid, string> playerUsernames)
+    {
+        var usernames = new List<string>();
+        foreach (var playerId in Log.Players)
+        {
+            if (playerUsernames.TryGetValue(playerId, out var username) && !usernames.Contains(username))
+                usernames.Add(username);
+        }
+
+        return usernames.Count == 0 ? string.Empty : $"[{string.Join(", ", usernames)}] ";
     }
 
     /// <summary>
@@ -207,7 +232,7 @@ public sealed partial class AdminLogRow : PanelContainer
     }
 
     /// <summary>
-    /// Truncates a LogType name to fit the badge width. E.g. "AttackArmedClick" → "AtkArmClk".
+    /// Truncates a LogType name to fit the badge width. E.g. "AttackArmedClick" в†’ "AtkArmClk".
     /// Falls back to simple substring if no abbreviation exists.
     /// </summary>
     private static string TruncateTypeName(string name, int maxLen)

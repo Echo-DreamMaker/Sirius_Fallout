@@ -24,7 +24,7 @@
   parent: ClothingHeadBase
   id: NCClothingHeadHatBoSReaconHood
   name: Brotherhood of Steel Hood
-  description: The hood of the Brotherhood Scout
+  description: The hood of a Brotherhood of Steel Scout.
   components:
   - type: Sprite
     sprite: Corvax/Clothing/Head/Hoods/bosReaconHood.rsi

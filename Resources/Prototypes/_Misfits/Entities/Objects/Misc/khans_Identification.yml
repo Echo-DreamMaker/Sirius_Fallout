@@ -1,0 +1,11 @@
+- type: entity
+  parent: N14IDCard
+  id: MisfitsKhansIDCard
+  name: Great Khans ID tattoo card
+  description: You've been inked with the Great Khan's iconography. You earned your name from your beatdown, and this is your family now.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Identification.rsi
+    state: Khans_ID
+  - type: PresetIdCard
+    job: GreatKhan

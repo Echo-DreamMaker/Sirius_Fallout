@@ -5,7 +5,7 @@
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
-      jobs:
+     jobs:
         - CaesarLegionVeteranDecanus
     - !type:CharacterPlaytimeRequirement
       tracker: CaesarLegionVeteranDecanus

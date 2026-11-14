@@ -1,0 +1,183 @@
+- type: reagent
+  id: Cryonex
+  name: reagent-name-cryonex
+  group: Medicine
+  desc: reagent-desc-cryonex
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: bitter
+  color: "#7a5fd6"
+
+- type: reagent
+  id: Cryzine
+  name: reagent-name-cryzine
+  group: Medicine
+  desc: reagent-desc-cryzine
+  physicalDesc: reagent-physical-desc-cold
+  flavor: medicine
+  color: "#4fd3e8"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.15
+      effects:
+      - !type:TemperatureScaledHealthChange
+        warmPoint: 310
+        coldPoint: 100
+        maxMultiplier: 3
+        damage:
+          groups:
+            Brute: -10
+            Burn: -10
+
+- type: reagent
+  id: Traumazine
+  name: reagent-name-traumazine
+  group: Medicine
+  desc: reagent-desc-traumazine
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#e0405a"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.15
+      effects:
+      - !type:TemperatureScaledHealthChange
+        warmPoint: 310
+        coldPoint: 120
+        maxMultiplier: 3
+        damage:
+          groups:
+            Brute: -20
+            Burn: -20
+
+- type: reagent
+  id: Toxazine
+  name: reagent-name-toxazine
+  group: Medicine
+  desc: reagent-desc-toxazine
+  physicalDesc: reagent-physical-desc-acrid
+  flavor: medicine
+  color: "#4de07a"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.15
+      effects:
+      - !type:TemperatureScaledHealthChange
+        warmPoint: 310
+        coldPoint: 120
+        maxMultiplier: 3
+        damage:
+          groups:
+            Toxin: -20
+            Genetic: -20
+
+- type: reagent
+  id: Somaline
+  name: reagent-name-somaline
+  group: Medicine
+  desc: reagent-desc-somaline
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: medicine
+  color: "#c86fe0"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.15
+      effects:
+      - !type:TemperatureScaledHealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 2
+        warmPoint: 310
+        coldPoint: 120
+        maxMultiplier: 3
+        damage:
+          groups:
+            Genetic: -10
+      - !type:RelayBodyParts
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.1
+        probability: 0.09
+        partType: Torso
+        effects:
+        - !type:RegenerateOrgan
+          slot: head
+      - !type:RelayBodyParts
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.1
+        probability: 0.09
+        partType: Torso
+        effects:
+        - !type:RegenerateOrgan
+          slot: right arm
+      - !type:RelayBodyParts
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.1
+        probability: 0.09
+        partType: Torso
+        effects:
+        - !type:RegenerateOrgan
+          slot: left arm
+      - !type:RelayBodyParts
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.1
+        probability: 0.09
+        partType: Torso
+        effects:
+        - !type:RegenerateOrgan
+          slot: right leg
+      - !type:RelayBodyParts
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.1
+        probability: 0.09
+        partType: Torso
+        effects:
+        - !type:RegenerateOrgan
+          slot: left leg
+      - !type:RelayBodyParts
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.1
+        probability: 0.09
+        partType: Arm
+        symmetry: Right
+        effects:
+        - !type:RegenerateOrgan
+          slot: right hand
+      - !type:RelayBodyParts
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.1
+        probability: 0.09
+        partType: Arm
+        symmetry: Left
+        effects:
+        - !type:RegenerateOrgan
+          slot: left hand
+      - !type:RelayBodyParts
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.1
+        probability: 0.09
+        partType: Leg
+        symmetry: Right
+        effects:
+        - !type:RegenerateOrgan
+          slot: right foot
+      - !type:RelayBodyParts
+        conditions:
+        - !type:ReagentThreshold
+          min: 0.1
+        probability: 0.09
+        partType: Leg
+        symmetry: Left
+        effects:
+        - !type:RegenerateOrgan
+          slot: left foot

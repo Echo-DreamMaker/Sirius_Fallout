@@ -1,0 +1,23 @@
+- type: entityTable
+  id: M14WeaponLootTier2_GunsBulletAll
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier2_GunsBulletRifle
+          weight: 4
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier2_GunsBulletShotgun
+          weight: 5
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier2_GunsBulletSMG
+          weight: 5
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier2_GunsBulletPistol
+          weight: 5
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier2_GunsBulletRevolver
+          weight: 5
+#      - !type:NestedSelector
+#          tableId: M14WeaponLootTier2_GunsBulletHeavy
+#      - !type:NestedSelector
+#          tableId: M14WeaponLootTier2_GunsBulletLMG

@@ -55,6 +55,9 @@ public sealed partial class RaidRequestPeerDecisionWindow : FancyWindow
             $"[color=#CCCCCC]{FormattedMessage.EscapeText(entry.Reason)}[/color]");
 
         StatusLabel.SetMarkup(string.Empty);
+        CommentEdit.Text = string.Empty;
+        ApproveButton.Disabled = false;
+        DenyButton.Disabled    = false;
     }
 
     private static string GetTargetDisplayName(RaidRequestEntry entry)

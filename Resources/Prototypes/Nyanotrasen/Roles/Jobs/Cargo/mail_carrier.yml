@@ -17,6 +17,7 @@
   subGear:
   - MailCarrierPlasmamanGear
   equipment:
+    wallet: N14Wallet
     head: ClothingHeadMailCarrier
     jumpsuit: ClothingUniformMailCarrier
     back: ClothingBackpackFilled
@@ -32,6 +33,7 @@
   id: MailCarrierPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitMailCarrier
     head: ClothingHeadEnvirohelmMailCarrier
     gloves: ClothingHandsGlovesEnviroglovesWhite

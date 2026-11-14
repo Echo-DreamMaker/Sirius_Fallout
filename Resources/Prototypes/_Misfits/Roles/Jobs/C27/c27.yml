@@ -3,9 +3,9 @@
 #
 # #Misfits Change - Split the original single C27 job into three sibling jobs so each
 # faction variant appears as its own entry in the admin role-whitelist UI:
-#   C27     → C-27 Humanoid Robot (Unassigned)  — chassis jumpsuit only, no faction kit
-#   C27NCR  → C-27 NCR Humanoid Robot           — NCR Light kit + headset + dogtag
-#   C27BoS  → C-27 Brotherhood Humanoid Robot   — BoS Light kit + headset + holotag
+#   C27     > C-27 Humanoid Robot (Unassigned)  — chassis jumpsuit only, no faction kit
+#   C27NCR  > C-27 NCR Humanoid Robot           — NCR Light kit + headset + dogtag
+#   C27BoS  > C-27 Brotherhood Humanoid Robot   — BoS Light kit + headset + holotag
 # All three share the C27 playTimeTracker so playtime + bypass-role-timer behaviour
 # stays unified, and all three register the PlayerRobot faction.
 
@@ -44,7 +44,11 @@
   requirements:
   - !type:CharacterSpeciesRequirement
     species:
-    - C27 # Generic / Unassigned model only — NCR and BoS variants live on their own jobs
+    # #Misfits Add - the Integrator / Assault / Recon configs are chassis options on this job, not jobs of their own.
+    - C27
+    - C27Integrator
+    - C27Assault
+    - C27Recon
   special:
   - !type:AddComponentSpecial
     components:
@@ -75,6 +79,10 @@
   - !type:CharacterSpeciesRequirement
     species:
     - C27NCR
+    # #Misfits Add - the chassis configurations may serve in the NCR variant too.
+    - C27Integrator
+    - C27Assault
+    - C27Recon
   # #Misfits Tweak - SharedJobSystem requires a unique PlayTimeTracker per job; override here.
   # (Was sharing tracker 'C27' with the other two siblings, which crashed startup.)
   special:
@@ -108,6 +116,10 @@
   - !type:CharacterSpeciesRequirement
     species:
     - C27BoS
+    # #Misfits Add - the chassis configurations may serve in the Brotherhood variant too.
+    - C27Integrator
+    - C27Assault
+    - C27Recon
   special:
   - !type:AddComponentSpecial
     components:
@@ -147,7 +159,7 @@
 # Starting gear, one per job. Faction kits open an UndecidedLoadoutBackpack UI that
 # now offers Light only — Medium / Heavy variants are obtained by crafting at an armor
 # workbench using the C-27 Armor Blueprint (NCR / BoS / Generic).
-# #Misfits Removed - subGear dispatch (C27Gear → C27GearNCRKit/C27GearBoSKit) replaced
+# #Misfits Removed - subGear dispatch (C27Gear > C27GearNCRKit/C27GearBoSKit) replaced
 # with three plain starting gears, one per sibling job. Old block kept commented for
 # reference per the no-deletion rule.
 #- type: startingGear
@@ -176,36 +188,42 @@
 #    ears: N14ClothingHeadsetBrotherhoodOfSteel
 #    id: N14IDBrotherhoodOfSteelHolotagInitiate
 
-# Generic / Unassigned: chassis jumpsuit only.
+# Generic / Unassigned: chassis, armor selector, field welder, headset, and dogtag.
 - type: startingGear
   id: C27GearGeneric
   equipment:
     head: ClothingC27HelmetLightGeneric
     jumpsuit: ClothingC27Chassis
-    pocket1: N14Welder #they're C-27s they cant use bandages l0l -pierow
+    pocket1: C27GenericLoadoutKit
+    pocket2: N14Welder #they're C-27s they cant use bandages l0l -pierow
+    ears: MisfitsClothingHeadsetWastelandScrap
     id: N14ClothingNeckDogtags
-    outerClothing: ClothingC27ArmorLightGeneric
 
 # NCR: chassis jumpsuit + Light NCR kit + NCR headset + NCR soldier dogtag.
 - type: startingGear
   id: C27GearNCR
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingC27Chassis
     pocket1: C27NCRLoadoutKit
     id: N14IDNCRDogtagSoldier
+    ears: N14ClothingHeadsetNCR
 
 # Brotherhood: chassis jumpsuit + Light BoS kit + BoS headset + BoS Initiate holotag.
 - type: startingGear
   id: C27GearBoS
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingC27Chassis
     pocket1: C27BoSLoadoutKit
     id: N14IDBrotherhoodOfSteelHolotagInitiate
+    ears: N14ClothingHeadsetBrotherhoodOfSteel
 
 # Z.A.X: rapid-response chassis with light generic plating only.
 - type: startingGear
   id: C27GearZAX
   equipment:
+    wallet: N14Wallet
     head: ClothingC27HelmetLightGeneric
     jumpsuit: ClothingC27Chassis
     pocket1: N14Welder

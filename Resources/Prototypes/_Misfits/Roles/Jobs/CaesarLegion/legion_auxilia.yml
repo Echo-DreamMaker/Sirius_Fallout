@@ -34,6 +34,7 @@
 - type: startingGear
   id: CaesarLegionAuxiliaGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitLegionnaire
     ears: N14ClothingHeadsetLegion
     mask: N14ClothingMaskBrownMask
@@ -55,6 +56,7 @@
     - N14HealingPoultice
     - N14HealingPoultice
     - N14Hydra
+    - BookLegionLaw #new players get the guidebook
 
 - type: playTimeTracker
   id: CaesarLegionAuxilia

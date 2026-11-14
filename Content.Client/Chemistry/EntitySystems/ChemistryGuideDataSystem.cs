@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Client.Chemistry.Containers.EntitySystems;
 using Content.Shared.Atmos.Prototypes;
 using Content.Shared.Body.Part;
@@ -18,14 +18,10 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
 {
     [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
 
-    [ValidatePrototypeId<MixingCategoryPrototype>]
-    private const string DefaultMixingCategory = "DummyMix";
-    [ValidatePrototypeId<MixingCategoryPrototype>]
-    private const string DefaultGrindCategory = "DummyGrind";
-    [ValidatePrototypeId<MixingCategoryPrototype>]
-    private const string DefaultJuiceCategory = "DummyJuice";
-    [ValidatePrototypeId<MixingCategoryPrototype>]
-    private const string DefaultCondenseCategory = "DummyCondense";
+    private static readonly ProtoId<MixingCategoryPrototype> DefaultMixingCategory = "DummyMix";
+    private static readonly ProtoId<MixingCategoryPrototype> DefaultGrindCategory = "DummyGrind";
+    private static readonly ProtoId<MixingCategoryPrototype> DefaultJuiceCategory = "DummyJuice";
+    private static readonly ProtoId<MixingCategoryPrototype> DefaultCondenseCategory = "DummyCondense";
 
     private readonly Dictionary<string, List<ReagentSourceData>> _reagentSources = new();
 
@@ -113,7 +109,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
                     juiceSolution);
                 foreach (var (id, _) in juiceSolution.Contents)
                 {
-                    // #Misfits Fix — Skip reagents in solutions that have no registered ReagentPrototype.
+                    // #Misfits Fix вЂ” Skip reagents in solutions that have no registered ReagentPrototype.
                     // Using direct [] indexer here would crash if any solution references an undefined
                     // or server-only reagent. GetReagentSources() already uses GetValueOrDefault safely,
                     // so skipping unknown reagents here is consistent with that behaviour.
@@ -135,7 +131,7 @@ public sealed class ChemistryGuideDataSystem : SharedChemistryGuideDataSystem
                     grindableSolution);
                 foreach (var (id, _) in grindableSolution.Contents)
                 {
-                    // #Misfits Fix — same guard as the juice-solution block above.
+                    // #Misfits Fix вЂ” same guard as the juice-solution block above.
                     if (_reagentSources.TryGetValue(id.Prototype, out var sources))
                         sources.Add(data);
                 }

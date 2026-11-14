@@ -34,6 +34,7 @@
 - type: startingGear
   id: TownMechanicGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitMechanic
     ears: MisfitsClothingHeadsetTown
     back: N14ClothingBackpackExplorer # Forge-Change

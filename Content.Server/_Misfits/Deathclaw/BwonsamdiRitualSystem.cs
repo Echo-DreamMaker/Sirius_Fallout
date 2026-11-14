@@ -9,6 +9,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Popups;
+using Content.Shared.Storage.EntitySystems;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Player;
@@ -23,6 +24,7 @@ public sealed class BwonsamdiRitualSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedEntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ResuscitationSystem _resuscitation = default!;
 
@@ -71,14 +73,23 @@ public sealed class BwonsamdiRitualSystem : EntitySystem
             return;
 
         args.Handled = true;
+        var coordinates = Transform(target).Coordinates;
+        var grave = Spawn("CrateWoodenGrave", coordinates);
+        if (!_entityStorage.Insert(target, grave))
+        {
+            Del(grave);
+            return;
+        }
+
         EnsureComp<BwonsamdiClaimedComponent>(target);
-        Spawn("BwonsamdiSoulFire", Transform(target).Coordinates);
+        Spawn("BwonsamdiSoulFire", coordinates);
         _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("bwonsamdi-claim-finish"), InGameICChatType.Emote, false);
     }
 
     private void OnMercyAction(Entity<BwonsamdiComponent> ent, ref BwonsamdiMercyActionEvent args)
     {
-        if (args.Handled || args.Target == ent.Owner || !IsDeadPlayer(args.Target))
+        if (args.Handled || args.Target == ent.Owner || !IsDeadPlayer(args.Target)
+            || HasComp<BwonsamdiClaimedComponent>(args.Target))
             return;
 
         var started = _doAfter.TryStartDoAfter(new DoAfterArgs(
@@ -110,7 +121,8 @@ public sealed class BwonsamdiRitualSystem : EntitySystem
         if (!_pendingMercyActions.Remove(ent.Owner, out var action))
             return;
 
-        if (args.Handled || args.Cancelled || args.Target is not { } target || !IsDeadPlayer(target))
+        if (args.Handled || args.Cancelled || args.Target is not { } target || !IsDeadPlayer(target)
+            || HasComp<BwonsamdiClaimedComponent>(target))
             return;
 
         args.Handled = true;
@@ -119,7 +131,6 @@ public sealed class BwonsamdiRitualSystem : EntitySystem
             if (!success || Deleted(action))
                 return;
 
-            _actions.StartUseDelay(action);
             _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("bwonsamdi-mercy-finish"), InGameICChatType.Emote, false);
             _popup.PopupEntity(Loc.GetString("bwonsamdi-mercy-restored"), target, target, PopupType.Medium);
         });

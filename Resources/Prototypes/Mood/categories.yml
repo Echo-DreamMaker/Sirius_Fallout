@@ -16,3 +16,6 @@
 
 - type: moodCategory
   id: Thirst
+- type: moodCategory
+  id: PositiveInteraction
+

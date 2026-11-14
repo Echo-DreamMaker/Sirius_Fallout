@@ -1,8 +1,9 @@
 - type: entity
   id: VaultMailTeleporter
   parent: MailTeleporter
-  name: vault mail teleporter
+  name: vault mail
   description: Supply packages addressed to vault residents.
   components:
   - type: MailTeleporter
     mailPool: VaultMailDeliveryPool
+    vaultReqBudget: 100

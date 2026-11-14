@@ -3,11 +3,13 @@
   category: PetsMedium # #Cythisiax Edited - pet size subcategory; #Misfits Change - moved from Mental to Pets tab; job restriction (Houndmaster + Legion ranks) retained
   points: -6
   requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+       - CaesarLegion
     - !type:CharacterJobRequirement
+      inverted: true
       jobs:
-        - CaesarLegionLegate
-        - CaesarLegionCenturion
-        - CaesarLegionHoundmaster
+       - CaesarLegionSlave
   functions:
     - !type:TraitSpawnEntity
       prototypes:

@@ -159,12 +159,12 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
 
         if (InsertBody(entity.Owner, args.Args.Target.Value, entity.Comp))
         {
-            if (!TryComp(entity.Owner, out CryoPodAirComponent? cryoPodAir))
+            if (TryComp(entity.Owner, out CryoPodAirComponent? cryoPodAir))
+                _adminLogger.Add(LogType.Action, LogImpact.Medium,
+                    $"{ToPrettyString(args.User)} inserted {ToPrettyString(args.Args.Target.Value)} into {ToPrettyString(entity.Owner)} which contains gas: {cryoPodAir.Air.ToPrettyString():gasMix}");
+            else
                 _adminLogger.Add(LogType.Action, LogImpact.Medium,
                     $"{ToPrettyString(args.User)} inserted {ToPrettyString(args.Args.Target.Value)} into {ToPrettyString(entity.Owner)}");
-
-            _adminLogger.Add(LogType.Action, LogImpact.Medium,
-                $"{ToPrettyString(args.User)} inserted {ToPrettyString(args.Args.Target.Value)} into {ToPrettyString(entity.Owner)} which contains gas: {cryoPodAir!.Air.ToPrettyString():gasMix}");
         }
         args.Handled = true;
     }

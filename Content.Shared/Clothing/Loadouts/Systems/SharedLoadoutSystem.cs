@@ -17,7 +17,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
-using Content.Shared.Storage;
 
 namespace Content.Shared.Clothing.Loadouts.Systems;
 
@@ -34,20 +33,23 @@ public sealed class SharedLoadoutSystem : EntitySystem
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly ISharedSponsorManager _sponsorManager = default!; // Forge-Change
     [Dependency] private readonly ISharedSupporterManager _supporterManager = default!; // #Cythisiax Add - Patreon supporter loadouts
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
 
     private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        // Wait until the character has all their organs before we give them their loadout to activate internals
         SubscribeLocalEvent<LoadoutComponent, MapInitEvent>(OnMapInit, after: [typeof(SharedBodySystem)]);
+
         _sawmill = _log.GetSawmill("loadouts");
     }
 
     private void OnMapInit(EntityUid uid, LoadoutComponent component, MapInitEvent args)
     {
-        if (component.StartingGear is null || component.StartingGear.Count <= 0)
+        if (component.StartingGear is null
+            || component.StartingGear.Count <= 0)
             return;
 
         var proto = _prototype.Index(_random.Pick(component.StartingGear));
@@ -103,6 +105,7 @@ public sealed class SharedLoadoutSystem : EntitySystem
 
             var slot = "";
 
+            // Ignore loadouts that don't exist
             if (!_prototype.TryIndex<LoadoutPrototype>(loadout.LoadoutName, out var loadoutProto))
                 continue;
 
@@ -120,7 +123,7 @@ public sealed class SharedLoadoutSystem : EntitySystem
 
             if (!_characterRequirements.CheckRequirementsValid(
                 loadoutProto.Requirements, job, profile, playTimes, whitelisted, loadoutProto,
-                EntityManager, _prototype, _configuration, _sponsorManager,
+                EntityManager, _prototype, _configuration, _sponsorManager, // Forge-Change
                 out _))
                 continue;
 
@@ -129,11 +132,12 @@ public sealed class SharedLoadoutSystem : EntitySystem
 
             remainingPoints -= loadoutProto.Cost;
 
+            // Spawn the loadout items
             var spawned = EntityManager.SpawnEntities(
                 _sharedTransformSystem.GetMapCoordinates(uid),
-                loadoutProto.Items.Select(p => (string?) p.ToString()).ToList());
+                loadoutProto.Items.Select(p => (string?) p.ToString()).ToList()); // Dumb cast
 
-            var i = 0;
+            var i = 0; // If someone wants to add multi-item support to the editor
             foreach (var item in spawned)
             {
                 if (item == EntityUid.Invalid || !Exists(item))
@@ -143,24 +147,10 @@ public sealed class SharedLoadoutSystem : EntitySystem
                 }
 
                 allLoadouts.Add((item, loadout, i));
-                if (i == 0 && loadout.CustomHeirloom == true)
+                if (i == 0 && loadout.CustomHeirloom == true) // Only the first item can be an heirloom
                     heirlooms.Add((item, loadout));
 
-                // Применяем кастомизацию до экипировки
-                if (loadoutProto.CustomName && loadout.CustomName != null)
-                    _metaData.SetEntityName(item, loadout.CustomName);
-                if (loadoutProto.CustomDescription && loadout.CustomDescription != null)
-                    _metaData.SetEntityDescription(item, loadout.CustomDescription);
-                if (loadoutProto.CustomColorTint && !string.IsNullOrEmpty(loadout.CustomColorTint))
-                {
-                    EnsureComp<AppearanceComponent>(item);
-                    EnsureComp<PaintedComponent>(item, out var paint);
-                    paint.Color = Color.FromHex(loadout.CustomColorTint);
-                    paint.Enabled = true;
-                    _appearance.SetData(item, PaintVisuals.Painted, true);
-                }
-
-                // Попытка экипировки
+                // Equip it
                 if (EntityManager.TryGetComponent<ClothingComponent>(item, out var clothingComp)
                     && _characterRequirements.CanEntityWearItem(uid, item, true)
                     && _inventory.TryGetSlots(uid, out var slotDefinitions))
@@ -168,19 +158,16 @@ public sealed class SharedLoadoutSystem : EntitySystem
                     var deleted = false;
                     foreach (var curSlot in slotDefinitions)
                     {
+                        // If the loadout can't equip here or we've already deleted an item from this slot, skip it
                         if (!clothingComp.Slots.HasFlag(curSlot.SlotFlags) || deleted)
-                            continue;
-
-                        // Запрет экипировки в back/belt, если предмет не хранилище
-                        if ((curSlot.SlotFlags.HasFlag(SlotFlags.BACK) || curSlot.SlotFlags.HasFlag(SlotFlags.BELT))
-                            && !HasComp<StorageComponent>(item))
                             continue;
 
                         slot = curSlot.Name;
 
-                        // Для suitstorage не применяем Exclusive (чтобы не удалять существующий предмет)
-                        if (loadoutProto.Exclusive && !curSlot.SlotFlags.HasFlag(SlotFlags.SUITSTORAGE))
+                        // If the loadout is exclusive delete the equipped item
+                        if (loadoutProto.Exclusive)
                         {
+                            // Get the item in the slot
                             if (!_inventory.TryGetSlotEntity(uid, curSlot.Name, out var slotItem))
                                 continue;
 
@@ -190,7 +177,7 @@ public sealed class SharedLoadoutSystem : EntitySystem
                     }
                 }
 
-                // Дублирующая покраска (оставлена для обратной совместимости, но уже не нужна)
+                // Color it
                 if (loadout.CustomColorTint != null)
                 {
                     EnsureComp<AppearanceComponent>(item);
@@ -201,6 +188,7 @@ public sealed class SharedLoadoutSystem : EntitySystem
                     _appearance.SetData(item, PaintVisuals.Painted, !data);
                 }
 
+                // Equip the loadout
                 if (!_inventory.TryEquip(uid, item, slot, true, !string.IsNullOrEmpty(slot), true))
                     failedLoadouts.Add(item);
 
@@ -208,6 +196,8 @@ public sealed class SharedLoadoutSystem : EntitySystem
             }
         }
 
+        // Return a list of items that couldn't be equipped so the server can handle it if it wants
+        // The server has more information about the inventory system than the client does and the client doesn't need to put loadouts in backpacks
         return (failedLoadouts, allLoadouts);
     }
 }

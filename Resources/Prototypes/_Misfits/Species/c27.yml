@@ -35,15 +35,15 @@
   # but less imposing than a Super Mutant. SharedHumanoidAppearanceSystem.LoadProfile -> SetScale
   # applies this to SpriteComponent.Scale, uniformly scaling body AND all equipment layers.
   # Locked min=default=max so the silhouette stays consistent across all C-27 units.
-  minHeight: 1.25
+  minHeight: 1.0
   defaultHeight: 1.25
-  maxHeight: 1.25
-  minWidth: 1.25
+  maxHeight: 1.5
+  minWidth: 1.0
   defaultWidth: 1.25
-  maxWidth: 1.25
+  maxWidth: 1.5
   sexes:
   - Unsexed
-  # #Misfits Add - serial-style designations (Unit-Alpha … Unit-Zulu) so default names
+  # #Misfits Add - serial-style designations (Unit-Alpha вЂ¦ Unit-Zulu) so default names
   # don't fall back to regular human first/last names. Mirrors the per-variant *First
   # dataset pattern used by RobotMrHandy / RobotProtectron / etc.
   maleFirstNames: C27FirstGeneric
@@ -51,7 +51,7 @@
   naming: First
 
 # Body sprite layer mapping for the C-27 humanoid robot.
-# All limbs use the unified C-27 parts.rsi (no sex/feet split — DMI source has no foot frames).
+# All limbs use the unified C-27 parts.rsi (no sex/feet split вЂ” DMI source has no foot frames).
 - type: speciesBaseSprites
   id: MobC27Sprites
   sprites:
@@ -65,7 +65,7 @@
     RLeg: MobC27RLeg
 
 # Marking allotments. Chest is required so every C-27 picks a faction "Model" paint
-# (Generic / NCR / Brotherhood) — see _Misfits/Entities/Mobs/Customization/Markings/c27_model.yml.
+# (Generic / NCR / Brotherhood) вЂ” see _Misfits/Entities/Mobs/Customization/Markings/c27_model.yml.
 # #Misfits Tweak - Split into three per-variant markingPoints so each model species locks
 # in the matching faction torso paint as its forced default. Players pick the variant via
 # the "Robot Model" dropdown in the lobby (mirrors RobotProtectron family pattern).
@@ -147,15 +147,15 @@
   dollPrototype: N14MobC27NCRDummy
   skinColoration: Hues
   defaultSkinTone: "#b59548"
-  minHeight: 1.25
+  minHeight: 1.0
   defaultHeight: 1.25
-  maxHeight: 1.25
-  minWidth: 1.25
+  maxHeight: 1.5
+  minWidth: 1.0
   defaultWidth: 1.25
-  maxWidth: 1.25
+  maxWidth: 1.5
   sexes:
   - Unsexed
-  # #Misfits Add - NCR-flavored callsigns (Ranger-Alpha … Ranger-Zulu).
+  # #Misfits Add - NCR-flavored callsigns (Ranger-Alpha вЂ¦ Ranger-Zulu).
   maleFirstNames: C27FirstNCR
   femaleFirstNames: C27FirstNCR
   naming: First
@@ -189,15 +189,15 @@
   dollPrototype: N14MobC27BoSDummy
   skinColoration: Hues
   defaultSkinTone: "#2c4a6e"
-  minHeight: 1.25
+  minHeight: 1.0
   defaultHeight: 1.25
-  maxHeight: 1.25
-  minWidth: 1.25
+  maxHeight: 1.5
+  minWidth: 1.0
   defaultWidth: 1.25
-  maxWidth: 1.25
+  maxWidth: 1.5
   sexes:
   - Unsexed
-  # #Misfits Add - Brotherhood rank-flavored callsigns (Knight-Alpha … Knight-Zulu).
+  # #Misfits Add - Brotherhood rank-flavored callsigns (Knight-Alpha вЂ¦ Knight-Zulu).
   maleFirstNames: C27FirstBoS
   femaleFirstNames: C27FirstBoS
   naming: First
@@ -230,16 +230,181 @@
   dollPrototype: N14MobC27ZAXDummy
   skinColoration: Hues
   defaultSkinTone: "#7fb6bf"
-  minHeight: 1.25
+  minHeight: 1.0
   defaultHeight: 1.25
-  maxHeight: 1.25
-  minWidth: 1.25
+  maxHeight: 1.5
+  minWidth: 1.0
   defaultWidth: 1.25
-  maxWidth: 1.25
+  maxWidth: 1.5
   sexes:
   - Unsexed
   maleFirstNames: C27FirstZAX
   femaleFirstNames: C27FirstZAX
+  naming: First
+
+# Integrator Configuration
+- type: markingPoints
+  id: MobC27MarkingLimitsIntegrator
+  onlyWhitelisted: true
+  points:
+    Chest:
+      points: 1
+      required: true
+      defaultMarkings: [C27ModelIntegrator]
+    Head:
+      points: 1
+      required: false
+
+- type: species
+  id: C27Integrator
+  name: species-name-c27-integrator
+  roundStart: true
+  order: 8
+  whitelistRequired: true
+  restrictedCustomization: true
+  allowedTraitCategories:
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
+  allowedLoadoutCategories:
+  - Weapons
+  - Accessories
+  - Bags
+  - Backpacks
+  - Duffel
+  - Satchel
+  jobWhitelistUnlock: C27
+  restrictedJobs:
+  - C27
+  - C27NCR # #Misfits Add - chassis configurations may also serve the NCR variant
+  - C27BoS
+  prototype: N14MobC27Integrator
+  sprites: MobC27Sprites
+  markingLimits: MobC27MarkingLimitsIntegrator
+  dollPrototype: N14MobC27IntegratorDummy
+  skinColoration: Hues
+  defaultSkinTone: "#8a7a62"
+  minHeight: 1.0
+  defaultHeight: 1.25
+  maxHeight: 1.5
+  minWidth: 1.0
+  defaultWidth: 1.25
+  maxWidth: 1.5
+  sexes:
+  - Unsexed
+  maleFirstNames: C27FirstGeneric
+  femaleFirstNames: C27FirstGeneric
+  naming: First
+
+# Assault Configuration
+- type: markingPoints
+  id: MobC27MarkingLimitsAssault
+  onlyWhitelisted: true
+  points:
+    Chest:
+      points: 1
+      required: true
+      defaultMarkings: [C27ModelAssault]
+    Head:
+      points: 1
+      required: false
+
+- type: species
+  id: C27Assault
+  name: species-name-c27-assault
+  roundStart: true
+  order: 9
+  whitelistRequired: true
+  restrictedCustomization: true
+  allowedTraitCategories:
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
+  allowedLoadoutCategories:
+  - Weapons
+  - Accessories
+  - Bags
+  - Backpacks
+  - Duffel
+  - Satchel
+  jobWhitelistUnlock: C27
+  restrictedJobs:
+  - C27
+  - C27NCR # #Misfits Add - chassis configurations may also serve the NCR variant
+  - C27BoS
+  prototype: N14MobC27Assault
+  sprites: MobC27Sprites
+  markingLimits: MobC27MarkingLimitsAssault
+  dollPrototype: N14MobC27AssaultDummy
+  skinColoration: Hues
+  defaultSkinTone: "#4a3a2a"
+  minHeight: 1.0
+  defaultHeight: 1.25
+  maxHeight: 1.5
+  minWidth: 1.0
+  defaultWidth: 1.25
+  maxWidth: 1.5
+  sexes:
+  - Unsexed
+  maleFirstNames: C27FirstGeneric
+  femaleFirstNames: C27FirstGeneric
+  naming: First
+
+# Recon Configuration
+- type: markingPoints
+  id: MobC27MarkingLimitsRecon
+  onlyWhitelisted: true
+  points:
+    Chest:
+      points: 1
+      required: true
+      defaultMarkings: [C27ModelRecon]
+    Head:
+      points: 1
+      required: false
+
+- type: species
+  id: C27Recon
+  name: species-name-c27-recon
+  roundStart: true
+  order: 10
+  whitelistRequired: true
+  restrictedCustomization: true
+  allowedTraitCategories:
+  - Speech
+  - TraitsSpeechUncategorized
+  - TraitsSpeechAccents
+  - TraitsSpeechLanguages
+  allowedLoadoutCategories:
+  - Weapons
+  - Accessories
+  - Bags
+  - Backpacks
+  - Duffel
+  - Satchel
+  jobWhitelistUnlock: C27
+  restrictedJobs:
+  - C27
+  - C27NCR # #Misfits Add - chassis configurations may also serve the NCR variant
+  - C27BoS
+  prototype: N14MobC27Recon
+  sprites: MobC27Sprites
+  markingLimits: MobC27MarkingLimitsRecon
+  dollPrototype: N14MobC27ReconDummy
+  skinColoration: Hues
+  defaultSkinTone: "#3a5a4a"
+  minHeight: 1.0
+  defaultHeight: 1.25
+  maxHeight: 1.5
+  minWidth: 1.0
+  defaultWidth: 1.25
+  maxWidth: 1.5
+  sexes:
+  - Unsexed
+  maleFirstNames: C27FirstGeneric
+  femaleFirstNames: C27FirstGeneric
   naming: First
 
 # --- Per-bodypart sprite definitions ---

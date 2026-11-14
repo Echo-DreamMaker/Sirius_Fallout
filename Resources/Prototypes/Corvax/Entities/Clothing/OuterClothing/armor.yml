@@ -109,9 +109,9 @@
   description: "The heavy version of legionary armor slows down the wearer, but gives good protection from external threats."
   components:
   - type: Sprite
-    sprite: Corvax/Clothing/OuterClothing/Armor/deanveteranarmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/deanveteranarmorV2.rsi
   - type: Clothing
-    sprite: Corvax/Clothing/OuterClothing/Armor/deanveteranarmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/deanveteranarmorV2.rsi
   - type: ClothingSpeedModifier
     walkModifier: 0.95 # This should not be straight worse than Prime. Many picked Prime over Veteran because of this. 
     sprintModifier: 0.95 
@@ -134,9 +134,9 @@
   description: "The heavy version of legionary armor slows down the wearer, but gives good protection from external threats."
   components:
   - type: Sprite
-    sprite: Corvax/Clothing/OuterClothing/Armor/deanprimearmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/deanprimearmorV2.rsi
   - type: Clothing
-    sprite: Corvax/Clothing/OuterClothing/Armor/deanprimearmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/deanprimearmorV2.rsi
   - type: ClothingSpeedModifier
     walkModifier: 0.9 # this is combat mk2 it can be slower
     sprintModifier: 0.9
@@ -159,9 +159,9 @@
   description: "The heavy version of legionary armor slows down the wearer, but gives good protection from external threats."
   components:
   - type: Sprite
-    sprite: Corvax/Clothing/OuterClothing/Armor/deanrecruitarmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/deanrecruitarmorV2.rsi
   - type: Clothing
-    sprite: Corvax/Clothing/OuterClothing/Armor/deanrecruitarmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/deanrecruitarmorV2.rsi
   - type: ClothingSpeedModifier
     walkModifier: 0.95 # made a little faster since its just worse than combat mk2
     sprintModifier: 0.95
@@ -184,9 +184,9 @@
   description: "Good armor for combat, does not slow down the wearer and makes it easy to maneuver."
   components:
   - type: Sprite
-    sprite: Corvax/Clothing/OuterClothing/Armor/veteranarmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/deanprimearmorV2.rsi
   - type: Clothing
-    sprite: Corvax/Clothing/OuterClothing/Armor/veteranarmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/deanprimearmorV2.rsi
   - type: ClothingSpeedModifier
     walkModifier: 1.05
     sprintModifier: 1.05
@@ -253,9 +253,9 @@
   description: "The most standard and common armor."
   components:
   - type: Sprite
-    sprite: Corvax/Clothing/OuterClothing/Armor/basearmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/deanveteranarmorV2.rsi
   - type: Clothing
-    sprite: Corvax/Clothing/OuterClothing/Armor/basearmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/deanveteranarmorV2.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -273,9 +273,9 @@
   description: "Not very reliable, but very light legionnaire armor."
   components:
   - type: Sprite
-    sprite: Corvax/Clothing/OuterClothing/Armor/lightarmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/deanrecruitarmorV2.rsi
   - type: Clothing
-    sprite: Corvax/Clothing/OuterClothing/Armor/lightarmor.rsi
+    sprite: Corvax/Clothing/OuterClothing/Armor/deanrecruitarmorV2.rsi
   - type: ClothingSpeedModifier
     walkModifier: 1.05
     sprintModifier: 1.05 # the little ones can enjoy the game too.

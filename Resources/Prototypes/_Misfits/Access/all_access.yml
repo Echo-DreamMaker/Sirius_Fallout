@@ -6,7 +6,7 @@
 - type: accessGroup
   id: AllAccessN14
   tags:
-  # ── Standard SS14 (mirrors upstream AllAccess) ──
+  # -- Standard SS14 (mirrors upstream AllAccess) --
   - EmergencyShuttleRepealAll
   - Captain
   - HeadOfPersonnel
@@ -37,7 +37,7 @@
   - Chapel
   - Hydroponics
   - Atmospherics
-  # ── Nyanotrasen / DeltaV / Goobstation additions ──
+  # -- Nyanotrasen / DeltaV / Goobstation additions --
   - Mail
   - Orders
   - Mantis
@@ -58,7 +58,7 @@
   - NanotrasenRepresentative
   - BlueshieldOfficer
   - Magistrate
-  # ── N14: Townies & Wasteland ──
+  # -- N14: Townies & Wasteland --
   - TownieLaw
   - TownieMayor
   - TownieShopkeeper
@@ -72,24 +72,24 @@
   - InnRoomThree
   - WastelandChaplain
   - WastelandFarmer
-  # ── N14: Tribals ──
+  # -- N14: Tribals --
   - TribeMember
   - TribeChief
-  # ── N14: Followers of the Apocalypse ──
+  # -- N14: Followers of the Apocalypse --
   - FollowersApocalypse
   - FotA
   - FotADoctor
   - FotAHead
-  # ── N14: Zetan ──
+  # -- N14: Zetan --
   - ZetanCaptain
   - Zetan
-  # ── N14: Enclave ──
+  # -- N14: Enclave --
   - Enclave
   - EnclaveNCO
   - EnclaveOfficer
   - EnclaveCommand
   - EnclaveScience
-  # ── N14: NCR ──
+  # -- N14: NCR --
   - NCR
   - NCRSGT
   - NCRMedic
@@ -98,7 +98,7 @@
   - NCRCaptain
   - NCRMajor
   - OSI
-  # ── N14: Vault ──
+  # -- N14: Vault --
   - VaultOverseer
   - VaultGatekeeper
   - VaultSecurity
@@ -106,7 +106,7 @@
   - VaultChemistry
   - VaultEngineer
   - VaultDweller
-  # ── N14: Legion (Corvax) ──
+  # -- N14: Legion (Corvax) --
   - CaesarLegion
   - CaesarLegionSlave
   - CaesarLegionRecruit
@@ -123,20 +123,20 @@
   - CaesarLegionOptio
   - CaesarLegionCenturion
   - CaesarLegionLegate
-  # ── N14: BoS Washington ──
+  # -- N14: BoS Washington --
   - WashingtonCommander
   - WashingtonPaladin
   - WashingtonKnight
   - WashingtonScribe
   - WashingtonInitiate
   - BOSWashington
-  # ── N14: BoS Midwest ──
+  # -- N14: BoS Midwest --
   - PaladinCommander
   - Paladin
   - Knight
   - Scribe
   - BoSMidwest
-  # ── N14: BoS (Misfits unified) ──
+  # -- N14: BoS (Misfits unified) --
   - BOS
   - BOSInitiate
   - BOSSquire
@@ -150,17 +150,17 @@
   - BOSHeadKnight
   - BOSHeadPaladin
   - BOSElder
-  # ── N14: 80s ──
+  # -- N14: 80s --
   - 80s
   - 80sHead
   - 80sSlave
-  # ── N14: Keys ──
+  # -- N14: Keys --
   - IronKey
   - BronzeKey
   - BrassKey
   - LegionBrassKey
   - SilverKey
-  # ── N14: Dungeons / Bunkers ──
+  # -- N14: Dungeons / Bunkers --
   - DungeonBunkerA1
   - DungeonBunkerA2
   - DungeonBunkerA3

@@ -259,6 +259,7 @@
   parent: N14MaterialBase
   id: N14MaterialCircuitry
   name: circuitry
+  description: Valuable salvage from old machines, good for a few caps to the right mad scientist.
   categories: [ HideSpawnMenu ]
   components:
   - type: Material
@@ -765,6 +766,7 @@
   suffix: 1
   components:
   - type: Stack
+    stackType: N14Brick
     count: 1
 
 #MARK: Concrete

@@ -1,8 +1,8 @@
-# #Misfits Add - White Legs Storm Drummer prototype for the dedicated White Legs department.
+﻿# #Misfits Add - White Legs Storm Drummer prototype for the dedicated White Legs department.
 
 - type: job
   id: WhiteLegsStormDrummer
-  setPreference: true
+  setPreference: false # #Misfits Change - White Legs is retained for compatibility, not character setup.
   weight: 30
   name: job-name-whitelegs-storm-drummer
   description: job-description-whitelegs-storm-drummer
@@ -33,6 +33,7 @@
 - type: startingGear
   id: WhiteLegsStormDrummerGear
   equipment:
+    wallet: N14Wallet
     bandage: NCClothingBandageRaiders
     jumpsuit: M14ClothingUniformWhiteLegsUniform
     outerClothing: MisfitsClothingOuterWhiteLegsArmor
@@ -49,3 +50,4 @@
 
 - type: playTimeTracker
   id: WhiteLegsStormDrummer
+

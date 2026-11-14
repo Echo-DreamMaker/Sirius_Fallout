@@ -32,6 +32,7 @@
 - type: startingGear
   id: TownspersonGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitSettlerRags
     ears: MisfitsClothingHeadsetTown
     back: N14ClothingBackpackExplorer # Corvax-Change

@@ -148,3 +148,50 @@
     price: 12
   - type: Item
     size: Normal
+- type: entity
+  parent: MisfitsLeftLegC27
+  id: MisfitsLeftLegC27ZAX
+  name: "left c-27 leg (z.a.x)"
+
+- type: entity
+  parent: MisfitsRightLegC27
+  id: MisfitsRightLegC27ZAX
+  name: "right c-27 leg (z.a.x)"
+
+- type: entity
+  parent: MisfitsLeftLegC27
+  id: MisfitsLeftLegC27Integrator
+  name: "left c-27 leg (integrator)"
+
+- type: entity
+  parent: MisfitsRightLegC27
+  id: MisfitsRightLegC27Integrator
+  name: "right c-27 leg (integrator)"
+
+- type: entity
+  parent: MisfitsLeftLegC27
+  id: MisfitsLeftLegC27Assault
+  name: "left c-27 leg (assault)"
+
+- type: entity
+  parent: MisfitsRightLegC27
+  id: MisfitsRightLegC27Assault
+  name: "right c-27 leg (assault)"
+
+- type: entity
+  parent: MisfitsLeftLegC27
+  id: MisfitsLeftLegC27Recon
+  name: "left c-27 leg (recon)"
+  components:
+  - type: MovementBodyPart
+    walkSpeed: 3.5
+    sprintSpeed: 6
+
+- type: entity
+  parent: MisfitsRightLegC27
+  id: MisfitsRightLegC27Recon
+  name: "right c-27 leg (recon)"
+  components:
+  - type: MovementBodyPart
+    walkSpeed: 3.5
+    sprintSpeed: 6

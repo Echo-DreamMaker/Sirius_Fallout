@@ -10,7 +10,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement
       department: CaesarLegion
-      min: 7200 # 2 hours
+      min: 14400 # 4 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human
@@ -39,9 +39,11 @@
 - type: startingGear
   id: CaesarLegionExplorerGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitLegionnaire
     ears: N14ClothingHeadsetLegion
     neck: N14ClothingNeckCloakLegionBlack
+    eyes: ClothingEyesNightVisionGoggles
     mask: N14ClothingMaskBrownMask
     back: N14ClothingBackpackMilitary
     shoes: N14ClothingShoesKaligi

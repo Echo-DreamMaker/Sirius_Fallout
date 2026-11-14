@@ -658,7 +658,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         bool hideLog = false,
         bool checkEmote = true,
         bool ignoreActionBlocker = false,
-        NetUserId? author = null
+        NetUserId? author = null,
+        int? fontSizeOverride = null
         )
     {
         if (!_actionBlocker.CanEmote(source) && !ignoreActionBlocker)
@@ -682,7 +683,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
 
         // #Misfits Change
-        var wrappedMessage = BuildEmoteWrappedMessage(source, name, action);
+        var wrappedMessage = BuildEmoteWrappedMessage(source, name, action, fontSizeOverride);
 
         if (checkEmote)
             TryEmoteChatInput(source, action);
@@ -924,8 +925,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Misfits Fix - Sanitization must run BEFORE capitalization and punctuation, because
         // SanitizeMessagePeriod appends "." which would break EndsWith checks on letter-ending tokens.
         //
-        // Acronyms (lol, rofl, idk, …) fire on ALL spoken channels — no restriction.
-        // Symbol smileys (:), o7, …) only fire on Telepathic (allowEmoteStripping gate below).
+        // Acronyms (lol, rofl, idk, вЂ¦) fire on ALL spoken channels вЂ” no restriction.
+        // Symbol smileys (:), o7, вЂ¦) only fire on Telepathic (allowEmoteStripping gate below).
         _sanitizer.TrySanitizeAcronyms(newMessage, source, out newMessage, out emoteStr);
 
         // Only strip symbol-based keyboard emotes on the Telepathic channel.
@@ -1000,8 +1001,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         return message;
     }
 
-    [ValidatePrototypeId<ReplacementAccentPrototype>]
-    public const string ChatSanitize_Accent = "chatsanitize";
+    public static readonly ProtoId<ReplacementAccentPrototype> ChatSanitize_Accent = "chatsanitize";
 
     public string SanitizeMessageReplaceWords(string message)
     {

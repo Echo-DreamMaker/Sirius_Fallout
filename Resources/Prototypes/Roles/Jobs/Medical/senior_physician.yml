@@ -33,6 +33,7 @@
   subGear:
   - DoctorPlasmamanGear
   equipment:
+    wallet: N14Wallet
     head: ClothingHeadHatBeretSeniorPhysician
     jumpsuit: ClothingUniformJumpsuitSeniorPhysician
     back: ClothingBackpackMedicalFilled

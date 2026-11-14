@@ -199,158 +199,6 @@
     - N14ClothingTribalRadstagSkull
 
 - type: loadout
-  id: MisfitsLoadoutHeadArmyBeret
-  category: Head
-  cost: 1
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutHead
-    - !type:CharacterDepartmentRequirement
-        inverted: true
-        departments:
-        - Vault
-        - BrotherhoodOfSteel
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - BoSMidSerf
-        - CaesarLegionSlave
-        - NCRPrisoner
-  items:
-    - N14ClothingHeadHatArmyBeret
-
-- type: loadout
-  id: MisfitsLoadoutHeadArmyBeretAirborne
-  category: Head
-  cost: 1
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutHead
-    - !type:CharacterDepartmentRequirement
-        inverted: true
-        departments:
-        - Vault
-        - BrotherhoodOfSteel
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - BoSMidSerf
-        - CaesarLegionSlave
-        - NCRPrisoner
-  items:
-    - N14ClothingHeadHatArmyBeretAirborne
-
-- type: loadout
-  id: MisfitsLoadoutHeadArmyBeretSpecial
-  category: Head
-  cost: 1
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutHead
-    - !type:CharacterDepartmentRequirement
-        inverted: true
-        departments:
-        - Vault
-        - BrotherhoodOfSteel
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - BoSMidSerf
-        - CaesarLegionSlave
-        - NCRPrisoner
-  items:
-    - N14ClothingHeadHatArmyBeretSpecial
-
-- type: loadout
-  id: MisfitsLoadoutHeadAntlerSkull
-  category: Head
-  cost: 2
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutHead
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Wastelander
-        - Townsfolk
-  items:
-    - MisfitsClothingHeadAntlerSkull
-
-- type: loadout
-  id: N14LoadoutUniversalHeadHatCaravan
-  category: Head
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutHead
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Wastelander
-        - Townsfolk
-  items:
-    - N14ClothingHeadHatCaravan
-
-- type: loadout
-  id: N14LoadoutUniversalHeadHatCaravanSuit
-  category: Head
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutHead
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Wastelander
-        - Townsfolk
-  items:
-    - N14ClothingHeadHatCaravanSuit
-
-- type: loadout
-  id: N14LoadoutUniversalHeadHatCaravanUniform
-  category: Head
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutHead
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Wastelander
-        - Townsfolk
-  items:
-    - N14ClothingHeadHatCaravanUniform
-
-- type: loadout
-  id: N14LoadoutUniversalHeadHatChinese
-  category: Head
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutHead
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Wastelander
-        - Townsfolk
-  items:
-    - N14ClothingHeadHatChinese
-
-- type: loadout
-  id: N14LoadoutUniversalHeadHatTownGuard
-  category: Head
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutHead
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Townsfolk
-        - Wastelander
-  items:
-    - N14ClothingHeadHatTownGuard
-
-  # Sirius Add
-- type: loadout
   id: ClothingLoadoutHeadHatHoodMothFluffy
   category: Head
   cost: 1
@@ -532,3 +380,50 @@
        - Rangers
   items:
     - N14ClothingHeadHatChineseHelmetMk2
+- type: loadout
+  id: N14ClothingHeadHatBrotherhoodSidecapPurple
+  category: Head
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutHead
+  - !type:CharacterDepartmentRequirement
+    inverted: false
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - N14ClothingBrotherhoodSidecap
+
+- type: loadout
+  id: N14ClothingHeadHatBrotherhoodSidecapBlack
+  category: Head
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutHead
+  - !type:CharacterDepartmentRequirement
+    inverted: false
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - N14ClothingBrotherhoodSidecapBlack
+
+- type: loadout
+  id: N14ClothingHeadHatBrotherhoodSidecapTan
+  category: Head
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutHead
+  - !type:CharacterDepartmentRequirement
+    inverted: false
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - N14ClothingBrotherhoodSidecapTan

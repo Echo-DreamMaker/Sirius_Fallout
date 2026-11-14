@@ -29,13 +29,13 @@
     sprite: _Nuclear14/Structures/Storage/Crates/aluminiumcrate.rsi
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/Crates/aluminiumcrate.rsi
-  # #Misfits Add — use a custom construction graph so deconstruction gives aluminum ingots
+  # #Misfits Add вЂ” use a custom construction graph so deconstruction gives aluminum ingots
   - type: Construction
     graph: N14CrateAluminium
     node: n14cratealuminium
     containers:
       - entity_storage
-  # #Misfits Add — spawn aluminum ingots when destroyed by damage
+  # #Misfits Add вЂ” spawn aluminum ingots when destroyed by damage
   - type: Destructible
     thresholds:
     - trigger:
@@ -62,7 +62,7 @@
   parent: CrateGenericSteel
   id: N14CrateArmy
   name: army crate
-  description: A crate with a US Army star on.
+  description: An old US Army supply crate, might be booby trapped.
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi

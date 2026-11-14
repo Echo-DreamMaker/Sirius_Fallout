@@ -230,3 +230,29 @@
       - MisfitsWastelandMapCartridge
   - type: PdaBorderColor
     borderColor: "#7C5D00"
+- type: entity
+  parent: N14BasePipboy
+  id: N14NCRProvostPipboy
+  suffix: NCR Provost
+  components:
+  - type: Pda
+    id: N14IDNCRDogtagProvost
+
+- type: entity
+  parent: N14BasePipboy
+  id: N14NCRLieutenantColonelPipboy
+  suffix: NCR Lt. Col.
+  components:
+  - type: Pda
+    id: N14IDNCRDogtagMajor
+
+# #Misfits Add - Wastelander Pip-Boy with pre-inserted dogtags for PipBoy Hub networking.
+- type: entity
+  parent: N14BasePipboy
+  id: M14MayorPipboy
+  suffix: Mayor
+  components:
+  - type: Pda
+    id: N14ClothingNeckDogtags
+
+#MARK: Vault

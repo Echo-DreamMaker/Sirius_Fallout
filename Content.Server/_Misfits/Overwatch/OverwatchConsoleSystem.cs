@@ -11,9 +11,11 @@ using Content.Shared._Misfits.WastelandMap;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Mind.Components;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Jobs;
 using Content.Shared.Tag;
 using Content.Shared.UserInterface;
 using Content.Shared._Misfits.Overwatch;
@@ -387,7 +389,7 @@ public sealed class OverwatchConsoleSystem : EntitySystem
             entries.Add(new OverwatchConsoleEntry(
                 nanoChat.Number.Value,
                 idCard.FullName ?? "Unknown",
-                idCard.LocalizedJobTitle,
+                ResolveJobTitle(personnelEntity, idCard),
                 category.Name,
                 category.SortOrder,
                 health,
@@ -448,6 +450,23 @@ public sealed class OverwatchConsoleSystem : EntitySystem
             return (fallback.LocalizedName, fallback.SortOrder);
 
         return (idCard.JobPrototype != null ? "GENERAL" : "UNASSIGNED", int.MaxValue);
+    }
+
+    private string? ResolveJobTitle(EntityUid personnel, IdCardComponent idCard)
+    {
+        if (!string.IsNullOrWhiteSpace(idCard.LocalizedJobTitle))
+            return idCard.LocalizedJobTitle;
+
+        if (!TryComp<MindContainerComponent>(personnel, out var mindContainer) ||
+            !mindContainer.HasMind ||
+            !TryComp<JobComponent>(mindContainer.Mind.Value, out var job) ||
+            job.Prototype is not { } jobId ||
+            !_prototype.TryIndex(jobId, out JobPrototype? jobPrototype))
+        {
+            return null;
+        }
+
+        return jobPrototype.LocalizedName;
     }
 
     private (float Health, MobState State) GetPersonnelHealth(EntityUid target)

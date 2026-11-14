@@ -22,6 +22,7 @@
   subGear:
   - MimePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitMime
     back: ClothingBackpackMimeFilled
     head: ClothingHeadHatBeret
@@ -41,6 +42,7 @@
   id: MimePlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitMime
     head: ClothingHeadEnvirohelmMime
     gloves: ClothingHandsGlovesEnviroglovesWhite

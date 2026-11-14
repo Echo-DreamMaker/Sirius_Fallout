@@ -48,9 +48,10 @@
 - type: startingGear
   id: BoSMidPaladinCommanderGear
   equipment:
-    jumpsuit: N14ClothingUniformBosRecon  #Misfits Change /Tweak/: New consolidated BoS gear
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitBOSRed  #Misfits Change /Tweak/: New consolidated BoS gear
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     head: N14ClothingPaladinBeret
     outerClothing: N14ClothingOuterPowerArmorWashT51Elite #Misfits Tweak: Head Paladin wears T-51b (was T-51BC commander)
     hands: N14ClothingHandsGlovesCombat
@@ -60,6 +61,8 @@
   storage:
     back:
     - N14BoxPlasticFilledMilitary
+    - MisfitsGrenadePlasma # #Misfits Add - faction council Head Paladin ordnance
+    - GrenadeIncendiary
 
 - type: playTimeTracker
   id: BoSMidPaladinCommander

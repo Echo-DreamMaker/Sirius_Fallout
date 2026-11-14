@@ -21,6 +21,7 @@
   subGear:
   - JanitorPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitJanitor
     back: ClothingBackpackFilled
     shoes: ClothingShoesGaloshes
@@ -37,6 +38,7 @@
   id: JanitorPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitJanitor
     head: ClothingHeadEnvirohelmJanitor
     gloves: ClothingHandsGlovesEnviroglovesJanitor
@@ -44,6 +46,7 @@
 - type: startingGear
   id: JanitorMaidGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpskirtJanimaid
     back: ClothingBackpackFilled
     id: JanitorPDA

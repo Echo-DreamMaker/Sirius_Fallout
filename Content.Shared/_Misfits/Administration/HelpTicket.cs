@@ -50,12 +50,12 @@ public sealed class HelpTicketInfo
     public DateTime? ResolvedAt { get; set; }
 }
 
-// ────────────────────── Network messages ──────────────────────
+// в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ Network messages в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 /// <summary>
-/// Server → Admin/Mentor: full list of tickets (sent on first connect or when requested).
+/// Server в†’ Admin/Mentor: full list of tickets (sent on first connect or when requested).
 /// The <see cref="ListType"/> field identifies which system sent it so client-side systems
-/// don’t accidentally process each other’s list and wipe their own caches. (#Misfits Fix)
+/// donвЂ™t accidentally process each otherвЂ™s list and wipe their own caches. (#Misfits Fix)
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class HelpTicketListMessage : EntityEventArgs
@@ -76,7 +76,7 @@ public sealed class HelpTicketListMessage : EntityEventArgs
 }
 
 /// <summary>
-/// Server → Admin/Mentor: a single ticket was created or its state changed.
+/// Server в†’ Admin/Mentor: a single ticket was created or its state changed.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class HelpTicketUpdatedMessage : EntityEventArgs
@@ -90,7 +90,7 @@ public sealed class HelpTicketUpdatedMessage : EntityEventArgs
 }
 
 /// <summary>
-/// Admin/Mentor → Server: request to claim a ticket.
+/// Admin/Mentor в†’ Server: request to claim a ticket.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class HelpTicketClaimMessage : EntityEventArgs
@@ -106,7 +106,7 @@ public sealed class HelpTicketClaimMessage : EntityEventArgs
 }
 
 /// <summary>
-/// Admin/Mentor → Server: request to resolve (close) a ticket.
+/// Admin/Mentor в†’ Server: request to resolve (close) a ticket.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class HelpTicketResolveMessage : EntityEventArgs
@@ -122,7 +122,7 @@ public sealed class HelpTicketResolveMessage : EntityEventArgs
 }
 
 /// <summary>
-/// Admin/Mentor → Server: request to unclaim (release) a ticket back to Open.
+/// Admin/Mentor в†’ Server: request to unclaim (release) a ticket back to Open.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class HelpTicketUnclaimMessage : EntityEventArgs
@@ -138,7 +138,7 @@ public sealed class HelpTicketUnclaimMessage : EntityEventArgs
 }
 
 /// <summary>
-/// Admin/Mentor → Server: request to reopen a resolved ticket.
+/// Admin/Mentor в†’ Server: request to reopen a resolved ticket.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class HelpTicketReopenMessage : EntityEventArgs
@@ -154,7 +154,7 @@ public sealed class HelpTicketReopenMessage : EntityEventArgs
 }
 
 /// <summary>
-/// Admin/Mentor → Server: request current ticket list.
+/// Admin/Mentor в†’ Server: request current ticket list.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class HelpTicketRequestListMessage : EntityEventArgs
@@ -167,7 +167,7 @@ public sealed class HelpTicketRequestListMessage : EntityEventArgs
     }
 }
 
-// ──────────────────── Audit Log ──────────────────────
+// в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ Audit Log в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 /// <summary>
 /// The type of lifecycle change that was recorded for a ticket in the persistent audit log.
@@ -200,7 +200,7 @@ public sealed class HelpTicketAuditEntry
     /// <summary>The player who created/owns the ticket.</summary>
     public Guid PlayerId { get; init; }
     public string PlayerName { get; init; } = string.Empty;
-    /// <summary>In-round sequential ticket number (1, 2, 3…).</summary>
+    /// <summary>In-round sequential ticket number (1, 2, 3вЂ¦).</summary>
     public int TicketId { get; init; }
     public HelpTicketType TicketType { get; init; }
     public HelpTicketEventType EventType { get; init; }
@@ -211,12 +211,14 @@ public sealed class HelpTicketAuditEntry
 }
 
 /// <summary>
-/// Admin → Server: request audit log entries from the database.
+/// Admin в†’ Server: request audit log entries from the database.
 /// Optionally filtered to a specific player, admin, or date range.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class HelpTicketAuditRequestMessage : EntityEventArgs
 {
+    public int AdminLogOffset { get; init; }
+    public int PlayerLogOffset { get; init; }
     /// <summary>When set, only return events for this player. Null returns all players.</summary>
     public Guid? FilterPlayerId { get; init; }
     /// <summary>Maximum number of entries to return (default 100).</summary>
@@ -267,11 +269,19 @@ public sealed class TicketPeriodSummary
 }
 
 /// <summary>
-/// Server → Admin: audit log entries retrieved from the database.
+/// Server в†’ Admin: audit log entries retrieved from the database.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class HelpTicketAuditResponseMessage : EntityEventArgs
 {
+    public List<Content.Shared.Administration.Logs.SharedAdminLog> AdminActionLogs { get; init; } = new();
+    public int AdminLogOffset { get; init; }
+    public bool HasMoreAdminActionLogs { get; init; }
+    public bool CanViewAdminActionLogs { get; init; }
+    public List<Content.Shared.Administration.Logs.SharedAdminLog> PlayerLogs { get; init; } = new();
+    public int PlayerLogOffset { get; init; }
+    public bool HasMorePlayerLogs { get; init; }
+    public bool HasPlayerLogFilter { get; init; }
     public List<HelpTicketAuditEntry> Entries { get; init; } = new();
     /// <summary>Total matching row count (for pagination).</summary>
     public int TotalCount { get; init; }
@@ -287,7 +297,7 @@ public sealed class HelpTicketAuditResponseMessage : EntityEventArgs
     public TicketPeriodSummary? PeriodSummary { get; init; }
 }
 
-// ──────────────────── Chat History ──────────────────────
+// в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ Chat History в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
 /// <summary>
 /// One persisted chat message entry returned from the database.
@@ -303,7 +313,7 @@ public sealed class HelpTicketChatEntry
 }
 
 /// <summary>
-/// Admin → Server: request the full chat history for a specific ticket from the database.
+/// Admin в†’ Server: request the full chat history for a specific ticket from the database.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class HelpTicketChatRequestMessage : EntityEventArgs
@@ -315,7 +325,7 @@ public sealed class HelpTicketChatRequestMessage : EntityEventArgs
 }
 
 /// <summary>
-/// Server → Admin: chat history for a ticket returned from the database.
+/// Server в†’ Admin: chat history for a ticket returned from the database.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class HelpTicketChatResponseMessage : EntityEventArgs

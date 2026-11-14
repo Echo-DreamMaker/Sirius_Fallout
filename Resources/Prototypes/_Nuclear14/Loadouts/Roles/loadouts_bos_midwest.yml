@@ -1,0 +1,115 @@
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutBoSMidwestSquire
+#  category: Outer
+#  cost: 6 # Forge-Change
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - BoSMidPaladin # Forge-Change
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: BoSMidPaladin
+#      min: 54000 # 15 hours veterancy unlock
+#  items:
+#    - N14ClothingOuterMidwestReconArmor
+#
+# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutBoSMidwestReconHelmet
+#  category: Roles
+#  cost: 6
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - BoSMidPaladin
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: BoSMidPaladin
+#      min: 54000 # 15 hours veterancy unlock
+#  items:
+#    - N14ClothingHeadHatBrotherhoodMidwestHelmetRecon
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutClothingOuterMBoSSquireArmor
+#  category: Roles
+#  cost: 10
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - BoSMidSquire
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: BoSMidSquire
+#      min: 72000 # 20 hours veterancy unlock
+#  items:
+#    - N14ClothingOuterMBoSSquireArmor
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutBoSMidwestSeniorKnight
+#  category: Outer
+#  cost: 6 # Forge-Change
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - BoSMidKnight
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: BoSMidKnight
+#      min: 144000 # 40 hours veterancy unlock
+#  items:
+#    - N14ClothingOuterMBoSSeniorKArmor
+#
+- type: loadout
+  id: MisfitsLoadoutBoSMidwestCommanderPowerArmor
+  category: Outer
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement
+      jobs:
+        - BoSMidPaladinCommander
+    - !type:CharacterPlaytimeRequirement
+      tracker: BoSMidPaladinCommander
+      min: 180000 # 50 hours as Head Paladin
+  items:
+    - N14ClothingOuterPowerArmorMidwestCommander
+
+
+## MISFITS RAAAAAAAAAA
+
+# Brotherhood MWBOS PA unlocks made to be 13 points, or 1 point below the 14 of baseline 5 charisma.
+
+- type: loadout
+  id: LoadoutBoSMidwest
+  category: Outer
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - BoSPaladin
+    - !type:CharacterPlaytimeRequirement
+      tracker: BoSPaladin
+      min: 72000 # 20 hours as  Paladin
+  items:
+    - N14ClothingOuterPowerArmorMidwest
+
+- type: loadout
+  id: LoadoutBoSMidwestSilver
+  category: Outer
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - BoSMidPaladin
+    - !type:CharacterPlaytimeRequirement
+      tracker: BoSMidPaladin
+      min: 144000 # 40 hrs
+  items:
+    - N14ClothingOuterPowerArmorMidwestSilver

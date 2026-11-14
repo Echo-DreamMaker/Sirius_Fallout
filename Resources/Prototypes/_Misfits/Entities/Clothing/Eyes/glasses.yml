@@ -1,0 +1,27 @@
+- type: entity
+  parent: ClothingEyesGlassesSunglasses
+  id: MisfitsEyesGlassesSunglassesBig
+  name: big sunglasses
+  description: Makes the strong desert sun a lot more bearable. Some protection against blinding lights is a bonus.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Eyes/Glasses/bigsunglasses.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Eyes/Glasses/bigsunglasses.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+#Seperate from the base EE ones and unused NCR ones due to wanting the custom sprite of one, and the No-slow of the other being used
+- type: entity
+  parent: ClothingEyesBase
+  id: MisfitsClothingEyesVaultNVGs
+  name: night vision goggles
+  description: Goggles designed to see in the dark, but doesn't do much against flashing lights.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Eyes/NVG2.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Eyes/NVG2.rsi
+  - type: NightVision
+    isEquipment: true

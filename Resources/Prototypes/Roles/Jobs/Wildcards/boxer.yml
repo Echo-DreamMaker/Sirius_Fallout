@@ -21,6 +21,7 @@
   subGear:
   - BoxerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: UniformShortsRed
     back: ClothingBackpackFilled
     id: BoxerPDA
@@ -36,6 +37,7 @@
   id: BoxerPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitBoxing
     head: ClothingHeadEnvirohelmBoxing
     # No envirogloves, use the boxing gloves instead

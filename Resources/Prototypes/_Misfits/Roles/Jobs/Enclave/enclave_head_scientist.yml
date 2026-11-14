@@ -18,7 +18,7 @@
       - Human
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h Enclave)
       department: Enclave
-      min: 72000 # 20 hours
+      min: 144000 # 40 hours
     - !type:CharacterPlaytimeRequirement
       tracker: EnclaveScientist
       min: 36000 # 10 hours
@@ -43,12 +43,16 @@
       - type: ReplacementAccent
         accent: n14Enclave
       - type: CPRTraining
+      - type: FactionRoster # #Cythisiax Added - roster GUI: the Head Scientist manages Junior Scientists and Scientists
+        roster: Enclave
+        action: ActionOpenFactionRosterEnclave
   - !type:AddTraitSpecial # #Misfits Add - Enclave scientists are issued an Enclave Eyebot companion
     traits: [ MisfitsPetEyebotEnclave ]
 
 - type: startingGear
   id: EnclaveHeadScientistGear
   equipment:
+    wallet: N14Wallet
     head: N14ClothingHeadHatEnclaveScientist
     back: N14ClothingBackpackSatchelMilitary
     jumpsuit: N14ClothingUniformJumpsuitEnclave

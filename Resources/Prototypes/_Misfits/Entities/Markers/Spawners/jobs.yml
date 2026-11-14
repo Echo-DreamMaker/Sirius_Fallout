@@ -274,7 +274,17 @@
     layers:
       - state: green
       - state: venator
-
+- type: entity
+  parent: MisfitsSpawnPointCaesarLegionCenturion
+  id: MisfitsSpawnPointCaesarLegionOptio
+  name: Legion Optio
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionOrator
+  - type: Sprite
+    layers:
+      - state: green
+      - state: venator
 - type: entity
   parent: MisfitsSpawnPointCaesarLegionCenturion
   id: MisfitsSpawnPointCaesarLegionPrimeDecanus
@@ -1321,3 +1331,75 @@
     sprite: Corvax/Markers/jobs.rsi
     layers:
       - state: green
+- type: entity
+  parent: MisfitsSpawnPointBoSWestElderCommander
+  id: MisfitsSpawnPointBoSArchvist
+  name: Brotherhood Archivist
+  components:
+  - type: SpawnPoint
+    job_id: BoSArchivist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: scribe
+
+#Misfits Change /Tweak/: Overwrote old Washington BoS spawn points with new consolidated Brotherhood jobs.
+- type: entity
+  parent: MisfitsSpawnPointCaesarLegionCenturion
+  id: MisfitsSpawnPointCaesarLegionTempleGuard
+  name: Legion Temple Guard
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionTempleGuard
+  - type: Sprite
+    layers:
+      - state: green
+      - state: warrior
+
+# Priestess of Mars spawner — 1 slot, same Legion camp area as Auxilia.
+- type: entity
+  parent: MisfitsSpawnPointNCRCadet
+  id: MisfitsSpawnPointNCRLTCol
+  name: NCR Lieutenant Colonel
+  components:
+  - type: SpawnPoint
+    job_id: NCRLTCol
+  - type: Sprite
+    layers:
+      - state: green
+      - state: lt
+
+- type: entity
+  parent: MisfitsSpawnPointNCRCadet
+  id: MisfitsSpawnPointNCRRangerMedic
+  name: NCR Ranger Medic
+  components:
+  - type: SpawnPoint
+    job_id: NCRRangerMedic
+  - type: Sprite
+    sprite: _Nuclear14/Markers/Jobs/rangers.rsi
+    layers:
+      - state: green
+      - state: recruit
+
+# NCR Office of Science and Industry (OSI) spawn points. # #Misfits Add
+# Spawn near the NCRA labs/medic area like the NCR Doctor.
+- type: entity
+  parent: MisfitsSpawnPointEightiesBase
+  id: MisfitsSpawnPointGreatKhan
+  name: Great Khan
+  components:
+  - type: SpawnPoint
+    job_id: GreatKhan
+
+#Misfits Add: Legacy Washington BoS spawnpoint aliases kept for old map compatibility.
+
+
+# Follower Director spawn point (restored for Wendover map compatibility)
+- type: entity
+  parent: N14SpawnPointFollowers
+  id: MisfitsSpawnPointFollowerDirector
+  name: follower director
+  components:
+  - type: SpawnPoint
+    job_id: FollowerDirector

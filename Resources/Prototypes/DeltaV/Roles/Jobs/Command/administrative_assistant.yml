@@ -47,6 +47,7 @@
   subGear:
   - AdminAssistantPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitAdminAssistant
     id: AdminAssistantPDA
     ears: ClothingHeadsetAdminAssist
@@ -57,6 +58,7 @@
   id: AdminAssistantPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitAdminAssistant
     head: ClothingHeadEnvirohelmAdminAssistant
     gloves: ClothingHandsGlovesEnviroglovesAdminAssistant

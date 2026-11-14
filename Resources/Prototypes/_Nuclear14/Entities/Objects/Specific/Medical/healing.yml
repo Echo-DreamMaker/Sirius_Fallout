@@ -178,3 +178,31 @@
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
+- type: entity
+  id: N14OintmentAdv10
+  parent: RegenerativeMesh
+  suffix: full
+  components:
+  - type: Stack
+    stackType: N14OintmentAdv10
+    count: 10
+  - type: Healing
+    damageContainers:
+      - Biological
+    damage:
+      types:
+        Blunt: -4
+      groups:
+        Burn: -20
+
+- type: entity
+  id: N14OintmentAdv1
+  parent: N14OintmentAdv10
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: N14OintmentAdv10
+    count: 1
+
+#misfit end
+

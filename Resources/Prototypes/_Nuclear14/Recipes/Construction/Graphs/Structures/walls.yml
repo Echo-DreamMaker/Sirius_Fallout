@@ -193,8 +193,6 @@
           completed:
             - !type:SnapToGrid
               southRotation: true
-          conditions:
-            - !type:EntityAnchored {}
           steps:
             - material: N14Scrap
               amount: 5
@@ -432,8 +430,6 @@
           completed:
             - !type:SnapToGrid
               southRotation: true
-          conditions:
-            - !type:EntityAnchored {}
           steps:
             - material: N14Brick
               amount: 10
@@ -461,8 +457,6 @@
               prototype: N14MaterialBrick1
               amount: 5
             - !type:DeleteEntity
-          conditions:
-            - !type:EntityAnchored {}
           steps:
             - tool: Prying
               doAfter: 20

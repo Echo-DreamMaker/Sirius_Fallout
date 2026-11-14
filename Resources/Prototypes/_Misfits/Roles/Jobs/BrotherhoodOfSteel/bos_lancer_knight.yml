@@ -20,7 +20,7 @@
       species:
       - Human
     # #Cythisiax Changed - entry rung gates on chapter service rather than Lancers time,
-    # otherwise nobody could ever accumulate the hours Knight-Captain requires. (was 10h Lancers)
+    # otherwise nobody could ever accumulate the required aviation service. (was 10h Lancers)
     - !type:CharacterDepartmentTimeRequirement # T3 faction timelock (8h BoS)
       department: BrotherhoodOfSteel
       min: 28800 # 8 hours
@@ -36,15 +36,17 @@
       - type: NpcFactionMember
         factions:
           - BrotherhoodOfSteel
+      - type: VertibirdPilotPerk # #Misfits Add - Knight-Lancer receives the free vertibird perk
 
 - type: startingGear
   id: BoSLancerKnightGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitBOSGreen
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     head: N14ClothingHeadHatBrotherhoodBeret
-    outerClothing: N14ClothingOuterJacketBomber
+    outerClothing: MisfitsClothingOuterBrotherhoodLancer
     hands: N14ClothingHandsGlovesCombat
     eyes: N14ClothingEyesGlassesPilot
     pocket1: BoSBrotherhoodKnightKits
@@ -53,7 +55,7 @@
     belt: ClothingBeltBoSWebbing
   storage:
     back:
-    - N14ClothingHeadHatBrotherhoodHelmetMK2
+    - N14ClothingHeadHatBrotherhoodHelmet
     - N14BoxPlasticFilledMilitary
     # #Cythisiax Added - absorbed the Lancer deck-crew role; airframe repair needs a welding tool.
     - Welder

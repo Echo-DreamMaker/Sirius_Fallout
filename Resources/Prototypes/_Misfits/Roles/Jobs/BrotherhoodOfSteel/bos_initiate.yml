@@ -84,7 +84,8 @@
 - type: startingGear
   id: BoSInitiateGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitBOSGreen
     back: N14ClothingBackpackMilitary
     shoes: N14ClothingBootsLeatherFilled
     id: N14IDBrotherhoodOfSteelHolotagInitiate

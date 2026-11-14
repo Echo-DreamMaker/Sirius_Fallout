@@ -798,3 +798,62 @@
   - WasterSell2_Cosmetic
   - WasterSell2_Storage
   - WasterSell2_Currency
+- type: storeCategoryStructured
+  id: WasterSell2_Bulk
+  name: "Bulk"
+  entries:
+  - proto: MaterialCloth1
+    price: 4
+  - proto: N14MaterialThread1
+    price: 4
+  - proto: N14JunkDuctTape
+    price: 3
+  - proto: N14ScrapElectronic1
+    price: 6
+  - proto: N14ScrapGold1
+    price: 6
+  - proto: N14FoodMeatPigrat
+    price: 5
+  - proto: N14FoodMeatRadRaw
+    price: 5
+  - proto: N14JunkAbraxoCleaner
+    price: 8
+  - proto: N14MaterialLeather1
+    price: 10
+  - proto: N14MaterialAntChitin1
+    price: 10
+  - proto: N14MaterialHideGecko
+    price: 20
+  - proto: N14MaterialHideGeckoFire
+    price: 20
+  - proto: N14FoodFireantNectar
+    price: 20
+  - proto: N14FoodMeatGeckoGolden
+    price: 20
+  - proto: N14FoodMeatMirelurkClaw
+    price: 20
+  - proto: N14FoodMeatRadlurkClaw
+    price: 25
+  - proto: N14FoodEggDeathclaw
+    price: 40
+  - proto: N14MaterialYaoguaiHide
+    price: 40
+  - proto: N14MaterialNightstalkerPelt
+    price: 40
+  - proto: N14FoodCazadorAcidSac
+    price: 45
+  - proto: N14MaterialRadscorpionTail
+    price: 50
+  - proto: N14FoodMeatBrahmin
+    price: 25
+  - proto: N14FoodMeatRadstag
+    price: 30
+  - proto: FoodMeatRedfishRaw
+    price: 20
+  - proto: FoodMeatWhitefishRaw
+    price: 15
+  - proto: FoodRedCaviar
+    price: 30
+  - proto: FishBone
+    price: 10
+

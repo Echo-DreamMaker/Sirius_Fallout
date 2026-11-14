@@ -5,7 +5,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: Crowbar
+      - id: N14Crowbar
       - id: N14Wrench
       - id: N14Screwdriver
       - id: N14Wirecutter
@@ -56,7 +56,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: N14CurrencyPrewarMoney100 # Misfits Change: Replaced bottlecaps with pre-war money — caps removed from starting loadout wallets
+    - id: N14CurrencyPrewarMoney100 # Misfits Change: Replaced bottlecaps with pre-war money вЂ” caps removed from starting loadout wallets
 
 - type: entity
   id: N14WalletCash
@@ -65,7 +65,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: N14CurrencyPrewarMoney50 # Misfits Change: Replaced bottlecaps with pre-war money — caps removed from starting loadout wallets
+    - id: N14CurrencyPrewarMoney50 # Misfits Change: Replaced bottlecaps with pre-war money вЂ” caps removed from starting loadout wallets
 
 # Military
 - type: entity

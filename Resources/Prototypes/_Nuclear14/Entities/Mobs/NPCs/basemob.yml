@@ -20,7 +20,7 @@
   - type: Body
     prototype: N14Animal
   - type: InputMover
-  - type: ProximityNPC # Misfits fix — Didn't have comp to reduce tick load and activate ai
+  - type: ProximityNPC # Misfits fix вЂ” Didn't have comp to reduce tick load and activate ai
                         #TODO: make every NPC inherit from same base to avoid issues in future
   - type: MobMover
   - type: NpcFactionMember
@@ -89,7 +89,7 @@
   parent: N14MobBaseSimple
   description: It's a dirty wasteland animal. Watch out for it's bite, it could be infectious.
   components:
-  - type: PathfindingCustomizable # Misfits Add — Better/customizable and less exploitable pathfinding
+  - type: PathfindingCustomizable # Misfits Add вЂ” Better/customizable and less exploitable pathfinding
     nodeLimit: 225
   - type: Hunger
     thresholds:
@@ -112,7 +112,7 @@
   - type: NpcFactionMember
     factions:
     - WastelandAnimal
-  - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
+  - type: ProximityNPC # Misfits Add вЂ” sleep distant NPCs to reduce tick load
   - type: HTN
     rootTask:
       task: N14RangedHostileCompound
@@ -174,7 +174,7 @@
   parent: N14MobBaseSimple
   description: It's a dirty wasteland animal. Watch out for it's bite, it could be infectious.
   components:
-  - type: PathfindingCustomizable # Misfits Add — Better/customizable and less exploitable pathfinding
+  - type: PathfindingCustomizable # Misfits Add вЂ” Better/customizable and less exploitable pathfinding
     nodeLimit: 225
   - type: Hunger
     thresholds:
@@ -197,7 +197,7 @@
   - type: NpcFactionMember
     factions:
     - WastelandAnimal
-  - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
+  - type: ProximityNPC # Misfits Add вЂ” sleep distant NPCs to reduce tick load
   - type: HTN
     rootTask:
       task: N14RangedHostileCompound
@@ -305,7 +305,6 @@
   components:
   - type: Damageable
     damageContainer: MisfitsNPCBiological # Misfits Change
-  - type: NoSlip
   - type: NpcFactionMember
     factions:
     - Raider
@@ -340,7 +339,7 @@
   - type: NpcFactionMember
     factions:
     - Feral
-  #- type: MobGhoulAggro #Misfits Change — removed: NPC feral ghouls should be hostile to player ghouls, not neutral.
+  #- type: MobGhoulAggro #Misfits Change вЂ” removed: NPC feral ghouls should be hostile to player ghouls, not neutral.
   - type: HTN
     rootTask:
       task: N14HostileCompound
@@ -472,7 +471,7 @@
   abstract: true
   id: N14MobWave
   components:
-  - type: ProximityNPC # Misfits Tweak — wave mobs inherit ProximityNPC from their hostile parent; override to stay awake so they rush immediately
+  - type: ProximityNPC # Misfits Tweak вЂ” wave mobs inherit ProximityNPC from their hostile parent; override to stay awake so they rush immediately
     startAsleep: false
   - type: HTN
     rootTask:
@@ -534,7 +533,7 @@
 #    whitelist:
 #      components:
 #      - HumanoidAppearance
-  - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
+  - type: ProximityNPC # Misfits Add вЂ” sleep distant NPCs to reduce tick load
   - type: HTN
     rootTask:
       task: SimpleFollowHostileCompound # HTN compound must include FollowCompound so pet can follow its owner

@@ -239,3 +239,31 @@
       proceduralMinRooms: 8
       proceduralMaxRooms: 14
       proceduralHubCount: 4
+- type: n14ExpeditionDifficulty
+  id: N14ExpeditionUnknownProcedural
+  name: n14-expedition-difficulty-unknown-procgen
+  color: "#6B8E5A"
+  duration: 1200
+  sortOrder: 100
+  maps:
+    - runtimeProcedural: true
+      proceduralTheme: Vault
+      proceduralGridSize: 96
+      proceduralDifficultyTier: 1
+      proceduralMinRooms: 11
+      proceduralMaxRooms: 15
+      proceduralHubCount: 1
+    - runtimeProcedural: true
+      proceduralTheme: Sewer
+      proceduralGridSize: 96
+      proceduralDifficultyTier: 1
+      proceduralMinRooms: 11
+      proceduralMaxRooms: 16
+      proceduralHubCount: 1
+    - runtimeProcedural: true
+      proceduralTheme: Metro
+      proceduralGridSize: 96
+      proceduralDifficultyTier: 1
+      proceduralMinRooms: 11
+      proceduralMaxRooms: 18
+      proceduralHubCount: 1

@@ -3,16 +3,16 @@
 # Only roles that earn rank over time live here; fixed-rank Enclave jobs keep their pin in startingGear.
 #
 # Tracker quick-reference (use with: playtime_addrole <user> <tracker> <time>)
-#   EnclaveEnlisted           — Enclave Enlisted
-#   EnclaveNCO                — Enclave NCO
-#   EnclaveJuniorOfficer      — Enclave Junior Officer
-#   EnclaveSeniorOfficer      — Enclave Senior Officer
-#   EnclaveCommander          — Enclave Commander
-#   EnclaveReformer           — The Reformer (fixed at General, admin-only)
-#   EnclaveVertibirdPilot     — Enclave Vertibird Pilot
-#   SuperMutantEnclave        — Enclave Supermutant
+#   EnclaveEnlisted           вЂ” Enclave Enlisted
+#   EnclaveNCO                вЂ” Enclave NCO
+#   EnclaveJuniorOfficer      вЂ” Enclave Junior Officer
+#   EnclaveSeniorOfficer      вЂ” Enclave Senior Officer
+#   EnclaveCommander          вЂ” Enclave Commander
+#   EnclaveReformer           вЂ” The Reformer (fixed at General, admin-only)
+#   EnclaveVertibirdPilot     вЂ” Enclave Vertibird Pilot
+#   SuperMutantEnclave        вЂ” Enclave Supermutant
 
-# Enlisted: PVT (E-1) → PFC (E-3) at 20h → SPC (E-4) at 40h
+# Enlisted: PVT (E-1) в†’ PFC (E-3) at 20h в†’ SPC (E-4) at 40h
 - type: ncrRankPinProgression
   id: EnclaveEnlistedPins
   jobs:
@@ -27,7 +27,7 @@
     - min: 144000  # 40 hours
       entity: ClothingNeckPinEnclaveSpecialist
 
-# NCO: SGT (E-5) → SSG (E-6) at 20h → SFC (E-7) at 40h → MSG (E-8) at 60h → SGM (E-9) at 80h
+# NCO: SGT (E-5) в†’ SSG (E-6) at 20h в†’ SFC (E-7) at 40h в†’ MSG (E-8) at 60h в†’ SGM (E-9) at 80h
 - type: ncrRankPinProgression
   id: EnclaveNCOPins
   jobs:
@@ -46,7 +46,7 @@
     - min: 288000  # 80 hours
       entity: ClothingNeckPinEnclaveSergeantMajor
 
-# Junior Officer: 2LT (O-1) → 1LT (O-2) at 20h
+# Junior Officer: 2LT (O-1) в†’ 1LT (O-2) at 20h
 - type: ncrRankPinProgression
   id: EnclaveJuniorOfficerPins
   jobs:
@@ -59,7 +59,7 @@
     - min: 72000   # 20 hours
       entity: ClothingNeckPinEnclaveFirstLieutenant
 
-# Senior Officer: Captain (O-3) → Major (O-4) at 20h
+# Senior Officer: Captain (O-3) в†’ Major (O-4) at 20h
 - type: ncrRankPinProgression
   id: EnclaveSeniorOfficerPins
   jobs:
@@ -72,7 +72,7 @@
     - min: 72000   # 20 hours
       entity: ClothingNeckPinEnclaveMajor
 
-# Commander: LTC (O-5) → Colonel (O-6) at 20h → General (O-7) at 40h
+# Commander: LTC (O-5) в†’ Colonel (O-6) at 20h
 - type: ncrRankPinProgression
   id: EnclaveCommanderPins
   jobs:
@@ -84,8 +84,6 @@
       entity: ClothingNeckPinEnclaveLtColonel
     - min: 72000   # 20 hours
       entity: ClothingNeckPinEnclaveColonel
-    - min: 144000  # 40 hours
-      entity: ClothingNeckPinEnclaveGeneral
 
 # Reformer: General (O-7), no ladder above it.
 # Listed here because the Reformer shares EnclaveCommanderGear, which no longer carries a pin.
@@ -99,8 +97,8 @@
     - min: 0
       entity: ClothingNeckPinEnclaveGeneral
 
-# Supermutant: PVT (E-1) → PFC (E-3) at 20h → SPC (E-4) at 40h → SGT (E-5) at 60h
-# → SSG (E-6) at 80h → SFC (E-7) at 100h → MSG (E-8) at 120h → SGM (E-9) at 140h
+# Supermutant: PVT (E-1) в†’ PFC (E-3) at 20h в†’ SPC (E-4) at 40h в†’ SGT (E-5) at 60h
+# в†’ SSG (E-6) at 80h в†’ SFC (E-7) at 100h в†’ MSG (E-8) at 120h в†’ SGM (E-9) at 140h
 # Walks the whole enlisted and NCO ladder in one billet, so it runs longer than either.
 - type: ncrRankPinProgression
   id: SuperMutantEnclavePins
@@ -126,8 +124,8 @@
     - min: 504000  # 140 hours
       entity: ClothingNeckPinEnclaveSergeantMajor
 
-# Vertibird Pilot: 2LT (O-1) → 1LT (O-2) at 20h → Captain (O-3) at 40h
-# Enclave aviators hold commissions, so the ladder tops out level with the Senior Officer billet.
+# Vertibird Pilot: SGT (E-5) в†’ SSG (E-6) at 20h в†’ SFC (E-7) at 40h в†’ MSG (E-8) at 60h в†’ SGM (E-9) at 80h
+# Misfits Change - Enclave Vertibird Pilot is no longer commissioned but instead has a rank structure that runs parallel to the NCO.
 - type: ncrRankPinProgression
   id: EnclaveVertibirdPilotPins
   jobs:
@@ -135,9 +133,13 @@
   tracker: EnclaveVertibirdPilot
   departmentTracker: false
   thresholds:
-    - min: 0
-      entity: ClothingNeckPinEnclaveSecondLieutenant
-    - min: 72000   # 20 hours
-      entity: ClothingNeckPinEnclaveFirstLieutenant
-    - min: 144000  # 40 hours
-      entity: ClothingNeckPinEnclaveCaptain
+  - min: 0
+    entity: ClothingNeckPinEnclaveSergeant
+  - min: 72000   # 20 hours
+    entity: ClothingNeckPinEnclaveStaffSergeant
+  - min: 144000  # 40 hours
+    entity: ClothingNeckPinEnclaveSFC
+  - min: 216000  # 60 hours
+    entity: ClothingNeckPinEnclaveMasterSergeant
+  - min: 288000  # 80 hours
+    entity: ClothingNeckPinEnclaveSergeantMajor

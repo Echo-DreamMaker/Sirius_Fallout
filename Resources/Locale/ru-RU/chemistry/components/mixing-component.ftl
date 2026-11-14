@@ -15,3 +15,6 @@ default-mixing-success = Вы смешиваете { $mixed } при помощ�
 bible-mixing-success = Вы благословляете { $mixed } при помощи { $mixer }
 spoon-mixing-success = Вы размешиваете { $mixed } при помощи { $mixer }
 
+
+stir-mixing-success = You stir the { $mixed } with the { $mixer }
+shake-mixing-success = {""}

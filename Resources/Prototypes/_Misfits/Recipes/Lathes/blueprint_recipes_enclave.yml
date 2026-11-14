@@ -15,11 +15,11 @@
 # ENCLAVE WEAPON RECIPES
 # =====================================================================
 
-# #Misfits Remove - N14WeaponGaussRifle prototype disabled on request; recipe removed with it.
+# #Misfits Remove - N14WeaponSniper50AntiMateriel prototype disabled on request; recipe removed with it.
 # M72 gauss rifle - 150 steel, 10 copper, 20 circuitry, 10 plastic
 # - type: latheRecipe
 #   id: N14BPEnclaveWeaponGaussRifle
-#   result: N14WeaponGaussRifle
+#   result: N14WeaponSniper50AntiMateriel
 #   category: N14enclaveheavyordnancet5
 #   completetime: 30
 #   requiresBlueprint: true

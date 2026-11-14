@@ -59,3 +59,4 @@ n14-expedition-difficulty-metro-procgen = Туннели метро (проце�
 # n14-expedition-difficulty-gold = Gold
 # n14-expedition-difficulty-mithril = Mithril
 # n14-expedition-difficulty-diamond = Diamond
+n14-expedition-difficulty-unknown-procgen = Unknown Underground Site

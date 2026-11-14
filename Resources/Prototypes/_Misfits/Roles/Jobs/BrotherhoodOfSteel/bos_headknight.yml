@@ -1,4 +1,4 @@
-#Misfits Change /Comment-out/: Washington BoS Commander job removed — will create new prototypes.
+#Misfits Change /Comment-out/: Washington BoS Commander job removed вЂ” will create new prototypes.
 #- type: job
 #  id: BoSWashingtonCommander
 #  setPreference: true
@@ -97,18 +97,19 @@
 - type: startingGear
   id: BoSHeadKnightGear
   equipment:
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitBOSRed
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     head: N14ClothingHeadKnightBeret
-    outerClothing: MisfitsBoSHeadKnightArmor # #Misfits Tweak: T6 armor (0.65/0.60) — Head Knight tier, equal to NCR Staff Sergeant / Legion Prime Decanus
+    outerClothing: MisfitsBoSHeadKnightArmor # #Misfits Tweak: T6 armor (0.65/0.60) вЂ” Head Knight tier, equal to NCR Staff Sergeant / Legion Prime Decanus
     hands: N14ClothingHandsGlovesCombat
     id: N14HeadKnight_PipBoy
     ears: N14ClothingHeadsetBrotherhoodOfSteel
     belt: ClothingBeltBoSWebbing
   storage:
     back:
-    - N14ClothingHeadHatBrotherhoodHelmetPaladin
+    - N14ClothingHeadHatBrotherhoodHelmetHeadKnight
     - N14BoxPlasticFilledMilitary
 
 - type: playTimeTracker

@@ -2500,9 +2500,9 @@ public sealed class UndergroundExpeditionMapGenerator : EntitySystem
         mobCount = Math.Max(1, (int)(mobCount * envMods.MobCountMult));
 
         // #Misfits Change - Mob groups from profile instead of static arrays
-        var groups = profile.MobGroups;
+        var groups = profile.MobThemes;
         if (groups.Length == 0) return;
-        var pool   = groups[rng.Next(groups.Length)];
+        var pool   = groups[rng.Next(groups.Length)].MobPool;
         int total  = pool.Sum(m => m.Item2);
 
         int innerW = room.W - 2;

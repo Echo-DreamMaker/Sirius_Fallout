@@ -19,6 +19,7 @@
 - type: startingGear
   id: ZetanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitFollowers # N14TODO: Zetan stuff
     back: N14ClothingBackpackWastelanderFilled # N14TODO: Zetan stuff
     shoes: ClothingShoesColorBlack # N14TODO: Zetan stuff

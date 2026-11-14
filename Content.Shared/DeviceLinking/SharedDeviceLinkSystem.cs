@@ -170,13 +170,39 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             return;
 
         var comp = EnsureComp<DeviceLinkSinkComponent>(uid);
-        comp.Ports ??= new HashSet<string>();
+        comp.Ports ??= new HashSet<ProtoId<SinkPortPrototype>>();
 
         foreach (var port in ports)
         {
             DebugTools.Assert(_prototypeManager.HasIndex<SinkPortPrototype>(port));
             comp.Ports?.Add(port);
         }
+    }
+
+    /// <summary>
+    /// Misfits - Removes a port from a source.
+    /// </summary>
+    public void RemoveSourcePort(EntityUid uid, ProtoId<SourcePortPrototype> port)
+    {
+        if (!TryComp<DeviceLinkSourceComponent>(uid, out var comp) || comp.Ports == null)
+            return;
+
+        comp.Ports.Remove(port);
+        if (comp.Ports.Count == 0)
+            RemCompDeferred<DeviceLinkSourceComponent>(uid);
+    }
+
+    /// <summary>
+    /// Misfits - Removes a port from a sink.
+    /// </summary>
+    public void RemoveSinkPort(EntityUid uid, ProtoId<SinkPortPrototype> port)
+    {
+        if (!TryComp<DeviceLinkSinkComponent>(uid, out var comp) || comp.Ports == null)
+            return;
+
+        comp.Ports.Remove(port);
+        if (comp.Ports.Count == 0)
+            RemCompDeferred<DeviceLinkSinkComponent>(uid);
     }
 
     /// <summary>

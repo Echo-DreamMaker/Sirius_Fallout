@@ -38,7 +38,7 @@ namespace Content.Shared.Localizations
 
 
             _loc.SetCulture(culture);
-            _loc.SetFallbackCluture(fallbackCulture);
+            // _loc.SetFallbackCulture(fallbackCulture); // #Sirius Fix: not available in pinned engine (286.0.3)
             // Corvax-Localization-End
         }
 

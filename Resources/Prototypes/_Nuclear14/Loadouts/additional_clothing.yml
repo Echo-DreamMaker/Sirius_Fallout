@@ -1,0 +1,1002 @@
+# Additional N14 clothing loadouts.
+# New entries only; existing N14 loadout requirements are left intact.
+# Armor/DR clothing and mechanically beneficial equipment are intentionally excluded.
+
+- type: loadout
+  id: N14LoadoutUniversalHeadHatCaravan
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - N14ClothingHeadHatCaravan
+
+- type: loadout
+  id: N14LoadoutUniversalHeadHatCaravanSuit
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - N14ClothingHeadHatCaravanSuit
+
+- type: loadout
+  id: N14LoadoutUniversalHeadHatCaravanUniform
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - N14ClothingHeadHatCaravanUniform
+
+- type: loadout
+  id: N14LoadoutUniversalHeadHatChinese
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingHeadHatChinese
+
+- type: loadout
+  id: N14LoadoutUniversalHeadHatHoodBlackRobe
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingHeadHatHoodBlackRobe
+
+- type: loadout
+  id: N14LoadoutUniversalHeadHatHoodGhillieCloak
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingHeadHatHoodGhillieCloak
+
+- type: loadout
+  id: N14LoadoutUniversalHeadHatHoodLeatherCloak
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingHeadHatHoodLeatherCloak
+
+- type: loadout
+  id: N14LoadoutUniversalHeadHatHoodLeatherRobe
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingHeadHatHoodLeatherRobe
+
+- type: loadout
+  id: N14LoadoutUniversalHeadHatHoodScribeTabard
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - BrotherhoodOfSteel
+        - BrotherhoodOfSteelLancers
+  items:
+    - N14ClothingHeadHatHoodScribeTabard
+
+- type: loadout
+  id: N14LoadoutUniversalHeadHatMountie
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Townsfolk
+  items:
+    - N14ClothingHeadHatMountie
+
+- type: loadout
+  id: N14LoadoutUniversalHeadHatTownGuard
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Townsfolk
+  items:
+    - N14ClothingHeadHatTownGuard
+
+- type: loadout
+  id: N14LoadoutUniversalHeadHatVancouver
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Townsfolk
+  items:
+    - N14ClothingHeadHatVancouver
+
+- type: loadout
+  id: N14LoadoutUniversalHeadTribalCloakHood
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Tribe
+  items:
+    - N14ClothingHeadTribalCloakHood
+
+- type: loadout
+  id: N14LoadoutUniversalHeadTribalCloakHoodBr
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Tribe
+  items:
+    - N14ClothingHeadTribalCloakHoodBr
+
+- type: loadout
+  id: N14LoadoutUniversalMaskBlackBalaclava
+  category: Mask
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutMask
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingMaskBlackBalaclava
+
+- type: loadout
+  id: N14LoadoutUniversalMaskBlueMask
+  category: Mask
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutMask
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingMaskBlueMask
+
+- type: loadout
+  id: N14LoadoutUniversalMaskBrownMask
+  category: Mask
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutMask
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingMaskBrownMask
+
+- type: loadout
+  id: N14LoadoutUniversalMaskGreenMask
+  category: Mask
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutMask
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingMaskGreenMask
+
+- type: loadout
+  id: N14LoadoutUniversalMaskOrangeMask
+  category: Mask
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutMask
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingMaskOrangeMask
+
+- type: loadout
+  id: N14LoadoutUniversalMaskPatriotMask
+  category: Mask
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutMask
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingMaskPatriotMask
+
+- type: loadout
+  id: N14LoadoutUniversalMaskRedMask
+  category: Mask
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutMask
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingMaskRedMask
+
+- type: loadout
+  id: N14LoadoutUniversalMaskBrotherhoodGorget
+  category: Mask
+  cost: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutNeck
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - N14ClothingMaskBrownMask
+
+- type: loadout
+  id: N14LoadoutUniversalNeckCloakBrotherhoodWashington
+  category: Accessories
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutNeck
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - BrotherhoodOfSteel
+        - BrotherhoodOfSteelLancers
+  items:
+    - N14ClothingNeckCloakBrotherhoodWashington
+
+- type: loadout
+  id: N14LoadoutUniversalNeckCloakBrotherhood509th
+  category: Accessories
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutNeck
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - M14ClothingNeckCloakBrotherhood509th
+
+- type: loadout
+  id: N14LoadoutUniversalNeckMantleBrotherhood509th
+  category: Accessories
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutNeck
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - M14ClothingNeckMantleBrotherhood509th
+
+- type: loadout
+  id: N14LoadoutUniversalNeckTabardBrotherhoodPurple
+  category: Accessories
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutNeck
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - M14ClothingNeckTabardBrotherhoodPurple
+
+- type: loadout
+  id: N14LoadoutUniversalNeckTabardBrotherhoodWhite
+  category: Accessories
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutNeck
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - M14ClothingNeckTabardBrotherhoodWhite
+
+- type: loadout
+  id: N14LoadoutUniversalNeckCloakDarkCloak
+  category: Accessories
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutNeck
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingNeckCloakDarkCloak
+
+- type: loadout
+  id: N14LoadoutUniversalNeckCloakLeather
+  category: Accessories
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutNeck
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingNeckCloakLeather
+
+- type: loadout
+  id: N14LoadoutUniversalNeckCloakYaoguai
+  category: Accessories
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutNeck
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Tribe
+  items:
+    - N14ClothingNeckCloakYaoguai
+
+- type: loadout
+  id: N14LoadoutUniversalNeckMantleBrotherhoodWashington
+  category: Accessories
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutNeck
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - BrotherhoodOfSteel
+        - BrotherhoodOfSteelLancers
+  items:
+    - N14ClothingNeckMantleBrotherhoodWashington
+
+- type: loadout
+  id: N14LoadoutUniversalNeckMantleLeather
+  category: Accessories
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutNeck
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingNeckMantleLeather
+
+- type: loadout
+  id: N14LoadoutUniversalNeckShawl
+  category: Accessories
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutNeck
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingNeckShawl
+
+- type: loadout
+  id: N14LoadoutUniversalNeckTownGuardCloak
+  category: Accessories
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutNeck
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Townsfolk
+  items:
+    - N14ClothingNeckTownGuardCloak
+
+- type: loadout
+  id: N14LoadoutUniversalNeckTribalCloak
+  category: Accessories
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutNeck
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Tribe
+  items:
+    - N14ClothingNeckTribalCloak
+
+- type: loadout
+  id: N14LoadoutUniversalNeckTribalCloakBr
+  category: Accessories
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutNeck
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Tribe
+  items:
+    - N14ClothingNeckTribalCloakBr
+
+- type: loadout
+  id: N14LoadoutUniversalOuterBlackRobes
+  category: Outer
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingOuterBlackRobes
+
+- type: loadout
+  id: N14LoadoutUniversalOuterGhostEchoes
+  category: Outer
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingOuterGhostEchoes
+
+- type: loadout
+  id: N14LoadoutUniversalOuterLeatherRobes
+  category: Outer
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingOuterLeatherRobes
+
+- type: loadout
+  id: N14LoadoutUniversalOuterRobeHubologist
+  category: Outer
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingOuterRobeHubologist
+
+- type: loadout
+  id: N14LoadoutUniversalBootsCombatMK2
+  category: Shoes
+  cost: 5
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutShoes
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingBootsCombatMK2
+
+- type: loadout
+  id: N14LoadoutUniversalBootsFire
+  category: Shoes
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutShoes
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingBootsFire
+
+- type: loadout
+  id: N14LoadoutUniversalBootsMountie
+  category: Shoes
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutShoes
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Townsfolk
+  items:
+    - N14ClothingBootsMountie
+
+- type: loadout
+  id: ClothingBeltMountie
+  category: Roles
+  cost: 1
+  requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Townsfolk
+  items:
+    - ClothingBeltMountie
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpskirtRDFormal
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingUniformJumpskirtRDFormal
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSRed
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - BrotherhoodOfSteel
+        - BrotherhoodOfSteelLancers
+  items:
+    - N14ClothingUniformJumpsuitBOSRed
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSSilver
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - BrotherhoodOfSteel
+        - BrotherhoodOfSteelLancers
+  items:
+    - N14ClothingUniformJumpsuitBOSSilver
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSWashingtonFieldScribe
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - BrotherhoodOfSteel
+        - BrotherhoodOfSteelLancers
+  items:
+    - N14ClothingUniformJumpsuitBOSWashingtonFieldScribe
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSParade
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - N14ClothingUniformJumpsuitBOSBlack
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSCasual
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - N14ClothingUniformJumpsuitBOSGreen
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSFieldScribe
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterJobRequirement
+    inverted: false
+    jobs:
+    - BoSScribe
+    - BoSMidScribe
+    - BoSWestScribe
+  items:
+  - N14ClothingUniformJumpsuitBOSFieldScribe
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSMedicalScribe
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterJobRequirement
+    inverted: false
+    jobs:
+    - BoSScribe
+    - BoSMidScribe
+    - BoSWestScribe
+  items:
+  - N14ClothingUniformJumpsuitBOSScribe
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSScienceScribe
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterJobRequirement
+    inverted: false
+    jobs:
+    - BoSScribe
+    - BoSMidScribe
+    - BoSWestScribe
+    - BoSArchivist
+  items:
+  - N14ClothingUniformJumpsuitBOSScribe
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSBlackPantsUndersuit
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterJobRequirement
+    inverted: false
+    jobs:
+    - BoSHonorGuard
+    - BoSMidPaladinCommander
+    - BoSMidPaladin
+    - BoSPaladin
+  items:
+  - N14ClothingUniformJumpsuitBOSBlack
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSBlackUndersuit
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterJobRequirement
+    inverted: false
+    jobs:
+    - BoSHonorGuard
+    - BoSMidPaladinCommander
+    - BoSMidPaladin
+    - BoSPaladin
+  items:
+  - N14ClothingUniformJumpsuitBOSBlack
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSElderScribe
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterJobRequirement
+    inverted: false
+    jobs:
+    - BoSWestElderCommander
+  items:
+  - N14ClothingUniformJumpsuitBOSScribe
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitCaravanOveralls
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - N14ClothingUniformJumpsuitCaravanOveralls
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitCaravanShirt
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - N14ClothingUniformJumpsuitCaravanShirt
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitCaravanSuit
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - N14ClothingUniformJumpsuitCaravanSuit
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitEnclave
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Enclave
+  items:
+    - N14ClothingUniformJumpsuitEnclave
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitFudd
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingUniformJumpsuitFudd
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitMilUniform
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingUniformJumpsuitMilUniform
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitRCMP
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Townsfolk
+  items:
+    - N14ClothingUniformJumpsuitRCMP
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitRDFormal
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - BoSMidSerf
+        - CaesarLegionSlave
+        - NCRPrisoner
+  items:
+    - N14ClothingUniformJumpsuitRDFormal
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitTownGuard
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Townsfolk
+  items:
+    - N14ClothingUniformJumpsuitTownGuard
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitTownGuardLight
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Townsfolk
+  items:
+    - N14ClothingUniformJumpsuitTownGuardLight
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitVancouver
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Townsfolk
+  items:
+    - N14ClothingUniformJumpsuitVancouver
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitVault
+  category: Uniform
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Vault
+  items:
+    - N14ClothingUniformJumpsuitVault
+

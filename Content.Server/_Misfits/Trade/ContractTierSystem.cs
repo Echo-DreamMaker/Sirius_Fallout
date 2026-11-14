@@ -1,4 +1,5 @@
 using Content.Server.Popups;
+using Content.Shared._NC.Trade;
 using Content.Shared._Misfits.Trade;
 using Robust.Shared.Prototypes;
 
@@ -7,10 +8,10 @@ namespace Content.Server._Misfits.Trade;
 // Manages per-player contract tier progression for tier-enabled trade vendors.
 // Awards badge items on first access and on tier advancement.
 // Maintains a round-scoped Hall of Fame roster on each participating vendor.
-public sealed class ContractTierSystem : EntitySystem
+public sealed partial class ContractTierSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popups = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private PopupSystem _popups = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     // Badge entity prototype IDs awarded when each tier is first unlocked.
     // Defined in Resources/Prototypes/_Misfits/Trade/ContractBadges.yml.
@@ -22,6 +23,18 @@ public sealed class ContractTierSystem : EntitySystem
         { "Hub Mercenary",   "N14ContractBadgeHubMercenary"    },
         { "Bunker Buster","N14ContractBadgeBunkerBuster" },
         { "Wasteland Legend","N14ContractBadgeWastelandLegend" },
+        { "Servus", "N14ContractBadgeRoadKill" },
+        { "Plebeian",   "N14ContractBadgeLazyLizard"   },
+        { "Auxiliary", "N14ContractBadgeJunktownRat"  },
+        { "Legionary",   "N14ContractBadgeHubMercenary"    },
+        { "Decanus","N14ContractBadgeBunkerBuster" },
+        { "Centurion","N14ContractBadgeWastelandLegend" },
+        { "Tribal", "N14ContractBadgeRoadKill" },
+        { "Settler",   "N14ContractBadgeLazyLizard"   },
+        { "Citizen", "N14ContractBadgeJunktownRat"  },
+        { "Caravaneer",   "N14ContractBadgeHubMercenary"    },
+        { "Caravan Master","N14ContractBadgeBunkerBuster" },
+        { "Brahmin Baron","N14ContractBadgeWastelandLegend" },
     };
 
     public override void Initialize()
@@ -38,18 +51,21 @@ public sealed class ContractTierSystem : EntitySystem
         var user = ev.User;
         var store = ev.Store;
 
-        // EnsureComp returns true when the component already existed.
-        var alreadyHad = EnsureComp<NcTierProgressComponent>(user, out var prog);
+        var profile = TryComp(store, out NcStoreComponent? storeComp)
+            ? storeComp.ContractTierProfile
+            : NcTierProgressComponent.BaseProfile;
+        EnsureComp<NcTierProgressComponent>(user, out var prog);
+        var unlocked = prog.GetUnlockedTiers(profile);
 
-        if (!alreadyHad)
+        if (unlocked.Count == 0)
         {
-            // Very first access — unlock Road Kill and hand them their entry badge.
-            prog.UnlockedTiers.Add("Road Kill");
-            SpawnBadge("Road Kill", user);
+            var entryTier = NcTierProgressComponent.GetEntryTier(profile);
+            unlocked.Add(entryTier);
+            SpawnBadge(entryTier, user);
             _popups.PopupEntity(Loc.GetString("nc-contract-tier-first-access"), user, user);
         }
 
-        RecordRosterVisit(store, user, prog);
+        RecordRosterVisit(store, user, prog, profile);
     }
 
     // Fired after a contract is successfully claimed.
@@ -59,35 +75,46 @@ public sealed class ContractTierSystem : EntitySystem
         var user = ev.User;
         var store = ev.Store;
         var tier = ev.Difficulty;
+        var profile = ev.Profile;
 
         if (!TryComp<NcTierProgressComponent>(user, out var prog))
             return;
 
-        // Increment completion count for this tier.
-        prog.CompletedByTier.TryGetValue(tier, out var prev);
-        prog.CompletedByTier[tier] = prev + 1;
+        var completed = prog.GetCompletedByTier(profile);
+        completed.TryGetValue(tier, out var prev);
+        completed[tier] = prev + 1;
 
-        TryAdvanceTier(store, user, prog, tier);
-        RecordRosterVisit(store, user, prog);
+        TryAdvanceTier(user, prog, profile, tier);
+        RecordRosterVisit(store, user, prog, profile);
     }
 
     // Checks whether the player has earned enough completions in currentTier to unlock the next one.
-    private void TryAdvanceTier(EntityUid store, EntityUid user, NcTierProgressComponent prog, string currentTier)
+    private void TryAdvanceTier(EntityUid user, NcTierProgressComponent prog, string profile, string currentTier)
     {
-        var idx = System.Array.IndexOf(NcTierProgressComponent.AllTiers, currentTier);
-        if (idx < 0 || idx >= NcTierProgressComponent.AllTiers.Length - 1)
+        var tiers = NcTierProgressComponent.GetTiers(profile);
+        var idx = -1;
+        for (var i = 0; i < tiers.Count; i++)
+        {
+            if (tiers[i] == currentTier)
+            {
+                idx = i;
+                break;
+            }
+        }
+        if (idx < 0 || idx >= tiers.Count - 1)
             return; // Not found or already at Diamond.
 
-        var nextTier = NcTierProgressComponent.AllTiers[idx + 1];
-        if (prog.UnlockedTiers.Contains(nextTier))
+        var nextTier = tiers[idx + 1];
+        var unlocked = prog.GetUnlockedTiers(profile);
+        if (unlocked.Contains(nextTier))
             return; // Already unlocked.
 
-        prog.CompletedByTier.TryGetValue(currentTier, out var done);
+        prog.GetCompletedByTier(profile).TryGetValue(currentTier, out var done);
         if (done < NcTierProgressComponent.ContractsToAdvance)
             return;
 
         // Unlock the next tier and award the corresponding badge.
-        prog.UnlockedTiers.Add(nextTier);
+        unlocked.Add(nextTier);
         SpawnBadge(nextTier, user);
         _popups.PopupEntity(Loc.GetString("nc-contract-tier-unlocked", ("tier", nextTier)), user, user);
     }
@@ -105,7 +132,7 @@ public sealed class ContractTierSystem : EntitySystem
     }
 
     // Updates (or inserts) this player's entry in the vendor's Hall of Fame roster.
-    private void RecordRosterVisit(EntityUid store, EntityUid user, NcTierProgressComponent prog)
+    private void RecordRosterVisit(EntityUid store, EntityUid user, NcTierProgressComponent prog, string profile)
     {
         if (!TryComp<NcContractRosterComponent>(store, out var roster))
             return;
@@ -113,15 +140,17 @@ public sealed class ContractTierSystem : EntitySystem
         var name = MetaData(user).EntityName;
 
         // Determine the highest unlocked tier.
-        var highestTier = "Road Kill";
-        foreach (var tier in NcTierProgressComponent.AllTiers)
+        var tiers = NcTierProgressComponent.GetTiers(profile);
+        var unlocked = prog.GetUnlockedTiers(profile);
+        var highestTier = tiers[0];
+        foreach (var tier in tiers)
         {
-            if (prog.UnlockedTiers.Contains(tier))
+            if (unlocked.Contains(tier))
                 highestTier = tier;
         }
 
         var total = 0;
-        foreach (var v in prog.CompletedByTier.Values)
+        foreach (var v in prog.GetCompletedByTier(profile).Values)
             total += v;
 
         roster.UpdateEntry(name, highestTier, total);

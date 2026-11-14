@@ -13,6 +13,7 @@
 - type: startingGear
   id: RadioHostGear
   equipment:
+    wallet: N14Wallet
     #ears: ClothingHeadsetAltRadioHost
     eyes: ClothingEyesGlassesSunglasses
     jumpsuit: ClothingUniformJumpsuitHawaiBlack

@@ -29,6 +29,7 @@
   subGear:
   - GladiatorPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitGladiator
     outerClothing: ClothingOuterArmorGladiator
     id: GladiatorPDA
@@ -40,6 +41,7 @@
   id: GladiatorPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitGladiator
     head: ClothingHeadEnvirohelmGladiator
     gloves: ClothingHandsGlovesEnviroglovesGladiator

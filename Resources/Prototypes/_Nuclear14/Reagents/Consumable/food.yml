@@ -236,3 +236,51 @@
   desc: reagent-desc-tarberryjam
   physicalDesc: reagent-physical-desc-sugary
   flavor: sweet
+- type: reagent
+  id: MisfitsBaseSweetDrink
+  group: Drinks
+  abstract: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: 2
+      - !type:HealthChange # Misfits Add
+        damage:
+          types:
+            Dehydration: -0.3
+  footstepSound:
+    collection: FootstepSticky
+  reactiveEffects:
+    Extinguish:
+      methods: [ Touch ]
+      effects:
+      - !type:ExtinguishReaction
+  plantMetabolism:
+  - !type:PlantAdjustWater
+    amount: 1
+  tileReactions:
+  - !type:ExtinguishTileReaction { }
+  - !type:SpillIfPuddlePresentTileReaction { }
+
+- type: reagent
+  parent: MisfitsBaseSweetDrink
+  id: BuffaloGourdJam
+  name: reagent-name-extract-buffalo-gourd
+  desc: reagent-desc-extract-buffalo-gourd
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: watermelon
+  color: "#f0ff8c"
+
+
+- type: reagent
+  parent: MisfitsBaseSweetDrink
+  id: Butterscotch
+  name: reagent-name-butterscotch
+  desc: reagent-desc-butterscotch
+  physicalDesc: reagent-physical-butterscotch
+  flavor: sweet
+  color: "#d77bba"

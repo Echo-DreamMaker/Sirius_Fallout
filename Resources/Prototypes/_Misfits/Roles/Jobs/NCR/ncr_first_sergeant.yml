@@ -2,7 +2,7 @@
 # Job kept defined for compatibility; prototype references remain valid.
 - type: job
   id: NCRFirstSergeant
-  setPreference: false # Hidden — role superseded by NCRNCO system with SFC pin progression
+  setPreference: false # Hidden вЂ” role superseded by NCRNCO system with SFC pin progression
   hideWithoutJobWhitelist: false
   hideIfPlaytimeRequirementsNotMet: false
   jobWhitelistBypassesRoleTimers: true
@@ -43,14 +43,15 @@
 - type: startingGear
   id: NCRFirstSergeantGear
   equipment:
+    wallet: N14Wallet
+    neck: ClothingNeckPinNCRSergeant1st # #Misfits Change - sergeant first class pin for SFC rank
+    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
     back: N14ClothingBackpackNCR # Corvax-Change
     hands: N14ClothingHandsGlovesCombat
     jumpsuit: N14ClothingOfficerUniformNCRDesert # Corvax-Change
     shoes: N14ClothingBootsCombatFilled
-    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
-    neck: ClothingNeckPinNCRSergeant1st # #Misfits Change - sergeant first class pin for SFC rank
     belt: ClothingBeltNCR
-    outerClothing: MisfitsNCRCommandArmor # #Misfits Tweak: T7 armor (0.60/0.55) — First Sergeant tier, top enlisted
+    outerClothing: MisfitsNCRCommandArmor # #Misfits Tweak: T7 armor (0.60/0.55) вЂ” First Sergeant tier, top enlisted
     pocket2: RadioHandheld
     id: N14IDNCRDogtagFirstSergeant
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert # Corvax-Change

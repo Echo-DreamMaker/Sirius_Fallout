@@ -110,3 +110,17 @@
   - NCRLT
   - NCRCaptain
   - NCRMajor
+- type: accessLevel
+  id: NCRProvost
+  name: id-card-access-level-ncr-provost
+
+- type: accessGroup
+  id: NCRProvost
+  tags:
+  - NCR
+  - NCRSGT
+  - NCRMedic
+  - NCRLT
+  - NCRCaptain
+  - NCRMajor
+  - NCRProvost

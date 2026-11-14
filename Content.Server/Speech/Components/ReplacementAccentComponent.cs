@@ -1,5 +1,4 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Speech.Components
 {
@@ -22,6 +21,13 @@ namespace Content.Server.Speech.Components
         /// </summary>
         [DataField("wordReplacements")]
         public Dictionary<string, string>? WordReplacements;
+
+        /// <summary>
+        ///     Doubles individual S sounds while preserving existing double-S sequences.
+        ///     Intended for readable reptilian or serpentine accents.
+        /// </summary>
+        [DataField]
+        public bool ElongateSibilants;
     }
 
     /// <summary>
@@ -30,8 +36,8 @@ namespace Content.Server.Speech.Components
     [RegisterComponent]
     public sealed partial class ReplacementAccentComponent : Component
     {
-        [DataField("accent", customTypeSerializer: typeof(PrototypeIdSerializer<ReplacementAccentPrototype>), required: true)]
-        public string Accent = default!;
+        [DataField("accent", required: true)]
+        public ProtoId<ReplacementAccentPrototype> Accent = default!;
 
         /// <summary>
         /// Allows you to substitute words, not always, but with some chance

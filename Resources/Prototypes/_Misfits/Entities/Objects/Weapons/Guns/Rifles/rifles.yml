@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   name: makeshift auto rifle
   parent: N14WeaponRifleBase
   id: N14WeaponAutoRifle556Legion
@@ -72,11 +72,11 @@
             - N14Cartridge556Rifle
   - type: StaticPrice
     price: 20
-# #Misfits Remove - N14WeaponGaussRifle (old M72 gauss rifle prototype) disabled on request. The current M72 is N14WeaponSniperM72GaussRifleSirius.
+# #Misfits Remove - N14WeaponSniper50AntiMateriel (old M72 gauss rifle prototype) disabled on request. The current M72 is N14WeaponSniperM72GaussRifleSirius.
 # - type: entity
 #   name: M72 rifle
 #   parent: BaseItem
-#   id: N14WeaponGaussRifle
+#   id: N14WeaponSniper50AntiMateriel
 #   description: The M72 rifle is of German design. It uses an electromagnetic field to propel rounds at tremendous speed... and pierce almost any obstacle. Its range, accuracy and stopping power is almost unparalleled.
 #   components:
 #   - type: MinigunToggle

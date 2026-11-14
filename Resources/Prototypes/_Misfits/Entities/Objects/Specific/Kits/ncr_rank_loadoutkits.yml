@@ -453,3 +453,49 @@
     - NCR_HeavyTrooperVeteranSet
     - NCR_HeavyTrooperLinebreakerSet
     - NCR_HeavyTrooperDefenderSet
+- type: entity
+  name: Heavy Trooper Minigun Kit
+  parent: KitBase
+  id: KitNCR_HeavyTrooperMinigun
+  description: A crate containing a standard minigun and supplies for sustained fire.
+  components:
+  - type: Sprite
+    state: pointman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponMinigun
+      - id: N14MagazineMinigun5mm
+        amount: 2
+      - id: SmokeGrenade
+      - id: N14Dynamite
+      - id: N14BoxCardboardMREBoxCFilled
+      - id: N14Stimpak
+      - id: N14CleanGauze10
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: UndecidedLoadoutBackpackSet
+  id: NCR_HeavyTrooperMinigunSet
+  name: undecided-loadout-category-misfits-ncr-ht-minigun-name
+  description: undecided-loadout-category-misfits-ncr-ht-minigun-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: pointman
+  content:
+  - KitNCR_HeavyTrooperMinigun
+
+- type: entity
+  id: NCRHeavyTrooperLeadLoadoutKits
+  name: Undecided NCR Heavy Trooper Lead Kit
+  parent: BaseLoadoutKit
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: rifleman
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - NCR_HeavyTrooperLinebreakerSet
+    - NCR_HeavyTrooperMinigunSet
+    - NCR_HeavyTrooperDefenderSet

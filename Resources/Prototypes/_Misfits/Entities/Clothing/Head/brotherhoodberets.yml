@@ -11,6 +11,17 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: N14ClothingScribeBeret509
+  name: Head Scribe Beret 509th
+  description: A beret worn by head scribes of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/bos_beret_headscribe.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/bos_beret_headscribe.rsi
+
+- type: entity
+  parent: ClothingHeadBase
   id: N14ClothingPaladinBeret
   name: Head Paladin Beret
   description: A beret worn by paladins within the brotherhood of steel.
@@ -22,6 +33,17 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: N14ClothingPaladinBeret509
+  name: Head Paladin Beret 509th
+  description: A beret worn by head paladins of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/bos_beret_headpaladin.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/bos_beret_headpaladin.rsi
+
+- type: entity
+  parent: ClothingHeadBase
   id: N14ClothingHeadKnightBeret
   name: Head Knight Beret
   description: A beret worn by knights within the brotherhood of steel.
@@ -30,3 +52,47 @@
     sprite: _Misfits/Clothing/Head/headknightberet.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/Head/headknightberet.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadKnightBeret509
+  name: Head Knight Beret 509th
+  description: A beret worn by head knights of the 509th chapter of the Brotherhood of Steel.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/bos_beret_headknight.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/bos_beret_headknight.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingBrotherhoodSidecap
+  name: Brotherhood sidecap [purple]
+  description: A garrison cap worn by members of the 509th Chapter. This one sports the trademark purple coloration of the Chapter.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/bos_sidecap.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/bos_sidecap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingBrotherhoodSidecapBlack
+  name: Brotherhood sidecap [black]
+  description: A garrison cap worn by members of the 509th Chapter. This one comes in a deep black.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/bos_sidecap_black.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/bos_sidecap_black.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingBrotherhoodSidecapTan
+  name: Brotherhood sidecap [tan]
+  description: A garrison cap worn by members of the 509th Chapter. This one comes in a light tan.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/bos_sidecap_tan.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/bos_sidecap_tan.rsi

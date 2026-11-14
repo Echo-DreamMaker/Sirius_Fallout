@@ -36,6 +36,7 @@
 - type: startingGear
   id: NCRCitizenGear
   equipment:
+    wallet: N14Wallet
     ears: MisfitsClothingHeadsetWastelandScrap
     jumpsuit: N14ClothingUniformJumpsuitCaravan
     back: N14ClothingBackpackHiking

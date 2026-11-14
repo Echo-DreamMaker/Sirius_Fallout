@@ -128,6 +128,9 @@
   id: N14WallMetalHalf
   name: metal wall
   components:
+  - type: Construction
+    graph: N14HalfWall
+    node: Metal
   - type: Sprite
     sprite: _Nuclear14/Structures/Walls/ms13/half/metal.rsi
   - type: Icon

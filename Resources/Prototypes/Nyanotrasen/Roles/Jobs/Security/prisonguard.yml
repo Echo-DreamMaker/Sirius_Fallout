@@ -28,6 +28,7 @@
   subGear:
   - PrisonGuardPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitPrisonGuard
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsCombatFilled
@@ -44,6 +45,7 @@
   id: PrisonGuardPlasmamanGear
   parent: BasePlasmamanSecurityGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitPrisonGuard
     head: ClothingHeadEnvirohelmPrisonGuard
     gloves: ClothingHandsGlovesEnviroglovesBlack

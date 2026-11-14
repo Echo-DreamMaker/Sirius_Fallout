@@ -5,6 +5,7 @@
   save: false
   abstract: true
   components:
+  - type: Car #Sirius Fix - car-specific logic (key, engine, passengers, horn/siren)
   - type: Repairable
     fuelCost: 20
     doAfterDelay: 10
@@ -59,6 +60,10 @@
       mech-pilot-slot: !type:ContainerSlot
       mech-equipment-container: !type:Container
       mech-battery-slot: !type:ContainerSlot
+      mech-ignition-slot: !type:ContainerSlot #Sirius Fix
+      mech-passenger-1: !type:ContainerSlot #Sirius Fix
+      mech-passenger-2: !type:ContainerSlot #Sirius Fix
+      mech-passenger-3: !type:ContainerSlot #Sirius Fix
       storagebase: !type:Container
   - type: ContainerFill
     containers:
@@ -107,12 +112,12 @@
     sprite: _Nuclear14/Objects/Vehicles/highwayman.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
-      state: highwayman3
+      state: highwayman1 #Sirius Fix - idle/off by default, engine starts animation
   - type: Mech
-    baseState: highwayman3
+    baseState: highwayman1 #Sirius Fix - idle
     openState: highwayman1
     brokenState: highwayman_open
-    engineOnState: highwayman_open
+    engineOnState: highwayman3 #Sirius Fix - animated driving state on engine start
     mechToPilotDamageMultiplier: 0.5
     airtight: false
     pilotWhitelist:
@@ -121,6 +126,14 @@
     hornSound:
       path: /Audio/Items/airhorn.ogg
     mechHornAction: ActionMechHorn
+  - type: PointLight #Sirius Fix - cone like seclite, brighter/stronger
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 10
+    energy: 5
+    softness: 5
+    netsync: false
 
 - type: entity
   id: ActionMechHorn
@@ -148,7 +161,7 @@
 
 - type: entity
   parent: BaseKey
-  id: MechKey
+  id: N14CarKey
   name: Ключи от машины
   description: Нужны для запуска двигателя. Не потеряй их!
   components:
@@ -158,7 +171,7 @@
   - type: IgnitionKey
   - type: Tag
     tags:
-    - MechKey
+    - N14CarKey #Sirius Fix - car ignition key (split from mech)
 
 - type: entity
   id: ActionMechEjectPassenger1

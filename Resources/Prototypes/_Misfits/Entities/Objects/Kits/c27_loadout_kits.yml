@@ -317,3 +317,15 @@
     state: rifleman
   content:
   - KitC27_BoSHeavy
+- type: entity
+  id: C27GenericLoadoutKit
+  name: C-27 Armor Selection Kit
+  description: Select your chassis armor weight class. Generic faction markings.
+  parent: BaseC27LoadoutKit
+  components:
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - C27_GenericLightSet
+    - C27_GenericMediumSet
+    - C27_GenericHeavySet
+

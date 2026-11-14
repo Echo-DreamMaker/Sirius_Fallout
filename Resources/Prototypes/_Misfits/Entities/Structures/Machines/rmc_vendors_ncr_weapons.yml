@@ -1,0 +1,10 @@
+# NCR weapon catalog. Approved ammunition and magazines are shared issue;
+# weapons remain separated into the three NCR allocation groups below.
+# Example per-item balance override:
+# blueprintEntryOverrides:
+#   N14ExampleWeapon:
+#     tier: 2
+#     amount: 4
+#     maxAmount: 4
+#     replenishmentCost: 3
+

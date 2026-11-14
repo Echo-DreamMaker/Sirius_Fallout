@@ -123,9 +123,11 @@
   - Deathclaw #Misfits Add - Deathclaw is enemy of everything
   - Raider
   - HostileRobot
+  - SuperMutant
   - Feral
   - CaesarLegion #Corvax-Legion
-  - BrotherhoodOfSteel
+  - Enclave
+  - EnclaveSecureArea
 
 - type: npcFaction
   id: NCR
@@ -177,10 +179,11 @@
   - Deathclaw #Misfits Add - Deathclaw is enemy of everything
   - Raider
   - HostileRobot
+  - SuperMutant
   - Feral
   - CaesarLegion #Corvax-Legion
-  - BrotherhoodOfSteel
   - Enclave
+  - EnclaveSecureArea
 
 - type: npcFaction
   id: Rangers
@@ -242,7 +245,10 @@
   - Deathclaw #Misfits Add - Deathclaw is enemy of everything
   - Raider
   - HostileRobot
+  - SuperMutant
   - Feral
+  - Enclave
+  - EnclaveSecureArea
 
 - type: npcFaction
   id: Tribal
@@ -292,7 +298,10 @@
   - Deathclaw #Misfits Add - Deathclaw is enemy of everything
   - Raider
   - HostileRobot
+  - SuperMutant
   - Feral
+  - Enclave
+  - EnclaveSecureArea
 
 - type: npcFaction
   id: Vault
@@ -329,14 +338,17 @@
   - Raider
   - HostileRobot
   - Feral
+  - SuperMutant
   - CaesarLegion #Corvax-Legion
-  - BrotherhoodOfSteel
+  - Enclave
+  - EnclaveSecureArea
 
 - type: npcFaction
   id: Zetan
   hostile:
   - Wastelander
   - BrotherhoodOfSteel
+  - BrotherhoodOfSteelSecureArea
   - CaravanCompany
   - NCR
   - Rangers
@@ -351,8 +363,10 @@
   - Raider
   - HostileRobot
   - Feral
+  - SuperMutant
   - CaesarLegion #Corvax-Legion
-  - BrotherhoodOfSteelSecureArea
+  - Enclave
+  - EnclaveSecureArea
 
 - type: npcFaction
   id: Raider
@@ -375,11 +389,12 @@
   - WastelandAnimal
   - Deathclaw #Misfits Add - Deathclaw is enemy of everything
   - Zetan
+  - SuperMutant
   - HostileRobot
   - Enclave
+  - EnclaveSecureArea
   - Feral
   - CaesarLegion #Corvax-Legion
-  - BrotherhoodOfSteelSecureArea
 
 - type: npcFaction
   id: Feral
@@ -403,10 +418,11 @@
   - Deathclaw #Misfits Add - Deathclaw is enemy of everything
   - Zetan
   - HostileRobot
+  - SuperMutant
   - Enclave
+  - EnclaveSecureArea
   - Raider
   - CaesarLegion #Corvax-Legion
-  - BrotherhoodOfSteelSecureArea
 
 - type: npcFaction
   id: WastelandAnimal
@@ -429,10 +445,11 @@
   - Deathclaw #Misfits Add - Deathclaw is now a separate faction; yaoguai etc. attack deathclaws
   - Raider
   - HostileRobot
+  - SuperMutant
   - Enclave
+  - EnclaveSecureArea
   - Feral
   - CaesarLegion #Corvax-Legion
-  - BrotherhoodOfSteelSecureArea
 
 - type: npcFaction
   id: WastelandInsect
@@ -455,10 +472,11 @@
   - Deathclaw #Misfits Add - Deathclaw is enemy of everything
   - Raider
   - HostileRobot
+  - SuperMutant
   - Enclave
+  - EnclaveSecureArea
   - Feral
   - CaesarLegion #Corvax-Legion
-  - BrotherhoodOfSteelSecureArea
 
 - type: npcFaction
   id: HostileRobot
@@ -484,8 +502,10 @@
   - WastelandAnimal
   - Deathclaw #Misfits Add - Deathclaw is enemy of everything
   - Feral
+  - SuperMutant
+  - Enclave
+  - EnclaveSecureArea
   - CaesarLegion #Corvax-Legion
-  - BrotherhoodOfSteelSecureArea
 
 # Misfits Change - Super Mutant hostile NPC faction. Hostile to ALL factions except other Super Mutants.
 # Misfits Tweak - Added Raider, Enclave, Zetan so mutants attack every mob without exception (except own faction).
@@ -508,7 +528,8 @@
   - VaultSecureArea
   - Zetan #Misfits Add - Super Mutants attack all, including Zetans
   - Raider #Misfits Add - Super Mutants attack all, including Raiders
-  - Enclave #Misfits Add - Super Mutants attack all, including Enclave
+  - Enclave
+  - EnclaveSecureArea
   - WastelandInsect
   - WastelandAnimal
   - Deathclaw #Misfits Add - Deathclaw is enemy of everything

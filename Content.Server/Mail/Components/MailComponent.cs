@@ -101,6 +101,9 @@ public sealed partial class MailComponent : SharedMailComponent
     [DataField]
     public SoundSpecifier EmagSound = new SoundCollectionSpecifier("sparks");
 
+    [DataField]
+    public int VaultReqBudget;
+
     /// <summary>
     ///     Whether this component is enabled.
     ///     Removed when it becomes trash.

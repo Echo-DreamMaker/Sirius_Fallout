@@ -1,0 +1,10 @@
+- type: entityTable
+  id: M14WeaponLootTier2_GunsBulletRifle
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier2_GunsBulletRifleAuto
+          weight: 3
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier2_GunsBulletRifleSemi
+          weight: 5

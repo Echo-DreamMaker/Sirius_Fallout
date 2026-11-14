@@ -65,6 +65,9 @@ namespace Content.Server.Entry
         {
             base.Init();
 
+            Content.Server._Misfits.Security.NetSerializerGuard.Apply(
+                IoCManager.Resolve<ILogManager>().GetSawmill("netguard"));
+
             var cfg = IoCManager.Resolve<IConfigurationManager>();
             var res = IoCManager.Resolve<IResourceManager>();
             var logManager = IoCManager.Resolve<ILogManager>();
@@ -83,12 +86,15 @@ namespace Content.Server.Entry
 
             factory.RegisterIgnore(IgnoredComponents.List);
 
-            // #Misfits Add: RMC ignored components – skip any that are already registered
+            // #Misfits Add: RMC ignored components вЂ“ skip any that are already registered
             var rmcIgnored = RmcIgnoredComponents.List
                 .Where(name => !factory.TryGetRegistration(name, out _))
                 .ToArray();
             if (rmcIgnored.Length > 0)
                 factory.RegisterIgnore(rmcIgnored);
+
+            // Misifts
+            factory.RegisterIgnore(MisfitsIgnoredComponents.List);
             prototypes.RegisterIgnore("guideEntry");
             prototypes.RegisterIgnore("parallax");
             prototypes.RegisterIgnore("latheRecipePack"); // #Misfits Add: RMC prototype type not in this fork

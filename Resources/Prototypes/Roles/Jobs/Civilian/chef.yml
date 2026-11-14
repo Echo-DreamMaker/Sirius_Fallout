@@ -28,6 +28,7 @@
   subGear:
   - ChefPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitChef
     head: ClothingHeadHatChef
     back: ClothingBackpackFilled
@@ -45,6 +46,7 @@
   id: ChefPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitChef
     head: ClothingHeadEnvirohelmColorWhite
     gloves: ClothingHandsGlovesEnviroglovesWhite

@@ -1,0 +1,16 @@
+- type: entityTable
+  id: M14WeaponLootTier4_ThrowablesExplosive
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: MisfitsGrenadeImpact
+      weight: 2
+    - !type:EntSelector
+      id: MisfitsGrenadeFragDefensive
+      weight: 2
+    - !type:EntSelector
+      id: GrenadeShrapnel
+      weight: 2
+    - !type:EntSelector
+      id: EmpGrenade
+      weight: 3

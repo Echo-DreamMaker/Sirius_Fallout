@@ -123,3 +123,20 @@
     intensitySlope: 6
     totalIntensity: 60 # 60 total damage to distribute over tiles
     maxTileBreak: 0
+- type: entity
+  id: GrenadeProjectile30mm
+  name: 30mm grenade
+  parent: BaseGrenadeProjectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 0
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Misfits30mmHE
+    maxIntensity: 2 # 2 * 10 damage-per-intensity = ~20 per tile
+    intensitySlope: 4
+    totalIntensity: 10 # exactly fills the four orthogonal neighbours, then stops
+    maxTileBreak: 0

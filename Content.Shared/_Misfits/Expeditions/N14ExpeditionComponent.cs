@@ -5,7 +5,7 @@ namespace Content.Shared._Misfits.Expeditions;
 /// <summary>
 /// Represents one board's expedition session on a (possibly shared) map.
 /// Multiple sessions can exist on the same map if different boards roll
-/// the same map path — each group keeps its own timer and return point.
+/// the same map path вЂ” each group keeps its own timer and return point.
 /// </summary>
 [DataDefinition]
 public sealed partial class N14ExpeditionSession
@@ -16,13 +16,20 @@ public sealed partial class N14ExpeditionSession
     /// <summary>Coordinates to teleport this session's players back to.</summary>
     [DataField] public EntityCoordinates ReturnPoint;
 
+    /// <summary>
+    /// Safe hub coordinate for players who join this expedition after launch.
+    /// This is deliberately recorded per session rather than inferred from the
+    /// map centre: a procedural map can have several faction hubs.
+    /// </summary>
+    [DataField] public EntityCoordinates EntryPoint;
+
     /// <summary>Server time when this session expires.</summary>
     [DataField] public TimeSpan EndTime;
 
     /// <summary>Difficulty ID used for this session.</summary>
     [DataField] public string DifficultyId = string.Empty;
 
-    // Per-session warning flags — only fire once each
+    // Per-session warning flags вЂ” only fire once each
     [DataField] public bool Warned5Min;
     [DataField] public bool Warned1Min;
     [DataField] public bool Warned30Sec;

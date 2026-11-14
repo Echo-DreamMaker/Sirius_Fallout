@@ -50,6 +50,7 @@
   subGear:
   - SecurityOfficerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitSeniorOfficer
     back: ClothingBackpackSecurity
     shoes: ClothingShoesBootsCombatFilled

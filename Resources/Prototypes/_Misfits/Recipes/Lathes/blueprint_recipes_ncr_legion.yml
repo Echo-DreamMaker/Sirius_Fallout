@@ -3296,3 +3296,217 @@
     Leather: 50
 
 
+- type: latheRecipe
+  id: N14BPNCRWeaponSMGWt550
+  result: N14WeaponSMG9mm
+  category: N14BlueprintNCRWeaponsT4
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 8000
+
+    N14Iron: 500
+
+    Leather: 100
+
+    ScrapElectronic: 500
+
+    Circuitry: 200
+
+    N14Brass: 300
+
+
+- type: latheRecipe
+  id: N14BPNCRWeaponRifleM7Spear
+  result: N14WeaponRifleM7SpearScope
+  category: N14BlueprintNCRWeaponsT4
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 10000
+
+    N14Iron: 300
+
+    Plastic: 200
+
+    N14Brass: 200
+
+    Glass: 200
+
+
+- type: latheRecipe
+  id: MisfitsBPNCRArmorMedicCombatArmor
+  result: MisfitsClothingOuterNCRMedicCombatArmor
+  category: N14BlueprintNCRArmorT3
+  completetime: 15
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 6000
+    Cloth: 1000
+    Thread: 150
+    Leather: 120
+
+
+- type: latheRecipe
+  id: N14BPNCRAmmoBox68
+  result: N14AmmoBox68
+  category: N14BlueprintNCRAmmoT3
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Lead: 45
+
+    N14Brass: 35
+
+    N14Gunpowder: 35
+
+
+- type: latheRecipe
+  id: N14BPNCRAmmoMag68Rifle
+  result: Magazine68Rifle
+  category: N14BlueprintNCRAmmoT3
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 200
+
+    Lead: 20
+
+    N14Gunpowder: 15
+
+
+- type: latheRecipe
+  id: N14BPNCRAmmoMagSMGWt550
+  result: N14MagazineSMGwt550
+  category: N14BlueprintNCRAmmoT3
+  completetime: 7
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 200
+
+    Lead: 40
+
+    N14Gunpowder: 20
+
+- type: latheRecipe
+  id: MisfitsBPNCRGrenadeShrapnel
+  result: GrenadeShrapnel
+  category: N14BlueprintNCRAmmoT3
+  completetime: 10
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 1500
+    N14Gunpowder: 1200
+    N14Iron: 500
+
+
+# --- NCR Tier 4 Ammo ---
+# #Misfits Add - Vertibird turret ammunition belt.
+- type: latheRecipe
+  id: N14BPNCRAmmoBoxOver308
+  result: N14AmmoBoxOver308
+  category: N14BlueprintNCRAmmoT4
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+      - NCR
+  materials:
+    Steel: 150
+
+    N14Brass: 75
+
+    N14Gunpowder: 125
+
+- type: latheRecipe
+  id: N14BPLegionWeaponSMGWt550
+  result: N14WeaponSMG9mm
+  category: N14BlueprintLegionWeaponsT4
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 8000
+
+    N14Iron: 500
+
+    Leather: 100
+
+    ScrapElectronic: 500
+
+    Circuitry: 200
+
+    N14Brass: 300
+
+
+
+- type: latheRecipe
+  id: N14BPLegionAmmoMagSMGWt550
+  result: N14MagazineSMGwt550
+  category: N14BlueprintLegionAmmoT3
+  completetime: 7
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 200
+
+    Lead: 40
+
+    N14Gunpowder: 20
+
+
+- type: latheRecipe
+  id: MisfitsBPLegionGrenadeTin
+  result: N14TinNade
+  category: N14BlueprintLegionAmmoT3
+  completetime: 8
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 500
+    N14Gunpowder: 700
+    Scrap: 500
+
+
+# #Misfits Add - T3 ammo parity: 7.62mm for SKS, and craftable dynamite (Legion explosive doctrine)
+- type: latheRecipe
+  id: N14BPLegionAmmoBoxOver308
+  result: N14AmmoBoxOver308
+  category: N14BlueprintLegionAmmoT4
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 150
+
+    N14Brass: 75
+
+    N14Gunpowder: 125
+
+# =====================================================================
+# #Misfits Add - HELMET RECIPES
+# Helmets pair with their armor tier so players can craft a matching head
+# slot when their issued one breaks. Material costs are scaled to be lighter
+# than the body armor they pair with.
+# =====================================================================
+
+# --- NCR Tier 1 Helmets (paired with vest armor) ---

@@ -37,6 +37,7 @@
 - type: startingGear
   id: CaesarLegionSlaveGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitRags
     neck: NCClothingCollarLegionSlave
     id: N14IDLegionaryBadgeSlave

@@ -336,3 +336,39 @@
             Radiation: 0.5
       - !type:ChemVomit
         probability: 0.2
+- type: reagent
+  id: M14BaseProduceExtract
+  parent: BaseDrink
+  abstract: true
+  group: Extracts
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .2
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1 # TODO: need more in-depth and nuanced way to handle radiation
+
+
+# Alphabetical
+# Extracts
+- type: reagent
+  id: ExtractCannabis
+  name: reagent-name-extract-cannabis
+  group: Extracts
+  desc: reagent-desc-extract-cannabis
+  flavor: bitter
+  color: "#4F6B3A"
+  physicalDesc: reagent-physical-desc-strong-smelling
+  plantMetabolism:
+  - !type:PlantAdjustHealth
+    amount: 0
+

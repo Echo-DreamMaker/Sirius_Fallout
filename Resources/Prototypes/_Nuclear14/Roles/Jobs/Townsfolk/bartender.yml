@@ -39,6 +39,7 @@
 - type: startingGear
   id: WastelandBartenderGear
   equipment:
+    wallet: N14Wallet
     head: ClothingHeadHatTophat
     jumpsuit: N14ClothingUniformJumpsuitBartenderAlt
     ears: MisfitsClothingHeadsetTown

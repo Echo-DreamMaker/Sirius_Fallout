@@ -1466,3 +1466,18 @@
   - type: ConditionalSpawner
     prototypes:
       - SiriusGlowingCochevnikDrobashMobRaider
+- type: entity
+  name: Liberty Cultists Spawner - Recruit
+  id: N14SpawnMobRaiderFernRecruit
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/Raiders.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14MobFernMercRecruit
+

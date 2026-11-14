@@ -48,6 +48,7 @@
   subGear:
   - WardenPlasmamanGear
   equipment:
+    wallet: N14Wallet
     head: ClothingHeadHatWarden
     jumpsuit: ClothingUniformJumpsuitWarden
     back: ClothingBackpackSecurity
@@ -65,6 +66,7 @@
   id: WardenPlasmamanGear
   parent: BasePlasmamanSecurityGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitWarden
     head: ClothingHeadEnvirohelmWarden
     gloves: ClothingHandsGlovesEnviroglovesBlack

@@ -14,6 +14,17 @@
             - material: WoodPlank
               amount: 2
               doAfter: 2
+
+        - to: Metal
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 2
               
     - node: Wood
       entity: N14WallWoodHalf
@@ -26,4 +37,17 @@
             - !type:DeleteEntity {}
           steps:
             - tool: Prying
+              doAfter: 10
+
+    - node: Metal
+      entity: N14WallMetalHalf
+      edges:
+        - to: start
+          completed:
+            - !type:GivePrototype
+              prototype: SheetSteel1
+              amount: 2
+            - !type:DeleteEntity {}
+          steps:
+            - tool: Welding
               doAfter: 10

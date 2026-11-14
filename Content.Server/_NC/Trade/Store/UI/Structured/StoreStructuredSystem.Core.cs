@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server.Popups;
 using Content.Server.Storage.Components;
-using Content.Shared._Misfits.Trade; // #Misfits Add — tier progression events
+using Content.Shared._Misfits.Trade; // #Misfits Add вЂ” tier progression events
 using Content.Shared._NC.Trade;
 using Content.Shared.Access.Components;
 using Content.Shared.Stacks;
@@ -249,11 +249,11 @@ public sealed partial class StoreStructuredSystem : EntitySystem
                 if (storeComp.CurrentUser is not { } staleUser)
                     continue;
 
-                // Already tracked — the normal health check will handle it
+                // Already tracked вЂ” the normal health check will handle it
                 if (_openStoreUids.Contains(storeUid))
                     continue;
 
-                // CurrentUser is set but store is NOT tracked — check if BUI is actually open
+                // CurrentUser is set but store is NOT tracked вЂ” check if BUI is actually open
                 if (!_ui.IsUiOpen(storeUid, StoreUiKey.Key, staleUser))
                 {
                     StoreSawmill.Warning($"Stale sweep: clearing orphaned CurrentUser {ToPrettyString(staleUser)} on {ToPrettyString(storeUid)}");
@@ -479,10 +479,10 @@ public sealed partial class StoreStructuredSystem : EntitySystem
 
         SendCatalog(uid, comp, user);
 
-        // #Misfits Add — notify tier system on vendor open (awards Road Kill badge on first visit)
+        // #Misfits Add вЂ” notify tier system on vendor open (awards Road Kill badge on first visit)
         // broadcast: true is required so the broadcast-subscribed ContractTierSystem handler fires
         if (comp.ContractPresets.Count > 0)
-            RaiseLocalEvent(user, new MisfitsContractFirstAccessEvent(uid, user), broadcast: true);
+            RaiseLocalEvent(user, new MisfitsContractFirstAccessEvent(uid, user, comp.ContractTierProfile), broadcast: true);
 
         UpdateDynamicState(uid, comp, user);
     }
@@ -610,7 +610,7 @@ public sealed partial class StoreStructuredSystem : EntitySystem
             !_xform.InRange(sX.Coordinates, uX.Coordinates, AutoCloseDistance))
             return;
 
-        // #Misfits Add — capture difficulty before the contract is consumed on claim
+        // #Misfits Add вЂ” capture difficulty before the contract is consumed on claim
         string? contractDifficulty = null;
         if (comp.Contracts.TryGetValue(msg.ContractId, out var contractBeforeClaim))
             contractDifficulty = contractBeforeClaim.Difficulty;
@@ -620,16 +620,16 @@ public sealed partial class StoreStructuredSystem : EntitySystem
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/Cargo/ping.ogg"), user);
             _popups.PopupEntity(Loc.GetString("nc-store-contract-completed"), uid, user);
 
-            // #Misfits Add — notify tier system of completed contract
+            // #Misfits Add вЂ” notify tier system of completed contract
             // broadcast: true is required so the broadcast-subscribed ContractTierSystem handler fires
             if (contractDifficulty != null)
-                RaiseLocalEvent(user, new MisfitsContractClaimedEvent(uid, user, msg.ContractId, contractDifficulty), broadcast: true);
+                RaiseLocalEvent(user, new MisfitsContractClaimedEvent(uid, user, msg.ContractId, contractDifficulty, comp.ContractTierProfile), broadcast: true);
 
             UpdateDynamicState(uid, comp, user);
             return;
         }
 
-        // #Misfits Fix — claim failed: still send the full dynamic state so the
+        // #Misfits Fix вЂ” claim failed: still send the full dynamic state so the
         // client sees up-to-date progress (previously only server data was refreshed)
         UpdateDynamicState(uid, comp, user);
     }
@@ -686,8 +686,8 @@ public sealed partial class StoreStructuredSystem : EntitySystem
     {
         return listing.Mode switch
         {
-            StoreMode.Buy => _logic.ApplyCharismaBuyPrice(user, price),
-            StoreMode.Sell or StoreMode.Exchange => _logic.ApplyCharismaSellReward(user, price),
+            StoreMode.Buy => _logic.ApplyCharismaBuyPrice(user, price, listing.ProductEntity),
+            StoreMode.Sell or StoreMode.Exchange => _logic.ApplyCharismaSellReward(user, price, listing.ProductEntity),
             _ => price,
         };
     }
@@ -752,11 +752,13 @@ public sealed partial class StoreStructuredSystem : EntitySystem
         private readonly HashSet<string> _visibleListingIds = new();
         private int _activeIndex;
         private int _catalogRevision;
+        private string _contractTierProfile = string.Empty;
         private bool _hasBuyTab;
         private bool _hasContracts;
         private bool _hasMeta;
         private bool _hasSellTab;
         private bool _hasVisibleIds;
+        private HashSet<string> _unlockedTiers = new();
         private int _visibleSig;
         public TimeSpan NextDynamicAllowed = TimeSpan.Zero;
 
@@ -832,7 +834,9 @@ public sealed partial class StoreStructuredSystem : EntitySystem
             int catalogRevision,
             bool hasBuyTab,
             bool hasSellTab,
-            bool hasContracts
+            bool hasContracts,
+            string contractTierProfile,
+            HashSet<string> unlockedTiers
         )
         {
             if (!_hasMeta)
@@ -841,7 +845,9 @@ public sealed partial class StoreStructuredSystem : EntitySystem
             if (_catalogRevision != catalogRevision ||
                 _hasBuyTab != hasBuyTab ||
                 _hasSellTab != hasSellTab ||
-                _hasContracts != hasContracts)
+                _hasContracts != hasContracts ||
+                _contractTierProfile != contractTierProfile ||
+                !_unlockedTiers.SetEquals(unlockedTiers))
                 return false;
 
             var prev = GetReadBuffer();
@@ -854,7 +860,13 @@ public sealed partial class StoreStructuredSystem : EntitySystem
                 ListEquals(prev.Contracts, next.Contracts);
         }
 
-        public void Commit(int catalogRevision, bool hasBuyTab, bool hasSellTab, bool hasContracts)
+        public void Commit(
+            int catalogRevision,
+            bool hasBuyTab,
+            bool hasSellTab,
+            bool hasContracts,
+            string contractTierProfile,
+            HashSet<string> unlockedTiers)
         {
             _activeIndex = 1 - _activeIndex;
 
@@ -862,6 +874,8 @@ public sealed partial class StoreStructuredSystem : EntitySystem
             _hasBuyTab = hasBuyTab;
             _hasSellTab = hasSellTab;
             _hasContracts = hasContracts;
+            _contractTierProfile = contractTierProfile;
+            _unlockedTiers = new(unlockedTiers);
             _hasMeta = true;
         }
 
@@ -880,7 +894,7 @@ public sealed partial class StoreStructuredSystem : EntitySystem
             return true;
         }
 
-        // #Misfits Fix — ContractClientData is a class without Equals override, so
+        // #Misfits Fix вЂ” ContractClientData is a class without Equals override, so
         // EqualityComparer<T>.Default used reference equality which ALWAYS failed for
         // newly-created objects from MapContractToClient, making EqualsLast always return
         // false, flooding the client with redundant state updates and causing the UI to

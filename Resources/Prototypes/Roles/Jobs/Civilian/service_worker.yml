@@ -22,6 +22,7 @@
   subGear:
   - ServiceWorkerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorDarkGreen # DeltaV
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorBlack
@@ -35,6 +36,7 @@
   id: ServiceWorkerPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitColorDarkGreen
     head: ClothingHeadEnvirohelmColorDarkGreen
     gloves: ClothingHandsGlovesEnviroglovesColorDarkGreen

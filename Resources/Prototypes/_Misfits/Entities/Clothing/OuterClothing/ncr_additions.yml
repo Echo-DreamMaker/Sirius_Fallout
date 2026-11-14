@@ -1,13 +1,13 @@
 # Additional NCR armor variants to supplement the existing N14/Corvax NCR gear set.
 # Adds a heavier frontline option (salvaged metal) and a dedicated medic vest that isn't in N14.
 # Stats converted from SS13 (0-100 resistance) to SS14 coefficients: 1 - (ss13_value / 100).
-# Sprites: TODO — source or create RSI files and place in _Misfits/Clothing/OuterClothing/Armor/.
+# Sprites: TODO вЂ” source or create RSI files and place in _Misfits/Clothing/OuterClothing/Armor/.
 
 - type: entity
   parent: N14FalloutArmorBase
   id: MisfitsClothingOuterNCRSalvagedMetalArmor
   name: NCR salvaged metal armor
-  description: Pre-war metal armor repaired and re-issued to NCR heavy infantry. Durable if not elegant — the Republic takes what it can get after years of campaigning in the Mojave. Heavier than standard NCR vests.
+  description: Pre-war metal armor repaired and re-issued to NCR heavy infantry. Durable if not elegant вЂ” the Republic takes what it can get after years of campaigning in the Mojave. Heavier than standard NCR vests.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncrsalvagedmetalarmor.rsi
@@ -36,7 +36,7 @@
   parent: N14FalloutArmorBase
   id: MisfitsClothingOuterNCRFieldMedicVest
   name: NCR field medic vest
-  description: A reinforced NCR medic vest with a prominent red cross emblem. Relatively light armor — the medic needs to move quickly between fallen soldiers, and bulkier protection would just slow them down.
+  description: A reinforced NCR medic vest with a prominent red cross emblem. Relatively light armor вЂ” the medic needs to move quickly between fallen soldiers, and bulkier protection would just slow them down.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncrfieldmedicvest.rsi
@@ -137,3 +137,67 @@
     priceMultiplier: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.70
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsClothingOuterNCRMedicCombatArmor
+  name: NCR medic combat armor
+  description: Pre-war combat armor repainted to NCR colors and marked with red cross emblems for the Republic's medical corps. Sturdy enough to keep field medics alive while they drag the wounded back behind the line.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_mediccombatarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_mediccombatarmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
+    priceMultiplier: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.80
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsClothingOuterNCRMedicLabCoat
+  name: NCR medic lab coat
+  description: A white NCR-issue lab coat worn over a light ballistic vest. It shrugs off scrapes and secondhand explosions, but a medic's real protection is the steady hands they bring to the wounded.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_mediclabcoat.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_mediclabcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+    priceMultiplier: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface

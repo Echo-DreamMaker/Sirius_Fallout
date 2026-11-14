@@ -47,7 +47,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsEnclaveRoleHeadScientist
-  suffix: Vault Security Locked
+  suffix: Enclave Locked
   categories: [ HideSpawnMenu ]
   components:
   - type: AccessReader
@@ -74,7 +74,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsEnclaveRoleSeniorOfficer
-  suffix: Vault Security Locked
+  suffix: Enclave Locked
   categories: [ HideSpawnMenu ]
   components:
   - type: AccessReader
@@ -83,7 +83,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsEnclaveRoleCommander
-  suffix: Vault Security Locked
+  suffix: Enclave Locked
   categories: [ HideSpawnMenu ]
   components:
   - type: AccessReader

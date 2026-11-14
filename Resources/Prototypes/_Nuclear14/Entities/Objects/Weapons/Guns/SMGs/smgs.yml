@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent: BaseWeaponSubMachineGun
   id: N14WeaponSMGBase
   abstract: true
@@ -1608,7 +1608,7 @@
       types:
         Piercing: 1
 
-# #Misfits Add — PPSh-41, M3A1 Grease Gun, American 180
+# #Misfits Add тАФ PPSh-41, M3A1 Grease Gun, American 180
 # Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
 - type: entity
   name: PPSh-41

@@ -1,0 +1,66 @@
+- type: reaction
+  id: Cryonex
+  impact: High
+  reactants:
+    Plasma:
+      amount: 3
+    Cryoxadone:
+      amount: 2
+    Silicon:
+      amount: 1
+  products:
+    Cryonex: 6
+
+- type: reaction
+  id: Cryzine
+  impact: High
+  reactants:
+    Cryonex:
+      amount: 2
+    Ethanol:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    Cryzine: 4
+
+- type: reaction
+  id: Traumazine
+  impact: High
+  reactants:
+    Cryonex:
+      amount: 2
+    Bruizine:
+      amount: 2
+    Pyrazine:
+      amount: 2
+  products:
+    Traumazine: 3
+
+- type: reaction
+  id: Toxazine
+  impact: High
+  reactants:
+    Cryonex:
+      amount: 2
+    Dylovene:
+      amount: 2
+    Hyronalin:
+      amount: 2
+  products:
+    Toxazine: 3
+
+#- type: reaction
+#  id: Somaline
+#  impact: High
+#  reactants:
+#    Cryonex:
+#      amount: 3
+#    Doxarubixadone:
+#      amount: 1
+#    Radium:
+#      amount: 1
+#    Epinephrine:
+#      amount: 1
+#  products:
+#    Somaline: 2

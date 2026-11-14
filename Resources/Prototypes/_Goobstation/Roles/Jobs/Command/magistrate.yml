@@ -51,6 +51,7 @@
   subGear:
   - MagistratePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitMagistrate
     shoes: ClothingShoesLeather
     gloves: ClothingHandsGlovesColorWhite
@@ -62,6 +63,7 @@
   id: MagistratePlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitMagistrate
     head: ClothingHeadEnvirohelmMagistrate
     gloves: ClothingHandsGlovesEnviroglovesWhite

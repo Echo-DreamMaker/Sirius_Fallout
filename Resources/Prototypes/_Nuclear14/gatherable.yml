@@ -186,3 +186,7 @@
 - type: ore
   id: WildXander
   oreEntity: N14FloraProduceWildXander
+- type: ore
+  id: WildCannabis
+  oreEntity: N14FloraProduceWildCannabis
+

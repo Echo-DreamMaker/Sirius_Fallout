@@ -1,0 +1,14 @@
+- type: entityTable
+  id: M14WeaponLootTier5_GunsBulletLMG
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponM60GPMG #308
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponLMGAutoRifle # 308
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponLMGBren # 308
+      weight: 5
+

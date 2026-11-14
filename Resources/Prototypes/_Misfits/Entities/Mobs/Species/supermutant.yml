@@ -129,7 +129,7 @@
       types:
         Asphyxiation: -1
   # Misfits Change - radiation is absorbed as healing fuel rather than damage.
-  # healFactor 0.1 (default) ≈ 2× super stimpack rate in a moderate rad zone (~50 rads/sec).
+  # healFactor 0.1 (default) ? 2? super stimpack rate in a moderate rad zone (~50 rads/sec).
   # healCap scaled to SM health: 360 = 90% of 400 dead threshold (vs 90 = 90% of 100 crit for humans).
 #   - type: RadiationReceiver #sirius-change
 #   - type: RadiationHealing #Radiation healing non canon and too imbalance

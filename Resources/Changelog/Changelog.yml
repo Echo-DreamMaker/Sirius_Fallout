@@ -163,7 +163,7 @@ Entries:
         rules XML.
     - type: Add
       message: >-
-        Misfits guidebook locale overrides (rules → "Wiki", nuclear14 →
+        Misfits guidebook locale overrides (rules > "Wiki", nuclear14 >
         "Misfits: Nuclear Wasteland").
     - type: Tweak
       message: >-
@@ -553,7 +553,7 @@ Entries:
   changes:
     - type: Add
       message: >-
-        📻 **Radio System Overhaul** — Rewrote radio syntax to proper `:` prefix
+        ?? **Radio System Overhaul** — Rewrote radio syntax to proper `:` prefix
         format with faction relevancy
     - type: Add
       message: >-
@@ -573,7 +573,7 @@ Entries:
         headsets pre-set with `:w`
     - type: Add
       message: >-
-        🗺️ **Pip-Boy Map System** — `Programs > Map` with zoom, pan, player
+        ??? **Pip-Boy Map System** — `Programs > Map` with zoom, pan, player
         tracking, blips, and annotation tools
     - type: Add
       message: >-
@@ -600,7 +600,7 @@ Entries:
       message: Paper, headset (0.5%), pipboy (0.005%) to junk piles.
     - type: Add
       message: >-
-        🤖 **Robot Overhaul** — Species map with branded navigation headers;
+        ?? **Robot Overhaul** — Species map with branded navigation headers;
         General Atomics (Assaultron, Protectron) · RobCo (Mr. Handy, Mr. Gutsy)
     - type: Add
       message: >-
@@ -622,12 +622,12 @@ Entries:
       message: Robot added as a new Misfits species prototype
     - type: Add
       message: >-
-        🧬 **Species Whitelist System** — `WhitelistRequired`, `RestrictedJobs`,
+        ?? **Species Whitelist System** — `WhitelistRequired`, `RestrictedJobs`,
         `JobWhitelistUnlock`, `Order`, and `RestrictedCustomization` added to
         `SpeciesPrototype`; enforced in character editor and late-join
     - type: Add
       message: >-
-        🛠️ **Admin Menu Rebuilt** — Reordered and expanded; Players tab moved
+        ??? **Admin Menu Rebuilt** — Reordered and expanded; Players tab moved
         forward; left-click opens quick actions, right-click opens verb list
     - type: Add
       message: >-
@@ -647,7 +647,7 @@ Entries:
         UI localization
     - type: Add
       message: >-
-        💬 **Chat & Emote Commands** — `./do` `./em` `./say` `./looc` `./ooc`
+        ?? **Chat & Emote Commands** — `./do` `./em` `./say` `./looc` `./ooc`
         `./admin` `./dead`
     - type: Add
       message: >-
@@ -657,7 +657,7 @@ Entries:
       message: Updated chat parsing to support slash aliases before channel detection
     - type: Add
       message: >-
-        🩺 **Shitmed (Delta V)** — Drug addictions on appropriate Fallout drugs
+        ?? **Shitmed (Delta V)** — Drug addictions on appropriate Fallout drugs
         · contamination factor on amputations · new Chronic Pain trait
     - type: Add
       message: >-
@@ -1512,8 +1512,8 @@ Entries:
         NPCSteeringSystem parallelization overhead removal and array pooling,
         StatusEffectsSystem/MetabolizerSystem reusable list buffers,
         BloodstreamSystem thundering herd fix, ThermalAmbienceSystem throttling,
-        StomachSystem O(n) removal, physics tick rate reduction (120→60), and
-        NPC update cap (1024→512). Estimated 10-15% total CPU reduction.
+        StomachSystem O(n) removal, physics tick rate reduction (120>60), and
+        NPC update cap (1024>512). Estimated 10-15% total CPU reduction.
   id: 5640
   time: '2026-03-13T18:30:40.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/118
@@ -1735,7 +1735,7 @@ Entries:
   changes:
     - type: Fix
       message: >-
-        Someone had deliberately injected jerk → "jerking off" and jerks →
+        Someone had deliberately injected jerk > "jerking off" and jerks >
         "jerks off" into the word-replacement table. Both are now gone.
     - type: Tweak
       message: Sentry bots.
@@ -2657,7 +2657,7 @@ Entries:
 - author: cythisiax
   changes:
     - type: Add
-      message: Priestess of Mars claw glove sprites by Pinky109 and Nequizia
+      message: of Mars claw glove sprites by Pinky109 and Nequizia
     - type: Add
       message: ArmorComponent values to Supermutant Gladiator 15%/helmet gets 50% ARC
     - type: Add
@@ -5577,7 +5577,7 @@ Entries:
         Woodcutting no longer automatically combines log stacks; no need to
         split logs for planks anymore!
     - type: Tweak
-      message: Stacks no longer automatically combine for destruction scrapping (🫃)
+      message: Stacks no longer automatically combine for destruction scrapping (??)
   id: 5934
   time: '2026-05-24T14:16:14.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/584
@@ -7376,7 +7376,7 @@ Entries:
     - type: Add
       message: >-
         Added said fun new melee weapon to the big block kit, and to a
-        paladin-grade kit. 
+        paladin-grade kit.
     - type: Remove
       message: Removed auto-shotgun from paladin kit, replaced with said rippersword.
     - type: Tweak
@@ -7421,7 +7421,7 @@ Entries:
       message: >-
         [NCR Rangers] The rangers have decided to pack up shop and move to a
         swimming platform to the north. Please note, that this base does have
-        raid protection and cannot be freely looted. 
+        raid protection and cannot be freely looted.
     - type: Add
       message: >-
         [NCR MPs] The MPs have seized the opportunity and decided to take over
@@ -7569,7 +7569,7 @@ Entries:
   changes:
     - type: Tweak
       message: >-
-        Road Rash forgot how to ride bikes, oh no! They will have to learn ic 
+        Road Rash forgot how to ride bikes, oh no! They will have to learn ic
         )also cant take it from perks.)
     - type: Tweak
       message: 'Bikes cant fit through a single tile anymore. '
@@ -7949,7 +7949,7 @@ Entries:
     - type: Fix
       message: >-
         NPCs won't ignore unanchored objects anymore and will try to break
-        them(no more cheesing deathclaws) 
+        them(no more cheesing deathclaws)
   id: 6147
   time: '2026-06-27T17:34:56.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/896
@@ -8422,7 +8422,7 @@ Entries:
     - type: Tweak
       message: >-
         The RCW has been reworked to fill a similar role, as well as electron
-        charge pack size buff. 
+        charge pack size buff.
     - type: Tweak
       message: The AER-9 is no longer useless
     - type: Tweak
@@ -8854,7 +8854,7 @@ Entries:
       message: >-
         Added a control panel to outside of vault, can be accessed if you have a
         pip boy & are in a active raid with the vault. Play minigame to hack
-        open vault door, bolting it open for 20m. 
+        open vault door, bolting it open for 20m.
     - type: Fix
       message: 'Fixed case of dissapearing chemvend & the box of unopenning '
     - type: Fix
@@ -8936,7 +8936,7 @@ Entries:
     - type: Fix
       message: >-
         Z.A.X Pop cap uses ZaxUnit comps instead of the other, broader ones.
-        Meaning players arent counted. The C-27 cap remains unaffected. 
+        Meaning players arent counted. The C-27 cap remains unaffected.
   id: 6219
   time: '2026-07-14T01:53:41.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1012
@@ -9128,7 +9128,7 @@ Entries:
     - type: Tweak
       message: >-
         80s bikes have half HP and do not round remove once they blow up now. As
-        well as take longer to blow up once broken. 
+        well as take longer to blow up once broken.
   id: 6239
   time: '2026-07-19T01:54:32.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1049
@@ -9143,7 +9143,7 @@ Entries:
     - type: Tweak
       message: >-
         Disabled Napalm recipe as it interacts with the fuel recipes weird + the
-        fire system 
+        fire system
   id: 6240
   time: '2026-07-19T04:11:54.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1051
@@ -9394,7 +9394,7 @@ Entries:
     - type: Tweak
       message: >-
         Nuka cola crate and kitchen shelf items adjusted to prevent errors msgs
-        and let other coded items to spawn 
+        and let other coded items to spawn
   id: 6264
   time: '2026-07-23T00:54:32.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/995
@@ -9438,7 +9438,7 @@ Entries:
     - type: Add
       message: >-
         Updated Enclave PA models to reflect recent buffs to other standard PA,
-        added missing reflect values, etc. 
+        added missing reflect values, etc.
     - type: Add
       message: Enclave roles were missing spawn prototypes for admin use, added em in.
     - type: Tweak
@@ -9601,7 +9601,7 @@ Entries:
     - type: Add
       message: >-
         Legion flag backpacks exclusively for vex, prime dec, vet dec, optio and
-        centurion. 
+        centurion.
     - type: Add
       message: Legion mantle exclusive by Optio
     - type: Tweak
@@ -10292,7 +10292,7 @@ Entries:
     - type: Add
       message: >-
         Spent casing are now a clientside only visual. This lets us have bullet
-        casings WITH PHYSICS!! These can even be adjusted in the graphics menu 
+        casings WITH PHYSICS!! These can even be adjusted in the graphics menu
   id: 6335
   time: '2026-08-17T01:08:37.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1766
@@ -10386,7 +10386,7 @@ Entries:
     - type: Tweak
       message: >-
         Edited bos off duty supervisors a bit, now a break in the codex to
-        participate in the bos's operations 
+        participate in the bos's operations
   id: 6339
   time: '2026-08-18T12:17:27.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1775
@@ -10863,7 +10863,7 @@ Entries:
     - type: Add
       message: >-
         (forgot to mention this earlier) Ammo Do Afters now transfer ammo faster
-        and insert ammo 5 at a time. Also can do it while moving. 
+        and insert ammo 5 at a time. Also can do it while moving.
     - type: Add
       message: >-
         A higher pitch sound also plays on the last ammo Do After. This signals

@@ -32,6 +32,8 @@
   roles:
   # Command (Admin Only)
   - BoSWestElderCommander        # Elder          | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_elder.yml
+  # Command (Whitelist)
+  - BoSArchivist                 # Archivist      | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_archivist.yml
   # Head Officers
   - BoSMidPaladinCommander       # Head Paladin   | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_headpaladin.yml
   #Misfits Change /Comment-out/: Washington BoS jobs removed from faction — prototypes commented out.
@@ -61,17 +63,14 @@
 # Rangers/MilitaryPolice pattern of a sub-branch with its own department block.
 # The ID deliberately extends BrotherhoodOfSteel so ordinal sorting parks it directly
 # beneath the Brotherhood in the character selection screen.
-# #Cythisiax Renamed (player-facing) - Lancer-Captain shows as Knight-Captain, Lancer-Knight as
-# Knight-Lancer; the entry "Lancer" rung was removed and its slot folded into Lancer-Knight.
-# Prototype IDs kept stable so Lancers playtime is preserved.
+# #Misfits Change - Knight-Lancer is the sole role in the Brotherhood aviation branch.
 - type: department
   id: BrotherhoodOfSteelLancers
   description: department-BrotherhoodOfSteelLancers-description
   color: "#2F5D8C" # deeper Wendover blue, distinct from the chapter's #3B72BF
   uiCategory: MajorFaction
   roles:
-  - BoSLancerCaptain # Knight-Captain (player-facing) | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_lancer_captain.yml
-  - BoSLancerKnight  # Knight-Lancer  (player-facing) | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_lancer_knight.yml
+  - BoSLancerKnight  # Knight-Lancer (player-facing) | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_lancer_knight.yml
 
 #- type: department
 #  id: CaravanCompany
@@ -91,6 +90,7 @@
   # Command Officers (Captain/Major pins) — repurposed from NCRCaptain
   - NCRCommander         # NCR Commander           | _Misfits/Roles/Jobs/NCR/ncr_captain.yml
   - NCRDoctor            # NCR Medical Doctor      | _Misfits/Roles/Jobs/NCR/ncr_doctor.yml
+  - NCRLTCol             # NCR Lieutenant Colonel  | _Misfits/Roles/Jobs/NCR/ncr_lieutenant_colonel.yml
   # Junior Officers (2LT/1LT pins) — repurposed from NCRLT
   - NCRExecutiveOfficer  # NCR Executive Officer   | _Misfits/Roles/Jobs/NCR/ncr_lieutenant.yml
   - NCRPlatoonLeader     # NCR Platoon Leader      | _Misfits/Roles/Jobs/NCR/ncr_platoon_leader.yml
@@ -124,11 +124,14 @@
   id: Rangers
   description: department-Rangers-description
   color: "#3ab700"
-  uiCategory: MajorFaction
+  uiCategory: MinorFaction # #Misfits Change - Rangers are their own minor faction, no longer grouped under the NCR major faction
   roles:                                                                                                          # #Misfits Change - full Rangers ladder with NCR-prefixed IDs; NCRChiefRanger on top
+  - NCRDagger        # DAGGER (whitelist-only Ranger / NCR High Command liaison) | _Misfits/Roles/Jobs/Rangers/dagger.yml
   - NCRChiefRanger   # Chief Ranger (admin-only) | _Misfits/Roles/Jobs/Rangers/chief_ranger.yml
   - NCRVeteranRanger # Veteran Ranger            | _Misfits/Roles/Jobs/Rangers/ranger_veteran.yml
-  - NCRFieldRanger   # Field Ranger              | _Misfits/Roles/Jobs/Rangers/ranger.yml
+  #- NCRFieldRanger  # Field Ranger              | _Misfits/Roles/Jobs/Rangers/ranger.yml  # #Misfits Removed - Field Ranger retired; its map slots went to Patrol Ranger (+2) and Ranger Recruit (+1)
+  - NCRRangerStandard # Ranger                   | _Misfits/Roles/Jobs/Rangers/ranger_standard.yml  # #Misfits Add - main Ranger rung; patrol ranger keeps its job but has no station slots
+  - NCRRangerMedic  # Ranger Medic              | _Misfits/Roles/Jobs/Rangers/ranger_medic.yml  # #Misfits Add - medical rung of the Ranger ladder
   - SuperMutantNCRRanger # Mutant Ranger         | _Misfits/Roles/Jobs/SuperMutant/supermutant.yml # Misfits Add
 #  - NCRPatrolRanger  # Patrol Ranger             | _Misfits/Roles/Jobs/Rangers/ranger_recruit.yml
   - NCRRangerRecruit # Ranger Recruit            | _Misfits/Roles/Jobs/Rangers/ncr_ranger_recruit.yml
@@ -211,6 +214,7 @@
   color: "#5c733a"
   uiCategory: MinorFaction
   roles:
+  - Ambassador
   - TownMayor
   - TownSheriff
   - TownDeputy
@@ -257,10 +261,12 @@
   - CaesarLegionPrimeDecanus    # Prime Decanus       | _Misfits/Roles/Jobs/CaesarLegion/legion_prime_decanus.yml # #Misfits Add
   - CaesarLegionDean            # Decanus             | _Misfits/Roles/Jobs/CaesarLegion/legion_decanus.yml # #Misfits Add
   - CaesarLegionForgemaster     # Forgemaster         | _Misfits/Roles/Jobs/CaesarLegion/legion_forgemaster.yml # #Misfits Add
+  - CaesarLegionAcolyteOfMars   # Acolyte of Mars     | _Misfits/Roles/Jobs/CaesarLegion/legion_Acolyte.yml # #Misfits Add
   # Warriors
   - CaesarLegionLegionnaireVeteran  # Veteran Legionnaire | _Misfits/Roles/Jobs/CaesarLegion/legion_legionnaire_veteran.yml # #Misfits Add
   - CaesarLegionLegionnaireWarrior  # Legionnaire Warrior | _Misfits/Roles/Jobs/CaesarLegion/legion_legionnaire_warrior.yml # #Misfits Add
   - CaesarLegionLegionnaireRecruit  # Legionnaire Recruit | _Misfits/Roles/Jobs/CaesarLegion/legion_legionnaire_recruit.yml # #Misfits Add
+  - CaesarLegionTempleGuard         # Temple Guard        | _Misfits/Roles/Jobs/CaesarLegion/legion_temple_guard.yml # #Misfits Add
   # Specialists # #Misfits Change /Fix/: Match Character Setup and Latejoin order to the requested Legion rank grouping.
   - CaesarLegionHoundmaster     # Houndmaster         | _Misfits/Roles/Jobs/CaesarLegion/legion_houndmaster.yml # #Misfits Add
   - CaesarLegionFrumentarii     # Frumentarii         | _Misfits/Roles/Jobs/CaesarLegion/legion_frumentarii.yml  # #Misfits Fix - renamed from legion_venator.yml to match in-game role name

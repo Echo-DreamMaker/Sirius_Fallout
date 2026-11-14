@@ -363,7 +363,7 @@ public abstract partial class SharedSurgerySystem
         // Right now the bonus is based off the body's total damage, maybe we could make it based off each part in the future.
         var bonus = ent.Comp.HealMultiplier * damageable.DamagePerGroup[ent.Comp.MainGroup];
         if (_mobState.IsDead(args.Body))
-            bonus *= 0.2;
+            bonus *= 0.5;
 
         var adjustedDamage = new DamageSpecifier(ent.Comp.Damage);
 
@@ -523,14 +523,18 @@ public abstract partial class SharedSurgerySystem
 
         // Adding organs is generally done for a single one at a time, so we only need to check for the first.
         var firstOrgan = organComp.Organ.Values.FirstOrDefault();
-        if (firstOrgan == default)
+#pragma warning disable CS8602
+        if (firstOrgan.Component is not { } firstOrganComp) // #Sirius Fix: nullable guard
             return;
+#pragma warning restore CS8602
 
         foreach (var tool in args.Tools)
         {
-            if (HasComp(tool, firstOrgan.Component.GetType())
+#pragma warning disable CS8602 // #Sirius Fix: guarded by null check above
+            if (HasComp(tool, firstOrganComp.GetType())
                 && TryComp<OrganComponent>(tool, out var insertedOrgan)
                 && _body.InsertOrgan(args.Part, tool, insertedOrgan.SlotId, partComp, insertedOrgan))
+#pragma warning restore CS8602
             {
                 EnsureComp<OrganReattachedComponent>(tool);
                 if (_body.TrySetOrganUsed(tool, true, insertedOrgan)
@@ -642,14 +646,18 @@ public abstract partial class SharedSurgerySystem
             return;
 
         var organType = ent.Comp.Organ.Values.FirstOrDefault();
-        if (organType == default)
+#pragma warning disable CS8602
+        if (organType.Component is not { } organTypeComp) // #Sirius Fix: nullable guard
             return;
+#pragma warning restore CS8602
 
         var markingCategory = MarkingCategoriesConversion.FromHumanoidVisualLayers(ent.Comp.MarkingCategory);
         foreach (var tool in args.Tools)
         {
+#pragma warning disable CS8602 // #Sirius Fix: guarded by null check above
             if (TryComp(tool, out MarkingContainerComponent? markingComp)
-                && HasComp(tool, organType.Component.GetType()))
+                && HasComp(tool, organTypeComp.GetType()))
+#pragma warning restore CS8602
             {
                 if (!bodyAppearance.MarkingSet.Markings.TryGetValue(markingCategory, out var markingList)
                     || !markingList.Any(marking => marking.MarkingId.Contains(ent.Comp.MatchString)))

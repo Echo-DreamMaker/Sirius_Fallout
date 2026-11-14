@@ -1,0 +1,12 @@
+# #Misfits Add - Paracusia trait. Grants ParacusiaComponent which feeds into
+# HallucinationsSystem to produce time-scaled auditory hallucinations.
+# Costs 2 trait points (mental category) since it's flavor-only вЂ” no real harm.
+
+- type: trait
+  id: TraitParacusia
+  category: Mental
+  points: 2
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: MisfitsParacusia

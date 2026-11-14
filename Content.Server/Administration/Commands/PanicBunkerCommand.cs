@@ -22,7 +22,7 @@ public sealed class PanicBunkerCommand : LocalizedCommands
         if (toggle == null)
             return;
 
-        _adminLogger.Add(LogType.PanicBunkerToggle, LogImpact.Medium,
+        _adminLogger.Add(LogType.AdminAudit, LogImpact.Medium,
             $"{shell.Player} {(toggle.Value ? "enabled" : "disabled")} the panic bunker");
 
         shell.WriteLine(Loc.GetString(toggle.Value ? "panicbunker-command-enabled" : "panicbunker-command-disabled"));
@@ -67,7 +67,7 @@ public sealed class PanicBunkerDisableWithAdminsCommand : LocalizedCommands
         if (toggle == null)
             return;
 
-        _adminLogger.Add(LogType.PanicBunkerToggle, LogImpact.Medium,
+        _adminLogger.Add(LogType.AdminAudit, LogImpact.Medium,
             $"{shell.Player} {(toggle.Value ? "enabled" : "disabled")} panic bunker auto-disable");
 
         shell.WriteLine(Loc.GetString(toggle.Value
@@ -91,7 +91,7 @@ public sealed class PanicBunkerEnableWithoutAdminsCommand : LocalizedCommands
         if (toggle == null)
             return;
 
-        _adminLogger.Add(LogType.PanicBunkerToggle, LogImpact.Medium,
+        _adminLogger.Add(LogType.AdminAudit, LogImpact.Medium,
             $"{shell.Player} {(toggle.Value ? "enabled" : "disabled")} panic bunker auto-enable");
 
         shell.WriteLine(Loc.GetString(toggle.Value
@@ -115,7 +115,7 @@ public sealed class PanicBunkerCountDeadminnedCommand : LocalizedCommands
         if (toggle == null)
             return;
 
-        _adminLogger.Add(LogType.PanicBunkerToggle, LogImpact.Medium,
+        _adminLogger.Add(LogType.AdminAudit, LogImpact.Medium,
             $"{shell.Player} {(toggle.Value ? "enabled" : "disabled")} counting deadminned admins for the panic bunker");
 
         shell.WriteLine(Loc.GetString(toggle.Value
@@ -139,7 +139,7 @@ public sealed class PanicBunkerShowReasonCommand : LocalizedCommands
         if (toggle == null)
             return;
 
-        _adminLogger.Add(LogType.PanicBunkerToggle, LogImpact.Medium,
+        _adminLogger.Add(LogType.AdminAudit, LogImpact.Medium,
             $"{shell.Player} {(toggle.Value ? "enabled" : "disabled")} showing the panic bunker rejection reason");
 
         shell.WriteLine(Loc.GetString(toggle.Value

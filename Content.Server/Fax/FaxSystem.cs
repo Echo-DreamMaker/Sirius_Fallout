@@ -58,11 +58,9 @@ public sealed class FaxSystem : EntitySystem
     ///     The prototype ID to use for faxed or copied entities if we can't get one from
     ///     the paper entity for whatever reason.
     /// </summary>
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string DefaultPaperPrototypeId = "Paper";
+    private static readonly EntProtoId DefaultPaperPrototypeId = "Paper";
 
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string OfficePaperPrototypeId = "PaperOffice";
+    private static readonly EntProtoId OfficePaperPrototypeId = "PaperOffice";
 
     private const int LeadershipInboxLimit = 100;
     private readonly List<AdminFaxInboxEntry> _leadershipInbox = new();
@@ -415,7 +413,7 @@ public sealed class FaxSystem : EntitySystem
         component.DestinationFaxAddress = null;
         component.KnownFaxes.Clear();
 
-        // #Misfits Add — Always inject the virtual COMMAND fax so every machine can contact admins
+        // #Misfits Add вЂ” Always inject the virtual COMMAND fax so every machine can contact admins
         component.KnownFaxes[FaxConstants.FaxCommandAddress] = FaxConstants.FaxCommandName;
 
         var payload = new NetworkPayload()
@@ -526,7 +524,7 @@ public sealed class FaxSystem : EntitySystem
 
         TryComp<LabelComponent>(sendEntity, out var labelComponent);
 
-        // #Misfits Add — If destination is the virtual COMMAND address, notify admins instead of sending via device network
+        // #Misfits Add вЂ” If destination is the virtual COMMAND address, notify admins instead of sending via device network
         if (component.DestinationFaxAddress == FaxConstants.FaxCommandAddress)
         {
             var paperTitle = nameMod?.BaseName ?? metadata.EntityName;
@@ -636,7 +634,7 @@ public sealed class FaxSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString("fax-machine-popup-received", ("from", faxName)), uid);
         _appearanceSystem.SetData(uid, FaxMachineVisuals.VisualState, FaxMachineVisualState.Printing);
 
-        // #Misfits Add — When an admin sends a fax (fromAddress is null), show a larger popup
+        // #Misfits Add вЂ” When an admin sends a fax (fromAddress is null), show a larger popup
         // so nearby players notice the incoming correspondence from leadership
         if (fromAddress == null)
             _popupSystem.PopupEntity(Loc.GetString("fax-machine-popup-received-leadership", ("fax", component.FaxName)), uid, Shared.Popups.PopupType.Medium);
@@ -654,7 +652,7 @@ public sealed class FaxSystem : EntitySystem
 
         var printout = component.PrintingQueue.Dequeue();
 
-        var entityToSpawn = printout.PrototypeId.Length == 0 ? DefaultPaperPrototypeId : printout.PrototypeId;
+        var entityToSpawn = string.IsNullOrEmpty(printout.PrototypeId) ? DefaultPaperPrototypeId : printout.PrototypeId;
         var printed = EntityManager.SpawnEntity(entityToSpawn, Transform(uid).Coordinates);
 
         if (TryComp<PaperComponent>(printed, out var paper))
@@ -724,7 +722,7 @@ public sealed class FaxSystem : EntitySystem
     }
 
     /// <summary>
-    ///     #Misfits Add — Notifies admins when a player sends a fax to the virtual COMMAND destination.
+    ///     #Misfits Add вЂ” Notifies admins when a player sends a fax to the virtual COMMAND destination.
     ///     Includes the originating fax name, paper title, and content so admins can respond via the faxui panel.
     /// </summary>
     private void NotifyAdminsCommand(string fromFaxName, string paperName, string content, EntityUid actor)

@@ -26,8 +26,7 @@
   - type: Clothing
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_grey.rsi
 
-# --- New Enclave Combat Armor ---
-# Inherits armor/explosion stats from N14ClothingOuterEnclaveArmor parent.
+# --- Enclave Security Uniform ---
 - type: entity
   parent: N14ClothingOuterEnclaveArmor
   id: N14ClothingOuterEnclaveCombatArmor
@@ -35,7 +34,7 @@
   description: An updated suit of U.S. Army combat armor with reinforced plating. Heavier than the standard issue but offers better protection in the field.
   components:
   - type: Sprite
-    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_combat_armor.rsi
+    sprite: _Misfits/Clothing/Uniforms/enclave_uniform_security.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_combat_armor.rsi
 

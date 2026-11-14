@@ -1,0 +1,32 @@
+# #Misfits Add - White Legs faction armor for the Outlaws faction overhaul.
+# The White Legs are a tribal raider group known for their white body paint and guerrilla tactics.
+# Their armor is lightweight tribal gear вЂ” bone, leather, and scavenged military webbing.
+# Stats baseline: NCR Private T2 В±10%. Biased toward slash/heat resistance (treated hides).
+# Sprites: placeholder khansjacket.rsi until WhiteLegs-specific RSIs are sourced and converted.
+# Item used for wastelanders at the moment in loadout_wastelanders.yml but if ever added back as faction equipment remove that from the loadout_wastelanders.yml
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsClothingOuterWhiteLegsArmor
+  name: white legs tribal armor
+  description: Layered gecko hides and woven cord over a frame of yao guai bone. The White Legs mark their armor with white chalk handprints вЂ” one for each raid survived. Light enough to run in, tough enough to matter.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/whitelegsarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/whitelegsarmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.88   # slightly worse than NCR Private (0.85) вЂ” hides don't stop blunt well
+        Slash: 0.80   # better than baseline (0.85) вЂ” layered gecko hide deflects blades
+        Piercing: 0.82 # near-baseline вЂ” enough to slow a bullet, not stop it
+        Heat: 0.78    # better than baseline (0.80) вЂ” treated hides insulate
+      flatReductions:  #sirius change
+        Blunt: 2
+        Slash: 2
+        Piercing: 1
+        Heat: 1
+        Caustic: 2
+  - type: ExplosionResistance
+    damageCoefficient: 0.92 # slightly worse than NCR Private (0.90) вЂ” light armor

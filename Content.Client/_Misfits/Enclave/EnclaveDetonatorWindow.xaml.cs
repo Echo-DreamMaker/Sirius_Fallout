@@ -36,7 +36,9 @@ public sealed partial class EnclaveDetonatorWindow : DefaultWindow
 
             row.AddChild(new Label
             {
-                Text = $"{person.Name} — {person.Role}",
+                Text = person.IsDead
+                    ? $"{person.Name} вЂ” {person.Role} [DECEASED]"
+                    : $"{person.Name} вЂ” {person.Role}",
                 HorizontalExpand = true,
                 VerticalAlignment = Control.VAlignment.Center,
             });

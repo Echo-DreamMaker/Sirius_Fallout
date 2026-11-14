@@ -6,9 +6,9 @@
 # Mappers: place these prototypes directly instead of N14BrotherhoodTacticalmap
 # when building faction-specific areas.
 
-# ─────────────────────────────────────────────
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 # NCR Tactical Map
-# ─────────────────────────────────────────────
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 - type: entity
   parent: N14BrotherhoodTacticalmap
   id: MisfitsNCRTacticalMap
@@ -74,14 +74,14 @@
     access: [["NCR"]]
   - type: ActivatableUIRequiresAccess
 
-# ─────────────────────────────────────────────
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 # Followers of the Apocalypse Tactical Map
-# ─────────────────────────────────────────────
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 - type: entity
   parent: N14BrotherhoodTacticalmap
   id: MisfitsFollowersTacticalMap
   name: Followers Tactical Map
-  description: A Followers tactical map used to coordinate relief efforts and track casualties across the wasteland.
+  description: The Followers of the Apocalypse use this tac-map to coordinate relief efforts and track casualties across the local wasteland.
   suffix: Followers, Mapping
   components:
   - type: WastelandMap
@@ -118,8 +118,8 @@
 - type: entity
   parent: N14BrotherhoodTacticalmapBroken
   id: MisfitsFollowersTacticalMapBroken
-  name: Broken Followers Tactical Map
-  description: A damaged Followers tactical map, its screen cracked and flickering.
+  name: Damaged Followers Tactical Map
+  description: With a cracked and flickering screen, this tac-map is used to coordinate the Followers of the Apocalypse in coordinating personnel and retrieving casualties across the local wasteland.
   suffix: Followers, Broken
   components:
   - type: WastelandMap
@@ -140,9 +140,9 @@
     access: [["FotA"]]
   - type: ActivatableUIRequiresAccess
 
-# ─────────────────────────────────────────────
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 # NCR Rangers Tactical Map
-# ─────────────────────────────────────────────
+# в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 - type: entity
   parent: N14BrotherhoodTacticalmap
   id: MisfitsRangersTacticalMap
@@ -156,6 +156,7 @@
     tacticalFeed: NCR
     communicationsJobs:
     - NCRChiefRanger
+    - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
     - RangerChief
     - NCRVeteranRanger
   # #Misfits Fix - Override the BOS OverwatchConsole inherited from N14BrotherhoodTacticalmap
@@ -195,6 +196,7 @@
     tacticalFeed: NCR
     communicationsJobs:
     - NCRChiefRanger
+    - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
     - RangerChief
     - NCRVeteranRanger
   # #Misfits Fix - Override the BOS OverwatchConsole inherited from N14BrotherhoodTacticalmapBroken

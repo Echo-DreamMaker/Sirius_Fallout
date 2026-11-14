@@ -261,3 +261,7 @@
   - CaesarLegionLegate
 
 
+- type: accessLevel
+  id: CaesarLegionTempleGuard
+  name: id-card-access-level-legion-temple-guard
+

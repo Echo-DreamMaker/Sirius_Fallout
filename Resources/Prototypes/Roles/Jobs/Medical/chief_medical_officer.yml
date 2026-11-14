@@ -51,6 +51,7 @@
   subGear:
   - CMOPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitCMO
     back: ClothingBackpackCMOFilled
     shoes: ClothingShoesColorBrown
@@ -64,6 +65,7 @@
   id: CMOPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitCMO
     head: ClothingHeadEnvirohelmCMO
     gloves: ClothingHandsGlovesEnviroglovesWhite

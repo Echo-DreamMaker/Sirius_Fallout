@@ -35,7 +35,7 @@
     head: N14ClothingHeadHatArmyCap
     gloves: N14ClothingHandsGlovesBrownBiker
 
-#Misfits Change /Comment-out/: Washington chapter NPCs removed — will create new prototypes.
+#Misfits Change /Comment-out/: Washington chapter NPCs removed вЂ” will create new prototypes.
 ## Washington chapter NPCs
 #- type: startingGear
 #  id: WBoSInitiateNPC
@@ -60,19 +60,21 @@
 - type: startingGear
   id: NCRAGuardNPC
   equipment:
-    jumpsuit: N14ClothingMPUniformNCRSnow
+    jumpsuit: N14ClothingMPUniformNCRDesert
     shoes: N14ClothingBootsLeather
-    gloves: N14ClothingHandsGlovesFur
+    eyes: N14ClothingEyesSunGlasses
+    gloves: N14ClothingHandsGlovesNCR
     head: N14ClothingHeadHatNCRHelmetMetalMilitaryPolice
     belt: ClothingBeltRope
 
 - type: startingGear
   id: NCRATrooperNPC
   equipment:
-    jumpsuit: N14ClothingUniformNCRSnow
-    outerClothing: N14ClothingOuterNCRVestSnow
+    jumpsuit: N14ClothingUniformNCRDesert
+    outerClothing: N14ClothingOuterNCRPouchedVestDesert
     shoes: N14ClothingBootsLeather
-    head: N14ClothingHeadHatNCRHelmetMetalSnow
+    eyes: N14ClothingEyesSunGlasses
+    head: N14ClothingHeadHatNCRHelmetMetalDesert
     mask: N14ClothingMaskBrownBalaclava
     gloves: N14ClothingHandsGlovesNCR
 

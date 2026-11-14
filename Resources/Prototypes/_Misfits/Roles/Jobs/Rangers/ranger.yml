@@ -34,6 +34,7 @@
 - type: startingGear
   id: NCRFieldRangerGear
   equipment:
+    wallet: N14Wallet
     head: N14ClothingHeadHatRangerB # Misfits Tweak - field rangers use the lighter ranger hat variant
     back: N14ClothingBackpackMilitary # Corvax-Chande
     jumpsuit: N14ClothingUniformRangerV2

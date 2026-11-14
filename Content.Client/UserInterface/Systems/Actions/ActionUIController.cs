@@ -643,23 +643,26 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         else if (button.TryReplaceWith(actionId.Value, _actionsSystem) &&
             _container != null &&
             _container.TryGetButtonIndex(button, out position))
+        {
             if (position >= 0 && position < CurrentPage.Size)
-                CurrentPage[position] = actionId;
-            else
             {
-                if (_pages.Count <= _currentPageIndex)
-                    return;
+                CurrentPage[position] = actionId;
+            }
+            else if (_currentPageIndex + 1 < _pages.Count)
+            {
                 // Add the button to the next page if there's no space on the current one
                 var nextPage = _pages[_currentPageIndex + 1];
-                int i;
-                for (i = 0; i < nextPage.Size; i++)
+                for (var i = 0; i < nextPage.Size; i++)
+                {
                     if (nextPage[i] == null)
                     {
                         nextPage[i] = actionId;
                         break;
                     }
+                }
                 ChangePage(_currentPageIndex + 1); //TODO: Make this a client config?
             }
+        }
     }
 
     private void DragAction()

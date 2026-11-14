@@ -1,0 +1,425 @@
+#i gave legion but not ncr its own reward pool because the main issue was some rewards being
+#illegal drugs for legion. the default rewards work fine for NCR
+
+
+# Tytos Add — renamed reward pools for legion to fit them better (Servus, Plebeian, Auxiliary, Decanus, Centurion)
+# didnt keep the four originals here since theyre already preserved in contractpool.yml
+
+- type: ncContractRewardPool
+  id: legion_bronze
+  entries:
+  - type: Item
+    id: N14HealingPoultice
+    amount: { min: 1, max: 2 }
+    weight: 3
+  - type: Item
+    id: N14Bitterdrink
+    amount: { min: 1, max: 2 }
+    weight: 3
+  - type: Item
+    id: N14Gunpowder1
+    amount: { min: 4, max: 8 }
+    weight: 2
+  - type: Item
+    id: N14IngotBrass1
+    amount: { min: 4, max: 8 }
+    weight: 2
+  - type: Item
+    id: N14IngotLead1
+    amount: { min: 4, max: 8 }
+    weight: 2
+  - type: Item
+    id: SheetSteel1
+    amount: { min: 4, max: 8 }
+    weight: 2
+  - type: Item
+    id: N14ClothingOuterLeatherArmor
+    weight: 2
+  - type: Item
+    id: N14ClothingOuterCombatRusted
+    weight: 1
+  - type: Item
+    id: N14WeaponPistol10mmPipe
+    weight: 1
+  - type: Item
+    id: N14ScrapMachete
+    weight: 2
+
+- type: ncContractRewardPool
+  id: legion_bronze_nonweapons
+  entries:
+  - type: Item
+    id: N14HealingPoultice
+    amount: { min: 1, max: 2 }
+    weight: 3
+  - type: Item
+    id: N14Bitterdrink
+    amount: { min: 1, max: 2 }
+    weight: 3
+  - type: Item
+    id: N14Gunpowder1
+    amount: { min: 4, max: 8 }
+    weight: 3
+  - type: Item
+    id: N14IngotBrass1
+    amount: { min: 4, max: 8 }
+    weight: 3
+  - type: Item
+    id: N14IngotLead1
+    amount: { min: 4, max: 8 }
+    weight: 3
+  - type: Item
+    id: SheetSteel1
+    amount: { min: 4, max: 8 }
+    weight: 3
+  - type: Item
+    id: N14ClothingOuterLeatherArmor
+    weight: 2
+  - type: Item
+    id: N14ClothingOuterCombatRusted
+    weight: 1
+  - type: Item
+    id: N14ClothingHeadHatPrewarMilitaryHelmet
+    weight: 1
+
+- type: ncContractRewardPool
+  id: legion_iron
+  entries:
+  - type: Item
+    id: N14HealingPoultice
+    amount: { min: 1, max: 2 }
+    weight: 2
+  - type: Item
+    id: N14Bitterdrink
+    amount: { min: 1, max: 2 }
+    weight: 2
+  - type: Item
+    id: N14WeaponPistol9mmChinese
+    weight: 1
+  - type: Item
+    id: N14WeaponSMG12mmPipe
+    weight: 1
+  - type: Item
+    id: N14WeaponPistol9mmSpy
+    weight: 1
+  - type: Item
+    id: N14ScrapMachete
+    weight: 1
+  - type: Item
+    id: N14LongSword
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterLeatherArmor
+    weight: 2
+  - type: Item
+    id: N14ClothingOuterCombatRusted
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterPainspike
+    weight: 1
+  - type: Item
+    id: N14ClothingHeadHatPrewarMilitaryHelmet
+    weight: 1
+
+- type: ncContractRewardPool
+  id: legion_iron_nonweapons
+  entries:
+  - type: Item
+    id: N14HealingPoultice
+    amount: { min: 1, max: 2 }
+    weight: 3
+  - type: Item
+    id: N14RadAwayBloodbag
+    amount: { min: 1, max: 2 }
+    weight: 3
+  - type: Item
+    id: N14Bitterdrink
+    amount: { min: 1, max: 2 }
+    weight: 3
+  - type: Item
+    id: N14Gunpowder1
+    amount: { min: 4, max: 8 }
+    weight: 2
+  - type: Item
+    id: N14IngotLead1
+    amount: { min: 4, max: 8 }
+    weight: 2
+  - type: Item
+    id: N14ClothingOuterLeatherArmor
+    weight: 2
+  - type: Item
+    id: N14ClothingHeadHatPrewarMilitaryHelmet
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterCombatRusted
+    weight: 1
+
+- type: ncContractRewardPool
+  id: legion_silver
+  entries:
+  - type: Item
+    id: N14HealingPoultice
+    amount: { min: 2, max: 3 }
+    weight: 2
+  - type: Item
+    id: N14RadAwayInhaler
+    amount: { min: 1, max: 2 }
+    weight: 2
+  - type: Item
+    id: N14Bitterdrink
+    amount: { min: 2, max: 3 }
+    weight: 2
+  - type: Item
+    id: N14MedkitFilled
+    weight: 1
+  - type: Item
+    id: N14WeaponShotgun
+    weight: 1
+  - type: Item
+    id: N14WeaponSMG10mm
+    weight: 1
+  - type: Item
+    id: N14WeaponRifle762SKS
+    weight: 1
+  - type: Item
+    id: N14Gladius
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterCombatArmor
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterLegionnaireVeteranArmor
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterPoliceVest
+    weight: 2
+  - type: Item
+    id: N14ClothingScavengerHeavyArmor
+    weight: 1
+  - type: Item
+    id: N14ClothingHeadHatCombatHelmet
+    weight: 1
+  - type: Item
+    id: N14ClothingHeadHatBaseballHelmet
+    weight: 1
+  - type: Item
+    id: N14WeaponSniper44LeverCarbine
+    weight: 1
+
+- type: ncContractRewardPool
+  id: legion_silver_nonweapons
+  entries:
+  - type: Item
+    id: N14HealingPoultice
+    amount: { min: 2, max: 3 }
+    weight: 3
+  - type: Item
+    id: N14RadAwayInhaler
+    amount: { min: 1, max: 2 }
+    weight: 3
+  - type: Item
+    id: N14Bitterdrink
+    amount: { min: 2, max: 3 }
+    weight: 3
+  - type: Item
+    id: N14MedkitFilled
+    weight: 2
+  - type: Item
+    id: N14ClothingOuterCombatArmor
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterPoliceVest
+    weight: 2
+  - type: Item
+    id: N14ClothingScavengerHeavyArmor
+    weight: 1
+  - type: Item
+    id: N14ClothingHeadHatCombatHelmet
+    weight: 1
+  - type: Item
+    id: N14ClothingHeadHatBaseballHelmet
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterLegionnaireVeteranArmor
+    weight: 1
+
+- type: ncContractRewardPool
+  id: legion_gold
+  entries:
+  - type: Item
+    id: N14HealingPoultice
+    amount: { min: 2, max: 4 }
+    weight: 2
+  - type: Item
+    id: N14RadAwayInhaler
+    amount: { min: 2, max: 3 }
+    weight: 2
+  - type: Item
+    id: N14Bitterdrink
+    amount: { min: 2, max: 3 }
+    weight: 2
+  - type: Item
+    id: N14MedkitFilled
+    weight: 1
+  - type: Item
+    id: N14WeaponRifle556R91
+    weight: 1
+  - type: Item
+    id: N14WeaponRifle556CarbineOld
+    weight: 1
+  - type: Item
+    id: N14WeaponShotgunChinese
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterCombatArmor
+    weight: 2
+  - type: Item
+    id: N14ClothingHeadHatCombatHelmet
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterZealotDuster
+    weight: 1
+  - type: Item
+    id: N14Gladius
+    weight: 1
+  - type: Item
+    id: N14ClothingHeadHatBaseballHelmet
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterLegionnaireVeteranArmor
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterDeanLegionnairePrimeArmor
+    weight: 1
+
+- type: ncContractRewardPool
+  id: legion_gold_nonweapons
+  entries:
+  - type: Item
+    id: N14HealingPoultice
+    amount: { min: 2, max: 4 }
+    weight: 3
+  - type: Item
+    id: N14RadAwayInhaler
+    amount: { min: 2, max: 3 }
+    weight: 3
+  - type: Item
+    id: N14Bitterdrink
+    amount: { min: 2, max: 3 }
+    weight: 3
+  - type: Item
+    id: N14MedkitFilled
+    weight: 2
+  - type: Item
+    id: N14ClothingOuterCombatArmor
+    weight: 2
+  - type: Item
+    id: N14ClothingHeadHatCombatHelmet
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterCombatArmorMK2
+    weight: 1
+  - type: Item
+    id: N14ClothingHeadHatBaseballHelmet
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterLegionnaireVeteranArmor
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterDeanLegionnairePrimeArmor
+    weight: 1
+
+
+- type: ncContractRewardPool
+  id: legion_mithril
+  entries:
+  - type: Item
+    id: N14HealingPoultice
+    amount: { min: 2, max: 4 }
+    weight: 3
+  - type: Item
+    id: N14BerserkerPowder
+    amount: { min: 2, max: 4 }
+    weight: 3
+  - type: Item
+    id: N14RadAwayInhaler
+    amount: { min: 2, max: 4 }
+    weight: 3
+  - type: Item
+    id: N14MedkitFilled
+    weight: 2
+  - type: Item
+    id: N14WeaponRifle762MarksmanCanadian
+    weight: 1
+  - type: Item
+    id: N14WeaponShotgunCanadian
+    weight: 1
+  - type: Item
+    id: N14WeaponSMG12mmAdvanced
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterLegionnaireVeteranArmor
+    weight: 2
+  - type: Item
+    id: N14ClothingHeadHatCombatHelmet
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterCombatArmorMK2
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterDeanLegionnairePrimeArmor
+    weight: 1
+  - type: Item
+    id: N14WeaponShotgunBlowback
+    weight: 1
+  - type: Item
+    id: N14WeaponShotgunNeostead
+    weight: 1
+  - type: Item
+    id: N14CeremonialSword
+    weight: 1
+
+- type: ncContractRewardPool
+  id: legion_diamond
+  entries:
+  - type: Item
+    id: N14BerserkerPowder
+    amount: { min: 2, max: 4 }
+    weight: 3
+  - type: Item
+    id: N14MedkitCombatFilled
+    weight: 2
+  - type: Item
+    id: N14RadAwayInhaler
+    amount: { min: 3, max: 5 }
+    weight: 4
+  - type: Item
+    id: N14WeaponRifle762MarksmanCanadian
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterCombatArmorMK2
+    weight: 1
+  - type: Item
+    id: N14ClothingHeadHatCombatHelmetMK2
+    weight: 1
+  - type: Item
+    id: N14ClothingOuterDeanLegionnairePrimeArmor
+    weight: 1
+  - type: Item
+    id: N14WeaponShotgunBlowback
+    weight: 1
+  - type: Item
+    id: N14WeaponShotgunNeostead
+    weight: 1
+  - type: Item
+    id: N14CeremonialSword
+    weight: 1
+  - type: Item
+    id: N14WeaponLMGBren
+    weight: 1
+  - type: Item
+    id: N14WeaponM60GPMG
+    weight: 1
+  - type: Item
+    id: N14WeaponRifleM7Spear
+    weight: 1

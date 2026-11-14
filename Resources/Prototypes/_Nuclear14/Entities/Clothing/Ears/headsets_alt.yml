@@ -267,3 +267,44 @@
   - type: Clothing
     sprite: _Misfits/Clothing/Ears/Headsets/followerslight.rsi
     equippedPrefix: off
+- type: entity
+  parent: N14ClothingHeadsetNCR
+  id: MisfitsClothingHeadsetNCRMaster
+  name: NCR command radio earpiece
+  description: A headset manufactured by the New California Republic in the Boneyard's factories, used by NCR command staff to order around the soldiers and filter through reports from the field.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCRMasterUR
+      - EncryptionKeyNCRCommandUR # #Misfits Add - command net
+      - EncryptionKeyWastelandGlobal
+
+
+- type: entity
+  parent: N14ClothingHeadsetNCR
+  id: MisfitsClothingHeadsetNCRCommand
+  name: NCR command radio earpiece
+  description: An NCR headset fitted with the command net. # #Misfits Add
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCRUR
+      - EncryptionKeyNCRCommandUR
+      - EncryptionKeyWastelandGlobal
+
+- type: entity
+  parent: MisfitsClothingHeadsetNCRRanger
+  id: MisfitsClothingHeadsetNCRRangerCommand
+  name: NCR Ranger command radio earpiece
+  description: A Ranger headset carrying both Ranger field encryption and the NCR command net. # #Misfits Add
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCRRangersUR
+      - EncryptionKeyNCRCommandUR
+      - EncryptionKeyWastelandGlobal
+
+# #Misfits Change - Legion headset

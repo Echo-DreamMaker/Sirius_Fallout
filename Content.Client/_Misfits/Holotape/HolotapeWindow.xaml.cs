@@ -96,7 +96,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
     private TerminalDatabaseState? _databaseState;
     private bool _hasDatabase;
 
-    // Database navigation state — purely client-side breadcrumb / view selector.
+    // Database navigation state вЂ” purely client-side breadcrumb / view selector.
     // #Misfits Add - MovePicker: destination-selection view for the Leadership "move" action.
     private enum DbView { FolderList, SubfolderList, DocumentList, DocumentViewer, EditorCreateFolder, EditorCreateDoc, EditorEditDoc, MovePicker }
     private DbView _dbView = DbView.FolderList;
@@ -176,7 +176,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
         SyncOverwatchFeedEye();
     }
 
-    // ── Public API ───────────────────────────────────────────────────────────
+    // в”Ђв”Ђ Public API в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     /// <summary>
     /// Switches the window header and title bar between holotape-item mode and terminal mode.
@@ -238,7 +238,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
 
         if (notes == null)
         {
-            // No notebook — make sure we aren't stuck on the notes tab.
+            // No notebook вЂ” make sure we aren't stuck on the notes tab.
             // #Misfits Fix - Only switch when actually on the notes tab; unconditionally
             // switching kicked viewers off other tabs on every state push.
             if (NotesPanel.Visible)
@@ -293,7 +293,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
             label.SetMessage(labelMsg);
             row.AddChild(label);
 
-            // Trigger button — fires the port signal through DeviceLinkSystem
+            // Trigger button вЂ” fires the port signal through DeviceLinkSystem
             var btn = new Button
             {
                 Text = "[ ACTIVATE ]",
@@ -315,7 +315,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
         }
     }
 
-    // ── Tab Switching ────────────────────────────────────────────────────────
+    // в”Ђв”Ђ Tab Switching в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     private void SwitchToDataTab()
     {
@@ -419,7 +419,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
         SetTerminalMarkup(OverwatchViewersLabel, $"[color={TermDimGreen}]Viewing: {names}[/color]");
     }
 
-    // ── Notes Rendering ──────────────────────────────────────────────────────
+    // в”Ђв”Ђ Notes Rendering в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     /// <summary>
     /// Rebuilds the notes list container with all note entries.
@@ -454,7 +454,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
             var headerLabel = new RichTextLabel();
             var headerMsg = new FormattedMessage();
             headerMsg.PushColor(Color.FromHex(TermGreen));
-            headerMsg.AddMarkupPermissive($"[bold]{note.AuthorName}[/bold]  —  {note.Timestamp:yyyy-MM-dd HH:mm}");
+            headerMsg.AddMarkupPermissive($"[bold]{note.AuthorName}[/bold]  вЂ”  {note.Timestamp:yyyy-MM-dd HH:mm}");
             headerMsg.Pop();
             headerLabel.SetMessage(headerMsg);
             noteBox.AddChild(headerLabel);
@@ -494,7 +494,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
         }
     }
 
-    // ── Submit Handler ───────────────────────────────────────────────────────
+    // в”Ђв”Ђ Submit Handler в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     private void HandleSubmit()
     {
@@ -509,9 +509,9 @@ public sealed partial class HolotapeWindow : DefaultWindow
         NoteInput.Text = string.Empty;
     }
 
-    // ── Database Rendering ───────────────────────────────────────────────────
+    // в”Ђв”Ђ Database Rendering в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
     // #Misfits Add - Faction-shared knowledge database tab. Stage 1 MVP:
-    // folders → subfolders (1 level) → documents → revisions. Read/Write/Approve
+    // folders в†’ subfolders (1 level) в†’ documents в†’ revisions. Read/Write/Approve
     // gating is enforced server-side; client only hides controls based on flags.
 
     /// <summary>
@@ -830,7 +830,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
 
         if (state == null)
         {
-            // No DB component on this terminal — make sure we aren't stuck on the tab.
+            // No DB component on this terminal вЂ” make sure we aren't stuck on the tab.
             _dbOpenDoc = null;
             if (DatabasePanel.Visible)
                 SwitchToDataTab();
@@ -1018,12 +1018,10 @@ public sealed partial class HolotapeWindow : DefaultWindow
         {
             Orientation = BoxContainer.LayoutOrientation.Horizontal,
             SeparationOverride = 6,
-            Visible = false,
+            // Keep row actions visible so users can discover MOVE, RENAME, and
+            // deletion controls without needing to know about hover-only UI.
+            Visible = true,
         };
-
-        // The action strip stays available while crossing from the entry to an action.
-        row.OnMouseEntered += _ => actions.Visible = true;
-        row.OnMouseExited += _ => actions.Visible = false;
         row.AddChild(actions);
         return actions;
     }
@@ -1184,7 +1182,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
         }));
 
         // Documents at folder root
-        DatabaseList.AddChild(MakeDimLabel("─ DOCUMENTS ─"));
+        DatabaseList.AddChild(MakeDimLabel("в”Ђ DOCUMENTS в”Ђ"));
         var rootDocs = 0;
         foreach (var d in folder.Documents)
         {
@@ -1195,7 +1193,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
             DatabaseList.AddChild(MakeDimLabel("(none)"));
 
         // Subfolders
-        DatabaseList.AddChild(MakeDimLabel("─ SUBFOLDERS ─"));
+        DatabaseList.AddChild(MakeDimLabel("в”Ђ SUBFOLDERS в”Ђ"));
         if (folder.Subfolders.Count == 0)
             DatabaseList.AddChild(MakeDimLabel("(none)"));
         foreach (var s in folder.Subfolders)
@@ -1388,7 +1386,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
         return row;
     }
 
-    // ── Leadership "move" (tidying) ───────────────────────────────────────────
+    // в”Ђв”Ђ Leadership "move" (tidying) в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ
 
     // #Misfits Add - Entry points for the Leadership "move" action. Each stashes the source
     // entry ids + the view we came from, then switches to the destination picker.
@@ -1448,7 +1446,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
         var movingFolder = _moveFolderId.HasValue;
         var movingSub = _moveSubfolderId.HasValue;
 
-        DatabaseList.AddChild(MakeDimLabel("─ MOVE TO (choose destination) ─"));
+        DatabaseList.AddChild(MakeDimLabel("в”Ђ MOVE TO (choose destination) в”Ђ"));
 
         foreach (var f in _databaseState.Folders)
         {
@@ -1675,7 +1673,7 @@ public sealed partial class HolotapeWindow : DefaultWindow
                 DatabaseEditorTitleInput.PlaceHolder = "Folder name (max 64)";
                 // #Misfits Tweak - Admin checkbox visible on ROOT folder creation for any
                 // Leadership-tier (or higher) actor. Protection itself still gates editing/
-                // deletion behind Admin tier — this lets heads protect their own stuff so peer
+                // deletion behind Admin tier вЂ” this lets heads protect their own stuff so peer
                 // leadership can't trample it.
                 var canShowAdminToggle = _dbEditorParentFolder == null
                                          && _databaseState != null

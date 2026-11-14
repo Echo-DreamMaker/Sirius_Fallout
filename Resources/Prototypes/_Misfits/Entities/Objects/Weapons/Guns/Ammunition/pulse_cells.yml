@@ -11,6 +11,14 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Battery/EC.rsi
+    layers:
+      - map: [ "enum.PowerCellVisualLayers.Base" ]
+        state: empty
+        scale: 0.5, 0.5
+      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+        state: o2
+        shader: unshaded
+        scale: 0.5, 0.5
   - type: Tag
     tags:
     - N14PulseEnergyCell
@@ -22,7 +30,7 @@
     proto: N14PulseRed
     fireCost: 50
 
-# #Misfits Remove — replaced by N14ElectronChargePackRed/Green/Blue/Violet
+# #Misfits Remove вЂ” replaced by N14ElectronChargePackRed/Green/Blue/Violet
 # - type: entity
 #   name: pulse microfusion cell
 #   id: N14PulseMicrofusionCell
@@ -48,7 +56,7 @@
 #     proto: N14PulseShotMedium
 #     fireCost: 50
 
-# Tesla Electron Charge Pack — kept active for the Tesla Cannon (fires TeslaGunBullet projectiles).
+# Tesla Electron Charge Pack вЂ” kept active for the Tesla Cannon (fires TeslaGunBullet projectiles).
 - type: entity
   name: tesla electron charge pack
   description: An electron charge pack modified to discharge a sustained ball of electricity rather than a focused beam. The Tesla Cannon's signature munition.
@@ -73,9 +81,9 @@
   - type: Battery
     maxCharge: 2375
     startingCharge: 2375
-  - type: HitscanBatteryAmmoProvider # Override parent hitscan — this cell fires projectiles only
+  - type: HitscanBatteryAmmoProvider # Override parent hitscan вЂ” this cell fires projectiles only
     proto: N14MFLaserRed
-    fireCost: 999999 # Effectively disabled — cost exceeds maxCharge so hitscan never fires
+    fireCost: 999999 # Effectively disabled вЂ” cost exceeds maxCharge so hitscan never fires
   - type: ProjectileBatteryAmmoProvider
     proto: TeslaGunBullet
     fireCost: 250
@@ -89,6 +97,12 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Battery/microfusion.rsi
+    layers:
+      - map: [ "enum.PowerCellVisualLayers.Base" ]
+        state: empty
+      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+        state: o2
+        shader: unshaded
   - type: Tag
     tags:
     - N14PulseMicrofusionCell
@@ -101,7 +115,7 @@
     fireCost: 50
 
 
-# #Misfits Remove — replaced by N14MicrofusionCellBlue
+# #Misfits Remove вЂ” replaced by N14MicrofusionCellBlue
 # - type: entity
 #   name: blue electron charge pack
 #   id: N14BlueElectronChargePack

@@ -9,5 +9,5 @@ public sealed partial class CCVars
     /// This is intentionally server-only and confidential; it must never reach clients.
     /// </summary>
     public static readonly CVarDef<string> WatchdogDeployApiToken =
-        CVarDef.Create("misfits.watchdog.deploy_api_token", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
+        CVarDef.Create("misfits.deploy_api_token", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 }

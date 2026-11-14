@@ -65,6 +65,7 @@
   subGear:
   - ResearchDirectorPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitResearchDirector
     back: ClothingBackpackResearchDirectorFilled
     shoes: ClothingShoesColorBrown
@@ -80,6 +81,7 @@
   id: ResearchDirectorPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitResearchDirector
     head: ClothingHeadEnvirohelmResearchDirector
     gloves: ClothingHandsGlovesEnviroglovesResearchDirector

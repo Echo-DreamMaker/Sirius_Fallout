@@ -372,6 +372,26 @@ public sealed class WastelandMapSystem : EntitySystem
     }
 
     // #Misfits Add - optional actor param so group-member blips can be injected per-viewer
+
+    // #Misfits Add - Resolve tactical feed from ID card tags (compat with cartridge).
+    public WastelandMapTacticalFeedKind GetTacticalFeedFromIdCard(EntityUid idCard)
+    {
+        if (_tag.HasTag(idCard, "IdCardBrotherhood"))
+            return WastelandMapTacticalFeedKind.Brotherhood;
+        if (_tag.HasTag(idCard, "IdCardVault"))
+            return WastelandMapTacticalFeedKind.Vault;
+        if (_tag.HasTag(idCard, "IdCardNCR"))
+            return WastelandMapTacticalFeedKind.NCR;
+        if (_tag.HasTag(idCard, "IdCardEnclave"))
+            return WastelandMapTacticalFeedKind.Enclave;
+        if (_tag.HasTag(idCard, "IdCardLegion"))
+            return WastelandMapTacticalFeedKind.Legion;
+        if (_tag.HasTag(idCard, "IdCardTribe"))
+            return WastelandMapTacticalFeedKind.Tribe;
+
+        return WastelandMapTacticalFeedKind.None;
+    }
+
     public WastelandMapBoundUserInterfaceState BuildState(WastelandMapComponent comp, MapId mapId, WastelandMapTacticalFeedKind? feedOverride = null, EntityUid? actor = null)
     {
         return BuildState(null, comp, mapId, feedOverride, actor);

@@ -1,5 +1,8 @@
 using System.Linq;
 using Content.Shared.Access.Components;
+// #Cythisiax Added - Distinguish wearable mech power armor from conventional mechs.
+using Content.Shared._Misfits.PowerArmor;
+using Content.Shared._N14.Vehicles; //Sirius Fix - car actions managed by CarSystem
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Destructible;
@@ -81,6 +84,8 @@ public abstract class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechEquipmentComponent, ShotAttemptedEvent>(OnShotAttempted); // Goobstation
 
         SubscribeLocalEvent<MechPassengerComponent, EntGotRemovedFromContainerMessage>(OnPassengerRemoved); // sirius-change
+        SubscribeLocalEvent<MechPassengerComponent, AccessibleOverrideEvent>(OnPassengerAccessibleOverride); //Sirius Fix - allow passengers to access own pockets
+        SubscribeLocalEvent<MechPassengerComponent, InRangeOverrideEvent>(OnPassengerInRangeOverride); //Sirius Fix
 
         Subs.CVar(_config, GoobCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, true); // Goobstation
     }
@@ -129,7 +134,7 @@ public abstract class SharedMechSystem : EntitySystem
     }
     protected virtual void OnEjectPassenger1(EntityUid uid, MechComponent component, MechEjectPassenger1Event args)
     {
-        if (args.Handled)
+        if (args.Handled || HasComp<CarComponent>(uid)) //Sirius Fix - cars handled by CarSystem
             return;
         args.Handled = true;
         if (component.PilotSlot.ContainedEntity != args.Performer)
@@ -142,7 +147,7 @@ public abstract class SharedMechSystem : EntitySystem
 
     protected virtual void OnEjectPassenger2(EntityUid uid, MechComponent component, MechEjectPassenger2Event args)
     {
-        if (args.Handled)
+        if (args.Handled || HasComp<CarComponent>(uid)) //Sirius Fix - cars handled by CarSystem
             return;
         args.Handled = true;
         if (component.PilotSlot.ContainedEntity != args.Performer)
@@ -155,7 +160,7 @@ public abstract class SharedMechSystem : EntitySystem
 
     protected virtual void OnEjectPassenger3(EntityUid uid, MechComponent component, MechEjectPassenger3Event args)
     {
-        if (args.Handled)
+        if (args.Handled || HasComp<CarComponent>(uid)) //Sirius Fix - cars handled by CarSystem
             return;
         args.Handled = true;
         if (component.PilotSlot.ContainedEntity != args.Performer)
@@ -223,6 +228,10 @@ public abstract class SharedMechSystem : EntitySystem
         Dirty(pilot, rider);
 
         if (_net.IsClient)
+            return;
+
+        //Sirius Fix - cars grant actions dynamically via CarSystem (horn/siren/flashlight/eject-passenger depend on availability)
+        if (HasComp<CarComponent>(mech))
             return;
 
         _actions.AddAction(pilot, ref component.MechCycleActionEntity, component.MechCycleAction, mech);
@@ -571,6 +580,10 @@ public abstract class SharedMechSystem : EntitySystem
         if (args.Handled)
             return;
 
+        // #Cythisiax Fixed - Let PA pilots attack with their active hand weapon.
+        if (HasComp<MechPowerArmorComponent>(component.Mech))
+            return;
+
         if (!TryComp<MechComponent>(component.Mech, out var mech))
             return;
 
@@ -592,6 +605,15 @@ public abstract class SharedMechSystem : EntitySystem
 
     private void OnAccessibleOverride(EntityUid uid, MechPilotComponent component, ref AccessibleOverrideEvent args)
     {
+        // #Cythisiax Fixed - Personal equipment remains accessible inside a PA mech.
+        //Sirius Fix - pilots in cars/mechs must be able to access their own pockets/inventory while seated.
+        if (args.User == uid && (IsOccupantEquipment(uid, args.Target) || _interaction.CanAccessViaStorage(uid, args.Target)))
+        {
+            args.Handled = true;
+            args.Accessible = true;
+            return;
+        }
+
         if (args.User != uid ||
             !TryComp<MechComponent>(component.Mech, out var mech) ||
             mech.CurrentSelectedEquipment != null)
@@ -605,6 +627,15 @@ public abstract class SharedMechSystem : EntitySystem
 
     private void OnInRangeOverride(EntityUid uid, MechPilotComponent component, ref InRangeOverrideEvent args)
     {
+        // #Cythisiax Fixed - Reach the pilot's own slots without checking from outside the suit.
+        //Sirius Fix - pilots in cars/mechs must be able to access their own pockets/inventory while seated.
+        if (args.User == uid && (IsOccupantEquipment(uid, args.Target) || _interaction.CanAccessViaStorage(uid, args.Target)))
+        {
+            args.Handled = true;
+            args.InRange = true;
+            return;
+        }
+
         if (args.User != uid ||
             !TryComp<MechComponent>(component.Mech, out var mech) ||
             mech.CurrentSelectedEquipment != null)
@@ -614,6 +645,33 @@ public abstract class SharedMechSystem : EntitySystem
 
         args.Handled = true;
         args.InRange = _interaction.InRangeUnobstructed(component.Mech, args.Target);
+    }
+
+    private void OnPassengerAccessibleOverride(EntityUid uid, MechPassengerComponent component, ref AccessibleOverrideEvent args)
+    {
+        //Sirius Fix - passengers must be able to access their own pockets/inventory while seated.
+        if (args.User == uid && (IsOccupantEquipment(uid, args.Target) || _interaction.CanAccessViaStorage(uid, args.Target)))
+        {
+            args.Handled = true;
+            args.Accessible = true;
+        }
+    }
+
+    private void OnPassengerInRangeOverride(EntityUid uid, MechPassengerComponent component, ref InRangeOverrideEvent args)
+    {
+        //Sirius Fix - passengers must be able to access their own pockets/inventory while seated.
+        if (args.User == uid && (IsOccupantEquipment(uid, args.Target) || _interaction.CanAccessViaStorage(uid, args.Target)))
+        {
+            args.Handled = true;
+            args.InRange = true;
+        }
+    }
+
+    // #Cythisiax Added - Only direct hand and inventory contents belong to the pilot; storage handles its own contents.
+    private bool IsOccupantEquipment(EntityUid occupant, EntityUid target)
+    {
+        return target == occupant ||
+               _container.TryGetContainingContainer(target, out var container) && container.Owner == occupant;
     }
 
     // Goobstation: Prevent guns being used out of mechs if CCVAR is set.

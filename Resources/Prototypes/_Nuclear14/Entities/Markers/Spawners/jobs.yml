@@ -771,3 +771,16 @@
     layers:
       - state: green
       - state: zetan
+- type: entity
+  id: N14SpawnPointVaultManagement
+  parent: N14SpawnPointOverseer
+  name: vault management
+  components:
+  - type: SpawnPoint
+    job_id: VaultManagement
+  - type: Sprite
+    sprite: _Nuclear14/Markers/Jobs/vault.rsi
+    layers:
+      - state: green
+      - state: overseer
+

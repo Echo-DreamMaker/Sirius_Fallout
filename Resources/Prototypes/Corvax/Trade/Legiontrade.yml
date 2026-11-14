@@ -714,3 +714,83 @@
   - LegionSell2_Survival
   - LegionSell2_Cosmetics
   - LegionSell2_Currency
+- type: storeCategoryStructured
+  id: LegionSell2_Bulk
+  name: "Bulk"
+  entries:
+  - proto: MaterialCloth1
+    price: 1
+  - proto: N14JunkDuctTape
+    price: 1
+  - proto: N14ScrapElectronic1
+    price: 2
+  - proto: N14ScrapGold1
+    price: 2
+  - proto: N14FoodMeatPigrat
+    price: 1
+  - proto: N14FoodMeatRadRaw
+    price: 1
+  - proto: N14JunkAbraxoCleaner
+    price: 2
+  - proto: N14MaterialLeather1
+    price: 3
+  - proto: N14MaterialAntChitin1
+    price: 3
+  - proto: N14MaterialHideGecko
+    price: 4
+  - proto: N14MaterialHideGeckoFire
+    price: 4
+  - proto: N14FoodFireantNectar
+    price: 4
+  - proto: N14FoodMeatGeckoGolden
+    price: 4
+  - proto: N14FoodMeatMirelurkClaw
+    price: 4
+  - proto: N14MaterialCircuitry1
+    price: 5
+  - proto: Charcoal1
+    amount: 1
+    price: 1
+  - proto: N14FoodMeatRadlurkClaw
+    price: 5
+  - proto: N14FoodEggDeathclaw
+    price: 10
+  - proto: N14MaterialYaoguaiHide
+    price: 10
+  - proto: N14MaterialNightstalkerPelt
+    price: 10
+  - proto: N14FoodCazadorAcidSac
+    price: 11
+  - proto: N14MaterialRadscorpionTail
+    price: 13
+  - proto: N14FoodMeatBrahmin
+    price: 6
+  - proto: N14FoodMeatRadstag
+    price: 8
+  - proto: FoodMeatRedfishRaw
+    price: 5
+  - proto: FoodMeatWhitefishRaw
+    price: 4
+  - proto: FoodRedCaviar
+    price: 8
+  - proto: N14WeaponLaserRevolver
+    price: 20
+  - proto: N14WeaponLaserRifleMakeshift
+    price: 16
+  - proto: N14WeaponLaserRifleCrude
+    price: 25
+  - proto: N14WeaponLaserPistol
+    price: 16
+  - proto: N14WeaponLaserRifle
+    price: 62
+  - proto: N14WeaponLaserPistolRecharger
+    price: 14
+  - proto: N14WeaponLaserRiflePrototypeAER14
+    price: 90
+  - proto: N14WeaponPlasmaDefender
+    price: 45
+  - proto: N14WeaponPlasmaRifle
+    price: 47
+  - proto: N14WeaponPlasmaRifleUrban
+    price: 52
+

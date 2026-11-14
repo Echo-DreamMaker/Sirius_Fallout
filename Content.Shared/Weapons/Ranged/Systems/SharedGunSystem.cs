@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared._NC.Mountable.Components;
+using Content.Shared._Misfits.Special;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
@@ -578,6 +579,22 @@ public abstract partial class SharedGunSystem : EntitySystem
         return angles;
     }
 
+    // #Misfits Add - one direction per hitscan ray, fanned out when the gun has a HitscanSpread component
+    protected Vector2[] GetHitscanDirections(EntityUid gunUid, Vector2 direction)
+    {
+        if (!TryComp<HitscanSpreadComponent>(gunUid, out var spread) || spread.Count <= 1)
+            return new[] { direction };
+
+        var shotAngle = direction.ToAngle();
+        var angles = LinearSpread(shotAngle - spread.Spread / 2, shotAngle + spread.Spread / 2, spread.Count);
+        var directions = new Vector2[angles.Length];
+
+        for (var i = 0; i < angles.Length; i++)
+            directions[i] = angles[i].ToVec();
+
+        return directions;
+    }
+
     protected Angle GetRecoilAngle(TimeSpan curTime, GunComponent component, Angle direction, EntityUid? user = null)
     {
         var timeSinceLastFire = (curTime - component.LastFire).TotalSeconds;
@@ -601,17 +618,28 @@ public abstract partial class SharedGunSystem : EntitySystem
         random /= Contests.MassContest(user);
         var spread = component.CurrentAngle.Theta * random;
 
-        // #Cythisiax Added - Accuracy penalty when shooting from a moving vehicle/buckle
+        // #Cythisiax Added - Accuracy penalty when shooting from a moving motorbike.
         var buckleMovementSpread = 0d;
         if (user != null &&
             TryComp<BuckleComponent>(user.Value, out var buckle) &&
             buckle.BuckledTo is { } buckledTo &&
-            HasComp<VehicleComponent>(buckledTo) &&
+            HasComp<MotorbikeComponent>(buckledTo) &&
             TryComp<PhysicsComponent>(buckledTo, out var vehiclePhysics))
         {
             var vehicleSpeed = vehiclePhysics.LinearVelocity.Length();
             if (vehicleSpeed > 1.0f) // Only penalize above walking speed
-                buckleMovementSpread = (vehicleSpeed - 1.0f) * 0.04; // ~0.12 rad (~7°) at full bike speed (~4 m/s)
+            {
+                var tuning = _special.GetTuning();
+                var perception = _special.GetEffective(user.Value, SpecialStat.Perception);
+                var perceptionFraction = (perception - SpecialProfile.Minimum) /
+                                         (float) (SpecialProfile.Maximum - SpecialProfile.Minimum);
+                var penaltyMultiplier = MathHelper.Lerp(
+                    tuning.PerceptionVehicleSpreadMultiplierLow,
+                    tuning.PerceptionVehicleSpreadMultiplierHigh,
+                    perceptionFraction);
+
+                buckleMovementSpread = (vehicleSpeed - 1.0f) * 0.04 * penaltyMultiplier;
+            }
         }
 
         var angle = new Angle(direction.Theta + spread + buckleMovementSpread);

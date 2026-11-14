@@ -38,6 +38,7 @@
   subGear:
   - PrisonerPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitPrisoner
     shoes: ClothingShoesColorBlack
     id: PrisonerPDA
@@ -48,6 +49,7 @@
   id: PrisonerPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitPrisoner
     head: ClothingHeadEnvirohelmPrisoner
     gloves: ClothingHandsGlovesEnviroglovesBlack

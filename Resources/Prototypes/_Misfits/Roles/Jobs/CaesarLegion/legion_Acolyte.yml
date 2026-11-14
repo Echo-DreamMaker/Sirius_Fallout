@@ -29,11 +29,36 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: BibleUser #Lets them heal with bibles
         - type: NpcFactionMember
           factions:
             - CaesarLegion
         - type: ReplacementAccent
           accent: latin
+        - type: Warcry
+          action: ActionLegionWarcry
+          targetDepartment: CaesarLegion
+          range: 6
+          speedBonus: 0.30 # #Misfits Tweak - reduced from 0.50, was too strong
+          duration: 10
+          overlayColor: "#D64545"
+          speechVerb: MisfitsLegionWarcry
+          warcryMessage: warcry-message-legion
+          warcryMessageCount: 6
+          buffPopup: warcry-popup-buffed-legion
+          excludedJobs:
+          - SuperMutantGladiator
+          cautionPopup: true
+          activatorJobs:
+          - CaesarLegionVexillarius
+          - CaesarLegionDean
+          - CaesarLegionPrimeDecanus
+          - CaesarLegionVeteranDecanus
+          - CaesarLegionCenturion
+          - CaesarLegionLegate
+          - CaesarLegionOptio
+          - CaesarLegionPriestessOfMars
+          - CaesarLegionAcolyteOfMars
         - type: CPRTraining # Taught by the POM
     - !type:AddTraitSpecial
       traits: [ LanguageLatin ]
@@ -41,13 +66,13 @@
 - type: startingGear
   id: CaesarLegionAcolyteOfMarsGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitLegionnaire
     ears: N14ClothingHeadsetLegion
     neck: N14ClothingNeckAcolyteCloak
     mask: N14ClothingMaskBrownMask
     back: N14ClothingBackpackMilitary
     shoes: N14ClothingBootsLeather
-    head: N14ClothingHeadHatTribalOutcastHood
     gloves: N14ClothingHandsGlovesTribal
     outerClothing: N14ClothingOuterLegionnaireRecruitArmor
     pocket1: LegionAcolyteLoadoutKits
@@ -60,6 +85,7 @@
     - N14HealingPowder
     - N14HealingPoultice
     - N14HealingPoultice
+    - BibleMars
 
 - type: playTimeTracker
   id: CaesarLegionAcolyteOfMars

@@ -1,8 +1,8 @@
-﻿job-supervisors-bos-mid-initiate = the Brotherhood chain of command
+job-supervisors-bos-mid-initiate = the Brotherhood chain of command
 job-supervisors-bos-mid-knight = the Head Knight, Head Paladin, and Elder
 job-supervisors-bos-mid = the Elder and the chapter heads
 job-supervisors-bos-mid-commander = the Elder
-# Misfits Change /Comment-out/: Washington BoS supervisor strings removed — will create new prototypes.
+# Misfits Change /Comment-out/: Washington BoS supervisor strings removed вЂ” will create new prototypes.
 # job-supervisors-bos-wash-initiate = the Brotherhood chain of command
 # job-supervisors-bos-wash-knight = the Head Knight, Head Paladin, and Elder
 # job-supervisors-bos-wash = the Elder and the chapter heads
@@ -23,7 +23,7 @@ job-supervisors-ncr-prisoners = the NCR guards holding your sentence
 job-supervisors-tribal = the Tribal Chieftan
 job-supervisors-tribal-elder = your best judgement
 job-supervisors-vault = the Overseer
-job-supervisors-vault-overseer = your morale code
+job-supervisors-vault-overseer = your morale code and Vault-tec leadership
 job-supervisors-wastelander = yourself and you alone
 job-supervisors-townsfolk = the Mayor of the town
 job-supervisors-townsfolk-deputy = the local Marshal

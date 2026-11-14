@@ -44,6 +44,7 @@
   <Project Path="Content.Tools/Content.Tools.csproj" />
   <Project Path="Content.YAMLLinter/Content.YAMLLinter.csproj" />
   <Project Path="Pow3r/Pow3r.csproj" />
+  <Folder Name="/RobustToolbox/.github/" />
   <Folder Name="/RobustToolbox/.github/workflows/">
     <File Path="RobustToolbox/.github/workflows/benchmarks.yml" />
     <File Path="RobustToolbox/.github/workflows/build-all-configurations.yml" />
@@ -82,7 +83,7 @@
   <Folder Name="/RobustToolbox/NetSerializer/">
     <Project Path="RobustToolbox/NetSerializer/NetSerializer/NetSerializer.csproj">
       <BuildType Solution="DebugOpt|*" Project="Debug" />
-      <BuildType Solution="Tools|*" Project="Release" />
+      <BuildType Solution="Tools|*" Project="Debug" />
     </Project>
   </Folder>
   <Folder Name="/RobustToolbox/Project Files/">

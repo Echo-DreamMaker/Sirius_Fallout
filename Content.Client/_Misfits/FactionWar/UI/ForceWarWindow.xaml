@@ -8,7 +8,7 @@
     <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="0">
 
-        <!-- ── Header ─────────────────────────────────────────────── -->
+        <!-- в”Ђв”Ђ Header в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ -->
         <controls:StripeBack>
             <PanelContainer>
                 <Label Text="Force War (Admin)" StyleClasses="LabelBig" Align="Center" Margin="0 4"/>
@@ -20,19 +20,19 @@
 
         <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 4"/>
 
-        <!-- ── Aggressor ──────────────────────────────────────────── -->
+        <!-- в”Ђв”Ђ Aggressor в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ -->
         <BoxContainer Orientation="Horizontal" Margin="10 4 10 4" SeparationOverride="8">
             <Label Text="Aggressor:" VerticalAlignment="Center" MinWidth="90"/>
             <OptionButton Name="AggressorSelector" HorizontalExpand="True"/>
         </BoxContainer>
 
-        <!-- ── Target ─────────────────────────────────────────────── -->
+        <!-- в”Ђв”Ђ Target в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ -->
         <BoxContainer Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="8">
             <Label Text="Target:" VerticalAlignment="Center" MinWidth="90"/>
             <OptionButton Name="TargetSelector" HorizontalExpand="True"/>
         </BoxContainer>
 
-        <!-- ── Casus Belli ────────────────────────────────────────── -->
+        <!-- в”Ђв”Ђ Casus Belli в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ -->
         <BoxContainer Orientation="Vertical" Margin="10 0 10 4" SeparationOverride="2">
             <Label Text="Casus Belli (optional):"/>
             <LineEdit Name="CasusBelliEdit" PlaceHolder="Admin-forced war (testing)"
@@ -41,16 +41,16 @@
 
         <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 4"/>
 
-        <!-- ── Force War Button ───────────────────────────────────── -->
+        <!-- в”Ђв”Ђ Force War Button в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ -->
         <Button Name="ForceWarButton" Text="Force War"
                 Margin="10 4 10 6" HorizontalExpand="True"/>
 
-        <!-- ── Result ─────────────────────────────────────────────── -->
+        <!-- в”Ђв”Ђ Result в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ -->
         <RichTextLabel Name="ResultLabel" Margin="10 4 10 4" HorizontalExpand="True"/>
 
         <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 4"/>
 
-        <!-- ── Force Ceasefire ─────────────────────────────────────── -->
+        <!-- в”Ђв”Ђ Force Ceasefire в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ -->
         <Label Text="Force Ceasefire" Margin="10 4 10 2" Modulate="#5599CC"
                StyleClasses="LabelBig"/>
 
@@ -69,12 +69,13 @@
 
         <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 4"/>
 
-        <!-- #Misfits Add - Admin Observe ───────────────────────── -->
+        <!-- #Misfits Add - Admin Observe в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ -->
         <Label Text="Admin Observe" Margin="10 4 10 2" Modulate="#FFA500"
                StyleClasses="LabelBig"/>
 
-        <Label Text="Observe a war from a participant's perspective. See [ALLY]/[ENEMY] tags without getting one yourself."
-               Margin="10 0 10 4" Modulate="#AAAAAA" StyleClasses="LabelSubText"/>
+        <!-- #Cythisiax Fixed - wrap long description (brackets escaped for RichTextLabel markup) -->
+        <RichTextLabel Text="Observe a war from a participant's perspective. See \[ALLY\]/\[ENEMY\] tags without getting one yourself."
+               Margin="10 0 10 4" HorizontalExpand="True"/>
 
         <BoxContainer Orientation="Horizontal" Margin="10 4 10 4" SeparationOverride="8">
             <Label Text="War Participant:" VerticalAlignment="Center" MinWidth="90"/>

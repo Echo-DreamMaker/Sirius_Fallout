@@ -41,6 +41,16 @@
 
 - type: entity
   parent: N14DoorMetalBarTall
+  id: N14DoorCellMetalLockedNCRTall
+  suffix: NCR, Locked, SGT
+  components:
+  - type: AccessReader
+    access: [["NCRSGT"]]
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: N14DoorMetalBarTall
   id: N14DoorCellMetalLockedNCRMPTall
   suffix: NCR, Locked, SGT
   components:

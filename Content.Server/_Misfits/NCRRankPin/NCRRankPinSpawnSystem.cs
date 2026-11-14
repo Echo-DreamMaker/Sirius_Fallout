@@ -35,7 +35,7 @@ public sealed class NCRRankPinSpawnSystem : EntitySystem
                 break;
         }
 
-        if (progression == null)
+        if (progression == null || !progression.SpawnOnRoundstart)
             return;
 
         if (!_playTime.TryGetTrackerTimes(args.Player, out var times))
@@ -75,7 +75,7 @@ public sealed class NCRRankPinSpawnSystem : EntitySystem
         {
             // Resolve the job's actual playTimeTracker ID so renamed trackers are found correctly.
             var trackerId = _proto.TryIndex<JobPrototype>(role, out var jobProto)
-                ? jobProto.PlayTimeTracker
+                ? jobProto.PlayTimeTracker.Id
                 : role.Id;
             if (times.TryGetValue(trackerId, out var roleTime))
                 total += roleTime;

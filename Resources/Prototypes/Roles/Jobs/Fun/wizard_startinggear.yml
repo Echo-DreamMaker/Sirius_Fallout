@@ -2,6 +2,7 @@
 - type: startingGear
   id: WizardBlueGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorDarkBlue
     back: ClothingBackpackFilled
     head: ClothingHeadHatWizard
@@ -16,6 +17,7 @@
 - type: startingGear
   id: WizardRedGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorRed
     back: ClothingBackpackFilled
     head: ClothingHeadHatRedwizard
@@ -30,6 +32,7 @@
 - type: startingGear
   id: WizardVioletGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorPurple
     back: ClothingBackpackFilled
     head: ClothingHeadHatVioletwizard
@@ -44,6 +47,7 @@
 - type: startingGear
   id: WizardHardsuitGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitColorPurple
     back: ClothingBackpackFilled
     outerClothing: ClothingOuterHardsuitWizard

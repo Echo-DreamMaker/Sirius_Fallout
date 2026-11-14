@@ -19,7 +19,7 @@
     # CaesarLegionSlave is the female-accessible entry rank, so hours gate placed there.
     - !type:CharacterDepartmentTimeRequirement # Legion total timelock (minimum branch total)
       department: CaesarLegion
-      min: 72000 # 20 hours
+      min: 108000 # 30 hours
     - !type:CharacterPlaytimeRequirement
       tracker: CaesarLegionAcolyteOfMars
       min: 28800 # 8 hours
@@ -42,6 +42,7 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: BibleUser #Lets them heal with bibles
         - type: NpcFactionMember
           factions:
             - CaesarLegion
@@ -71,6 +72,7 @@
           - CaesarLegionLegate
           - CaesarLegionOrator
           - CaesarLegionPriestessOfMars
+          - CaesarLegionAcolyteOfMars
     - !type:AddTraitSpecial
       traits: [ LanguageLatin ]
 
@@ -78,6 +80,7 @@
 - type: startingGear
   id: CaesarLegionPriestessOfMarsGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: N14PriestessOfMarsRobes
     neck: N14PriestessOfMarsCloak
     mask: N14PriestessOfMarsVeil
@@ -94,6 +97,7 @@
       - N14BoxPlasticFilledMilitaryLegion
       - N14HealingPowder
       - N14HealingPoultice
+      - BibleMars
 
 # Playtime tracker — accumulated hours unlock future female Legion ranks.
 - type: playTimeTracker

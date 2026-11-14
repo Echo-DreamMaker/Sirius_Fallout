@@ -60,12 +60,13 @@ public partial class ChatSystem
         bool hideLog = false,
         string? nameOverride = null,
         bool ignoreActionBlocker = false,
-        bool forceEmote = false
+        bool forceEmote = false,
+        int? fontSizeOverride = null
         )
     {
         if (!_prototypeManager.TryIndex<EmotePrototype>(emoteId, out var proto))
             return;
-        TryEmoteWithChat(source, proto, range, hideLog: hideLog, nameOverride, ignoreActionBlocker: ignoreActionBlocker, forceEmote: forceEmote);
+        TryEmoteWithChat(source, proto, range, hideLog: hideLog, nameOverride, ignoreActionBlocker: ignoreActionBlocker, forceEmote: forceEmote, fontSizeOverride: fontSizeOverride);
     }
 
     /// <summary>
@@ -85,7 +86,8 @@ public partial class ChatSystem
         bool hideLog = false,
         string? nameOverride = null,
         bool ignoreActionBlocker = false,
-        bool forceEmote = false
+        bool forceEmote = false,
+        int? fontSizeOverride = null
         )
     {
         if (!forceEmote && !AllowedToUseEmote(source, emote))
@@ -97,7 +99,7 @@ public partial class ChatSystem
             // not all emotes are loc'd, but for the ones that are we pass in entity
             var action = Loc.GetString(_random.Pick(emote.ChatMessages), ("entity", source));
             var language = _language.GetLanguage(source);
-            SendEntityEmote(source, action, range, nameOverride, language, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker);
+            SendEntityEmote(source, action, range, nameOverride, language, hideLog: hideLog, checkEmote: false, ignoreActionBlocker: ignoreActionBlocker, fontSizeOverride: fontSizeOverride);
         }
 
         // do the rest of emote event logic here

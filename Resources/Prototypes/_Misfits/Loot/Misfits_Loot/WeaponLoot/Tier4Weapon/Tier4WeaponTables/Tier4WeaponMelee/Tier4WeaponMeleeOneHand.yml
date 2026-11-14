@@ -1,0 +1,42 @@
+- type: entityTable
+  id: M14WeaponLootTier4_MeleeBluntOneHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14BrokenPipe
+    - !type:EntSelector
+      id: N14PoliceBaton
+    - !type:EntSelector
+      id: N14TribalClub
+
+- type: entityTable
+  id: M14WeaponLootTier4_MeleeSharpOneHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Gladius
+      weight: 5
+    - !type:EntSelector
+      id: N14ripper
+      weight: 10
+
+
+
+- type: entityTable
+  id: M14WeaponLootTier4_MeleeOtherOneHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponKebab
+      weight: 5
+
+- type: entityTable
+  id: M14WeaponLootTier4_Shield
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14LegionnaireShield
+    - !type:EntSelector
+      id: N14LegionnaireBuckler
+    - !type:EntSelector
+      id: N14ShieldMetalHeavy

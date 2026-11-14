@@ -27,6 +27,13 @@ public sealed partial class FactionWarWindow : FancyWindow
     public event Action<NetUserId>? OnAcceptCeasefireProposal;
     public event Action<NetUserId>? OnRejectCeasefireProposal;
 
+    // #Misfits Merge - compatibility with client system API (UI merged differently).
+    public const int WarsTab = 0;
+    public event Action? OnRefresh;
+    public event Action<string, byte>? OnJoinWar;
+    public void ShowTab(int tab) { }
+    public void UpdateJoinState(Content.Shared._Misfits.FactionWar.PlayerWarJoinPanelDataEvent msg) { }
+
     // ── Internal state ─────────────────────────────────────────────────────
 
     private readonly List<WarTargetInfo> _factionTargetItems = new();
@@ -86,6 +93,7 @@ public sealed partial class FactionWarWindow : FancyWindow
     public void UpdateState(
         PlayerWarPanelDataEvent data,
         NetUserId? localUserId,
+        NetEntity? localEntity,
         CeasefireProposalEvent? pendingCeasefire)
     {
         _localUserId = localUserId;

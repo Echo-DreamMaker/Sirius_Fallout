@@ -20,6 +20,7 @@
   subGear:
   - ScientistPlasmamanGear
   equipment:
+    wallet: N14Wallet
     head: ClothingHeadHatBeretRND
     jumpsuit: ClothingUniformJumpsuitSeniorResearcher
     back: ClothingBackpackScienceFilled

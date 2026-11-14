@@ -25,6 +25,7 @@
   subGear:
   - SalvageSpecialistPlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
     back: ClothingBackpackSalvageFilled
     shoes: ClothingShoesBootsSalvage
@@ -37,6 +38,7 @@
   id: SalvageSpecialistPlasmamanGear
   parent: BasePlasmamanGear
   equipment:
+    wallet: N14Wallet
     jumpsuit: ClothingUniformEnvirosuitSalvage
     head: ClothingHeadEnvirohelmSalvage
     gloves: ClothingHandsGlovesEnviroglovesSalvage

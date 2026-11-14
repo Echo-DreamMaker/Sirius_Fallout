@@ -1,8 +1,8 @@
-﻿#nullable enable
-using System.Linq; // #Misfits Add — for LINQ ticket filtering
-using Content.Client._Misfits.Administration.UI; // #Misfits Add — for TicketToastPopup
+#nullable enable
+using System.Linq; // #Misfits Add вЂ” for LINQ ticket filtering
+using Content.Client._Misfits.Administration.UI; // #Misfits Add вЂ” for TicketToastPopup
 using Content.Client.UserInterface.Systems.Bwoink;
-using Content.Shared._Misfits.Administration; // #Misfits Add — ticket system types
+using Content.Shared._Misfits.Administration; // #Misfits Add вЂ” ticket system types
 using Content.Shared.Administration;
 using JetBrains.Annotations;
 using Robust.Client.Audio;
@@ -22,18 +22,18 @@ namespace Content.Client.Administration.Systems
         public event EventHandler<BwoinkTextMessage>? OnBwoinkTextMessageRecieved;
         private (TimeSpan Timestamp, bool Typing) _lastTypingUpdateSent;
 
-        // #Misfits Add — ticket events for the UI
+        // #Misfits Add вЂ” ticket events for the UI
         public event Action<HelpTicketInfo>? OnTicketUpdated;
         public event Action<List<HelpTicketInfo>>? OnTicketListReceived;
-        // #Misfits Add — audit log response from server DB query
+        // #Misfits Add вЂ” audit log response from server DB query
         public event Action<HelpTicketAuditResponseMessage>? OnAuditLogReceived;
-        // #Misfits Fix — chat history patched out; re-enable when feature is revisited
+        // #Misfits Fix вЂ” chat history patched out; re-enable when feature is revisited
         // public event Action<HelpTicketChatResponseMessage>? OnTicketChatReceived;
 
-        // #Misfits Add — track known tickets to only toast on new or significant state changes
+        // #Misfits Add вЂ” track known tickets to only toast on new or significant state changes
         private readonly Dictionary<int, HelpTicketStatus> _knownTickets = new();
 
-        // #Misfits Add — authoritative ticket cache, keyed by PlayerId. Populated by server
+        // #Misfits Add вЂ” authoritative ticket cache, keyed by PlayerId. Populated by server
         // pushes and request responses. New UI subscribers (BwoinkControl, TicketLogWindow, etc.)
         // can read CachedTickets immediately instead of waiting for an async response.
         private readonly Dictionary<NetUserId, HelpTicketInfo> _cachedTickets = new();
@@ -47,12 +47,12 @@ namespace Content.Client.Administration.Systems
         {
             base.Initialize();
 
-            // #Misfits Add — subscribe to ticket messages from server
+            // #Misfits Add вЂ” subscribe to ticket messages from server
             SubscribeNetworkEvent<HelpTicketUpdatedMessage>(OnTicketUpdatedMsg);
             SubscribeNetworkEvent<HelpTicketListMessage>(OnTicketListMsg);
-            // #Misfits Add — subscribe to audit log responses from server
+            // #Misfits Add вЂ” subscribe to audit log responses from server
             SubscribeNetworkEvent<HelpTicketAuditResponseMessage>(OnAuditLogMsg);
-            // #Misfits Fix — chat history patched out; subscription disabled
+            // #Misfits Fix вЂ” chat history patched out; subscription disabled
             // SubscribeNetworkEvent<HelpTicketChatResponseMessage>(OnTicketChatMsg);
         }
 
@@ -61,15 +61,15 @@ namespace Content.Client.Administration.Systems
             OnBwoinkTextMessageRecieved?.Invoke(this, message);
         }
 
-        // #Misfits Add — relay ticket updates to the UI and show toast notifications
+        // #Misfits Add вЂ” relay ticket updates to the UI and show toast notifications
         private void OnTicketUpdatedMsg(HelpTicketUpdatedMessage msg)
         {
             if (msg.Ticket.Type == HelpTicketType.AdminHelp)
             {
                 // Update local cache before notifying UI
                 _cachedTickets[msg.Ticket.PlayerId] = msg.Ticket;
-                // #Misfits Fix — toast system disabled. TicketToastPopup.Show() adds a child
-                // to PopupRoot, and its FrameUpdate calls Orphan() to self-remove — both
+                // #Misfits Fix вЂ” toast system disabled. TicketToastPopup.Show() adds a child
+                // to PopupRoot, and its FrameUpdate calls Orphan() to self-remove вЂ” both
                 // mutate the UI control tree and trigger "Collection was modified" crashes
                 // inside DoFrameUpdateRecursive. The toast also never rendered visually.
                 // ShowTicketToast(msg.Ticket);
@@ -79,13 +79,13 @@ namespace Content.Client.Administration.Systems
 
         private void OnTicketListMsg(HelpTicketListMessage msg)
         {
-            // #Misfits Fix — ignore lists from the mentor system; each list message is tagged
+            // #Misfits Fix вЂ” ignore lists from the mentor system; each list message is tagged
             // with the type that sent it so systems don't wipe each other's ticket caches.
             if (msg.ListType != HelpTicketType.AdminHelp)
                 return;
 
             var ahelpTickets = msg.Tickets.Where(t => t.Type == HelpTicketType.AdminHelp).ToList();
-            // #Misfits Fix — replace known ticket cache from authoritative server list.
+            // #Misfits Fix вЂ” replace known ticket cache from authoritative server list.
             // This prevents old round ticket IDs from persisting client-side.
             _knownTickets.Clear();
             _cachedTickets.Clear();
@@ -95,25 +95,25 @@ namespace Content.Client.Administration.Systems
                 _cachedTickets[t.PlayerId] = t;
             }
 
-            // #Misfits Fix — always notify listeners, including empty lists,
+            // #Misfits Fix вЂ” always notify listeners, including empty lists,
             // so UI caches can clear stale entries between rounds.
             OnTicketListReceived?.Invoke(ahelpTickets);
         }
 
-        // #Misfits Add — relay server DB audit log response to the UI
+        // #Misfits Add вЂ” relay server DB audit log response to the UI
         private void OnAuditLogMsg(HelpTicketAuditResponseMessage msg)
         {
             OnAuditLogReceived?.Invoke(msg);
         }
 
-        // #Misfits Fix — chat history patched out
+        // #Misfits Fix вЂ” chat history patched out
         // private void OnTicketChatMsg(HelpTicketChatResponseMessage msg)
         // {
         //     OnTicketChatReceived?.Invoke(msg);
         // }
 
-        // #Misfits Add — show a toast popup for notable ticket events
-        // #Misfits Fix — DISABLED. TicketToastPopup.Show() adds a child to PopupRoot and
+        // #Misfits Add вЂ” show a toast popup for notable ticket events
+        // #Misfits Fix вЂ” DISABLED. TicketToastPopup.Show() adds a child to PopupRoot and
         // its FrameUpdate calls Orphan() to self-remove after the display timer expires.
         // Both mutations crash the engine with "Collection was modified" during
         // DoFrameUpdateRecursive. The popup also never rendered visually on player clients.
@@ -157,7 +157,7 @@ namespace Content.Client.Administration.Systems
         //     }
         // }
 
-        // #Misfits Add — send ticket claim/resolve/unclaim/reopen requests
+        // #Misfits Add вЂ” send ticket claim/resolve/unclaim/reopen requests
         public void ClaimTicket(int ticketId)
         {
             RaiseNetworkEvent(new HelpTicketClaimMessage(ticketId, HelpTicketType.AdminHelp));
@@ -188,6 +188,8 @@ namespace Content.Client.Administration.Systems
             Guid? filterPlayerId = null,
             int limit = 100,
             int offset = 0,
+            int adminLogOffset = 0,
+            int playerLogOffset = 0,
             string? filterPlayerName = null,
             string? filterAdminName = null,
             Guid? filterAdminId = null,
@@ -200,6 +202,8 @@ namespace Content.Client.Administration.Systems
                 FilterPlayerId = filterPlayerId,
                 Limit = limit,
                 Offset = offset,
+                AdminLogOffset = adminLogOffset,
+                PlayerLogOffset = playerLogOffset,
                 FilterPlayerName = filterPlayerName,    // #Misfits Add
                 FilterAdminName = filterAdminName,      // #Misfits Add
                 FilterAdminId = filterAdminId,          // #Misfits Add
@@ -209,7 +213,7 @@ namespace Content.Client.Administration.Systems
             });
         }
 
-        // #Misfits Fix — chat history patched out; method disabled
+        // #Misfits Fix вЂ” chat history patched out; method disabled
         // public void RequestTicketChat(int ticketId, HelpTicketType ticketType, Guid playerId)
         // {
         //     RaiseNetworkEvent(new HelpTicketChatRequestMessage
@@ -242,7 +246,7 @@ namespace Content.Client.Administration.Systems
             RaiseNetworkEvent(new BwoinkClientTypingUpdated(channel, typing));
         }
 
-        // #Misfits Add — sends a ghost-follow request to the server for the AHelp Follow button.
+        // #Misfits Add вЂ” sends a ghost-follow request to the server for the AHelp Follow button.
         // Server will ensure aghost mode is active before starting the orbit.
         public void GhostFollow(NetUserId targetUserId)
         {

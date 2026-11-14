@@ -1,6 +1,6 @@
 # Drum magazines for PPSh-41 and American 180, ported from Fortune13/LoneStar.
 
-# PPSh-41 35-round 9mm drum
+# PPSh-41 71-round 9mm drum
 - type: entity
   id: N14MagazineSMG9mmDrum
   name: drum magazine (9mm)
@@ -27,7 +27,7 @@
     - state: base
       map: ["enum.GunVisualLayers.Base"]
 
-# American 180 35-round .22lr drum
+# American 180 177-round .22lr drum
 - type: entity
   id: N14MagazineAmerican180Drum
   name: drum magazine (.22lr)

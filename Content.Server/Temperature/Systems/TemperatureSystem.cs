@@ -34,12 +34,11 @@ public sealed class TemperatureSystem : EntitySystem
 
     private float _accumulatedFrametime;
 
-    [ValidatePrototypeId<AlertCategoryPrototype>]
-    public const string TemperatureAlertCategory = "Temperature";
+    public static readonly ProtoId<AlertCategoryPrototype> TemperatureAlertCategory = "Temperature";
 
     public override void Initialize()
     {
-        // #Misfits Tweak: Temperature damage disabled — we do not use thermal damage.
+        // #Misfits Tweak: Temperature damage disabled вЂ” we do not use thermal damage.
         // EnqueueDamage subscription removed to prevent ShouldUpdateDamage set from growing
         // forever with no drain (UpdateDamage() is also commented out below).
         // SubscribeLocalEvent<TemperatureComponent, OnTemperatureChangeEvent>(EnqueueDamage);
@@ -192,7 +191,7 @@ public sealed class TemperatureSystem : EntitySystem
         if (Math.Abs(diff) < 0.1f)
             return;
 
-        // q = conductivity * diff / thickness (W/m²), converted to K via heat capacity
+        // q = conductivity * diff / thickness (W/mВІ), converted to K via heat capacity
         var q = internalTemp.Conductivity * diff / internalTemp.Thickness;
         var joules = q * internalTemp.Area * deltaTime;
         var degrees = joules / GetHeatCapacity(uid, temperature);
