@@ -8,12 +8,13 @@
   name: job-name-townbartender
   description: job-description-townbartender
   playTimeTracker: WastelandBartender
-  requirements:
+  requirements: #Sirius Change - allow SuperMutant
     - !type:CharacterSpeciesRequirement
       species:
       - Human
       - Ghoul
       - GhoulGlowing
+      - SuperMutant
     #- !type:CharacterDepartmentTimeRequirement # TEMP REMOVED
     #  department: Townsfolk
     #  min: 18000 # 5 hours
@@ -38,6 +39,8 @@
 
 - type: startingGear
   id: WastelandBartenderGear
+  subGear: # Sirius Change - SuperMutant roundstart clothing
+  - SuperMutantBartenderGear
   equipment:
     wallet: N14Wallet
     head: ClothingHeadHatTophat

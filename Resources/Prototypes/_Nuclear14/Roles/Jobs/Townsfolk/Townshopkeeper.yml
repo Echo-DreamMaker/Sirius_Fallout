@@ -9,12 +9,13 @@
   name: job-name-townshopkeeper
   description: job-description-townshopkeeper
   playTimeTracker: TownShopkeeper
-  requirements:
+  requirements: #Sirius Change - allow SuperMutant
     - !type:CharacterSpeciesRequirement
       species:
       - Human
       - Ghoul
       - GhoulGlowing
+      - SuperMutant
     #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
     #  tracker: TownShopkeeperHelper
     #  min: 18000 # 5 hours
@@ -36,6 +37,8 @@
 
 - type: startingGear
   id: TownShopkeeperGear
+  subGear: # Sirius Change - SuperMutant roundstart clothing
+  - SuperMutantTownShopkeeperGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitMerchant
     ears: MisfitsClothingHeadsetTown

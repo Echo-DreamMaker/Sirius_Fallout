@@ -11,12 +11,13 @@
   icon: "JobIconWastelander" # Corvax-Change
   supervisors: job-supervisors-wastelander
   alwaysUseSpawner: true
-  requirements: # #Misfits Change: 8h playtime lock, block non-human species
+  requirements: # #Misfits Change: 8h playtime lock, block non-human species #Sirius Change - allow SuperMutant
     - !type:CharacterSpeciesRequirement
       species:
       - Human
       - Ghoul
       - GhoulGlowing
+      - SuperMutant
   special:
   - !type:AddComponentSpecial
     components:
@@ -36,12 +37,13 @@
   startingGear: WastelanderGear
   icon: "JobIconWastelander"
   supervisors: job-supervisors-wastelander
-  requirements:
+  requirements: #Sirius Change - allow SuperMutant
     - !type:CharacterSpeciesRequirement
       species:
       - Human
       - Ghoul
       - GhoulGlowing
+      - SuperMutant
   special:
   - !type:AddComponentSpecial
     components:
@@ -62,12 +64,13 @@
   startingGear: WasterTraderGear
   icon: "JobIconWastelander" # Corvax-Change
   supervisors: job-supervisors-wastelander
-  requirements: # #Misfits Change: 8h playtime lock, block non-human species
+  requirements: # #Misfits Change: 8h playtime lock, block non-human species #Sirius Change - allow SuperMutant
     - !type:CharacterSpeciesRequirement
       species:
       - Human
       - Ghoul
       - GhoulGlowing
+      - SuperMutant
     - !type:CharacterPlaytimeRequirement
       tracker: Wastelander
       min: 28800 # 8 hours
@@ -82,6 +85,8 @@
 
 - type: startingGear
   id: WastelanderGear
+  subGear: # Sirius Change - SuperMutant roundstart clothing
+  - SuperMutantWastelanderGear
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitRags
@@ -98,6 +103,8 @@
 
 - type: startingGear
   id: WasterTraderGear
+  subGear: # Sirius Change - SuperMutant roundstart clothing
+  - SuperMutantWasterTraderGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitMerchant
     ears: MisfitsClothingHeadsetWastelandScrap

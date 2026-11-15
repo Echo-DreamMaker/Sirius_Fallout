@@ -7,7 +7,7 @@
   name: species-name-supermutant
   roundStart: true
   order: 3 # #Misfits Change: sort after Glowing Ghoul
-  whitelistRequired: true # #Misfits Change
+  whitelistRequired: false # #Misfits Change #Sirius Change - supermutant species is publicly selectable
   restrictedCustomization: true # #Misfits Change
   allowedLoadoutCategories: # #Misfits Change
   - Weapons
@@ -36,16 +36,7 @@
   - Language
   - Pets
   jobWhitelistUnlock: SuperMutant # #Misfits Change: job whitelist for SuperMutant unlocks this species
-  restrictedJobs: # #Misfits Change
-  - SuperMutant
-  - SuperMutantGladiator
-  - SuperMutantRanger
-  - SuperMutantTrooper
-  - SuperMutantNCRRanger
-  - SuperMutantNCRTrooper
-  - SuperMutantTribal
-  - SuperMutantFollowerDoctor
-  - SuperMutantEnclave
+  #Sirius Change - removed restrictedJobs so supermutants can take wastelander/townsfolk roles (VL supermutant jobs remain job-whitelisted)
   prototype: N14MobSuperMutant
   sprites: MobSuperMutantSprites
   markingLimits: MobSuperMutantMarkingLimits
