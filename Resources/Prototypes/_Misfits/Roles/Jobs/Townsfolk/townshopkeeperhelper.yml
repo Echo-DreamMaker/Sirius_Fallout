@@ -14,6 +14,8 @@
       - Human
       - Ghoul
       - GhoulGlowing
+      - SuperMutant #Sirius Change
+      - Nightkin #Sirius Change
     #- !type:CharacterDepartmentTimeRequirement # TEMP REMOVED
     #  department: Townsfolk
     #  min: 18000 # 5 hours
@@ -35,6 +37,8 @@
 
 - type: startingGear
   id: TownShopkeeperHelperGear
+  subGear: # Sirius Change - SuperMutant/Nightkin roundstart clothing
+  - SuperMutantTownShopkeeperHelperGear
   equipment:
     ears: MisfitsClothingHeadsetTown
     jumpsuit: N14ClothingUniformJumpsuitMerchant

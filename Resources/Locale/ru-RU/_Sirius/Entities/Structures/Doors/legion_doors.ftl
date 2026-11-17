@@ -1,8 +1,16 @@
 ent-SiriusDoorWoodSecureLockedLegion = деревянная дверь
+    .desc = Эта дверь изрядно потрёпана, но слегка подлатана.
 ent-SiriusDoorWoodSecureLockedLegionDean = деревянная дверь
+    .desc = Эта дверь изрядно потрёпана, но слегка подлатана.
 ent-SiriusDoorWoodSecureLockedLegionCenturion = деревянная дверь
+    .desc = Эта дверь изрядно потрёпана, но слегка подлатана.
 ent-SiriusDoorWoodSecureLockedLegionLegate = деревянная дверь
+    .desc = Эта дверь изрядно потрёпана, но слегка подлатана.
 ent-SiriusDoorMakeshiftSecureLockedLegion = импровизированная дверь
+    .desc = Деревянная дверь. Выглядит грязной и самодельной.
 ent-SiriusDoorMakeshiftSecureLockedLegionDean = импровизированная дверь
+    .desc = Деревянная дверь. Выглядит грязной и самодельной.
 ent-SiriusDoorMakeshiftSecureLockedLegionCenturion = импровизированная дверь
+    .desc = Деревянная дверь. Выглядит грязной и самодельной.
 ent-SiriusDoorMakeshiftSecureLockedLegionLegate = импровизированная дверь
+    .desc = Деревянная дверь. Выглядит грязной и самодельной.

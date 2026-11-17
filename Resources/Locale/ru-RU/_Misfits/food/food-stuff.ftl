@@ -1,223 +1,223 @@
-ent-MisfitsFoodSushiRaw = Simple Sushi
-    .desc = A simple slice of a fine fish cut on some rice. Refreshing and tasty!
-food-desc-sushi-eat= Tastes fishy, refreshing and like rice
+ent-MisfitsFoodSushiRaw = Простое суши
+    .desc = простой ломтик хорошей рыбы на рисе. Освежающе и вкусно!
+food-desc-sushi-eat = На вкус — рыба, освежающе и похоже на рис.
 
-ent-MisfitsFoodSushiCooked = Simple Fried Sushi
-    .desc =  A simple slice of mildly fried sushi on some rice, for the ones who want to still eat sushi but without the traditional texture.
-food-desc-sushiCooked-eat= Tastes like fried fish, refreshing and like rice.
+ent-MisfitsFoodSushiCooked = Простое жареное суши
+    .desc = простой ломтик слегка обжаренного суши на рисе — для тех, кто хочет есть суши, но без традиционной текстуры.
+food-desc-sushiCooked-eat = На вкус — жареная рыба, освежающе и похоже на рис.
 
-ent-MisfitsRedfishRareRaw = Red Fish Cut
-    .desc =  A rare cut of fish. Good for making into cutlets.
-food-desc-redFishRare-eat = Tastes like raw fish.
+ent-MisfitsRedfishRareRaw = Кусок красной рыбы
+    .desc = редкий кусок рыбы. Хорош для котлет.
+food-desc-redFishRare-eat = На вкус — сырая рыба.
 
-ent-N14RedfishCutletRaw = Redfish Cut Cutlet
-    .desc = A slice of a fine red fish cut. Looks refreshing!
-food-desc-redFishCutlet-eat= Tastes like raw fish.
+ent-N14RedfishCutletRaw = Сырая котлета из красной рыбы
+    .desc = ломтик хорошего красного рыбного филе. Выглядит освежающе!
+food-desc-redFishCutlet-eat = На вкус — сырая рыба.
 
-ent-N14RedfishCutletCooked = Red Fish Cutlet Cooked
-    .desc = A slice of a fine red fish cut. Looks refreshing!
-food-desc-redFishCutletCooked-eat= Tastes like fried fish.
+ent-N14RedfishCutletCooked = Готовая котлета из красной рыбы
+    .desc = ломтик хорошего красного рыбного филе. Выглядит освежающе!
+food-desc-redFishCutletCooked-eat = На вкус — жареная рыба.
 
-ent-MisfitsFoodSushiFishCarrotRaw = Carrot and Fish Sushi Roll
-    .desc = A simple carrot and fish sushi roll. Where the seaweed came from is unknown.
-food-desc-sushiFishCarrot-eat= Tastes fishy, refreshing, like carrot and like munchy rice.
+ent-MisfitsFoodSushiFishCarrotRaw = Суши-ролл с морковью и рыбой
+    .desc = простой рыбный суши-ролл с морковью и хрустящим рисом.
+food-desc-sushiFishCarrot-eat = На вкус — рыба, освежающе, морковь и хрустящий рис.
 
-ent-MisfitsFoodSushiFishRaw = Fish Sushi
-    .desc = A simple fish sushi roll. Where the seaweed materialised from remains a mystery.
-food-desc-sushiFish-eat= Tastes very fishy, refreshing and like munchy rice.
+ent-MisfitsFoodSushiFishRaw = Рыбное суши
+    .desc = простой рыбный суши-ролл. Откуда взялись водоросли — остаётся загадкой.
+food-desc-sushiFish-eat = На вкус — очень рыбно, освежающе и хрустящий рис.
 
-ent-MisfitsFoodSushiMeatLargeRaw = Large Sushi
-    .desc = Massive sushi roll! DonвЂ™t choke!
-food-desc-sushiBig-eat= Tastes like a very large refreshing fish and rice combo.
+ent-MisfitsFoodSushiMeatLargeRaw = Большое суши
+    .desc = Огромный суши-ролл! Не подавитесь!
+food-desc-sushiBig-eat = На вкус — очень большой освежающий дуэт рыбы и риса.
 
-ent-MisfitsFoodSushiNCRRaw = New California Roll
-    .desc = NCRAвЂ™s favourite.
-food-desc-sushiNCR-eat= Tastes like carrot, fried fish and munchy rice.
+ent-MisfitsFoodSushiNCRRaw = Новокалифорнийский ролл
+    .desc = Любимый ролл НКАР.
+food-desc-sushiNCR-eat = На вкус — морковь, жареная рыба и хрустящий рис.
 
-ent-MisfitsFoodSushiSpicyRaw = Spicy Roll
-    .desc = Big bacon and hot sauce ahead.
-food-desc-sushiSpicy-eat= Tastes like crunchy bacon, spicy, fishy and like munchy rice.
+ent-MisfitsFoodSushiSpicyRaw = Острый ролл
+    .desc = Впереди большой бекон и острый соус.
+food-desc-sushiSpicy-eat = На вкус — хрустящий бекон, остро, рыба и хрустящий рис.
 
-ent-MisfitsFoodSushiNCRSuperRaw = NCR Patriotic Roll
-    .desc = A very patriotic NCR roll. Has an extra slice of seaweed and a NCR flag on it even.
-food-desc-sushiNCRLarge-eat= Tastes like a NCR Victory.
+ent-MisfitsFoodSushiNCRSuperRaw = Патриотичный ролл НКР
+    .desc = очень патриотичный ролл НКР. С лишним ломтиком водорослей и даже флажком НКР.
+food-desc-sushiNCRLarge-eat = На вкус — победа НКР.
 
-ent-MisfitsFoodSushiLegionSuperRaw = Legion Patriotic Roll
-    .desc = Some say this was some centurionвЂ™s favourite, and might be the only reason it became a thing.
-food-desc-sushiLegionLarge-eat= Tastes like a glorious Legion victory.
+ent-MisfitsFoodSushiLegionSuperRaw = Патриотичный ролл Легиона
+    .desc = Говорят, это был любимый ролл одного центуриона — возможно, только поэтому он и появился.
+food-desc-sushiLegionLarge-eat = На вкус — славная победа Легиона.
 
-ent-MisfitsFoodRiceCake = Rice Cake
-    .desc = A simple munchy rice cake.
-food-desc-riceCake-eat= Tastes like munchy rice.
+ent-MisfitsFoodRiceCake = Рисовая лепёшка
+    .desc = простая хрустящая рисовая лепёшка.
+food-desc-riceCake-eat = На вкус — хрустящий рис.
 
-ent-MisfitsFoodCoxinha = Coxinha
-    .desc = A South American food that has migrated to Wendover post-war, it being a ground curry meat deep fried dumpling. Popular within the Bazaar.
-food-desc-coxinha-eat= Tastes meaty and yummy.
+ent-MisfitsFoodCoxinha = Коксинья
+    .desc = Южноамериканская еда, пришедшая в Уэндовер после войны: жареные пельмени с рубленым карри-мясом. Популярны на Базаре.
+food-desc-coxinha-eat = На вкус — мясо и вкусно.
 
-ent-MisfitsFoodSushiCheeseRaw = Cream Cheese Sushi
-    .desc = A sushi with some cream cheese on top and salmon wrapped around it.
-food-desc-sushiCream-eat= Tastes like smooth cream cheese, fish and rice.
+ent-MisfitsFoodSushiCheeseRaw = Суши с творожным сыром
+    .desc = суши с творожным сыром сверху и лососем, обёрнутым вокруг.
+food-desc-sushiCream-eat = На вкус — нежный творожный сыр, рыба и рис.
 
-ent-MisfitsFoodMeatDumpling = Meat Dumpling
-    .desc = A simple meat dumpling. Careful, might be hot!
-food-desc-meatDumpling-eat= Tastes like soft dough and meaty.
+ent-MisfitsFoodMeatDumpling = Мясной пельмень
+    .desc = простой мясной пельмень. Осторожно, может быть горячим!
+food-desc-meatDumpling-eat = На вкус — мягкое тесто и мясо.
 
-ent-MisfitsFoodMeatDumpling_Jet = Khan Meat Dumpling
-    .desc = Makes you want to smoke jet just from looking at it!
-food-desc-meatDumplingKhan-eat= Tastes like jet, meaty and soft dough.
+ent-MisfitsFoodMeatDumpling_Jet = Мясной пельмень Хана
+    .desc = От одного взгляда на это хочется закурить джет!
+food-desc-meatDumplingKhan-eat = На вкус — джет, мясо и мягкое тесто.
 
-ent-MisfitsFoodCarrotGummy = Carrot Vitamin Gummy
-    .desc = A simple vitamin gummy. This is a carrot one, good for your eyes.
-food-desc-carrotGummy-eat= Tastes healthy and sweet.
+ent-MisfitsFoodCarrotGummy = Морковный витаминный мармелад
+    .desc = простой витаминный мармелад. Этот — морковный, полезен для глаз.
+food-desc-carrotGummy-eat = На вкус — полезно и сладко.
 
-ent-MisfitsFoodChocolateBar = Milk Chocolate Bar
-    .desc = A milk chocolate bar. Very rare, and very sweet.
-food-desc-chocoBar-eat= Tastes sweet.
+ent-MisfitsFoodChocolateBar = Плитка молочного шоколада
+    .desc = плитка молочного шоколада. Очень редкая и очень сладкая.
+food-desc-chocoBar-eat = На вкус — сладко.
 
-ent-MisfitsFoodLollipop_VaultTech = VaultTech Lollipop
-    .desc = A sinister candy which is actually just a candy, probably.
-food-desc-vaultLolli-eat= Tastes sweet.
+ent-MisfitsFoodLollipop_VaultTech = Леденец Vault-Tec
+    .desc = зловещая конфета, которая на самом деле, вероятно, просто конфета.
+food-desc-vaultLolli-eat = На вкус — сладко.
 
-ent-MisfitsFoodSkewerSpicySweet = Spicy n' Sweet Skewer
-    .desc = Fire-scorched jalapenos and black berries on a stick. Delightful!
-food-desc-spicySweetSkewer-eat= Tastes spicy and sweet.
+ent-MisfitsFoodSkewerSpicySweet = Острый и сладкий шашлычок
+    .desc = Обожжённые на огне халапеньо и чёрные ягоды на палочке. Восхитительно!
+food-desc-spicySweetSkewer-eat = На вкус — остро и сладко.
 
-ent-MisfitsFoodWasterBurrito = Waster Burrito
-    .desc = A wrap of dough around cooked meat to make it last longer. Good to eat on the go.
-food-desc-wasterBurrito-eat= Tastes like soft tortilla and meaty.
+ent-MisfitsFoodWasterBurrito = Буррито пустошника
+    .desc = свёрток теста вокруг приготовленного мяса, чтобы оно дольше хранилось. Удобно есть на ходу.
+food-desc-wasterBurrito-eat = На вкус — мягкая тортилья и мясо.
 
-ent-MisfitsFoodWasterBurrito_super = Waster Burrito Supreme
-    .desc = A bigger wrap of improvised ingredients for any particularly hungry wasters.
-food-desc-wasterBurritoSuper-eat= tastes like soft tortilla, meaty, like cabbages, like cheese and like tomato.
+ent-MisfitsFoodWasterBurrito_super = Буррито пустошника «Суприм»
+    .desc = свёрток побольше из подручных ингредиентов для особенно голодных пустошников.
+food-desc-wasterBurritoSuper-eat = На вкус — мягкая тортилья, мясо, капуста, сыр и помидор.
 
-ent-MisfitsFoodKebabPilar = Kebab Pilar
-    .desc = Oh my god.
-food-desc-kebabPilar-eat= Tastes impossibly greasy and meaty.
+ent-MisfitsFoodKebabPilar = Кебаб-столб
+    .desc = О боже.
+food-desc-kebabPilar-eat = На вкус — невероятно жирно и мясно.
 
-ent-MisfitsFoodKebabSlice = Kebab Slice
-    .desc = A kebab slice. Monch it.
-food-desc-kebabSlice-eat= Tastes meaty.
+ent-MisfitsFoodKebabSlice = Кусок кебаба
+    .desc = кусок кебаба. Хрум-хрум.
+food-desc-kebabSlice-eat = На вкус — мясо.
 
-ent-MisfitsFoodKebabWrap = Kebab Wrap
-    .desc = A step above a waster burrito for sure. Serve with garlic sauce.
-food-desc-kebabWrap-eat= Tastes meaty, like onion, like soft tortilla and crunchy lettuce.
+ent-MisfitsFoodKebabWrap = Кебаб в лаваше
+    .desc = точно на ступень выше пустошного буррито. Подавать с чесночным соусом.
+food-desc-kebabWrap-eat = На вкус — мясо, лук, мягкая тортилья и хрустящий салат.
 
-ent-MisfitsFoodPemmison = Pemmison
-    .desc = Tough rectangle of dry meat, berries and nuts. Oughta keep you going for a while.
-food-desc-pemmison-eat= Tastes like tough dry meat, nuts and dry berries.
+ent-MisfitsFoodPemmison = Пеммисон
+    .desc = Жёсткий брикет из сушёного мяса, ягод и орехов. Продержит вас какое-то время.
+food-desc-pemmison-eat = На вкус — жёсткое сушёное мясо, орехи и сушёные ягоды.
 
-ent-MisfitsFoodMeatJerky = Meat Jerky
-    .desc = HunterвЂ™s favourite.
-food-desc-meatJerk-eat= Tastes meaty and salty.
+ent-MisfitsFoodMeatJerky = Вяленое мясо
+    .desc = Любимая закуска охотника.
+food-desc-meatJerk-eat = На вкус — мясо и соль.
 
-ent-MisfitsFoodCabbageMeatBread = Cabbage n' Meat Bread
-    .desc = Somewhat of an acquired taste for this one.
-food-desc-cabbageMeatBread-eat= Tastes like bread, cabbage and meaty.
+ent-MisfitsFoodCabbageMeatBread = Хлеб с капустой и мясом
+    .desc = Это на любителя.
+food-desc-cabbageMeatBread-eat = На вкус — хлеб, капуста и мясо.
 
-ent-MisfitsFoodThickPancake = Thick Pancake
-    .desc = Very fluffy, very tasty.
-food-desc-thickPancake-eat=: Tastes sweet and light.
+ent-MisfitsFoodThickPancake = Толстый блин
+    .desc = Очень пушисто, очень вкусно.
+food-desc-thickPancake-eat = На вкус — сладко и легко.
 
-ent-MisfitsFoodShortcakeCookie = Shortcake Cookie
-    .desc = A thick shortcake cookie, ready to be eaten, preferably with tea.
-food-desc-shortCake-eat= Tastes rich, buttery and sweet.
+ent-MisfitsFoodShortcakeCookie = Песочное печенье
+    .desc = толстое песочное печенье, готовое к чаю.
+food-desc-shortCake-eat = На вкус — насыщенно, масляно и сладко.
 
-ent-MisfitsFoodMilkBread = Milk Bread
-    .desc = A very fluffy bread with butter glazing on top. Can be cut into slices.
-food-desc-milkBread-eat= Tastes soft, sweet and like bread.
+ent-MisfitsFoodMilkBread = Молочный хлеб
+    .desc = очень пышный хлеб с масляной глазурью сверху. Можно нарезать ломтиками.
+food-desc-milkBread-eat = На вкус — мягко, сладко и по-хлебному.
 
-ent-MisfitsFoodLasagna = Lasagna
-    .desc = There, happy now, you fat cat?
-food-desc-lasagna-eat= Tastes meaty and like melted cheese.
+ent-MisfitsFoodLasagna = Лазанья
+    .desc = Ну что, доволен, толстосум?
+food-desc-lasagna-eat = На вкус — мясо и расплавленный сыр.
 
-ent-MisfitsFoodLasagnaGood = True Lasagna
-    .desc = It is perfect.
-food-desc-lasagna-eat2= Perfection. You need more.
+ent-MisfitsFoodLasagnaGood = Настоящая лазанья
+    .desc = Это безупречно.
+food-desc-lasagna-eat2 = Совершенство. Тебе нужно больше.
 
-ent-MisfitsFoodSausageChain = Sausage Chain
-    .desc = You are pretty sure you could use it as a whip, which you shouldnвЂ™t. Can be cut into sausages.
-food-desc-sausageChain-eat= Tastes like raw meat.
+ent-MisfitsFoodSausageChain = Связка сосисок
+    .desc = Вы почти уверены, что ею можно хлестать как кнутом, чего делать не стоит. Можно нарезать на сосиски.
+food-desc-sausageChain-eat = На вкус — сырое мясо.
 
-ent-MisfitsFoodSausage = Sausage
-    .desc = A plain, terribly unappetizing looking sausage.
+ent-MisfitsFoodSausage = Сосиска
+    .desc = простая, крайне непрезентабельная на вид сосиска.
 
-ent-MisfitsFoodSausageCooked = Sausage Cooked
-    .desc = Ok, this looks more appetizing now.
-food-desc-sausageCooked-eat= Tastes meaty.
+ent-MisfitsFoodSausageCooked = Готовая сосиска
+    .desc = Ладно, теперь это выглядит аппетитнее.
+food-desc-sausageCooked-eat = На вкус — мясо.
 
-ent-MisfitsFoodSausageRoll = Sausage Roll
-    .desc = A pastry made out of a egg glazed and baked shell with a sausage inside.
-food-desc-sausageRoll-eat= Tastes crunchy and meaty. You wanna punch someone.
+ent-MisfitsFoodSausageRoll = Сосиска в тесте
+    .desc = выпечка из глазированной яйцом запечённой оболочки с сосиской внутри.
+food-desc-sausageRoll-eat = На вкус — хрустяще и мясно. Хочется кого-нибудь ударить.
 
-ent-MisfitsFoodToffeeSheet = Toffee Sheet
-    .desc = Massive slab of caramel and nuts. Can be cut to be more manageable.
-food-desc-toffee-eat=  Tastes like crunchy nuts and sweet.
+ent-MisfitsFoodToffeeSheet = Пласт ириски
+    .desc = Огромная плита карамели с орехами. Можно разрезать, чтобы было удобнее.
+food-desc-toffee-eat = На вкус — хрустящие орехи и сладость.
 
-ent-MisfitsFoodToffee = Toffee Chunk
-    .desc =  A small cut of toffee. Sweet and teeth rotting.
-food-desc-toffeeBar-eat= Tastes like crunchy nuts and sweet.
+ent-MisfitsFoodToffee = Кусок ириски
+    .desc = маленький кусок ириски. Сладко и вредно для зубов.
+food-desc-toffeeBar-eat = На вкус — хрустящие орехи и сладость.
 
-ent-MisfitsFoodBuffaloGourdCandy = Buffalo Gourd Candy
-    .desc = A hard candy made out of hard sugar and juice. This one is buffalo gourd flavoured.
-food-desc-buffaloGourdCandy-eat= Tastes sweet and like watermelon.
+ent-MisfitsFoodBuffaloGourdCandy = Конфета из буйволиной тыквы
+    .desc = леденец из твёрдого сахара и сока. Этот со вкусом буйволиной тыквы.
+food-desc-buffaloGourdCandy-eat = На вкус — сладко и как арбуз.
 
-ent-MisfitsFoodBlackberryCandy = Blackberry Candy
-    .desc = A hard candy made out of hard sugar and juice. This one is blackberry flavoured.
-food-desc-blackberryCandy-eat= Tastes sweet and like blackberries.
+ent-MisfitsFoodBlackberryCandy = Ежевичная конфета
+    .desc = леденец из твёрдого сахара и сока. Этот со вкусом ежевики.
+food-desc-blackberryCandy-eat = На вкус — сладко и как ежевика.
 
-ent-MisfitsFoodButterscotchCandy = Butterscotch Candy
-    .desc = A candy that is a mix of butter and sugar.
-food-desc-butterscotchCandy-eat=Tastes like buttery sugar.
+ent-MisfitsFoodButterscotchCandy = Ирисовая карамель
+    .desc = конфета из смеси масла и сахара.
+food-desc-butterscotchCandy-eat = На вкус — маслянистый сахар.
 
-ent-MisfitsFoodJetCandy = Jet Jawbreaker
-    .desc = Evil candy. Who made this?
-food-desc-jawbreakerJetCandy-eat=  Tastes sweet and like drugs.
+ent-MisfitsFoodJetCandy = Джетовый драже-леденец
+    .desc = Злая конфета. Кто это сделал?
+food-desc-jawbreakerJetCandy-eat = На вкус — сладко и как наркотики.
 
-ent-MisfitsFoodJawbreakerCandy = Jawbreaker
-    .desc =  A very evil candy. Will break your teeth rather than rot them.
-food-desc-jawbreakerCandy-eat=  Tastes hard and sweet.
+ent-MisfitsFoodJawbreakerCandy = Драже-леденец
+    .desc = очень злая конфета. Скорее сломает вам зубы, чем сгноит их.
+food-desc-jawbreakerCandy-eat = На вкус — твёрдо и сладко.
 
-ent-MisfitsFoodMugCake = Mug Cake
-    .desc =  An alternative to muffins as forms for those are hard to find in the wasteland.
-food-desc-mugCake-eat=  Tastes like bread and sweet.
+ent-MisfitsFoodMugCake = Кекс в кружке
+    .desc = альтернатива маффинам: формы для них в пустоши трудно найти.
+food-desc-mugCake-eat = На вкус — хлеб и сладко.
 
-ent-MisfitsFoodCarrotCandy = Carrot Candy
-    .desc =  A hard candy made out of hard sugar and juice. This one is carrot flavoured.
-food-desc-carrotCandy-eat=  Tastes like carrots and sweet.
+ent-MisfitsFoodCarrotCandy = Морковная конфета
+    .desc = леденец из твёрдого сахара и сока. Этот со вкусом моркови.
+food-desc-carrotCandy-eat = На вкус — морковь и сладость.
 
-ent-MisfitsFoodDicedMeat = Diced Meat
-    .desc =  A handful of diced meat.
-food-desc-dicedMeat-eat=  Tastes like raw meat.
+ent-MisfitsFoodDicedMeat = Нарезанное мясо
+    .desc = горсть нарезанного мяса.
+food-desc-dicedMeat-eat = На вкус — сырое мясо.
 
-ent-MisfitsFoodDicedTato = Diced Tato
-    .desc = A handful of diced tatos.
-food-desc-dicedTato-eat= Tastes like tato.
+ent-MisfitsFoodDicedTato = Нарезанный тато
+    .desc = горсть нарезанных тато.
+food-desc-dicedTato-eat = На вкус — тато.
 
-ent-MisfitsFoodDicedGarlic = Diced Garlic
-    .desc = A handful of diced garlic.
-food-desc-dicedGarlic-eat= Tastes like bitter garlic.
+ent-MisfitsFoodDicedGarlic = Нарезанный чеснок
+    .desc = горсть нарезанного чеснока.
+food-desc-dicedGarlic-eat = На вкус — горький чеснок.
 
-ent-MisfitsFoodDicedOnion = Diced Onion
-    .desc = A handful of diced onions.
-food-desc-dicedOnion-eat=Tastes like diced onion.
+ent-MisfitsFoodDicedOnion = Нарезанный лук
+    .desc = горсть нарезанного лука.
+food-desc-dicedOnion-eat = На вкус — нарезанный лук.
 
-ent-MisfitsFoodTatoSoup = Tato Soup
-food-desc-tatoSoup = A rich tomato n meat soup.
-food-desc-tatoSoup-eat= Tastes like a rich and hearty tomato soup.
+ent-MisfitsFoodTatoSoup = Суп из тато
+food-desc-tatoSoup = Насыщенный томатно-мясной суп.
+food-desc-tatoSoup-eat = На вкус — насыщенный и сытный томатный суп.
 
-reagent-name-garlicSauce = Garlic Sauce
-reagent-physical-desc-garlicSauce = Usually served with kebabs.
-food-desc-garlicSauce-eat= Tastes like creamy onion sauce
+reagent-name-garlicSauce = Чесночный соус
+reagent-physical-desc-garlicSauce = Обычно подаётся к кебабам.
+food-desc-garlicSauce-eat = На вкус — сливочно-луковый соус.
 
-ent-MisfitsClothingPouchCandy = Candy Pouch
-    .desc =  A small pouch for storing candy.
+ent-MisfitsClothingPouchCandy = Мешочек для конфет
+    .desc = Небольшой мешочек для конфет.
 
-ent-MisfitsStorageFoodBox = Food Box
-    .desc = A food box to store all your cooked food. WonвЂ™t accept anything aside from that.
+ent-MisfitsStorageFoodBox = Коробка для еды
+    .desc = Коробка для хранения всей приготовленной еды. Ничего другого в неё не положить.
 
-ent-MisfitsItemRaiserCan = Raiser Can
-    .desc = A can of raiser. Used in bread cooking to erm raise bread.
+ent-MisfitsItemRaiserCan = Банка разрыхлителя
+    .desc = банка разрыхлителя. Используется в выпечке хлеба, чтобы, э-э, поднять хлеб.
 
-reagent-name-butterscotch = Butterscotch
-reagent-desc-butterscotch = The thing from undertale that kiled that kid. Chara Dreemure from undertale who is the soul of determination. Spooilers for deltarune
-reagent-physical-butterscotch = looks thick and sweet.
+reagent-name-butterscotch = Ирис
+reagent-desc-butterscotch = То самое из Undertale, что убило того ребёнка. Чара Дримюрр из Undertale — душа решимости. Спойлеры к Deltarune.
+reagent-physical-butterscotch = выглядит густым и сладким.

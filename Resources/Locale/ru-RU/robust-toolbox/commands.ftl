@@ -580,3 +580,27 @@ cmd-localization_set_culture-desc = Set DefaultCulture for the client Localizati
 cmd-localization_set_culture-help = Usage: localization_set_culture <cultureName>
 cmd-localization_set_culture-culture-name = <cultureName>
 cmd-localization_set_culture-changed = Localization changed to { $code } ({ $nativeName } / { $englishName })
+
+#Sirius Add: ключи движка, которых не было в ru-RU (иначе WARN Unknown messageId).
+cmd-addmap-hint-2 = runMapInit [true / false]
+cmd-chunkentities-desc = Перечисляет сущности чанков в области видимости клиента или в заданном радиусе.
+cmd-chunkentities-help = Использование: {$command} [<корневая сущность> <x> <y> <радиус>]
+cmd-chunkentities-error-invalid-root = Неверная корневая сущность: {$root}
+cmd-chunkentities-error-parse = x, y и радиус должны быть числами.
+cmd-chunkentities-error-nullspace = Текущий глаз находится в пустом пространстве.
+cmd-chunkentities-error-no-map = Для карты текущего глаза {$map} нет сущности карты.
+cmd-chunkentities-range-header = Сущности чанков для {$root} вокруг ({$x}, {$y}) радиус {$range}:
+cmd-chunkentities-viewport-header = Сущности чанков в области видимости клиента на карте {$map} ({$viewport}):
+cmd-chunkentities-total = Всего: {$count}
+cmd-chunkentities-root-count = Корень {$root}: {$count}
+cmd-chunkentities-entry = {$netEntity} uid={$uid} root={$root} chunk={$chunk} comps={$componentCount} {$name}
+cmd-chunkentities-arg-root = <корневая сущность>
+cmd-chunkentities-arg-x = <x>
+cmd-chunkentities-arg-y = <y>
+cmd-chunkentities-arg-range = <радиус>
+cmd-pausemap-desc = Приостанавливает карту, останавливая всю симуляцию на ней.
+cmd-pausemap-help = Использование: pausemap <ID карты>
+cmd-querymappaused-desc = Проверяет, приостановлена ли карта.
+cmd-querymappaused-help = Использование: querymappaused <ID карты>
+cmd-unpausemap-desc = Снимает приостановку карты, возобновляя всю симуляцию на ней.
+cmd-unpausemap-help = Использование: unpausemap <ID карты>

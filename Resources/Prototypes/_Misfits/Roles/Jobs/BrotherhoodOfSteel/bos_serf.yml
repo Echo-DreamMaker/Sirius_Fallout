@@ -14,10 +14,12 @@
   requirements:
     - !type:MinPlayersRequirement
       min: 0
-    - !type:CharacterSpeciesRequirement
+    - !type:CharacterSpeciesRequirement #Sirius Change - allow SuperMutant/Nightkin with WL access
       species:
       - Human
       - Ghoul
+      - SuperMutant
+      - Nightkin
     - !type:CharacterOverallTimeRequirement
       min: 0
   startingGear: BoSMidSerfGear
@@ -35,6 +37,8 @@
 
 - type: startingGear
   id: BoSMidSerfGear
+  subGear: # Sirius Change - SuperMutant/Nightkin roundstart armor
+  - SuperMutantBoSSerfGear
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitSettlerRags

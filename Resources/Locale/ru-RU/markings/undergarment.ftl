@@ -1,21 +1,21 @@
-marking-UndergarmentTopTanktop = Tanktop
-marking-UndergarmentTopBinder = Binder
-marking-UndergarmentTopBra = Classic Bra
-marking-UndergarmentTopSportsbra = Sports Bra
+marking-UndergarmentTopTanktop = Майка
+marking-UndergarmentTopBinder = Биндер
+marking-UndergarmentTopBra = Классический бюстгальтер
+marking-UndergarmentTopSportsbra = Спортивный бюстгальтер
 
-marking-UndergarmentBottomBoxers = Boxers
-marking-UndergarmentBottomBriefs = Briefs
-marking-UndergarmentBottomSatin = Satin
+marking-UndergarmentBottomBoxers = Боксеры
+marking-UndergarmentBottomBriefs = Трусы
+marking-UndergarmentBottomSatin = Атласное бельё
 
-marking-UndergarmentTopTanktopVox = Tanktop
-marking-UndergarmentTopBinderVox = Binder
-marking-UndergarmentTopBraVox = Classic Bra
-marking-UndergarmentTopSportsbraVox = Sports Bra
+marking-UndergarmentTopTanktopVox = Майка
+marking-UndergarmentTopBinderVox = Биндер
+marking-UndergarmentTopBraVox = Классический бюстгальтер
+marking-UndergarmentTopSportsbraVox = Спортивный бюстгальтер
 
-marking-UndergarmentBottomBoxersVox = Boxers
-marking-UndergarmentBottomBriefsVox = Briefs
-marking-UndergarmentBottomSatinVox = Satin
+marking-UndergarmentBottomBoxersVox = Боксеры
+marking-UndergarmentBottomBriefsVox = Трусы
+marking-UndergarmentBottomSatinVox = Атласное бельё
 
-marking-UndergarmentBottomBoxersReptilian = Boxers
-marking-UndergarmentBottomBriefsReptilian = Briefs
-marking-UndergarmentBottomSatinReptilian = Satin
+marking-UndergarmentBottomBoxersReptilian = Боксеры
+marking-UndergarmentBottomBriefsReptilian = Трусы
+marking-UndergarmentBottomSatinReptilian = Атласное бельё

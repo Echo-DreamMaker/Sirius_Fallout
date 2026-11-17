@@ -103,9 +103,9 @@ ent-N14ClothingHeadHatEldersDamagedSkullHelm = Поврежденный шлем
 ent-N14ClothingHeadHatDeanPrimeHelmet = Галея
     .desc = Защитный шлем с поперечным гребнем.
 ent-N14ClothingHeadHatDeanRecruitHelmet = { ent-N14ClothingHeadHatDeanPrimeHelmet }
-    .desc = { ent-N14ClothingHeadHatDeanPrimeHelmet.desc }
+    .desc = Защитный шлем с поперечным гребнем.
 ent-N14ClothingHeadHatDeanVeteranHelmet = { ent-N14ClothingHeadHatDeanPrimeHelmet }
-    .desc = { ent-N14ClothingHeadHatDeanPrimeHelmet.desc }
+    .desc = Защитный шлем с поперечным гребнем.
 
 # Горожане
 ent-N14ClothingHeadTownGuardBrodie = Шлем Броди

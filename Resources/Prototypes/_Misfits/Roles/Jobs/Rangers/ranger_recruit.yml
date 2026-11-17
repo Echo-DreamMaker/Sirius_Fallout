@@ -25,13 +25,17 @@
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 28800 # Misfits Change - Patrol Ranger only needs 8 hours
-    - !type:CharacterSpeciesRequirement # #Misfits Change - robots, super mutants, and glowing ghouls cannot be Rangers
+    - !type:CharacterSpeciesRequirement # #Misfits Change - robots and glowing ghouls cannot be Rangers #Sirius Change - allow SuperMutant/Nightkin with WL access
       species:
       - Human
       - Ghoul
+      - SuperMutant
+      - Nightkin
 
 - type: startingGear
   id: NCRPatrolRangerGear
+  subGear: # Sirius Change - SuperMutant/Nightkin roundstart armor
+  - SuperMutantNCRPatrolRangerGear
   equipment:
     head: N14ClothingHeadHatNCRPatrolRangerCampaign # Misfits Tweak - patrol rangers are given a campaign hat.
     back: N14ClothingBackpackMilitary # Corvax-Change

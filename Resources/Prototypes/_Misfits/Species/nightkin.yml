@@ -6,7 +6,7 @@
   name: species-name-nightkin
   roundStart: true # #Misfits Change - needed so whitelisted players get it in the species dropdown
   order: 4
-  whitelistRequired: true
+  whitelistRequired: true # #Misfits Change #Sirius Change - Nightkin remains whitelist-only species
   restrictedCustomization: true
   allowedLoadoutCategories:
   - Weapons
@@ -36,15 +36,14 @@
   - Pets
   # #Misfits Fix - Nightkin need their own whitelist entry under FEV Mutants.
   jobWhitelistUnlock: Nightkin
-  restrictedJobs:
-  - Nightkin
+  #Sirius Change - removed restrictedJobs so nightkin can take wastelander/townsfolk/BoS/ranger roles (Nightkin remains WL-only species)
   prototype: N14MobNightkinPlayer
   sprites: MobSuperMutantSprites
   markingLimits: MobSuperMutantMarkingLimits
   dollPrototype: N14MobNightkinDummy
   skinColoration: Hues
-  # Nightkin slate blue-purple (from prolonged Stealth Boy exposure in lore).
-  defaultSkinTone: "#4A5878"
+  # Nightkin dark purple (from prolonged Stealth Boy exposure in lore). #Sirius Change - darker purple tone, hue options preserved
+  defaultSkinTone: "#2E1A47"
   minHeight: 1.5
   defaultHeight: 1.5
   maxHeight: 1.5

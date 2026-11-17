@@ -1,0 +1,110 @@
+# Sirius Add - ключи, на которые ссылается код, но которых не было ни в одном файле локализации.
+# Синхронизировать с Resources/Locale/en-US/_Sirius/localization-gaps.ftl.
+
+# Подсказки команды admin announce
+admin-announce-hint-sound = Звук
+admin-announce-hint-voice = Голос
+
+# Админ-действия
+admin-verb-text-make-blood-cultist = Сделать кровавым культистом
+
+# Детская тюрьма
+babyjail-command-overall-hours-set = Максимальное общее время игры в детской тюрьме установлено на {$hours} часов.
+
+# Печенье
+biscuit-verb-crack = Разломить
+
+# Кровавый культ
+blood-cult-title = Кровавый культ
+blood-cult-summon-being-pulled = Этого культиста тащат, поэтому призвать его нельзя.
+blood-cult-summon-cuffed = Этот культист в наручниках, поэтому призвать его нельзя.
+blood-rites-stored-blood = Запасено крови: {$amount}
+cult-blood-boil-rune-no-targets = Возле руны нет подходящих целей!
+cult-rune-cant-draw = Вы не можете начертить руну без твёрдой земли под ногами.
+cult-cant-draw-rune = На этом тайле нельзя начертить руну.
+cult-item-component-generic = Предмет отказывается подчиняться вашей воле!
+cult-magic-no-empty-hand = Чтобы призвать это, нужна свободная рука.
+shuttle-curse-success = Вы проклинаете шаттл!
+timed-factory-cooldown = Фабрика ещё не готова. Подождите {$cooldown} сек.
+
+# Bwoink
+bwoink-none-selected = Игрок не выбран
+
+# Чат
+chat-manager-send-ooc-sponsor-wrap-message = OOC: [color={$sponsorColor}]{$playerName}[/color]: {$message}
+
+# Консольные команды
+cmd-dungen_pack_vis = Предпросмотр подземелья создан.
+cmd-jobwhitelist-already-whitelisted = {$player} уже в вайтлисте на должность {$jobId} ({$jobName}).
+cmd-nextwave-help = nextwave
+cmd-parse-failure-int = {$arg} не является допустимым int.
+cmd-randomweather-help = randomweather
+cmd-savemap-server = Эта команда доступна только игроку в игре.
+color-network-command-description = Перекрашивает трубы атмосферной сети.
+color-network-command-help-text = {$command} <uid сущности> <группа узлов> <цвет в hex>
+
+# Стопки
+comp-stack-split-custom = Своё количество...
+
+# Война фракций
+faction-war-invite-header = Приглашение на войну — {$side}
+faction-war-invite-body = {$inviter} приглашает вас присоединиться к войне на стороне {$side}.
+faction-war-review-header = Состав войны — {$side}
+faction-war-review-empty = Пока никто не присоединился к этой стороне.
+faction-war-review-remove = Убрать
+faction-war-review-count = Оставить: {$keep}, убрать: {$remove}
+
+# Питомцы
+follower-now-following = Существо теперь следует за вами.
+follower-stopped-following = Существо больше не следует за вами.
+
+# Возврат из госта
+ghost-respawn-same-character-slightly-changed-name = Вы не можете возродиться персонажем со слишком похожим именем. Пожалуйста, выберите заметно другое имя.
+
+# Голем
+golem-no-using-guns-popup = Вы не можете использовать огнестрельное оружие!
+
+# Голограмма
+hologram-on-examine = Это голограмма.
+
+# Окно выбора из списка
+list-view-window-default-title = Выбор
+
+# Команда loadcharacter
+loadcharacter-command-description = Загружает сохранённый профиль персонажа на сущность.
+
+# Транспорт
+mech-verb-enter-passenger = Сесть пассажиром
+
+# Реквизиция
+n14-requisitions-platform-lower-confirm-scrap = Подтвердить продажу? Будет утилизировано: {$count}.
+n14-requisitions-sell-item-delivery = {$item}  [color=#5fbf5f]x{$count}[/color]  [color=#33FF33]доставка[/color]
+n14-requisitions-sell-item-delivery-suffix =  [color=#33FF33](доставка)[/color]
+n14-requisitions-sell-item-worthless = {$item}  [color=#5fbf5f]x{$count}[/color]  [color=#cf2f2f]без ценности[/color]
+
+# Выбор имени (кровавый культ)
+name-selector-title = Выберите имя
+
+# Контракты караванов
+nc-contract-tier-locked-first = Выполняйте контракты, чтобы открыть этот уровень.
+nc-store-difficulty-lazy-plebeian = Плебей
+nc-store-hall-of-fame-completed = Завершено: {$count}
+
+# Цели псиоников
+objective-condition-raise-glimmer-title = Поднять мерцание до {$target}Ψ
+
+# Салваж
+salvage-expedition-mission-completed = Миссия выполнена.
+
+# Цели станции
+station-goal-fax-paper-name = Цель станции
+
+# Раздевание
+strippable-component-item-slot-occupied = Этот слот уже занят!
+
+# Перенос игрового времени
+time-transfer-panel-warning-no-perms = У вас нет прав на перенос игрового времени.
+
+# Белый список
+whitelist-not-whitelisted = Вы отсутствуете в белом списке этого сервера.
+whitelist-sponsor = Этот сервер доступен только спонсорам. Станьте спонсором, чтобы присоединиться.

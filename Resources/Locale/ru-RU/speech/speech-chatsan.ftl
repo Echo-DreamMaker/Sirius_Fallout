@@ -1,214 +1,183 @@
-chatsan-word-1 = omg
-chatsan-replacement-1 = oh my god
+#Sirius Add: русская таблица автозамены сокращений. Ключи те же, что в en-US,
+#значения переведены на русский, чтобы замены срабатывали в кириллическом чате.
+chatsan-word-1 = омг
+chatsan-replacement-1 = о боже
 
-chatsan-word-2 = omfg
-chatsan-replacement-2 = oh my fucking god
+chatsan-word-2 = омфг
+chatsan-replacement-2 = о боже ты мой
 
-chatsan-word-3 = ong
-chatsan-replacement-3 = on god
+chatsan-word-3 = онг
+chatsan-replacement-3 = клянусь богом
 
-chatsan-word-4 = wtf
-chatsan-replacement-4 = what the fuck
+chatsan-word-4 = втф
+chatsan-replacement-4 = что за чёрт
 
-chatsan-word-5 = wth
-chatsan-replacement-5 = what the heck
+chatsan-word-5 = втх
+chatsan-replacement-5 = какого чёрта
 
-chatsan-word-6 = tf
-chatsan-replacement-6 = the fuck
+chatsan-word-6 = тф
+chatsan-replacement-6 = чёрт возьми
 
-chatsan-word-7 = afaik
-chatsan-replacement-7 = as far as i know
+chatsan-word-7 = нмз
+chatsan-replacement-7 = насколько мне известно
 
-chatsan-word-8 = ik
-chatsan-replacement-8 = i know
+chatsan-word-8 = зн
+chatsan-replacement-8 = знаю
 
-chatsan-word-9 = ikr
-chatsan-replacement-9 = i know, right
+chatsan-word-9 = знп
+chatsan-replacement-9 = знаю, да
 
-chatsan-word-10 = idc
-chatsan-replacement-10 = i don't care
+chatsan-word-10 = пф
+chatsan-replacement-10 = мне всё равно
 
-chatsan-word-12 = tbh
-chatsan-replacement-12 = to be honest
+chatsan-word-11 = хз
+chatsan-replacement-11 = не знаю
 
-chatsan-word-13 = lmk
-chatsan-replacement-13 = let me know
+chatsan-word-12 = чст
+chatsan-replacement-12 = честно
 
-chatsan-word-14 = ur
-chatsan-replacement-14 = your
+chatsan-word-13 = дм
+chatsan-replacement-13 = дай знать
 
-chatsan-word-15 = ffs
-chatsan-replacement-15 = for fuck's sake
+chatsan-word-14 = тв
+chatsan-replacement-14 = твой
 
-chatsan-word-16 = iirc
-chatsan-replacement-16 = if i remember correctly
+chatsan-word-15 = кч
+chatsan-replacement-15 = какого чёрта
 
-chatsan-word-17 = np
-chatsan-replacement-17 = no problem
+chatsan-word-16 = еси
+chatsan-replacement-16 = если я правильно помню
 
-chatsan-word-18 = omw
-chatsan-replacement-18 = on my way
+chatsan-word-17 = нп
+chatsan-replacement-17 = не проблема
 
-chatsan-word-19 = nvm
-chatsan-replacement-19 = nevermind
+chatsan-word-18 = впуть
+chatsan-replacement-18 = уже в пути
 
-chatsan-word-20 = imo
-chatsan-replacement-20 = in my opinion
+chatsan-word-19 = зб
+chatsan-replacement-19 = забей
 
-chatsan-word-21 = pls
-chatsan-word-22 = plz
-chatsan-word-23 = plox
-chatsan-replacement-please = please
+chatsan-word-20 = имх
+chatsan-replacement-20 = по моему мнению
 
-chatsan-word-24 = fr
-chatsan-replacement-24 = for real
+chatsan-word-21 = пж
+chatsan-replacement-21 = пожалуйста
 
-chatsan-word-25 = brb
-chatsan-replacement-25 = be right back
+chatsan-word-22 = плз
+chatsan-replacement-22 = пожалуйста
 
-chatsan-word-26 = btw
-chatsan-replacement-26 = by the way
+chatsan-word-23 = плз
+chatsan-replacement-23 = пожалуйста
 
-chatsan-word-27 = jk
-chatsan-replacement-27 = just kidding
+chatsan-word-24 = срз
+chatsan-replacement-24 = серьёзно
 
-chatsan-word-28 = thx
-chatsan-replacement-28 = thanks
+chatsan-word-25 = брб
+chatsan-replacement-25 = скоро вернусь
 
-chatsan-word-29 = ty
-chatsan-replacement-29 = thank you
+chatsan-word-26 = кст
+chatsan-replacement-26 = кстати
 
-chatsan-word-30 = afk
-chatsan-replacement-30 = ssd
+chatsan-word-27 = шучу
+chatsan-replacement-27 = да я шучу
 
-chatsan-word-31 = stfu
-chatsan-replacement-31 = shut the fuck up
+chatsan-word-28 = спс
+chatsan-replacement-28 = спасибо
 
-chatsan-word-32 = gtg
-chatsan-replacement-32 = got to go
+chatsan-word-29 = тб
+chatsan-replacement-29 = тебе спасибо
 
-# RMC14: Disabled for grenade launcher
-# chatsan-word-33 = gl
-# chatsan-replacement-33 = good luck
+chatsan-word-30 = афк
+chatsan-replacement-30 = отошёл
 
-chatsan-word-34 = hbu
-chatsan-replacement-34 = how about you
+chatsan-word-31 = стфу
+chatsan-replacement-31 = закрой рот
 
-chatsan-word-35 = hmu
-chatsan-replacement-35 = hit me up
+chatsan-word-32 = мну
+chatsan-replacement-32 = мне пора
 
-chatsan-word-36 = gtfo
-chatsan-replacement-36 = get the fuck out
+chatsan-word-33 = уд
+chatsan-replacement-33 = удачи
 
-chatsan-word-37 = wdym
-chatsan-replacement-37 = what do you mean
+chatsan-word-34 = аут
+chatsan-replacement-34 = а у тебя
 
-chatsan-word-38 = mf
-chatsan-replacement-38 = motherfucker
+chatsan-word-35 = нпш
+chatsan-replacement-35 = напиши мне
 
-chatsan-word-39 = etc
-chatsan-word-40 = etc.
-chatsan-replacement-etcetera = etcetera
+chatsan-word-36 = гтфо
+chatsan-replacement-36 = убирайся
 
-chatsan-word-41 = wyd
-chatsan-replacement-41 = what are you doing
+chatsan-word-37 = чтм
+chatsan-replacement-37 = что ты имеешь в виду
 
-chatsan-word-42 = ofc
-chatsan-replacement-42 = of course
+chatsan-word-38 = обож
+chatsan-replacement-38 = о боже
 
-chatsan-word-43 = ig
-chatsan-replacement-43 = i guess
+chatsan-word-39 = тд
+chatsan-replacement-39 = и так далее
 
-chatsan-word-44 = tbf
-chatsan-replacement-44 = to be fair
+chatsan-word-40 = итд
+chatsan-replacement-40 = и так далее
+#Sirius Add - недостающая замена
+chatsan-replacement-etcetera = и так далее
 
-chatsan-word-45 = tysm
-chatsan-replacement-45 = thank you so much
+chatsan-word-41 = чд
+chatsan-replacement-41 = что делаешь
 
-chatsan-word-46 = tyvm
-chatsan-replacement-46 = thank you very much
+chatsan-word-42 = кнш
+chatsan-replacement-42 = конечно
 
-chatsan-word-47 = cya
-chatsan-replacement-47 = see ya
+chatsan-word-43 = нвр
+chatsan-replacement-43 = наверное
 
-chatsan-word-48 = rn
-chatsan-replacement-48 = right now
+chatsan-word-44 = спр
+chatsan-replacement-44 = по справедливости
 
-chatsan-word-49 = atm
-chatsan-replacement-49 = at the moment
+chatsan-word-45 = хтя
+chatsan-replacement-45 = хотя
 
-chatsan-word-50 = istg
-chatsan-replacement-50 = I swear to god
+chatsan-word-46 = чг
+chatsan-replacement-46 = честно говоря
 
-chatsan-word-51 = rq
-chatsan-replacement-51 = real quick
+chatsan-word-47 = сйч
+chatsan-replacement-47 = прямо сейчас
 
-chatsan-word-52 = dw
-chatsan-replacement-52 = don't worry
+chatsan-word-48 = тк
+chatsan-replacement-48 = потому что
 
-chatsan-word-53 = wru
-chatsan-replacement-53 = where are you
+chatsan-word-49 = нв
+chatsan-replacement-49 = не волнуйся
 
-chatsan-word-54 = fs
-chatsan-replacement-54 = for sure
+chatsan-word-50 = мв
+chatsan-replacement-50 = моя вина
 
-chatsan-word-55 = ngl
-chatsan-replacement-55 = not gonna lie
+chatsan-word-51 = сч
+chatsan-replacement-51 = если совсем честно
 
-chatsan-word-56 = fml
-chatsan-replacement-56 = fuck my life
+chatsan-word-52 = вдм
+chatsan-replacement-52 = в данный момент
 
-chatsan-word-57 = wtaf
-chatsan-replacement-57 = what the actual fuck
+chatsan-word-53 = врж
+chatsan-replacement-53 = в реальной жизни
 
-chatsan-word-58 = wsg
-chatsan-replacement-58 = what's good
+chatsan-word-54 = ктс
+chatsan-replacement-54 = к твоему сведению
 
-chatsan-word-59 = mb
-chatsan-replacement-59 = my bad
+chatsan-word-55 = имхо
+chatsan-replacement-55 = по моему скромному мнению
 
-chatsan-word-60 = jfc
-chatsan-replacement-60 = jesus fucking christ
+chatsan-word-56 = нз
+chatsan-replacement-56 = не за что
 
-chatsan-word-61 = omw
-chatsan-replacement-61 = on my way
+chatsan-word-57 = сорь
+chatsan-replacement-57 = извини
 
-chatsan-word-62 = otw
-chatsan-replacement-62 = on the way
+chatsan-word-58 = сори
+chatsan-replacement-58 = извини
 
-chatsan-word-63 = yk
-chatsan-replacement-63 = you know
+chatsan-word-59 = бай
+chatsan-replacement-59 = увидимся
 
-chatsan-word-64 = istfg
-chatsan-replacement-64 = i swear to fucking god
-
-chatsan-word-65 = idgaf
-chatsan-replacement-65 = i don't give a fuck
-
-chatsan-word-66 = smth
-chatsan-replacement-66 = something
-
-chatsan-word-67 = allg
-chatsan-replacement-67 = all good
-
-chatsan-word-11 = idk
-
-chatsan-replacement-11 = i don't know
-
-chatsan-word-117 = bbt
-
-chatsan-replacement-117 = I'm a moron
-
-chatsan-replacement-21 = please
-
-chatsan-replacement-22 = please
-
-chatsan-replacement-23 = please
-
-chatsan-word-33 = gl
-
-chatsan-replacement-33 = good luck
-
-chatsan-replacement-39 = etcetera
-
-chatsan-replacement-40 = etcetera
+chatsan-word-117 = ббт
+chatsan-replacement-117 = я тупица

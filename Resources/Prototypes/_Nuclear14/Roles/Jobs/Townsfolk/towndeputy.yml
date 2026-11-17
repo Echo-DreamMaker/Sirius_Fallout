@@ -15,6 +15,7 @@
       - Ghoul
       - GhoulGlowing
       - SuperMutant
+      - Nightkin #Sirius Change
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - re-enable timelock, 5h Townsfolk requirement
       department: Townsfolk
       min: 18000 # 5 hours

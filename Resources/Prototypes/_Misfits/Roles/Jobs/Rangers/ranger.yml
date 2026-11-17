@@ -26,13 +26,17 @@
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h Rangers)
       department: Rangers
       min: 72000 # 20 hours
-    - !type:CharacterSpeciesRequirement # #Misfits Change - robots, super mutants, and glowing ghouls cannot be Rangers
+    - !type:CharacterSpeciesRequirement # #Misfits Change - robots and glowing ghouls cannot be Rangers #Sirius Change - allow SuperMutant/Nightkin with WL access
       species:
       - Human
       - Ghoul
+      - SuperMutant
+      - Nightkin
 
 - type: startingGear
   id: NCRFieldRangerGear
+  subGear: # Sirius Change - SuperMutant/Nightkin roundstart armor
+  - SuperMutantNCRFieldRangerGear
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatRangerB # Misfits Tweak - field rangers use the lighter ranger hat variant

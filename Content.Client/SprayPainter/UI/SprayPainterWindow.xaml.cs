@@ -27,7 +27,9 @@ public sealed partial class SprayPainterWindow : DefaultWindow
     public Dictionary<string, int> ItemColorIndex = new();
 
     private Dictionary<string, Color> currentPalette = new();
-    private const string colorLocKeyPrefix = "pipe-painter-color-";
+    //Sirius Fix: ключи локализации цветов называются spray-painter-color-*, а не pipe-painter-color-*,
+    //из-за чего клиент не находил перевод и показывал сырые ключи (white, red, ...).
+    private const string colorLocKeyPrefix = "spray-painter-color-";
     private List<SprayPainterEntry> CurrentEntries = new List<SprayPainterEntry>();
 
     private readonly SpriteSpecifier _colorEntryIconTexture = new SpriteSpecifier.Rsi(

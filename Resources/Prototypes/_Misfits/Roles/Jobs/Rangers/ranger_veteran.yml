@@ -30,16 +30,20 @@
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T7 faction timelock (40h Rangers)
       department: Rangers
       min: 144000 # 40 hours
-    - !type:CharacterSpeciesRequirement # #Misfits Change - robots, super mutants, and glowing ghouls cannot be Rangers
+    - !type:CharacterSpeciesRequirement # #Misfits Change - robots and glowing ghouls cannot be Rangers #Sirius Change - allow SuperMutant/Nightkin with WL access
       species:
       - Human
       - Ghoul
+      - SuperMutant
+      - Nightkin
     - !type:CharacterAgeRequirement
       min: 36
       max: 350
 
 - type: startingGear
   id: NCRVeteranRangerGear
+  subGear: # Sirius Change - SuperMutant/Nightkin roundstart armor
+  - SuperMutantNCRVeteranRangerGear
   equipment:
     head: N14ClothingHeadHatRangerHelmetDesert
     back: N14ClothingBackpackMilitary # Corvax-Change

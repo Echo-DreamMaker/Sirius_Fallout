@@ -1,100 +1,100 @@
 command-description-visualize =
-    Takes the input list of entities and puts them into a UI window for easy browsing.
+    Принимает входной список сущностей и отображает их в окне интерфейса для удобного просмотра.
 command-description-runverbas =
-    Runs a verb over the input entities with the given user.
+    Выполняет указанное действие (verb) над входными сущностями от имени указанного пользователя.
 command-description-acmd-perms =
-    Returns the admin permissions of the given command, if any.
+    Возвращает права администратора для указанной команды, если они есть.
 command-description-acmd-caninvoke =
-    Check if the given player can invoke the given command.
+    Проверяет, может ли указанный игрок вызвать указанную команду.
 command-description-jobs-jobs =
-    Returns all jobs on a station.
+    Возвращает все должности на станции.
 command-description-jobs-job =
-    Returns a given job on a station.
+    Возвращает указанную должность на станции.
 command-description-jobs-isinfinite =
-    Returns true if the input job is infinite, otherwise false.
+    Возвращает true, если у указанной должности бесконечное число слотов, иначе false.
 command-description-jobs-adjust =
-    Adjusts the number of slots for the given job.
+    Изменяет количество слотов для указанной должности.
 command-description-jobs-set =
-    Sets the number of slots for the given job.
+    Устанавливает количество слотов для указанной должности.
 command-description-jobs-amount =
-    Returns the number of slots for the given job.
+    Возвращает количество слотов для указанной должности.
 command-description-laws-list =
-    Returns a list of all law bound entities.
+    Возвращает список всех сущностей, привязанных к законам.
 command-description-laws-get =
-    Returns all of the laws for a given entity.
+    Возвращает все законы указанной сущности.
 command-description-stations-list =
-    Returns a list of all stations.
+    Возвращает список всех станций.
 command-description-stations-get =
-    Gets the active station, if and only if there is only one.
+    Возвращает активную станцию, только если она единственная.
 command-description-stations-getowningstation =
-    Gets the station that a given entity is "owned by" (within)
+    Возвращает станцию, которой «принадлежит» указанная сущность (в пределах которой она находится).
 command-description-stations-grids =
-    Returns all grids associated with the input station.
+    Возвращает все гриды, связанные с указанной станцией.
 command-description-stations-config =
-    Returns the config associated with the input station, if any.
+    Возвращает конфигурацию, связанную с указанной станцией, если она есть.
 command-description-stations-addgrid =
-    Adds a grid to the given station.
+    Добавляет грид к указанной станции.
 command-description-stations-rmgrid =
-    Removes a grid from the given station.
+    Удаляет грид из указанной станции.
 command-description-stations-rename =
-    Renames the given station.
+    Переименовывает указанную станцию.
 command-description-stations-largestgrid =
-    Returns the largest grid the given station has, if any.
+    Возвращает самый большой грид указанной станции, если он есть.
 command-description-stations-rerollBounties =
-    Clears all the current bounties for the station and gets a new selection.
+    Очищает все текущие заказы станции и выбирает новый набор.
 command-description-stationevent-lsprob =
-    Lists the probability of different station events occuring out of the entire pool.
+    Показывает вероятность различных событий станции относительно всего пула.
 command-description-stationevent-lsprobtime =
-    Lists the probability of different station events occuring based on the specified length of a round.
+    Показывает вероятность различных событий станции в зависимости от указанной длительности раунда.
 command-description-stationevent-lsprobtheoretical =
-    Given a BasicStationEventScheduler prototype, player count, and round time, lists the probability of different station events occuring based on the specified number of players and round time.
+    Для прототипа BasicStationEventScheduler, числа игроков и времени раунда показывает вероятность различных событий станции при заданных условиях.
 command-description-stationevent-prob =
-    Returns the probability of a single station event occuring out of the entire pool.
+    Возвращает вероятность одного события станции относительно всего пула.
 command-description-admins-active =
-    Returns a list of active admins.
+    Возвращает список активных администраторов.
 command-description-admins-all =
-    Returns a list of ALL admins, including deadmined ones.
+    Возвращает список ВСЕХ администраторов, включая снявших права (deadmin).
 command-description-marked =
-    Returns the value of $marked as a List<EntityUid>.
+    Возвращает значение $marked как List<EntityUid>.
 command-description-rejuvenate =
-    Rejuvenates the given entities, restoring them to full health, clearing status effects, etc.
+    Омолаживает указанные сущности: восстанавливает здоровье, снимает эффекты состояния и т.д.
 command-description-tag-list =
-    Lists tags on the given entities.
+    Показывает теги указанных сущностей.
 command-description-tag-with =
-    Returns only the entities with the given tag from the piped list of entities.
+    Возвращает из переданного списка только сущности с указанным тегом.
 command-description-tag-add =
-    Adds a tag to the given entities.
+    Добавляет тег указанным сущностям.
 command-description-tag-rm =
-    Removes a tag from the given entities.
+    Удаляет тег у указанных сущностей.
 command-description-tag-addmany =
-    Adds a list of tags to the given entities.
+    Добавляет список тегов указанным сущностям.
 command-description-tag-rmmany =
-    Removes a list of tags from the given entities.
+    Удаляет список тегов у указанных сущностей.
 command-description-polymorph =
-    Polymorphs the input entity with the given prototype.
+    Превращает (полиморфит) входную сущность с использованием указанного прототипа.
 command-description-unpolymorph =
-    Reverts a polymorph.
+    Отменяет полиморф.
 command-description-solution-get =
-    Grabs the given solution off the given entity.
+    Получает указанный раствор у указанной сущности.
 command-description-solution-adjreagent =
-    Adjusts the given reagent on the given solution.
+    Изменяет количество указанного реагента в указанном растворе.
 command-description-mind-get =
-    Grabs the mind from the entity, if any.
+    Получает разум (mind) сущности, если он есть.
 command-description-mind-control =
-    Assumes control of an entity with the given player.
+    Передаёт управление сущностью указанному игроку.
 command-description-addaccesslog =
-    Adds an access log to this entity. Do note that this bypasses the log's default limit and pause check.
+    Добавляет запись журнала доступа к этой сущности. Обратите внимание: это обходит стандартные ограничения и проверку паузы журнала.
 command-description-stationevent-simulate =
-    Simulates N number of rounds in which events will occur and prints the occurrences of every event after.
+    Симулирует N раундов с событиями и выводит количество срабатываний каждого события.
 command-description-xenoartifact-list =
-    List all EntityUids of spawned artifacts.
+    Показывает список EntityUid всех созданных артефактов.
 command-description-xenoartifact-printMatrix =
-    Prints out matrix that displays all edges between nodes.
+    Выводит матрицу, отображающую все связи между узлами.
 command-description-xenoartifact-totalResearch =
-    Gets all research points that can be extracted from artifact currently.
+    Возвращает все очки исследований, которые можно сейчас извлечь из артефакта.
 command-description-xenoartifact-averageResearch =
-    Calculates amount of research points average generated xeno artifact will output when fully activated.
+    Рассчитывает количество очков исследований, которое в среднем выдаст полностью активированный ксеноартефакт.
 command-description-xenoartifact-unlockAllNodes =
-    Unlocks all nodes of artifact.
+    Разблокирует все узлы артефакта.
 command-description-jobboard-completeJob =
-    Completes a given salvage job board job for the station.
+    Завершает указанное задание доски утилизаторских работ для станции.

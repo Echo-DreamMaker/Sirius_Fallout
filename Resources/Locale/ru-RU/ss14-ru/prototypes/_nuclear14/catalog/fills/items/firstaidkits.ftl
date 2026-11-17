@@ -1,7 +1,7 @@
 # аптечка первой помощи -->
 ent-N14MedkitFilled = { ent-Medkit }
     .suffix = Заполненный
-    .desc = { ent-Medkit.desc }
+    .desc = Это аварийная медицинская аптечка для серьёзных болячек.
 #  -->
 ent-N14MedkitStimkitFilled = { ent-N14MedkitFilled }
     .suffix = Заполненный, стимпак
@@ -10,20 +10,20 @@ ent-N14MedkitStimkitFilled = { ent-N14MedkitFilled }
 # набор для лечения механических травм -->
 ent-N14MedkitBruteFilled = { ent-MedkitBrute }
     .suffix = Заполненный
-    .desc = { ent-MedkitBrute.desc }
+    .desc = аптечка на случай, если вас отделают ящиком с инструментами.
 
 # набор для лечения токсинов -->
 ent-N14MedkitToxinFilled = { ent-MedkitToxin }
     .suffix = Заполненный
-    .desc = { ent-MedkitToxin.desc }
+    .desc = Используется для лечения токсинов в крови.
 
 # боевая аптечка -->
 ent-N14MedkitCombatFilled = { ent-MedkitCombat }
     .suffix = Заполненный
-    .desc = { ent-MedkitCombat.desc }
+    .desc = Для тех, у кого большое оружие.
 
 # набор для выведения радиации -->
 ent-N14MedkitRadiationFilled = { ent-MedkitRadiation }
     .suffix = Заполненный
-    .desc = { ent-MedkitRadiation.desc }
+    .desc = Если бы вы принимали Rad-X, вам бы это не понадобилось.
 

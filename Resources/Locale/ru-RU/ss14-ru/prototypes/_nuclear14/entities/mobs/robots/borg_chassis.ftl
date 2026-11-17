@@ -1,7 +1,7 @@
 ent-N14RobotProtectron = Протектрон
-    .desc = { ent-N14BaseRobotChassis.desc }
+    .desc = машина, созданная служить человечеству.
 ent-N14RobotProtectronBuilder = Протектрон фабрикатор
-    .desc = { ent-N14BaseRobotChassis.desc }
+    .desc = машина, созданная служить человечеству.
 ent-N14RobotProtectronFire = протектрон пожарник
     .desc = { ent-N14BaseRobotChassis.desc }
 ent-N14RobotProtectronPolice = протектрон полицейский

@@ -16,6 +16,7 @@
       - Ghoul
       - GhoulGlowing
       - SuperMutant
+      - Nightkin #Sirius Change
     #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
     #  tracker: TownShopkeeperHelper
     #  min: 18000 # 5 hours

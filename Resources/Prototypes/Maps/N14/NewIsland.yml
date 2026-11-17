@@ -48,7 +48,8 @@
             # NCRRO: [ 1, 1 ] # #Misfits Add - NCR QM slot
             #NCRChiefRanger: [ 1, 1 ]  # #Misfits Change - admin-only Chief Ranger; renamed from ChiefRanger
             #NCRVeteranRanger: [ 1, 1 ] # #Misfits Change - renamed from RangerVeteran
-            #NCRFieldRanger: [ 1, 1 ]   # #Misfits Add - Field Ranger slot
+            NCRFieldRanger: [ 1, 1 ]   #Sirius Change - restored Field Ranger role slot
+
             #NCRPatrolRanger: [ 2, 2 ]  # #Misfits Change - renamed from RangerRecruit (was Patrol Ranger by FTL)
             #NCRRangerRecruit: [ 2, 2 ] # #Misfits Add - entry-level Ranger Recruit slot
             #NCRFirstSergeant: [ 1, 1 ]
