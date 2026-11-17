@@ -80,9 +80,17 @@ humanoid-profile-editor-robot-model-robobrain-laser-zax = Z.A.X Лазер
 
 # Robot model selector labels for C-27 Humanoid Robot variants.
 humanoid-profile-editor-robot-model-c27-generic = Общее шасси
-humanoid-profile-editor-robot-model-c27-ncr = Проблема НКР
-humanoid-profile-editor-robot-model-c27-bos = Братство
+#Sirius Fix - "Issue" здесь означает модификацию/серию, а не проблему
+humanoid-profile-editor-robot-model-c27-ncr = Модификация НКР
+humanoid-profile-editor-robot-model-c27-bos = Модификация Братства
 humanoid-profile-editor-robot-model-c27-zax = Шасси Z.A.X
+#Sirius Add - Недостающие модели шасси C-27
+humanoid-profile-editor-robot-model-c27-integrator = Шасси «Интегратор»
+humanoid-profile-editor-robot-model-c27-assault = Штурмовое шасси
+humanoid-profile-editor-robot-model-c27-recon = Разведывательное шасси
+humanoid-profile-editor-robot-model-c27-integrator-tooltip = Интегратор — довоенный робот модели C-27 необычной сборки: по корпусу, рукам и коленным суставам тянутся трубки, а шасси покрыто чем-то вроде синтетических волокон, имитирующих мускулатуру. По сравнению с собратьями выглядит на удивление дёрганым.
+humanoid-profile-editor-robot-model-c27-assault-tooltip = Штурмовик — довоенный робот модели C-27 с усиленным шасси и внушительной комплекцией. Каждый его шаг гремит гудением тяжёлых сервоприводов и бронеплит.
+humanoid-profile-editor-robot-model-c27-recon-tooltip = Разведчик — довоенный робот модели C-27 с более сухощавой сборкой и облегчённой бронёй; сразу заметны дополнительные оптические сенсоры и более совершенная антенна, а двигается он куда тише прочих моделей.
 
 # Robot model selector labels for Mr. Handy variants.
 humanoid-profile-editor-robot-model-mr-handy-standard = Стандартный

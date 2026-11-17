@@ -1,314 +1,300 @@
-﻿accent-latin-words-1 = привет
-accent-latin-words-replace-1 = мазь
-accent-latin-words-2 = привет
-accent-latin-words-replace-2 = мазь
-accent-latin-words-3 = привет
-accent-latin-words-replace-3 = спасение
-accent-latin-words-4 = привет
-accent-latin-words-replace-4 = мазь
+accent-latin-words-1 = привет
+accent-latin-words-replace-1 = салве
+accent-latin-words-2 = приветик
+accent-latin-words-replace-2 = салве
+accent-latin-words-3 = приветствую
+accent-latin-words-replace-3 = салвете
+accent-latin-words-4 = здравствуйте
+accent-latin-words-replace-4 = салве
 accent-latin-words-5 = друг
-accent-latin-words-replace-5 = друг
-accent-latin-words-6 = приятель
-accent-latin-words-replace-6 = друг
-accent-latin-words-7 = прощание
-accent-latin-words-replace-7 = долина
-accent-latin-words-8 = до свидания
-accent-latin-words-replace-8 = долина
+accent-latin-words-replace-5 = амикус
+accent-latin-words-6 = дружище
+accent-latin-words-replace-6 = амикус
+accent-latin-words-7 = прощай
+accent-latin-words-replace-7 = вале
+accent-latin-words-8 = пока
+accent-latin-words-replace-8 = вале
 accent-latin-words-9 = меч
 accent-latin-words-replace-9 = гладиус
-accent-latin-words-10 = командир
+accent-latin-words-10 = начальник
 accent-latin-words-replace-10 = магистр
-accent-latin-words-11 = лидер
+accent-latin-words-11 = глава
 accent-latin-words-replace-11 = магистр
-accent-latin-words-12 = лидер
+accent-latin-words-12 = главе
 accent-latin-words-replace-12 = магистр
 accent-latin-words-13 = правитель
 accent-latin-words-replace-13 = магистр
-accent-latin-words-14 = надзиратель
+accent-latin-words-14 = смотритель
 accent-latin-words-replace-14 = магистр
 accent-latin-words-15 = учитель
 accent-latin-words-replace-15 = магистр
-accent-latin-words-16 = директор
+accent-latin-words-16 = руководитель
 accent-latin-words-replace-16 = магистр
-accent-latin-words-17 = правитель
-accent-latin-words-replace-17 = магистр
-accent-latin-words-18 = надзиратель
-accent-latin-words-replace-18 = магистр
-accent-latin-words-19 = учитель
-accent-latin-words-replace-19 = магистр
+accent-latin-words-17 = правителю
+accent-latin-words-replace-17 = магистру
+accent-latin-words-18 = смотрителю
+accent-latin-words-replace-18 = магистру
+accent-latin-words-19 = учителю
+accent-latin-words-replace-19 = магистру
 accent-latin-words-20 = воин
-accent-latin-words-replace-20 = Беллатор
+accent-latin-words-replace-20 = беллатор
 accent-latin-words-21 = воины
-accent-latin-words-replace-21 = беллаторы
+accent-latin-words-replace-21 = беллаторес
 accent-latin-words-22 = война
-accent-latin-words-replace-22 = война
+accent-latin-words-replace-22 = беллум
 accent-latin-words-23 = синяк
 accent-latin-words-replace-23 = ливор
-accent-latin-words-24 = синяки
+accent-latin-words-24 = ушибы
 accent-latin-words-replace-24 = ливор
-accent-latin-words-25 = синяк
+accent-latin-words-25 = ушиб
 accent-latin-words-replace-25 = ливор
-
-accent-latin-words-26 = Мутант
-accent-latin-words-replace-26 = Монструм
-accent-latin-words-27 = Легион
-accent-latin-words-replace-27 = Легио
-accent-latin-words-28 = Бог
-accent-latin-words-replace-28 = Деус
-accent-latin-words-29 = Друг
-accent-latin-words-replace-29 = Амикус
-accent-latin-words-30 = Смерть
-accent-latin-words-replace-30 = Морс
-accent-latin-words-31 = Мёртв
-accent-latin-words-replace-31 = Мортуус
-accent-latin-words-32 = Раб
-accent-latin-words-replace-32 = Сервус
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+accent-latin-words-26 = смерть
+accent-latin-words-replace-26 = морс
+accent-latin-words-27 = смертный
+accent-latin-words-replace-27 = мортале
+accent-latin-words-28 = умер
+accent-latin-words-replace-28 = мортус ест
+accent-latin-words-29 = умирать
+accent-latin-words-replace-29 = мори
+accent-latin-words-30 = умираю
+accent-latin-words-replace-30 = но ме мордадес агора
+accent-latin-words-31 = раб
+accent-latin-words-replace-31 = сервус
+accent-latin-words-32 = раба
+accent-latin-words-replace-32 = сервус
+accent-latin-words-33 = рабство
+accent-latin-words-replace-33 = сервитус
+accent-latin-words-34 = рабы
+accent-latin-words-replace-34 = серви
+accent-latin-words-35 = вода
+accent-latin-words-replace-35 = аква
+accent-latin-words-36 = воду
+accent-latin-words-replace-36 = акву
+accent-latin-words-37 = воды
+accent-latin-words-replace-37 = аквы
+accent-latin-words-38 = женщина
+accent-latin-words-replace-38 = фемина
+accent-latin-words-39 = женщину
+accent-latin-words-replace-39 = фемину
+accent-latin-words-40 = женщины
+accent-latin-words-replace-40 = фемины
+accent-latin-words-41 = мужчины
+accent-latin-words-replace-41 = хоминес
+accent-latin-words-42 = мужчину
+accent-latin-words-replace-42 = вир
+accent-latin-words-43 = мужчина
+accent-latin-words-replace-43 = вир
+accent-latin-words-44 = идиот
+accent-latin-words-replace-44 = сталтус
+accent-latin-words-45 = еда
+accent-latin-words-replace-45 = чибус
+accent-latin-words-46 = пища
+accent-latin-words-replace-46 = чибус
+accent-latin-words-47 = корм
+accent-latin-words-replace-47 = чибус
+accent-latin-words-48 = еду
+accent-latin-words-replace-48 = чибус
+accent-latin-words-49 = пищу
+accent-latin-words-replace-49 = чибус
+accent-latin-words-50 = дерево
+accent-latin-words-replace-50 = арбор
+accent-latin-words-51 = древесина
+accent-latin-words-replace-51 = лигнум
+accent-latin-words-52 = быстрее
+accent-latin-words-replace-52 = читиус
+accent-latin-words-53 = медицина
+accent-latin-words-replace-53 = медикаментум
+accent-latin-words-54 = лечите
+accent-latin-words-replace-54 = трактаре
+accent-latin-words-55 = оружие
+accent-latin-words-replace-55 = телум
+accent-latin-words-56 = говно
+accent-latin-words-replace-56 = какас
+accent-latin-words-57 = дерьмо
+accent-latin-words-replace-57 = какас
+accent-latin-words-58 = еблан
+accent-latin-words-replace-58 = сталтус
+accent-latin-words-59 = дурак
+accent-latin-words-replace-59 = сталтус
+accent-latin-words-60 = сука
+accent-latin-words-replace-60 = канис
+accent-latin-words-61 = хуесос
+accent-latin-words-replace-61 = феллатор
+accent-latin-words-62 = шлюха
+accent-latin-words-replace-62 = феллатрикс
+accent-latin-words-63 = блядина
+accent-latin-words-replace-63 = люпа
+accent-latin-words-64 = хуй
+accent-latin-words-replace-64 = фаллос
+accent-latin-words-65 = отвали
+accent-latin-words-replace-65 = перите
+accent-latin-words-66 = отъебись
+accent-latin-words-replace-66 = перите
+accent-latin-words-67 = бля
+accent-latin-words-replace-67 = вае
+accent-latin-words-68 = блять
+accent-latin-words-replace-68 = вае
+accent-latin-words-69 = ебучий
+accent-latin-words-replace-69 = иррумабо
+accent-latin-words-70 = секс
+accent-latin-words-replace-70 = футуо
+accent-latin-words-71 = заткнись
+accent-latin-words-replace-71 = клаудитис
+accent-latin-words-72 = гомик
+accent-latin-words-replace-72 = верпа
+accent-latin-words-73 = гей
+accent-latin-words-replace-73 = верпа
+accent-latin-words-74 = ебать
+accent-latin-words-replace-74 = футуере
+accent-latin-words-75 = пизда
+accent-latin-words-replace-75 = куннус
+accent-latin-words-76 = победа
+accent-latin-words-replace-76 = виктория
+accent-latin-words-77 = поражение
+accent-latin-words-replace-77 = дефектус
+accent-latin-words-78 = битва
+accent-latin-words-replace-78 = пугна
+accent-latin-words-79 = легион
+accent-latin-words-replace-79 = легио
+accent-latin-words-80 = солдат
+accent-latin-words-replace-80 = милес
+accent-latin-words-81 = патруль
+accent-latin-words-replace-81 = патрула
+accent-latin-words-82 = враг
+accent-latin-words-replace-82 = инмикус
+accent-latin-words-83 = пленник
+accent-latin-words-replace-83 = каптивус
+accent-latin-words-84 = казнь
+accent-latin-words-replace-84 = поэна
+accent-latin-words-85 = командир
+accent-latin-words-replace-85 = центурио
+accent-latin-words-86 = генерал
+accent-latin-words-replace-86 = дукс
+accent-latin-words-87 = император
+accent-latin-words-replace-87 = император
+accent-latin-words-88 = дисциплина
+accent-latin-words-replace-88 = дисциплина
+accent-latin-words-89 = приказ
+accent-latin-words-replace-89 = мандатум
+accent-latin-words-90 = гражданин
+accent-latin-words-replace-90 = цивис
+accent-latin-words-91 = народ
+accent-latin-words-replace-91 = популус
+accent-latin-words-92 = закон
+accent-latin-words-replace-92 = лекс
+accent-latin-words-93 = суд
+accent-latin-words-replace-93 = юдициум
+accent-latin-words-94 = храм
+accent-latin-words-replace-94 = темплум
+accent-latin-words-95 = бог
+accent-latin-words-replace-95 = деус
+accent-latin-words-96 = имя
+accent-latin-words-replace-96 = номен
+accent-latin-words-97 = солнце
+accent-latin-words-replace-97 = сол
+accent-latin-words-98 = ночь
+accent-latin-words-replace-98 = нокс
+accent-latin-words-99 = день
+accent-latin-words-replace-99 = диес
+accent-latin-words-100 = свет
+accent-latin-words-replace-100 = люкс
+accent-latin-words-101 = тень
+accent-latin-words-replace-101 = умбра
+accent-latin-words-102 = золото
+accent-latin-words-replace-102 = аурум
+accent-latin-words-103 = мутант
+accent-latin-words-replace-103 = монструм
+accent-latin-words-104 = пустошь
+accent-latin-words-replace-104 = десерта
+accent-latin-words-105 = радиация
+accent-latin-words-replace-105 = радио
+accent-latin-words-106 = болезнь
+accent-latin-words-replace-106 = морбус
+accent-latin-words-107 = доктор
+accent-latin-words-replace-107 = медикус
+accent-latin-words-108 = выживший
+accent-latin-words-replace-108 = суперстес
+accent-latin-words-109 = антирад
+accent-latin-words-replace-109 = антирадиум
+accent-latin-words-110 = стимпак
+accent-latin-words-replace-110 = виталекс
+accent-latin-words-111 = патрон
+accent-latin-words-replace-111 = глобулум
+accent-latin-words-112 = пистолет
+accent-latin-words-replace-112 = пистолюм
+accent-latin-words-113 = винтовка
+accent-latin-words-replace-113 = аркубус
+accent-latin-words-114 = броня
+accent-latin-words-replace-114 = лорика
+accent-latin-words-115 = маска
+accent-latin-words-replace-115 = маска
+accent-latin-words-116 = боль
+accent-latin-words-replace-116 = долор
+accent-latin-words-117 = страх
+accent-latin-words-replace-117 = метус
+accent-latin-words-118 = ярость
+accent-latin-words-replace-118 = ира
+accent-latin-words-119 = да
+accent-latin-words-replace-119 = итам
+accent-latin-words-120 = нет
+accent-latin-words-replace-120 = нон
+accent-latin-words-121 = возможно
+accent-latin-words-replace-121 = форсан
+accent-latin-words-122 = быстро
+accent-latin-words-replace-122 = чито
+accent-latin-words-123 = стой
+accent-latin-words-replace-123 = стат
+accent-latin-words-124 = за мной
+accent-latin-words-replace-124 = секутур
+accent-latin-words-125 = помощь
+accent-latin-words-replace-125 = адьюва
+accent-latin-words-126 = храмовник
+accent-latin-words-replace-126 = аугур
+accent-latin-words-127 = грязь
+accent-latin-words-replace-127 = фоедус
+accent-latin-words-128 = сволочь
+accent-latin-words-replace-128 = некас
+accent-latin-words-129 = ублюдок
+accent-latin-words-replace-129 = бастарде
+accent-latin-words-130 = безумец
+accent-latin-words-replace-130 = фуриосус
+accent-latin-words-131 = безумный
+accent-latin-words-replace-131 = инсана
+accent-latin-words-132 = грязный
+accent-latin-words-replace-132 = фоедус
+accent-latin-words-133 = урод
+accent-latin-words-replace-133 = монструм
+accent-latin-words-134 = крыса
+accent-latin-words-replace-134 = муре
+accent-latin-words-135 = яд
+accent-latin-words-replace-135 = вененум
+accent-latin-words-136 = заражение
+accent-latin-words-replace-136 = инфекцио
+accent-latin-words-137 = кислота
+accent-latin-words-replace-137 = ацидум
+accent-latin-words-138 = больной
+accent-latin-words-replace-138 = инфирмус
+accent-latin-words-139 = сильный
+accent-latin-words-replace-139 = фортис
+accent-latin-words-140 = слабый
+accent-latin-words-replace-140 = дебилис
+accent-latin-words-141 = грязный ублюдок
+accent-latin-words-replace-141 = фоедус бастарде
+accent-latin-words-142 = трус
+accent-latin-words-replace-142 = трукулус
+accent-latin-words-143 = гордость
+accent-latin-words-replace-143 = супербия
+accent-latin-words-144 = честь
+accent-latin-words-replace-144 = хонор
+accent-latin-words-145 = долг
+accent-latin-words-replace-145 = оффициум
+accent-latin-words-146 = верность
+accent-latin-words-replace-146 = фидес
+accent-latin-words-147 = слава
+accent-latin-words-replace-147 = глория
+accent-latin-words-148 = враги
+accent-latin-words-replace-148 = инмики
+accent-latin-words-149 = больные
+accent-latin-words-replace-149 = инфирми
+accent-latin-words-150 = заражённый
+accent-latin-words-replace-150 = инфектус

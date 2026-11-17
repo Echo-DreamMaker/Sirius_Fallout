@@ -954,6 +954,11 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     public string TransformSpeech(EntityUid sender, string message, LanguagePrototype language)
     {
+        // #Sirius Add: language-specific pronunciation flavour. Applied before the speech gate so that
+        // non-verbal languages (e.g. sign language) still get their own wording.
+        if (language.SpeechOverride.Accent is { } accent)
+            message = _wordreplacement.ApplyReplacements(message, accent.Id);
+
         if (!language.SpeechOverride.RequireSpeech)
             return message; // Do not apply speech accents if there's no speech involved.
 

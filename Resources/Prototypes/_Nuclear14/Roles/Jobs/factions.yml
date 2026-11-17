@@ -129,7 +129,8 @@
   - NCRDagger        # DAGGER (whitelist-only Ranger / NCR High Command liaison) | _Misfits/Roles/Jobs/Rangers/dagger.yml
   - NCRChiefRanger   # Chief Ranger (admin-only) | _Misfits/Roles/Jobs/Rangers/chief_ranger.yml
   - NCRVeteranRanger # Veteran Ranger            | _Misfits/Roles/Jobs/Rangers/ranger_veteran.yml
-  #- NCRFieldRanger  # Field Ranger              | _Misfits/Roles/Jobs/Rangers/ranger.yml  # #Misfits Removed - Field Ranger retired; its map slots went to Patrol Ranger (+2) and Ranger Recruit (+1)
+  - NCRFieldRanger  # Field Ranger              | _Misfits/Roles/Jobs/Rangers/ranger.yml  #Sirius Change - restored to general available roles
+
   - NCRRangerStandard # Ranger                   | _Misfits/Roles/Jobs/Rangers/ranger_standard.yml  # #Misfits Add - main Ranger rung; patrol ranger keeps its job but has no station slots
   - NCRRangerMedic  # Ranger Medic              | _Misfits/Roles/Jobs/Rangers/ranger_medic.yml  # #Misfits Add - medical rung of the Ranger ladder
   - SuperMutantNCRRanger # Mutant Ranger         | _Misfits/Roles/Jobs/SuperMutant/supermutant.yml # Misfits Add

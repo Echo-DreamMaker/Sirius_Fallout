@@ -23,4 +23,4 @@ particle-accelerator-radio-message-off = Питание УЧ было выклю
 particle-accelerator-radio-message-num = Мощность УЧ установлена на уровень { $level }.
 
 particle-accelerator-control-menu-alarm-control = [bold][color=red]МОЩНОСТЬ ЧАСТИЦ[/color][/bold] [bold][color=red]СБОЙ ОГРАНИЧИТЕЛЯ[/color][/bold]
-particle-accelerator-control-menu-foo-bar-baz = FOO-BAR-BAZ
+particle-accelerator-control-menu-foo-bar-baz = ФУ-БАР-БАЗ

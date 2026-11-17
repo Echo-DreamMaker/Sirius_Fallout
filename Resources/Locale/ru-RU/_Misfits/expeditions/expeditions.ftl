@@ -60,3 +60,14 @@ n14-expedition-difficulty-metro-procgen = Туннели метро (проце�
 # n14-expedition-difficulty-mithril = Mithril
 # n14-expedition-difficulty-diamond = Diamond
 n14-expedition-difficulty-unknown-procgen = Unknown Underground Site
+
+#Sirius Add - Недостающие сообщения экспедиций
+n14-expedition-joined = Вы присоединились к активной экспедиции.
+n14-expedition-death-extracting = Вы погибли в экспедиции, и вас вернуло ко входу на поверхность.
+n14-expedition-entrance-name = благоприятный вход
+n14-expedition-entrance-desc = Что-то таится внизу. Взаимодействуйте, чтобы начать экспедицию; пункт назначения неизвестен.
+n14-expedition-entrance-map-label = Благоприятный вход
+n14-expedition-entrance-busy = Этот вход уже связан с активной экспедицией.
+n14-expedition-entrance-cooldown = Проход нестабилен. Он снова станет доступен через {$minutes} минут.
+n14-expedition-entrance-too-far = Оставайтесь возле входа, чтобы начать эту экспедицию.
+n14-expedition-disabled = Экспедиции временно недоступны.

@@ -90,6 +90,11 @@ job-name-ranger-veteran-n14 = Ветеран-рейнджер
 job-description-ranger-veteran-n14 = Руководите операциями рейнджеров в регионе, выбирайте свои методы и отвечайте только своей миссии и своему кодексу.
 job-name-ranger-veteran = Ветеран-рейнджер
 job-description-ranger-veteran = Руководите операциями рейнджеров в регионе, выбирайте свои методы и отвечайте только своей миссии и своему кодексу.
+#Sirius Add - Недостающие должности рейнджеров
+job-name-ranger = Рейнджер
+job-description-ranger = Служите на границе как полноценный рейнджер станции. Блюдите закон рейнджеров, разведывайте Пустошь и подчиняйтесь стоящему выше вас главе рейнджеров.
+job-name-ranger-medic = Медик рейнджеров
+job-description-ranger-medic = Держите свой патруль живым на границе: перевязывайте раны, раздавайте стимуляторы и вытаскивайте рейнджеров с того света.
 
 # #Misfits Change - rename tribe role display names to Yuma variants without changing job IDs.
 # Tribal

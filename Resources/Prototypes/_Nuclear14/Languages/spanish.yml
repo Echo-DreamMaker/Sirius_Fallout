@@ -3,6 +3,7 @@
   isVisibleLanguage: false
   speech:
     color: "#df57aaee"
+    accent: n14Spanish # #Sirius Add - испанская лексика для тех, кто язык понимает
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

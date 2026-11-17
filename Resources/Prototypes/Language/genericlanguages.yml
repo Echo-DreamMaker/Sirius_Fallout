@@ -30,6 +30,7 @@
     allowRadio: false
     requireSpeech: false
     color: "#dddddd"
+    accent: signLanguage # #Sirius Add - язык жестов описывает жесты, а не звуки
     messageWrapOverrides:
       Speak: chat-sign-language-message-wrap
       Whisper: chat-sign-language-whisper-wrap

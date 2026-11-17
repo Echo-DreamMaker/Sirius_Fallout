@@ -1,17 +1,18 @@
-spray-painter-window-title = Spray Painter
+#Sirius Fix: переведены оставшиеся английские строки и названия цветов
+spray-painter-window-title = Распылитель краски
 
-spray-painter-style-not-available = Cannot apply the selected style to this object.
-spray-painter-selected-style = Selected style:
+spray-painter-style-not-available = Нельзя применить выбранный стиль к этому типу шлюза.
+spray-painter-selected-style = Выбранный стиль:
 
-spray-painter-selected-color = Selected color:
-spray-painter-color-red = red
-spray-painter-color-yellow = yellow
-spray-painter-color-brown = brown
-spray-painter-color-green = green
-spray-painter-color-cyan = cyan
-spray-painter-color-blue = blue
-spray-painter-color-white = white
-spray-painter-color-black = black
+spray-painter-selected-color = Выбранный цвет:
+spray-painter-color-red = красный
+spray-painter-color-yellow = жёлтый
+spray-painter-color-brown = коричневый
+spray-painter-color-green = зелёный
+spray-painter-color-cyan = голубой
+spray-painter-color-blue = синий
+spray-painter-color-white = белый
+spray-painter-color-black = чёрный
 
 spray-painter-interact-nothing-to-remove = Нечего удалять!
 spray-painter-interact-no-color-pick = Не удалось найти цвет для выбора!

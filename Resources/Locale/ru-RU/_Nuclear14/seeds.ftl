@@ -35,6 +35,11 @@ clipping-coyote-tobacco-name = койотовый табак
 clipping-coyote-tobacco-noun = вырезки
 clipping-coyote-tobacco-display-name = койотовый табак
 
+#Sirius Add - Недостающая культура
+clipping-cannabis-name = конопля
+clipping-cannabis-noun = вырезки
+clipping-cannabis-display-name = конопля
+
 clipping-datura-name = дурман
 clipping-datura-noun = вырезки
 clipping-datura-display-name = дурман

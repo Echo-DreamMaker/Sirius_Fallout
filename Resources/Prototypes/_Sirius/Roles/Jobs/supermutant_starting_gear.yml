@@ -1,5 +1,5 @@
-# Sirius Change - Super Mutant roundstart gear replacements for wastelander/townsfolk roles.
-# These subgears are applied when the character is species SuperMutant so they spawn with
+# Sirius Change - Super Mutant and Nightkin roundstart gear replacements for wastelander/townsfolk/faction roles.
+# These subgears are applied when the character is species SuperMutant or Nightkin so they spawn with
 # SuperMutantWearable clothing instead of normal inner/outer clothing.
 
 - type: startingGear
@@ -8,6 +8,7 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     jumpsuit: ClothingSuperMutantJumpsuit
     shoes: ClothingSuperMutantShoes
@@ -19,6 +20,7 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     jumpsuit: ClothingSuperMutantZootSuit
     shoes: ClothingSuperMutantZootBoot
@@ -30,6 +32,7 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     jumpsuit: ClothingSuperMutantJumpsuit
     shoes: ClothingSuperMutantShoes
@@ -41,6 +44,7 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     jumpsuit: ClothingSuperMutantJumpsuit
     shoes: ClothingSuperMutantLeatherBoots
@@ -53,6 +57,7 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     jumpsuit: ClothingSuperMutantJumpsuit
     shoes: ClothingSuperMutantShoes
@@ -64,6 +69,7 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     head: ClothingSuperMutantZootHat
     jumpsuit: ClothingSuperMutantZootSuit
@@ -77,6 +83,7 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     jumpsuit: ClothingSuperMutantZootSuit
     shoes: ClothingSuperMutantShoes
@@ -88,6 +95,7 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     jumpsuit: ClothingSuperMutantJumpsuit
     shoes: ClothingSuperMutantLeatherBoots
@@ -99,6 +107,7 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     jumpsuit: ClothingSuperMutantLabcoat
     shoes: ClothingSuperMutantShoes
@@ -112,6 +121,7 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     head: ClothingSuperMutantZootHat
     jumpsuit: ClothingSuperMutantZootSuit
@@ -124,6 +134,7 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     jumpsuit: ClothingSuperMutantJumpsuit
     shoes: ClothingSuperMutantShoes
@@ -136,6 +147,7 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     jumpsuit: ClothingSuperMutantJumpsuit
     shoes: ClothingSuperMutantLeatherBoots
@@ -147,7 +159,241 @@
   - !type:CharacterSpeciesRequirement
     species:
     - SuperMutant
+    - Nightkin
   equipment:
     jumpsuit: ClothingSuperMutantZootSuit
     shoes: ClothingSuperMutantZootBoot
   innerClothingSkirt: ClothingSuperMutantZootSuit
+
+# BoS roles - Super Mutant/Nightkin (WL access roles)
+- type: startingGear
+  id: SuperMutantBoSSquireGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    jumpsuit: ClothingSuperMutantJumpsuit
+    shoes: ClothingSuperMutantLeatherBoots
+    head: ClothingSuperMutantHead
+    outerClothing: ClothingSuperMutantOuterClothing
+  innerClothingSkirt: ClothingSuperMutantJumpsuit
+
+- type: startingGear
+  id: SuperMutantBoSKnightGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    jumpsuit: ClothingSuperMutantJumpsuit
+    shoes: ClothingSuperMutantScavengedBoots
+    head: ClothingSuperMutantScavengedHelmet
+    outerClothing: ClothingSuperMutantCustomizedCombatArmor
+    gloves: ClothingSuperMutantScavengedGloves
+  innerClothingSkirt: ClothingSuperMutantJumpsuit
+
+- type: startingGear
+  id: SuperMutantBoSSerfGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    jumpsuit: ClothingSuperMutantJumpsuit
+    shoes: ClothingSuperMutantShoes
+    gloves: ClothingSuperMutantGloves
+  innerClothingSkirt: ClothingSuperMutantJumpsuit
+
+# NCR Rangers roles - Super Mutant/Nightkin use supermutant NCR ranger armor
+- type: startingGear
+  id: SuperMutantNCRFieldRangerGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    head: ClothingSuperMutantRangerHelmet
+    mask: ClothingSuperRangerGasmask
+    jumpsuit: ClothingSuperMutantRangerShirt
+    shoes: ClothingSuperMutantLeatherBoots
+    outerClothing: ClothingSuperMutantRangerArmor
+    gloves: SupermutantBlackGloves
+  innerClothingSkirt: ClothingSuperMutantRangerShirt
+
+- type: startingGear
+  id: SuperMutantNCRRangerStandardGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    head: ClothingSuperMutantRangerHelmet
+    mask: ClothingSuperRangerGasmask
+    jumpsuit: ClothingSuperMutantRangerShirt
+    shoes: ClothingSuperMutantLeatherBoots
+    outerClothing: ClothingSuperMutantRangerArmor
+    gloves: SupermutantBlackGloves
+  innerClothingSkirt: ClothingSuperMutantRangerShirt
+
+- type: startingGear
+  id: SuperMutantNCRRangerMedicGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    head: ClothingSuperMutantRangerHelmet
+    mask: ClothingSuperRangerGasmask
+    jumpsuit: ClothingSuperMutantRangerShirt
+    shoes: ClothingSuperMutantLeatherBoots
+    outerClothing: ClothingSuperMutantRangerArmor
+    gloves: SupermutantFollowerGloves
+  innerClothingSkirt: ClothingSuperMutantRangerShirt
+
+- type: startingGear
+  id: SuperMutantNCRPatrolRangerGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    head: ClothingSuperMutantRangerHat
+    jumpsuit: ClothingSuperMutantRangerShirt
+    shoes: ClothingSuperMutantLeatherBoots
+    outerClothing: ClothingSuperMutantRangerArmor
+    gloves: SupermutantBlackGloves
+  innerClothingSkirt: ClothingSuperMutantRangerShirt
+
+- type: startingGear
+  id: SuperMutantNCRRangerRecruitGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    head: ClothingSuperMutantRangerHat
+    jumpsuit: ClothingSuperMutantRangerShirt
+    shoes: ClothingSuperMutantLeatherBoots
+    outerClothing: ClothingSuperMutantRangerArmor
+    gloves: SupermutantBlackGloves
+  innerClothingSkirt: ClothingSuperMutantRangerShirt
+
+- type: startingGear
+  id: SuperMutantNCRVeteranRangerGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    head: ClothingSuperMutantRangerHelmet
+    mask: ClothingSuperRangerGasmask
+    jumpsuit: ClothingSuperMutantRangerShirt
+    shoes: ClothingSuperMutantLeatherBoots
+    outerClothing: ClothingSuperMutantCustomizedCombatArmor
+    gloves: SupermutantBlackGloves
+    neck: ClothingSuperMutantCustomDuster
+  innerClothingSkirt: ClothingSuperMutantRangerShirt
+
+- type: startingGear
+  id: SuperMutantNCRDaggerGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    head: ClothingSuperMutantRangerHelmet
+    mask: ClothingSuperMutantRangerGasmaskAlt
+    jumpsuit: ClothingSuperMutantRangerShirt
+    shoes: ClothingSuperMutantLeatherBoots
+    outerClothing: ClothingSuperMutantCustomizedCombatArmor
+    gloves: SupermutantBlackGloves
+    neck: ClothingSuperMutantCustomDuster
+  innerClothingSkirt: ClothingSuperMutantRangerShirt
+
+- type: startingGear
+  id: SuperMutantNCRChiefRangerGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    head: ClothingSuperMutantRangerHelmet
+    mask: ClothingSuperRangerGasmask
+    jumpsuit: ClothingSuperMutantRangerShirt
+    shoes: ClothingSuperMutantLeatherBoots
+    outerClothing: ClothingSuperMutantRangerArmor
+    gloves: SupermutantBlackGloves
+  innerClothingSkirt: ClothingSuperMutantRangerShirt
+
+- type: startingGear
+  id: SuperMutantNCRDesertRangerGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    head: ClothingSuperMutantRangerHelmet
+    mask: ClothingSuperRangerGasmask
+    jumpsuit: ClothingSuperMutantRangerShirt
+    shoes: ClothingSuperMutantLeatherBoots
+    outerClothing: ClothingSuperMutantRangerArmor
+    gloves: SupermutantBlackGloves
+    neck: ClothingSuperMutantCustomDuster
+  innerClothingSkirt: ClothingSuperMutantRangerShirt
+
+- type: startingGear
+  id: SuperMutantNCRRangerChiefGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    head: ClothingSuperMutantRangerHelmet
+    mask: ClothingSuperRangerGasmask
+    jumpsuit: ClothingSuperMutantRangerShirt
+    shoes: ClothingSuperMutantLeatherBoots
+    outerClothing: ClothingSuperMutantCustomizedCombatArmor
+    gloves: SupermutantBlackGloves
+  innerClothingSkirt: ClothingSuperMutantRangerShirt
+
+# Misfits townsfolk roles
+- type: startingGear
+  id: SuperMutantTownAmbassadorGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    head: ClothingSuperMutantZootHat
+    jumpsuit: ClothingSuperMutantZootSuit
+    shoes: ClothingSuperMutantZootBoot
+    gloves: SupermutantBlackGloves
+  innerClothingSkirt: ClothingSuperMutantZootSuit
+
+- type: startingGear
+  id: SuperMutantTownShopkeeperHelperGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
+    - Nightkin
+  equipment:
+    jumpsuit: ClothingSuperMutantZootSuit
+    shoes: ClothingSuperMutantZootBoot
+  innerClothingSkirt: ClothingSuperMutantZootSuit
+

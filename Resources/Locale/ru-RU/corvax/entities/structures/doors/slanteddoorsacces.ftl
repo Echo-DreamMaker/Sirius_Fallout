@@ -1,8 +1,8 @@
 ent-N14DoorMetalBlueSlantedLoced = { ent-N14DoorMetalBlueSlanted }
-    .desc = { ent-N14DoorMetalBlueSlanted.desc }
+    .desc = старый blue металлический дверь.
 ent-N14DoorMetalRedSlantedLoced = { ent-N14DoorMetalRedSlanted }
-    .desc = { ent-N14DoorMetalRedSlanted.desc }
+    .desc = старый red металлический дверь.
 ent-N14DoorMetalBlueAltSlantedLoced = { ent-N14DoorMetalBlueAltSlanted }
-    .desc = { ent-N14DoorMetalBlueAltSlanted.desc }
+    .desc = старый blue металлический дверь.
 ent-N14DoorMetalBlueWindowSlantedLoced = { ent-N14DoorMetalBlueWindowSlanted }
-    .desc = { ent-N14DoorMetalBlueWindowSlanted.desc }
+    .desc = Старая синяя металлическая дверь с окном.

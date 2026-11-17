@@ -82,51 +82,51 @@ liar-word-replacement-27 = ранен
 liar-word-28 = здорова
 liar-word-replacement-28 = ранена
 
-liar-word-29 = do
-liar-word-replacement-29 = "don't"
+liar-word-29 = делаю
+liar-word-replacement-29 = не делаю
 
-liar-word-30 = "don't"
-liar-word-replacement-30 = ""
+liar-word-30 = не делаю
+liar-word-replacement-30 = "
 
-liar-word-31 = does
-liar-word-replacement-31 = "doesn't"
+liar-word-31 = делает
+liar-word-replacement-31 = не делает
 
-liar-word-32 = did
-liar-word-replacement-32 = "didn't"
+liar-word-32 = делал
+liar-word-replacement-32 = не делал
 
-liar-word-33 = "didn't"
-liar-word-replacement-33 = did
+liar-word-33 = не делал
+liar-word-replacement-33 = делал
 
-liar-word-34 = ye
-liar-word-34-2 = ya
-liar-word-replacement-34 = na
+liar-word-34 = верно
+liar-word-34-2 = правда
+liar-word-replacement-34 = неверно
 
-liar-word-35 = na
-liar-word-replacement-35 = ye
+liar-word-35 = ложь
+liar-word-replacement-35 = правда
 
-liar-word-36 = yuh
-liar-word-replacement-36 = nuh
+liar-word-36 = да ну
+liar-word-replacement-36 = серьёзно
 
-liar-word-37 = nuh
-liar-word-replacement-37 = yuh
+liar-word-37 = серьёзно
+liar-word-replacement-37 = да ну
 
-liar-word-38 = love
-liar-word-replacement-38 = hate
+liar-word-38 = люблю
+liar-word-replacement-38 = ненавижу
 
-liar-word-39 = hate
-liar-word-replacement-39 = love
+liar-word-39 = ненавижу
+liar-word-replacement-39 = люблю
 
-liar-word-40 = like
-liar-word-replacement-40 = don't like
+liar-word-40 = нравится
+liar-word-replacement-40 = не нравится
 
-liar-word-41 = good
-liar-word-replacement-41 = bad
+liar-word-41 = хорошо
+liar-word-replacement-41 = плохо
 
-liar-word-42 = bad
-liar-word-replacement-42 = good
+liar-word-42 = плохо
+liar-word-replacement-42 = хорошо
 
-liar-word-43 = want
-liar-word-replacement-43 = "don't want"
+liar-word-43 = хочу
+liar-word-replacement-43 = не хочу
 
-liar-word-44 = not
-liar-word-replacement-44 = ""
+liar-word-44 = совсем
+liar-word-replacement-44 = нисколько

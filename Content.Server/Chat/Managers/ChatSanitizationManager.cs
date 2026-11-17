@@ -175,7 +175,55 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         // Facepalm
         { ">_<;", "chatsan-facepalms" },
         // End Misfits Add
+
+        // #Sirius Add: расширенный набор смайлов. Порядок в словаре не важен —
+        // совпадения перебираются от самого длинного к короткому (см. SmileyByLength).
+        // Только эмоции, у которых уже есть ключ chatsan-* в en-US и ru-RU.
+        // Улыбки
+        { ":-)", "chatsan-smiles" },
+        { ":-]", "chatsan-smiles" },
+        { ":^)", "chatsan-smiles" },
+        { "8)", "chatsan-smiles" },
+        { ":з", "chatsan-smiles" },
+        { ":))", "chatsan-smiles-widely" },
+        { ":-D", "chatsan-smiles-widely" },
+        { "=D", "chatsan-smiles-widely" },
+        // Грусть и злость
+        { ":-(", "chatsan-frowns" },
+        { ":-[", "chatsan-frowns" },
+        { ":^(", "chatsan-frowns" },
+        { ":c", "chatsan-frowns" },
+        { ":((", "chatsan-frowns-deeply" },
+        { ">:|", "chatsan-annoyed" },
+        // Язык и подмигивание
+        { ":-P", "chatsan-stick-out-tongue" },
+        { "=P", "chatsan-stick-out-tongue" },
+        { ";-]", "chatsan-winks" },
+        // Слёзы и сердце
+        { ";w;", "chatsan-cries" },
+        { "T.T", "chatsan-cries" },
+        { "</3", "chatsan-cries" },
+        { "<3", "chatsan-beams" },
+        // Широко раскрытые глаза и головокружение
+        { "0_0", "chatsan-wide-eyed" },
+        { "0.0", "chatsan-wide-eyed" },
+        { "D8", "chatsan-wide-eyed" },
+        { "@.@", "chatsan-dizzy" },
+        // Уныние и жесты
+        { "u.u", "chatsan-dejected" },
+        { "\\o", "chatsan-waves" },
+        { "^^7", "chatsan-salutes" },
+        // Умиление
+        { "OwO", "chatsan-looks-flustered" },
+        { "UwU", "chatsan-looks-flustered" },
+        { ">w<", "chatsan-looks-flustered" },
+        { "^w^", "chatsan-beams" },
+        // #Sirius End
     };
+
+    // #Sirius Add: выбор самого длинного совпадения. Иначе короткий "o/" перехватывает "\o/".
+    private static readonly KeyValuePair<string, string>[] SmileyByLength =
+        SmileyToEmote.OrderByDescending(pair => pair.Key.Length).ToArray();
 
     // Misfits Add - Text acronyms that fire emote actions on ALL spoken channels (not just Telepathic).
     // Kept separate from SmileyToEmote so they can be applied unconditionally via TrySanitizeAcronyms.
@@ -217,6 +265,56 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         { ";_;7", "chatsan-tearfully-salutes" }, // Misfits Add - tearful salute; fires on all channels
     };
     // End Misfits Add (AcronymToEmote)
+
+    // #Sirius Add: кириллические сокращения и смех. Раньше автозамена понимала только латиницу,
+    // поэтому "лол", "кек", "ахаха" в чате оставались обычным текстом.
+    private static readonly Dictionary<string, string> CyrillicAcronymToEmote = new()
+    {
+        // Смех
+        { "рофл", "chatsan-rolls-laughing" },   // rolling on the floor laughing
+        { "лмао", "chatsan-laughs-heartily" },  // laughing my ass off
+        { "кек", "chatsan-laughs" },            // kek
+        { "кекв", "chatsan-laughs" },           // kek (вариант)
+        { "лол", "chatsan-laughs" },            // laugh out loud
+        { "ору", "chatsan-laughs-heartily" },   // сленговое "ору" = хохочу
+        { "ржу", "chatsan-laughs-heartily" },   // ржу
+        { "хех", "chatsan-chuckles" },          // сдержанный смешок
+        { "хд", "chatsan-laughs" },             // xD кириллицей
+        // Реакции
+        { "омг", "chatsan-surprised" },         // oh my god
+        { "омфг", "chatsan-surprised" },        // oh my fucking god
+        { "втф", "chatsan-mumbles" },           // what the fuck
+        { "ппц", "chatsan-mumbles" },           // пипец
+        { "жесть", "chatsan-surprised" },       // жесть
+        { "кринж", "chatsan-frustrated" },      // кринж
+        { "ура", "chatsan-cheers" },            // ура
+        // Жесты и вежливость
+        { "спс", "chatsan-nods" },              // спасибо
+        { "нз", "chatsan-nods" },               // не за что
+        { "брб", "chatsan-waves" },             // be right back
+        { "афк", "chatsan-waves" },             // away from keyboard
+        { "пж", "chatsan-nods" },               // пожалуйста
+    };
+    // #Sirius End
+
+    // #Sirius Add: русский смех пишется не одним словом, а повтором слогов ("ахаха", "хахаха", "хихи").
+    // Точное совпадение такое не ловит, поэтому проверяем хвост сообщения регуляркой.
+    private static readonly Regex LaughterRegex = new(
+        @"(?<![\p{L}])(?:(?:[аa]?х){2,}[аa]?|(?:хи){2,}[аa]?|(?:хе){2,}х?)\s*[.!?,…]*$",
+        RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+
+    // #Sirius Add: скобочные смайлы. "))" — широкая улыбка, "((" — сильная грусть,
+    // ")))" и длиннее — смех, "(((" и длиннее — злость. Необязательный префикс ":;=8"
+    // позволяет целиком съесть ":)))" и "=))", а не оставлять двоеточие в тексте.
+    private static readonly Regex ParenSmileyRegex = new(
+        @"(?:[:;=8])?(?<run>\){2,}|\({2,})$",
+        RegexOptions.Compiled | RegexOptions.CultureInvariant);
+
+    // #Sirius Add: одиночная скобка превращается в эмоцию, только если в тексте нет парной.
+    // Так "(за хлебом)" и "(он ушёл)" остаются обычным текстом.
+    private static readonly Regex SingleParenSmileyRegex = new(
+        @"(?<![:;=8])([()])$",
+        RegexOptions.Compiled | RegexOptions.CultureInvariant);
 
     private bool _doSanitize;
 
@@ -273,12 +371,44 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         // Apply Anti-Goida filter
         input = GoydaRegex.Replace(input, "I am an idiot");
 
-        foreach (var (smiley, replacement) in SmileyToEmote)
+        // #Sirius Add: сначала словарь смайлов. Перебор от длинного к короткому,
+        // чтобы "o/" не перехватывал "\o/" и "^^" не съедал "^^7".
+        foreach (var (smiley, replacement) in SmileyByLength)
         {
-            if (input.EndsWith(smiley, true, CultureInfo.InvariantCulture))
+            if (!input.EndsWith(smiley, StringComparison.OrdinalIgnoreCase))
+                continue;
+
+            sanitized = input.Remove(input.Length - smiley.Length).TrimEnd();
+            emote = Loc.GetString(replacement, ("ent", speaker));
+            return true;
+        }
+
+        // #Sirius Add: серии скобок. "))" — широко улыбается, "((" — сильно хмурится,
+        // ")))" и длиннее — смеётся, "(((" и длиннее — сердито хмурится.
+        var parenSmiley = ParenSmileyRegex.Match(input);
+        if (parenSmiley.Success)
+        {
+            var run = parenSmiley.Groups["run"].Value;
+            var emoteId = run[0] == ')'
+                ? run.Length == 2 ? "chatsan-smiles-widely" : "chatsan-laughs"
+                : run.Length == 2 ? "chatsan-frowns-deeply" : "chatsan-scowls";
+
+            sanitized = input.Remove(parenSmiley.Index).TrimEnd();
+            emote = Loc.GetString(emoteId, ("ent", speaker));
+            return true;
+        }
+
+        // #Sirius Add: одиночная скобка становится эмоцией только без парной скобки в тексте.
+        // Так "(за хлебом)" и "(он ушёл)" остаются обычным текстом.
+        var singleParen = SingleParenSmileyRegex.Match(input);
+        if (singleParen.Success)
+        {
+            var paren = singleParen.Value[0];
+            var opposite = paren == ')' ? '(' : ')';
+            if (!input.AsSpan(0, singleParen.Index).Contains(opposite))
             {
-                sanitized = input.Remove(input.Length - smiley.Length).TrimEnd();
-                emote = Loc.GetString(replacement, ("ent", speaker));
+                sanitized = input.Remove(singleParen.Index).TrimEnd();
+                emote = Loc.GetString(paren == ')' ? "chatsan-smiles" : "chatsan-frowns", ("ent", speaker));
                 return true;
             }
         }
@@ -301,7 +431,43 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
 
         input = input.TrimEnd();
 
-        foreach (var (acronym, replacement) in AcronymToEmote)
+        // #Sirius Add: повторяющийся смех проверяем первым — "ахаха", "хахаха", "хихи", "хехе".
+        // Чем длиннее смех, тем он сердечнее.
+        var laughter = LaughterRegex.Match(input);
+        if (laughter.Success)
+        {
+            var laughText = laughter.Value;
+            var heartily = laughText.Count(c => c is 'х' or 'Х') >= 4;
+            sanitized = input.Remove(laughter.Index).TrimEnd();
+            emote = Loc.GetString(heartily ? "chatsan-laughs-heartily" : "chatsan-laughs", ("ent", speaker));
+            return true;
+        }
+
+        if (TryMatchAcronym(input, AcronymToEmote, speaker, out sanitized, out emote))
+            return true;
+
+        // #Sirius Add: теперь и кириллические сокращения.
+        if (TryMatchAcronym(input, CyrillicAcronymToEmote, speaker, out sanitized, out emote))
+            return true;
+
+        sanitized = input;
+        emote = null;
+        return false;
+    }
+    // End Misfits Add (TrySanitizeAcronyms)
+
+    /// <summary>
+    /// #Sirius Add: общий разбор сокращений для латинского и кириллического словарей.
+    /// Сокращение должно быть отдельным словом в конце сообщения, а не хвостом другого слова.
+    /// </summary>
+    private bool TryMatchAcronym(
+        string input,
+        Dictionary<string, string> acronyms,
+        EntityUid speaker,
+        out string sanitized,
+        [NotNullWhen(true)] out string? emote)
+    {
+        foreach (var (acronym, replacement) in acronyms)
         {
             if (!input.EndsWith(acronym, true, CultureInfo.InvariantCulture))
                 continue;
@@ -327,7 +493,6 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
         emote = null;
         return false;
     }
-    // End Misfits Add (TrySanitizeAcronyms)
 
     private async void CreateModerationNote(ICommonSession player, string rawMessage, string contextLabel)
     {

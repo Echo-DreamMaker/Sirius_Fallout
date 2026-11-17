@@ -13,27 +13,27 @@ ent-N14FoodBlamcomaccheese = макароны с сыром "Бламко"
 ent-N14FoodBlamcomaccheeseLarge = большая упаковка макарон с сыром "Бламко"
     .desc = Макароны с соусом из сыром, теперь в пачке на 30% больше обычной! Классика американской кухни!
 ent-N14FoodBlamcomaccheeseTrash = пустая коробка макаронов с сыром "Бламко"
-    .desc = { ent-N14FoodBlamcomaccheese.desc }
+    .desc = Это мусор.
 ent-N14FoodBlamcomaccheeseLargeTrash = пустая большая коробка макаронов с сыром "Бламко"
-    .desc = { ent-N14FoodBlamcomaccheeseLarge.desc }
+    .desc = Это мусор.
 
 # Крам -->
 ent-N14FoodCram = готовый обед "Крэм"
     .desc = Люди действительно ели это и называли мясом? Вкус сомнительный, но хоть какая-то еда.
 ent-N14FoodCramTrash = пустая коробка из под готового обеда "Крэм"
-    .desc = { ent-N14FoodCram.desc }
+    .desc = Это мусор.
 
 # Жевательные резинки -->
 ent-N14FoodBubblegum = жевательная резинка
     .desc = Затвердевшая и безвкусная, как кусок резины. Интересно, сохранилась ли внутри татуировка?
 ent-N14FoodBubblegumTrash = пустая пачка жевательной резинки
-    .desc = { N14FoodBubblegum.desc }
+    .desc = Это мусор.
 
 # Чипсы -->
 ent-N14FoodCrisps = картофельные чипсы
     .desc = Солёные, немного несвежие, но хрустящие. Не самая полезная еда, но в Пустоши не приходится выбирать.
 ent-N14FoodCrispsTrash = пустая упаковка картофельных чипсов
-    .desc = { N14FoodCrisps.desc }
+    .desc = Это мусор.
 
 # Чипсы -->
 ent-N14FoodDandyboyapples = наливные яблоки "Дэнди Бой"
@@ -45,23 +45,23 @@ ent-N14FoodDandyboyapplesTrash = пустая наливных яблок "Дэ�
 ent-N14FoodDogfood = консервированный собачий корм
     .desc = Банка говяжьего рагу для собак. В крайнем случае и человек может съесть.
 ent-N14FoodDogFoodTrash = консерва из под собачьего корма
-    .desc = { ent-N14FoodDogfood.desc }
+    .desc = Пустая жестянка. Из неё можно добыть немного металла.
 ent-N14FoodDinki-Di = собачий корм "Динки-Ди"
     .desc = Банка премиального говяжьего рагу для собак. Отлично усваивается человеческим организмом.
 ent-N14FoodDinki-DiTrash = консерва из под собачьего корма "Динки-Ди"
-    .desc = { ent-N14FoodDinki-Di.desc }
+    .desc = Пустая жестянка. Из неё можно добыть немного металла.
 
 # Кексы -->
 ent-N14FoodFancyladssnackcakes = кексы "Веселые ребята"
     .desc = Маленькие глазированные кексы - сладкий привет из прошлого.
 ent-N14FoodFancyladssnackcakesTrash = пустая коробка кексы "Веселые ребята"
-    .desc = { ent-N14FoodFancyladssnackcakes.desc }
+    .desc = Это мусор.
 
 # Пюре -->
 ent-N14FoodInstamash = пюре быстрого приготовления "ИнстаМэш"
     .desc = Пакет сублимированного картофельного пюре. Просто добавь воды - и готово!
 ent-N14FoodInstamashTrash = пустое коробка пюре быстрого приготовления "ИнстаМэш"
-    .desc = { ent-N14FoodInstamash.desc }
+    .desc = Это мусор.
 
 # Свинина с фасолью -->
 ent-N14FoodPorkBeans = свинина с бобами
@@ -71,7 +71,7 @@ ent-N14FoodPorkBeans = свинина с бобами
 ent-N14FoodSalisburysteak = Солсбери-стейк
     .desc = Готовое блюдо из рубленой говядины с подливкой. Неплохо для быстрого перекуса.
 ent-N14FoodSalisburysteakTrash = пустая коробка "Солсбери-стейк"
-    .desc = { ent-N14FoodSalisburysteak.desc }
+    .desc = Это мусор.
 
 # Сахарные бомбы -->
 ent-N14FoodSugarbombs = Сахарные бомбы

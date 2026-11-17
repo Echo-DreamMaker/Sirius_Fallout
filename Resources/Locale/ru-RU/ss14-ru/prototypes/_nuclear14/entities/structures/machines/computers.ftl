@@ -7,5 +7,5 @@ ent-N14ControlTerminalButton = { ent-SignalButton }
 ent-N14ComputerCameraDisplay = дисплей камеры наблюдения
     .desc = Монитор камеры наблюдения. Вы смотрите на них. Или, может быть, это они смотрят на вас.
 ent-N14ComputerCameraDisplayBrotherhoodWashington = { ent-N14ComputerCameraDisplay }
-    .suffix = BOS Washington
-    .desc = { ent-N14ComputerCameraDisplay.desc }
+    .suffix = Братство Стали Вашингтона
+    .desc = монитор камеры наблюдения. Вы смотрите за ними. Возможно.

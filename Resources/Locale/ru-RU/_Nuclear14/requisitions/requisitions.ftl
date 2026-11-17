@@ -14,3 +14,5 @@ n14-requisition-transcript-bought = {$buyer}: куплено {$amount} × {$item
 n14-requisition-transcript-header = [head=2]{$group} ЖУРНАЛ ЗАЯВОК[/head]
 n14-requisition-transcript-name = журнал заявок
 n14-requisition-transcript-sold = Продано {$amount} × {$item} за ${$cost}
+#Sirius Add - Недостающее сообщение о выполненном заказе
+n14-requisition-request-fulfilled = Заявка выполнена! Награда зачислена на счёт.

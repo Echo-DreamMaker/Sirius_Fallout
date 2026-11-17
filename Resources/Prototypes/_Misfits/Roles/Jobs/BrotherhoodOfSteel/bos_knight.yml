@@ -62,9 +62,11 @@
   description: job-description-bos-knight
   playTimeTracker: BoSKnight
   requirements:
-    - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
+    - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls #Sirius Change - allow SuperMutant/Nightkin with WL access
       species:
       - Human
+      - SuperMutant
+      - Nightkin
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T3 faction timelock (8h BoS)
       department: BrotherhoodOfSteel
       min: 28800 # 8 hours
@@ -86,6 +88,8 @@
 
 - type: startingGear
   id: BoSKnightGear
+  subGear: # Sirius Change - SuperMutant/Nightkin roundstart armor
+  - SuperMutantBoSKnightGear
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitBOSGreen

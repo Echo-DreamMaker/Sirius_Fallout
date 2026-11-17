@@ -27,13 +27,13 @@ ent-N14ClothingBackpackMusicianFilled = { ent-N14ClothingBackpackTrekker }
 # Караван -->
 # туристический рюкзак -->
 ent-N14ClothingBackpackCaravanFilled = { ent-N14ClothingBackpackHiking }
-    .desc = { ent-N14ClothingBackpackHiking.desc }
+    .desc = Износостойкий рюкзак для походов по пустоши.
 # Лидер Каравана -->
 ent-N14ClothingBackpackCaravanLeaderFilled = { ent-N14ClothingBackpackCaravanFilled }
-    .desc = { ent-N14ClothingBackpackCaravanFilled.desc }
+    .desc = Износостойкий рюкзак для походов по пустоши.
 # Торговец Каравана -->
 ent-N14ClothingBackpackCaravanTraderFilled = { ent-N14ClothingBackpackCaravanFilled }
-    .desc = { ent-N14ClothingBackpackCaravanFilled.desc }
+    .desc = Износостойкий рюкзак для походов по пустоши.
 
 # Новая Калифорнийская Республика (НКР) -->
 # Рюкзак НКР -->

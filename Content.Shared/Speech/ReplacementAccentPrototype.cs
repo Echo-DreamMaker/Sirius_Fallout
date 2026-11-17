@@ -1,0 +1,37 @@
+using Robust.Shared.Prototypes;
+
+namespace Content.Shared.Speech;
+
+/// <summary>
+///     Describes a text replacement accent. Used both by accent components and by languages,
+///     so it has to live in shared code.
+/// </summary>
+// #Sirius Add: moved from Content.Server/Speech/Components/ReplacementAccentComponent.cs
+// so that LanguagePrototype (Content.Shared) can reference accents via ProtoId.
+[Prototype("accent")]
+public sealed partial class ReplacementAccentPrototype : IPrototype
+{
+    [ViewVariables]
+    [IdDataField]
+    public string ID { get; private set; } = default!;
+
+    /// <summary>
+    ///     If this array is non-null, the full text of anything said will be randomly replaced with one of these words.
+    /// </summary>
+    [DataField("fullReplacements")]
+    public string[]? FullReplacements;
+
+    /// <summary>
+    ///     If this dictionary is non-null and <see cref="FullReplacements"/> is null, any keys surrounded by spaces
+    ///     (words) will be replaced by the value, attempting to intelligently keep capitalization.
+    /// </summary>
+    [DataField("wordReplacements")]
+    public Dictionary<string, string>? WordReplacements;
+
+    /// <summary>
+    ///     Doubles individual S sounds while preserving existing double-S sequences.
+    ///     Intended for readable reptilian or serpentine accents.
+    /// </summary>
+    [DataField]
+    public bool ElongateSibilants;
+}

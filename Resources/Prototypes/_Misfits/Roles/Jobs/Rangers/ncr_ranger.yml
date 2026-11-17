@@ -8,10 +8,12 @@
   description: job-description-ncr-ranger
   playTimeTracker: NCRRanger
   requirements:
-    - !type:CharacterSpeciesRequirement
+    - !type:CharacterSpeciesRequirement #Sirius Change - allow SuperMutant/Nightkin with WL access
       species:
       - Human
       - Ghoul
+      - SuperMutant
+      - Nightkin
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 0 # 20 hours as NCR
@@ -35,6 +37,8 @@
 
 - type: startingGear
   id: NCRRangerGear
+  subGear: # Sirius Change - SuperMutant/Nightkin roundstart armor
+  - SuperMutantNCRDesertRangerGear
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformRangerPatrol

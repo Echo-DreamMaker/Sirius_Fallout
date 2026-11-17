@@ -1,0 +1,62 @@
+# #Sirius Add - акцент языка жестов.
+# Это не «произношение», а манера: сообщение описывает жесты, а не звуки.
+# Поэтому акцент применяется даже при requireSpeech: false (см. ChatSystem.TransformSpeech).
+
+- type: accent
+  id: signLanguage
+  wordReplacements:
+    accent-sign-words-1: accent-sign-words-replace-1
+    accent-sign-words-2: accent-sign-words-replace-2
+    accent-sign-words-3: accent-sign-words-replace-3
+    accent-sign-words-4: accent-sign-words-replace-4
+    accent-sign-words-5: accent-sign-words-replace-5
+    accent-sign-words-6: accent-sign-words-replace-6
+    accent-sign-words-7: accent-sign-words-replace-7
+    accent-sign-words-8: accent-sign-words-replace-8
+    accent-sign-words-9: accent-sign-words-replace-9
+    accent-sign-words-10: accent-sign-words-replace-10
+    accent-sign-words-11: accent-sign-words-replace-11
+    accent-sign-words-12: accent-sign-words-replace-12
+    accent-sign-words-13: accent-sign-words-replace-13
+    accent-sign-words-14: accent-sign-words-replace-14
+    accent-sign-words-15: accent-sign-words-replace-15
+    accent-sign-words-16: accent-sign-words-replace-16
+    accent-sign-words-17: accent-sign-words-replace-17
+    accent-sign-words-18: accent-sign-words-replace-18
+    accent-sign-words-19: accent-sign-words-replace-19
+    accent-sign-words-20: accent-sign-words-replace-20
+    accent-sign-words-21: accent-sign-words-replace-21
+    accent-sign-words-22: accent-sign-words-replace-22
+    accent-sign-words-23: accent-sign-words-replace-23
+    accent-sign-words-24: accent-sign-words-replace-24
+    accent-sign-words-25: accent-sign-words-replace-25
+    accent-sign-words-26: accent-sign-words-replace-26
+    accent-sign-words-27: accent-sign-words-replace-27
+    accent-sign-words-28: accent-sign-words-replace-28
+    accent-sign-words-29: accent-sign-words-replace-29
+    accent-sign-words-30: accent-sign-words-replace-30
+    accent-sign-words-31: accent-sign-words-replace-31
+    accent-sign-words-32: accent-sign-words-replace-32
+    accent-sign-words-33: accent-sign-words-replace-33
+    accent-sign-words-34: accent-sign-words-replace-34
+    accent-sign-words-35: accent-sign-words-replace-35
+    accent-sign-words-36: accent-sign-words-replace-36
+    accent-sign-words-37: accent-sign-words-replace-37
+    accent-sign-words-38: accent-sign-words-replace-38
+    accent-sign-words-39: accent-sign-words-replace-39
+    accent-sign-words-40: accent-sign-words-replace-40
+    accent-sign-words-41: accent-sign-words-replace-41
+    accent-sign-words-42: accent-sign-words-replace-42
+    accent-sign-words-43: accent-sign-words-replace-43
+    accent-sign-words-44: accent-sign-words-replace-44
+    accent-sign-words-45: accent-sign-words-replace-45
+    accent-sign-words-46: accent-sign-words-replace-46
+    accent-sign-words-47: accent-sign-words-replace-47
+    accent-sign-words-48: accent-sign-words-replace-48
+    accent-sign-words-49: accent-sign-words-replace-49
+    accent-sign-words-50: accent-sign-words-replace-50
+    accent-sign-words-51: accent-sign-words-replace-51
+    accent-sign-words-52: accent-sign-words-replace-52
+    accent-sign-words-53: accent-sign-words-replace-53
+    accent-sign-words-54: accent-sign-words-replace-54
+    accent-sign-words-55: accent-sign-words-replace-55

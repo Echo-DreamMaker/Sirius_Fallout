@@ -3,6 +3,7 @@
   isVisibleLanguage: true
   speech:
     color: "#d4af37"
+    accent: latin # #Sirius Add - латинская лексика для тех, кто язык понимает
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

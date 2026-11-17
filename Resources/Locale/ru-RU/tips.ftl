@@ -1,6 +1,6 @@
-tips-dataset-1 = If you're on fire, you can click the alert on the right of your screen to stop, drop, and roll.
-tips-dataset-2 = You can view and edit all keybindings used in-game at any time through the Options menu.
-tips-dataset-3 = You can access the in-game guidebook through the escape menu, or by pressing Numpad 0 by default.
+tips-dataset-1 = Если вы горите, нажмите на предупреждение справа на экране, чтобы остановиться, упасть и перекатиться.
+tips-dataset-2 = Вы можете просматривать и изменять все назначенные клавиши в любое время через меню настроек.
+tips-dataset-3 = Вы можете открыть внутриигровое руководство через меню паузы или нажав Numpad 0 (по умолчанию).
 tips-dataset-4 = Some entities ingame have guidebook entries associated with them, which you can view by examining the entity and clicking the question mark icon.
 tips-dataset-5 = Artifacts have the ability to gain permanent effects for some triggered nodes, including becoming an intercom or an extremely efficient generator.
 tips-dataset-6 = You can avoid slipping on most puddles by walking. However, some strong chemicals like space lube will slip people anyway.

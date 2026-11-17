@@ -22,10 +22,12 @@
   accessGroups:
   - NCRRanger
   requirements:
-    - !type:CharacterSpeciesRequirement
+    - !type:CharacterSpeciesRequirement #Sirius Change - allow SuperMutant/Nightkin with WL access
       species:
       - Human
       - Ghoul
+      - SuperMutant
+      - Nightkin
   special:
   - !type:AddComponentSpecial
     components:
@@ -39,6 +41,8 @@
 # modified ranger gas mask, ghillie cloak), a Sequoia sidearm and a choice of long rifle kit.
 - type: startingGear
   id: NCRDaggerGear
+  subGear: # Sirius Change - SuperMutant/Nightkin roundstart armor
+  - SuperMutantNCRDaggerGear
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatRangerHelmetEliteOld

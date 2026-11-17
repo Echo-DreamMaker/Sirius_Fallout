@@ -3,6 +3,7 @@
   isVisibleLanguage: false
   speech:
     color: "#e83c41" #Misfits Change -  df57aaee
+    accent: n14Chinese # #Sirius Add - китайская лексика для тех, кто язык понимает
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

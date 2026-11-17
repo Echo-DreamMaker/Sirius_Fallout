@@ -1,20 +1,20 @@
 # кобура для револьвера -->
 ent-ClothingBeltRevolverfilled = { ent-ClothingBeltRevolver }
     .suffix = Заполненный
-    .desc = { ent-ClothingBeltRevolver.desc }
+    .desc = Вмещает револьвер, спидлоадеры и батареи.
 #  -->
 ent-ClothingBelt9mmfilled = { ent-ClothingBeltRevolverfilled }
     .suffix = Заполненный
-    .desc = { ent-ClothingBeltRevolverfilled.desc }
+    .desc = Вмещает револьвер, спидлоадеры и батареи.
 ent-ClothingBeltRevolvervetfilled = { ent-ClothingBeltRevolverfilled }
     .suffix = Заполненный
-    .desc = { ent-ClothingBeltRevolverfilled.desc }
+    .desc = Вмещает револьвер, спидлоадеры и батареи.
 ent-ClothingBeltRevolverdesertfilled = { ent-ClothingBeltRevolverfilled }
     .suffix = Заполненный
-    .desc = { ent-ClothingBeltRevolverfilled.desc }
+    .desc = Вмещает револьвер, спидлоадеры и батареи.
 ent-ClothingBeltRevolverCaptainfilled = { ent-ClothingBeltRevolverfilled }
     .suffix = Заполненный
-    .desc = { ent-ClothingBeltRevolverfilled.desc }
+    .desc = Вмещает револьвер, спидлоадеры и батареи.
 ent-ClothingBeltElderRevolver = { ent-ClothingBeltRevolverfilled }
     .suffix = Заполненный
     .desc = { ent-ClothingBeltRevolverfilled.desc }
@@ -31,20 +31,20 @@ ent-ClothingBeltMountieFilled2 = { ent-ClothingBeltMountieFilled }
 # военный разгрузочный жилет -->
 ent-ClothingBeltMilitaryFilled = { ent-ClothingBeltMilitary }
     .suffix = Заполненный
-    .desc = { ent-ClothingBeltMilitary.desc }
+    .desc = Простой коричневый подсумок для патронов всех видов, который обычно использовали военные до войны.
 #  -->
 ent-ClothingBeltMilitaryFilled2 = { ent-ClothingBeltMilitaryFilled }
     .suffix = Заполненный
-    .desc = { ent-ClothingBeltMilitaryFilled.desc }
+    .desc = Простой коричневый подсумок для патронов всех видов, который обычно использовали военные до войны.
 ent-ClothingBeltMilitaryFilled3 = { ent-ClothingBeltMilitaryFilled }
     .suffix = Заполненный
-    .desc = { ent-ClothingBeltMilitaryFilled.desc }
+    .desc = Простой коричневый подсумок для патронов всех видов, который обычно использовали военные до войны.
 ent-ClothingBeltMilitaryFilled4 = { ent-ClothingBeltMilitaryFilled }
     .suffix = Заполненный
-    .desc = { ent-ClothingBeltMilitaryFilled.desc }
+    .desc = Простой коричневый подсумок для патронов всех видов, который обычно использовали военные до войны.
 ent-ClothingBeltMilitaryFilled5 = { ent-ClothingBeltMilitaryFilled }
     .suffix = Заполненный
-    .desc = { ent-ClothingBeltMilitaryFilled.desc }
+    .desc = Простой коричневый подсумок для патронов всех видов, который обычно использовали военные до войны.
 ent-ClothingBeltMilitaryFilled6 = { ent-ClothingBeltMilitaryFilled }
     .suffix = Заполненный
-    .desc = { ent-ClothingBeltMilitaryFilled.desc }
+    .desc = Простой коричневый подсумок для патронов всех видов, который обычно использовали военные до войны.

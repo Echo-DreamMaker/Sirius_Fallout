@@ -3,6 +3,7 @@
   isVisibleLanguage: false
   speech:
     color: "#d69b3dcc"
+    accent: tribal # #Sirius Add - племенная манера речи
   obfuscation:
     !type:SyllableObfuscation
     minSyllables: 1

@@ -26,13 +26,17 @@
   #    - type: GrantRangerCombat
   requirements:
     - !type:CharacterWhitelistRequirement
-    - !type:CharacterSpeciesRequirement # #Misfits Change - robots and super mutants cannot be Rangers
+    - !type:CharacterSpeciesRequirement # #Misfits Change - robots and glowing ghouls cannot be Rangers #Sirius Change - allow SuperMutant/Nightkin with WL access
       species:
       - Human
       - Ghoul
+      - SuperMutant
+      - Nightkin
 
 - type: startingGear
   id: RangerChiefGear
+  subGear: # Sirius Change - SuperMutant/Nightkin roundstart armor
+  - SuperMutantNCRRangerChiefGear
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatRangerHelmetElite

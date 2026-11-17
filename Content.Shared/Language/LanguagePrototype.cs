@@ -1,4 +1,5 @@
 using Content.Shared.Chat;
+using Content.Shared.Speech;
 using Robust.Shared.IoC;
 using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
@@ -87,6 +88,15 @@ public sealed partial class SpeechOverrideInfo
     /// </summary>
     [DataField]
     public bool RequireSpeech = true;
+
+    /// <summary>
+    ///     #Sirius Add: a replacement accent that is always applied to messages in this language,
+    ///     shaping how the language "sounds" (or, for non-verbal languages like sign language, how it looks).
+    ///     Unlike the <see cref="RequireSpeech"/> gate for entity accents, this is applied even when
+    ///     <see cref="RequireSpeech"/> is false, because it is part of the language itself.
+    /// </summary>
+    [DataField]
+    public ProtoId<ReplacementAccentPrototype>? Accent;
 
     /// <summary>
     ///     If not null, all messages in this language will be forced to be spoken in this chat type.

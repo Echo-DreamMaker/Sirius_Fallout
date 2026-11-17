@@ -12,9 +12,11 @@
   description: job-description-bos-mid-squire
   playTimeTracker: BoSMidSquire
   requirements:
-    - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
+    - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls #Sirius Change - allow SuperMutant/Nightkin with WL access
       species:
         - Human
+        - SuperMutant
+        - Nightkin
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T2 faction timelock (4h BoS)
       department: BrotherhoodOfSteel
       min: 14400 # 4 hours
@@ -36,6 +38,8 @@
 
 - type: startingGear
   id: BoSMidSquireGear
+  subGear: # Sirius Change - SuperMutant/Nightkin roundstart armor
+  - SuperMutantBoSSquireGear
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitBOSGreen  #Misfits Change /Tweak/: New consolidated BoS gear

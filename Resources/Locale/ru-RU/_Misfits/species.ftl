@@ -4,6 +4,10 @@ species-name-nightkin = Найткин
 species-name-c27 = Робот-гуманоид C-27
 species-name-c27-ncr = Робот-гуманоид C-27 (НКР)
 species-name-c27-bos = Робот-гуманоид C-27 (Братство)
+#Sirius Add - Недостающие модели C-27
+species-name-c27-integrator = Робот-гуманоид C-27 (Интегратор)
+species-name-c27-assault = Робот-гуманоид C-27 (Штурмовик)
+species-name-c27-recon = Робот-гуманоид C-27 (Разведчик)
 species-name-robot = Робот
 species-name-robot-mr-handy = Мистер Помощник
 species-name-robot-protectron = Протектрон

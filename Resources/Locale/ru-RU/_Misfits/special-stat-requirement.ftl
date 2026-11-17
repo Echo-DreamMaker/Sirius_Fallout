@@ -1,11 +1,11 @@
 ## SPECIAL stat requirement gate for items (N14SpecialStatRequirement)
 
-special-stat-requirement-too-low = You need at least { $required } { $stat } to handle that.
+special-stat-requirement-too-low = Вам нужно как минимум { $required } { $stat }, чтобы использовать это.
 
-special-stat-name-strength = Strength
-special-stat-name-perception = Perception
-special-stat-name-endurance = Endurance
-special-stat-name-charisma = Charisma
-special-stat-name-intelligence = Intelligence
-special-stat-name-agility = Agility
-special-stat-name-luck = Luck
+special-stat-name-strength = Сила
+special-stat-name-perception = Восприятие
+special-stat-name-endurance = Выносливость
+special-stat-name-charisma = Харизма
+special-stat-name-intelligence = Интеллект
+special-stat-name-agility = Ловкость
+special-stat-name-luck = Удача

@@ -17,6 +17,8 @@
       - Human
       - Ghoul
       - GhoulGlowing
+      - SuperMutant #Sirius Change
+      - Nightkin #Sirius Change
   startingGear: AmbassadorGear
   icon: "JobIconTownMayor" # Corvax-Change
   supervisors: job-supervisors-townsfolk
@@ -32,6 +34,8 @@
 
 - type: startingGear
   id: AmbassadorGear
+  subGear: # Sirius Change - SuperMutant/Nightkin roundstart clothing
+  - SuperMutantTownAmbassadorGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitLawyerBlack
     head: ClothingHeadHatTophat

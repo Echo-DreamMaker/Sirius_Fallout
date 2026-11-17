@@ -25,3 +25,8 @@ vv-sound-reference-distance = Reference Distance
 vv-sound-loop = Loop
 vv-sound-play-offset = Play Offset (s)
 vv-sound-variation = Pitch variation
+
+#Sirius Add: окно выбора прототипа в ViewVariables отсутствовало в ru-RU.
+vv-protoid-id-placeholder = ID прототипа
+vv-protoid-select-button-label = Выбрать
+vv-protoid-addwindow-title = Задать прототип
