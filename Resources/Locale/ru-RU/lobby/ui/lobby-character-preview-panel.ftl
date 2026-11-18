@@ -2,6 +2,6 @@ lobby-character-preview-panel-header = Ваш персонаж
 lobby-character-preview-panel-character-setup-button = Персонализация
 lobby-character-preview-panel-unloaded-preferences-label = Ваши настройки персонажа ещё не загружены, пожалуйста, подождите.
 
-lobby-character-preview-panel-link-discord-button = Связать Discord
+lobby-character-preview-panel-link-discord-button = Discord
 
 lobby-character-preview-panel-discord-linked-button = Discord уже привязан!

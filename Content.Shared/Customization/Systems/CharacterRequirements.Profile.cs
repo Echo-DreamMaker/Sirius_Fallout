@@ -366,7 +366,12 @@ public sealed partial class CharacterLoadoutRequirement : CharacterRequirement
             ("loadouts", $"[color={color}]{string.Join($"[/color], [color={color}]",
                 Loadouts.Select(l => Loc.GetString($"loadout-name-{l}")))}[/color]"));
 
-        return Loadouts.Any(l => profile.LoadoutPreferences.Select(l => l.LoadoutName).Contains(l.ToString()));
+        // #Sirius Change: per-job loadout storage.
+        var hasJobSpecific = profile.LoadoutPreferences.Any(p => p.Selected && p.JobName == job.ID);
+        return Loadouts.Any(l => profile.LoadoutPreferences.Any(p =>
+            p.LoadoutName == l.ToString() &&
+            p.Selected &&
+            (p.JobName == job.ID || (!hasJobSpecific && string.IsNullOrEmpty(p.JobName)))));
     }
 }
 
@@ -396,7 +401,8 @@ public sealed partial class CharacterItemGroupRequirement : CharacterRequirement
         var group = prototypeManager.Index(Group);
 
         // Get the count of items in the group that are in the profile
-        var items = group.Items.Select(item => item.TryGetValue(profile, prototypeManager, out _) ? item.ID : null)
+        // #Sirius Change: per-job loadout storage - evaluate loadout group membership in job context.
+        var items = group.Items.Select(item => item.TryGetValue(profile, prototypeManager, out _, job.ID) ? item.ID : null)
             .Where(id => id != null)
             .ToList();
         var count = items.Count;

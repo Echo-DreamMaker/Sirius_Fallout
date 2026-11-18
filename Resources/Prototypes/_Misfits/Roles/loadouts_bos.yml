@@ -12,7 +12,7 @@
 # was moved to the hidden Honor Guard rank's starting gear (see bos_honor_guard.yml).
 - type: loadout
   id: LoadoutBoS509HeadPaladinT51BC
-  category: Roles
+  category: Outer # #Sirius Change: moved from non-rooted Roles category
   cost: 16
   exclusive: true
   requirements:

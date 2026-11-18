@@ -68,6 +68,7 @@ public sealed class CameraFollowSystem : EntitySystem
     [Dependency] private readonly IEyeManager _manager = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!; // Sirius Change: disable shake for dead characters
     [Dependency] private readonly SharedSpecialSystem _special = default!;
 
     public override void FrameUpdate(float frameTime)
@@ -202,12 +203,16 @@ public sealed class CameraFollowSystem : EntitySystem
     /// (<see cref="IdleShakeScale"/> while not aiming, 1 while aiming). The shake ramps
     /// in with damage (starts at
     /// <see cref="SpecialTuningPrototype.AimCameraShakeDamageLowRatio"/> of the death
-    /// threshold, saturates at the high ratio), is damped linearly by Strength (STR 10 =
+    /// threshold, saturates at the high ratio), is damped by Strength (STR 10 =
     /// none, STR 1 = full) and is suppressed entirely while Psycho's dose timeline is
-    /// active. Returns the displacement only; caller applies it to the rendered Eye.
+    /// active or the character is dead. Returns the displacement only; caller applies it to the rendered Eye.
     /// </summary>
     private Vector2 ComputeShake(EntityUid player, float frameTime, float amplitudeScale)
     {
+        // Sirius Change: no shake when the character is dead.
+        if (_mobState.IsDead(player))
+            return Vector2.Zero;
+
         // Psycho's timeline lives for the whole dose and cancels the tremor.
         if (TryComp<DrugSpecialTimelineComponent>(player, out var timeline)
             && timeline.ReagentId == PsychoReagentId)
@@ -233,8 +238,14 @@ public sealed class CameraFollowSystem : EntitySystem
         var strength = _special.GetEffective(player, SpecialStat.Strength);
         var strengthDampening = (SpecialProfile.Maximum - strength) / 9f;
 
+        // Sirius Change: make Strength reduce shake more strongly at STR 5+ (~1.75x effect).
+        if (strength >= 5)
+            strengthDampening = MathF.Pow(strengthDampening, 1.75f);
+
+        // Sirius Change: ~1.5x larger shake radius.
         return ShakeWobble(frameTime)
                * tuning.AimCameraShakeMaxAmplitude
+               * 1.5f
                * amplitudeScale
                * damageFactor
                * strengthDampening;
@@ -266,7 +277,8 @@ public sealed class CameraFollowSystem : EntitySystem
     private Vector2 ShakeWobble(float frameTime)
     {
         _shakeElapsed += frameTime;
-        var t = _shakeElapsed;
+        // Sirius Change: ~1.5x smoother/slower wobble progression.
+        var t = _shakeElapsed / 1.5f;
         return new Vector2(
             MathF.Sin(t * 12f) * 0.55f + MathF.Sin(t * 23f) * 0.25f + MathF.Sin(t * 5.3f) * 0.2f,
             MathF.Sin(t * 9.7f) * 0.55f + MathF.Sin(t * 17.3f) * 0.25f + MathF.Sin(t * 7.1f) * 0.2f);

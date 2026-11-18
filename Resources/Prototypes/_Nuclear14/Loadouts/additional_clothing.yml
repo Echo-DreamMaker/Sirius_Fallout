@@ -331,7 +331,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckCloakBrotherhoodWashington
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -345,7 +345,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckCloakBrotherhood509th
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
   - !type:CharacterItemGroupRequirement
@@ -359,7 +359,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckMantleBrotherhood509th
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
   - !type:CharacterItemGroupRequirement
@@ -373,7 +373,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckTabardBrotherhoodPurple
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
   - !type:CharacterItemGroupRequirement
@@ -387,7 +387,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckTabardBrotherhoodWhite
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
   - !type:CharacterItemGroupRequirement
@@ -401,7 +401,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckCloakDarkCloak
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -417,7 +417,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckCloakLeather
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -433,7 +433,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckCloakYaoguai
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -446,7 +446,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckMantleBrotherhoodWashington
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -460,7 +460,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckMantleLeather
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -476,7 +476,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckShawl
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -492,7 +492,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckTownGuardCloak
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -505,7 +505,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckTribalCloak
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -518,7 +518,7 @@
 
 - type: loadout
   id: N14LoadoutUniversalNeckTribalCloakBr
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -640,7 +640,7 @@
 
 - type: loadout
   id: ClothingBeltMountie
-  category: Roles
+  category: Belt # #Sirius Change: moved from non-rooted category
   cost: 1
   requirements:
     - !type:CharacterDepartmentRequirement

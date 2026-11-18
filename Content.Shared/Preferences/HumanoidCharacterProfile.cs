@@ -53,10 +53,19 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     private HashSet<string> _traitPreferences = new();
 
     /// <see cref="_loadoutPreferences"/>
+    // #Sirius Change: stores loadout preferences for all jobs (each pref tagged with JobName). Empty JobName = legacy/global.
     public HashSet<LoadoutPreference> LoadoutPreferences => _loadoutPreferences;
 
     [DataField]
     private HashSet<LoadoutPreference> _loadoutPreferences = new();
+
+    // #Sirius Add: get loadout preferences for a specific job (includes legacy/global entries).
+    public HashSet<LoadoutPreference> GetJobLoadoutPreferences(string jobId)
+    {
+        return _loadoutPreferences
+            .Where(p => string.IsNullOrEmpty(p.JobName) || p.JobName == jobId)
+            .ToHashSet();
+    }
 
     [DataField]
     public string Name { get; set; } = "John Doe";
@@ -395,19 +404,21 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public HumanoidCharacterProfile WithSpecial(SpecialProfile special) =>
         new(this) { Special = SpecialProfile.EnsureValid(special) };
 
+    // #Sirius Change: per-job loadout preferences. jobId empty = legacy/global.
     public HumanoidCharacterProfile WithLoadoutPreference(
         string loadoutId,
         bool pref,
         string? customName = null,
         string? customDescription = null,
         string? customColor = null,
-        bool? customHeirloom = null)
+        bool? customHeirloom = null,
+        string jobId = "")
     {
         var list = new HashSet<LoadoutPreference>(_loadoutPreferences);
 
-        list.RemoveWhere(l => l.LoadoutName == loadoutId);
+        list.RemoveWhere(l => l.LoadoutName == loadoutId && l.JobName == jobId);
         if (pref)
-            list.Add(new(loadoutId, customName, customDescription, customColor, customHeirloom) { Selected = pref });
+            list.Add(new(loadoutId, customName, customDescription, customColor, customHeirloom, jobId) { Selected = pref });
 
         return new HumanoidCharacterProfile(this) { _loadoutPreferences = list };
     }

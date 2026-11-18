@@ -1,0 +1,19 @@
+<BoxContainer Name="Container" xmlns="https://spacestation14.io"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+         Orientation="Horizontal"
+         HorizontalExpand="True"
+         MouseFilter="Ignore"
+         Margin="0 0 0 5">
+    <!-- #Sirius Change: Horizon-styled loadout item row (visual parity) for Sirius loadouts -->
+    <!-- #Sirius Change: cost styled as a button-like element (old loadout style) -->
+    <Button Name="Price" MinSize="48 32" MaxSize="96 32" VerticalAlignment="Center" Disabled="True" Margin="0 0 4 0" StyleClasses="OpenRight"/>
+    <Button Name="SelectButton" ToggleMode="True" Margin="0 0 5 0" HorizontalExpand="True"/>
+    <Button Name="CustomizeButton" Text="⚙" MinSize="32 32" MaxSize="32 32" Margin="0 0 5 0" VerticalAlignment="Center" ToolTip="{Loc 'humanoid-profile-editor-loadouts-customize'}" Visible="False"/>
+    <PanelContainer SetSize="64 64" HorizontalAlignment="Right">
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="#1B1B1E" />
+        </PanelContainer.PanelOverride>
+        <SpriteView Name="Sprite" Scale="4 4" MouseFilter="Stop"/>
+    </PanelContainer>
+</BoxContainer>

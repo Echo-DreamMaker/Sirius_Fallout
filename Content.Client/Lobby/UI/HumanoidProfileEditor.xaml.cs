@@ -54,6 +54,7 @@ using Content.Client._NC.Sponsor;
 using Content.Client._NC.TTS; // Forge-Change
 using Content.Client._Misfits.Supporter; // #Cythisiax Add - Patreon supporter loadouts
 using Content.Shared._Misfits.Supporter; // #Cythisiax Add - Patreon supporter loadouts
+using Content.Client._Sirius.Lobby.UI.Loadouts; // #Sirius Add: per-job Horizon-styled loadout window
 
 namespace Content.Client.Lobby.UI
 {
@@ -99,6 +100,9 @@ namespace Content.Client.Lobby.UI
         public EntityUid PreviewDummy;
         /// Temporary override of their selected job, used to preview roles
         public JobPrototype? JobOverride;
+
+        // #Sirius Add: Horizon-styled per-job loadout window (replaces old loadouts tab)
+        private SiriusLoadoutWindow? _siriusLoadoutWindow;
 
         private List<SpeciesPrototype> _species = new();
         private readonly List<string> _speciesButtonSpeciesIds = new(); // #Misfits Add: maps visible species dropdown rows to species IDs.
@@ -699,39 +703,23 @@ namespace Content.Client.Lobby.UI
 
             #region Loadouts
 
-            // Set up the loadouts tab
+            // #Sirius Change: old Loadouts/PatreonLoadouts tabs replaced by Horizon-styled per-job loadout windows
+            // opened from job buttons in the Jobs tab. Keep state structures for compatibility with existing logic.
             LoadoutsTab.Orphan();
-            CTabContainer.AddTab(LoadoutsTab, Loc.GetString("humanoid-profile-editor-loadouts-tab"));
+            PatreonLoadoutsTab.Orphan();
             _loadoutPreferences = new();
+            _patreonLoadoutPreferences = new();
 
-            // Show/Hide the loadouts tab if they ever get enabled/disabled
             var loadoutsEnabled = cfgManager.GetCVar(CCVars.GameLoadoutsEnabled);
-            CTabContainer.SetTabVisible(LoadoutsTab, loadoutsEnabled);
             ShowLoadouts.Visible = loadoutsEnabled;
             cfgManager.OnValueChanged(CCVars.GameLoadoutsEnabled, LoadoutsChanged);
 
             LoadoutsShowUnusableButton.OnToggled += args => UpdateLoadouts(args.Pressed);
             LoadoutsRemoveUnusableButton.OnPressed += _ => TryRemoveUnusableLoadouts();
-
-            UpdateLoadouts(false);
-
-            #endregion
-
-            #region Patreon Loadouts
-            // #Cythisiax Add - Patreon supporter-exclusive loadout tab.
-            // Mirrors the regular loadout tab but only lists loadouts with a supporterTier
-            // requirement, and the whole tab is hidden unless the local player is a supporter.
-            PatreonLoadoutsTab.Orphan();
-            CTabContainer.AddTab(PatreonLoadoutsTab, Loc.GetString("humanoid-profile-editor-patreon-loadouts-tab"));
-            _patreonLoadoutPreferences = new();
-
-            var isPatreonSupporter = _playerManager.LocalUser is { } localUser
-                && _supporterMan.TryGetSupporterTier(localUser, out _);
-            CTabContainer.SetTabVisible(PatreonLoadoutsTab, isPatreonSupporter);
-
             PatreonLoadoutsShowUnusableButton.OnToggled += args => UpdatePatreonLoadouts(args.Pressed);
             PatreonLoadoutsRemoveUnusableButton.OnPressed += _ => TryRemoveUnusablePatreonLoadouts();
 
+            UpdateLoadouts(false);
             UpdatePatreonLoadouts(false);
 
             #endregion
@@ -1146,7 +1134,7 @@ namespace Content.Client.Lobby.UI
 
         private void LoadoutsChanged(bool enabled)
         {
-            CTabContainer.SetTabVisible(LoadoutsTab, enabled);
+            // #Sirius Change: old loadouts tab removed; per-job loadout windows used instead.
             ShowLoadouts.Visible = enabled;
         }
 
@@ -1349,11 +1337,94 @@ namespace Content.Client.Lobby.UI
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
+
+                    // #Sirius Add: per-job loadout button (Horizon-style UI, Sirius loadout data)
+                    var loadoutWindowBtn = new Button
+                    {
+                        Text = Loc.GetString("loadout-window"),
+                        HorizontalAlignment = HAlignment.Right,
+                        VerticalAlignment = VAlignment.Center,
+                        Margin = new Thickness(3f, 3f, 0f, 0f),
+                    };
+                    var jobForLoadout = job;
+                    loadoutWindowBtn.OnPressed += _ => OpenJobLoadout(jobForLoadout);
+                    jobContainer.AddChild(loadoutWindowBtn);
+
                     departmentContents.AddChild(jobContainer);
                 }
             }
 
             UpdateJobPriorities();
+        }
+
+        // #Sirius Add: open Horizon-styled per-job loadout window backed by Sirius loadout prototypes/preferences.
+        private void OpenJobLoadout(JobPrototype jobProto)
+        {
+            _siriusLoadoutWindow?.Dispose();
+            _siriusLoadoutWindow = null;
+
+            if (_playerManager.LocalSession == null || Profile == null)
+                return;
+
+            // #Sirius Change: seed job-specific loadouts from legacy/global selections on first open for this job.
+            if (!Profile.LoadoutPreferences.Any(p => p.JobName == jobProto.ID))
+            {
+                var legacy = Profile.LoadoutPreferences
+                    .Where(p => string.IsNullOrEmpty(p.JobName) && p.Selected)
+                    .ToList();
+                if (legacy.Count > 0)
+                {
+                    var migrated = Profile;
+                    foreach (var l in legacy)
+                        migrated = migrated.WithLoadoutPreference(l.LoadoutName, true, l.CustomName, l.CustomDescription, l.CustomColorTint, l.CustomHeirloom, jobProto.ID);
+                    Profile = migrated;
+                }
+            }
+
+            JobOverride = jobProto;
+            ReloadPreview();
+
+            try
+            {
+                _siriusLoadoutWindow = new SiriusLoadoutWindow(
+                    Profile,
+                    jobProto,
+                    _playerManager.LocalSession,
+                    _prototypeManager,
+                    _entManager,
+                    _cfgManager,
+                    _characterRequirementsSystem,
+                    _requirements,
+                    _sponsorMan,
+                    _dummyLoadouts,
+                    updated =>
+                    {
+                        Profile = updated;
+                        SetDirty();
+                        return Profile;
+                    },
+                    () =>
+                    {
+                        ReloadPreview();
+                        UpdateLoadoutPreferences();
+                    });
+
+                _siriusLoadoutWindow.OnClose += () =>
+                {
+                    JobOverride = null;
+                    ReloadPreview();
+                };
+
+                _siriusLoadoutWindow.OpenCenteredLeft();
+            }
+            catch (Exception e)
+            {
+                _siriusLoadoutWindow?.Dispose();
+                _siriusLoadoutWindow = null;
+                JobOverride = null;
+                ReloadPreview();
+                Logger.Error($"[Sirius] Failed to open job loadout window for {jobProto.ID}: {e}");
+            }
         }
 
         private void UpdateRoleRequirements()
@@ -2067,8 +2138,9 @@ namespace Content.Client.Lobby.UI
             CTabContainer.SetTabVisible(TraitsTab, showTraits);
 
             // #Misfits Change: hide loadouts tab only if restricted AND no allowed categories
+            // #Sirius Change: old loadouts tab removed; per-job loadout windows used instead.
             var showLoadouts = !restricted || species.AllowedLoadoutCategories is { Count: > 0 };
-            CTabContainer.SetTabVisible(LoadoutsTab, showLoadouts);
+            _ = showLoadouts;
         }
 
         private void SetName(string newName)
@@ -3778,16 +3850,21 @@ namespace Content.Client.Lobby.UI
             LoadoutPointsBar.Value = points;
             LoadoutPointsLabel.Text = Loc.GetString("humanoid-profile-editor-loadouts-points-label", ("points", points), ("max", points));
 
+            // #Sirius Change: per-job loadout preferences (old tab fallback).
+            var oldTabJobId = _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies())?.ID ?? "";
             foreach (var preferenceSelector in _loadoutPreferences)
             {
                 var loadoutId = preferenceSelector.Loadout.ID;
-                var loadoutPreference = Profile?.LoadoutPreferences.FirstOrDefault(l => l.LoadoutName == loadoutId) ?? preferenceSelector.Preference;
+                var loadoutPreference = Profile?.LoadoutPreferences.FirstOrDefault(l => l.LoadoutName == loadoutId && l.JobName == oldTabJobId)
+                    ?? Profile?.LoadoutPreferences.FirstOrDefault(l => l.LoadoutName == loadoutId && string.IsNullOrEmpty(l.JobName))
+                    ?? preferenceSelector.Preference;
                 var preference = new LoadoutPreference(
                     loadoutPreference.LoadoutName,
                     loadoutPreference.CustomName,
                     loadoutPreference.CustomDescription,
                     loadoutPreference.CustomColorTint,
-                    loadoutPreference.CustomHeirloom)
+                    loadoutPreference.CustomHeirloom,
+                    loadoutPreference.JobName)
                     { Selected = loadoutPreference.Selected };
 
                 preferenceSelector.Preference = preference;
@@ -3951,8 +4028,11 @@ namespace Content.Client.Lobby.UI
                 if (_loadoutPreferences.Select(lps => lps.Loadout.ID).Contains(loadout.ID))
                 {
                     var first = _loadoutPreferences.First(lps => lps.Loadout.ID == loadout.ID);
-                    var prof = Profile?.LoadoutPreferences.FirstOrDefault(lp => lp.LoadoutName == loadout.ID);
-                    first.Preference = new(loadout.ID, prof?.CustomName, prof?.CustomDescription, prof?.CustomColorTint, prof?.CustomHeirloom);
+                    // #Sirius Change: per-job loadout preferences (old tab fallback).
+                    var jobId = highJob?.ID ?? "";
+                    var prof = Profile?.LoadoutPreferences.FirstOrDefault(lp => lp.LoadoutName == loadout.ID && lp.JobName == jobId)
+                               ?? Profile?.LoadoutPreferences.FirstOrDefault(lp => lp.LoadoutName == loadout.ID && string.IsNullOrEmpty(lp.JobName));
+                    first.Preference = new(loadout.ID, prof?.CustomName, prof?.CustomDescription, prof?.CustomColorTint, prof?.CustomHeirloom, jobId);
                     UpdateSelector(first, usable);
                     continue;
                 }
@@ -4074,9 +4154,11 @@ namespace Content.Client.Lobby.UI
                 _loadoutPreferences.Add(selector);
                 selector.PreferenceChanged += preference =>
                 {
+                    // #Sirius Change: per-job loadout preferences (old tab fallback).
+                    var jobId = highJob?.ID ?? "";
                     // Make sure they have enough loadout points
                     var wasSelected = Profile?.LoadoutPreferences
-                        .FirstOrDefault(it => it.LoadoutName == selector.Loadout.ID)
+                        .FirstOrDefault(it => it.LoadoutName == selector.Loadout.ID && it.JobName == jobId)
                         ?.Selected ?? false;
                     var selected = preference.Selected && (wasSelected || CheckPoints(-selector.Loadout.Cost, true));
 
@@ -4087,7 +4169,8 @@ namespace Content.Client.Lobby.UI
                         preference.CustomName,
                         preference.CustomDescription,
                         preference.CustomColorTint,
-                        preference.CustomHeirloom);
+                        preference.CustomHeirloom,
+                        jobId);
                     IsDirty = true;
                     UpdateLoadoutPreferences();
                     SetProfile(Profile, CharacterSlot);
@@ -4113,17 +4196,22 @@ namespace Content.Client.Lobby.UI
             foreach (var preferenceSelector in _patreonLoadoutPreferences)
             {
                 var loadoutId = preferenceSelector.Loadout.ID;
-                var loadoutPreference = Profile?.LoadoutPreferences.FirstOrDefault(l => l.LoadoutName == loadoutId) ?? preferenceSelector.Preference;
+                // #Sirius Change: per-job loadout preferences (old tab fallback).
+                var jobId = _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies())?.ID ?? "";
+                var loadoutPreference = Profile?.LoadoutPreferences.FirstOrDefault(l => l.LoadoutName == loadoutId && l.JobName == jobId)
+                    ?? Profile?.LoadoutPreferences.FirstOrDefault(l => l.LoadoutName == loadoutId && string.IsNullOrEmpty(l.JobName))
+                    ?? preferenceSelector.Preference;
                 var preference = new LoadoutPreference(
                     loadoutPreference.LoadoutName,
                     loadoutPreference.CustomName,
                     loadoutPreference.CustomDescription,
                     loadoutPreference.CustomColorTint,
-                    loadoutPreference.CustomHeirloom);
+                    loadoutPreference.CustomHeirloom,
+                    jobId);
 
                 // The custom color tint needs to be reset so the preview updates when cleared
                 if (preferenceSelector.Preference.CustomColorTint != preference.CustomColorTint)
-                    preferenceSelector.Preference = new LoadoutPreference(loadoutId, preference.CustomName, preference.CustomDescription, null, preference.CustomHeirloom);
+                    preferenceSelector.Preference = new LoadoutPreference(loadoutId, preference.CustomName, preference.CustomDescription, null, preference.CustomHeirloom, jobId);
 
                 preferenceSelector.Preference = preference;
             }
@@ -4139,14 +4227,13 @@ namespace Content.Client.Lobby.UI
             showUnusable ??= PatreonLoadoutsShowUnusableButton.Pressed;
 
             // Whole tab is hidden unless the local player is a Patreon supporter
+            // #Sirius Change: old Patreon loadouts tab removed; supporter loadouts handled via per-job windows/data.
             var userId = _playerManager.LocalUser;
             if (userId is not { } user
                 || !_supporterMan.TryGetSupporterTier(user, out var tier))
             {
-                CTabContainer.SetTabVisible(PatreonLoadoutsTab, false);
                 return;
             }
-            CTabContainer.SetTabVisible(PatreonLoadoutsTab, true);
 
             // Shared point budget with the regular loadout tab
             var points = LoadoutPointBudget;
@@ -4173,9 +4260,12 @@ namespace Content.Client.Lobby.UI
                 var existing = _patreonLoadoutPreferences.FirstOrDefault(s => s.Loadout.ID == loadout.ID);
                 if (existing != null)
                 {
-                    var prof = Profile?.LoadoutPreferences.FirstOrDefault(lp => lp.LoadoutName == loadout.ID);
+                    // #Sirius Change: per-job loadout preferences (old tab fallback).
+                    var jobId = highJob?.ID ?? "";
+                    var prof = Profile?.LoadoutPreferences.FirstOrDefault(lp => lp.LoadoutName == loadout.ID && lp.JobName == jobId)
+                               ?? Profile?.LoadoutPreferences.FirstOrDefault(lp => lp.LoadoutName == loadout.ID && string.IsNullOrEmpty(lp.JobName));
                     existing.Preference = new LoadoutPreference(
-                        loadout.ID, prof?.CustomName, prof?.CustomDescription, prof?.CustomColorTint, prof?.CustomHeirloom);
+                        loadout.ID, prof?.CustomName, prof?.CustomDescription, prof?.CustomColorTint, prof?.CustomHeirloom, jobId);
                     continue;
                 }
 
@@ -4203,9 +4293,11 @@ namespace Content.Client.Lobby.UI
                 _patreonLoadoutPreferences.Add(selector);
                 selector.PreferenceChanged += preference =>
                 {
+                    // #Sirius Change: per-job loadout preferences (old tab fallback).
+                    var jobId = highJob?.ID ?? "";
                     // Make sure they have enough loadout points
                     var wasSelected = Profile?.LoadoutPreferences
-                        .FirstOrDefault(it => it.LoadoutName == selector.Loadout.ID)
+                        .FirstOrDefault(it => it.LoadoutName == selector.Loadout.ID && it.JobName == jobId)
                         ?.Selected ?? false;
                     var selected = preference.Selected && (wasSelected || CheckPatreonPoints(-selector.Loadout.Cost, true));
 
@@ -4216,7 +4308,8 @@ namespace Content.Client.Lobby.UI
                         preference.CustomName,
                         preference.CustomDescription,
                         preference.CustomColorTint,
-                        preference.CustomHeirloom);
+                        preference.CustomHeirloom,
+                        jobId);
                     IsDirty = true;
                     UpdateLoadoutPreferences();
                     UpdatePatreonLoadoutPreferences();
@@ -4276,9 +4369,10 @@ namespace Content.Client.Lobby.UI
                 return;
 
             // Remove unusable and unwearable loadouts
+            var jobId = _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies())?.ID ?? "";
             foreach (var selector in _patreonLoadoutPreferences
                 .Where(l => !l.Valid || !l.Wearable).ToList())
-                Profile = Profile?.WithLoadoutPreference(selector.Loadout.ID, false);
+                Profile = Profile?.WithLoadoutPreference(selector.Loadout.ID, false, jobId: jobId);
             UpdateCharacterRequired();
         }
 
@@ -4373,24 +4467,33 @@ namespace Content.Client.Lobby.UI
         }
 
         // Forge-Change-Start
+        // #Sirius Change: per-job loadout storage - enforce points budget per job (each job has its own pool).
         private void RemoveSuperfluousLoadouts()
         {
             if (Profile?.LoadoutPreferences == null)
                 return;
 
-            var points = LoadoutPointBudget;
-            foreach (var pref in Profile.LoadoutPreferences
+            var budget = LoadoutPointBudget;
+            foreach (var group in Profile.LoadoutPreferences
                 .Where(l => l.Selected)
-                .OrderByDescending(l => _prototypeManager.Index<LoadoutPrototype>(l.LoadoutName)?.Cost))
+                .GroupBy(l => l.JobName)
+                .ToList())
             {
-                var cost = _prototypeManager.Index<LoadoutPrototype>(pref.LoadoutName)!.Cost;
-                if (points - cost < 0)
+                var points = budget;
+                foreach (var pref in group
+                    .OrderByDescending(l => _prototypeManager.TryIndex<LoadoutPrototype>(l.LoadoutName, out var lp) ? lp.Cost : 0)
+                    .ToList())
                 {
-                    Profile.LoadoutPreferences.Remove(pref);
-                }
-                else
-                {
-                    points -= cost;
+                    if (!_prototypeManager.TryIndex<LoadoutPrototype>(pref.LoadoutName, out var proto))
+                    {
+                        Profile.LoadoutPreferences.Remove(pref);
+                        continue;
+                    }
+
+                    if (points - proto.Cost < 0)
+                        Profile.LoadoutPreferences.Remove(pref);
+                    else
+                        points -= proto.Cost;
                 }
             }
         }
@@ -4404,14 +4507,17 @@ namespace Content.Client.Lobby.UI
             if (user == null)
                 return;
 
-            foreach (var pref in Profile.LoadoutPreferences.Where(l => l.Selected))
+            foreach (var pref in Profile.LoadoutPreferences.Where(l => l.Selected).ToList())
             {
                 var loadoutProto = _prototypeManager.Index<LoadoutPrototype>(pref.LoadoutName);
 
                 if (loadoutProto.Level != SponsorLevel.None)
                 {
                     if (!_sponsorMan.TryGetSponsor(user.Value, out var level))
+                    {
                         Profile.LoadoutPreferences.Remove(pref);
+                        continue;
+                    }
 
                     if (loadoutProto.Level > level)
                         Profile.LoadoutPreferences.Remove(pref);
@@ -4429,7 +4535,7 @@ namespace Content.Client.Lobby.UI
             if (user == null)
                 return;
 
-            foreach (var pref in Profile.LoadoutPreferences.Where(l => l.Selected))
+            foreach (var pref in Profile.LoadoutPreferences.Where(l => l.Selected).ToList())
             {
                 var loadoutProto = _prototypeManager.Index<LoadoutPrototype>(pref.LoadoutName);
                 if (loadoutProto.SupporterTier == SupporterTier.None)

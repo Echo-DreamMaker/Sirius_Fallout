@@ -215,11 +215,6 @@ paracusia-whisper-55 = ...you heard us before...
 paracusia-whisper-56 = ...open the door...
 paracusia-whisper-57 = ...we're standing right beside you...
 
-trait-name-TraitParacusia = Paracusia
-trait-description-TraitParacusia =
-    You hear things that aren't there. Whispers, footsteps, voices calling your name вЂ”
-    sometimes even snippets of conversations that never happened. Harmless to your body,
-    but it grows worse the longer you stay conscious.
 
 trait-name-TraitParacusiaAuditory = Auditory Paracusia
 trait-description-TraitParacusiaAuditory =

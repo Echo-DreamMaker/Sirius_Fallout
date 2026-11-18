@@ -51,20 +51,11 @@ public sealed class TalentTreeNode : Button
             Orientation = BoxContainer.LayoutOrientation.Horizontal,
             Children =
             {
-                new Label
-                {
-                    Text = tier > 0 ? tier.ToString() : string.Empty,
-                    StyleClasses = { StyleBase.StyleClassLabelSubText },
-                    MinWidth = 24,
-                    MaxWidth = 24,
-                    ClipText = true,
-                    VerticalAlignment = VAlignment.Center,
-                },
+                // Sirius Change: убраны порядковые номера (tier) и лишний левый отступ у текста на кнопках черт/питомцев.
                 new Label
                 {
                     Text = name,
                     VerticalAlignment = VAlignment.Center,
-                    Margin = new Thickness(8, 0, 0, 0),
                 },
                 new Label
                 {

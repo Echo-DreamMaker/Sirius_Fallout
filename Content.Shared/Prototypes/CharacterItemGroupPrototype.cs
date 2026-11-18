@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.Customization.Systems;
@@ -35,7 +36,8 @@ public sealed partial class CharacterItemGroupItem
 
     /// Tries to get Value from whatever Type maps to on a character profile
     //TODO: Make a test for this
-    public bool TryGetValue(HumanoidCharacterProfile profile, IPrototypeManager protoMan, [NotNullWhen(true)] out object? value)
+    // #Sirius Change: per-job loadout storage - loadout group membership is evaluated per job context.
+    public bool TryGetValue(HumanoidCharacterProfile profile, IPrototypeManager protoMan, [NotNullWhen(true)] out object? value, string? jobId = null)
     {
         value = null;
 
@@ -46,6 +48,29 @@ public sealed partial class CharacterItemGroupItem
                 return profile.TraitPreferences.TryFirstOrDefault(
                     p => protoMan.Index<TraitPrototype>((string) p).ID == ID, out value);
             case "loadout":
+                if (jobId != null)
+                {
+                    // #Sirius Change: per-job loadout storage - evaluate loadout group membership in job context.
+                    var hasJobSpecific = profile.LoadoutPreferences.Any(p => p.Selected && p.JobName == jobId);
+                    foreach (var p in profile.LoadoutPreferences)
+                    {
+                        if (p.LoadoutName != ID)
+                            continue;
+
+                        var matches = p.JobName == jobId
+                            ? p.Selected
+                            : !hasJobSpecific && string.IsNullOrEmpty(p.JobName) && p.Selected;
+
+                        if (!matches)
+                            continue;
+
+                        value = p;
+                        return true;
+                    }
+
+                    return false;
+                }
+
                 return profile.LoadoutPreferences.TryFirstOrDefault(
                     p => protoMan.Index<LoadoutPrototype>(((Loadout) p).LoadoutName).ID == ID, out value);
             default:

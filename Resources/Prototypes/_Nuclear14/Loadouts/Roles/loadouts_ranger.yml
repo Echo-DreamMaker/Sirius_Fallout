@@ -79,7 +79,7 @@
 #
 - type: loadout
   id: LoadoutNCRgloves
-  category: Roles
+  category: Hands # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
