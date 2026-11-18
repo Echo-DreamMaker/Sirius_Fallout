@@ -19,8 +19,9 @@
                                 </BoxContainer>
                                 <Button Name="RandomizeEverything" HorizontalAlignment="Center" HorizontalExpand="False"
                                     MaxWidth="256" Text="{Loc humanoid-profile-editor-randomize-everything-button}" />
-                                <RichTextLabel Name="WarningLabel" HorizontalExpand="False" VerticalExpand="True"
-                                    MaxWidth="425" HorizontalAlignment="Left" />
+                                <!-- Sirius Change: предупреждение в одну строку без лишней высоты -->
+                                <RichTextLabel Name="WarningLabel" HorizontalExpand="False" VerticalExpand="False"
+                                    MaxWidth="900" HorizontalAlignment="Left" />
                             </BoxContainer>
                         </prefUi:HighlightedContainer>
                     </BoxContainer>

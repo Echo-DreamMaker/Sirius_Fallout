@@ -79,8 +79,9 @@ namespace Content.Server.Database
                 .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.TraitName })
                 .IsUnique();
 
+            // #Sirius Change: per-job loadout storage (unique per profile+job+loadout).
             modelBuilder.Entity<Loadout>()
-                .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.LoadoutName })
+                .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.JobName, p.LoadoutName })
                 .IsUnique();
 
             modelBuilder.Entity<Job>()
@@ -561,13 +562,15 @@ namespace Content.Server.Database
         public Profile Profile { get; set; } = null!;
         public int ProfileId { get; set; }
 
+        // #Sirius Add: per-job loadout storage. Empty string = legacy/global.
         public Loadout(
             string loadoutName,
             string? customName = null,
             string? customDescription = null,
             string? customColorTint = null,
-            bool? customHeirloom = null
-        ) : base(loadoutName, customName, customDescription, customColorTint, customHeirloom) { }
+            bool? customHeirloom = null,
+            string jobName = ""
+        ) : base(loadoutName, customName, customDescription, customColorTint, customHeirloom, jobName) { }
     }
 
     public enum DbPreferenceUnavailableMode

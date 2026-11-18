@@ -1,0 +1,25 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+         SetSize="1024 800"
+         MinSize="1024 150">
+    <!-- #Sirius Change: Horizon-styled per-job loadout window layout, backed by Sirius loadout data/points -->
+    <BoxContainer Orientation="Vertical" VerticalExpand="True">
+        <!-- Sirius: points info in Horizon-like top labels -->
+        <Label Name="Cost" Margin="5 2 5 0"/>
+        <Label Name="Balance" Margin="5 0 5 5"/>
+        <ProgressBar Name="PointsBar" MaxValue="1" Value="1" MaxHeight="8" Margin="5 0 5 5" />
+        <BoxContainer Name="SearchContainer" Orientation="Horizontal" Margin="5 2 5 2" HorizontalExpand="True">
+            <LineEdit Name="SearchBar"
+                      PlaceHolder="{Loc 'frontier-loadout-search-placeholder'}"
+                      HorizontalExpand="True"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" Margin="5 0 5 2" HorizontalExpand="True">
+            <Button Name="ResetLoadoutButton" Text="{Loc 'humanoid-profile-editor-loadouts-reset-button'}" ToolTip="{Loc 'humanoid-profile-editor-loadouts-reset-button-tooltip'}" />
+        </BoxContainer>
+        <VerticalTabContainer Name="LoadoutGroupsContainer"
+                              VerticalExpand="True"
+                              HorizontalExpand="True">
+        </VerticalTabContainer>
+    </BoxContainer>
+</controls:FancyWindow>

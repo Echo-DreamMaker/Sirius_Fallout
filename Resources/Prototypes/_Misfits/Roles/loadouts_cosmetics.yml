@@ -5,7 +5,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckDesertScarf
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -26,7 +26,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckRedScarf
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -43,7 +43,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckBlueScarf
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -60,7 +60,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckGreenScarf
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -77,7 +77,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckOrangeScarf
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -94,7 +94,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckBrownScarf
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -111,7 +111,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckPatriotScarf
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -130,7 +130,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckTownGuardMantle
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -153,7 +153,7 @@
 
 - type: loadout
   id: MisfitsLoadoutEyesPilotGoggles
-  category: Accessories
+  category: Eyes # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -347,7 +347,7 @@
 
 - type: loadout
   id: MisfitsLoadoutHandsTribal
-  category: Accessories
+  category: Hands # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -365,7 +365,7 @@
 
 - type: loadout
   id: MisfitsLoadoutEyesGoggles
-  category: Accessories
+  category: Eyes # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -639,7 +639,7 @@
 
 - type: loadout
   id: MisfitsLoadoutSquireWebbingBlack
-  category: Roles
+  category: Belt # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -651,7 +651,7 @@
 
 - type: loadout
   id: MisfitsLoadoutSquireWebbingBrown
-  category: Roles
+  category: Belt # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -665,7 +665,7 @@
 
 - type: loadout
   id: MisfitsLoadoutHeadEnclaveIntel
-  category: Accessories
+  category: Head # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
@@ -685,7 +685,7 @@
 
 - type: loadout
   id: MisfitsLoadoutHeadEnclavePeacekeeperCap
-  category: Accessories
+  category: Head # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
@@ -702,7 +702,7 @@
 
 - type: loadout
   id: MisfitsLoadoutHeadEnclaveOfficer
-  category: Accessories
+  category: Head # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
@@ -717,7 +717,7 @@
 
 - type: loadout
   id: MisfitsLoadoutHeadEnclaveScientist
-  category: Accessories
+  category: Head # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
@@ -803,7 +803,7 @@
 
 - type: loadout
   id: MisfitsLoadoutShoesRaider
-  category: Accessories
+  category: Shoes # #Sirius Change: moved from non-rooted category
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
@@ -1195,7 +1195,7 @@
 
 - type: loadout
   id: MisfitsLoadoutOuterCloakWesternPoncho
-  category: Accessories
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:

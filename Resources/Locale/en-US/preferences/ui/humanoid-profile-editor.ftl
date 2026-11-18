@@ -111,6 +111,8 @@ humanoid-profile-editor-loadouts-remove-unusable-button = Remove {$count ->
 humanoid-profile-editor-loadouts-remove-unusable-button-tooltip =
     If you click this button, all loadouts that your current character setup cannot use will be removed.
     You will be asked for confirmation before the loadouts are removed.
+humanoid-profile-editor-loadouts-reset-button = Reset
+humanoid-profile-editor-loadouts-reset-button-tooltip = Remove all selected items from this job's loadout and return all points.
 humanoid-profile-editor-loadouts-no-loadouts = No loadouts found.
 humanoid-profile-editor-loadouts-customize = Customize
 humanoid-profile-editor-loadouts-customize-name = Name

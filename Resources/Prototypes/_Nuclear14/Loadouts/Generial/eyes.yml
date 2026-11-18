@@ -80,7 +80,7 @@
 
 - type: loadout
   id: N14ClothingEyesJamjars
-  category: Accessories
+  category: Eyes # #Sirius Change: moved from non-rooted Accessories category
   cost: 0
   requirements:
   - !type:CharacterItemGroupRequirement

@@ -906,6 +906,12 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("custom_name");
 
+                    // #Sirius Add: per-job loadout storage.
+                    b.Property<string>("JobName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("job_name");
+
                     b.Property<string>("LoadoutName")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -918,7 +924,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.HasKey("Id")
                         .HasName("PK_loadout");
 
-                    b.HasIndex("ProfileId", "LoadoutName")
+                    b.HasIndex("ProfileId", "JobName", "LoadoutName")
                         .IsUnique();
 
                     b.ToTable("loadout", (string)null);

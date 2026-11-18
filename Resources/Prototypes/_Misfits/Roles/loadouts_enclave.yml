@@ -4,7 +4,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinPrivate
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -16,7 +16,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinPFC
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -31,7 +31,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinSpecialist
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -48,7 +48,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinSergeant
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -60,7 +60,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinStaffSergeant
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -75,7 +75,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinSFC
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -90,7 +90,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinMasterSergeant
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -105,7 +105,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinSergeantMajor
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -122,7 +122,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinSecondLieutenant
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -134,7 +134,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinFirstLieutenant
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -151,7 +151,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinCaptain
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -163,7 +163,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinMajor
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -180,7 +180,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinLtColonel
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -192,7 +192,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinColonel
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -209,7 +209,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinJuniorScientist
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -221,7 +221,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinScientist
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -233,7 +233,7 @@
 
 - type: loadout
   id: LoadoutEnclavePinHeadScientist
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -248,7 +248,7 @@
 
 - type: loadout
   id: LoadoutEnclaveSMPinPrivate
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -260,7 +260,7 @@
 
 - type: loadout
   id: LoadoutEnclaveSMPinPFC
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -275,7 +275,7 @@
 
 - type: loadout
   id: LoadoutEnclaveSMPinSpecialist
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -290,7 +290,7 @@
 
 - type: loadout
   id: LoadoutEnclaveSMPinSergeant
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -305,7 +305,7 @@
 
 - type: loadout
   id: LoadoutEnclaveSMPinStaffSergeant
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -320,7 +320,7 @@
 
 - type: loadout
   id: LoadoutEnclaveSMPinSFC
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -335,7 +335,7 @@
 
 - type: loadout
   id: LoadoutEnclaveSMPinMasterSergeant
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -350,7 +350,7 @@
 
 - type: loadout
   id: LoadoutEnclaveSMPinSergeantMajor
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -367,7 +367,7 @@
 
 - type: loadout
   id: LoadoutEnclaveVPPinSergeant
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -379,7 +379,7 @@
 
 - type: loadout
   id: LoadoutEnclaveVPPinStaffSergeant
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -394,7 +394,7 @@
 
 - type: loadout
   id: LoadoutEnclaveVPPinSFC
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -409,7 +409,7 @@
 
 - type: loadout
   id: LoadoutEnclaveVPPinMasterSergeant
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:
@@ -424,7 +424,7 @@
 
 - type: loadout
   id: LoadoutEnclaveVPPinSergeantMajor
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted Roles category
   cost: 1
   exclusive: true
   requirements:

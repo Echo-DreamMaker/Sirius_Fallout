@@ -62,7 +62,8 @@ humanoid-profile-editor-job-priority-high-button = Высокий
 humanoid-profile-editor-job-priority-medium-button = Средний
 humanoid-profile-editor-job-priority-low-button = Низкий
 humanoid-profile-editor-job-priority-never-button = Никогда
-humanoid-profile-editor-naming-rules-warning = Внимание: Оскорбительные или странные имена и описания могут повлечь за собой беседу с администрацией. Прочитайте \[Правила\].
+# Sirius Change: упрощён текст предупреждения об именах
+humanoid-profile-editor-naming-rules-warning = Пожалуйста, избегайте оскорбительных или глупых имён.
 humanoid-profile-editor-markings-tab = Черты внешности
 humanoid-profile-editor-flavortext-tab = Описание
 
@@ -130,6 +131,8 @@ humanoid-profile-editor-loadouts-remove-unusable-button = Удалить {$count
 humanoid-profile-editor-loadouts-remove-unusable-button-tooltip =
     Если вы нажмёте эту кнопку, все наборы снаряжения, которые текущая конфигурация вашего персонажа не может использовать, будут удалены.
     Вас попросят подтвердить удаление.
+humanoid-profile-editor-loadouts-reset-button = Сбросить
+humanoid-profile-editor-loadouts-reset-button-tooltip = Убрать все выбранные предметы из лоадаута этой профессии и вернуть все очки.
 humanoid-profile-editor-loadouts-no-loadouts = Наборы снаряжения не найдены.
 humanoid-profile-editor-loadouts-customize = Настроить
 humanoid-profile-editor-loadouts-customize-name = Название

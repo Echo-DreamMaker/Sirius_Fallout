@@ -956,6 +956,12 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("custom_name");
 
+                    // #Sirius Add: per-job loadout storage.
+                    b.Property<string>("JobName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("job_name");
+
                     b.Property<string>("LoadoutName")
                         .IsRequired()
                         .HasColumnType("text")
@@ -968,7 +974,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.HasKey("Id")
                         .HasName("PK_loadout");
 
-                    b.HasIndex("ProfileId", "LoadoutName")
+                    b.HasIndex("ProfileId", "JobName", "LoadoutName")
                         .IsUnique();
 
                     b.ToTable("loadout", (string)null);

@@ -8,7 +8,7 @@
 
 - type: loadout
   id: LoadoutClothingEyesGlassesGoggles
-  category: Roles
+  category: Eyes # #Sirius Change: moved from non-rooted category
   cost: 1
   exclusive: true
   requirements:
@@ -277,7 +277,7 @@
 
 - type: loadout
   id: LoadoutNCRUniformNCRMedic
-  category: Roles
+  category: Uniform # #Sirius Change: moved from non-rooted category
   cost: 1
   exclusive: true
   requirements:
@@ -290,7 +290,7 @@
 
 - type: loadout
   id: LoadoutNCRUniformNCRMedicSkirt
-  category: Roles
+  category: Uniform # #Sirius Change: moved from non-rooted category
   cost: 1
   exclusive: true
   requirements:
@@ -345,7 +345,7 @@
 
 - type: loadout
   id: LoadoutNCRGoggles
-  category: Roles
+  category: Eyes # #Sirius Change: moved from non-rooted category
   cost: 1
   exclusive: true
   requirements:
@@ -384,7 +384,7 @@
 
 - type: loadout
   id: LoadoutNCRRangerFoxArmor
-  category: Roles
+  category: Outer # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -399,7 +399,7 @@
 
 - type: loadout
   id: LoadoutNCRRangerEliteArmor
-  category: Roles
+  category: Outer # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -414,7 +414,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingNeckRangerDuster
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 1
   exclusive: true
   requirements:
@@ -430,7 +430,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingOuterVetRangerRiotArmor
-  category: Roles
+  category: Outer # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -442,7 +442,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingNeckSaltRunnerDuster
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 1
   exclusive: true
   requirements:
@@ -461,7 +461,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingHatSaltRunnerHelmet
-  category: Roles
+  category: Head # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -478,7 +478,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingHatSaltRunnerMask
-  category: Roles
+  category: Mask # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -493,7 +493,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingHeadFourLeafRangerHelmet
-  category: Roles
+  category: Head # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -510,7 +510,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingHeadHighlandRangerHelmet
-  category: Roles
+  category: Head # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -527,7 +527,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingHeadCanOpenerRangerHelmet
-  category: Roles
+  category: Head # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -544,7 +544,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingHeadTheDevoutRangerHelmet
-  category: Roles
+  category: Head # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -561,7 +561,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingHeadDemoExpertRangerHelmet
-  category: Roles
+  category: Head # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -578,7 +578,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingHeadHardCaseRangerHelmet
-  category: Roles
+  category: Head # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -595,7 +595,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingHatTheDevoutMask
-  category: Roles
+  category: Mask # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -612,7 +612,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingOuterCaliforniaGirlVetRangerRiotArmor
-  category: Roles
+  category: Outer # #Sirius Change: moved from non-rooted category
   cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
@@ -629,7 +629,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingOuterCanOpenerVetRangerRiotArmor
-  category: Roles
+  category: Outer # #Sirius Change: moved from non-rooted category
   cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
@@ -646,7 +646,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingOuterDemoExpertVetRangerRiotArmor
-  category: Roles
+  category: Outer # #Sirius Change: moved from non-rooted category
   cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
@@ -663,7 +663,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingOuterTheDevoutVetRangerRiotArmor
-  category: Roles
+  category: Outer # #Sirius Change: moved from non-rooted category
   cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
@@ -680,7 +680,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingNeckHighlandRangerDuster
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 1
   exclusive: true
   requirements:
@@ -699,7 +699,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingNeckFourLeafDuster
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 1
   exclusive: true
   requirements:
@@ -718,7 +718,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingNeckCaliforniaGirlDuster
-  category: Roles
+  category: Neck # #Sirius Change: moved from non-rooted category
   cost: 0
   exclusive: true
   requirements:
@@ -737,7 +737,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingMaskWeatheredGasMask
-  category: Roles
+  category: Mask # #Sirius Change: moved from non-rooted category
   cost: 5
   exclusive: true
   requirements:
@@ -754,7 +754,7 @@
 
 - type: loadout
   id: LoadoutN14ClothingMaskGasRangerBroken
-  category: Roles
+  category: Mask # #Sirius Change: moved from non-rooted category
   cost: 5
   exclusive: true
   requirements:
@@ -771,7 +771,7 @@
 
 - type: loadout
   id: ClothingBeltNCRPouches
-  category: Roles
+  category: Belt # #Sirius Change: moved from non-rooted category
   cost: 1
   exclusive: true
   requirements:
@@ -804,7 +804,7 @@
 
 - type: loadout
   id: ClothingBeltNCRBandolier
-  category: Roles
+  category: Belt # #Sirius Change: moved from non-rooted category
   cost: 1
   exclusive: true
   requirements:
@@ -837,7 +837,7 @@
 
 - type: loadout
   id: ClothingBeltMilitary
-  category: Roles
+  category: Belt # #Sirius Change: moved from non-rooted category
   cost: 1
   exclusive: true
   requirements:
@@ -870,7 +870,7 @@
 
 - type: loadout
   id: ClothingBeltRevolver
-  category: Roles
+  category: Belt # #Sirius Change: moved from non-rooted category
   cost: 1
   exclusive: true
   requirements:

@@ -324,10 +324,9 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts.Select(l => new LoadoutPreference(l.LoadoutName)
+                loadouts.Select(l => new LoadoutPreference(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomColorTint, l.CustomHeirloom, l.JobName)
                 {
-                    CustomName = l.CustomName, CustomDescription = l.CustomDescription,
-                    CustomColorTint = l.CustomColorTint, CustomHeirloom = l.CustomHeirloom, Selected = true,
+                    Selected = true,
                 }).ToHashSet(),
                 barkVoice, // Corvax-Fallout-Barks
                 speechVerbPreference // #Misfits Add - vocal style
@@ -431,7 +430,7 @@ namespace Content.Server.Database
 
             profile.Loadouts.Clear();
             profile.Loadouts.AddRange(humanoid.LoadoutPreferences
-                .Select(l => new Loadout(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomColorTint, l.CustomHeirloom)));
+                .Select(l => new Loadout(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomColorTint, l.CustomHeirloom, l.JobName)));
 
             profile.BarkVoice = humanoid.BarkVoice; // Corvax-Fallout-Barks
             profile.SpeechVerbPreference = humanoid.SpeechVerbPreference; // #Misfits Add - vocal style

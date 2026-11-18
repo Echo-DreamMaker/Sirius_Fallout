@@ -98,9 +98,21 @@ public sealed class SharedLoadoutSystem : EntitySystem
         var remainingPoints = Math.Max(0, _configuration.GetCVar(CCVars.GameLoadoutsPoints)
             + SharedSpecialSystem.GetCharismaLoadoutPointModifier(SpecialProfile.EnsureValid(profile.Special).Charisma));
 
+        // #Sirius Change: per-job loadouts. If job has explicit per-job entries, ignore legacy/global ones for it.
+        var hasJobSpecific = profile.LoadoutPreferences.Any(l => l.Selected && l.JobName == job.ID);
+
         foreach (var loadout in profile.LoadoutPreferences)
         {
             if (!loadout.Selected)
+                continue;
+
+            // #Sirius Change: only apply loadouts for this job (or legacy/global when no job-specific set exists).
+            if (string.IsNullOrEmpty(loadout.JobName))
+            {
+                if (hasJobSpecific)
+                    continue;
+            }
+            else if (loadout.JobName != job.ID)
                 continue;
 
             var slot = "";
@@ -155,26 +167,47 @@ public sealed class SharedLoadoutSystem : EntitySystem
                     && _characterRequirements.CanEntityWearItem(uid, item, true)
                     && _inventory.TryGetSlots(uid, out var slotDefinitions))
                 {
-                    var deleted = false;
-                    foreach (var curSlot in slotDefinitions)
+                    // #Sirius Fix: pick the best available equipment slot instead of the last matching slot.
+                    // Prefer suitstorage for items that can be stored on the suit (e.g. rifles), and avoid
+                    // taking the backpack equipment slot when a storage/container fallback is more appropriate.
+                    static int SlotPriority(string name) => name switch
                     {
-                        // If the loadout can't equip here or we've already deleted an item from this slot, skip it
-                        if (!clothingComp.Slots.HasFlag(curSlot.SlotFlags) || deleted)
+                        "suitstorage" => 0,
+                        "belt" => 1,
+                        "neck" => 2,
+                        "back" => 3,
+                        _ => 10,
+                    };
+
+                    var candidates = slotDefinitions
+                        .Where(curSlot => clothingComp.Slots.HasFlag(curSlot.SlotFlags))
+                        .OrderBy(curSlot => SlotPriority(curSlot.Name))
+                        .ToList();
+
+                    string? chosenSlot = null;
+                    foreach (var curSlot in candidates)
+                    {
+                        if (!_inventory.CanEquip(uid, uid, item, curSlot.Name, out _, curSlot))
                             continue;
 
-                        slot = curSlot.Name;
+                        if (!_inventory.TryGetSlotContainer(uid, curSlot.Name, out var container, out _))
+                            continue;
 
-                        // If the loadout is exclusive delete the equipped item
-                        if (loadoutProto.Exclusive)
+                        var occupied = container.ContainedEntity is { } contained && contained != item;
+                        if (occupied && !loadoutProto.Exclusive)
+                            continue;
+
+                        if (occupied && loadoutProto.Exclusive)
                         {
-                            // Get the item in the slot
-                            if (!_inventory.TryGetSlotEntity(uid, curSlot.Name, out var slotItem))
-                                continue;
-
-                            EntityManager.DeleteEntity(slotItem.Value);
-                            deleted = true;
+                            // Replace existing item only in the slot we actually choose.
+                            EntityManager.DeleteEntity(container.ContainedEntity!.Value);
                         }
+
+                        chosenSlot = curSlot.Name;
+                        break;
                     }
+
+                    slot = chosenSlot ?? "";
                 }
 
                 // Color it
@@ -206,6 +239,8 @@ public sealed class SharedLoadoutSystem : EntitySystem
 public abstract partial class Loadout
 {
     [DataField] public string LoadoutName { get; set; }
+    // #Sirius Add: per-job loadout storage. Empty string means legacy/global (applies to any job).
+    [DataField] public string JobName { get; set; } = string.Empty;
     [DataField] public string? CustomName { get; set; }
     [DataField] public string? CustomDescription { get; set; }
     [DataField] public string? CustomColorTint { get; set; }
@@ -216,10 +251,12 @@ public abstract partial class Loadout
         string? customName = null,
         string? customDescription = null,
         string? customColorTint = null,
-        bool? customHeirloom = null
+        bool? customHeirloom = null,
+        string jobName = ""
     )
     {
         LoadoutName = loadoutName;
+        JobName = jobName;
         CustomName = customName;
         CustomDescription = customDescription;
         CustomColorTint = customColorTint;
@@ -237,6 +274,7 @@ public sealed partial class LoadoutPreference : Loadout
         string? customName = null,
         string? customDescription = null,
         string? customColorTint = null,
-        bool? customHeirloom = null
-    ) : base(loadoutName, customName, customDescription, customColorTint, customHeirloom) { }
+        bool? customHeirloom = null,
+        string jobName = ""
+    ) : base(loadoutName, customName, customDescription, customColorTint, customHeirloom, jobName) { }
 }
