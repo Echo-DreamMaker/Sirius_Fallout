@@ -1,6 +1,8 @@
 # Misfits Change — Addiction withdrawal popup messages and guidebook text
 
 # Withdrawal effect popups (1-indexed for localizedDataset prefix+count)
+# Sirius Add: index 0 can also come from LocalizedDatasetValues[0]; generic text for any substance.
+addiction-effect-0 = You feel your body insisting on another dose.
 addiction-effect-1 = Your hands are shaking uncontrollably.
 addiction-effect-2 = You feel a desperate craving gnawing at your insides.
 addiction-effect-3 = A cold sweat breaks out across your skin.

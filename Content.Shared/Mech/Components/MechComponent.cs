@@ -111,6 +111,10 @@ public sealed partial class MechComponent : Component
     public ContainerSlot PassengerSlot3 = default!;
     [ViewVariables]
     public readonly string PassengerSlot3Id = "mech-passenger-3";
+    [ViewVariables]
+    public ContainerSlot PassengerSlot4 = default!; // #Sirius Add - fourth car passenger
+    [ViewVariables]
+    public readonly string PassengerSlot4Id = "mech-passenger-4"; // #Sirius Add
     #region Action Prototypes
     [DataField]
     public EntProtoId MechEjectPassenger1Action = "ActionMechEjectPassenger1";
@@ -118,12 +122,15 @@ public sealed partial class MechComponent : Component
     public EntProtoId MechEjectPassenger2Action = "ActionMechEjectPassenger2";
     [DataField]
     public EntProtoId MechEjectPassenger3Action = "ActionMechEjectPassenger3";
+    [DataField]
+    public EntProtoId MechEjectPassenger4Action = "ActionMechEjectPassenger4"; // #Sirius Add
     #endregion
 
     #region Action Entities
     [DataField, AutoNetworkedField] public EntityUid? MechEjectPassenger1ActionEntity;
     [DataField, AutoNetworkedField] public EntityUid? MechEjectPassenger2ActionEntity;
     [DataField, AutoNetworkedField] public EntityUid? MechEjectPassenger3ActionEntity;
+    [DataField, AutoNetworkedField] public EntityUid? MechEjectPassenger4ActionEntity; // #Sirius Add
     #endregion
  // sirius-change-end
 }

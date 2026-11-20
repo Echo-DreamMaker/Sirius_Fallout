@@ -1,1 +1,1 @@
-﻿biscuit-verb-crack = Трескаться
+﻿biscuit-verb-crack = Разломить

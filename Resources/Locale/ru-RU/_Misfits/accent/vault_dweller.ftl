@@ -1,4 +1,4 @@
-#Sirius Add: русская таблица акцента жителя Убежища (n14VaultDweller).
+# Sirius Add: русская таблица акцента жителя Убежища (n14VaultDweller).
 accent-n14-vault-words-1 = ебать
 accent-n14-vault-words-replace-1 = чёрт возьми
 

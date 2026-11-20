@@ -398,5 +398,5 @@ reagent-desc-epoetine = Лекарство, стимулирующее лёгк�
 
 reagent-name-beta-epoetine = бета-эпоэтин
 reagent-desc-beta-epoetine = Более мощное лекарство, стимулирующее лёгкие и улучшающее кровоток.
-reagent-name-extract-cannabis = cannabis extract
-reagent-desc-extract-cannabis = A concentrated extract made from cannabis leaves. It smells strongly of dried herbs and tastes bitter enough to make you reconsider drinking it.
+reagent-name-extract-cannabis = экстракт конопли
+reagent-desc-extract-cannabis = Концентрированный экстракт из листьев конопли. Сильно пахнет сушёными травами и настолько горек, что заставляет передумать это пить.

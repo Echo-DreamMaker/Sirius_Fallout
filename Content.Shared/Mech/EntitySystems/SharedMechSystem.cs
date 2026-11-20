@@ -14,6 +14,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
+using Content.Shared.Mobs.Components; // #Sirius Fix - crates must never be treated as mech passengers
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
@@ -170,6 +171,19 @@ public abstract class SharedMechSystem : EntitySystem
         else
             _popup.PopupEntity(Loc.GetString("mech-no-passenger-in-slot", ("slot", 3)), uid, args.Performer);
     }
+
+    protected virtual void OnEjectPassenger4(EntityUid uid, MechComponent component, MechEjectPassenger4Event args) // #Sirius Add
+    {
+        if (args.Handled || HasComp<CarComponent>(uid)) //Sirius Fix - cars handled by CarSystem
+            return;
+        args.Handled = true;
+        if (component.PilotSlot.ContainedEntity != args.Performer)
+            return;
+        if (component.PassengerSlot4.ContainedEntity is { } passenger)
+            TryEjectPassenger(uid, passenger, component);
+        else
+            _popup.PopupEntity(Loc.GetString("mech-no-passenger-in-slot", ("slot", 4)), uid, args.Performer);
+    }
  // sirius-change-end
     private void RelayInteractionEvent(EntityUid uid, MechComponent component, UserActivateInWorldEvent args)
     {
@@ -195,6 +209,7 @@ public abstract class SharedMechSystem : EntitySystem
         component.PassengerSlot1 = _container.EnsureContainer<ContainerSlot>(uid, component.PassengerSlot1Id); // sirius-change
         component.PassengerSlot2 = _container.EnsureContainer<ContainerSlot>(uid, component.PassengerSlot2Id); // sirius-change
         component.PassengerSlot3 = _container.EnsureContainer<ContainerSlot>(uid, component.PassengerSlot3Id); // sirius-change
+        component.PassengerSlot4 = _container.EnsureContainer<ContainerSlot>(uid, component.PassengerSlot4Id); // #Sirius Add
         UpdateAppearance(uid, component);
     }
 
@@ -243,6 +258,7 @@ public abstract class SharedMechSystem : EntitySystem
         _actions.AddAction(pilot, ref component.MechEjectPassenger1ActionEntity, component.MechEjectPassenger1Action, mech); // sirius-change
         _actions.AddAction(pilot, ref component.MechEjectPassenger2ActionEntity, component.MechEjectPassenger2Action, mech); // sirius-change
         _actions.AddAction(pilot, ref component.MechEjectPassenger3ActionEntity, component.MechEjectPassenger3Action, mech); // sirius-change
+        _actions.AddAction(pilot, ref component.MechEjectPassenger4ActionEntity, component.MechEjectPassenger4Action, mech); // #Sirius Add
     }
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
@@ -473,6 +489,10 @@ public abstract class SharedMechSystem : EntitySystem
  // sirius-change-start
     public bool CanInsertPassenger(EntityUid uid, EntityUid toInsert, MechComponent component)
     {
+        // #Sirius Fix - only actual mobs can ride as passengers. Crates dragged onto a
+        // car/mech used to pass CanInteract and start a DoAfter with the crate as user.
+        if (!HasComp<MobStateComponent>(toInsert))
+            return false;
         if (HasComp<MechPilotComponent>(toInsert) || IsPassenger(toInsert, component))
             return false;
         if (GetFreePassengerSlot(component) == null)
@@ -518,6 +538,8 @@ public abstract class SharedMechSystem : EntitySystem
             return component.PassengerSlot2;
         if (component.PassengerSlot3.ContainedEntity == null)
             return component.PassengerSlot3;
+        if (component.PassengerSlot4.ContainedEntity == null) // #Sirius Add
+            return component.PassengerSlot4;
         return null;
     }
     protected IEnumerable<ContainerSlot> GetPassengerSlots(MechComponent component)
@@ -525,10 +547,89 @@ public abstract class SharedMechSystem : EntitySystem
         yield return component.PassengerSlot1;
         yield return component.PassengerSlot2;
         yield return component.PassengerSlot3;
+        yield return component.PassengerSlot4; // #Sirius Add
     }
     protected bool IsPassenger(EntityUid uid, MechComponent component)
     {
         return GetPassengerSlots(component).Any(slot => slot.ContainedEntity == uid);
+    }
+
+    /// <summary>
+    /// #Sirius Add - boards a specific passenger slot (used by the car console, where
+    /// the player picks seat 1-4 instead of taking the next free one).
+    /// </summary>
+    public bool TryInsertPassengerIntoSlot(EntityUid uid, EntityUid toInsert, int seatIndex, MechComponent component)
+    {
+        var slot = GetPassengerSlot(component, seatIndex);
+        if (slot == null || slot.ContainedEntity != null)
+            return false;
+        if (HasComp<MechPilotComponent>(toInsert) || IsPassenger(toInsert, component))
+            return false;
+
+        _container.Insert(toInsert, slot);
+
+        var passenger = EnsureComp<MechPassengerComponent>(toInsert);
+        passenger.Mech = uid;
+        passenger.Slot = slot;
+        Dirty(toInsert, passenger);
+
+        return true;
+    }
+
+    /// <summary>
+    /// #Sirius Add - seat 0 is the pilot; 1-4 are passengers.
+    /// </summary>
+    public ContainerSlot? GetPassengerSlot(MechComponent component, int seatIndex)
+    {
+        return seatIndex switch
+        {
+            1 => component.PassengerSlot1,
+            2 => component.PassengerSlot2,
+            3 => component.PassengerSlot3,
+            4 => component.PassengerSlot4,
+            _ => null,
+        };
+    }
+
+    /// <summary>
+    /// #Sirius Add - finds which seat (0 = pilot, 1-4 = passenger) an entity occupies.
+    /// </summary>
+    public int? GetSeatIndex(MechComponent component, EntityUid occupant)
+    {
+        if (component.PilotSlot.ContainedEntity == occupant)
+            return 0;
+
+        var index = 1;
+        foreach (var slot in GetPassengerSlots(component))
+        {
+            if (slot.ContainedEntity == occupant)
+                return index;
+            index++;
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// #Sirius Add - removes an occupant from any seat without relying on the generic
+    /// passenger-eject path, so seat swapping from the console is instant.
+    /// </summary>
+    public bool TryLeaveSeat(EntityUid uid, EntityUid occupant, MechComponent component)
+    {
+        if (component.PilotSlot.ContainedEntity == occupant)
+            return TryEject(uid, component, occupant);
+
+        foreach (var slot in GetPassengerSlots(component))
+        {
+            if (slot.ContainedEntity != occupant)
+                continue;
+
+            _container.RemoveEntity(uid, occupant);
+            RemComp<MechPassengerComponent>(occupant);
+            return true;
+        }
+
+        return false;
     }
     // sirius-change-end
     // Goobstation Change Start
@@ -744,6 +845,7 @@ public abstract class SharedMechSystem : EntitySystem
 public sealed partial class MechEjectPassenger1Event : InstantActionEvent;  // sirius-change
 public sealed partial class MechEjectPassenger2Event : InstantActionEvent;  // sirius-change
 public sealed partial class MechEjectPassenger3Event : InstantActionEvent;  // sirius-change
+public sealed partial class MechEjectPassenger4Event : InstantActionEvent;  // #Sirius Add
 
 [Serializable, NetSerializable]
 public sealed partial class RemoveBatteryEvent : SimpleDoAfterEvent

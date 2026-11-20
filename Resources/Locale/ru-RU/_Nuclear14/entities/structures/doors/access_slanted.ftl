@@ -18,16 +18,16 @@ ent-N14DoorWoodSlantedLockedNCRMedic = { ent-N14DoorWoodRedSlanted }
     .desc = деревянный дверь.
 ent-N14DoorCellSlantedLockedNCRMP = { ent-N14DoorMetalBarSlanted }
     .suffix = НКР, Заперто, Сержант
-    .desc = металлический bar дверь.
+    .desc = Металлическая решётчатая дверь.
 ent-N14DoorAirlockSlantedLockedBoSMidwest = { ent-N14DoorAirlockSlanted }
     .suffix = BoS, заблокировано
-    .desc = старый bunker airlock.
+    .desc = Старый бункерный шлюз.
 ent-N14DoorAirlockSlantedLockedBoSPaladin = { ent-N14DoorAirlockSlanted }
     .suffix = BoS, Заблокировано, Паладин
-    .desc = старый bunker airlock.
+    .desc = Старый бункерный шлюз.
 ent-N14DoorAirlockSlantedLockedBoSCommander = { ent-N14DoorAirlockSlanted }
     .suffix = BoS, Заблокировано, Командир Паладина
-    .desc = старый bunker airlock.
+    .desc = Старый бункерный шлюз.
 # Misfits Change /Comment-out/: Washington BoS door locale removed — will create new prototypes.
 # ent-N14DoorAirlockSlantedLockedBoSWashington = { ent-N14DoorAirlockSlanted }
 #    .suffix = Washington BoS, Locked
@@ -53,63 +53,63 @@ ent-N14DoorWoodSlantedLockedShopkeeper = { ent-N14DoorWoodSlanted }
 
 ent-N14DoorAirlockSlantedLockedVaultDweller = { ent-N14DoorAirlockSlanted }
     .suffix = Хранилище, Заперто
-    .desc = старый bunker airlock.
+    .desc = Старый бункерный шлюз.
 
 ent-N14DoorAirlockSlantedVaultEngineer = { ent-N14DoorAirlockSlanted }
     .suffix = Хранилище, Заперто, Инженер
-    .desc = старый bunker airlock.
+    .desc = Старый бункерный шлюз.
 
 ent-N14DoorAirlockSlantedVaultGatekeeper = { ent-N14DoorAirlockSlanted }
     .suffix = Хранилище, Заперто, Хранитель Хранилища
-    .desc = старый bunker airlock.
+    .desc = Старый бункерный шлюз.
 
 ent-N14DoorAirlockSlantedVaultMedical = { ent-N14DoorAirlockSlanted }
     .suffix = Убежище, Заперто, Доктор
-    .desc = старый bunker airlock.
+    .desc = Старый бункерный шлюз.
 
 ent-N14DoorAirlockSlantedVaultOverseer = { ent-N14DoorAirlockSlanted }
     .suffix = Хранилище, Заперто, Надзиратель
-    .desc = старый bunker airlock.
+    .desc = Старый бункерный шлюз.
 
 ent-N14DoorAirlockSlantedVaultSecurity = { ent-N14DoorAirlockSlanted }
     .suffix = Хранилище, Заперто, Безопасность
-    .desc = старый bunker airlock.
+    .desc = Старый бункерный шлюз.
 
 ent-N14DoorCellSlantedLockedBrass = { ent-N14DoorMetalBarSlanted }
     .suffix = Заперто, медный ключ
-    .desc = металлический bar дверь.
+    .desc = Металлическая решётчатая дверь.
 
 ent-N14DoorCellSlantedLockedBronze = { ent-N14DoorMetalBarSlanted }
     .suffix = Заперто, Бронзовый Ключ
-    .desc = металлический bar дверь.
+    .desc = Металлическая решётчатая дверь.
 
 ent-N14DoorCellSlantedLockedIron = { ent-N14DoorMetalBarSlanted }
     .suffix = Заперто, Железный Ключ
-    .desc = металлический bar дверь.
+    .desc = Металлическая решётчатая дверь.
 
 ent-N14DoorCellSlantedLockedSheriff = { ent-N14DoorMetalBarSlanted }
     .suffix = Оазис, Заперто, Шериф
-    .desc = металлический bar дверь.
+    .desc = Металлическая решётчатая дверь.
 
 ent-N14DoorCellSlantedLockedSilver = { ent-N14DoorMetalBarSlanted }
     .suffix = Заперто, Серебряный Ключ
-    .desc = металлический bar дверь.
+    .desc = Металлическая решётчатая дверь.
 
 ent-N14DoorMetalSlantedLockedBrass = { ent-N14DoorMetalBlueSlanted }
     .suffix = Заперто, медный ключ
-    .desc = старый blue металлический дверь.
+    .desc = Старая синяя металлическая дверь.
 
 ent-N14DoorMetalSlantedLockedBronze = { ent-N14DoorMetalBlueSlanted }
     .suffix = Заперто, Бронзовый Ключ
-    .desc = старый blue металлический дверь.
+    .desc = Старая синяя металлическая дверь.
 
 ent-N14DoorMetalSlantedLockedIron = { ent-N14DoorMetalBlueSlanted }
     .suffix = Заперто, Железный Ключ
-    .desc = старый blue металлический дверь.
+    .desc = Старая синяя металлическая дверь.
 
 ent-N14DoorMetalSlantedLockedSilver = { ent-N14DoorMetalBlueSlanted }
     .suffix = Заперто, Серебряный Ключ
-    .desc = старый blue металлический дверь.
+    .desc = Старая синяя металлическая дверь.
 
 ent-N14DoorWoodSlantedLockedBrass = { ent-N14DoorWoodSlanted }
     .suffix = Заперто, медный ключ

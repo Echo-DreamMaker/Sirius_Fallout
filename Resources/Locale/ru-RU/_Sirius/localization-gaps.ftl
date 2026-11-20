@@ -5,27 +5,16 @@
 admin-announce-hint-sound = Звук
 admin-announce-hint-voice = Голос
 
-# Админ-действия
-admin-verb-text-make-blood-cultist = Сделать кровавым культистом
-
 # Детская тюрьма
 babyjail-command-overall-hours-set = Максимальное общее время игры в детской тюрьме установлено на {$hours} часов.
 
-# Печенье
-biscuit-verb-crack = Разломить
-
 # Кровавый культ
-blood-cult-title = Кровавый культ
 blood-cult-summon-being-pulled = Этого культиста тащат, поэтому призвать его нельзя.
 blood-cult-summon-cuffed = Этот культист в наручниках, поэтому призвать его нельзя.
-blood-rites-stored-blood = Запасено крови: {$amount}
 cult-blood-boil-rune-no-targets = Возле руны нет подходящих целей!
-cult-rune-cant-draw = Вы не можете начертить руну без твёрдой земли под ногами.
 cult-cant-draw-rune = На этом тайле нельзя начертить руну.
-cult-item-component-generic = Предмет отказывается подчиняться вашей воле!
 cult-magic-no-empty-hand = Чтобы призвать это, нужна свободная рука.
 shuttle-curse-success = Вы проклинаете шаттл!
-timed-factory-cooldown = Фабрика ещё не готова. Подождите {$cooldown} сек.
 
 # Bwoink
 bwoink-none-selected = Игрок не выбран
@@ -65,13 +54,11 @@ ghost-respawn-same-character-slightly-changed-name = Вы не можете во
 golem-no-using-guns-popup = Вы не можете использовать огнестрельное оружие!
 
 # Голограмма
-hologram-on-examine = Это голограмма.
 
 # Окно выбора из списка
 list-view-window-default-title = Выбор
 
 # Команда loadcharacter
-loadcharacter-command-description = Загружает сохранённый профиль персонажа на сущность.
 
 # Транспорт
 mech-verb-enter-passenger = Сесть пассажиром
@@ -83,7 +70,6 @@ n14-requisitions-sell-item-delivery-suffix =  [color=#33FF33](доставка)[
 n14-requisitions-sell-item-worthless = {$item}  [color=#5fbf5f]x{$count}[/color]  [color=#cf2f2f]без ценности[/color]
 
 # Выбор имени (кровавый культ)
-name-selector-title = Выберите имя
 
 # Контракты караванов
 nc-contract-tier-locked-first = Выполняйте контракты, чтобы открыть этот уровень.
@@ -91,19 +77,20 @@ nc-store-difficulty-lazy-plebeian = Плебей
 nc-store-hall-of-fame-completed = Завершено: {$count}
 
 # Цели псиоников
-objective-condition-raise-glimmer-title = Поднять мерцание до {$target}Ψ
 
 # Салваж
 salvage-expedition-mission-completed = Миссия выполнена.
 
 # Цели станции
-station-goal-fax-paper-name = Цель станции
 
 # Раздевание
 strippable-component-item-slot-occupied = Этот слот уже занят!
 
 # Перенос игрового времени
 time-transfer-panel-warning-no-perms = У вас нет прав на перенос игрового времени.
+
+# Окна
+window-close = Закрыть
 
 # Белый список
 whitelist-not-whitelisted = Вы отсутствуете в белом списке этого сервера.

@@ -16,6 +16,7 @@
 // client needs in order to predict consistently (spread and melee damage) is
 // derived from damaged parts and pushed out as networked multipliers.
 using System.Linq;
+using Content.Shared.Containers;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
@@ -62,7 +63,11 @@ public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<WeaponDurabilityComponent, ComponentInit>(OnWeaponInit);
-        SubscribeLocalEvent<WeaponDurabilityComponent, MapInitEvent>(OnWeaponMapInit);
+        // #Sirius Fix - map-loaded weapons lose the prototype's craft_* containers
+        // (see OnWeaponStartup), so restore them before ContainerFill runs.
+        SubscribeLocalEvent<WeaponDurabilityComponent, ComponentStartup>(OnWeaponStartup);
+        SubscribeLocalEvent<WeaponDurabilityComponent, MapInitEvent>(OnWeaponMapInit,
+            after: new[] { typeof(ContainerFillSystem) });
         SubscribeLocalEvent<WeaponPartDurabilityComponent, ComponentInit>(OnPartInit);
 
         SubscribeLocalEvent<WeaponDurabilityComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
@@ -99,6 +104,35 @@ public sealed partial class SharedWeaponDurabilitySystem : EntitySystem
     {
         if (float.IsNaN(comp.Current))
             comp.Current = comp.Max;
+    }
+
+    /// <summary>
+    ///     #Sirius Fix - map-saved entities carry their own ContainerContainer data,
+    ///     which overrides the prototype's one wholesale (EntityDeserializer combines
+    ///     the two mappings and the map value wins for the "containers" key). Weapons
+    ///     baked into a map before they became modular therefore load with only the
+    ///     six gun_* slots: the craft_* containers are gone, ContainerFill cannot seat
+    ///     the factory parts, and OnAttemptShoot cancels every server-side shot while
+    ///     the client still predicts it - phantom ammo, full-looking magazine, no damage.
+    ///     Recreate the containers the prototype's ContainerFill expects. ComponentStartup
+    ///     runs before MapInit, so the parts are in place by the time ContainerFill and
+    ///     the durability recompute below run.
+    /// </summary>
+    private void OnWeaponStartup(EntityUid uid, WeaponDurabilityComponent comp, ComponentStartup args)
+    {
+        if (!comp.Modular || !TryComp(uid, out ContainerFillComponent? fill))
+            return;
+
+        foreach (var containerId in fill.Containers.Keys)
+        {
+            if (!containerId.StartsWith("craft_", StringComparison.Ordinal))
+                continue;
+
+            if (_container.TryGetContainer(uid, containerId, out _))
+                continue;
+
+            _container.MakeContainer<Container>(uid, containerId);
+        }
     }
 
     private void OnWeaponMapInit(EntityUid uid, WeaponDurabilityComponent comp, MapInitEvent args)

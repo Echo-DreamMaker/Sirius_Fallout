@@ -1,14 +1,14 @@
-reagent-name-cryonex = cryonex
-reagent-desc-cryonex = A viscous, plasma stabilized precursor base. Inert on its own - it only becomes useful as a feedstock for further cryogenic synthesis.
+reagent-name-cryonex = крионекс
+reagent-desc-cryonex = Вязкая предшествующая основа, стабилизированная плазмой. Сама по себе инертна — полезна только как сырьё для дальнейшего криогенного синтеза.
 
-reagent-name-cryzine = cryzine
-reagent-desc-cryzine = A cold stable stasis compound. Heals well inside a cryo pod as the patient cools, turning harmful if they're left too warm in one - & it's still mildly harmful used completely outside of one.
+reagent-name-cryzine = кризин
+reagent-desc-cryzine = Холодостойкое соединение для стазиса. Хорошо лечит в криокапсуле, пока пациент остывает, но вредит, если оставить его в капсуле слишком тёплым; и всё равно немного вредит при применении полностью вне капсулы.
 
-reagent-name-traumazine = traumazine
-reagent-desc-traumazine = An extremely potent trauma treatment inside a cryo pod, working best the colder the patient is. Left too warm in one it does the opposite, & it's still mildly harmful used entirely outside of one.
+reagent-name-traumazine = травмазин
+reagent-desc-traumazine = Чрезвычайно сильное средство от травм в криокапсуле: чем холоднее пациент, тем лучше работает. Если оставить его в капсуле слишком тёплым, эффект меняется на обратный; и всё равно немного вредит при применении полностью вне капсулы.
 
-reagent-name-toxazine = toxazine
-reagent-desc-toxazine = An extremely potent antitoxin & cellular repair agent inside a cryo pod, working best the colder the patient is. Left too warm in one it does the opposite, & it's still mildly harmful used entirely outside of one.
+reagent-name-toxazine = токсазин
+reagent-desc-toxazine = Чрезвычайно сильный антитоксин и средство клеточного восстановления в криокапсуле: чем холоднее пациент, тем лучше работает. Если оставить его в капсуле слишком тёплым, эффект меняется на обратный; и всё равно немного вредит при применении полностью вне капсулы.
 
-reagent-name-somaline = somaline
-reagent-desc-somaline = A potent regenerative catalyst. Rapidly regrows missing limbs. Its genetic repair effect heals well inside a cold cryo pod, turns harmful if left too warm in one, & is still mildly harmful used entirely outside of one.
+reagent-name-somaline = сомалин
+reagent-desc-somaline = Мощный регенеративный катализатор. Быстро отращивает утраченные конечности. Его генетическое восстановление хорошо работает в холодной криокапсуле, вредит, если оставить его в капсуле слишком тёплым, и всё равно немного вредит при применении полностью вне капсулы.

@@ -1,18 +1,18 @@
-reagent-desc-food-raiser= The powdery stuff used to raise bread.
-reagent-name-raiser = Raiser Powder
-reagent-physical-desc-diced = chunky
+reagent-desc-food-raiser = Порошок, которым поднимают тесто для хлеба.
+reagent-name-raiser = разрыхлитель
+reagent-physical-desc-diced = кусочками
 
-reagent-physical-desc-dicedMeat = meaty
-reagent-name-dicedMeat = Diced Meat
-reagent-desc-food-dicedMeat = A mess of diced up meat
+reagent-physical-desc-dicedMeat = мясное
+reagent-name-dicedMeat = нарезанное мясо
+reagent-desc-food-dicedMeat = Куча нарезанного мяса.
 
-reagent-name-dicedTato = Diced Tato
-reagent-desc-food-dicedTato = A mess of diced up tato
+reagent-name-dicedTato = нарезанная татошка
+reagent-desc-food-dicedTato = Куча нарезанной татошки.
 
-reagent-name-dicedGarlic = Diced Garlic
-reagent-desc-food-dicedGarlic = A mess of diced up garlic
+reagent-name-dicedGarlic = нарезанный чеснок
+reagent-desc-food-dicedGarlic = Куча нарезанного чеснока.
 
-reagent-name-dicedOnion = Diced Onion
-reagent-desc-food-dicedOnion = A mess of diced up onion
+reagent-name-dicedOnion = нарезанный лук
+reagent-desc-food-dicedOnion = Куча нарезанного лука.
 
-reagent-name-tatoSoup = Tato Soup
+reagent-name-tatoSoup = татошный суп

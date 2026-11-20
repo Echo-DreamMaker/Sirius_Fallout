@@ -299,10 +299,11 @@
   name: U.S. Army marine helmet
   description: A marine helmet worn by elite U.S. Army soldiers.
   components:
+  # Sirius Fix: enclavehelmetmarine.rsi отсутствует в репозитории — используем существующий marinehelmet.rsi (как у родителя).
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/enclavehelmetmarine.rsi
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/marinehelmet.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/enclavehelmetmarine.rsi
+    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/marinehelmet.rsi
 
 #MARK: NCR
 - type: entity

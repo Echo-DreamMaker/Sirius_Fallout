@@ -1,6 +1,6 @@
-#Sirius Add: русские названия цветов движка (Robust.Shared/ColorNaming/ColorNaming.cs).
-#Порядок слов: характеристика → насыщенность → оттенок. Все прилагательные в мужском роде,
-#поскольку подразумевается существительное «цвет».
+# Sirius Add: русские названия цветов движка (Robust.Shared/ColorNaming/ColorNaming.cs).
+# Порядок слов: характеристика → насыщенность → оттенок. Все прилагательные в мужском роде,
+# поскольку подразумевается существительное «цвет».
 color-hue-chroma-lightness = {$lightness} {$chroma} {$hue}
 color-hue-chroma = {$chroma} {$hue}
 color-hue-lightness = {$lightness} {$hue}

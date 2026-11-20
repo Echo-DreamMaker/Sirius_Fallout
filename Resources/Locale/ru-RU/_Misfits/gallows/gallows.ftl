@@ -1,4 +1,4 @@
-#Sirius Add - Виселица
+# Sirius Add - Виселица
 gallows-attach-initial-other = {CAPITALIZE(THE($user))} начинает надевать петлю на шею {POSS-ADJ($victim)}.
 gallows-attach-initial-self = {CAPITALIZE(THE($user))} начинает надевать петлю на свою шею.
 

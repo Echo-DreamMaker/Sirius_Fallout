@@ -77,7 +77,7 @@ input-key-RSystem-linux = Right Meta
 
 input-key-unknown = <unknown key>
 
-#Sirius Add: отсутствующие названия клавиш.
+# Sirius Add: отсутствующие названия клавиш.
 input-key-Alt-mac = ⌥
 input-key-CapsLock = Caps Lock
 input-key-ScrollLock = Scroll Lock

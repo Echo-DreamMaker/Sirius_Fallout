@@ -1,4 +1,4 @@
-#Sirius Fix: полная переработка машинного перевода системы тикетов (единая терминология, естественные формулировки)
+# Sirius Fix: полная переработка машинного перевода системы тикетов (единая терминология, естественные формулировки)
 # Misfits Add — Ticket system localization for admin help & mentor help
 
 ticket-system-claim-button = Взять

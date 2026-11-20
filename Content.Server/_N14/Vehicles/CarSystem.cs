@@ -1,5 +1,9 @@
 using System.Linq;
+using System.Numerics;
+using System.Collections.Generic; // #Sirius Add
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Destructible; // #Sirius Add
+using Content.Server.Destructible.Thresholds.Triggers; // #Sirius Add
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._N14.Vehicles;
@@ -9,18 +13,23 @@ using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.Effects; // #Sirius Add
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Light; // #Sirius Add
 using Content.Shared.Light.Components;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Standing; // #Sirius Add
+using Content.Shared.Stunnable;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
 using Content.Shared.Vehicles;
@@ -28,9 +37,14 @@ using Content.Shared.Whitelist;
 using Content.Shared.Wires;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio; // #Sirius Add
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 
 namespace Content.Server._N14.Vehicles;
@@ -39,7 +53,7 @@ namespace Content.Server._N14.Vehicles;
 /// #Sirius: Car/ground-vehicle server behavior split from MechSystem.
 /// Handles ignition keys, engine running, passengers, and car-specific interactions for entities with CarComponent.
 /// </summary>
-public sealed class CarSystem : EntitySystem
+public sealed partial class CarSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
@@ -49,6 +63,7 @@ public sealed class CarSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!; //Sirius Fix - engine animation visuals
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!; // #Sirius Add
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedToolSystem _toolSystem = default!;
@@ -58,7 +73,13 @@ public sealed class CarSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedMechSystem _mech = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!; // #Sirius Add
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!; // #Sirius Add
+    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!; // #Sirius Add
     [Dependency] private readonly INetManager _net = default!;
+
+    // #Sirius Add - impact feedback sounds
+    private static readonly SoundSpecifier CarImpactSound = new SoundPathSpecifier("/Audio/Weapons/smash.ogg");
 
     public override void Initialize()
     {
@@ -75,13 +96,19 @@ public sealed class CarSystem : EntitySystem
         SubscribeLocalEvent<CarComponent, MechExitEvent>(OnMechExit);
         SubscribeLocalEvent<CarComponent, MechPassengerEntryEvent>(OnMechPassengerEntry);
         SubscribeLocalEvent<CarComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<CarComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers); // #Sirius Add
         SubscribeLocalEvent<CarComponent, UpdateCanMoveEvent>(OnCanMove);
+        SubscribeLocalEvent<CarComponent, PreventCollideEvent>(OnPreventCollide); // #Sirius Add
+        SubscribeLocalEvent<CarComponent, StartCollideEvent>(OnStartCollide); // #Sirius Add
         SubscribeLocalEvent<CarComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<CarComponent, MechEjectPassenger1Event>(OnEjectPassenger1);
         SubscribeLocalEvent<CarComponent, MechEjectPassenger2Event>(OnEjectPassenger2);
         SubscribeLocalEvent<CarComponent, MechEjectPassenger3Event>(OnEjectPassenger3);
+        SubscribeLocalEvent<CarComponent, MechEjectPassenger4Event>(OnEjectPassenger4); // #Sirius Add
         SubscribeLocalEvent<CarComponent, HornActionEvent>(OnHornAction);
         SubscribeLocalEvent<CarComponent, SirenActionEvent>(OnSirenAction);
+
+        InitializeUI(); // #Sirius Add - car console + steering
     }
 
     private void OnCanMove(EntityUid uid, CarComponent car, UpdateCanMoveEvent args)
@@ -122,7 +149,12 @@ public sealed class CarSystem : EntitySystem
         if (mech.PilotSlot.ContainedEntity != null)
         {
             if (mech.EngineRunning)
+            {
                 _mover.SetRelay(mech.PilotSlot.ContainedEntity.Value, uid);
+                // #Sirius Fix - drop any throttle/steering buffered before boarding, otherwise
+                // the car lurches or circles on the first ticks after initialization.
+                _mover.ClearMoveInput(uid);
+            }
             else
                 RemComp<RelayInputMoverComponent>(mech.PilotSlot.ContainedEntity.Value);
         }
@@ -133,6 +165,10 @@ public sealed class CarSystem : EntitySystem
         // Keep ambient engine sound in sync with engine state.
         if (TryComp<AmbientSoundComponent>(uid, out var ambient))
             _ambient.SetAmbience(uid, mech.EngineRunning, ambient);
+
+        // #Sirius Add - held driving input lives on the predicted InputMoverComponent;
+        // stopping the relay clears it through OnRelayShutdown, so there is no stale state here.
+        UpdateUi(uid);
 
         _actionBlocker.UpdateCanMove(uid);
     }
@@ -247,8 +283,16 @@ public sealed class CarSystem : EntitySystem
             return;
         }
 
-        if (args.Container == mech.PassengerSlot1 || args.Container == mech.PassengerSlot2 || args.Container == mech.PassengerSlot3)
+        if (args.Container == mech.PassengerSlot1 || args.Container == mech.PassengerSlot2 ||
+            args.Container == mech.PassengerSlot3 || args.Container == mech.PassengerSlot4)
+        {
             RefreshCarActions(uid, mech);
+            UpdateUi(uid);
+            return;
+        }
+
+        if (args.Container.ID == CargoContainerId)
+            UpdateUi(uid);
     }
 
     private void OnContainerRemoved(EntityUid uid, CarComponent car, EntRemovedFromContainerMessage args)
@@ -261,6 +305,8 @@ public sealed class CarSystem : EntitySystem
             mech.EngineRunning = false;
             Dirty(uid, mech);
             UpdateEngineRunning(uid, mech);
+            // #Sirius Add - headlights die with the ignition key.
+            RaiseLocalEvent(uid, new LightToggleEvent(false));
             return;
         }
 
@@ -268,14 +314,24 @@ public sealed class CarSystem : EntitySystem
         {
             mech.Energy = 0;
             mech.MaxEnergy = 0;
+            // #Sirius Add - no power means no headlights.
+            RaiseLocalEvent(uid, new LightToggleEvent(false));
             Dirty(uid, mech);
             _mech.UpdateUserInterface(uid, mech);
             TryUpdateEngineState(uid, mech);
             return;
         }
 
-        if (args.Container == mech.PassengerSlot1 || args.Container == mech.PassengerSlot2 || args.Container == mech.PassengerSlot3)
+        if (args.Container == mech.PassengerSlot1 || args.Container == mech.PassengerSlot2 ||
+            args.Container == mech.PassengerSlot3 || args.Container == mech.PassengerSlot4)
+        {
             RefreshCarActions(uid, mech);
+            UpdateUi(uid);
+            return;
+        }
+
+        if (args.Container.ID == CargoContainerId)
+            UpdateUi(uid);
     }
 
     private void OnRemoveIgnitionKey(EntityUid uid, CarComponent car, RemoveIgnitionKeyEvent args)
@@ -447,14 +503,16 @@ public sealed class CarSystem : EntitySystem
     {
         return mech.PassengerSlot1.ContainedEntity == null &&
                mech.PassengerSlot2.ContainedEntity == null &&
-               mech.PassengerSlot3.ContainedEntity == null;
+               mech.PassengerSlot3.ContainedEntity == null &&
+               mech.PassengerSlot4.ContainedEntity == null; // #Sirius Add
     }
 
     private static bool IsPassenger(EntityUid uid, MechComponent mech)
     {
         return mech.PassengerSlot1.ContainedEntity == uid ||
                mech.PassengerSlot2.ContainedEntity == uid ||
-               mech.PassengerSlot3.ContainedEntity == uid;
+               mech.PassengerSlot3.ContainedEntity == uid ||
+               mech.PassengerSlot4.ContainedEntity == uid; // #Sirius Add
     }
 
     private void OnMechEntry(EntityUid uid, CarComponent car, MechEntryEvent args)
@@ -479,6 +537,7 @@ public sealed class CarSystem : EntitySystem
         //Sirius Fix - boarding pilot does not start engine; key+power does. Refresh actions for pilot.
         TryUpdateEngineState(uid, mech);
         RefreshCarActions(uid, mech);
+        UpdateUi(uid);
         args.Handled = true;
     }
 
@@ -496,6 +555,7 @@ public sealed class CarSystem : EntitySystem
         }
 
         RefreshCarActions(uid, mech); //Sirius Fix - eject-passenger actions depend on occupants
+        UpdateUi(uid);
         _popup.PopupEntity("You enter as passenger.", args.User);
         args.Handled = true;
     }
@@ -523,24 +583,63 @@ public sealed class CarSystem : EntitySystem
                 _mech.TryEjectPassenger(uid, mech.PassengerSlot2.ContainedEntity.Value, mech);
             else if (mech.PassengerSlot3.ContainedEntity != null)
                 _mech.TryEjectPassenger(uid, mech.PassengerSlot3.ContainedEntity.Value, mech);
+            else if (mech.PassengerSlot4.ContainedEntity != null) // #Sirius Add
+                _mech.TryEjectPassenger(uid, mech.PassengerSlot4.ContainedEntity.Value, mech);
             else if (mech.PilotSlot.ContainedEntity != null)
                 _mech.TryEject(uid, mech);
         }
 
+        // #Sirius Add - no stale throttle after dismount: relay shutdown clears the
+        // car's InputMoverComponent buttons on both client and server.
         TryUpdateEngineState(uid, mech);
         RefreshCarActions(uid, mech);
+        UpdateUi(uid);
         args.Handled = true;
     }
 
     private void OnDamageChanged(EntityUid uid, CarComponent car, DamageChangedEvent args)
     {
-        if (!TryComp<MechComponent>(uid, out var mech))
+        // #Sirius Fix - damage relay to the pilot is handled once by MechSystem.OnDamageChanged.
+        // Cars carry both CarComponent and MechComponent, so doing it here too doubled the
+        // pilot's damage (now very visible once hostile AI attacks the hull).
+
+        // #Sirius Add - update speed penalty when integrity crosses threshold
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        UpdateUi(uid); // #Sirius Add - hull bar follows damage
+    }
+
+    // #Sirius Add - reduce max speed by 10% when integrity <= 50%
+    private void OnRefreshMovementSpeedModifiers(EntityUid uid, CarComponent car, RefreshMovementSpeedModifiersEvent args)
+    {
+        if (!IsBelowHalfIntegrity(uid))
             return;
-        if (args.DamageIncreased && args.DamageDelta != null && mech.PilotSlot.ContainedEntity != null)
+
+        args.ModifySpeed(0.9f);
+    }
+
+    private bool IsBelowHalfIntegrity(EntityUid uid)
+    {
+        if (!TryComp<DamageableComponent>(uid, out var damageable))
+            return false;
+
+        if (TryComp<DestructibleComponent>(uid, out var destructible))
         {
-            var damage = args.DamageDelta * mech.MechToPilotDamageMultiplier;
-            _damageable.TryChangeDamage(mech.PilotSlot.ContainedEntity, damage);
+            var maxDamage = 0;
+            foreach (var threshold in destructible.Thresholds)
+            {
+                if (threshold.Trigger is DamageTrigger trigger && trigger.Damage > maxDamage)
+                    maxDamage = trigger.Damage;
+            }
+
+            if (maxDamage > 0)
+                return damageable.TotalDamage >= maxDamage / 2f;
         }
+
+        // #Sirius Fix - scale the damage penalty to the vehicle's own hull durability.
+        if (TryComp<MechComponent>(uid, out var mech))
+            return damageable.TotalDamage >= mech.MaxIntegrity / 2f;
+
+        return damageable.TotalDamage >= FixedPoint2.New(500);
     }
 
     private void OnHornAction(EntityUid uid, CarComponent car, HornActionEvent args)
@@ -638,6 +737,122 @@ public sealed class CarSystem : EntitySystem
         RefreshCarActions(uid, mech);
     }
 
+    private void OnEjectPassenger4(EntityUid uid, CarComponent car, MechEjectPassenger4Event args) // #Sirius Add
+    {
+        if (args.Handled) return;
+        if (!TryComp<MechComponent>(uid, out var mech)) return;
+        if (mech.PilotSlot.ContainedEntity != args.Performer) return;
+        args.Handled = true;
+        if (mech.PassengerSlot4.ContainedEntity is { } p)
+            _mech.TryEjectPassenger(uid, p, mech);
+        else
+            _popup.PopupEntity(Loc.GetString("mech-no-passenger-in-slot", ("slot", 4)), uid, args.Performer);
+        RefreshCarActions(uid, mech);
+        UpdateUi(uid);
+    }
+
+    // #Sirius Add - after a mob is hit and falls, car should pass through/ignore further interactions while it remains down.
+    private void OnPreventCollide(EntityUid uid, CarComponent car, ref PreventCollideEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        var other = args.OtherEntity;
+        if (!HasComp<MobStateComponent>(other))
+            return;
+
+        // #Sirius Fix - LayingDownComponent is permanent on humanoids; only real downed/stunned mobs are passable.
+        if (HasComp<KnockedDownComponent>(other) ||
+            HasComp<StunnedComponent>(other))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        if (TryComp<StandingStateComponent>(other, out var standing) && standing.CurrentState != StandingState.Standing)
+            args.Cancelled = true;
+    }
+
+    // #Sirius Add - collision impact: speed loss, damage to car/obstacle, knockdown on dynamic targets
+    private void OnStartCollide(EntityUid uid, CarComponent car, ref StartCollideEvent args)
+    {
+        if (!args.OurFixture.Hard || !args.OtherFixture.Hard)
+            return;
+
+        if (!TryComp<PhysicsComponent>(uid, out var ourBody))
+            return;
+
+        var speed = ourBody.LinearVelocity.Length();
+        var baseDamage = speed - 5f;
+        var isStatic = args.OtherBody.BodyType == BodyType.Static;
+
+        if (isStatic)
+        {
+            // Lose 50% accumulated speed when hitting static obstacles.
+            _physics.SetLinearVelocity(uid, ourBody.LinearVelocity * 0.5f, body: ourBody);
+
+            if (baseDamage > 0f)
+            {
+                var damage = new DamageSpecifier();
+                damage.DamageDict["Blunt"] = FixedPoint2.New(baseDamage);
+
+                var carDamaged = _damageable.TryChangeDamage(uid, damage, origin: args.OtherEntity);
+                DamageSpecifier? targetDamaged = null;
+                if (TryComp<DamageableComponent>(args.OtherEntity, out _))
+                    targetDamaged = _damageable.TryChangeDamage(args.OtherEntity, damage, origin: uid);
+
+                // #Sirius Change - provide structural impact feedback (visual/sound) on impactful static collisions.
+                if (carDamaged != null || targetDamaged != null)
+                {
+                    _audio.PlayPvs(CarImpactSound, uid);
+                    var flashed = new List<EntityUid>();
+                    if (carDamaged != null)
+                        flashed.Add(uid);
+                    if (targetDamaged != null)
+                        flashed.Add(args.OtherEntity);
+                    if (flashed.Count > 0)
+                        _color.RaiseEffect(Color.Red, flashed, Filter.Pvs(uid, entityManager: EntityManager));
+                }
+            }
+
+            return;
+        }
+
+        // #Sirius Change - dynamic collisions also reduce accumulated speed.
+        _physics.SetLinearVelocity(uid, ourBody.LinearVelocity * 0.5f, body: ourBody);
+
+        // Dynamic/movable entities take 2x damage; car takes base damage. Knock down mobs.
+        if (baseDamage > 0f)
+        {
+            var carDamage = new DamageSpecifier();
+            carDamage.DamageDict["Blunt"] = FixedPoint2.New(baseDamage);
+            var carDamaged = _damageable.TryChangeDamage(uid, carDamage, origin: args.OtherEntity);
+
+            var targetDamage = new DamageSpecifier();
+            targetDamage.DamageDict["Blunt"] = FixedPoint2.New(baseDamage * 2f);
+            var targetDamaged = _damageable.TryChangeDamage(args.OtherEntity, targetDamage, origin: uid);
+
+            var isMob = HasComp<MobStateComponent>(args.OtherEntity);
+            if (isMob)
+                _stun.TryKnockdown(args.OtherEntity, TimeSpan.FromSeconds(3f), refresh: true);
+
+            // #Sirius Change - visible and audible blunt impact feedback for dynamic/mob hits.
+            if (carDamaged != null || targetDamaged != null || isMob)
+            {
+                _audio.PlayPvs(CarImpactSound, uid);
+                var flashed = new List<EntityUid>();
+                if (carDamaged != null)
+                    flashed.Add(uid);
+                if (targetDamaged != null)
+                    flashed.Add(args.OtherEntity);
+                else if (isMob)
+                    flashed.Add(args.OtherEntity);
+                if (flashed.Count > 0)
+                    _color.RaiseEffect(Color.Red, flashed, Filter.Pvs(uid, entityManager: EntityManager));
+            }
+        }
+    }
+
     /// <summary>
     /// Sirius Fix - grant/remove car actions on pilot dynamically based on available features and occupants.
     /// </summary>
@@ -654,7 +869,7 @@ public sealed class CarSystem : EntitySystem
         _actions.AddAction(pilot, ref mech.MechEjectActionEntity, mech.MechEjectAction, uid);
 
         // Flashlight toggle only if the vehicle has a light
-        if (HasComp<PointLightComponent>(uid) || HasComp<UnpoweredFlashlightComponent>(uid))
+        if (HasComp<CarHeadlightsComponent>(uid) || HasComp<PointLightComponent>(uid) || HasComp<UnpoweredFlashlightComponent>(uid))
             _actions.AddAction(pilot, ref mech.ToggleActionEntity, mech.ToggleAction, uid);
         else if (mech.ToggleActionEntity != null)
             _actions.RemoveAction(pilot, mech.ToggleActionEntity);
@@ -686,5 +901,10 @@ public sealed class CarSystem : EntitySystem
             _actions.AddAction(pilot, ref mech.MechEjectPassenger3ActionEntity, mech.MechEjectPassenger3Action, uid);
         else if (mech.MechEjectPassenger3ActionEntity != null)
             _actions.RemoveAction(pilot, mech.MechEjectPassenger3ActionEntity);
+
+        if (mech.PassengerSlot4.ContainedEntity != null) // #Sirius Add
+            _actions.AddAction(pilot, ref mech.MechEjectPassenger4ActionEntity, mech.MechEjectPassenger4Action, uid);
+        else if (mech.MechEjectPassenger4ActionEntity != null)
+            _actions.RemoveAction(pilot, mech.MechEjectPassenger4ActionEntity);
     }
 }

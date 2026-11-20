@@ -1,6 +1,6 @@
 ## ViewVariablesInstanceEntity
 
-view-variables = View Variables
+view-variables = Просмотр переменных
 view-variable-instance-entity-server-components-add-component-button-placeholder = Добавить компонент
 view-variable-instance-entity-client-variables-tab-title = Переменные клиента
 view-variable-instance-entity-client-components-tab-title = Компоненты клиента
@@ -14,19 +14,19 @@ view-variable-instance-entity-add-window-client-components = Добавить к
 
 ## SoundSpecifier
 vv-sound-none = Нет
-vv-sound-path = Path
-vv-sound-collection = Collection
+vv-sound-path = Путь
+vv-sound-collection = Коллекция
 
-vv-sound-volume = volume
-vv-sound-pitch = Pitch
-vv-sound-max-distance = Max Distance
-vv-sound-rolloff-factor = Rolloff Factor
-vv-sound-reference-distance = Reference Distance
-vv-sound-loop = Loop
-vv-sound-play-offset = Play Offset (s)
-vv-sound-variation = Pitch variation
+vv-sound-volume = Громкость
+vv-sound-pitch = Высота тона
+vv-sound-max-distance = Макс. расстояние
+vv-sound-rolloff-factor = Коэффициент затухания
+vv-sound-reference-distance = Опорное расстояние
+vv-sound-loop = Цикл
+vv-sound-play-offset = Смещение воспроизведения (с)
+vv-sound-variation = Разброс высоты тона
 
-#Sirius Add: окно выбора прототипа в ViewVariables отсутствовало в ru-RU.
+# Sirius Add: окно выбора прототипа в ViewVariables отсутствовало в ru-RU.
 vv-protoid-id-placeholder = ID прототипа
 vv-protoid-select-button-label = Выбрать
 vv-protoid-addwindow-title = Задать прототип

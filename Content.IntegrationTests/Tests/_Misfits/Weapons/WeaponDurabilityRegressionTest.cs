@@ -18,7 +18,11 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared._Sirius.Weapons.Durability;
 using Robust.Shared.Containers;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
+using Robust.Shared.Utility;
 
 namespace Content.IntegrationTests.Tests._Misfits.Weapons;
 
@@ -186,6 +190,88 @@ public sealed class WeaponDurabilityRegressionTest
             var hatchet = entMan.SpawnEntity(HatchetProto, map.GridCoords);
             Assert.That(entMan.GetComponent<WeaponDurabilityComponent>(hatchet).Recoverable, Is.True,
                 "hatchets must be whetstone-recoverable");
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    /// <summary>
+    ///     #Sirius Add - NewIsland regression. Rifles baked into the map before they
+    ///     became modular carry a ContainerContainer mapping with only the six gun_*
+    ///     slots. Map data wins over the prototype's "containers" key wholesale, so
+    ///     the craft_* containers are gone at MapInit: no factory parts get seated,
+    ///     OnAttemptShoot cancels every server shot while the client still predicts
+    ///     it (phantom ammo, full-looking magazine, no damage). SharedWeaponDurabilitySystem
+    ///     must restore those containers on ComponentStartup, before ContainerFill runs.
+    /// </summary>
+    [Test]
+    public async Task MapPlacedWeaponsRestoreCraftContainersAndCanFire()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var mapLoader = entMan.System<MapLoaderSystem>();
+
+        await server.WaitAssertion(() =>
+        {
+            Assert.That(mapLoader.TryLoadMap(
+                new ResPath("Maps/Test/Weapons/stale-container-weapons.yml"),
+                out _, out _,
+                DeserializationOptions.Default with { InitializeMaps = true }),
+                "the stale-container fixture must load");
+        });
+
+        // Let MapInit / ContainerFill / the durability recompute settle.
+        await server.WaitRunTicks(2);
+
+        await server.WaitAssertion(() =>
+        {
+            var user = entMan.SpawnEntity(HumanProto, MapCoordinates.Nullspace);
+            var weapons = new List<EntityUid>();
+
+            var query = entMan.EntityQueryEnumerator<WeaponDurabilityComponent, MetaDataComponent>();
+            while (query.MoveNext(out var uid, out _, out var meta))
+            {
+                if (meta.EntityName is "stale container M14" or "stale container M16A1")
+                    weapons.Add(uid);
+            }
+
+            Assert.That(weapons.Count, Is.EqualTo(2),
+                "both rifles reported on NewIsland must be present in the fixture");
+
+            // ContainerFill only seats these four on the M14/M16A1 (craft_magazine
+            // is an empty construction slot and is not needed to fire).
+            var craftIds = new[] { "craft_grip", "craft_bolt", "craft_barrel", "craft_stock" };
+
+            foreach (var weapon in weapons)
+            {
+                var name = entMan.GetComponent<MetaDataComponent>(weapon).EntityName;
+                var manager = entMan.GetComponent<ContainerManagerComponent>(weapon);
+
+                foreach (var id in craftIds)
+                {
+                    Assert.That(manager.Containers.ContainsKey(id), Is.True,
+                        $"{id} must be restored on {name}");
+                }
+
+                var parts = GetParts(entMan, weapon);
+                foreach (var role in new[]
+                         {
+                             WeaponPartRole.Grip, WeaponPartRole.Bolt,
+                             WeaponPartRole.Barrel, WeaponPartRole.Stock,
+                         })
+                {
+                    Assert.That(parts.Exists(p => p.Comp.Role == role), Is.True,
+                        $"the factory {role} part must be seated in {name}");
+                }
+
+                // Regression: before the fix this was cancelled with "no bolt"
+                // server-side while the client predicted the shot.
+                var attempt = new AttemptShootEvent(user, null);
+                entMan.EventBus.RaiseLocalEvent(weapon, ref attempt);
+                Assert.That(attempt.Cancelled, Is.False,
+                    $"a map-placed {name} must be able to fire");
+            }
         });
 
         await pair.CleanReturnAsync();

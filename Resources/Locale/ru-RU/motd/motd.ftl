@@ -10,7 +10,7 @@ cmd-set-motd-cleared-motd-message = Сообщение дня очищено.
 cmd-set-motd-set-motd-message = Установлено следующее Сообщение дня: "{ $motd }".
 motd-wrap-message = Сообщение дня: { $motd }
 
-#Sirius Add - Картинки и опрос в окне Сообщения дня
+# Sirius Add - Картинки и опрос в окне Сообщения дня
 motd-none = Сообщение дня не задано.
 
 cmd-set-motd-image-desc = Задаёт картинки, отображаемые в окне Сообщения дня.

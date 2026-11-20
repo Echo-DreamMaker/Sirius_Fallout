@@ -1,4 +1,4 @@
-﻿station-goal-fax-paper-name = бумага
+﻿station-goal-fax-paper-name = Цель станции
 station-goal-shuttle = 
     Your shift's goal is to build a crewed shuttle in space and equip it with everything necessary for survival.
     To complete it, the supply department needs to order all necessary resources for the engineering and research departments.

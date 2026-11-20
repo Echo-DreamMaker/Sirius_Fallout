@@ -59,9 +59,9 @@ n14-expedition-difficulty-metro-procgen = Туннели метро (проце�
 # n14-expedition-difficulty-gold = Gold
 # n14-expedition-difficulty-mithril = Mithril
 # n14-expedition-difficulty-diamond = Diamond
-n14-expedition-difficulty-unknown-procgen = Unknown Underground Site
+n14-expedition-difficulty-unknown-procgen = Неизвестный подземный объект
 
-#Sirius Add - Недостающие сообщения экспедиций
+# Sirius Add - Недостающие сообщения экспедиций
 n14-expedition-joined = Вы присоединились к активной экспедиции.
 n14-expedition-death-extracting = Вы погибли в экспедиции, и вас вернуло ко входу на поверхность.
 n14-expedition-entrance-name = благоприятный вход

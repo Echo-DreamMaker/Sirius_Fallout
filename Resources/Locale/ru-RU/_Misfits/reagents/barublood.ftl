@@ -1,2 +1,2 @@
-reagent-name-cruor-vestigia = Cruor Vestigia
-reagent-desc-cruor-vestigia = A gore trail left behind by a frumentarii
+reagent-name-cruor-vestigia = кровавый след
+reagent-desc-cruor-vestigia = Кровавый след, оставленный фрументарием.

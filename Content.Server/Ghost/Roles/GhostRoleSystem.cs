@@ -816,7 +816,16 @@ namespace Content.Server.Ghost.Roles
             if (string.IsNullOrEmpty(component.Prototype))
                 throw new NullReferenceException("Prototype string cannot be null or empty!");
 
-            var mob = Spawn(component.Prototype, Transform(uid).Coordinates);
+            // #Sirius Fix: spawn pet companions next to their owner instead of at the stale spawner location.
+            var spawnCoords = Transform(uid).Coordinates;
+            if (TryComp<MisfitsPetSpawnerOwnerComponent>(uid, out var petSpawnerOwner))
+            {
+                var owner = petSpawnerOwner.Owner;
+                if (Exists(owner) && !TerminatingOrDeleted(owner) && TryComp<TransformComponent>(owner, out var ownerXform))
+                    spawnCoords = ownerXform.Coordinates;
+            }
+
+            var mob = Spawn(component.Prototype, spawnCoords);
             _transform.AttachToGridOrMap(mob);
 
             var spawnedEvent = new GhostRoleSpawnerUsedEvent(uid, mob);

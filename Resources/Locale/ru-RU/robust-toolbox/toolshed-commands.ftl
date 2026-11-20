@@ -429,7 +429,7 @@ command-description-cmd-info =
 command-description-comp-rm =
     Removes the given component from the entity.
 
-#Sirius Add: описания команд оверлеев отсутствовали в ru-RU.
+# Sirius Add: описания команд оверлеев отсутствовали в ru-RU.
 command-description-overlay-toggle = Включает или выключает оверлей
 command-description-overlay-add = Добавляет оверлей (если его ещё нет)
 command-description-overlay-remove = Убирает оверлей

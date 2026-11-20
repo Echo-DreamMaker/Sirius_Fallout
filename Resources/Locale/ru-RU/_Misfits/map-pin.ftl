@@ -1,4 +1,4 @@
-#Sirius Add - Окно глобальных GPS-меток
+# Sirius Add - Окно глобальных GPS-меток
 mappin-window-prompt = Назовите глобальную GPS-метку в вашей текущей позиции.
 mappin-window-placeholder = Название метки
 mappin-window-cancel = Отмена

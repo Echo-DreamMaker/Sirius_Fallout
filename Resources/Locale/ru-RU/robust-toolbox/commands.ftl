@@ -48,10 +48,10 @@ cmd-cvar-arg-name = <name | ?>
 cmd-cvar-value-hidden = <value hidden>
 
 ## 'cvar_subs' command
-cmd-cvar_subs-desc = Lists the OnValueChanged subscriptions for a CVar.
-cmd-cvar_subs-help = Usage: cvar_subs <name>
+cmd-cvar_subs-desc = Выводит подписки OnValueChanged для CVar.
+cmd-cvar_subs-help = Использование: cvar_subs <name>
 
-cmd-cvar_subs-invalid-args = Must provide exactly one argument.
+cmd-cvar_subs-invalid-args = Нужно указать ровно один аргумент.
 cmd-cvar_subs-arg-name = <name>
 
 ## 'list' command
@@ -159,7 +159,7 @@ cmd-savemap-not-exist = Целевая карта не существует.
 cmd-savemap-init-warning = Попытка сохранить карту после инициализации без принудительного сохранения.
 cmd-savemap-attempt = Попытка сохранить карту { $mapId } в { $path }.
 cmd-savemap-success = Карта успешно сохранена.
-cmd-savemap-error = Could not save map! See server log for details.
+cmd-savemap-error = Не удалось сохранить карту! Подробности в логе сервера.
 cmd-hint-savemap-id = <MapID>
 cmd-hint-savemap-path = <Path>
 cmd-hint-savemap-force = [bool]
@@ -436,13 +436,13 @@ cmd-fuck-help = Вызывает исключение
 cmd-showpos-desc = Включает отрисовку для всех позиций сущностей в игре.
 cmd-showpos-help = Использование: showpos
 
-cmd-showrot-desc = Show the rotation of all entities on the screen.
+cmd-showrot-desc = Показывает поворот всех сущностей на экране.
 cmd-showrot-help = Usage: showrot
 
-cmd-showvel-desc = Show the local velocity of all entites on the screen.
+cmd-showvel-desc = Показывает локальную скорость всех сущностей на экране.
 cmd-showvel-help = Usage: showvel
 
-cmd-showangvel-desc = Show the angular velocity of all entities on the screen.
+cmd-showangvel-desc = Показывает угловую скорость всех сущностей на экране.
 cmd-showangvel-help = Usage: showangvel
 
 cmd-sggcell-desc = Перечисляет сущности в ячейке сетки привязки.
@@ -563,25 +563,25 @@ cmd-vfs_ls-help = Использование: vfs_list <path>
 cmd-vfs_ls-err-args = Нужен ровно 1 аргумент.
 cmd-vfs_ls-hint-path = <path>
 
-cmd-reloadtiletextures-desc = Reloads the tile texture atlas to allow hot reloading tile sprites
+cmd-reloadtiletextures-desc = Перезагружает атлас текстур тайлов, чтобы подхватить изменённые спрайты без перезапуска.
 cmd-reloadtiletextures-help = Usage: reloadtiletextures
 
-cmd-audio_length-desc = Shows the length of an audio file
+cmd-audio_length-desc = Показывает длительность звукового файла.
 cmd-audio_length-help = Usage: audio_length { cmd-audio_length-arg-file-name }
 cmd-audio_length-arg-file-name = <file name>
 
 ## PVS
-cmd-pvs-override-info-desc = Prints information about any PVS overrides associated with an entity.
+cmd-pvs-override-info-desc = Выводит сведения о переопределениях PVS, связанных с сущностью.
 cmd-pvs-override-info-empty = Entity { $nuid } has no PVS overrides.
 cmd-pvs-override-info-global = Entity { $nuid } has a global override.
 cmd-pvs-override-info-clients = Entity { $nuid } has a session override for { $clients }.
 
-cmd-localization_set_culture-desc = Set DefaultCulture for the client LocalizationManager
+cmd-localization_set_culture-desc = Задаёт DefaultCulture для клиентского LocalizationManager.
 cmd-localization_set_culture-help = Usage: localization_set_culture <cultureName>
 cmd-localization_set_culture-culture-name = <cultureName>
 cmd-localization_set_culture-changed = Localization changed to { $code } ({ $nativeName } / { $englishName })
 
-#Sirius Add: ключи движка, которых не было в ru-RU (иначе WARN Unknown messageId).
+# Sirius Add: ключи движка, которых не было в ru-RU (иначе WARN Unknown messageId).
 cmd-addmap-hint-2 = runMapInit [true / false]
 cmd-chunkentities-desc = Перечисляет сущности чанков в области видимости клиента или в заданном радиусе.
 cmd-chunkentities-help = Использование: {$command} [<корневая сущность> <x> <y> <радиус>]
