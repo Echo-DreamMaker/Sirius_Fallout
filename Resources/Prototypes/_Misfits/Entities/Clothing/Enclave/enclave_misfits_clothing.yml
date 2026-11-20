@@ -36,7 +36,7 @@
   - type: Sprite
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_security.rsi
   - type: Clothing
-    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_combat_armor.rsi
+    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_mk2_combat_armor.rsi # Sirius Fix: enclave_combat_armor.rsi missing
 
 # --- Enclave Mk2 Combat Armor (regular, non-Zulu) ---
 # Standalone spawnable prototype. Inherits MK2 combat armor stats from N14ClothingOuterEnclaveArmor parent.

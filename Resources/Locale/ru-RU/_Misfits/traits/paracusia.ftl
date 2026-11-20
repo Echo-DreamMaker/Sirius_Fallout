@@ -13,7 +13,7 @@ paracusia-hallucination-9 = Ребенок смеется, очень слабо
 paracusia-hallucination-10 = Кран. Кран. Кран. Кран.
 paracusia-hallucination-11 = Это была песня? Вы не совсем можете это запомнить.
 paracusia-hallucination-12 = Что-то тяжёлое волочится по полу над вами.
-#Sirius Add - Полный набор галлюцинаций (13-151)
+# Sirius Add - Полный набор галлюцинаций (13-151)
 paracusia-hallucination-13 = Три стука. Пауза. Ещё три.
 paracusia-hallucination-14 = Кто-то вздыхает с другой стороны стены.
 paracusia-hallucination-15 = Вы слышите шаг, в точности совпадающий с вашим.
@@ -162,7 +162,7 @@ paracusia-whisper-5 = ...не говори никому...
 paracusia-whisper-6 = ...еще один шаг...
 paracusia-whisper-7 = ...ты уже забыл...
 paracusia-whisper-8 = ...за тобой...
-#Sirius Add - Полный набор шёпота (9-57)
+# Sirius Add - Полный набор шёпота (9-57)
 paracusia-whisper-9 = ...пока не смотри...
 paracusia-whisper-10 = ...он знает...
 paracusia-whisper-11 = ...не туда...
@@ -218,7 +218,7 @@ paracusia-hallucination-0 = Шаги по металлу. Приближаютс
 
 paracusia-whisper-0 = ...за тобой...
 
-#Sirius Add - Недостающий слуховой вариант паракузии
+# Sirius Add - Недостающий слуховой вариант паракузии
 trait-name-TraitParacusiaAuditory = Слуховая паракузия
 trait-description-TraitParacusiaAuditory =
     Тишина редко остаётся для вас тишиной. Разум заполняет её звуками без источника:

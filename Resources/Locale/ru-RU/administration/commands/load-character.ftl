@@ -1,4 +1,4 @@
-﻿loadcharacter-command-description = Применяет выбранного персонажа к объекту
+﻿loadcharacter-command-description = Применяет выбранного персонажа к объекту.
 loadcharacter-command-help = Использование: loadcharacter | loadcharacter <entityUid> | loadcharacter <entityUid> <имя персонажа>
 loadcharacter-command-mismatch = Обнаружено несоответствие видов между персонажем и выбранным объектом, это может привести к неожиданным результатам.
 loadcharacter-command-complete = Персонаж загружен.

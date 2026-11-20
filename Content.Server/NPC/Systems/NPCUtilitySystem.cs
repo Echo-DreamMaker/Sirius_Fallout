@@ -1,3 +1,5 @@
+using Content.Server._Sirius.NPC.Systems; // #Sirius Add
+using Content.Shared._N14.Vehicles; // #Sirius Add - car occupants in hostile queries
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.NPC.Queries;
@@ -55,6 +57,7 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly WeatherSystem _weather = default!;
+    [Dependency] private readonly SiriusVehicleTargetSystem _vehicleTargets = default!; // #Sirius Add
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -141,10 +144,49 @@ public sealed class NPCUtilitySystem : EntitySystem
             results.Add(ent, score);
         }
 
+        // #Sirius Add - hostile AI attacks the car instead of a mob riding inside it.
+        // Do this here (not in UtilityOperator) because HTNSystem refreshes Target from
+        // the same utility service during combat and would otherwise restore the occupant.
+        if (weh.Query.Any(q => q is NearbyHostilesQuery))
+            RemapVehicleTargets(results);
+
         var result = new UtilityResult(results);
         blackboard.Remove<EntityUid>(NPCBlackboard.UtilityTarget);
         _entPool.Return(ents);
         return result;
+    }
+
+    /// <summary>
+    /// #Sirius Add - swaps vehicle occupants for the vehicle itself. Several occupants
+    /// of one car may be candidates, so keep the highest score for the resulting key.
+    /// </summary>
+    private void RemapVehicleTargets(Dictionary<EntityUid, float> results)
+    {
+        List<EntityUid>? occupants = null;
+        foreach (var (target, _) in results)
+        {
+            if (!_vehicleTargets.IsVehicleOccupant(target))
+                continue;
+
+            occupants ??= new List<EntityUid>();
+            occupants.Add(target);
+        }
+
+        if (occupants == null)
+            return;
+
+        foreach (var occupant in occupants)
+        {
+            var score = results[occupant];
+            results.Remove(occupant);
+
+            if (!_vehicleTargets.TryGetVehicleTarget(occupant, out var vehicle))
+                continue;
+
+            results[vehicle.Value] = results.TryGetValue(vehicle.Value, out var existing)
+                ? MathF.Max(existing, score)
+                : score;
+        }
     }
 
     private float GetScore(IUtilityCurve curve, float conScore)
@@ -229,6 +271,11 @@ public sealed class NPCUtilitySystem : EntitySystem
             }
             case TargetAccessibleCon:
             {
+                // #Sirius Add - a hostile riding in a car is reachable: the AI retargets
+                // the hull itself later, so don't zero it out for being in a container.
+                if (_vehicleTargets.IsVehicleOccupant(targetUid))
+                    return 1f;
+
                 if (_container.TryGetContainingContainer(targetUid, out var container))
                 {
                     if (TryComp<EntityStorageComponent>(container.Owner, out var storageComponent))
@@ -317,6 +364,11 @@ public sealed class NPCUtilitySystem : EntitySystem
             {
                 var radius = blackboard.GetValueOrDefault<float>(blackboard.GetVisionRadiusKey(EntityManager), EntityManager);
                 const float bufferRange = 0.5f;
+
+                // #Sirius Add - the mob is inside the hull, so evaluate line of sight to the
+                // car itself; otherwise the container can read as an occluder and zero the score.
+                if (_vehicleTargets.TryGetVehicleTarget(targetUid, out var losVehicle))
+                    targetUid = losVehicle.Value;
 
                 if (!_weather.CanSeeThroughWeather(owner, targetUid))
                     return 0f;
@@ -460,6 +512,34 @@ public sealed class NPCUtilitySystem : EntitySystem
                         continue;
 
                     entities.Add(ent);
+                }
+
+                // #Sirius Add - GetNearbyFactions only scans containers of entities that
+                // already have NpcFactionMemberComponent. Cars have no faction, so a pilot
+                // sitting inside one is invisible to the lookup. Discover car occupants
+                // explicitly, still validating hostility on the occupant (not the hull).
+                if (TryComp<NpcFactionMemberComponent>(owner, out var ownerFaction))
+                {
+                    var mapPos = _transform.GetMapCoordinates(owner);
+                    foreach (var (car, _) in _lookup.GetEntitiesInRange<CarComponent>(mapPos, vision))
+                    {
+                        foreach (var occupant in _vehicleTargets.GetOccupants(car))
+                        {
+                            if (!TryComp<NpcFactionMemberComponent>(occupant, out var occupantFaction))
+                                continue;
+
+                            if (!_npcFaction.IsEntityHostile((owner, ownerFaction), (occupant, occupantFaction)))
+                                continue;
+
+                            if (!CanUseNearbyHostile(owner, occupant, blackboard))
+                                continue;
+
+                            if (!_weather.CanSeeThroughWeather(owner, occupant))
+                                continue;
+
+                            entities.Add(occupant);
+                        }
+                    }
                 }
                 break;
             }

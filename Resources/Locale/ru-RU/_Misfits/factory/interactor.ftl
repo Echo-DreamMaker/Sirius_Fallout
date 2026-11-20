@@ -1,4 +1,4 @@
-#Sirius Add - Интерактор автоматизации
+# Sirius Add - Интерактор автоматизации
 interactor-verb-toggle-alt-interact = Переключить режим альтернативного взаимодействия
 interactor-verb-toggled-alt-interact = {$enabled ->
     [true]Включён

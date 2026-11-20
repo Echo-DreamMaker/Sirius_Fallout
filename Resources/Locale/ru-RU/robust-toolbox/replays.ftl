@@ -1,4 +1,4 @@
-#Sirius Add: полный перевод команд воспроизведения записей движка.
+# Sirius Add: полный перевод команд воспроизведения записей движка.
 # Playback Commands
 
 cmd-replay-play-desc = Возобновить воспроизведение записи.
@@ -10,7 +10,7 @@ cmd-replay-pause-help = replay_pause
 cmd-replay-toggle-desc = Возобновить или приостановить воспроизведение записи.
 cmd-replay-toggle-help = replay_toggle
 
-#Sirius Add: ключ отсутствовал в ru-RU и давал WARN Unknown messageId.
+# Sirius Add: ключ отсутствовал в ru-RU и давал WARN Unknown messageId.
 cmd-replay-toggle-screenshot-mode-desc = Включает или выключает режим скриншота для записей, скрывая панель управления воспроизведением.
 cmd-replay-toggle-screenshot-mode-help = replay_toggle_screenshot_mode
 

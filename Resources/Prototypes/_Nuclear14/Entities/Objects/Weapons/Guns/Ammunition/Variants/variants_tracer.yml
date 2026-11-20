@@ -10,11 +10,13 @@
       types:
         Piercing: 12
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14CartridgePistol9Tracer
   name: патрон (9 мм трассирующий)
@@ -76,11 +78,13 @@
       types:
         Piercing: 14
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14CartridgePistol10Tracer
   name: патрон (10 мм трассирующий)
@@ -128,11 +132,13 @@
       types:
         Piercing: 16
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14CartridgePistol45Tracer
   name: патрон (.45 трассирующий)
@@ -173,11 +179,13 @@
       types:
         Piercing: 10
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14CartridgePistol22Tracer
   name: патрон (.22 трассирующий)
@@ -218,11 +226,13 @@
       types:
         Piercing: 21
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14CartridgePistol357Tracer
   name: патрон (.357 трассирующий)
@@ -249,11 +259,13 @@
       types:
         Piercing: 30
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14Cartridge44MagnumTracer
   name: патрон (.44 трассирующий)
@@ -294,11 +306,13 @@
       types:
         Piercing: 11
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14CartridgePistol5Tracer
   name: патрон (5 мм трассирующий)
@@ -325,11 +339,13 @@
       types:
         Piercing: 19
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14Cartridge556RifleTracer
   name: патрон (5,56 мм трассирующий)
@@ -384,11 +400,13 @@
       types:
         Piercing: 22
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14Cartridge545RifleTracer
   name: патрон (5,45 мм трассирующий)
@@ -429,11 +447,13 @@
       types:
         Piercing: 24
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14Cartridge762RifleTracer
   name: патрон (7,62 мм трассирующий)
@@ -481,11 +501,13 @@
       types:
         Piercing: 20
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14CartridgePistol127Tracer
   name: патрон (12,7 мм трассирующий)
@@ -533,11 +555,13 @@
       types:
         Piercing: 36
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14Cartridge308RifleTracer
   name: патрон (.308 трассирующий)
@@ -613,11 +637,13 @@
       types:
         Piercing: 33
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14Cartridge45-70Tracer
   name: патрон (.45-70 трассирующий)
@@ -658,11 +684,13 @@
       types:
         Piercing: 29
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: N14Cartridge50Tracer
   name: патрон (.50 трассирующий)
@@ -703,11 +731,13 @@
       types:
         Piercing: 11
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: PelletShotgun12SpreadTracer
   parent: PelletShotgun12Spread
@@ -747,11 +777,13 @@
       types:
         Piercing: 10
   - type: TracerVisual
-  - type: PointLight
+  - type: PointLight # Sirius Change: backward cone mask, angular gradient
     enabled: true
     color: "#44ff44"
     radius: 3.0
-    energy: 5.0
+    energy: 9.0
+    lightMask: TracerBackConeLightMask
+    autoRot: true
 - type: entity
   id: PelletShotgun20SpreadTracer
   parent: PelletShotgun20Spread

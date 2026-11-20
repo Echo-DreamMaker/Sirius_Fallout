@@ -1,4 +1,4 @@
-#Sirius Add: русская таблица латинского акцента Легиона (n14LegionLatin).
+# Sirius Add: русская таблица латинского акцента Легиона (n14LegionLatin).
 accent-n14-legion-words-1 = да
 accent-n14-legion-words-replace-1 = ита
 

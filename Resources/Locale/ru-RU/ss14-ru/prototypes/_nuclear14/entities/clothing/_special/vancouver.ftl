@@ -1,5 +1,5 @@
 # Силовая броня -->
-ent-N14ClothingOuterPowerArmorT51Canadian = t-51bc "Канадский щит"
+ent-N14ClothingOuterPowerArmorT51Canadian = T-51bc «Канадский щит»
    .desc = Вершина довоенной техники, полученная на вооружение Королевской канадской конной полицией.
 
 # Униформа -->

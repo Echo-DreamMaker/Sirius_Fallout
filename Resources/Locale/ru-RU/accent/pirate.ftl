@@ -1,4 +1,4 @@
-#Sirius Add: русская таблица пиратского акцента.
+# Sirius Add: русская таблица пиратского акцента.
 accent-pirate-prefix-1 = Арргх
 accent-pirate-prefix-2 = Гарр
 accent-pirate-prefix-3 = Йарр

@@ -1,4 +1,4 @@
-#Sirius Add - Конструктор автоматизации
+# Sirius Add - Конструктор автоматизации
 constructor-examine-unset = Конструкция не задана.
 constructor-examine = Он настроен на сборку: [bold]{$name}[/bold].
 

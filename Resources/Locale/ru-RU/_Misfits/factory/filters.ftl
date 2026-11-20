@@ -1,4 +1,4 @@
-#Sirius Add - Фильтры автоматизации
+# Sirius Add - Фильтры автоматизации
 automation-filter-examine-empty = [color=red]Этот фильтр ещё не настроен.[/color]
 automation-filter-examine-string = Этот фильтр настроен на '{$name}'
 stack-filter-examine = Этот фильтр настроен на минимум [color=green]{$size}[/color] предметов в стопке.

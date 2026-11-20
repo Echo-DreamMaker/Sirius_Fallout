@@ -1,4 +1,4 @@
-#Sirius Add - Портировано из AU-14/ColonialMarinesUniverse.
+# Sirius Add - Портировано из AU-14/ColonialMarinesUniverse.
 
 rmc-mortar-deploy-start = Вы начинаете разворачивать {THE($mortar)}.
 rmc-mortar-not-aimed = Сначала нужно навести {THE($mortar)}.

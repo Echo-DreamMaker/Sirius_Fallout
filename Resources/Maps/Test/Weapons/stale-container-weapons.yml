@@ -1,0 +1,104 @@
+# #Sirius Add - regression fixture for the NewIsland phantom-ammo bug.
+# Weapons baked into a map before they became modular carry ContainerContainer
+# data with only the six gun_* slots. Map data wins over the prototype's
+# "containers" key wholesale (EntityDeserializer.CombineMappings), so the
+# craft_* containers and their factory parts are missing at MapInit.
+meta:
+  format: 7
+  category: Map
+  engineVersion: 286.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 19/11/2026 00:00:00
+  entityCount: 3
+maps:
+- 1
+grids: []
+orphans: []
+nullspace: []
+tilemap: {}
+entities:
+- proto: ""
+  entities:
+  - uid: 1
+    components:
+    - type: MetaData
+      name: stale container weapons test map
+    - type: Transform
+    - type: Map
+      mapPaused: False
+    - type: GridTree
+    - type: Broadphase
+    - type: ChunkContainer
+      chunkEntities: []
+    - type: OccluderTree
+- proto: N14WeaponRifle762M14
+  entities:
+  - uid: 2
+    components:
+    - type: MetaData
+      name: stale container M14
+    - type: Transform
+      parent: 1
+      pos: 0,0
+    - type: ContainerContainer
+      containers:
+        gun_top: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: False
+        gun_muzzle: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: False
+        gun_bottom: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: False
+        gun_handle: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: False
+        gun_magazine: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: True
+        gun_chamber: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: True
+- proto: N14WeaponRifle556M16A1Sirius
+  entities:
+  - uid: 3
+    components:
+    - type: MetaData
+      name: stale container M16A1
+    - type: Transform
+      parent: 1
+      pos: 1,0
+    - type: ContainerContainer
+      containers:
+        gun_top: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: False
+        gun_muzzle: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: False
+        gun_bottom: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: False
+        gun_handle: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: False
+        gun_magazine: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: True
+        gun_chamber: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: True

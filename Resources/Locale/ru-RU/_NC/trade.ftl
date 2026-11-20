@@ -120,7 +120,7 @@ nc-store-difficulty-junktown-rat = Крыса Джанктауна
 nc-store-difficulty-hub-mercenary = Наёмник из Хаба
 nc-store-difficulty-bunker-buster = Разрушитель бункеров
 nc-store-difficulty-wasteland-legend = Легенда Пустоши
-#Sirius Add - Недостающие ранги сложности магазина
+# Sirius Add - Недостающие ранги сложности магазина
 nc-store-difficulty-servus = Серв
 nc-store-difficulty-plebeian = Плебей
 nc-store-difficulty-auxiliary = Ауксиляр

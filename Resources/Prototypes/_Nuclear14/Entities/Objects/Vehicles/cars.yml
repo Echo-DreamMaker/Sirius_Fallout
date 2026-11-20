@@ -6,30 +6,43 @@
   abstract: true
   components:
   - type: Car #Sirius Fix - car-specific logic (key, engine, passengers, horn/siren)
+    turnRate: 1.75 #Sirius Add - A/D steering speed (radians/sec)
+    cargoCapacity: 2 #Sirius Add - closed crates in the cargo bay
+    windowTitleLocId: car-window-title #Sirius Add
   - type: Repairable
     fuelCost: 20
     doAfterDelay: 10
-  - type: UserInterface
+  - type: UserInterface #Sirius Add - car console alongside the legacy mech/storage UIs
     interfaces:
+      enum.CarUiKey.Key:
+        type: CarBoundUserInterface
       enum.MechUiKey.Key:
         type: MechBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+  - type: ActivatableUI #Sirius Add
+    key: enum.CarUiKey.Key
   - type: DamageOtherOnHit
     soundHit:
       collection: MetalThud
   - type: Puller
     needsHands: false
   - type: MovementSpeedModifier
-    acceleration: 8
-    friction: 5 # wheels dont stop instantly
-    baseSprintSpeed: 9
-    baseWalkSpeed: 4.5 # default walking speed
+    #Sirius Fix - acceleration AND friction must scale together: dv/dt = accel*wishSpeed - friction*v.
+    # Halving only acceleration dropped the equilibrium speed from walk to walk/2 (car never
+    # reached nominal speed). Halving both doubles acceleration time and keeps top speed.
+    acceleration: 1.335 #Sirius Change - 2x longer acceleration time (was 2.67)
+    friction: 1.335 #Sirius Change - 2x lower friction to preserve nominal speed
+    frictionNoInput: 0.3325 #Sirius Change - kept as fallback; the car's 10s braking run uses its own linear coast in SharedMoverController
+    ignoreTileAcceleration: true #Sirius Change
+    baseSprintSpeed: 12 #Sirius Change - was 9 (nominal speed raised by Raven's decision)
+    baseWalkSpeed: 6 #Sirius Change - was 4.5 (nominal speed raised by Raven's decision)
   - type: AmbientSound
     sound: "/Audio/Effects/Vehicle/vehicleengineidle.ogg"
     range: 10
     volume: -10
     enabled: false
+  - type: CarHeadlights #Sirius Change - spawns two cone headlights, toggled by action
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -44,15 +57,22 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.9,0.5,0.9"
-        density: 21390
+        shape: !type:PolygonShape #Sirius Change - 8-vertex oval hull instead of a rectangle (no native ellipse in the engine)
+          vertices:
+          - "0.5,0"
+          - "0.3536,0.7955"
+          - "0,1.125"
+          - "-0.3536,0.7955"
+          - "-0.5,0"
+          - "-0.3536,-0.7955"
+          - "0,-1.125"
+          - "0.3536,-0.7955"
+        #Sirius Change - length 1.8 -> 2.25 (+25%), area 1.27 -> 1.59; density divided by 1.25 to keep the same mass (~38500)
+        density: 24240
         mask:
-        - MachineMask
+        - MachineMask #Sirius Fix - no BulletImpassable: downed/small mobs (MobLayer) must not overlap either direction
         layer:
-        - MidImpassable
-        - LowImpassable
+        - MidImpassable #Sirius Change - standing mobs collide; downed mobs lose MidImpassable from their mask
         - BulletImpassable
   - type: Appearance
   - type: ContainerContainer
@@ -64,6 +84,8 @@
       mech-passenger-1: !type:ContainerSlot #Sirius Fix
       mech-passenger-2: !type:ContainerSlot #Sirius Fix
       mech-passenger-3: !type:ContainerSlot #Sirius Fix
+      mech-passenger-4: !type:ContainerSlot #Sirius Add
+      car-cargo: !type:Container #Sirius Add
       storagebase: !type:Container
   - type: ContainerFill
     containers:
@@ -108,12 +130,13 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    noRot: true
+    noRot: true #Sirius Change - hybrid smooth rotation handled by CarSpriteRotationSystem (90° sectors, NE/NW->North, SE/SW->South)
     sprite: _Nuclear14/Objects/Vehicles/highwayman.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
       state: highwayman1 #Sirius Fix - idle/off by default, engine starts animation
   - type: Mech
+    maxIntegrity: 1000 #Sirius Change - hull durability
     baseState: highwayman1 #Sirius Fix - idle
     openState: highwayman1
     brokenState: highwayman_open
@@ -126,14 +149,11 @@
     hornSound:
       path: /Audio/Items/airhorn.ogg
     mechHornAction: ActionMechHorn
-  - type: PointLight #Sirius Fix - cone like seclite, brighter/stronger
-    enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
-    radius: 10
-    energy: 5
-    softness: 5
-    netsync: false
+    mechUiAction: ActionCarOpenUI #Sirius Add - open the car console
+    mechEjectPassenger4Action: ActionMechEjectPassenger4 #Sirius Add
+  - type: MovementSpeedModifier #Sirius Change - Highwayman base speed
+    baseWalkSpeed: 7 #Sirius Change - was 5
+    baseSprintSpeed: 14 #Sirius Change - was 11
 
 - type: entity
   id: ActionMechHorn
@@ -212,6 +232,33 @@
       state: mech_eject
     event: !type:MechEjectPassenger3Event
 
+- type: entity #Sirius Add - fourth car passenger
+  id: ActionMechEjectPassenger4
+  name: action-name-car-eject-passenger-4
+  description: action-description-car-eject-passenger-4
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_eject
+    event: !type:MechEjectPassenger4Event
+
+- type: entity #Sirius Add - opens the car console instead of the mech equipment UI
+  id: ActionCarOpenUI
+  name: action-name-car-open-ui
+  description: action-description-car-open-ui
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_mecha.rsi
+      state: mech_view_stats
+    event: !type:CarOpenUiEvent
+    useDelay: 1
+
 - type: entity
   parent: [ BaseCars, SpecialMech ]
   id: N14HMMWV1
@@ -220,12 +267,13 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    noRot: true
+    noRot: true #Sirius Change - hybrid smooth rotation handled by CarSpriteRotationSystem (90° sectors, NE/NW->North, SE/SW->South)
     sprite: _Nuclear14/Objects/Vehicles/MWBoS_HMMWV1.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
       state: MWBoS_HMMWV_Metall12
   - type: Mech
+    maxIntegrity: 1500 #Sirius Change - hull durability
     baseState: MWBoS_HMMWV_Metall12
     openState: MWBoS_HMMWV_Metall1
     brokenState: MWBoS_HMMWV_Metall1
@@ -238,6 +286,21 @@
     hornSound:
       path: /Audio/Items/airhorn.ogg
     mechHornAction: ActionMechHorn
+    mechUiAction: ActionCarOpenUI #Sirius Add - open the car console
+    mechEjectPassenger4Action: ActionMechEjectPassenger4 #Sirius Add
+  - type: Destructible #Sirius Change - destruction follows the 1500 hull
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500 #Sirius Change
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Vehicles/Hum_Move.ogg
@@ -253,12 +316,13 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    noRot: true
+    noRot: true #Sirius Change - hybrid smooth rotation handled by CarSpriteRotationSystem (90° sectors, NE/NW->North, SE/SW->South)
     sprite: _Nuclear14/Objects/Vehicles/MWBoS_HMMWV2.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
       state: MWBoS_HMMWV_Metall22
   - type: Mech
+    maxIntegrity: 1500 #Sirius Change - hull durability
     baseState: MWBoS_HMMWV_Metall22
     openState: MWBoS_HMMWV_Metall2
     brokenState: MWBoS_HMMWV_Metall2
@@ -271,6 +335,21 @@
     hornSound:
       path: /Audio/Items/airhorn.ogg
     mechHornAction: ActionMechHorn
+    mechUiAction: ActionCarOpenUI #Sirius Add - open the car console
+    mechEjectPassenger4Action: ActionMechEjectPassenger4 #Sirius Add
+  - type: Destructible #Sirius Change - destruction follows the 1500 hull
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500 #Sirius Change
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Vehicles/Hum_Move.ogg
@@ -286,12 +365,13 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    noRot: true
+    noRot: true #Sirius Change - hybrid smooth rotation handled by CarSpriteRotationSystem (90° sectors, NE/NW->North, SE/SW->South)
     sprite: _Nuclear14/Objects/Vehicles/pickup.rsi
     layers:
     - map: [ "enum.MechVisualLayers.Base" ]
       state: pickup3
   - type: Mech
+    maxIntegrity: 1250 #Sirius Change - hull durability
     baseState: pickup3
     openState: pickup1
     brokenState: pickup_open
@@ -304,3 +384,34 @@
     hornSound:
       path: /Audio/Items/airhorn.ogg
     mechHornAction: ActionMechHorn
+    mechUiAction: ActionCarOpenUI #Sirius Add - open the car console
+    mechEjectPassenger4Action: ActionMechEjectPassenger4 #Sirius Add
+  - type: Destructible #Sirius Change - destruction follows the 1250 hull
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1250 #Sirius Change
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+# #Sirius Add - one of the two cone headlight sources spawned by CarHeadlightsSystem
+- type: entity
+  id: N14CarHeadlight
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: false
+    lightMask: ConeLightMask
+    autoRot: true
+    radius: 12 #Sirius Change - cone length +50% (8 -> 12)
+    energy: 4
+    softness: 5
+    netsync: true
+  - type: Transform
+    anchored: false

@@ -80,11 +80,11 @@ humanoid-profile-editor-robot-model-robobrain-laser-zax = Z.A.X Лазер
 
 # Robot model selector labels for C-27 Humanoid Robot variants.
 humanoid-profile-editor-robot-model-c27-generic = Общее шасси
-#Sirius Fix - "Issue" здесь означает модификацию/серию, а не проблему
+# Sirius Fix - "Issue" здесь означает модификацию/серию, а не проблему
 humanoid-profile-editor-robot-model-c27-ncr = Модификация НКР
 humanoid-profile-editor-robot-model-c27-bos = Модификация Братства
 humanoid-profile-editor-robot-model-c27-zax = Шасси Z.A.X
-#Sirius Add - Недостающие модели шасси C-27
+# Sirius Add - Недостающие модели шасси C-27
 humanoid-profile-editor-robot-model-c27-integrator = Шасси «Интегратор»
 humanoid-profile-editor-robot-model-c27-assault = Штурмовое шасси
 humanoid-profile-editor-robot-model-c27-recon = Разведывательное шасси

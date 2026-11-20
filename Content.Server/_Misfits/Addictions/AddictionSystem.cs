@@ -346,6 +346,9 @@ public sealed class AddictionSystem : SharedAddictionSystem
             return null;
 
         // #Misfits Fix - Localize the picked key; Pick() returns a raw LocId, not the translated string
-        return Loc.GetString(_random.Pick(dataset.Values));
+        // #Sirius Fix: IReadOnlyList.Pick() uses index 0..Count-1, but LocalizedDatasetValues[0]
+        // is "addiction-effect-0" (no such key) while the enumerator is 1-based. Pick a 1-based
+        // index so every one of the 10 translations is reachable and no raw LocId is shown.
+        return Loc.GetString(dataset.Values[_random.Next(1, dataset.Values.Count + 1)]);
     }
 }

@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._N14.Vehicles; // #Sirius Add
 using Content.Shared.Alert;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.CCVar;
@@ -20,6 +21,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Maths; // #Sirius Add
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Controllers;
@@ -64,6 +66,7 @@ namespace Content.Shared.Movement.Systems
         protected EntityQuery<TransformComponent> XformQuery;
         protected EntityQuery<CanMoveInAirComponent> CanMoveInAirQuery;
         protected EntityQuery<NoRotateOnMoveComponent> NoRotateQuery;
+        protected EntityQuery<CarComponent> CarQuery; // #Sirius Add
 
         /// <summary>
         /// <see cref="CCVars.StopSpeed"/>
@@ -108,6 +111,7 @@ namespace Content.Shared.Movement.Systems
             XformQuery = GetEntityQuery<TransformComponent>();
             NoRotateQuery = GetEntityQuery<NoRotateOnMoveComponent>();
             CanMoveInAirQuery = GetEntityQuery<CanMoveInAirComponent>();
+            CarQuery = GetEntityQuery<CarComponent>(); // #Sirius Add
 
             InitializeInput();
             InitializeRelay();
@@ -169,6 +173,9 @@ namespace Content.Shared.Movement.Systems
             {
                 UsedMobMovement[uid] = false;
                 SetWishDir((uid, mover), Vector2.Zero);
+                // #Sirius Fix - a blocked car (engine off / no key) must not keep turning.
+                if (CarQuery.HasComponent(uid))
+                    PhysicsSystem.SetAngularVelocity(physicsUid, 0f, body: physicsComponent);
                 return;
             }
 
@@ -226,9 +233,12 @@ namespace Content.Shared.Movement.Systems
             DebugTools.Assert(MathHelper.CloseToPercent(total.Length(), worldTotal.Length()));
 
             var velocity = physicsComponent.LinearVelocity;
+            var minimumFrictionSpeed = moveSpeedComponent?.MinimumFrictionSpeed ?? MovementSpeedModifierComponent.DefaultMinimumFrictionSpeed;
             float friction;
             float weightlessModifier;
             float accel;
+            float carAngularVelocity = 0f; // #Sirius Fix - A/D steering, applied through physics instead of a transform teleport
+            float carCoastStep = 0f; // #Sirius Add - linear braking per second while the throttle is released
 
             if (weightless)
             {
@@ -242,32 +252,139 @@ namespace Content.Shared.Movement.Systems
             }
             else
             {
-                if (worldTotal != Vector2.Zero || moveSpeedComponent?.FrictionNoInput == null)
+                // #Sirius Change - cars use tank controls on the normal (predicted) mover input:
+                // W/S are car-relative throttle, A/D rotate the hull. Walk/sprint, acceleration,
+                // friction and minimum speed still come from MovementSpeedModifierComponent.
+                if (CarQuery.TryComp(uid, out var carComp))
                 {
-                    friction = tileDef?.MobFriction ?? moveSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
+                    var buttons = mover.HeldMoveButtons;
+                    var throttle = 0f;
+                    if ((buttons & MoveButtons.Up) != 0)
+                        throttle += 1f;
+                    if ((buttons & MoveButtons.Down) != 0)
+                        throttle -= 1f;
+
+                    var turn = 0f;
+                    if ((buttons & MoveButtons.Left) != 0)
+                        turn += 1f;
+                    if ((buttons & MoveButtons.Right) != 0)
+                        turn -= 1f;
+
+                    // #Sirius Fix - steer with angular velocity instead of teleporting the
+                    // dynamic body's transform each tick. The direct LocalRotation write fought
+                    // the solver and prediction: the car shook, lagged after spawn and could
+                    // start spinning. Angular velocity is predicted on the client as well.
+                    carAngularVelocity = turn * carComp.TurnRate;
+
+                    // #Sirius Change - reverse never sprints and accelerates 2x slower than forward.
+                    var reversing = throttle < 0f;
+                    var driveSpeed = reversing ? walkSpeed
+                        : mover.Sprinting ? sprintSpeed : walkSpeed;
+                    var carForward = _transform.GetWorldRotation(xform).ToWorldVec();
+                    worldTotal = carForward * (throttle * driveSpeed);
+
+                    accel = moveSpeedComponent?.IgnoreTileAcceleration == true
+                        ? moveSpeedComponent.Acceleration
+                        : tileDef?.MobAcceleration ?? moveSpeedComponent?.Acceleration ?? MovementSpeedModifierComponent.DefaultAcceleration;
+                    if (reversing)
+                        accel *= 0.5f; // #Sirius Change - 2x slower reverse acceleration
+
+                    var carSpeed = velocity.Length();
+                    if (throttle != 0f)
+                    {
+                        // #Sirius Fix - pressing W/S again ends the braking run immediately.
+                        carComp.Coasting = false;
+                        carComp.CoastStartSpeed = 0f;
+
+                        friction = tileDef?.MobFriction ?? moveSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
+
+                        // #Sirius Change - reverse keeps walk-speed as its target but accelerates
+                        // 2x slower: halving friction as well keeps the same equilibrium speed.
+                        if (reversing)
+                            friction *= 0.5f;
+
+                        // Drift: almost unnoticeable at <=4 speed, noticeably stronger at high speed.
+                        if (carSpeed <= 4f)
+                            friction *= 1.0f;
+                        else
+                            friction *= MathF.Max(0.1f, 1.0f - (carSpeed - 4f) * 0.18f);
+                    }
+                    else
+                    {
+                        // #Sirius Fix - the engine's Friction() is exponential: at 0.3325 it
+                        // dumps half the speed in ~2s and then crawls, which is neither 10s nor
+                        // an even slowdown. Capture the release speed once and bleed it off
+                        // linearly so the braking run lasts exactly CarCoastDuration.
+                        // Skipping engine friction here prevents double deceleration; the
+                        // momentum vector keeps its direction, so the hull still drifts.
+                        if (carSpeed > minimumFrictionSpeed)
+                        {
+                            if (!carComp.Coasting || carComp.CoastStartSpeed <= 0f)
+                            {
+                                carComp.Coasting = true;
+                                carComp.CoastStartSpeed = carSpeed;
+                            }
+
+                            carCoastStep = carComp.CoastStartSpeed / CarComponent.CarCoastDuration;
+                            friction = 0f;
+                        }
+                        else
+                        {
+                            carComp.Coasting = false;
+                            carComp.CoastStartSpeed = 0f;
+                            friction = tileDef?.MobFrictionNoInput
+                                ?? moveSpeedComponent?.FrictionNoInput
+                                ?? MovementSpeedModifierComponent.DefaultFrictionNoInput;
+                        }
+                    }
                 }
                 else
                 {
-                    friction = tileDef?.MobFrictionNoInput ?? moveSpeedComponent.FrictionNoInput ?? MovementSpeedModifierComponent.DefaultFrictionNoInput;
+                    if (worldTotal != Vector2.Zero || moveSpeedComponent?.FrictionNoInput == null)
+                    {
+                        friction = tileDef?.MobFriction ?? moveSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
+                    }
+                    else
+                    {
+                        friction = tileDef?.MobFrictionNoInput ?? moveSpeedComponent.FrictionNoInput ?? MovementSpeedModifierComponent.DefaultFrictionNoInput;
+                    }
+
+                    accel = moveSpeedComponent?.IgnoreTileAcceleration == true
+                        ? moveSpeedComponent.Acceleration
+                        : tileDef?.MobAcceleration ?? moveSpeedComponent?.Acceleration ?? MovementSpeedModifierComponent.DefaultAcceleration;
                 }
 
                 weightlessModifier = 1f;
-                accel = moveSpeedComponent?.IgnoreTileAcceleration == true
-                    ? moveSpeedComponent.Acceleration
-                    : tileDef?.MobAcceleration ?? moveSpeedComponent?.Acceleration ?? MovementSpeedModifierComponent.DefaultAcceleration;
             }
 
-            var minimumFrictionSpeed = moveSpeedComponent?.MinimumFrictionSpeed ?? MovementSpeedModifierComponent.DefaultMinimumFrictionSpeed;
             Friction(minimumFrictionSpeed, frameTime, friction, ref velocity);
+
+            // #Sirius Add - linear braking run. Only the velocity's length changes; its
+            // direction is preserved, so the car keeps sliding along its momentum vector.
+            if (carCoastStep > 0f)
+            {
+                var coastSpeed = velocity.Length();
+                var newCoastSpeed = MathF.Max(0f, coastSpeed - carCoastStep * frameTime);
+
+                if (newCoastSpeed <= minimumFrictionSpeed)
+                    velocity = Vector2.Zero;
+                else if (newCoastSpeed < coastSpeed)
+                    velocity *= newCoastSpeed / coastSpeed;
+            }
 
             if (worldTotal != Vector2.Zero)
             {
-                if (!NoRotateQuery.HasComponent(uid))
+                // #Sirius Change - cars steer with A/D above; their facing must not be
+                // dragged toward the movement vector (otherwise S would spin the car around).
+                if (!NoRotateQuery.HasComponent(uid) && !CarQuery.HasComponent(uid))
                 {
                     // TODO apparently this results in a duplicate move event because "This should have its event run during
                     // island solver"??. So maybe SetRotation needs an argument to avoid raising an event?
                     var worldRot = _transform.GetWorldRotation(xform);
-                    _transform.SetLocalRotation(xform, xform.LocalRotation + worldTotal.ToWorldAngle() - worldRot);
+                    var targetRot = worldTotal.ToWorldAngle();
+                    // #Sirius Add - cars do not rotate toward the movement vector; A/D steering
+                    // above is the only source of rotation while driving.
+                    _transform.SetLocalRotation(xform, xform.LocalRotation + targetRot - worldRot);
                 }
 
                 if (!weightless && MobMoverQuery.TryGetComponent(uid, out var mobMover) &&
@@ -311,8 +428,10 @@ namespace Content.Shared.Movement.Systems
 
             PhysicsSystem.SetLinearVelocity(physicsUid, velocity, body: physicsComponent);
 
-            // Ensures that players do not spiiiiiiin
-            PhysicsSystem.SetAngularVelocity(physicsUid, 0, body: physicsComponent);
+            // #Sirius Fix - cars need their A/D angular velocity; zeroing it here cancelled
+            // steering every tick while the code also wrote LocalRotation directly.
+            PhysicsSystem.SetAngularVelocity(physicsUid,
+                CarQuery.HasComponent(uid) ? carAngularVelocity : 0f, body: physicsComponent);
         }
 
         private void WalkingAlert(Entity<InputMoverComponent> entity)
@@ -411,6 +530,15 @@ namespace Content.Shared.Movement.Systems
         public bool UseMobMovement(EntityUid uid)
         {
             return UsedMobMovement.TryGetValue(uid, out var used) && used;
+        }
+
+        // #Sirius Add - vehicles clear the relay target's buffered buttons when a new pilot
+        // takes over. Without this, stale W/A/D from a previous session makes a freshly
+        // boarded car lurch or turn in place before the first input packet arrives.
+        public void ClearMoveInput(EntityUid uid)
+        {
+            if (MoverQuery.TryGetComponent(uid, out var mover))
+                SetMoveInput((uid, mover), MoveButtons.None);
         }
 
         /// <summary>

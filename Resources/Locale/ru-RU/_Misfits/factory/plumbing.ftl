@@ -1,4 +1,4 @@
-#Sirius Add - Насос для жидкостей
+# Sirius Add - Насос для жидкостей
 # Фильтр
 plumbing-filter-unset = Фильтр не задан — разрешены [color=green]все реагенты[/color].
 plumbing-filter-set = Задан фильтр на [color=red]{$reagent}[/color], прочие реагенты запрещены.

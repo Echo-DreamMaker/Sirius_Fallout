@@ -1,4 +1,4 @@
-#Sirius Add: полная локализация банков слов для процедурных книг (_Misfits/paper/story-generation)
+# Sirius Add: полная локализация банков слов для процедурных книг (_Misfits/paper/story-generation)
 
 story-gen-falloutbook-type1 = том
 story-gen-falloutbook-type2 = исторический сборник

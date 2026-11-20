@@ -299,7 +299,22 @@ public abstract partial class SharedStorageSystem : EntitySystem
                 }
                 else
                 {
-                    OpenStorageUI(uid, args.User, component);
+                    // Sirius Fix: match E activation behavior so the verb can open storage even when other storages are open.
+                    if (ContainerSystem.TryGetContainingContainer((uid, null, null), out var container) &&
+                        UI.IsUiOpen(container.Owner, StorageComponent.StorageUiKey.Key, args.User))
+                    {
+                        _nestedCheck = true;
+                        HideStorageWindow(container.Owner, args.User);
+                        OpenStorageUI(uid, args.User, component, silent: true);
+                        _nestedCheck = false;
+                    }
+                    else
+                    {
+                        if (_openStorageLimit == 1)
+                            UI.CloseUserUis<StorageComponent.StorageUiKey>(args.User);
+
+                        OpenStorageUI(uid, args.User, component);
+                    }
                 }
             }
         };
@@ -396,7 +411,8 @@ public abstract partial class SharedStorageSystem : EntitySystem
     /// </summary>
     private void OnActivate(EntityUid uid, StorageComponent storageComp, ActivateInWorldEvent args)
     {
-        if (args.Handled || !args.Complex || !CanInteract(args.User, (uid, storageComp), storageComp.ClickInsert))
+        // Sirius Fix: opening a storage is not a click-insert action; don't gate activation on ClickInsert.
+        if (args.Handled || !args.Complex || !CanInteract(args.User, (uid, storageComp)))
             return;
 
         // Toggle

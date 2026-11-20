@@ -1366,6 +1366,19 @@ namespace Content.Client.Lobby.UI
             if (_playerManager.LocalSession == null || Profile == null)
                 return;
 
+            // #Sirius Add: opening a role's equipment window makes that role the highest priority.
+            // NormalizeSingleHighPriority only returns null for a null profile, excluded above.
+            var withHighPriority = Profile.JobPriorities.GetValueOrDefault(jobProto.ID, JobPriority.Never) == JobPriority.High
+                ? Profile
+                : Profile.WithJobPriority(jobProto.ID, JobPriority.High);
+            var normalized = NormalizeSingleHighPriority(withHighPriority, jobProto.ID)!;
+            if (!ReferenceEquals(normalized, Profile))
+            {
+                Profile = normalized;
+                UpdateJobPriorities();
+                SetDirty();
+            }
+
             // #Sirius Change: seed job-specific loadouts from legacy/global selections on first open for this job.
             if (!Profile.LoadoutPreferences.Any(p => p.JobName == jobProto.ID))
             {

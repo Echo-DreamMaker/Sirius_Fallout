@@ -1,4 +1,4 @@
-#Sirius Add - Наборы DAGGER
+# Sirius Add - Наборы DAGGER
 undecided-loadout-category-dagger-anti-materiel-name = Набор DAGGER «Противотанковый»
 undecided-loadout-category-dagger-anti-materiel-description =
     Включает: 1 патронташ НКР, 1 противотанковую винтовку, 3 магазина к противотанковой винтовке,

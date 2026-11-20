@@ -1,4 +1,4 @@
-#Sirius Add - Люк с возможностью поддеть
+# Sirius Add - Люк с возможностью поддеть
 manhole-pry-verb-open = Поддеть люк
 manhole-pry-verb-close = Закрыть люк
 manhole-pry-open-popup = Вы поддеваете и открываете крышку люка.

@@ -9,3 +9,13 @@
   - direction: 0
     innerWidth: 22.5
     outerWidth: 45
+
+# Sirius Add - very narrow cone pointing backwards for tracer rounds.
+# The texture has a bright 2-degree core and a much weaker 3-degree fringe.
+- type: lightMask
+  id: TracerBackConeLightMask
+  maskPath: /Textures/_Nuclear14/Effects/LightMasks/tracer_cone_back.png
+  lightCones:
+  - direction: 180
+    innerWidth: 2
+    outerWidth: 3

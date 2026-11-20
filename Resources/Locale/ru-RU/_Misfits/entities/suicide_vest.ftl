@@ -1,4 +1,4 @@
-#Sirius Add - Жилет смертника
+# Sirius Add - Жилет смертника
 misfits-suicide-vest-armed = Вы взводите жилет. Обратного пути уже нет.
 
 misfits-suicide-vest-cannot-remove-self = Руки не слушаются вас, вы не в силах его снять.

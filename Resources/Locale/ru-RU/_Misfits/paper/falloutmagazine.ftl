@@ -1,4 +1,4 @@
-#Sirius Add: локализация названий и выпусков журналов (_Misfits/paper/falloutmagazine)
+# Sirius Add: локализация названий и выпусков журналов (_Misfits/paper/falloutmagazine)
 
 falloutmagazine-astoundinglyawesometales1 = Поразительные истории
 

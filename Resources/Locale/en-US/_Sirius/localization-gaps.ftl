@@ -5,27 +5,16 @@
 admin-announce-hint-sound = Sound
 admin-announce-hint-voice = Voice
 
-# Admin verbs
-admin-verb-text-make-blood-cultist = Make blood cultist
-
 # Baby jail
 babyjail-command-overall-hours-set = Set the maximum overall playtime for the baby jail to {$hours} hours.
 
-# Biscuit
-biscuit-verb-crack = Crack
-
 # Blood cult
-blood-cult-title = Blood Cult
 blood-cult-summon-being-pulled = That cultist is being dragged away and cannot be summoned.
 blood-cult-summon-cuffed = That cultist is restrained and cannot be summoned.
-blood-rites-stored-blood = Stored blood: {$amount}
 cult-blood-boil-rune-no-targets = No suitable targets near the rune!
-cult-rune-cant-draw = You cannot draw a rune without solid ground beneath you.
 cult-cant-draw-rune = You cannot draw a rune on this tile.
-cult-item-component-generic = The item refuses to obey your will!
 cult-magic-no-empty-hand = You need a free hand to summon that.
 shuttle-curse-success = You curse the shuttle!
-timed-factory-cooldown = The factory is not ready yet. Wait {$cooldown} seconds.
 
 # Bwoink
 bwoink-none-selected = No player selected
@@ -65,13 +54,11 @@ ghost-respawn-same-character-slightly-changed-name = You cannot respawn as a cha
 golem-no-using-guns-popup = You can't use guns!
 
 # Hologram
-hologram-on-examine = This is a hologram.
 
 # List view selector
 list-view-window-default-title = Select
 
 # Load character command
-loadcharacter-command-description = Loads a saved character profile onto an entity.
 
 # Vehicles
 mech-verb-enter-passenger = Enter as passenger
@@ -83,7 +70,6 @@ n14-requisitions-sell-item-delivery-suffix =  [color=#33FF33](delivery)[/color]
 n14-requisitions-sell-item-worthless = {$item}  [color=#5fbf5f]x{$count}[/color]  [color=#cf2f2f]worthless[/color]
 
 # Blood cult name selector
-name-selector-title = Choose a name
 
 # Caravan contracts
 nc-contract-tier-locked-first = Complete contracts to unlock this tier.
@@ -91,19 +77,20 @@ nc-store-difficulty-lazy-plebeian = Plebeian
 nc-store-hall-of-fame-completed = {$count} completed
 
 # Psionics objectives
-objective-condition-raise-glimmer-title = Raise glimmer to {$target}Ψ
 
 # Salvage
 salvage-expedition-mission-completed = Mission completed.
 
 # Station goals
-station-goal-fax-paper-name = Station goal
 
 # Stripping
 strippable-component-item-slot-occupied = That slot is already occupied!
 
 # Playtime transfer
 time-transfer-panel-warning-no-perms = You do not have permission to transfer playtime.
+
+# Windows
+window-close = Close
 
 # Whitelist
 whitelist-not-whitelisted = You are not whitelisted on this server.

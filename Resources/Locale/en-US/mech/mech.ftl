@@ -18,7 +18,7 @@ mech-slot-display = Open Slots: {$amount}
 
 mech-no-enter = You cannot pilot this.
 
-#Sirius Fix - car keys/passengers
+# Sirius Fix - car keys/passengers
 mech-key-extract-verb = Remove ignition key
 mech-key-removed = Ignition key removed.
 mech-key-dropped = Ignition key dropped.

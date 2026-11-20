@@ -20,7 +20,7 @@ mech-no-enter = Вы не можете пилотировать это.
 
 mech-eject-pilot-alert = { $user } вытаскивает пилота из { $item }!
 
-#Sirius Fix - car keys/passengers
+# Sirius Fix - car keys/passengers
 mech-key-extract-verb = Извлечь ключ зажигания
 mech-key-removed = Ключ зажигания извлечён.
 mech-key-dropped = Ключ зажигания выпал.
