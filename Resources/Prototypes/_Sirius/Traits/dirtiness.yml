@@ -1,0 +1,39 @@
+# #Sirius Add: cleanliness-related perks. Negative points give the character points to spend,
+# positive points consume them. Each perk carries a unique marker component because
+# TraitAddComponent skips a component type that is already present.
+
+- type: trait
+  id: SiriusPerkKeenSmell
+  category: Mental
+  points: -2
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: SiriusPerkKeenSmell
+
+- type: trait
+  id: SiriusPerkChronicRhinitis
+  category: Mental
+  points: 4
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: SiriusPerkChronicRhinitis
+
+- type: trait
+  id: SiriusPerkCleanFreak
+  category: Physical
+  points: 3
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: SiriusPerkCleanFreak
+
+- type: trait
+  id: SiriusPerkStinky
+  category: Physical
+  points: -2
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: SiriusPerkStinky

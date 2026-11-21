@@ -1,0 +1,9 @@
+# #Sirius Add: status effects of the SiriusDirty system.
+- type: statusEffect
+  id: Wet
+  alert: SiriusWet
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: SiriusWashed
+  alwaysAllowed: true

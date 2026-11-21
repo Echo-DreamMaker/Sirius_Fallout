@@ -1,0 +1,34 @@
+# #Sirius Add: HUD icons for the SiriusDirty status and the Wet effect.
+# Seven states for the cleanliness scale, from the dirtiest (severity 0) to the cleanest (6).
+# #Sirius Change: the source GIF had five frames, so the two cleanest states (5 and 6) still
+# share one drawing. The cleanest state (0) is now its own drawing — the same grinning face
+# with freshness sparkles around it — so it no longer repeats state 1 pixel for pixel.
+- type: alert
+  id: SiriusDirty
+  icons:
+  - sprite: /Textures/_Sirius/Interface/Alerts/sirius_dirt.rsi
+    state: siriusdirty6
+  - sprite: /Textures/_Sirius/Interface/Alerts/sirius_dirt.rsi
+    state: siriusdirty5
+  - sprite: /Textures/_Sirius/Interface/Alerts/sirius_dirt.rsi
+    state: siriusdirty4
+  - sprite: /Textures/_Sirius/Interface/Alerts/sirius_dirt.rsi
+    state: siriusdirty3
+  - sprite: /Textures/_Sirius/Interface/Alerts/sirius_dirt.rsi
+    state: siriusdirty2
+  - sprite: /Textures/_Sirius/Interface/Alerts/sirius_dirt.rsi
+    state: siriusdirty1
+  - sprite: /Textures/_Sirius/Interface/Alerts/sirius_dirt.rsi
+    state: siriusdirty0
+  name: alerts-sirius-dirty-name
+  description: alerts-sirius-dirty-desc
+  minSeverity: 0
+  maxSeverity: 6
+
+- type: alert
+  id: SiriusWet
+  icons:
+  - sprite: /Textures/_Sirius/Interface/Alerts/sirius_wet.rsi
+    state: wet
+  name: alerts-sirius-wet-name
+  description: alerts-sirius-wet-desc

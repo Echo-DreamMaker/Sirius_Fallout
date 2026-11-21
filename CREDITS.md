@@ -110,6 +110,8 @@ The following SS13 projects have contributed audio, sprites, or other assets tra
 | Name / Handle | Contribution |
 |---|---|
 | Peptide90 | Creator of the original Russian Nuclear 14 fork; ported and authored numerous assets |
+<!-- #Sirius Add: Rosy_Cosmic is the author of fallout_dirtness_demo.gif and the original Sirius Fallout dirtiness sprites. -->
+| Rosy_Cosmic | Original dirtiness sprites for Sirius Fallout; author of `fallout_dirtness_demo.gif` |
 | Mithrandalf | Original tile sprites for N14 |
 | Zeta_Null | Tile sprite tweaks |
 | Plank-69 | Ripped poster/wallmount sprites from Fallout games |

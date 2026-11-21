@@ -1,0 +1,87 @@
+# #Sirius Add: two independent smell slots. Each effect lasts one minute; a state change
+# overwrites the effect in its slot and the two slots sum into the total mood.
+# Effects are uncategorised on purpose: MoodSystem applies EffectModifier only to those,
+# which is how the "Острый нюх" perk doubles their value (see SiriusDirtySystem).
+
+# #Sirius Add: mood categories are kept here instead of touching the vanilla categories.yml.
+- type: moodCategory
+  id: SiriusSmellSelf
+
+- type: moodCategory
+  id: SiriusSmellOthers
+
+# #Sirius Add: own smell.
+- type: moodEffect
+  id: SiriusSmellSelfAnimal
+  moodChange: -5
+  timeout: 60
+
+- type: moodEffect
+  id: SiriusSmellSelfVeryDirty
+  moodChange: -3
+  timeout: 60
+
+- type: moodEffect
+  id: SiriusSmellSelfDirty
+  moodChange: -1
+  timeout: 60
+
+- type: moodEffect
+  id: SiriusSmellSelfSlightlySmelly
+  moodChange: 0
+  timeout: 60
+  hidden: true
+
+- type: moodEffect
+  id: SiriusSmellSelfRelativelyClean
+  moodChange: 0
+  timeout: 60
+  hidden: true
+
+- type: moodEffect
+  id: SiriusSmellSelfClean
+  moodChange: 1
+  timeout: 60
+
+- type: moodEffect
+  id: SiriusSmellSelfFragrant
+  moodChange: 3
+  timeout: 60
+
+# #Sirius Add: smell of the closest character within three tiles.
+- type: moodEffect
+  id: SiriusSmellOthersAnimal
+  moodChange: -5
+  timeout: 60
+
+- type: moodEffect
+  id: SiriusSmellOthersVeryDirty
+  moodChange: -3
+  timeout: 60
+
+- type: moodEffect
+  id: SiriusSmellOthersDirty
+  moodChange: -1
+  timeout: 60
+
+- type: moodEffect
+  id: SiriusSmellOthersSlightlySmelly
+  moodChange: 0
+  timeout: 60
+  hidden: true
+
+- type: moodEffect
+  id: SiriusSmellOthersRelativelyClean
+  moodChange: 0
+  timeout: 60
+  hidden: true
+
+- type: moodEffect
+  id: SiriusSmellOthersClean
+  moodChange: 1
+  timeout: 60
+
+- type: moodEffect
+  id: SiriusSmellOthersFragrant
+  moodChange: 3
+  timeout: 60
