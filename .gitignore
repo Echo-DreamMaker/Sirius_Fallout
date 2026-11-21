@@ -402,6 +402,9 @@ memories/README.md
 memories/debugging.md
 build_verify_diag.txt
 /local_config.toml
+# OpenCode local config (may contain secrets)
+opencode.json
+.opencode/opencode.json
 AGENTS.md
 .dotnet/10.0.107.toolpath.sentinel
 .dotnet/10.0.107.dotnetFirstUseSentinel

@@ -22,6 +22,8 @@
     - category: Breathing # Vox gang not calling this oxygen
     - category: Pressure
     - alertType: Bleed
+    - alertType: SiriusDirty #Sirius Add: уровни чистоты в HUD
+    - alertType: SiriusWet #Sirius Add: влажный персонаж в HUD
     - category: Temperature
     - category: Hunger
     - category: Thirst

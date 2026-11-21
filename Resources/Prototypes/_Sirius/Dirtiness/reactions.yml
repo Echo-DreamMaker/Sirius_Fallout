@@ -1,0 +1,88 @@
+# #Sirius Add: chemistry chain for washing and soap making.
+- type: reaction
+  id: SiriusSoapWater
+  reactants:
+    Water: { amount: 3 }
+    SoapReagent: { amount: 1 }
+  products:
+    SoapWater: 4
+
+- type: reaction
+  id: SiriusLye
+  minTemp: 370
+  reactants:
+    Charcoal: { amount: 1 }
+    Water: { amount: 1 }
+  products:
+    Lye: 2
+
+# #Sirius Add: alternative SodiumHydroxide recipe from lye and Abraxo cleaner.
+- type: reaction
+  id: SiriusSodiumHydroxide
+  reactants:
+    Lye: { amount: 1 }
+    Abraxocleaner: { amount: 1 }
+  products:
+    SodiumHydroxide: 2
+
+# #Sirius Add: soap reagent turns into a bar once the solution cools down.
+- type: reaction
+  id: SiriusSoapPlain
+  minTemp: 370
+  reactants:
+    Lye: { amount: 1 }
+    Water: { amount: 1 }
+  products:
+    SoapReagent: 2
+  effects:
+  - !type:SiriusSolidifySoap
+
+# #Sirius Add: five bars of the siriussoap family. The plant is a catalyst so it
+# remains in the solution and tells the solidification system which bar to make.
+- type: reaction
+  id: SiriusSoapTarberry
+  minTemp: 370
+  reactants:
+    Lye: { amount: 1 }
+    Water: { amount: 1 }
+    ExtractTarberries: { amount: 1, catalyst: true }
+  products:
+    SoapReagent: 2
+  effects:
+  - !type:SiriusSolidifySoap
+
+- type: reaction
+  id: SiriusSoapStarlight
+  minTemp: 370
+  reactants:
+    Lye: { amount: 1 }
+    Water: { amount: 1 }
+    ExtractStarlightBerries: { amount: 1, catalyst: true }
+  products:
+    SoapReagent: 2
+  effects:
+  - !type:SiriusSolidifySoap
+
+- type: reaction
+  id: SiriusSoapGlowpepper
+  minTemp: 370
+  reactants:
+    Lye: { amount: 1 }
+    Water: { amount: 1 }
+    ExtractGlowpepper: { amount: 1, catalyst: true }
+  products:
+    SoapReagent: 2
+  effects:
+  - !type:SiriusSolidifySoap
+
+- type: reaction
+  id: SiriusSoapAgave
+  minTemp: 370
+  reactants:
+    Lye: { amount: 1 }
+    Water: { amount: 1 }
+    ExtractAgaveNectar: { amount: 1, catalyst: true }
+  products:
+    SoapReagent: 2
+  effects:
+  - !type:SiriusSolidifySoap

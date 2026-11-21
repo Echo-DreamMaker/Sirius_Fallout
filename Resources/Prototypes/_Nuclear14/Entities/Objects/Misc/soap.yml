@@ -27,6 +27,8 @@
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-green
+  # #Sirius Add: soap still sanitizes items via the inherited SurgeryCleansDirt;
+  # SurgeryCleanSystem now ignores mob targets so lathering never shows a false popup.
 
 - type: entity
   name: soap

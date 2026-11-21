@@ -8,6 +8,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Content.Shared.Internals;
 using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Roles;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
@@ -40,6 +41,10 @@ public sealed class InternalsSystem : EntitySystem
         SubscribeLocalEvent<InternalsComponent, InternalsDoAfterEvent>(OnDoAfter);
 
         SubscribeLocalEvent<InternalsComponent, StartingGearEquippedEvent>(OnStartingGear);
+
+        // #Sirius Add: keep the toggle button in sync with tanks being equipped/unequipped.
+        SubscribeLocalEvent<GasTankComponent, GotEquippedEvent>(OnGasTankEquipped);
+        SubscribeLocalEvent<GasTankComponent, GotUnequippedEvent>(OnGasTankUnequipped);
     }
 
     private void OnStartingGear(EntityUid uid, InternalsComponent component, ref StartingGearEquippedEvent args)
@@ -158,9 +163,49 @@ public sealed class InternalsSystem : EntitySystem
         args.Handled = true;
     }
 
+    // #Sirius Change: the Internals alert used to be permanent. It is now a contextual
+    // button: show it only while internals are working or a usable tank is equipped.
+    // #Sirius Fix: FindBestGasTank logs an error when a mob has InternalsComponent but no
+    // inventory (e.g. the ghoul maypole). Resolve all three components silently instead.
+    private bool HasToggleableTank(EntityUid uid)
+    {
+        if (!TryComp(uid, out HandsComponent? hands) ||
+            !TryComp(uid, out InventoryComponent? inventory) ||
+            !TryComp(uid, out ContainerManagerComponent? container))
+            return false;
+
+        return FindBestGasTank((uid, hands, inventory, container)) != null;
+    }
+
+    private void RefreshInternalsAlert(Entity<InternalsComponent> ent)
+    {
+        var hasToggleableTank = AreInternalsWorking(ent.Comp) || HasToggleableTank(ent.Owner);
+        if (!hasToggleableTank)
+        {
+            _alerts.ClearAlert(ent, ent.Comp.InternalsAlert);
+            return;
+        }
+
+        _alerts.ShowAlert(ent, ent.Comp.InternalsAlert, GetSeverity(ent.Comp));
+    }
+
+    private void OnGasTankEquipped(Entity<GasTankComponent> ent, ref GotEquippedEvent args)
+    {
+        // #Sirius Add: a newly equipped tank can make the toggle button relevant.
+        if (TryComp(args.Equipee, out InternalsComponent? internals))
+            RefreshInternalsAlert((args.Equipee, internals));
+    }
+
+    private void OnGasTankUnequipped(Entity<GasTankComponent> ent, ref GotUnequippedEvent args)
+    {
+        // #Sirius Add: hide the button when the last usable tank leaves the character.
+        if (TryComp(args.Equipee, out InternalsComponent? internals))
+            RefreshInternalsAlert((args.Equipee, internals));
+    }
+
     private void OnInternalsStartup(Entity<InternalsComponent> ent, ref ComponentStartup args)
     {
-        _alerts.ShowAlert(ent, ent.Comp.InternalsAlert, GetSeverity(ent));
+        RefreshInternalsAlert(ent);
     }
 
     private void OnInternalsShutdown(Entity<InternalsComponent> ent, ref ComponentShutdown args)
@@ -175,7 +220,7 @@ public sealed class InternalsSystem : EntitySystem
             var gasTank = Comp<GasTankComponent>(ent.Comp.GasTankEntity!.Value);
             args.Gas = _gasTank.RemoveAirVolume((ent.Comp.GasTankEntity.Value, gasTank), Atmospherics.BreathVolume);
             // TODO: Should listen to gas tank updates instead I guess?
-            _alerts.ShowAlert(ent, ent.Comp.InternalsAlert, GetSeverity(ent));
+            RefreshInternalsAlert(ent);
         }
     }
     public void DisconnectBreathTool(Entity<InternalsComponent> ent, EntityUid toolEntity)
@@ -188,7 +233,7 @@ public sealed class InternalsSystem : EntitySystem
         if (ent.Comp.BreathTools.Count == 0)
             DisconnectTank(ent);
 
-        _alerts.ShowAlert(ent, ent.Comp.InternalsAlert, GetSeverity(ent));
+        RefreshInternalsAlert(ent);
     }
 
     public void ConnectBreathTool(Entity<InternalsComponent> ent, EntityUid toolEntity)
@@ -196,7 +241,7 @@ public sealed class InternalsSystem : EntitySystem
         if (!ent.Comp.BreathTools.Add(toolEntity))
             return;
 
-        _alerts.ShowAlert(ent, ent.Comp.InternalsAlert, GetSeverity(ent));
+        RefreshInternalsAlert(ent);
 
         var ev = new BreathToolConnectedEvent(ent.Owner, toolEntity);
         RaiseLocalEvent(ent.Owner, ev);
@@ -211,7 +256,7 @@ public sealed class InternalsSystem : EntitySystem
             _gasTank.DisconnectFromInternals((component.GasTankEntity.Value, tank));
 
         component.GasTankEntity = null;
-        _alerts.ShowAlert(component.Owner, component.InternalsAlert, GetSeverity(component));
+        RefreshInternalsAlert((component.Owner, component));
     }
 
     public bool TryConnectTank(Entity<InternalsComponent> ent, EntityUid tankEntity)
@@ -223,7 +268,7 @@ public sealed class InternalsSystem : EntitySystem
             _gasTank.DisconnectFromInternals((ent.Comp.GasTankEntity.Value, tank));
 
         ent.Comp.GasTankEntity = tankEntity;
-        _alerts.ShowAlert(ent, ent.Comp.InternalsAlert, GetSeverity(ent));
+        RefreshInternalsAlert(ent);
         return true;
     }
 

@@ -9,11 +9,11 @@
   "states": [
     {
       "name": "ghoul",
-      "directions": 4
+      "directions": 8
     },
     {
       "name": "unshaded",
-      "directions": 4
+      "directions": 8
     },
     {
       "name": "dead"

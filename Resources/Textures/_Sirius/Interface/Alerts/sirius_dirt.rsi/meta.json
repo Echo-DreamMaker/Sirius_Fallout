@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Original sprites by Rosy_Cosmic for Sirius Fallout, author of fallout_dirtness_demo.gif; frames extracted from that GIF. Adapted by Raven.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "siriusdirty0"
+    },
+    {
+      "name": "siriusdirty1"
+    },
+    {
+      "name": "siriusdirty2"
+    },
+    {
+      "name": "siriusdirty3"
+    },
+    {
+      "name": "siriusdirty4"
+    },
+    {
+      "name": "siriusdirty5"
+    },
+    {
+      "name": "siriusdirty6"
+    }
+  ]
+}

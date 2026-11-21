@@ -5,7 +5,10 @@ using Content.Shared.Examine;
 using Content.Shared.Forensics;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
+using Content.Shared.Item;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
@@ -21,6 +24,7 @@ public sealed class SurgeryCleanSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedSpecialSystem _special = default!;
+    [Dependency] private readonly TagSystem _tags = default!;
 
     public override void Initialize()
     {
@@ -44,6 +48,10 @@ public sealed class SurgeryCleanSystem : EntitySystem
         var user = args.User;
         var target = args.Target;
 
+        // #Sirius Fix: sanitization is for objects only. Mobs are washed with soap, not disinfected.
+        if (HasComp<MobStateComponent>(target))
+            return;
+
         var verb = new UtilityVerb()
         {
             Act = () => TryStartCleaning(ent, user, target),
@@ -66,6 +74,10 @@ public sealed class SurgeryCleanSystem : EntitySystem
 
     public bool RequiresCleaning(EntityUid target)
     {
+        // #Sirius Fix: mobs must never be valid sanitizer targets, even if they carry surgery dirt.
+        if (HasComp<MobStateComponent>(target))
+            return false;
+
         var isDirty = TryComp<SurgeryDirtinessComponent>(target, out var dirtiness) && dirtiness.Dirtiness > 0;
         var isContaminated = TryComp<SurgeryCrossContaminationComponent>(target, out var contamination) && contamination.DNAs.Count > 0;
         return isDirty || isContaminated;
@@ -79,13 +91,24 @@ public sealed class SurgeryCleanSystem : EntitySystem
         args.Handled = TryStartCleaning(ent, args.User, args.Target.Value);
     }
 
+    /// <summary>
+    /// #Sirius Fix: soap applied to an item is a laundry action with its own feedback, so
+    /// "nothing to disinfect" must stay silent. The phrase is only shown when soap is NOT
+    /// being applied to an item (e.g. a mob or a structure).
+    /// </summary>
+    public bool ShouldReportCannotClean(Entity<SurgeryCleansDirtComponent> cleaner, EntityUid target)
+    {
+        return !(_tags.HasTag(cleaner.Owner, "Soap") && HasComp<ItemComponent>(target));
+    }
+
     public bool TryStartCleaning(Entity<SurgeryCleansDirtComponent> ent, EntityUid user, EntityUid target)
     {
         if (!RequiresCleaning(target))
         {
             // #Misfits TODO: Convert to private chat message — requires server-side event handler
             // since PopupClient is shared/client-predicted and IChatManager is server-only.
-            _popup.PopupClient(Loc.GetString("sanitization-cannot-clean", ("target", target)), user, user);
+            if (ShouldReportCannotClean(ent, target))
+                _popup.PopupClient(Loc.GetString("sanitization-cannot-clean", ("target", target)), user, user);
             return false;
         }
 

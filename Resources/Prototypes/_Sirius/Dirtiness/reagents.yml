@@ -1,0 +1,26 @@
+# #Sirius Add: new reagents of the SiriusDirty chemistry chain.
+- type: reagent
+  id: SoapWater
+  name: reagent-name-soap-water
+  desc: reagent-desc-soap-water
+  physicalDesc: reagent-physical-desc-translucent
+  color: "#d6e8d0"
+  recognizable: true
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+
+- type: reagent
+  id: Lye
+  name: reagent-name-lye
+  desc: reagent-desc-lye
+  physicalDesc: reagent-physical-desc-alkaline
+  color: "#ddd6a8"
+  boilingPoint: 1388.0
+  meltingPoint: 318.0
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: 0.5

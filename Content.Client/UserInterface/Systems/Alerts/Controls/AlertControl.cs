@@ -1,7 +1,9 @@
 ﻿using System.Numerics;
 using Content.Client.Actions.UI;
 using Content.Client.Cooldown;
+using Content.Shared._Sirius.Dirtiness;
 using Content.Shared.Alert;
+using Content.Shared.Humanoid;
 using Content.Shared.Nutrition.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
@@ -88,6 +90,7 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
             var desc = FormattedMessage.FromMarkup(Loc.GetString(Alert.Description));
 
             TryBuildNutritionTooltip(desc);
+            TryBuildSiriusDirtyTooltip(desc); // #Sirius Add: show the current cleanliness on the HUD icon tooltip.
 
             return new ActionAlertTooltip(msg, desc) {Cooldown = Cooldown};
         }
@@ -131,6 +134,32 @@ namespace Content.Client.UserInterface.Systems.Alerts.Controls
                 default:
                     return false;
             }
+        }
+
+        // #Sirius Add: HUD tooltip shows the current cleanliness state instead of a raw number.
+        private bool TryBuildSiriusDirtyTooltip(FormattedMessage desc)
+        {
+            if (Alert.ID != "SiriusDirty")
+                return false;
+
+            var entity = _playerManager.LocalEntity;
+            if (entity is null || !_entityManager.TryGetComponent(entity.Value, out SiriusDirtyComponent? dirty))
+                return false;
+
+            desc.PushNewline();
+            desc.PushNewline();
+            desc.AddText(Loc.GetString("alerts-sirius-dirty-current-state",
+                ("state", Loc.GetString(SiriusDirtyStateLoc.NameKey(dirty.State)))));
+
+            // #Sirius Add: the doubled decay is only relevant to ghouls, so only they see it.
+            if (_entityManager.TryGetComponent(entity.Value, out HumanoidAppearanceComponent? appearance) &&
+                SiriusDirtySpecies.IsGhoul(appearance.Species))
+            {
+                desc.PushNewline();
+                desc.AddText(Loc.GetString("sirius-dirty-tooltip-ghoul"));
+            }
+
+            return true;
         }
 
         /// <summary>
