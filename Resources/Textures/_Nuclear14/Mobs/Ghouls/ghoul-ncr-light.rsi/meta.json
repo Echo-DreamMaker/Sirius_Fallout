@@ -1,14 +1,76 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Ghoul sprite submission by nuclear-14 contributor",
-  "size": { "x": 32, "y": 32 },
+  "copyright": "Ghoul sprite submission by nuclear-14 contributor, modified by RavenReaper",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
   "states": [
     {
       "name": "alive",
-      "directions": 4,
-      "delays": [[5,2,5,2,2],[5,2,5,2,2],[5,2,5,2,2],[5,2,5,2,2]]
+      "directions": 8,
+      "delays": [
+        [
+          5,
+          2,
+          5,
+          2,
+          2
+        ],
+        [
+          5,
+          2,
+          5,
+          2,
+          2
+        ],
+        [
+          5,
+          2,
+          5,
+          2,
+          2
+        ],
+        [
+          5,
+          2,
+          5,
+          2,
+          2
+        ],
+        [
+          5,
+          2,
+          5,
+          2,
+          2
+        ],
+        [
+          5,
+          2,
+          5,
+          2,
+          2
+        ],
+        [
+          5,
+          2,
+          5,
+          2,
+          2
+        ],
+        [
+          5,
+          2,
+          5,
+          2,
+          2
+        ]
+      ]
     },
-    { "name": "dead" }
+    {
+      "name": "dead"
+    }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Big-Iron at https://github.com/Foundation-19/Big-Iron/blob/fa67bebd3e8f2ef3f4f25a9fcce3b83dc04fa43b/icons/fallout/mobs/humans/ghouls.dmi",
+  "copyright": "Taken from Big-Iron at https://github.com/Foundation-19/Big-Iron/blob/fa67bebd3e8f2ef3f4f25a9fcce3b83dc04fa43b/icons/fallout/mobs/humans/ghouls.dmi, modified by RavenReaper",
   "size": {
     "x": 32,
     "y": 32
@@ -12,8 +12,32 @@
     },
     {
       "name": "alive",
-      "directions": 4,
+      "directions": 8,
       "delays": [
+        [
+          3,
+          2,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          3,
+          2
+        ],
         [
           3,
           2,
