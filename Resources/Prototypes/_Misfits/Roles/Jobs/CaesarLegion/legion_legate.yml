@@ -10,8 +10,8 @@
   playTimeTracker: CaesarLegionLegate
   requirements:
   - !type:CharacterDepartmentTimeRequirement
-      department: CaesarLegion
-      min: 252000 # 70 hours
+    department: CaesarLegion
+    min: 252000 # 70 hours
   - !type:CharacterSpeciesRequirement
     species:
     - Human
@@ -80,7 +80,6 @@
     gloves: N14ClothingHandsGlovesLegate
     outerClothing: N14ClothingOuterLegateArmor
     belt: N14Gladius
-    pocket1: LegionLegateloadoutkits
     id: N14IDLegionaryMedalLegate
   innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
   storage:

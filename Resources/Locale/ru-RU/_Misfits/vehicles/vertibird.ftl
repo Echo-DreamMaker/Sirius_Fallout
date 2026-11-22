@@ -7,7 +7,8 @@ action-description-vertibird-move-up = Переместите вертибёрд
 action-name-vertibird-move-down = Опуститься на Z-уровень
 action-description-vertibird-move-down = Переместите вертибёрд в воздухе на уровень ниже.
 
-vertibird-pilot-required = Для управления нужен навык «Пилот вертибёрда».
+# Sirius Change: ссылка на переименованную черту.
+vertibird-pilot-required = Для управления нужен навык «Пилот винтокрыла».
 vertibird-unbuckle-blocked = Нельзя вытащить кого-либо из вертибёрда, пока он в полёте.
 vertibird-fall-landed = Вы с силой ударились о землю.
 vertibird-use-seat-manifest = Воспользуйтесь списком мест вертибёрда, чтобы занять место.
@@ -17,7 +18,8 @@ vertibird-seat-passenger = Пассажирское место {$number}
 vertibird-seat-empty = Свободно
 vertibird-seat-board = Занять
 vertibird-seat-occupied = Занято
-vertibird-seat-requires-perk = Требуется «Пилот вертибёрда»
+# Sirius Change: ссылка на переименованную черту.
+vertibird-seat-requires-perk = Требуется «Пилот винтокрыла»
 vertibird-window-title = Пульт управления полётом вертибёрда
 vertibird-window-flight-console = ПОЛЁТНЫЕ СИСТЕМЫ
 vertibird-window-flight-crew = ПОЛЁТНЫЙ ЭКИПАЖ

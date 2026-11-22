@@ -136,7 +136,7 @@
 - type: loadout
   id: LoadoutItemMicrophoneInstrument
   category: Items
-  cost: 2
+  cost: 2 # Sirius Change
   items:
     - MicrophoneInstrument
   requirements:
@@ -150,7 +150,7 @@
 - type: loadout
   id: LoadoutItemKalimbaInstrument
   category: Items
-  cost: 2
+  cost: 2 # Sirius Change
   items:
     - KalimbaInstrument
   requirements:
@@ -164,7 +164,7 @@
 - type: loadout
   id: LoadoutItemTrumpetInstrument
   category: Items
-  cost: 4
+  cost: 2 # Sirius Change
   items:
     - TrumpetInstrument
   requirements:
@@ -178,7 +178,7 @@
 - type: loadout
   id: LoadoutItemElectricGuitar
   category: Items
-  cost: 5
+  cost: 2 # Sirius Change
   items:
     - ElectricGuitarInstrument
   requirements:
@@ -192,7 +192,7 @@
 - type: loadout
   id: LoadoutItemBassGuitar
   category: Items
-  cost: 5
+  cost: 2 # Sirius Change
   items:
     - BassGuitarInstrument
   requirements:
@@ -206,7 +206,7 @@
 - type: loadout
   id: LoadoutItemRockGuitar
   category: Items
-  cost: 5
+  cost: 2 # Sirius Change
   items:
     - RockGuitarInstrument
   requirements:
@@ -220,7 +220,7 @@
 - type: loadout
   id: LoadoutItemAcousticGuitar
   category: Items
-  cost: 5
+  cost: 2 # Sirius Change
   items:
     - AcousticGuitarInstrument
   requirements:
@@ -234,7 +234,7 @@
 - type: loadout
   id: LoadoutItemViolin
   category: Items
-  cost: 4
+  cost: 2 # Sirius Change
   items:
     - ViolinInstrument
   requirements:
@@ -248,7 +248,7 @@
 - type: loadout
   id: LoadoutItemHarmonica
   category: Items
-  cost: 1
+  cost: 2 # Sirius Change
   items:
     - HarmonicaInstrument
   requirements:
@@ -262,7 +262,7 @@
 - type: loadout
   id: LoadoutItemAccordion
   category: Items
-  cost: 4
+  cost: 2 # Sirius Change
   items:
     - AccordionInstrument
   requirements:
@@ -276,7 +276,7 @@
 - type: loadout
   id: LoadoutItemFlute
   category: Items
-  cost: 2
+  cost: 2 # Sirius Change
   items:
     - FluteInstrument
   requirements:
@@ -290,7 +290,7 @@
 - type: loadout
   id: LoadoutItemOcarina
   category: Items
-  cost: 1
+  cost: 2 # Sirius Change
   items:
     - OcarinaInstrument
   requirements:
@@ -484,15 +484,15 @@
     - BoxSurvival
   requirements:
     - !type:CharacterDepartmentRequirement
-       inverted: true
-       departments:
-         - Security
-         - Medical
-         - Engineering
+      inverted: true
+      departments:
+        - Security
+        - Medical
+        - Engineering
     - !type:CharacterJobRequirement
-       inverted: true
-       jobs:
-         - Clown
+      inverted: true
+      jobs:
+        - Clown
     - !type:CharacterItemGroupRequirement
       group: LoadoutBoxKits
 
@@ -504,8 +504,8 @@
     - BoxSurvivalEngineering
   requirements:
     - !type:CharacterDepartmentRequirement
-       departments:
-         - Engineering
+      departments:
+        - Engineering
     - !type:CharacterItemGroupRequirement
       group: LoadoutBoxKits
 
@@ -517,12 +517,12 @@
     - BoxSurvivalSecurity
   requirements:
     - !type:CharacterDepartmentRequirement
-       departments:
-         - Security
+      departments:
+        - Security
     - !type:CharacterJobRequirement
-       inverted: true
-       jobs:
-         - Brigmedic
+      inverted: true
+      jobs:
+        - Brigmedic
     - !type:CharacterItemGroupRequirement
       group: LoadoutBoxKits
 
@@ -534,8 +534,8 @@
     - BoxSurvivalBrigmedic
   requirements:
     - !type:CharacterJobRequirement
-       jobs:
-         - Brigmedic
+      jobs:
+        - Brigmedic
     - !type:CharacterItemGroupRequirement
       group: LoadoutBoxKits
 
@@ -547,8 +547,8 @@
     - BoxSurvivalMedical
   requirements:
     - !type:CharacterDepartmentRequirement
-       departments:
-         - Medical
+      departments:
+        - Medical
     - !type:CharacterItemGroupRequirement
       group: LoadoutBoxKits
 
@@ -560,8 +560,8 @@
     - BoxHug
   requirements:
     - !type:CharacterJobRequirement
-       jobs:
-         - Clown
+      jobs:
+        - Clown
     - !type:CharacterItemGroupRequirement
       group: LoadoutBoxKits
 
@@ -686,9 +686,9 @@
     - MedkitCombatFilled
   requirements:
     - !type:CharacterJobRequirement
-       jobs:
-         - ChiefMedicalOfficer
-         - Brigmedic
+      jobs:
+        - ChiefMedicalOfficer
+        - Brigmedic
     - !type:CharacterItemGroupRequirement
       group: LoadoutBoxKits
 
@@ -701,11 +701,11 @@
     - Flash
   requirements:
     - !type:CharacterDepartmentRequirement
-       departments:
-         - Security
+      departments:
+        - Security
     - !type:CharacterJobRequirement
-       jobs:
-         - Brigmedic
+      jobs:
+        - Brigmedic
 
 - type: loadout
   id: LoadoutItemPAI
@@ -861,5 +861,5 @@
     - !type:CharacterItemGroupRequirement
       group: LoadoutCards
     - !type:CharacterDepartmentRequirement
-       departments:
-         - Command
+      departments:
+        - Command

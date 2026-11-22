@@ -1736,7 +1736,8 @@ ent-N14SpawnPointNCRLieutenant = исполнительный офицер НК�
 ent-N14SpawnPointNCRPlatoonLeader = командир взвода
 ent-N14SpawnPointNCRPrivateFirstClass = ефрейтор НКР
 ent-N14SpawnPointNCRStaffSergeant = штаб-сержант НКР
-ent-N14SpawnPointNCRVertibirdPilot = пилот вертибёрда
+# Sirius Change: должность пилота винтокрыла.
+ent-N14SpawnPointNCRVertibirdPilot = пилот винтокрыла
 ent-N14SpawnPointSuperElder = ивовый старейшина
 ent-N14SpawnPointWasterTrader = торговец пустошей
 ent-N14spikedbola = шипованное бола

@@ -81,7 +81,6 @@
     # #Misfits Change - head and outerClothing removed; armor kit (pocket2) now provides both helmet + armor so Centurion can choose their variant
     gloves: N14ClothingHandsGlovesCenturion
     belt: N14Gladius
-    pocket2: LegionCenturionArmorloadoutkits  # #Misfits Add - armor selection kit: Standard / Paladin-Slayer / Ranger-Hunter
     id: N14IDLegionaryMedalGold
   innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
   storage:

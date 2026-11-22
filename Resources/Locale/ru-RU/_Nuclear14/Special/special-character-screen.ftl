@@ -52,7 +52,8 @@ special-effect-charisma-social-none = без социальных штрафов
 special-effect-charisma-warcry-range = дальность боевого клича {$value}
 special-effect-charisma-warcry-duration = длительность боевого клича {$value}
 special-effect-charisma-warcry-speed = бонус к скорости от боевого клича {$value}
-special-effect-charisma-neutral-followers = нейтральные союзники (Харизма {$min}+)
+# Sirius Fix: теперь подсказка говорит о получении питомца, а не о «нейтральных союзниках».
+special-effect-charisma-neutral-followers = питомцы-компаньоны появляются сразу при найме (Харизма {$min}+)
 
 special-effect-intelligence-hand-craft-blocked = ручной крафт заблокирован
 special-effect-intelligence-hand-craft-delay = задержка ручного крафта {$value}

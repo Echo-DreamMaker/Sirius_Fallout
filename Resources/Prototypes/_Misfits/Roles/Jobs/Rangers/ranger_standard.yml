@@ -52,7 +52,6 @@
     belt: ClothingBeltRevolverdesertfilled
     gloves: N14ClothingHandsGlovesBlackLeather
     pocket1: MagazineBox45-70
-    pocket2: NCRfieldrangerloadoutkits # #Misfits Change - Trailman / Marksman / Sniper / Operative, the former Field Ranger kits
     eyes: ClothingEyesGlassesSunglasses
     outerClothing: N14ClothingOuterNCRPatrolRangerArmorVariant
     id: N14IDBadgeNCRDesertRanger

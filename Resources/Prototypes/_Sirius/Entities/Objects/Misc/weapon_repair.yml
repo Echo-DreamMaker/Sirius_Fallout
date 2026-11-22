@@ -20,6 +20,11 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 50
+  # Sirius Fix: конечный узел графа должен нести ConstructionComponent, иначе
+  # ConstructionSystem удаляет результат и выбрасывает ингредиенты на пол.
+  - type: Construction
+    graph: N14WeaponCleaningRodGraph
+    node: rod
 
 - type: entity
   parent: BaseItem
@@ -36,3 +41,8 @@
   - type: Tag
     tags:
     - N14Whetstone
+  # Sirius Fix: без ConstructionComponent крафт рвётся — камень удаляется,
+  # а N14Concrete и Cloth выбрасываются на пол (ConstructionSystem.FailCleanup).
+  - type: Construction
+    graph: N14WhetstoneGraph
+    node: whetstone

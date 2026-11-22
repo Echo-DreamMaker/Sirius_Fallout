@@ -66,7 +66,6 @@
     gloves: N14MeleeHandsSpikedBrassKnuckleSpecial
     back: N14ClothingBackpackTrekker # Corvax-Change
     pocket1: N14TribalKnife
-    pocket2: Triballoadoutkits
     id: N14IDTribeBulletsPendant # not command вЂ” wears the member pendant
   innerClothingSkirt: N14ClothingUniformJumpskirtTribal
   satchel: N14ClothingBackpackSatchelTribalFilled

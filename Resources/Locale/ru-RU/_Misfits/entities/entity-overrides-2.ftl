@@ -307,7 +307,8 @@ ent-MisfitsMobHumanEnclaveNCO = сержант Анклава
 ent-MisfitsMobHumanEnclaveReformer = реформатор Анклава
 ent-MisfitsMobHumanEnclaveScientist = учёный Анклава
 ent-MisfitsMobHumanEnclaveSeniorOfficer = старший офицер Анклава
-ent-MisfitsMobHumanEnclaveVertibirdPilot = пилот вертибёрда Анклава
+# Sirius Change: должность пилота винтокрыла.
+ent-MisfitsMobHumanEnclaveVertibirdPilot = пилот винтокрыла Анклава
 ent-MisfitsMobSupermutantEnclave = супермутант Анклава
 ent-MisfitsNCRCommandArmor = командный плащ НКР
     .desc = Броня командного уровня, предназначенная для первых сержантов НКР; вершина стандартного военного снаряжения Республики.
@@ -451,7 +452,8 @@ ent-MisfitsSpawnPointEnclaveNCO = сержант Анклава
 ent-MisfitsSpawnPointEnclaveReformer = реформатор Анклава
 ent-MisfitsSpawnPointEnclaveScientist = учёный Анклава
 ent-MisfitsSpawnPointEnclaveSeniorOfficer = старший офицер Анклава
-ent-MisfitsSpawnPointEnclaveVertibirdPilot = пилот вертибёрда Анклава
+# Sirius Change: должность пилота винтокрыла.
+ent-MisfitsSpawnPointEnclaveVertibirdPilot = пилот винтокрыла Анклава
 ent-MisfitsSpawnPointFollowerDoctor = врач Последователей
 ent-MisfitsSpawnPointFollowerGuard = охранник Последователей
 ent-MisfitsSpawnPointFollowerHead = глава Последователей

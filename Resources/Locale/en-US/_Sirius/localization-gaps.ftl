@@ -95,3 +95,32 @@ window-close = Close
 # Whitelist
 whitelist-not-whitelisted = You are not whitelisted on this server.
 whitelist-sponsor = This server is for sponsors only. Become a sponsor to join.
+
+# Sirius Add: missing loadout names from character item groups.
+loadout-name-N14LoadoutWeaponPistol9mmSigSauerSirius = Sig Sauer pistol (Sirius)
+loadout-name-N14LoadoutWeaponPistol9mmSigSauerSiriusAgent = Sig Sauer pistol (Sirius agent)
+loadout-name-N14LoadoutWeaponRifle556CarbineLegion = 5.56 assault carbine (Legion)
+
+# Sirius Add: missing keys for jobs shown in the lobby.
+job-name-lieutenant-colonel = Lieutenant Colonel
+job-description-ltcol = You are a lieutenant colonel of the New California Republic Army. Coordinate officers, approve operational decisions and answer only to high command.
+job-supervisors-ncr-ltcol = NCR high command
+
+job-name-ambassador = Caravan Representative
+job-description-ambassador = You are the diplomatic representative for the Caravan Network, the collective that organizes and protects traders from the West Coast to the Midwest, while taking a modest due.
+
+job-description-bos-archivist = Maintain the archives and records of your Brotherhood of Steel chapter, preserve knowledge and give scribes and command access to data.
+
+job-description-ncr-dagger = You are a DAGGER operative, the link between the Rangers and NCR command. Act covertly, pass intelligence and disrupt enemy plans.
+job-supervisors-ncr-dagger = NCR command and the Ranger code
+
+job-description-caesar-legion-temple-guard = Guard the temple of Caesar's Legion and keep order within it. Watch over the priestesses and prevent the desecration of the shrines.
+
+job-name-blueshield-officer = Blueshield Officer
+job-description-blueshield-officer = Act as a bodyguard and advisor for Command and CentCom VIPs.
+
+job-name-nanotrasen-representative = Nanotrasen Representative
+job-description-nanotrasen-representative = Represent NT, send reports back to them on the station's situation, inform the heads of anything CentCom orders them to do.
+
+job-name-magistrate = Magistrate
+job-description-magistrate = Ensure Space Law is being followed, uphold justice and legality, hold hearings and trials, follow SOP and ensure Command is following Space Law.

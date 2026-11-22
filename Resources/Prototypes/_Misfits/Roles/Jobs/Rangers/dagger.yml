@@ -55,7 +55,6 @@
     gloves: N14ClothingHandsGlovesCombat
     ears: MisfitsClothingHeadsetNCRRanger
     pocket1: N14WeaponRevolver45-70RangerSequoia
-    pocket2: NCRdaggerloadoutkits
     id: N14IDBadgeNCRRanger
   innerClothingSkirt: ClothingUniformJumpsuitFlannelKhakis
   storage:

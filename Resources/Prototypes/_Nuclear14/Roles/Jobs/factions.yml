@@ -281,4 +281,4 @@
   - CaesarLegionSlave           # Slave               | _Misfits/Roles/Jobs/CaesarLegion/legion_slave.yml # #Misfits Add
   #- CaesarLegionCitizen         # Civilian            | _Misfits/Roles/Jobs/CaesarLegion/legion_civilian.yml # #Misfits Add
   #- CaesarLegionTrader          # Trader              | _Misfits/Roles/Jobs/CaesarLegion/legion_trader.yml # #Misfits Add
-  - CaesarLegionAcolyteOfMars      # Acolyte of Mars     | _Misfits/Roles/Jobs/CaesarLegion/legion_Acolyte.yml # #Misfits Add
+  # Sirius Change: removed duplicate CaesarLegionAcolyteOfMars entry

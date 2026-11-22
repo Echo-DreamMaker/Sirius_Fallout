@@ -9,7 +9,7 @@ trait-name-TraitScrounger = Мародёр
 trait-description-TraitScrounger = При поиске трофеев ты находишь на 40% больше боеприпасов.
 
 trait-name-TraitJunkerFinder = Искатель хлама
-trait-description-TraitJunkerFinder = Раз за кучу за один цикл обновления ты можешь найти в истощённой куче хлама одну дополнительную находку.
+trait-description-TraitJunkerFinder = Один раз за кучу при каждом обновлении ты можешь найти в истощённой куче хлама ещё одну находку.
 
 trait-name-TraitNerdRage = Ярость ботаника!
 trait-description-TraitNerdRage = Ниже 25% здоровья ты наносишь на 20% больше урона и действуешь на 15% быстрее.

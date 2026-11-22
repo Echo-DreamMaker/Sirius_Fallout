@@ -228,6 +228,14 @@ public sealed partial class WeaponAssemblyStationSystem : EntitySystem
 
     private void OnContainerChanged(EntityUid uid, WeaponAssemblyStationComponent comp, ContainerModifiedMessage args)
     {
+        // #Sirius Fix: construction moves the fuel container into a brand-new station
+        // before InitializeAndStartEntity() runs, so its slot fields are still null
+        // and the UI/lock code below must wait until OnInit() has created them.
+        if (comp.MainContainer is null || comp.Part1Container is null ||
+            comp.Part2Container is null || comp.Part3Container is null ||
+            comp.Part4Container is null || comp.Part6Container is null)
+            return;
+
         // #Misfits Fix - every slot has to push a fresh UI state, not just the
         // main one: otherwise the client keeps drawing a part that was taken
         // out and keeps showing an empty slot for a part that was put in.
@@ -319,6 +327,13 @@ public sealed partial class WeaponAssemblyStationSystem : EntitySystem
 
     public void UpdateUi(EntityUid uid, WeaponAssemblyStationComponent comp)
     {
+        // #Sirius Fix: the station can receive containers while it is still being
+        // constructed (before ComponentInit creates the slot fields).
+        if (comp.MainContainer is null || comp.Part1Container is null ||
+            comp.Part2Container is null || comp.Part3Container is null ||
+            comp.Part4Container is null)
+            return;
+
         if (!_ui.HasUi(uid, WeaponAssemblyStationUiKey.Key))
             return;
 

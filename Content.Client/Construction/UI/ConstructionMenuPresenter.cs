@@ -215,7 +215,8 @@ namespace Content.Client.Construction.UI
                 recipes.Add(recipe);
             }
 
-            recipes.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.InvariantCulture));
+            // #Sirius Fix: sort by the name the player actually sees, not the raw English prototype field.
+            recipes.Sort((a, b) => string.Compare(GetLocalizedRecipeName(a), GetLocalizedRecipeName(b), StringComparison.InvariantCulture));
 
             foreach (var recipe in recipes)
             {
@@ -372,7 +373,7 @@ namespace Content.Client.Construction.UI
             _constructionView.ClearRecipeInfo();
 
             // Corvax-Change-start
-            var localizedName = Loc.TryGetString($"recipe-{prototype.ID}-name", out var name) ? name : prototype.Name;
+            var localizedName = GetLocalizedRecipeName(prototype);
             var localizedDescription = Loc.TryGetString($"recipe-{prototype.ID}-desc", out var desc) ? desc : prototype.Description;
 
             _constructionView.SetRecipeInfo(localizedName, localizedDescription, spriteSys.Frame0(prototype.Icon), prototype.Type != ConstructionType.Item);
@@ -413,9 +414,15 @@ namespace Content.Client.Construction.UI
             }
         }
 
+        // #Sirius Add: one place for the localized recipe name used by list, search and sorting.
+        private static string GetLocalizedRecipeName(ConstructionPrototype recipe)
+        {
+            return Loc.TryGetString($"recipe-{recipe.ID}-name", out var name) ? name : recipe.Name;
+        }
+
         private static ItemList.Item GetItem(ConstructionPrototype recipe, ItemList itemList)
         {
-            var localizedName = Loc.TryGetString($"recipe-{recipe.ID}-name", out var name) ? name : recipe.Name; // Corvax-Change
+            var localizedName = GetLocalizedRecipeName(recipe); // Corvax-Change
 
             return new(itemList)
             {
@@ -423,7 +430,8 @@ namespace Content.Client.Construction.UI
                 Text = localizedName, // Corvax-Change
                 Icon = recipe.Icon.Frame0(),
                 TooltipEnabled = true,
-                TooltipText = recipe.Description
+                // #Sirius Fix: tooltip uses recipe-ID-desc too, otherwise the list keeps showing raw English.
+                TooltipText = Loc.TryGetString($"recipe-{recipe.ID}-desc", out var desc) ? desc : recipe.Description
             };
         }
 

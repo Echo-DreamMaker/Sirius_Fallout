@@ -32,6 +32,12 @@ public sealed partial class CharacterWhitelistRequirement : CharacterRequirement
         int depth = 0)
     {
         reason = null;
+        // Sirius Add: ВЛ-роли временно свободны. Расовый whitelist этим не
+        // затрагивается — требование проверяется только для джоб.
+        if (configManager.IsCVarRegistered("sirius.role_whitelist_free") &&
+            configManager.GetCVar(CCVars.SiriusRoleWhitelistFree))
+            return true;
+
         if (!configManager.IsCVarRegistered("whitelist.enabled"))
             return whitelisted;
 

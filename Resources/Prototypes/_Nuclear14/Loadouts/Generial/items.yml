@@ -8,63 +8,63 @@
 - type: loadout
   id: N14InstrumentClarinet
   category: Items
-  cost: 0
+  cost: 2 # Sirius Change
   items:
     - N14InstrumentClarinet
 
 - type: loadout
   id: N14InstrumentFlute
   category: Items
-  cost: 0
+  cost: 2 # Sirius Change
   items:
     - N14InstrumentFlute
 
 - type: loadout
   id: N14InstrumentGuitar
   category: Items
-  cost: 0
+  cost: 2 # Sirius Change
   items:
     - N14InstrumentGuitar
 
 - type: loadout
   id: N14InstrumentHarmonica
   category: Items
-  cost: 0
+  cost: 2 # Sirius Change
   items:
     - N14InstrumentHarmonica
 
 - type: loadout
   id: N14InstrumentPanflute
   category: Items
-  cost: 0
+  cost: 2 # Sirius Change
   items:
     - N14InstrumentPanflute
 
 - type: loadout
   id: N14InstrumentSaxaphone
   category: Items
-  cost: 0
+  cost: 2 # Sirius Change
   items:
     - N14InstrumentSaxaphone
 
 - type: loadout
   id: N14InstrumentTrombone
   category: Items
-  cost: 0
+  cost: 2 # Sirius Change
   items:
     - N14InstrumentTrombone
 
 - type: loadout
   id: N14InstrumentTrumpet
   category: Items
-  cost: 0
+  cost: 2 # Sirius Change
   items:
     - N14InstrumentTrumpet
 
 - type: loadout
   id: N14InstrumentViolin
   category: Items
-  cost: 0
+  cost: 2 # Sirius Change
   items:
     - N14InstrumentViolin
 
@@ -242,21 +242,21 @@
 - type: loadout
   id: N14InstrumentElectricGuitar
   category: Items
-  cost: 0
+  cost: 2 # Sirius Change
   items:
     - N14InstrumentElectricGuitar
 
 - type: loadout
   id: N14InstrumentBassGuitar
   category: Items
-  cost: 0
+  cost: 2 # Sirius Change
   items:
     - N14InstrumentBassGuitar
 
 - type: loadout
   id: N14InstrumentRockGuitar
   category: Items
-  cost: 0
+  cost: 2 # Sirius Change
   items:
     - N14InstrumentRockGuitar
 

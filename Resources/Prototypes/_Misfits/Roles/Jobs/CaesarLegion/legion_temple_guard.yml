@@ -50,7 +50,6 @@
     head: N14ClothingHeadHatTribalOutcastHood
     gloves: N14ClothingHandsGlovesTribal
     outerClothing: N14ClothingOuterLegionnaireBaseArmor
-    pocket1: LegionAuxilialoadoutkits
     id: N14IDLegionaryBadge
   innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
   storage:

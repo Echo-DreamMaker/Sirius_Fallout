@@ -168,7 +168,8 @@ public sealed partial class RCDMenu : RadialMenu
         {
             if (proto.Mode == RcdMode.ConstructObject &&
                 _protoManager.TryIndex<EntityPrototype>(proto.Prototype, out var entProto))
-                return Loc.GetString(entProto.Name);
+                // #Sirius Fix: EntityPrototype.Name уже локализован движком, повторный Loc.GetString давал варн с русским messageId.
+                return entProto.Name;
 
             if (proto.Mode == RcdMode.ConstructTile &&
                 _tileDefManager.TryGetDefinition(proto.Prototype, out var tileDef))

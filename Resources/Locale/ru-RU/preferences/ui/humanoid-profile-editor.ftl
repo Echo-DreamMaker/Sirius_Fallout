@@ -67,6 +67,7 @@ humanoid-profile-editor-naming-rules-warning = Пожалуйста, избег�
 humanoid-profile-editor-markings-tab = Черты внешности
 humanoid-profile-editor-flavortext-tab = Описание
 
+# Sirius Fix: единообразная терминология «черты» вместо «причуды».
 # Traits
 humanoid-profile-editor-traits-tab = Черты персонажа
 humanoid-profile-editor-no-traits = Нет доступных черт
@@ -83,9 +84,9 @@ humanoid-profile-editor-loadouts-show = Показать
 humanoid-profile-editor-loadouts = Просмотр предметов снаряжения:
 humanoid-profile-editor-clothing-label = Одежда:
 humanoid-profile-editor-backpack-label = Рюкзак:
-humanoid-profile-editor-height-label = Рост: {$height}см
-humanoid-profile-editor-width-label = Ширина: {$width}см
-humanoid-profile-editor-weight-label = Вес: {$weight}кг
+humanoid-profile-editor-height-label = Рост: {$height} см
+humanoid-profile-editor-width-label = Ширина: {$width} см
+humanoid-profile-editor-weight-label = Вес: {$weight} кг
 humanoid-profile-editor-customspeciename-label = Своё название вида:
 humanoid-profile-editor-station-ai-name-label = Имя ИИ станции:
 humanoid-profile-editor-cyborg-name-label = Имя киборга:
@@ -98,24 +99,24 @@ humanoid-profile-editor-traits-header = У вас {$points ->
     *[other] {$points} очков
 } и {$maxTraits ->
     [2147483648] {$traits ->
-        [1] {$traits} причуда
-        *[other] {$traits} причуд
+        [1] {$traits} черта
+        *[other] {$traits} черт
     }
-    *[other] {$traits}/{$maxTraits} причуд
+    *[other] {$traits}/{$maxTraits} черт
 }
-humanoid-profile-editor-traits-show-unusable-button = Показать недоступные причуды
+humanoid-profile-editor-traits-show-unusable-button = Показать недоступные черты
 humanoid-profile-editor-traits-show-unusable-button-tooltip =
-    Когда включено, причуды, которые текущая конфигурация вашего персонажа не может использовать, будут подсвечены красным или оранжевым, если выбраны.
-    Вы всё равно не сможете использовать недоступные причуды, пока конфигурация персонажа не будет изменена в соответствии с требованиями.
-    Это может быть полезно, только если есть ошибка, скрывающая причуды, которые вы можете использовать, или если вы хотите посмотреть причуды других видов.
+    Когда включено, черты, которые текущая конфигурация вашего персонажа не может использовать, будут подсвечены красным или оранжевым, если выбраны.
+    Вы всё равно не сможете использовать недоступные черты, пока конфигурация персонажа не будет изменена в соответствии с требованиями.
+    Это может быть полезно, только если есть ошибка, скрывающая черты, которые вы можете использовать, или если вы хотите посмотреть черты других видов.
 humanoid-profile-editor-traits-remove-unusable-button = Удалить {$count ->
-    [1] {$count} недоступную причуду
-    *[other] {$count} недоступных причуд
+    [1] {$count} недоступную черту
+    *[other] {$count} недоступных черт
 }
 humanoid-profile-editor-traits-remove-unusable-button-tooltip =
-    Если вы нажмёте эту кнопку, все причуды, которые текущая конфигурация вашего персонажа не может использовать, будут удалены.
+    Если вы нажмёте эту кнопку, все черты, которые текущая конфигурация вашего персонажа не может использовать, будут удалены.
     Вас попросят подтвердить удаление.
-humanoid-profile-editor-traits-no-traits = Причуды не найдены
+humanoid-profile-editor-traits-no-traits = Черты не найдены
 
 humanoid-profile-editor-loadouts-points-label = У вас {$points}/{$max} очков
 humanoid-profile-editor-loadouts-show-unusable-button = Показать недоступное снаряжение

@@ -123,11 +123,17 @@
     - type: loadout
       id: N14LoadoutWeaponPistol12mm
     - type: loadout
+      id: N14LoadoutWeaponPistol9mmSigSauerSirius
+    - type: loadout
+      id: N14LoadoutWeaponPistol9mmSigSauerSiriusAgent
+    - type: loadout
       id: N14LoadoutWeaponRifle556Pipe
     - type: loadout
       id: N14LoadoutWeaponRifle556CarbineOld
     - type: loadout
       id: N14LoadoutWeaponRifle556Carbine
+    - type: loadout
+      id: N14LoadoutWeaponRifle556CarbineLegion
     - type: loadout
       id: N14LoadoutWeaponRifle556Butchered
     - type: loadout
