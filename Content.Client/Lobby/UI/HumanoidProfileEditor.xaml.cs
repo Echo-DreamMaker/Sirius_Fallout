@@ -1192,11 +1192,13 @@ namespace Content.Client.Lobby.UI
                 var profile = Profile ?? HumanoidCharacterProfile.DefaultWithSpecies();
                 var playTimes = _requirements.GetRawPlayTimeTrackers();
                 var serverWhitelisted = _requirements.IsWhitelisted();
+                // Sirius Add: ВЛ-роли временно свободны — не прячем их в редакторе.
+                var roleWhitelistFree = _cfgManager.GetCVar(CCVars.SiriusRoleWhitelistFree);
 
                 var jobs = department.Roles.Select(jobId => _prototypeManager.Index<JobPrototype>(jobId))
                     .Where(job => job.SetPreference)
-                    .Where(job => !job.HideWithoutWhitelist || _requirements.IsWhitelisted() || (job.Whitelisted && _requirements.IsJobWhitelisted(job.ID))) // #Misfits Change
-                    .Where(job => !job.HideWithoutJobWhitelist || _requirements.IsJobWhitelisted(job.ID)) // #Misfits Change
+                    .Where(job => roleWhitelistFree || !job.HideWithoutWhitelist || _requirements.IsWhitelisted() || (job.Whitelisted && _requirements.IsJobWhitelisted(job.ID))) // #Misfits Change
+                    .Where(job => roleWhitelistFree || !job.HideWithoutJobWhitelist || _requirements.IsJobWhitelisted(job.ID)) // #Misfits Change
                     .Where(job => !job.HideIfPlaytimeRequirementsNotMet || _characterRequirementsSystem.CheckPlaytimeRequirementsVisible(
                         job.Requirements ?? new(),
                         job,
@@ -1467,11 +1469,13 @@ namespace Content.Client.Lobby.UI
                 var profile = Profile ?? HumanoidCharacterProfile.DefaultWithSpecies();
                 var playTimes = _requirements.GetRawPlayTimeTrackers();
                 var serverWhitelisted = _requirements.IsWhitelisted();
+                // Sirius Add: ВЛ-роли временно свободны — не прячем их в редакторе.
+                var roleWhitelistFree = _cfgManager.GetCVar(CCVars.SiriusRoleWhitelistFree);
 
                 var jobs = department.Roles.Select(jobId => _prototypeManager.Index(jobId))
                     .Where(job => job.SetPreference)
-                    .Where(job => !job.HideWithoutWhitelist || _requirements.IsWhitelisted() || (job.Whitelisted && _requirements.IsJobWhitelisted(job.ID))) // #Misfits Change
-                    .Where(job => !job.HideWithoutJobWhitelist || _requirements.IsJobWhitelisted(job.ID)) // #Misfits Change
+                    .Where(job => roleWhitelistFree || !job.HideWithoutWhitelist || _requirements.IsWhitelisted() || (job.Whitelisted && _requirements.IsJobWhitelisted(job.ID))) // #Misfits Change
+                    .Where(job => roleWhitelistFree || !job.HideWithoutJobWhitelist || _requirements.IsJobWhitelisted(job.ID)) // #Misfits Change
                     .Where(job => !job.HideIfPlaytimeRequirementsNotMet || _characterRequirementsSystem.CheckPlaytimeRequirementsVisible(
                         job.Requirements ?? new(),
                         job,

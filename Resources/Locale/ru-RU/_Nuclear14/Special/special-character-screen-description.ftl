@@ -1,11 +1,12 @@
 # Description of Special labels in character creation screen
-special-character-creation-description-strength = Ваша физическая сила и способность выдерживать.
-special-character-creation-description-perception = Ваша осведомленность вокруг вас и наземные удары.
-special-character-creation-description-endurance = Устойчивость вашего тела к стихиям.
-special-character-creation-description-charisma = Чем выше, тем больше очков лодауда И наоборот.
-special-character-creation-description-intelligence = Открывает доступ к некоторым крафтам и вещам. Низкий интеллект заставляет говорить как идиот.
-special-character-creation-description-agility = Ваша стремительность и легкость движений.
-special-character-creation-description-luck = Странная сила, которая, кажется, улыбается вам.
+# Sirius Fix: описания S.P.E.C.I.A.L. приведены к реальным эффектам из en-US.
+special-character-creation-description-strength = Повышает урон в ближнем бою.
+special-character-creation-description-perception = Улучшает обращение с огнестрельным оружием.
+special-character-creation-description-endurance = Повышает максимальный запас здоровья.
+special-character-creation-description-charisma = Чем выше, тем больше очков снаряжения; чем ниже, тем меньше.
+special-character-creation-description-intelligence = Улучшает крафт и медицинские навыки.
+special-character-creation-description-agility = Повышает скорость передвижения.
+special-character-creation-description-luck = Улучшает критические попадания и удачный поиск.
 
 # Title of Special labels in character creation screen
 special-character-creation-strength = Сила

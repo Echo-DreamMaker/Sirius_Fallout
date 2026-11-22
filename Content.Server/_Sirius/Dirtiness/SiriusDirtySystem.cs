@@ -94,6 +94,7 @@ public sealed class SiriusDirtySystem : EntitySystem
         var decayMultiplier = 1f;
         var regen = 0f;
         var cap = comp.WaterCleanCap;
+        var inWaterSource = false;
 
         // Bleeding speeds up the loss 2..4 times depending on its severity.
         if (TryComp<BloodstreamComponent>(ent, out var blood) && blood.BleedAmount > 0)
@@ -108,15 +109,18 @@ public sealed class SiriusDirtySystem : EntitySystem
             case WaterKind.Clean:
                 regen += comp.WaterCleanPerMinute / 60f;
                 MakeWet(ent, comp.WaterWetDuration);
+                inWaterSource = true;
                 break;
             case WaterKind.Dirty:
                 decayMultiplier = MathF.Max(decayMultiplier, comp.DirtyWaterDecayMultiplier);
                 MakeWet(ent, comp.WaterWetDuration);
+                inWaterSource = true;
                 break;
             case WaterKind.Sewage:
             case WaterKind.Radioactive:
                 decayMultiplier = MathF.Max(decayMultiplier, comp.SewageDecayMultiplier);
                 MakeWet(ent, comp.WaterWetDuration);
+                inWaterSource = true;
                 break;
         }
 
@@ -125,6 +129,17 @@ public sealed class SiriusDirtySystem : EntitySystem
             regen += comp.ShowerCleanPerSecond;
             cap = MathF.Max(cap, comp.ShowerCleanCap);
             MakeWet(ent, comp.WaterWetDuration);
+            inWaterSource = true;
+        }
+
+        // #Sirius Fix: if the player left water/shower, don't keep a near-full
+        // environment-wet timer for another minute; let it dry out quickly.
+        if (!inWaterSource && _status.TryGetTime(ent, WetKey, out var wetTimer))
+        {
+            var remaining = wetTimer!.Value.Item2 - _timing.CurTime;
+            var refreshedBySource = remaining > comp.WaterWetDuration - TimeSpan.FromSeconds(5);
+            if (refreshedBySource && remaining > TimeSpan.FromSeconds(20))
+                _status.TrySetTime(ent, WetKey, TimeSpan.FromSeconds(20));
         }
 
         if (TryComp<SiriusWashedComponent>(ent, out var washed))

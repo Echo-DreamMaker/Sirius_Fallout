@@ -46,7 +46,6 @@
     gloves: N14ClothingHandsGlovesCombat
     belt: ClothingBeltMilitary
     ears: N14ClothingHeadsetEnclave
-    pocket1: EnclaveOfficerloadoutkits
     pocket2: RadioHandheld
     id: SiriusIDEnclaveCommunicationsOfficer
   satchel: N14ClothingBackpackSatchelMilitaryFilled

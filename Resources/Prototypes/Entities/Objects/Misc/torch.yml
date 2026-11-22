@@ -4,20 +4,24 @@
   id: Torch
   description: A torch fashioned from some wood.
   components:
-    # #Misfits Change /Fix/: Make crafted torches permanent instead of burning out.
-    - type: ItemToggle
-      soundActivate:
+    # Sirius Fix: вернуть ограниченное время горения факела (Misfits заменил ExpendableLight на вечный ItemToggle).
+    - type: ExpendableLight
+      spentName: expendable-light-burnt-torch-name
+      spentDesc: expendable-light-burnt-torch-desc
+      glowDuration: 100
+      fadeOutDuration: 4
+      iconStateSpent: torch_spent
+      turnOnBehaviourID: turn_on
+      fadeOutBehaviourID: fade_out
+      litSound:
         path: /Audio/Items/Flare/flare_on.ogg
-      soundDeactivate:
-        path: /Audio/Items/candle_blowing.ogg
     - type: Sprite
       sprite: Objects/Misc/torch.rsi
       layers:
         - map: [ enum.ExpendableLightVisualLayers.Base ]
           state: torch_unlit
-        # #Misfits Fix: Use plain string key so ToggleableLightVisualsSystem (SpriteLayer is string?) can find this layer via LayerMapTryGet.
-        # Previously used enum.ExpendableLightVisualLayers.Glow which caused a string/enum key mismatch, preventing the fire sprite from showing on the ground.
-        - map: [ "torch_glow" ]
+        # Sirius Fix: слой Glow снова по enum — клиентский ExpendableLightSystem ищет его по enum-ключу.
+        - map: [ enum.ExpendableLightVisualLayers.Glow ]
           state: lit_overlay
           color: "#FFFFFF"
           visible: false
@@ -30,15 +34,6 @@
     - type: Item
       sprite: Objects/Misc/torch.rsi
       heldPrefix: unlit
-    - type: ToggleableLightVisuals
-      spriteLayer: torch_glow
-      inhandVisuals:
-        left:
-        - state: lit-inhand-left
-          shader: unshaded
-        right:
-        - state: lit-inhand-right
-          shader: unshaded
     - type: Construction
       graph: LightTorch
       node: torch
@@ -46,14 +41,43 @@
     - type: PointLight
       enabled: false
       color: "#E25822"
-      radius: 5.0
-      energy: 7.0
+      radius: 1.0
+      energy: 5.0
       netsync: false
     - type: IgnitionSource
       temperature: 400
       ignited: false
-    - type: ItemToggleHot
-    - type: ItemTogglePointLight
+    # Sirius Fix: вернуть анимацию разгорания/затухания, которую использует ExpendableLight.
+    - type: LightBehaviour
+      behaviours:
+        - !type:RandomizeBehaviour # immediately make it bright and flickery
+          id: turn_on
+          interpolate: Nearest
+          minDuration: 0.02
+          maxDuration: 0.06
+          startValue: 6.0
+          endValue: 9.0
+          property: Energy
+          isLooped: true
+        - !type:FadeBehaviour # have the radius start small and get larger as it starts to burn
+          id: turn_on
+          maxDuration: 8.0
+          startValue: 1.0
+          endValue: 6.0
+        - !type:RandomizeBehaviour # weaker flicker as it fades out
+          id: fade_out
+          interpolate: Nearest
+          minDuration: 0.02
+          maxDuration: 0.06
+          startValue: 4.0
+          endValue: 8.0
+          property: Energy
+          isLooped: true
+        - !type:FadeBehaviour # fade out radius as it burns out
+          id: fade_out
+          maxDuration: 4.0
+          startValue: 6.0
+          endValue: 1.0
     - type: Tag
       tags:
       - Torch

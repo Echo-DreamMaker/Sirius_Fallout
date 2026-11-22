@@ -75,7 +75,6 @@
     shoes: N14ClothingBootsLeather
     gloves: N14ClothingHandsGlovesTribal
     outerClothing: N14ClothingOuterLegionnaireRecruitArmor
-    pocket1: LegionAcolyteLoadoutKits
     id: N14IDLegionaryBadge
   innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
   storage:

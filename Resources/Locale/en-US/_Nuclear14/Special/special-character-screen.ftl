@@ -52,7 +52,8 @@ special-effect-charisma-social-none = no social penalty
 special-effect-charisma-warcry-range = warcry range {$value}
 special-effect-charisma-warcry-duration = warcry duration {$value}
 special-effect-charisma-warcry-speed = warcry speed bonus {$value}
-special-effect-charisma-neutral-followers = neutral followers (Charisma {$min}+)
+# Sirius Fix: clarify that companions are recruited immediately.
+special-effect-charisma-neutral-followers = pets spawn immediately when recruited (Charisma {$min}+)
 
 special-effect-intelligence-hand-craft-blocked = hand crafting blocked
 special-effect-intelligence-hand-craft-delay = hand crafting delay {$value}

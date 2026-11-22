@@ -17,6 +17,10 @@ namespace Content.Server._Misfits.Expeditions;
 /// </summary>
 public sealed partial class N14ExpeditionEntranceSpawnerSystem : EntitySystem
 {
+    // Sirius Fix: механика случайных люков слишком сырая — выключаем размещение
+    // входов на картах. Вернуть true, когда механика будет доработана.
+    private const bool RandomEntrancesEnabled = false;
+
     private const int EntrancesPerMap = 3;
     private static readonly HashSet<string> StumpPrototypes =
     [
@@ -87,7 +91,10 @@ public sealed partial class N14ExpeditionEntranceSpawnerSystem : EntitySystem
     /// </summary>
     public void EnsureEntrancesForMap(MapId mapId)
     {
-        if (!_enabled)
+        // Sirius Fix: случайные входы на картах отключены. Остальные экспедиции
+        // (доски, прямой запуск) продолжают работать; этот метод также вызывает
+        // спавнер экстрактора.
+        if (!RandomEntrancesEnabled || !_enabled)
             return;
 
         if (_spawnedMaps.Contains(mapId))

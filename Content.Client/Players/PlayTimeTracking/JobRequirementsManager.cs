@@ -89,6 +89,11 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
     public bool CheckJobWhitelist(JobPrototype job, [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = default;
+        // Sirius Add: временно все ВЛ-роли свободны. IsJobWhitelisted ниже
+        // сохраняем — через него разблокируются вайтлист-расы.
+        if (_cfg.GetCVar(CCVars.SiriusRoleWhitelistFree))
+            return true;
+
         if (!_cfg.GetCVar(CCVars.GameRoleWhitelist))
             return true;
 

@@ -20,7 +20,8 @@ special-appearance-component-examine-luck = Удача — {$value}.
 
 # Examine in character screen
 character-info-special-label = S.P.E.C.I.A.L.
-character-info-special-placeholder-text = Особые значения и навыки персонажа
+# Sirius Fix: навыков в S.P.E.C.I.A.L. нет — это значения характеристик.
+character-info-special-placeholder-text = Значения S.P.E.C.I.A.L. персонажа
 special-component-examine-character-strength = Сила равна {$base} + {$modifier} = {$total}.
 special-component-examine-character-perception = Восприятие — это {$base} + {$modifier} = {$total}.
 special-component-examine-character-endurance = Выносливость равна {$base} + {$modifier} = {$total}.

@@ -38,7 +38,7 @@ trait-description-N14PetCentaur =
 
 trait-name-N14RidingPerk = Верховая езда
 trait-description-N14RidingPerk = 
-    Вы умеете седлать вьючных животных пустошей.
+    Вы умеете ездить на пустошных мотоциклах и верхом на вьючных животных.
     Брамины и браддо позволят вам на них ездить, вместо того чтобы устраивать скандал, стоило вам потянуться к седлу.
 
 character-item-group-N14SpeechAccents = Акценты
@@ -161,7 +161,7 @@ trait-description-N14VaultDwellerAccent =
     Божечки, ёлки-палки, вот это да! Двести лет укрытой жизни в Убежище сохранили ваш словарный запас чистеньким, как брошюра Vault-Tec.
 
 trait-description-N14VertibirdPilotPerk =
-    Вы знаете о довоенных винтокрылых машинах достаточно, чтобы поднять вертибёрд в воздух и снова посадить его.
+    Вы знаете о довоенных винтокрылых машинах достаточно, чтобы поднять винтокрыл в воздух и снова посадить его.
 
 trait-name-FiremanCarry = Перенос на плече
 
@@ -223,7 +223,8 @@ trait-name-N14TribalAccent = Племенной акцент
 
 trait-name-N14VaultDwellerAccent = Говор жителя Убежища
 
-trait-name-N14VertibirdPilotPerk = Пилот вертибёрда
+# Sirius Change: «вертибёрд» → «винтокрыл» в названии черты.
+trait-name-N14VertibirdPilotPerk = Пилот винтокрыла
 
 trait-name-MisfitsPetEyebotOSI = Глазбот OSI
 trait-description-MisfitsPetEyebotOSI =

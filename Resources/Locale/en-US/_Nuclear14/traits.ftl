@@ -1,4 +1,4 @@
-﻿trait-name-LanguageTribal = Tribal Language
+trait-name-LanguageTribal = Tribal Language
 trait-description-LanguageTribal = You can understand and speak the local Tribal language, whether through learning or backstory.
 
 trait-name-LanguageChinese = Chinese Language
@@ -168,10 +168,11 @@ trait-description-N14PillowKnuckles =
     Your fists could never cause as much damage as someone else's.
     You deal [color=red]-1[/color] [color=yellow]Blunt[/color] damage in unarmed melee combat.
 
+# Sirius Fix: N14IronFist prototype grants +2 Blunt damage.
 trait-name-N14IronFist = Iron Fists
 trait-description-N14IronFist =
     Your knuckles are almost like they're made of iron, no one wants to get punched by you.
-    You deal [color=green]+1[/color] [color=yellow]Blunt[/color] damage in unarmed melee combat.
+    You deal [color=green]+2[/color] [color=yellow]Blunt[/color] damage in unarmed melee combat.
 
 trait-name-N14RadClaws = Rad Claws
 trait-description-N14RadClaws =
@@ -182,13 +183,13 @@ trait-name-N14WeakLiquor = Weak Liquor
 trait-description-N14WeakLiquor =
     Your body exhibits a significantly heightened susceptibility to alcohol intoxication.
     As a result, alcohol has a more significant effect on your cognitive functions.
-    Note: This pertrains solely to the [color=blue]visual effects[/color] of intoxication, and does not affect the alchohol poisoning threshold.
+    Note: This pertains solely to the [color=blue]visual effects[/color] of intoxication, and does not affect the alcohol poisoning threshold.
 
 trait-name-N14PartyAnimal = Party Animal
 trait-description-N14PartyAnimal =
     Your body has developed an exceptionally high level of alcohol tolerance, leaving the very beverages you consume intimidated.
     As a result, the effects of alcohol on your cognitive functions are considerably less noticeable.
-    Note: This pertrains solely to the [color=blue]visual effects[/color] of intoxication, and does not affect the alchohol poisoning threshold.
+    Note: This pertains solely to the [color=blue]visual effects[/color] of intoxication, and does not affect the alcohol poisoning threshold.
 
 trait-name-N14ShortArms = Short Arms
 trait-description-N14ShortArms =
@@ -251,7 +252,7 @@ trait-description-N14MovingAsset =
 
 trait-name-N14StiffJoints = Stiff Joints
 trait-description-N14StiffJoints =
-    You are not the most agile person. It takes you [color=green]25% more[/color] time to climb over objects or get up after slipping.
+    You are not the most agile person. It takes you [color=red]25% more[/color] time to climb over objects or get up after slipping.
 
 trait-name-N14DeskNinja = Desk Ninja
 trait-description-N14DeskNinja =

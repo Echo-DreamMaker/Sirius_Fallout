@@ -194,7 +194,6 @@
   equipment:
     head: ClothingC27HelmetLightGeneric
     jumpsuit: ClothingC27Chassis
-    pocket1: C27GenericLoadoutKit
     pocket2: N14Welder #they're C-27s they cant use bandages l0l -pierow
     ears: MisfitsClothingHeadsetWastelandScrap
     id: N14ClothingNeckDogtags
@@ -205,7 +204,6 @@
   equipment:
     wallet: N14Wallet
     jumpsuit: ClothingC27Chassis
-    pocket1: C27NCRLoadoutKit
     id: N14IDNCRDogtagSoldier
     ears: N14ClothingHeadsetNCR
 
@@ -215,7 +213,6 @@
   equipment:
     wallet: N14Wallet
     jumpsuit: ClothingC27Chassis
-    pocket1: C27BoSLoadoutKit
     id: N14IDBrotherhoodOfSteelHolotagInitiate
     ears: N14ClothingHeadsetBrotherhoodOfSteel
 

@@ -192,7 +192,8 @@ public sealed class WeaponFrameSystem : EntitySystem
             return;
 
         args.PushMarkup(
-            Loc.GetString("misfits-weapon-assembly-examine-target", ("name", Loc.GetString(prototype.Name))) +
+            // #Sirius Fix: EntityPrototype.Name уже локализован движком, повторный Loc.GetString давал варн с русским messageId.
+            Loc.GetString("misfits-weapon-assembly-examine-target", ("name", prototype.Name)) +
             "\n");
     }
 }

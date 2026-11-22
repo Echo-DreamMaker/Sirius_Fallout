@@ -35,17 +35,18 @@ namespace Content.Shared.Showers
                 Act = () => ToggleShowerHead(uid, args.User, component)
             };
 
+            // #Sirius Fix: the verb describes the action, not the current state.
             if (component.ToggleShower)
-            {
-                toggleVerb.Text = Loc.GetString("shower-turn-on");
-                toggleVerb.Icon =
-                    new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/open.svg.192dpi.png"));
-            }
-            else
             {
                 toggleVerb.Text = Loc.GetString("shower-turn-off");
                 toggleVerb.Icon =
                     new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/close.svg.192dpi.png"));
+            }
+            else
+            {
+                toggleVerb.Text = Loc.GetString("shower-turn-on");
+                toggleVerb.Icon =
+                    new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/open.svg.192dpi.png"));
             }
             args.Verbs.Add(toggleVerb);
         }
@@ -65,6 +66,7 @@ namespace Content.Shared.Showers
                 return;
 
             component.ToggleShower = !component.ToggleShower;
+            Dirty(uid, component); // #Sirius Fix: AutoNetworkedField must be dirtied for clients.
 
             UpdateAppearance(uid, component);
         }

@@ -1,8 +1,9 @@
 # #Sirius Add: HUD icons for the SiriusDirty status and the Wet effect.
 # Seven states for the cleanliness scale, from the dirtiest (severity 0) to the cleanest (6).
-# #Sirius Change: the source GIF had five frames, so the two cleanest states (5 and 6) still
-# share one drawing. The cleanest state (0) is now its own drawing — the same grinning face
-# with freshness sparkles around it — so it no longer repeats state 1 pixel for pixel.
+# #Sirius Change: the source GIF had five frames, so two pairs of states shared one drawing.
+# Both pairs are now resolved: the cleanest state (siriusdirty0) got freshness sparkles, and
+# the dirtiest state (siriusdirty6) got pointed animal ears, fangs and extra grime so it reads
+# as the filthiest frame instead of repeating siriusdirty5 pixel for pixel.
 - type: alert
   id: SiriusDirty
   icons:

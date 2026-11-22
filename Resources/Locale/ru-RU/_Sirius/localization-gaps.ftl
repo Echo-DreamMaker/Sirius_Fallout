@@ -95,3 +95,32 @@ window-close = Закрыть
 # Белый список
 whitelist-not-whitelisted = Вы отсутствуете в белом списке этого сервера.
 whitelist-sponsor = Этот сервер доступен только спонсорам. Станьте спонсором, чтобы присоединиться.
+
+# Sirius Add: недостающие названия лутаутов из character item groups.
+loadout-name-N14LoadoutWeaponPistol9mmSigSauerSirius = пистолет Sig Sauer (Sirius)
+loadout-name-N14LoadoutWeaponPistol9mmSigSauerSiriusAgent = пистолет Sig Sauer (агент Sirius)
+loadout-name-N14LoadoutWeaponRifle556CarbineLegion = штурмовой карабин 5,56 (Легион)
+
+# Sirius Add: недостающие ключи ролей, показываемых в лобби.
+job-name-lieutenant-colonel = подполковник НКР
+job-description-ltcol = Вы — подполковник Армии Новой Калифорнийской Республики. Координируйте офицеров, утверждайте оперативные решения и подчиняйтесь только высшему командованию.
+job-supervisors-ncr-ltcol = высшему командованию НКР
+
+job-name-ambassador = представитель Караванной сети
+job-description-ambassador = Вы — дипломатический представитель Караванной сети, организации, которая объединяет и защищает торговцев от Западного побережья до Среднего Запада, получая за это умеренную плату.
+
+job-description-bos-archivist = Ведите архивы и документацию отделения Братства Стали, храните знания и обеспечивайте писцов и командование доступом к данным.
+
+job-description-ncr-dagger = Вы — оперативник DAGGER, связной между рейнджерами и командованием НКР. Действуйте скрытно, передавайте разведданные и срывайте планы врага.
+job-supervisors-ncr-dagger = командованию НКР и кодексу рейнджеров
+
+job-description-caesar-legion-temple-guard = Охраняйте храм Легиона Цезаря и порядок внутри него. Следите за жрицами и не допускайте осквернения святынь.
+
+job-name-blueshield-officer = офицер Синего Щита
+job-description-blueshield-officer = Выполняйте роль телохранителя и советника командования и VIP Центком.
+
+job-name-nanotrasen-representative = представитель Nanotrasen
+job-description-nanotrasen-representative = Представляйте NT, отправляйте им отчёты о ситуации на станции и информируйте руководителей о приказах Центком.
+
+job-name-magistrate = магистрат
+job-description-magistrate = Следите за соблюдением космического права, отправляйте правосудие, проводите слушания и суды, соблюдайте SOP и следите за действиями командования.

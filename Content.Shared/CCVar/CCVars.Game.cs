@@ -107,6 +107,13 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool>
         GameRoleWhitelist = CVarDef.Create("game.role_whitelist", true, CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    /// Sirius Add: временно сделать все ВЛ-роли свободными. Расовый вайтлист
+    /// (SpeciesPrototype.WhitelistRequired) не затрагивается.
+    /// </summary>
+    public static readonly CVarDef<bool>
+        SiriusRoleWhitelistFree = CVarDef.Create("sirius.role_whitelist_free", true, CVar.SERVER | CVar.REPLICATED);
+
 
     /// <summary>
     ///     Controls whether to use world persistence or not.

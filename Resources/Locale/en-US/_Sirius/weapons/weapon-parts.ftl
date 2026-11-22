@@ -157,3 +157,11 @@ misfits-weapon-repair-nofuel = The welding tool is out of fuel.
 misfits-weapon-part-examine = [color={$color}]Condition: {$state}[/color]
 misfits-weapon-part-examine-fouled = [color=#a8a8a8]The bore is fouled; a cleaning rod could still recover some of it.[/color]
 misfits-weapon-part-examine-fouled-optics = [color=#a8a8a8]The lens is fouled; a cleaning rod could still recover some of it.[/color]
+
+# Sirius Add: entity names used by N14 recipes and station construction.
+ent-N14LeavesTobaccoDried = dried tobacco leaves
+    .desc = Dried tobacco leaves, ready to be ground.
+ent-N14LeavesCannabisDried = dried cannabis leaves
+    .desc = Dried cannabis leaves, ready to be ground.
+ent-N14WeaponAssemblyStationFrame = weapon assembly station frame
+    .desc = A weapon assembly station. This one is still being built!

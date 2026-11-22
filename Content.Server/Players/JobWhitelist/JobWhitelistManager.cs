@@ -60,6 +60,11 @@ public sealed class JobWhitelistManager : IPostInjectInit
 
     public bool IsAllowed(ICommonSession session, ProtoId<JobPrototype> job)
     {
+        // Sirius Add: временно все ВЛ-роли свободны. IsWhitelisted и рассылка
+        // MsgJobWhitelist не трогаются — они разблокируют вайтлист-расы.
+        if (_config.GetCVar(CCVars.SiriusRoleWhitelistFree))
+            return true;
+
         if (!_config.GetCVar(CCVars.GameRoleWhitelist))
             return true;
 

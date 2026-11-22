@@ -234,11 +234,14 @@ namespace Content.Client.LateJoin
                         var job = _prototypeManager.Index<JobPrototype>(jobId);
                         var jobWhitelisted = _jobRequirements.IsJobWhitelisted(job.ID);
 
+                        // Sirius Add: ВЛ-роли временно свободны — не прячем их в лобби.
+                        var roleWhitelistFree = _configManager.GetCVar(CCVars.SiriusRoleWhitelistFree);
+
                         // #Misfits Change - hide whitelist-gated jobs from non-whitelisted players
-                        if (job.HideWithoutWhitelist && !_jobRequirements.IsWhitelisted() && !(job.Whitelisted && jobWhitelisted))
+                        if (!roleWhitelistFree && job.HideWithoutWhitelist && !_jobRequirements.IsWhitelisted() && !(job.Whitelisted && jobWhitelisted))
                             continue;
 
-                        if (job.HideWithoutJobWhitelist && !jobWhitelisted)
+                        if (!roleWhitelistFree && job.HideWithoutJobWhitelist && !jobWhitelisted)
                             continue;
 
                         if (job.HideIfPlaytimeRequirementsNotMet && !_characterRequirements.CheckPlaytimeRequirementsVisible(

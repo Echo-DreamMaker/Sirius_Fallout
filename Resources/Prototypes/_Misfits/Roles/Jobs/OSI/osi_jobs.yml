@@ -64,7 +64,6 @@
     mask: ClothingMaskSterile
     gloves: N14ClothingHandsGlovesNitrile
     pocket1: RadioHandheld
-    pocket2: OSIloadoutkits
     id: N14IDNCRDogtagOSIChiefScientist
   innerClothingSkirt: N14ClothingUniformJumpskirtRDFormal
   satchel: N14ClothingBackpackSatchelNCRFilled
@@ -129,7 +128,6 @@
     ears: MisfitsClothingHeadsetOSI
     mask: ClothingMaskSterile
     gloves: N14ClothingHandsGlovesNitrile
-    pocket2: OSIloadoutkits
     id: N14IDNCRDogtagOSIScientist
   innerClothingSkirt: N14ClothingUniformJumpskirtRDFormal
   satchel: N14ClothingBackpackSatchelNCRFilled
@@ -194,7 +192,6 @@
     ears: MisfitsClothingHeadsetOSI
     mask: ClothingMaskSterile
     gloves: N14ClothingHandsGlovesNitrile
-    pocket2: OSIloadoutkits
     id: N14IDNCRDogtagOSIAssistant
   innerClothingSkirt: N14ClothingUniformJumpskirtRDFormal
   satchel: N14ClothingBackpackSatchelNCRFilled
@@ -255,7 +252,6 @@
     belt: ClothingBeltNCR
     ears: MisfitsClothingHeadsetOSI
     pocket1: RadioHandheld
-    pocket2: OSIloadoutkits
     id: N14IDNCRDogtagOSIAgent
   innerClothingSkirt: N14ClothingUniformNCRDesert
   satchel: N14ClothingBackpackSatchelNCRFilled

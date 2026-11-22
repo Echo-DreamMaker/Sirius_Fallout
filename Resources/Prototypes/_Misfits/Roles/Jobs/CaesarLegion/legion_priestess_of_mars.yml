@@ -91,7 +91,7 @@
     back: N14ClothingBackpackMilitary
     id: N14IDLegionaryBadgePriestessOfMars
     outerClothing: N14ClothingOuterLegionnaireReconnaissanceArmor
-    pocket2: N14Whip
+    # Sirius Change: whip removed (not in allowed Priestess weapons)
   storage:
     back:
       - N14BoxPlasticFilledMilitaryLegion

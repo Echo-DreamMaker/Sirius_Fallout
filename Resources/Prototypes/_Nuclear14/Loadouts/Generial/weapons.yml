@@ -12,10 +12,16 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
-    - !type:CharacterDepartmentRequirement
+    - !type:CharacterDepartmentRequirement # Sirius Change: available to Legion Caesar and all secondary roles
+      inverted: true
       departments:
-        - Wastelander
-        - Townsfolk
+        - Vault
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
   items:
     - N14WeaponPistolZipgunSirius
 
@@ -30,6 +36,16 @@
       departments:
         - Wastelander
         - Townsfolk
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
   items:
     - N14WeaponPistol22lr
 
@@ -38,12 +54,22 @@
   category: Firearms
   cost: 2
   requirements:
-     - !type:CharacterItemGroupRequirement
+    - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
-     - !type:CharacterDepartmentRequirement
+    - !type:CharacterDepartmentRequirement
       departments:
         - Wastelander
         - Townsfolk
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
   items:
     - N14WeaponPistol10mmPipe
 
@@ -64,6 +90,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
   items:
     - N14WeaponPistol9mm
 
@@ -84,6 +114,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
   items:
     - N14WeaponPistol10mm
 
@@ -104,6 +138,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
   items:
     - N14WeaponPistol45Colt
 
@@ -128,6 +166,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
   items:
     - N14WeaponPistol9mmChinese
 
@@ -148,6 +190,10 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
   items:
     - N14WeaponPistolWebley
 
@@ -161,8 +207,64 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - BrotherhoodOfSteel
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
   items:
     - N14WeaponPistol12mm
+
+- type: loadout
+  id: N14LoadoutWeaponPistol9mmSigSauerSirius
+  category: Firearms
+  cost: 2
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutGuns
+    - !type:CharacterDepartmentRequirement # Sirius Change: available to Brotherhood of Steel
+      departments:
+        - BrotherhoodOfSteel
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+  items:
+    - N14WeaponPistol9mmSigSauerSirius
+
+- type: loadout
+  id: N14LoadoutWeaponPistol9mmSigSauerSiriusAgent
+  category: Firearms
+  cost: 2
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutGuns
+    - !type:CharacterJobRequirement # Sirius Change: available to agent roles
+      jobs:
+        - OSIAgent
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+  items:
+    - N14WeaponPistol9mmSigSauerSirius
 
 - type: loadout
   id: N14LoadoutWeaponDesertEagle44
@@ -174,6 +276,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponDesertEagle44
 
@@ -190,6 +306,20 @@
       departments:
         - Wastelander
         - Townsfolk
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRevolver9mm
 
@@ -203,6 +333,24 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterDepartmentRequirement # Sirius Change: revolvers unavailable to Caesar's Legion
+      inverted: true
+      departments:
+        - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRevolver10mm
 
@@ -216,6 +364,24 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterDepartmentRequirement # Sirius Change: revolvers unavailable to Caesar's Legion
+      inverted: true
+      departments:
+        - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRevolverCalicoSirius
 
@@ -230,7 +396,20 @@
       departments:
         - Wastelander
         - Tribe
-        - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRevolver44Tribal
 
@@ -245,7 +424,20 @@
       departments:
         - Wastelander
         - Tribe
-        - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRevolver44TribalUpgraded
 
@@ -268,6 +460,18 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPrisoner
+    - !type:CharacterDepartmentRequirement # Sirius Change: revolvers unavailable to Caesar's Legion
+      inverted: true
+      departments:
+        - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRevolver44Magnum
 
@@ -282,7 +486,20 @@
       departments:
         - Wastelander
         - Tribe
-        - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRevolver44TribalUpgradedExtra
 
@@ -298,7 +515,20 @@
         - Wastelander
         - Townsfolk
         - Tribe
-        - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRevolver45-70Handcannon
 
@@ -313,6 +543,20 @@
       departments:
         - Wastelander
         - Townsfolk
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRevolverWebley
 
@@ -328,7 +572,20 @@
         - Wastelander
         - Townsfolk
         - Tribe
-        - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRevolver45-70HandcannonUpgraded
 
@@ -346,6 +603,20 @@
       departments:
         - Wastelander
         - Townsfolk
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponShotgunCaravan
 
@@ -362,6 +633,20 @@
         - Townsfolk
         - Tribe
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponShotgunBoomstick
 
@@ -378,6 +663,20 @@
         - Townsfolk
         - Tribe
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponShotgunBloodyStick
 
@@ -394,6 +693,20 @@
       departments:
         - Wastelander
         - Townsfolk
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponShotgunDoubleBarrel
 
@@ -407,6 +720,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponShotgunLever
 
@@ -420,6 +747,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponShotgun
 
@@ -433,6 +774,23 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: not available to legionaries, auxilia, priestesses, prime legionaries
+      inverted: true
+      jobs:
+        - CaesarLegionLegionnaireRecruit
+        - CaesarLegionAuxilia
+        - CaesarLegionPriestessOfMars
+        - CaesarLegionLegionnaireWarrior
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
   items:
     - N14WeaponShotgunShort
 
@@ -447,6 +805,20 @@
       departments:
         - BrotherhoodOfSteel
         - NCR
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponShotgunAuto
 
@@ -460,6 +832,24 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: only centurion and legate
+      jobs:
+        - CaesarLegionCenturion
+        - CaesarLegionLegate
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponShotgunNeostead
 
@@ -476,6 +866,20 @@
     - !type:CharacterJobRequirement
       jobs:
         - CaesarLegionPrimeDecanus
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponShotgunBlowback
 
@@ -493,6 +897,20 @@
       departments:
         - NCR
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSMG9mm
 
@@ -506,19 +924,47 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSMG9mminfiltrator
 
 - type: loadout
   id: N14LoadoutWeaponSMGGreaseGun
   category: Firearms
-  cost: 7
+  cost: 9 # Sirius Change: +2 points
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSMGGreaseGun
 
@@ -532,6 +978,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSMG12mm
 
@@ -545,6 +1005,23 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: not available to legionaries, prime legionaries, auxilia, acolytes
+      inverted: true
+      jobs:
+        - CaesarLegionLegionnaireRecruit
+        - CaesarLegionLegionnaireWarrior
+        - CaesarLegionAuxilia
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSMG10mm
 
@@ -558,6 +1035,23 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: not available to legionaries, prime legionaries, auxilia, acolytes
+      inverted: true
+      jobs:
+        - CaesarLegionLegionnaireRecruit
+        - CaesarLegionLegionnaireWarrior
+        - CaesarLegionAuxilia
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSMG45
 
@@ -573,6 +1067,20 @@
       departments:
         - Wastelander
         - Townsfolk
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniper556VarmintRifle
 
@@ -587,6 +1095,20 @@
       departments:
         - Wastelander
         - Tribe
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniper762Tribal
 
@@ -601,6 +1123,20 @@
       departments:
         - Wastelander
         - Tribe
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniper762TribalUpgraded
 
@@ -617,6 +1153,20 @@
       departments:
         - Wastelander
         - Townsfolk
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556Pipe
 
@@ -634,6 +1184,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - BrotherhoodOfSteel
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556CarbineOld
 
@@ -647,8 +1211,56 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - BrotherhoodOfSteel
-        - CaesarLegion
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
+  items:
+    - N14WeaponRifle556Carbine
+
+- type: loadout
+  id: N14LoadoutWeaponRifle556CarbineLegion
+  category: Firearms
+  cost: 8
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutGuns
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: only decans, orator, centurion, legate
+      jobs:
+        - CaesarLegionDean
+        - CaesarLegionPrimeDecanus
+        - CaesarLegionVeteranDecanus
+        - CaesarLegionOrator
+        - CaesarLegionCenturion
+        - CaesarLegionLegate
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556Carbine
 
@@ -663,6 +1275,20 @@
       departments:
         - NCR
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556Service
 
@@ -677,6 +1303,20 @@
       departments:
         - NCR
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556Butchered
 
@@ -691,6 +1331,20 @@
       departments:
         - NCR
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556ServiceScoped
 
@@ -707,6 +1361,20 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRChiefRanger
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556Scout
 
@@ -720,6 +1388,28 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: only decans, orator, centurion, legate
+      jobs:
+        - CaesarLegionDean
+        - CaesarLegionPrimeDecanus
+        - CaesarLegionVeteranDecanus
+        - CaesarLegionOrator
+        - CaesarLegionCenturion
+        - CaesarLegionLegate
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle545Chinese
 
@@ -735,6 +1425,20 @@
         - NCR
         - Rangers
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle762Marksman
 
@@ -749,6 +1453,20 @@
       departments:
         - NCR
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556EM2
 
@@ -763,6 +1481,20 @@
       departments:
         - NCR
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle762Fal
 
@@ -777,6 +1509,20 @@
       departments:
         - NCR
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556GalilSirius
 
@@ -792,6 +1538,20 @@
         - NCR
         - Rangers
         - BrotherhoodOfSteel
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifleAk112
 
@@ -806,6 +1566,20 @@
       departments:
         - NCR
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556SteirSirius
 
@@ -819,6 +1593,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Townsfolk
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle762ClassicrifleSirius
 
@@ -832,6 +1620,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Townsfolk
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle762M14
 
@@ -846,6 +1648,20 @@
       departments:
         - NCR
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556M16A1Sirius
 
@@ -859,6 +1675,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556R91
 
@@ -872,6 +1702,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle762R82Sirius
 
@@ -885,6 +1729,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle556EnfieldXL70E3Sirius
 
@@ -901,6 +1759,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniper308LeverRifle
 
@@ -915,6 +1787,20 @@
       departments:
         - NCR
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniper44LeverCarbine
 
@@ -928,6 +1814,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Tribe
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniper45-70Tribal
 
@@ -941,6 +1841,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Tribe
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniper45-70TribalUpgraded
 
@@ -954,6 +1868,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifleSKS
 
@@ -967,6 +1895,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniperHunting
 
@@ -981,6 +1923,20 @@
       departments:
         - NCR
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifle308SniperRifle
 
@@ -994,6 +1950,23 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: not available to legionaries, prime legionaries, auxilia, acolytes
+      inverted: true
+      jobs:
+        - CaesarLegionLegionnaireRecruit
+        - CaesarLegionLegionnaireWarrior
+        - CaesarLegionAuxilia
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifleM1GarandRepublicsDemise
 
@@ -1007,6 +1980,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniper45-70BrushGun
 
@@ -1021,6 +2008,20 @@
       departments:
         - NCR
         - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniper50NCRRifle
 
@@ -1034,6 +2035,29 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: only decans, frumentarius, orator, centurion, legate
+      jobs:
+        - CaesarLegionDean
+        - CaesarLegionPrimeDecanus
+        - CaesarLegionVeteranDecanus
+        - CaesarLegionFrumentarii
+        - CaesarLegionOrator
+        - CaesarLegionCenturion
+        - CaesarLegionLegate
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniper50Pipe
 
@@ -1050,6 +2074,20 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRChiefRanger
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniper50AntiMateriel
 
@@ -1066,6 +2104,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLMGAutoRifle
 
@@ -1080,6 +2132,20 @@
       departments:
         - NCR
         - BrotherhoodOfSteel
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifleAk112pn
 
@@ -1098,6 +2164,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - BrotherhoodOfSteel
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifleBozarGRA
 
@@ -1111,6 +2191,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLMG
 
@@ -1124,10 +2218,23 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
-    - !type:CharacterJobRequirement
+    - !type:CharacterJobRequirement # Sirius Change: only legate
       jobs:
-        - CaesarLegionCenturion
         - CaesarLegionLegate
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponM60GPMG
 
@@ -1145,6 +2252,20 @@
       jobs:
         - NCRWS
         - NCRHeavyTrooper
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponMinigun
 
@@ -1163,6 +2284,20 @@
       jobs:
         - NCRWS
         - NCRHeavyTrooper
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponRifleGrenade
 
@@ -1180,6 +2315,20 @@
       jobs:
         - NCRWS
         - NCRHeavyTrooper
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLauncherGrenade
 
@@ -1195,6 +2344,20 @@
       departments:
         - BrotherhoodOfSteel
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLaserPistol
 
@@ -1205,6 +2368,24 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
+    - !type:CharacterDepartmentRequirement # Sirius Change: energy weapons unavailable to Caesar's Legion
+      inverted: true
+      departments:
+        - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLaserRevolver
 
@@ -1225,6 +2406,20 @@
       departments:
         - BrotherhoodOfSteel
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponPistol2mmECPPK12Sirius
 
@@ -1238,6 +2433,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLaserPistolRecharger
 
@@ -1251,6 +2460,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponPlasmaDefender
 
@@ -1266,6 +2489,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLaserRifleRecharger
 
@@ -1280,6 +2517,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - BrotherhoodOfSteel
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLaserRifleCrude
 
@@ -1293,6 +2544,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - BrotherhoodOfSteel
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLaserRifle
 
@@ -1308,6 +2573,20 @@
       departments:
         - BrotherhoodOfSteel
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLaserRifleAuto
 
@@ -1326,6 +2605,20 @@
       departments:
         - BrotherhoodOfSteel
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponSniperM72GaussRifleSirius
 
@@ -1344,6 +2637,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - BrotherhoodOfSteel
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLaserRifleWattz2000
 
@@ -1363,6 +2670,20 @@
       departments:
         - BrotherhoodOfSteel
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLaserRifleWattz3000
 
@@ -1381,6 +2702,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - BrotherhoodOfSteel
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponLaserGatling
 
@@ -1399,6 +2734,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - BrotherhoodOfSteel
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponPlasmaRifle
 
@@ -1422,6 +2771,20 @@
       departments:
         - BrotherhoodOfSteel
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponPlasmaRifleUrban
 
@@ -1435,6 +2798,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponPlasmaRifleAuto
 
@@ -1448,6 +2825,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponPlasmaMultiplas
 
@@ -1461,6 +2852,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Enclave
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponPlasmaCaster
 
@@ -1478,6 +2883,20 @@
       departments:
         - Wastelander
         - Townsfolk
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14KitchenKnife
 
@@ -1515,6 +2934,20 @@
         - Wastelander
         - Tribe
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WastelandTribalSpear
 
@@ -1538,6 +2971,12 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutMelee
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
   items:
     - N14Hatchet
 
@@ -1549,6 +2988,20 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutMelee
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14PoliceBaton
 
@@ -1561,6 +3014,20 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutMelee
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14TrenchClub
 
@@ -1572,6 +3039,20 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutMelee
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14Machete
 
@@ -1586,6 +3067,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion # Basically free for some roles, others don't get that
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14Gladius
 
@@ -1600,6 +3095,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - BrotherhoodOfSteel
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14LongSword
 
@@ -1615,6 +3124,20 @@
       - LanguageNerd
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutMelee
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14ChineseSword
 
@@ -1630,6 +3153,20 @@
       - CaesarLegionCenturion
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutMelee
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14CeremonialSword
 
@@ -1645,6 +3182,20 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - NCR
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WastelandFlagSpear
 
@@ -1658,6 +3209,26 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: not available to legionaries, prime legionaries, legion scouts
+      inverted: true
+      jobs:
+        - CaesarLegionLegionnaireRecruit
+        - CaesarLegionLegionnaireWarrior
+        - CaesarLegionExplorer
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14SledgeHammer
 
@@ -1671,6 +3242,26 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: not available to legionaries, prime legionaries, legion scouts
+      inverted: true
+      jobs:
+        - CaesarLegionLegionnaireRecruit
+        - CaesarLegionLegionnaireWarrior
+        - CaesarLegionExplorer
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14FireAxe
 
@@ -1684,7 +3275,21 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - Tribe
-        - CaesarLegion
+        # Sirius Change: no longer available to Caesar's Legion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14TribalBigClubDecorated
 
@@ -1698,6 +3303,12 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
   items:
     - ThrowingKnife
     - ThrowingKnife
@@ -1713,6 +3324,28 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: only decans, orator, centurion, legate
+      jobs:
+        - CaesarLegionDean
+        - CaesarLegionPrimeDecanus
+        - CaesarLegionVeteranDecanus
+        - CaesarLegionOrator
+        - CaesarLegionCenturion
+        - CaesarLegionLegate
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14ClothingHandsPowerFistGoliath
 
@@ -1726,6 +3359,24 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - CaesarLegion
+    - !type:CharacterJobRequirement # Sirius Change: only centurion and legate
+      jobs:
+        - CaesarLegionCenturion
+        - CaesarLegionLegate
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
   items:
     - N14WeaponThermospear
 

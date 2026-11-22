@@ -55,7 +55,6 @@
     belt: ClothingBeltMedicalFilled
     gloves: N14ClothingHandsGlovesBlackLeather
     pocket1: N14Stimpak
-    pocket2: NCRrangermedicloadoutkits
     eyes: ClothingEyesGlassesSunglasses
     outerClothing: N14ClothingOuterRangerFieldArmor
     id: N14IDBadgeNCRDesertRanger

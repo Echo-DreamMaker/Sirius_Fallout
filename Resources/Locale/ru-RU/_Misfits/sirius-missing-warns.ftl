@@ -3079,7 +3079,8 @@ job-name-EnclaveRecruit = Новобранец Анклава
 job-name-EnclaveReformer = Реформатор Анклава
 job-name-EnclaveScientist = Учёный Анклава
 job-name-EnclaveSeniorOfficer = Старший офицер Анклава
-job-name-EnclaveVertibirdPilot = Пилот вертиберда Анклава
+# Sirius Change: должность пилота винтокрыла.
+job-name-EnclaveVertibirdPilot = Пилот винтокрыла Анклава
 job-name-FollowerDirector = Директор Последователей
 job-name-FollowerDoctor = Доктор Последователей
 job-name-FollowerGuard = Страж Последователей
@@ -3134,7 +3135,8 @@ job-name-NCRRangerStandard = Рядовой рейнджер НКР
 job-name-NCRSoldier = Солдат НКР
 job-name-NCRStaffSergeant = Штаб-сержант НКР
 job-name-NCRTrader = Торговец НКР
-job-name-NCRVertibirdPilot = Пилот вертиберда НКР
+# Sirius Change: должность пилота винтокрыла.
+job-name-NCRVertibirdPilot = Пилот винтокрыла НКР
 job-name-NCRVeteranRanger = Ветеран-рейнджер НКР
 job-name-NCRWS = Разведчик пустоши НКР
 job-name-NanotrasenRepresentative = Представитель Nanotrasen

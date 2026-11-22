@@ -51,6 +51,10 @@ public sealed class SiriusSpawnSystem : EntitySystem
         var reactive = EnsureComp<ReactiveComponent>(uid);
         reactive.Reactions ??= new List<Content.Shared.Chemistry.Reaction.ReactiveReagentEffectEntry>();
 
+        // #Sirius Fix: avoid stacking duplicate reactive entries on respawn/reinit.
+        if (reactive.Reactions.Any(r => r.Effects.Any(e => e is SiriusMakeWetEffect)))
+            return;
+
         // #Sirius Add: any water reagent splashed on the target keeps them wet for 2s per unit (up to a minute).
         reactive.Reactions.Add(new Content.Shared.Chemistry.Reaction.ReactiveReagentEffectEntry
         {
