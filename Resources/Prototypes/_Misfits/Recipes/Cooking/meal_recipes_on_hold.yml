@@ -1,10 +1,10 @@
-﻿# Here we store both working (but problematic) and non-working recipes
+# Here we store both working (but problematic) and non-working recipes
 # Both need a deeper review/fixing beyond just ID name mismatch
 
 # Breads & Sandwiches
 - type: microwaveMealRecipe
   id: MisfitsRecipeSausageRoll
-  name: Sausage Roll
+  name: ent-MisfitsFoodSausageRoll
   result: MisfitsFoodSausageRoll
   time: 10
   reagents:
@@ -16,7 +16,7 @@
 # Deserts 
 - type: microwaveMealRecipe
   id: MisfitsRecipeLollipop_VaultTech
-  name: VaultTech Lollipop
+  name: ent-MisfitsFoodLollipop_VaultTech
   result: MisfitsFoodLollipop_VaultTech
   time: 5
   reagents:
@@ -50,7 +50,7 @@
 # Meat
 - type: microwaveMealRecipe
   id: MisfitsRecipeSausageChain
-  name: Sausage Chain
+  name: ent-MisfitsFoodSausageChain
   result: MisfitsFoodSausageChain
   time: 5
   reagents:
@@ -72,7 +72,7 @@
     
 - type: microwaveMealRecipe
   id: MisfitsRecipeSushiSpicyRaw
-  name: Fried Spicy Sushi
+  name: ent-MisfitsFoodSushiSpicyRaw
   result: MisfitsFoodSushiSpicyRaw
   time: 5
   reagents:

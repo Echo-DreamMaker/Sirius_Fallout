@@ -24,7 +24,7 @@
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeLasagnaRealVersion
-  name: Perfected Lasagna
+  name: ent-MisfitsFoodLasagnaGood
   result: MisfitsFoodLasagnaGood
   time: 30
   solids:

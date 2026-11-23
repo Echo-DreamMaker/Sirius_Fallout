@@ -20,7 +20,9 @@ namespace Content.Shared.Construction.Steps
             if (string.IsNullOrEmpty(Name))
                 return;
 
-            examinedEvent.PushMarkup(Loc.GetString("construction-insert-arbitrary-entity", ("stepName", Name)));
+            // Sirius: localize ingredient/step name when a step-* key exists.
+            var stepName = Loc.TryGetString($"step-{Name.Replace(' ', '-')}", out var locName) ? locName : Name;
+            examinedEvent.PushMarkup(Loc.GetString("construction-insert-arbitrary-entity", ("stepName", stepName)));
         }
 
         public override ConstructionGuideEntry GenerateGuideEntry()

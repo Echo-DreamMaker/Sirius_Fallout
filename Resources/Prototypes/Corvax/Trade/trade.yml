@@ -104,7 +104,7 @@
 # ----------------------------
 - type: storeCategoryStructured
   id: TicketsBuy_Weapons
-  name: "Weapons"
+  name: nc-store-category-ticketsbuy-weapons
   entries:
   - proto: N14WeaponPistol9mmSpy
     price: 2
@@ -193,14 +193,14 @@
 
 - type: storeCategoryStructured
   id: TicketsBuy_Ammo
-  name: "Ammunition"
+  name: nc-store-category-ticketsbuy-ammo
   entries:
   - proto: CartridgeMissile
     price: 3
 
 - type: storeCategoryStructured
   id: TicketsBuy_Melee
-  name: "Melee"
+  name: nc-store-category-ticketsbuy-melee
   entries:
   - proto: N14SuperSledgeHammer
     price: 3
@@ -211,7 +211,7 @@
 
 - type: storeCategoryStructured
   id: TicketsBuy_Explosives
-  name: "Explosives"
+  name: nc-store-category-ticketsbuy-explosives
   entries:
   - proto: C4
     price: 2
@@ -220,7 +220,7 @@
 
 - type: storeCategoryStructured
   id: TicketsBuy_Meds
-  name: "Medicine"
+  name: nc-store-category-ticketsbuy-meds
   entries:
   - proto: MedicatedSuture
     price: 1
@@ -229,7 +229,7 @@
 
 - type: storeCategoryStructured
   id: TicketsBuy_PowerArmor
-  name: "Power Armor"
+  name: nc-store-category-ticketsbuy-powerarmor
   entries:
   - proto: N14ClothingOuterPowerArmorRaider
     price: 30
@@ -237,7 +237,7 @@
 
 - type: storeCategoryStructured
   id: TicketsBuy_Armor
-  name: "Armor"
+  name: nc-store-category-ticketsbuy-armor
   entries:
   - proto: N14ClothingOuterMarineArmor
     price: 21
@@ -265,7 +265,7 @@
 # ----------------------------
 - type: storeCategoryStructured
   id: TicketsSell_Weapons
-  name: "Weapons"
+  name: nc-store-category-ticketssell-weapons
   entries:
   - proto: N14WeaponSMG12mmAdvancedChinese
     price: 5
@@ -300,7 +300,7 @@
 
 - type: storeCategoryStructured
   id: TicketsSell_Melee
-  name: "Melee"
+  name: nc-store-category-ticketssell-melee
   entries:
   - proto: N14SuperSledgeHammer
     price: 1
@@ -309,7 +309,7 @@
 
 - type: storeCategoryStructured
   id: TicketsSell_Explosives
-  name: "Explosives"
+  name: nc-store-category-ticketssell-explosives
   entries:
   - proto: C4
     price: 1
@@ -318,14 +318,14 @@
 
 - type: storeCategoryStructured
   id: TicketsSell_PowerArmor
-  name: "Power Armor"
+  name: nc-store-category-ticketssell-powerarmor
   entries:
   - proto: N14ClothingOuterPowerArmorRaider
     price: 9
 
 - type: storeCategoryStructured
   id: TicketsSell_Armor
-  name: "Armor"
+  name: nc-store-category-ticketssell-armor
   entries:
   - proto: N14ClothingOuterCombatArmorMK2
     price: 3
@@ -344,7 +344,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Revolvers
-  name: "Revolvers"
+  name: nc-store-category-caravanbuy2-revolvers
   entries:
   - proto: N14WeaponRevolver9mm
     price: 15
@@ -361,7 +361,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Pistols
-  name: "Pistols"
+  name: nc-store-category-caravanbuy2-pistols
   entries:
   - proto: N14WeaponPistol10mmPipe
     price: 15
@@ -385,7 +385,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_SMGs
-  name: "Submachine Guns"
+  name: nc-store-category-caravanbuy2-smgs
   entries:
   - proto: N14WeaponSMG9mm
     price: 130
@@ -426,7 +426,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Shotguns
-  name: "Shotguns"
+  name: nc-store-category-caravanbuy2-shotguns
   entries:
   - proto: N14WeaponShotgunPipe
     price: 15
@@ -458,7 +458,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_AssaultRifles
-  name: "Assault Rifles"
+  name: nc-store-category-caravanbuy2-assaultrifles
   entries:
   - proto: N14WeaponRifle556Pipe
     price: 100
@@ -507,7 +507,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_MachineGuns
-  name: "Machine Guns"
+  name: nc-store-category-caravanbuy2-machineguns
   entries:
   - proto: N14WeaponLMG
     price: 1200
@@ -527,7 +527,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Rifles
-  name: "Rifles"
+  name: nc-store-category-caravanbuy2-rifles
   entries:
   - proto: N14WeaponSniper308PipeRifle
     price: 20
@@ -558,7 +558,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_EnergyWeapons
-  name: "Energy Weapons"
+  name: nc-store-category-caravanbuy2-energyweapons
   entries:
   - proto: N14WeaponLaserRifleMakeshift
     price: 300
@@ -575,7 +575,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Ammo
-  name: "Ammunition"
+  name: nc-store-category-caravanbuy2-ammo
   entries:
   - proto: N14PowerCellSmall
     price: 75
@@ -591,7 +591,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Melee
-  name: "Melee"
+  name: nc-store-category-caravanbuy2-melee
   entries:
   - proto: N14TrainingSword
     price: 5
@@ -627,7 +627,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Headwear
-  name: "Headgear"
+  name: nc-store-category-caravanbuy2-headwear
   entries:
   - proto: N14ClothingHeadHatArmyBeret
     price: 5
@@ -648,7 +648,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Armor
-  name: "Armor"
+  name: nc-store-category-caravanbuy2-armor
   entries:
   - proto: N14ClothingOuterCoatDuster
     price: 10
@@ -722,7 +722,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Rigs
-  name: "Equipment (RPS)"
+  name: nc-store-category-caravanbuy2-rigs
   entries:
   - proto: ClothingBeltRope
     price: 50
@@ -735,7 +735,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Medical
-  name: "Medicine"
+  name: nc-store-category-caravanbuy2-medical
   entries:
   - proto: N14DirtyGauze10
     amount: 10
@@ -762,7 +762,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Materials
-  name: "Materials"
+  name: nc-store-category-caravanbuy2-materials
   entries:
   - proto: SheetSteel
     amount: 30
@@ -782,7 +782,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Alcohol
-  name: "Alcohol"
+  name: nc-store-category-caravanbuy2-alcohol
   entries:
   - proto: N14DrinkGammagulpBeer
     price: 5
@@ -795,7 +795,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Misc
-  name: "Misc"
+  name: nc-store-category-caravanbuy2-misc
   entries:
   - proto: N14Binoculars
     price: 100
@@ -836,7 +836,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Sprouts
-  name: "Seedlings"
+  name: nc-store-category-caravanbuy2-sprouts
   entries:
   - proto: N14FloraWildAgaveClippingSeed
     price: 5
@@ -906,7 +906,7 @@
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Plushies
-  name: "Plushies"
+  name: nc-store-category-caravanbuy2-plushies
   entries:
   - proto: PlushiePeterPro
     price: 500
@@ -959,7 +959,7 @@
 # ----------------------------
 - type: storeCategoryStructured
   id: CaravanSell2_Revolvers
-  name: "Revolvers"
+  name: nc-store-category-caravansell2-revolvers
   entries:
   - proto: N14WeaponRevolver45-70Handcannon
     price: 15
@@ -978,7 +978,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_Pistols
-  name: "Pistols"
+  name: nc-store-category-caravansell2-pistols
   entries:
   - proto: N14WeaponPistol12mm
     price: 25
@@ -993,7 +993,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_SMGs
-  name: "Submachine Guns"
+  name: nc-store-category-caravansell2-smgs
   entries:
   - proto: N14WeaponSMGAmerican180
     price: 165
@@ -1018,7 +1018,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_Shotguns
-  name: "Shotguns"
+  name: nc-store-category-caravansell2-shotguns
   entries:
   - proto: N14WeaponShotgunBoomstick
     price: 14
@@ -1041,7 +1041,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_AssaultRifles
-  name: "Assault Rifles"
+  name: nc-store-category-caravansell2-assaultrifles
   entries:
   - proto: N14WeaponSniper308Canadian
     price: 50
@@ -1064,7 +1064,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_MachineGuns
-  name: "Machine Guns"
+  name: nc-store-category-caravansell2-machineguns
   entries:
   - proto: N14WeaponLMG
     price: 400
@@ -1079,7 +1079,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_Rifles
-  name: "Rifles"
+  name: nc-store-category-caravansell2-rifles
   entries:
   - proto: N14WeaponSniper762Tribal
     price: 45
@@ -1096,7 +1096,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_EnergyWeapons
-  name: "Energy Weapons"
+  name: nc-store-category-caravansell2-energyweapons
   entries:
   - proto: N14WeaponLaserPistol
     price: 33
@@ -1127,7 +1127,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_Ammo
-  name: "Ammunition"
+  name: nc-store-category-caravansell2-ammo
   entries:
   - proto: N14PowerCellSmall
     price: 45
@@ -1140,7 +1140,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_Melee
-  name: "Melee"
+  name: nc-store-category-caravansell2-melee
   entries:
   - proto: N14ChineseSword
     price: 45
@@ -1159,7 +1159,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_Headwear
-  name: "Headwear"
+  name: nc-store-category-caravansell2-headwear
   entries:
   - proto: N14ClothingHeadHatArmyBeret
     price: 3
@@ -1168,7 +1168,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_Armor
-  name: "Armor"
+  name: nc-store-category-caravansell2-armor
   entries:
   - proto: N14ClothingOuterCoatDuster
     price: 6
@@ -1235,7 +1235,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_Rigs
-  name: "Gear (RPS)"
+  name: nc-store-category-caravansell2-rigs
   entries:
   - proto: ClothingBeltCowboy
     price: 55
@@ -1244,7 +1244,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_MaterialsAndJunk
-  name: "Materials and Junk"
+  name: nc-store-category-caravansell2-materialsandjunk
   entries:
   - proto: MaterialCloth1
     price: 4
@@ -1305,7 +1305,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_Fish
-  name: Fishing
+  name: nc-store-category-caravansell2-fish
   entries:
   - proto: FishBone
     price: 10
@@ -1331,7 +1331,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_Ore
-  name: "Ore"
+  name: nc-store-category-caravansell2-ore
   entries:
   - proto: N14IngotCopper1
     price: 10
@@ -1350,7 +1350,7 @@
 
 - type: storeCategoryStructured
   id: CaravanSell2_Alcohol
-  name: "Alcohol"
+  name: nc-store-category-caravansell2-alcohol
   entries:
   - proto: N14DrinkGammagulpBeer
     price: 3

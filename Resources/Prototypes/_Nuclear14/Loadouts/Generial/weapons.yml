@@ -1997,6 +1997,7 @@
   items:
     - N14WeaponSniper45-70BrushGun
 
+#Sirius Change: 6 points; every ranger role plus a limited NCR officer/specialist selection.
 - type: loadout
   id: N14LoadoutWeaponSniper50NCRRifle
   category: Firearms
@@ -2004,10 +2005,26 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - NCR
-        - Rangers
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRanger
+        - NCRDagger
+        - NCRChiefRanger
+        - RangerChief
+        - NCRVeteranRanger
+        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic
+        - NCRPatrolRanger
+        - NCRRangerRecruit
+        - SuperMutantNCRRanger
+        - NCRCommander
+        - NCRLTCol
+        - NCRExecutiveOfficer
+        - NCRPlatoonLeader
+        - NCRNCO
+        - NCRWS
+        - NCRHeavyTrooperLead
     - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
       inverted: true
       jobs:
@@ -2061,19 +2078,45 @@
   items:
     - N14WeaponSniper50Pipe
 
+#Sirius Add: cheap pipe sniper rifle for all weapon-carrying roles (no weapon loadouts for slaves/serfs/prisoners and Mars clergy).
 - type: loadout
-  id: N14LoadoutWeaponSniper50AntiMateriel
+  id: SiriusLoadoutWeaponSniper308PipeRifle
   category: Firearms
-  cost: 10
+  cost: 2
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Rangers
+    - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterJobRequirement # Sirius Change: not available to Acolyte of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionAcolyteOfMars
+    - !type:CharacterJobRequirement # Sirius Change: not available to Priestess of Mars
+      inverted: true
+      jobs:
+        - CaesarLegionPriestessOfMars
+  items:
+    - N14WeaponSniper308PipeRifle
+
+#Sirius Change: cost 10 -> 8, available to veteran rangers, ranger commanders and DAGGER.
+- type: loadout
+  id: N14LoadoutWeaponSniper50AntiMateriel
+  category: Firearms
+  cost: 8
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutGuns
     - !type:CharacterJobRequirement
       jobs:
+        - NCRVeteranRanger
         - NCRChiefRanger
+        - RangerChief
+        - NCRDagger
     - !type:CharacterJobRequirement # Sirius Change: slaves/prisoners/serfs have no weapon loadouts
       inverted: true
       jobs:

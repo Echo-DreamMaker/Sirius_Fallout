@@ -1,0 +1,19 @@
+#Sirius Add: 5.45 projectile moved from Corvax to _Nuclear14
+- type: entity
+  id: N14Bullet545
+  name: bullet (5.45mm)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 23 #sirius change
+  # Misfits Add - 5.45mm intermediate rifle round; good range retention
+  - type: BallisticDamageFalloff
+    falloffStartTiles: 8.0
+    maxFalloffTiles: 16.0
+    minDamageMultiplier: 0.60
+  # #Misfits Add: 5.45mm is a medium-caliber rifle round; power armor has a low chance to glance it.
+  - type: Reflective
+    reflective: MediumCaliber

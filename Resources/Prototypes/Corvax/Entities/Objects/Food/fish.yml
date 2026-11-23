@@ -67,7 +67,7 @@
 
 - type: stack
   id: Crabsticks
-  name: crab sticks
+  name: ent-Crabstick
   spawn: Crabstick
   maxCount: 9
   itemSize: 1
@@ -486,7 +486,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeFoodCrabSalad
-  name: crab salad (wasteland)
+  name: ent-FoodCrabSalad
   result: FoodCrabSalad
   time: 10
   solids:
@@ -497,7 +497,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeFoodFishSoupWhite
-  name: fish soup (whitefish)
+  name: ent-FoodFishSoup
   result: FoodFishSoup
   time: 10
   solids:
@@ -507,7 +507,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeFoodFishSoupRed
-  name: fish soup (redfish)
+  name: ent-FoodFishSoup
   result: FoodFishSoup
   time: 10
   solids:
@@ -517,7 +517,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeFoodFishSoupStarlight
-  name: fish soup (starlight)
+  name: ent-FoodFishSoup
   result: FoodFishSoup
   time: 15
   solids:
@@ -528,7 +528,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeFoodFishPieWhite
-  name: fish pie (whitefish)
+  name: ent-FoodFishPie
   result: FoodFishPie
   time: 15
   solids:
@@ -539,7 +539,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeFoodFishPieRed
-  name: fish pie (redfish)
+  name: ent-FoodFishPie
   result: FoodFishPie
   time: 15
   solids:
@@ -551,7 +551,7 @@
 # Caviar
 - type: microwaveMealRecipe
   id: N14RecipeFoodCaviarTartlet
-  name: caviar tartlet (wasteland)
+  name: ent-FoodCaviarTartlet
   result: FoodCaviarTartlet
   time: 5
   solids:
@@ -561,7 +561,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeFoodCaviarToast
-  name: caviar toast (wasteland)
+  name: ent-FoodCaviarToast
   result: FoodCaviarToast
   time: 5
   solids:
@@ -572,7 +572,7 @@
 # Crab sticks (better from Cooked, as you did)
 - type: microwaveMealRecipe
   id: N14RecipeCrabstick
-  name: crab sticks
+  name: ent-Crabstick
   result: Crabstick
   time: 5
   solids:

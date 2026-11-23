@@ -10,6 +10,7 @@
   items:
     - N14ClothingOuterRangerVest
 
+#Sirius Change: ranger armor is available to the whole ranger ladder, not only the whitelisted NCRRanger.
 - type: loadout
   id: LoadoutNCRRangerRedwood
   category: Outer
@@ -19,9 +20,15 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRanger
-    - !type:CharacterPlaytimeRequirement # Forge-change
-      tracker: NCRRanger
-      min: 72000
+        - NCRDagger
+        - NCRChiefRanger
+        - RangerChief
+        - NCRVeteranRanger
+        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic
+        - NCRPatrolRanger
+        - NCRRangerRecruit
   items:
     - N14ClothingOuterRangerRedwood # Forge-change
 
@@ -40,21 +47,29 @@
   items:
     - N14ClothingOuterRangerArmorOld # Forge-change
 
+#Sirius Change: cost 6 -> 4, ranger ladder instead of whitelisted NCRRanger only.
 - type: loadout
   id: LoadoutNCRRangerCoyote
   category: Outer
-  cost: 6
+  cost: 4
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
         - NCRRanger
-    - !type:CharacterPlaytimeRequirement # Forge-change
-      tracker: NCRRanger
-      min: 144000
+        - NCRDagger
+        - NCRChiefRanger
+        - RangerChief
+        - NCRVeteranRanger
+        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic
+        - NCRPatrolRanger
+        - NCRRangerRecruit
   items:
     - N14ClothingOuterRangerCoyote # Forge-change
 
+#Sirius Change: ranger armor is available to the whole ranger ladder, not only the whitelisted NCRRanger.
 - type: loadout
   id: LoadoutNCRRangerScorpion
   category: Outer
@@ -64,9 +79,15 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRanger
-    - !type:CharacterPlaytimeRequirement # Forge-change
-      tracker: NCRRanger
-      min: 54000
+        - NCRDagger
+        - NCRChiefRanger
+        - RangerChief
+        - NCRVeteranRanger
+        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic
+        - NCRPatrolRanger
+        - NCRRangerRecruit
   items:
     - N14ClothingOuterRangerScorpion # Forge-change
 
@@ -144,3 +165,46 @@
       min: 72000 # 1200 minutes
   items:
     - N14ClothingOuterRangerPrice
+
+#Sirius Add: additional ranger armor variants for the whole ranger ladder, 4 points each.
+- type: loadout
+  id: SiriusLoadoutRangerPatrolArmor
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRanger
+        - NCRDagger
+        - NCRChiefRanger
+        - RangerChief
+        - NCRVeteranRanger
+        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic
+        - NCRPatrolRanger
+        - NCRRangerRecruit
+  items:
+    - N14ClothingOuterRangerArmor
+
+- type: loadout
+  id: SiriusLoadoutRangerPatrolArmorB
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRanger
+        - NCRDagger
+        - NCRChiefRanger
+        - RangerChief
+        - NCRVeteranRanger
+        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic
+        - NCRPatrolRanger
+        - NCRRangerRecruit
+  items:
+    - N14ClothingOuterRangerArmorB

@@ -78,7 +78,8 @@ public sealed class NcContractCard : PanelContainer
 
             lockedCol.AddChild(new Label
             {
-                Text = _data.Name,
+                // Sirius Fix: contract name may be an FTL key.
+                Text = Loc.TryGetString(_data.Name, out var lockedName) ? lockedName : _data.Name,
                 Modulate = Color.FromHex("#808080")
             });
             lockedCol.AddChild(new Label
@@ -374,7 +375,10 @@ public sealed class NcContractCard : PanelContainer
     private string BuildPrettyTitle(ContractClientData c)
     {
         if (!string.IsNullOrWhiteSpace(c.Name))
-            return c.Name.Trim();
+        {
+            // Sirius Fix: contract name may be an FTL key.
+            return Loc.TryGetString(c.Name, out var name) ? name : c.Name.Trim();
+        }
 
         var diff = DifficultyName(c.Difficulty);
         var goal = BuildGoalsInline(c, 2);
@@ -387,7 +391,10 @@ public sealed class NcContractCard : PanelContainer
     private string BuildPrettyDescription(ContractClientData c)
     {
         if (!string.IsNullOrWhiteSpace(c.Description))
-            return c.Description.Trim();
+        {
+            // Sirius Fix: contract description may be an FTL key.
+            return Loc.TryGetString(c.Description, out var desc) ? desc : c.Description.Trim();
+        }
 
         var goal = BuildGoalsInline(c, 4);
         if (string.IsNullOrWhiteSpace(goal))

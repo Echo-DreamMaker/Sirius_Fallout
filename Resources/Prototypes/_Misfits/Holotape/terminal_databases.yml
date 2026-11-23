@@ -19,7 +19,7 @@
 # The Head can mark protected chapter records.
 - type: misfitsTerminalDatabase
   id: fota-openarchive
-  displayName: Open Archive
+  displayName: misfits-terminal-database-fota-openarchive
   accentColor: "#E8A838"
   adminLabel: DIRECTOR
   accessRead:
@@ -37,7 +37,7 @@
 # Admin      = Elder Commander.
 - type: misfitsTerminalDatabase
   id: bos-509th
-  displayName: 509th Archive
+  displayName: misfits-terminal-database-bos-509th
   accentColor: "#33FF33"
   adminLabel: ELDER COUNCIL
   accessRead:
@@ -58,7 +58,7 @@
 # Admin      = Major.
 - type: misfitsTerminalDatabase
   id: ncr-saltdogs
-  displayName: Salt Dogs
+  displayName: misfits-terminal-database-ncr-saltdogs
   accentColor: "#FFCC33"
   adminLabel: HIGH COMMAND
   accessRead:
@@ -83,7 +83,7 @@
 # as Admin (HIGH FRUMENTARII). Adjust if Legion gets a dedicated rank pass.
 - type: misfitsTerminalDatabase
   id: legion-legiovera
-  displayName: Legio Vera
+  displayName: misfits-terminal-database-legion-legiovera
   accentColor: "#FF3333"
   adminLabel: HIGH FRUMENTARII
   accessRead:
@@ -103,7 +103,7 @@
 # Admin      = Vault Management.
 - type: misfitsTerminalDatabase
   id: vault-longwatch
-  displayName: Longwatch
+  displayName: misfits-terminal-database-vault-longwatch
   accentColor: "#3399FF"
   adminLabel: MANAGEMENT
   accessRead:
@@ -120,7 +120,7 @@
 # Admin      = Reformer + Commander.
 - type: misfitsTerminalDatabase
   id: enclave-autumnharvest
-  displayName: Autumn Harvest
+  displayName: misfits-terminal-database-enclave-autumnharvest
   accentColor: "#9933FF"
   adminLabel: HIGH COMMAND
   accessRead:
@@ -141,7 +141,7 @@
 # Leadership powers automatically.
 - type: misfitsTerminalDatabase
   id: town-mayoral
-  displayName: Mayoral Notice
+  displayName: misfits-terminal-database-town-mayoral
   accentColor: "#33FF33"
   adminLabel: MAYORAL SEAL
   # #Cythisiax Fixed - Whole Townie department (not just the Mayor) can read/write the town

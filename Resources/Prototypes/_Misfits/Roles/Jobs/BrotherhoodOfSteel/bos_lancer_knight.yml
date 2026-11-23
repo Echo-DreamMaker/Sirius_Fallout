@@ -16,9 +16,10 @@
   description: job-description-bos-lancer-knight
   playTimeTracker: BoSLancerKnight
   requirements:
-    - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
+    - !type:CharacterSpeciesRequirement #Sirius Change: allow Ghouls in all BoS jobs
       species:
       - Human
+      - Ghoul
     # #Cythisiax Changed - entry rung gates on chapter service rather than Lancers time,
     # otherwise nobody could ever accumulate the required aviation service. (was 10h Lancers)
     - !type:CharacterDepartmentTimeRequirement # T3 faction timelock (8h BoS)

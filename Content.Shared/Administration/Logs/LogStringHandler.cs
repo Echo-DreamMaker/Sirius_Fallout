@@ -69,7 +69,9 @@ public ref struct LogStringHandler
     public void AppendFormatted<T>(T value, string? format, [CallerArgumentExpression("value")] string? argument = null)
     {
         AddFormat(format, value, argument);
-        _handler.AppendFormatted(value, format);
+        // Sirius Fix: format is an admin-log semantic marker (e.g. :actor/:targetPlayerId),
+        // not a .NET format string. Passing it to the underlying handler breaks types like Guid.
+        _handler.AppendFormatted(value);
     }
 
     public void AppendFormatted<T>(T value, int alignment, [CallerArgumentExpression("value")] string? argument = null)
@@ -81,7 +83,8 @@ public ref struct LogStringHandler
     public void AppendFormatted<T>(T value, int alignment, string? format, [CallerArgumentExpression("value")] string? argument = null)
     {
         AddFormat(format, value, argument);
-        _handler.AppendFormatted(value, alignment, format);
+        // Sirius Fix: format is an admin-log semantic marker, not a .NET format string.
+        _handler.AppendFormatted(value, alignment);
     }
 
     public void AppendFormatted(ReadOnlySpan<char> value)
@@ -93,7 +96,8 @@ public ref struct LogStringHandler
     public void AppendFormatted(ReadOnlySpan<char> value, int alignment = 0, string? format = null)
     {
         AddFormat(format, value.ToString());
-        _handler.AppendFormatted(value, alignment, format);
+        // Sirius Fix: format is an admin-log semantic marker, not a .NET format string.
+        _handler.AppendFormatted(value, alignment);
     }
 
     public void AppendFormatted(string? value)
@@ -105,7 +109,8 @@ public ref struct LogStringHandler
     public void AppendFormatted(string? value, int alignment = 0, string? format = null)
     {
         AddFormat(format, value);
-        _handler.AppendFormatted(value, alignment, format);
+        // Sirius Fix: format is an admin-log semantic marker, not a .NET format string.
+        _handler.AppendFormatted(value, alignment);
     }
 
     public void AppendFormatted(object? value, int alignment = 0, string? format = null)

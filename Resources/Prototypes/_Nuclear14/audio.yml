@@ -26,6 +26,12 @@
       percent: 0.25
       tiles:
         - FloorWasteland
+        #Sirius Change: учитываем forge-варианты пустоши (основной грунт Wendover/Sunnyvale)
+        - ForgeFloorWasteland
+        - ForgeFloorWastelandDesert
+        - ForgeFloorWastelandDesertVariative
+        - ForgeFloorWastelandSavansmall
+        - ForgeFloorWastelandSavanbig
       range: 3
 
 - type: rules
@@ -82,6 +88,20 @@
     - /Audio/_Nuclear14/Ambience/Sonora/15.-Out-of-Service.ogg
     - /Audio/_Nuclear14/Ambience/Sonora/16.-One-Way.ogg
     - /Audio/_Nuclear14/Ambience/Sonora/17.-Out-of-The-World-Alternate.ogg
+    #Sirius Add: музыка Fallout 3 для пустоши (раньше файлы лежали без ссылок)
+    - /Audio/_Nuclear14/Ambience/f3/fo3_explore_01.ogg
+    - /Audio/_Nuclear14/Ambience/f3/fo3_explore_02.ogg
+    - /Audio/_Nuclear14/Ambience/f3/fo3_explore_03.ogg
+    - /Audio/_Nuclear14/Ambience/f3/fo3_explore_04.ogg
+    - /Audio/_Nuclear14/Ambience/f3/fo3_explore_05.ogg
+    - /Audio/_Nuclear14/Ambience/f3/fo3_explore_06.ogg
+    - /Audio/_Nuclear14/Ambience/f3/fo3_explore_07.ogg
+    - /Audio/_Nuclear14/Ambience/f3/Inon-Zur-Under-The-Stars.ogg
+    - /Audio/_Nuclear14/Ambience/f3/Inon-Zur-The-Courier-Walks-Softly.ogg
+    - /Audio/_Nuclear14/Ambience/f3/Inon-Zur-Rubble-of-the-Forgotten.ogg
+    - /Audio/_Nuclear14/Ambience/f3/Inon-Zur-Out-of-Business.ogg
+    - /Audio/_Nuclear14/Ambience/f3/Inon-Zur-Junkies-in-the-Trunk.ogg
+    - /Audio/_Nuclear14/Ambience/f3/Inon-Zur-Garden-of-Evil.ogg
 
 - type: soundCollection
   id: AmbienceBrotherhood

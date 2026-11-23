@@ -1,0 +1,46 @@
+#Sirius Add: 5.45 drum magazine moved from Corvax to _Nuclear14
+- type: entity
+  id: BaseMagazineDrum545Rifle
+  name: "magazine drum (5.45mm)"
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    - 0,1,0,1
+  - type: Tag
+    tags:
+      - MagazineDrum545Rifle
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14Cartridge545Rifle
+    proto: N14Cartridge545Rifle
+    capacity: 100
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    netsync: false
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/5.45/ak112drum.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineDrum545Rifle
+  name: "magazine (5.45mm)"
+  parent: BaseMagazineDrum545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545Rifle

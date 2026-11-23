@@ -77,3 +77,6 @@ id-card-access-level-legion-legate = Legion Legate
 # id-card-access-level-washington-knight = WBoS Armory
 # id-card-access-level-washington-scribe = WBoS Labs
 # id-card-access-level-washington-initiate = WBoS Gates
+
+# Sirius Add: access level key casing fix
+id-card-access-level-legion-Orator = Legion Orator

@@ -70,7 +70,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_MachineGuns
-  name: "Machine Guns"
+  name: nc-store-category-legionbuy2-machineguns
   entries:
   - proto: N14WeaponLMGBren # one more time for those who dont understand buying power: DENARIUS is FOUR TIMES AS VALUABLE as caps, so the prices are 1/4th of cap prices
     price: 1200
@@ -87,7 +87,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Rifles
-  name: "Rifles"
+  name: nc-store-category-legionbuy2-rifles
   entries:
   - proto: N14WeaponRifle556EM2
     price: 80
@@ -106,7 +106,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Smgs
-  name: "SMGs"
+  name: nc-store-category-legionbuy2-smgs
   entries:
   - proto: N14WeaponSMG45
     price: 38
@@ -121,7 +121,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Shotguns
-  name: "Shotguns"
+  name: nc-store-category-legionbuy2-shotguns
   entries:
   - proto: N14WeaponShotgunNeostead
     price: 160
@@ -138,7 +138,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Pistols
-  name: "Pistols"
+  name: nc-store-category-legionbuy2-pistols
   entries:
   - proto: N14WeaponSMG10mmPipe
     price: 43
@@ -157,7 +157,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Armor
-  name: "Armor"
+  name: nc-store-category-legionbuy2-armor
   entries:
   - proto: N14ClothingOuterLegionnaireVeteranArmor
     price: 160
@@ -180,7 +180,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Helmets
-  name: "Helmets"
+  name: nc-store-category-legionbuy2-helmets
   entries:
   - proto: N14ClothingHeadHatAnimal
     price: 8
@@ -197,7 +197,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Ammo
-  name: "Ammo"
+  name: nc-store-category-legionbuy2-ammo
   entries:
   - proto: N14AmmoBox556
     price: 55
@@ -226,7 +226,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Melee
-  name: "Melee"
+  name: nc-store-category-legionbuy2-melee
   entries:
   - proto: N14LongSword
     price: 25
@@ -273,7 +273,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Medicine
-  name: "Medicine"
+  name: nc-store-category-legionbuy2-medicine
   entries:
   - proto: N14HealingPoultice
     price: 20
@@ -302,7 +302,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Materials
-  name: "Materials"
+  name: nc-store-category-legionbuy2-materials
   entries:
   - proto: MaterialWoodPlank
     amount: 30
@@ -322,7 +322,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Survival
-  name: "Survival Gear"
+  name: nc-store-category-legionbuy2-survival
   entries:
   - proto: ClothingBeltRope
     price: 19
@@ -343,7 +343,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Cosmetics
-  name: "Cosmetics"
+  name: nc-store-category-legionbuy2-cosmetics
   entries:
   - proto: TrainingManualLegionLatin
     price: 350
@@ -414,7 +414,7 @@
 
 - type: storeCategoryStructured
   id: LegionSell2_MachineGuns
-  name: "Machine Guns"
+  name: nc-store-category-legionsell2-machineguns
   entries:
   - proto: N14WeaponLMGBren
     price: 600
@@ -427,7 +427,7 @@
 
 - type: storeCategoryStructured
   id: LegionSell2_Rifles
-  name: "Rifles"
+  name: nc-store-category-legionsell2-rifles
   entries:
   - proto: N14WeaponRifle556EM2
     price: 30
@@ -446,7 +446,7 @@
 
 - type: storeCategoryStructured
   id: LegionSell2_Smgs
-  name: "SMGs"
+  name: nc-store-category-legionsell2-smgs
   entries:
   - proto: N14WeaponSMG45
     price: 19
@@ -461,7 +461,7 @@
 
 - type: storeCategoryStructured
   id: LegionSell2_Shotguns
-  name: "Shotguns"
+  name: nc-store-category-legionsell2-shotguns
   entries:
   - proto: N14WeaponShotgunNeostead
     price: 80
@@ -476,7 +476,7 @@
 
 - type: storeCategoryStructured
   id: LegionSell2_Pistols
-  name: "Pistols"
+  name: nc-store-category-legionsell2-pistols
   entries:
   - proto: N14WeaponSMG10mmPipe
     price: 22
@@ -495,7 +495,7 @@
 
 - type: storeCategoryStructured
   id: LegionSell2_Armor
-  name: "Armor"
+  name: nc-store-category-legionsell2-armor
   entries:
   - proto: N14ClothingOuterLegionnaireVeteranArmor
     price: 80
@@ -518,7 +518,7 @@
 
 - type: storeCategoryStructured
   id: LegionSell2_Helmets
-  name: "Helmets"
+  name: nc-store-category-legionsell2-helmets
   entries:
   - proto: N14ClothingHeadHatAnimal
     price: 4
@@ -536,7 +536,7 @@
 
 - type: storeCategoryStructured
   id: LegionSell2_Melee
-  name: "Melee"
+  name: nc-store-category-legionsell2-melee
   entries:
   - proto: N14LongSword
     price: 13
@@ -575,7 +575,7 @@
 
 - type: storeCategoryStructured
   id: LegionSell2_Medicine
-  name: "Medicine"
+  name: nc-store-category-legionsell2-medicine
   entries:
   - proto: N14HealingPoultice
     price: 10
@@ -598,7 +598,7 @@
 
 - type: storeCategoryStructured
   id: LegionSell2_Materials
-  name: "Materials"
+  name: nc-store-category-legionsell2-materials
   entries:
   - proto: MaterialWoodPlank2
     count: 2
@@ -614,7 +614,7 @@
 
 - type: storeCategoryStructured
   id: LegionSell2_Survival
-  name: "Survival"
+  name: nc-store-category-legionsell2-survival
   entries:
   - proto: ClothingBeltRope
     price: 10
@@ -635,7 +635,7 @@
 
 - type: storeCategoryStructured
   id: LegionSell2_Cosmetics
-  name: "Cosmetics"
+  name: nc-store-category-legionsell2-cosmetics
   entries:
   - proto: TrainingManualLegionLatin
     price: 175
@@ -716,7 +716,7 @@
   - LegionSell2_Currency
 - type: storeCategoryStructured
   id: LegionSell2_Bulk
-  name: "Bulk"
+  name: nc-store-category-legionsell2-bulk
   entries:
   - proto: MaterialCloth1
     price: 1

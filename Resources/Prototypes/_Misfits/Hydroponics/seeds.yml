@@ -117,9 +117,10 @@
 
 - type: seed
   id: zoybean
-  name: zoybean
+  # Sirius Fix: raw seed name/displayName -> FTL keys
+  name: seeds-zoybean-name
   noun: seeds-noun-seeds
-  displayName: zoybean bushes
+  displayName: seeds-zoybean-display-name
   plantRsi: _Misfits/Objects/Specific/Hydroponics/zoybeans.rsi
   packetPrototype: ZoybeanSeeds
   productPrototypes:

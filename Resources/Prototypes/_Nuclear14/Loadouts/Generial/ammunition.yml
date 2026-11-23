@@ -695,16 +695,17 @@
 #     - Magazine762AmmoShort
 #     - Magazine762AmmoShort
 
-# - type: loadout
-#   id: LoadoutMagazine545Rifle
-#   category: MediumCaliber
-#   cost: 2
-#   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: N14LoadoutAmmo
-#   items:
-#     - Magazine545Rifle
-#     - Magazine545Rifle
+#Sirius Add: restored 5.45 rifle magazine loadout (already listed in ammunitionGroup.yml)
+- type: loadout
+  id: LoadoutMagazine545Rifle
+  category: MediumCaliber
+  cost: 2
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutAmmo
+  items:
+    - Magazine545Rifle
+    - Magazine545Rifle
 
 ##MARK: Пулемётные ленты
 # - type: loadout
@@ -718,16 +719,17 @@
 #     - N14MagazineMinigun5mm
 #     - N14MagazineMinigun5mm
 
-# - type: loadout
-#   id: LoadoutMagazineDrum545Rifle
-#   category: MediumCaliber
-#   cost: 2
-#   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: N14LoadoutAmmo
-#   items:
-#     - MagazineDrum545Rifle
-#     - MagazineDrum545Rifle
+#Sirius Add: restored 5.45 drum magazine loadout (already listed in ammunitionGroup.yml)
+- type: loadout
+  id: LoadoutMagazineDrum545Rifle
+  category: MediumCaliber
+  cost: 2
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutAmmo
+  items:
+    - MagazineDrum545Rifle
+    - MagazineDrum545Rifle
 
 # - type: loadout
 #   id: LoadoutMagazine308RifleLong

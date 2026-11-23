@@ -79,3 +79,6 @@ id-card-access-level-vault-cargo = Грузовой отсек Убежища
 id-card-access-level-vault-courier = Погрузочный док Убежища
 id-card-access-level-vault-salvage = Отсек утилизации Убежища
 id-card-access-level-legion-optio = Опцион Легиона
+
+# Sirius Add: access level key casing fix
+id-card-access-level-legion-Orator = Оратор Легиона

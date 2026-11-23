@@ -15,9 +15,10 @@
   description: job-description-bos-lancer-captain
   playTimeTracker: BoSLancerCaptain
   requirements:
-    - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
+    - !type:CharacterSpeciesRequirement #Sirius Change: allow Ghouls in all BoS jobs
       species:
       - Human
+      - Ghoul
     - !type:CharacterDepartmentTimeRequirement # 20h flying with the Lancers
       department: BrotherhoodOfSteelLancers
       min: 72000 # 20 hours

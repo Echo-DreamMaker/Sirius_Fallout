@@ -62,9 +62,10 @@
   description: job-description-bos-paladin
   playTimeTracker: BoSPaladin
   requirements:
-    - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
+    - !type:CharacterSpeciesRequirement #Sirius Change: allow Ghouls in all BoS jobs
       species:
       - Human
+      - Ghoul
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T4 faction timelock (12h BoS)
       department: BrotherhoodOfSteel
       min: 43200 # 12 hours

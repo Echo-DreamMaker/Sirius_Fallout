@@ -260,6 +260,25 @@
         - id: N14AmmoBox556Tracer
           prob: 0.05
           orGroup: Ammunition
+        #Sirius Add: 5.45 ammo boxes — same probs as 5.56 above
+        - id: MagazineBox545
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox545Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox545AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox545FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox545JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox545Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: Magazine762Rifle
           prob: 0.2
           orGroup: Ammunition
@@ -672,6 +691,43 @@
           prob: 0.1
           orGroup: Ammunition
         - id: N14Magazine556RifleTracer
+          prob: 0.1
+          orGroup: Ammunition
+        #Sirius Add: 5.45 magazines — same probs as 5.56 above (drum = long-mag analogue)
+        - id: MagazineDrum545Rifle
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleTracer
+          prob: 0.1
+          orGroup: Ammunition
+        - id: Magazine545Rifle
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine545RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine545RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine545RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine545RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine545RifleTracer
           prob: 0.1
           orGroup: Ammunition
         - id: Magazine45SubMachineGun
@@ -993,6 +1049,25 @@
         - id: N14AmmoBox556Tracer
           prob: 0.05
           orGroup: Ammunition
+        #Sirius Add: 5.45 ammo boxes — same probs as 5.56 above
+        - id: MagazineBox545
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox545Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox545AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox545FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox545JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox545Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: Magazine762Rifle
           prob: 0.2
           orGroup: Ammunition
@@ -1405,6 +1480,43 @@
           prob: 0.1
           orGroup: Ammunition
         - id: N14Magazine556RifleTracer
+          prob: 0.1
+          orGroup: Ammunition
+        #Sirius Add: 5.45 magazines — same probs as 5.56 above (drum = long-mag analogue)
+        - id: MagazineDrum545Rifle
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleTracer
+          prob: 0.1
+          orGroup: Ammunition
+        - id: Magazine545Rifle
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine545RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine545RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine545RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine545RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine545RifleTracer
           prob: 0.1
           orGroup: Ammunition
         - id: Magazine45SubMachineGun
@@ -2087,6 +2199,25 @@
         - id: N14AmmoBox556Tracer
           prob: 0.05
           orGroup: Ammunition
+        #Sirius Add: 5.45 ammo boxes — same probs as 5.56 above
+        - id: MagazineBox545
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox545Scrap
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox545AP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox545FMJ
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox545JHP
+          prob: 0.05
+          orGroup: Ammunition
+        - id: N14AmmoBox545Tracer
+          prob: 0.05
+          orGroup: Ammunition
         - id: Magazine762Rifle
           prob: 0.2
           orGroup: Ammunition
@@ -2499,6 +2630,43 @@
           prob: 0.1
           orGroup: Ammunition
         - id: N14Magazine556RifleTracer
+          prob: 0.1
+          orGroup: Ammunition
+        #Sirius Add: 5.45 magazines — same probs as 5.56 above (drum = long-mag analogue)
+        - id: MagazineDrum545Rifle
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineDrum545RifleTracer
+          prob: 0.1
+          orGroup: Ammunition
+        - id: Magazine545Rifle
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine545RifleScrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine545RifleAP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine545RifleFMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine545RifleJHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14Magazine545RifleTracer
           prob: 0.1
           orGroup: Ammunition
         - id: Magazine45SubMachineGun
@@ -3425,6 +3593,43 @@
         - id: N14Magazine556RifleTracer
           prob: 0.2
           orGroup: Ammunition
+        #Sirius Add: 5.45 magazines — same probs/groups as 5.56 above
+        - id: MagazineDrum545Rifle
+          prob: 0.4
+          orGroup: Weapon
+        - id: N14MagazineDrum545RifleScrap
+          prob: 0.4
+          orGroup: Weapon
+        - id: N14MagazineDrum545RifleAP
+          prob: 0.2
+          orGroup: Weapon
+        - id: N14MagazineDrum545RifleFMJ
+          prob: 0.2
+          orGroup: Weapon
+        - id: N14MagazineDrum545RifleJHP
+          prob: 0.2
+          orGroup: Weapon
+        - id: N14MagazineDrum545RifleTracer
+          prob: 0.2
+          orGroup: Weapon
+        - id: Magazine545Rifle
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14Magazine545RifleScrap
+          prob: 0.4
+          orGroup: Ammunition
+        - id: N14Magazine545RifleAP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine545RifleFMJ
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine545RifleJHP
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14Magazine545RifleTracer
+          prob: 0.2
+          orGroup: Ammunition
         - id: Magazine762Rifle
           prob: 0.4
           orGroup: Ammunition
@@ -3900,6 +4105,25 @@
           prob: 0.1
           orGroup: Ammunition
         - id: N14AmmoBox556Tracer
+          prob: 0.1
+          orGroup: Ammunition
+        #Sirius Add: 5.45 ammo boxes — same probs as 5.56 above
+        - id: MagazineBox545
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox545Scrap
+          prob: 0.2
+          orGroup: Ammunition
+        - id: N14AmmoBox545AP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox545FMJ
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox545JHP
+          prob: 0.1
+          orGroup: Ammunition
+        - id: N14AmmoBox545Tracer
           prob: 0.1
           orGroup: Ammunition
         - id: ClothingBeltUtility

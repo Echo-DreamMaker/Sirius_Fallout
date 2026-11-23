@@ -273,6 +273,10 @@
 - type: Tag
   id: N14Cartridge556Rifle
 
+#Sirius Add: 5.45 cartridge tag moved from Corvax
+- type: Tag
+  id: N14Cartridge545Rifle
+
 - type: Tag
   id: N14Cartridge762Rifle
 
@@ -348,6 +352,13 @@
 
 - type: Tag
   id: N14LMGMagazine556Rifle
+
+#Sirius Add: 5.45 magazine tags moved from Corvax
+- type: Tag
+  id: Magazine545Rifle
+
+- type: Tag
+  id: MagazineDrum545Rifle
 
 # Forge-Add-Start
 - type: Tag

@@ -70,7 +70,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Drinks
-  name: "Drinks"
+  name: nc-store-category-wasterbuy2-drinks
   entries:
   - proto: N14DrinkRoentgenRum
     price: 30
@@ -89,7 +89,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Food
-  name: "Food"
+  name: nc-store-category-wasterbuy2-food
   entries:
   - proto: N14FoodMeatBrahminCooked
     price: 20
@@ -114,7 +114,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_SurvivalGear
-  name: "Survival Gear"
+  name: nc-store-category-wasterbuy2-survivalgear
   entries:
   - proto: PowerCellHigh
     price: 25
@@ -142,7 +142,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Melee
-  name: "Melee"
+  name: nc-store-category-wasterbuy2-melee
   entries:
   - proto: KukriKnife
     price: 20
@@ -165,7 +165,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Longguns
-  name: "Long guns"
+  name: nc-store-category-wasterbuy2-longguns
   entries:
   - proto: N14WeaponLaserRifleCrude
     price: 200
@@ -206,7 +206,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Handguns
-  name: "Handguns"
+  name: nc-store-category-wasterbuy2-handguns
   entries:
   - proto: N14WeaponPistolWebley
     price: 30
@@ -225,7 +225,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Armor
-  name: "Armor"
+  name: nc-store-category-wasterbuy2-armor
   entries:
   - proto: MisfitsClothingOuterKhansArmoredJacket
     price: 250
@@ -252,7 +252,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Clothes
-  name: "Clothes"
+  name: nc-store-category-wasterbuy2-clothes
   entries:
   - proto: N14ClothingUniformJumpsuitChinese
     price: 100
@@ -263,7 +263,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Headgear
-  name: "Headgear"
+  name: nc-store-category-wasterbuy2-headgear
   entries:
   - proto: MisfitsClothingHeadKhanFullHelmet
     price: 75
@@ -280,7 +280,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Footwear
-  name: "Footwear"
+  name: nc-store-category-wasterbuy2-footwear
   entries:
   - proto: ClothingShoesBootsJack
     price: 25
@@ -293,7 +293,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Ammo
-  name: "Ammo"
+  name: nc-store-category-wasterbuy2-ammo
   entries:
   - proto: N14PowerCellSmall
     price: 250
@@ -312,7 +312,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Medicine
-  name: "Medicine"
+  name: nc-store-category-wasterbuy2-medicine
   entries:
   - proto: N14CleanGauze10
     amount: 10
@@ -343,7 +343,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Materials
-  name: "Materials"
+  name: nc-store-category-wasterbuy2-materials
   entries:
   - proto: SheetSteel
     amount: 30
@@ -363,7 +363,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Cosmetic
-  name: "Cosmetic"
+  name: nc-store-category-wasterbuy2-cosmetic
   entries:
   - proto: SprayPaintBlue
     price: 25
@@ -374,7 +374,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Storage
-  name: "Storage"
+  name: nc-store-category-wasterbuy2-storage
   entries:
   - proto: ClothingBackpackSatchelLeather
     price: 150
@@ -387,7 +387,7 @@
 
 - type: storeCategoryStructured
   id: WasterBuy2_Sprouts
-  name: "Cuttings"
+  name: nc-store-category-wasterbuy2-sprouts
   entries:
   - proto: N14FloraWildAgaveClippingSeed
     price: 5
@@ -474,7 +474,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Drinks
-  name: "Drinks"
+  name: nc-store-category-wastersell2-drinks
   entries:
   - proto: N14DrinkRoentgenRum
     price: 15
@@ -493,7 +493,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Food
-  name: "Food"
+  name: nc-store-category-wastersell2-food
   entries:
   - proto: N14FoodMeatBrahminCooked
     price: 10
@@ -518,7 +518,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_SurvivalGear
-  name: "Survival Gear"
+  name: nc-store-category-wastersell2-survivalgear
   entries:
   - proto: PowerCellHigh
     price: 13
@@ -545,7 +545,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Melee
-  name: "Melee"
+  name: nc-store-category-wastersell2-melee
   entries:
   - proto: KukriKnife
     price: 10
@@ -568,7 +568,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Longguns
-  name: "Longguns"
+  name: nc-store-category-wastersell2-longguns
   entries:
   - proto: N14WeaponLaserRifleCrude
     price: 100
@@ -599,7 +599,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Handguns
-  name: "Handguns"
+  name: nc-store-category-wastersell2-handguns
   entries:
   - proto: N14WeaponPistolWebley
     price: 15
@@ -618,7 +618,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Armor
-  name: "Armor"
+  name: nc-store-category-wastersell2-armor
   entries:
   - proto: MisfitsClothingOuterKhansArmoredJacket
     price: 125
@@ -645,7 +645,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Clothes
-  name: "Clothes"
+  name: nc-store-category-wastersell2-clothes
   entries:
   - proto: N14ClothingUniformJumpsuitChinese
     price: 50
@@ -656,7 +656,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Headgear
-  name: "Headgear"
+  name: nc-store-category-wastersell2-headgear
   entries:
   - proto: MisfitsClothingHeadKhanFullHelmet
     price: 38
@@ -673,7 +673,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Footwear
-  name: "Footwear"
+  name: nc-store-category-wastersell2-footwear
   entries:
   - proto: ClothingShoesBootsJack
     price: 13
@@ -686,7 +686,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Ammo
-  name: "Ammo"
+  name: nc-store-category-wastersell2-ammo
   entries:
   - proto: N14PowerCellSmall
     price: 125
@@ -696,7 +696,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Medicine
-  name: "Medicine"
+  name: nc-store-category-wastersell2-medicine
   entries:
   - proto: N14CleanGauze10
     price: 1
@@ -721,7 +721,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Materials
-  name: "Materials"
+  name: nc-store-category-wastersell2-materials
   entries:
   - proto: SheetSteel
     price: 5
@@ -736,7 +736,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Cosmetic
-  name: "Cosmetic"
+  name: nc-store-category-wastersell2-cosmetic
   entries:
   - proto: SprayPaintBlue
     price: 13
@@ -747,7 +747,7 @@
 
 - type: storeCategoryStructured
   id: WasterSell2_Storage
-  name: "Storage"
+  name: nc-store-category-wastersell2-storage
   entries:
   - proto: ClothingBackpackSatchelLeather
     price: 75
@@ -800,7 +800,7 @@
   - WasterSell2_Currency
 - type: storeCategoryStructured
   id: WasterSell2_Bulk
-  name: "Bulk"
+  name: nc-store-category-wastersell2-bulk
   entries:
   - proto: MaterialCloth1
     price: 4

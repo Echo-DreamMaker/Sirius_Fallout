@@ -1,7 +1,7 @@
 # Misfits robotic/C-27 repair topicals.
 - type: stack
   id: MisfitsMakeshiftRepairPatch
-  name: makeshift repair patch
+  name: ent-MisfitsMakeshiftRepairPatch
   icon:
     sprite: _Nuclear14/Objects/Misc/materials.rsi
     state: militaryfiber
@@ -11,7 +11,7 @@
 
 - type: stack
   id: MisfitsReinforcedPlatingPatch
-  name: reinforced plating patch
+  name: ent-MisfitsReinforcedPlatingPatch
   icon:
     sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
     state: alloys
@@ -21,7 +21,7 @@
 
 - type: stack
   id: MisfitsInsulationPatch
-  name: insulation patch
+  name: ent-MisfitsInsulationPatch
   icon:
     sprite: _Nuclear14/Objects/Misc/materials.rsi
     state: rubber
@@ -31,7 +31,7 @@
 
 - type: stack
   id: MisfitsAdvancedRepairPatch
-  name: advanced repair patch
+  name: ent-MisfitsAdvancedRepairPatch
   icon:
     sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
     state: board_3

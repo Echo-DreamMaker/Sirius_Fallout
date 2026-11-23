@@ -70,7 +70,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Materials
-  name: "Materials"
+  name: nc-store-category-ncrbuy2-materials
   entries:
   - proto: SheetSteel
     amount: 30
@@ -93,7 +93,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Rifles
-  name: "Rifles"
+  name: nc-store-category-ncrbuy2-rifles
   entries:
   - proto: N14WeaponLMGAutoRifle
     price: 1500
@@ -126,7 +126,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Smgs
-  name: "SMGs"
+  name: nc-store-category-ncrbuy2-smgs
   entries:
   - proto: N14WeaponSMG45
     price: 700
@@ -141,7 +141,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Shotguns
-  name: "Shotguns"
+  name: nc-store-category-ncrbuy2-shotguns
   entries:
   - proto: N14WeaponShotgunRiot
     price: 600
@@ -157,7 +157,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Pistols
-  name: "Pistols"
+  name: nc-store-category-ncrbuy2-pistols
   entries:
   - proto: N14WeaponPistol9mm
     price: 35
@@ -174,7 +174,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Lasers
-  name: "Lasers"
+  name: nc-store-category-ncrbuy2-lasers
   entries:
   - proto: N14WeaponLaserRevolver
     price: 160
@@ -187,7 +187,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Armor
-  name: "Armor"
+  name: nc-store-category-ncrbuy2-armor
   entries:
   - proto: N14ClothingOuterNCRPlateDesert
     price: 800
@@ -215,7 +215,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Headgear
-  name: "Headgear"
+  name: nc-store-category-ncrbuy2-headgear
   entries:
   - proto: N14ClothingHeadHatNCRHelmetMetalSnow
     price: 60
@@ -240,7 +240,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Ammo
-  name: "Ammo"
+  name: nc-store-category-ncrbuy2-ammo
   entries:
   - proto: MagazineBox20gauge
     price: 300
@@ -271,7 +271,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Medicine
-  name: "Medicine"
+  name: nc-store-category-ncrbuy2-medicine
   entries:
   - proto: ClothingBeltMedical
     price: 200
@@ -303,7 +303,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Cosmetics
-  name: "Cosmetics"
+  name: nc-store-category-ncrbuy2-cosmetics
   entries:
   - proto: SprayPaintOrange
     price: 50
@@ -338,7 +338,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Melee
-  name: "Melee"
+  name: nc-store-category-ncrbuy2-melee
   entries:
   - proto: N14SledgeHammer
     price: 400
@@ -356,7 +356,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Storage
-  name: "Storage"
+  name: nc-store-category-ncrbuy2-storage
   entries:
   - proto: ClothingBeltNCR
     price: 180
@@ -400,7 +400,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_Ammo
-  name: "Ammo"
+  name: nc-store-category-ncrsell2-ammo
   entries:
   - proto: N14PowerCellSmall
     price: 250
@@ -411,7 +411,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_Materials
-  name: "Materials"
+  name: nc-store-category-ncrsell2-materials
   entries:
   - proto: SheetSteel
     price: 8
@@ -428,7 +428,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_Medicine
-  name: "Medicine"
+  name: nc-store-category-ncrsell2-medicine
   entries:
   - proto: N14Stimpak
     price: 15
@@ -446,7 +446,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_Lasers
-  name: "Lasers"
+  name: nc-store-category-ncrsell2-lasers
   entries:
   - proto: N14WeaponLaserRevolver
     price: 80
@@ -459,7 +459,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_Pistols
-  name: "Pistols"
+  name: nc-store-category-ncrsell2-pistols
   entries:
   - proto: N14WeaponPistol9mm
     price: 18
@@ -476,7 +476,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_Rifles
-  name: "Rifles"
+  name: nc-store-category-ncrsell2-rifles
   entries:
   - proto: N14WeaponLMGAutoRifle
     price: 300
@@ -505,7 +505,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_Shotguns
-  name: "Shotguns"
+  name: nc-store-category-ncrsell2-shotguns
   entries:
   - proto: N14WeaponShotgunRiot
     price: 300
@@ -520,7 +520,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_SMGs
-  name: "SMGs"
+  name: nc-store-category-ncrsell2-smgs
   entries:
   - proto: N14WeaponSMG45
     price: 150
@@ -535,7 +535,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_Storage
-  name: "Storage"
+  name: nc-store-category-ncrsell2-storage
   entries:
   - proto: ClothingBeltNCR
     price: 90
@@ -552,7 +552,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_Armor
-  name: "Armor"
+  name: nc-store-category-ncrsell2-armor
   entries:
   - proto: N14ClothingOuterNCRPlateDesert
     price: 400
@@ -580,7 +580,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_Headgear
-  name: "Headgear"
+  name: nc-store-category-ncrsell2-headgear
   entries:
   - proto: N14ClothingHeadHatNCRHelmetMetalSnow
     price: 30
@@ -605,7 +605,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_Cosmetics
-  name: "Cosmetics"
+  name: nc-store-category-ncrsell2-cosmetics
   entries:
   - proto: SprayPaintOrange
     price: 25
@@ -640,7 +640,7 @@
 
 - type: storeCategoryStructured
   id: NCRSell2_Melee
-  name: "Melee"
+  name: nc-store-category-ncrsell2-melee
   entries:
   - proto: N14SledgeHammer
     price: 200
@@ -705,7 +705,7 @@
   - NCRSell2_Storage
 - type: storeCategoryStructured
   id: NCRSell2_Bulk
-  name: "Bulk"
+  name: nc-store-category-ncrsell2-bulk
   entries:
   - proto: N14MaterialThread1
     price: 8

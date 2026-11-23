@@ -1,7 +1,8 @@
 - type: UndecidedLoadoutBackpackSet
   id: MPStandardKit
-  name: Standard Military Police Kit
-  description: This kit contains standard-issue NCRMP equipment. This includes - a blowback shotgun, beanbag rounds, a police baton, processing tools, flashbang grenades and smoke grenades. Use with caution.
+  # Sirius Fix: raw kit name/description -> FTL keys
+  name: undecided-loadout-category-mp-standard-name
+  description: undecided-loadout-category-mp-standard-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: rifleman
@@ -10,8 +11,9 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: MPMedicalKit
-  name: Medical Military Police Kit
-  description: This kit contains standard-issue NCRMP medical equipment. This includes - 2 stimpaks, one super stimpak, antidote, webley revolver, clean gauze, surgical duffel bag, handcuffs and a police baton.
+  # Sirius Fix: raw kit name/description -> FTL keys
+  name: undecided-loadout-category-mp-medical-name
+  description: undecided-loadout-category-mp-medical-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: medic
@@ -20,8 +22,9 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: MPEnforcerKit
-  name: Enforcer Military Police Kit
-  description: This kit contains anti-riot equipment. This includes - riot shotgun, 20 gauge ammo box, 2 frag grenades, shock baton, riot shield, handcuffs and MP helmet.
+  # Sirius Fix: raw kit name/description -> FTL keys
+  name: undecided-loadout-category-mp-enforcer-name
+  description: undecided-loadout-category-mp-enforcer-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: rifleman

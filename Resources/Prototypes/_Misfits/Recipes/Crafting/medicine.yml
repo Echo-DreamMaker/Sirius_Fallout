@@ -1,4 +1,4 @@
-﻿# Misfits - tribal / field medicine entities + construction recipes
+# Misfits - tribal / field medicine entities + construction recipes
 #
 #
 # This file intentionally contains entity, construction and constructionGraph prototypes
@@ -11,7 +11,7 @@
 # Shared base for single-use topical medicines.
 - type: stack
   id: MisfitsDaturaHide
-  name: datura hide
+  name: ent-MisfitsDaturaHide
   icon:
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
     state: ointment4
@@ -21,7 +21,7 @@
 
 - type: stack
   id: MisfitsSnakebiteTourniquet
-  name: snakebite tourniquet
+  name: ent-MisfitsSnakebiteTourniquet
   icon:
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
     state: tourniquet
@@ -30,7 +30,7 @@
   itemSize: 1
 - type: stack
   id: MisfitsHealingSalve
-  name: healing salve
+  name: ent-MisfitsHealingSalve
   icon:
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
     state: ointment1
@@ -40,7 +40,7 @@
 
 - type: stack
   id: MisfitsHerbalAnodyne
-  name: herbal anodyne
+  name: ent-MisfitsHerbalAnodyne
   icon:
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
     state: aloe2
@@ -50,7 +50,7 @@
 
 - type: stack
   id: MisfitsHerbalAntimicrobial
-  name: herbal antimicrobial
+  name: ent-MisfitsHerbalAntimicrobial
   icon:
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
     state: aloe3
