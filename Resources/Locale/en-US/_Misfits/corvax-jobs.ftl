@@ -95,3 +95,6 @@ job-name-ncr-military-police-captain = NCRMP First Lieutenant
 job-description-ncr-military-police-captain = You are responsible for ensuring the law is upheld and followed within this NCR battalion. Lead the NCR Military police with due competence - and make sure no crime goes unpunished.
 job-supervisors-ncr-militarypolice-sergeant = the Military Police First Lieutenant. DO NOT LEAVE NCR TERRITORY UNDER ANY CIRCUMSTANCES.
 job-supervisors-ncr-militarypolice-captain = high command. DO NOT LEAVE NCR TERRITORY UNDER ANY CIRCUMSTANCES.
+
+# Sirius Add: missing department description
+department-WhiteLegs-description = A White Legs tribal warband built around brutal raids, swift assaults, and tribal shock troops.

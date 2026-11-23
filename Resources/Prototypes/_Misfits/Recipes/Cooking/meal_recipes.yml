@@ -1,7 +1,7 @@
-﻿# alternate recipes that use zoybeans/zoy milk
+# alternate recipes that use zoybeans/zoy milk
 - type: microwaveMealRecipe
   id: MisfitsRecipeZoyWaffleFlour
-  name: soy waffle recipe
+  name: ent-N14CookedFoodBakedWaffleSoy
   result: N14CookedFoodBakedWaffleSoy
   time: 10
   reagents:
@@ -12,7 +12,7 @@
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeZoyWaffleRazorgrain
-  name: soy waffle recipe
+  name: ent-N14CookedFoodBakedWaffleSoy
   result: N14CookedFoodBakedWaffleSoy
   time: 10
   reagents:
@@ -34,7 +34,7 @@
     MisfitsFloraProduceWildZoybeans: 1
 - type: microwaveMealRecipe
   id: MisfitsRecipeCabbageMeatBread
-  name: Cabbage n' Meat Bread
+  name: ent-MisfitsFoodCabbageMeatBread
   result: MisfitsFoodCabbageMeatBread
   time: 10
   reagents:
@@ -45,7 +45,7 @@
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeKebabWrap
-  name: Kebab Wrap
+  name: ent-MisfitsFoodKebabWrap
   result: MisfitsFoodKebabWrap
   time: 5
   solids:
@@ -56,7 +56,7 @@
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeMilkBread
-  name: Milk Bread
+  name: ent-MisfitsFoodMilkBread
   result: MisfitsFoodMilkBread
   time: 10
   reagents:
@@ -69,7 +69,7 @@
 # Cutlets
 - type: microwaveMealRecipe
   id: MisfitsRecipeRedfishCutletCooked
-  name: redfish cutlet recipe
+  name: ent-N14RedfishCutletCooked
   result: N14RedfishCutletCooked
   time: 5
   solids:
@@ -78,7 +78,7 @@
 # Deserts 
 - type: microwaveMealRecipe
   id: MisfitsRecipeCarrotGummy
-  name: Carrot Vitamin Gummy
+  name: ent-MisfitsFoodCarrotGummy
   result: MisfitsFoodCarrotGummy
   time: 5
   reagents:
@@ -87,7 +87,7 @@
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeMugCake
-  name: Mug Cake
+  name: ent-MisfitsFoodMugCake
   result: MisfitsFoodMugCake
   time: 5
   reagents:
@@ -98,7 +98,7 @@
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeShortcakeCookie
-  name: Shortcake Cookie
+  name: ent-MisfitsFoodShortcakeCookie
   result: MisfitsFoodShortcakeCookie
   time: 5
   reagents:
@@ -109,7 +109,7 @@
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeThickPancake
-  name: Thick Pancake
+  name: ent-MisfitsFoodThickPancake
   result: MisfitsFoodThickPancake
   time: 10
   reagents:
@@ -120,7 +120,7 @@
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeToffeeSheet
-  name: Toffee Sheet
+  name: ent-MisfitsFoodToffeeSheet
   result: MisfitsFoodToffeeSheet
   time: 30
   reagents:
@@ -130,7 +130,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeBrownies
-  name: brownie recipe
+  name: ent-N14CookedFoodBakedBrownieBatch
   result: N14CookedFoodBakedBrownieBatch # tmp, changing ID means replacing prototype in all map files!
   time: 25
   reagents:
@@ -143,7 +143,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeCannabisBrownies
-  name: cannabis brownie recipe
+  name: ent-N14CookedFoodBakedCannabisBrownieBatch
   result: N14CookedFoodBakedCannabisBrownieBatch # tmp, changing ID means replacing prototype in all map files!
   time: 25
   reagents:
@@ -156,7 +156,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeCannabisButter
-  name: cannabis butter recipe
+  name: ent-N14FoodCannabisButter
   result: N14FoodCannabisButter # tmp, changing ID means replacing prototype in all map files!
   time: 15
   solids:
@@ -165,7 +165,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeChocolateCake
-  name: chocolate cake recipe
+  name: ent-N14CookedFoodCakeChocolate
   result: N14CookedFoodCakeChocolate # tmp, changing ID means replacing prototype in all map files!
   time: 5
   solids:
@@ -174,7 +174,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeChocolateChipPancake
-  name: chocolate chip pancake recipe
+  name: ent-N14CookedFoodBakedPancakeCc
   result: N14CookedFoodBakedPancakeCc # tmp, changing ID means replacing prototype in all map files!
   time: 5
   reagents:
@@ -186,7 +186,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeChocolateTart
-  name: chocolate lava tart recipe
+  name: ent-N14CookedFoodTartCoco
   result: N14CookedFoodTartCoco # tmp, changing ID means replacing prototype in all map files!
   time: 15
   reagents:
@@ -199,7 +199,7 @@
 
 - type: microwaveMealRecipe
   id: N14RecipeCookie
-  name: cookie recipe
+  name: ent-N14CookedFoodBakedCookie
   result: N14CookedFoodBakedCookie # tmp, changing ID means replacing prototype in all map files!
   time: 5
   reagents:
@@ -212,7 +212,7 @@
 # Dumplings
 - type: microwaveMealRecipe
   id: MisfitsRecipeCoxinha
-  name: Coxinha
+  name: ent-MisfitsFoodCoxinha
   result: MisfitsFoodCoxinha
   time: 5
   reagents:
@@ -223,7 +223,7 @@
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeMeatDumpling
-  name: meat Dumpling
+  name: ent-MisfitsFoodMeatDumpling
   result: MisfitsFoodMeatDumpling
   time: 5
   reagents:
@@ -233,7 +233,7 @@
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeMeatDumpling_Jet
-  name: Khan Meat Dumping
+  name: ent-MisfitsFoodMeatDumpling_Jet
   result: MisfitsFoodMeatDumpling_Jet
   time: 5
   reagents:
@@ -249,7 +249,7 @@
 # Kebabs & Skewers
 - type: microwaveMealRecipe
   id: MisfitsRecipeKebabPilar
-  name: Kebab Pilar
+  name: ent-MisfitsFoodKebabPilar
   result: MisfitsFoodKebabPilar
   time: 30
   solids:
@@ -269,7 +269,7 @@
     
 - type: microwaveMealRecipe
   id: MisfitsRecipeMeatJerky2
-  name: Meat Jerky
+  name: ent-MisfitsFoodMeatJerky
   result: MisfitsFoodMeatJerky
   time: 15
   reagents:
@@ -279,7 +279,7 @@
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeMeatJerky3
-  name: Meat Jerky
+  name: ent-MisfitsFoodMeatJerky
   result: MisfitsFoodMeatJerky
   time: 15
   reagents:
@@ -289,7 +289,7 @@
 
 - type: microwaveMealRecipe
   id: MisfitsRecipePemmison
-  name: Pemmison
+  name: ent-MisfitsFoodPemmison
   result: MisfitsFoodPemmison
   time: 10
   solids:
@@ -300,7 +300,7 @@
 # Rice
 - type: microwaveMealRecipe
   id: MisfitsRecipeRiceCake
-  name: Rice Cake
+  name: ent-MisfitsFoodRiceCake
   result: MisfitsFoodRiceCake
   time: 5
   reagents:

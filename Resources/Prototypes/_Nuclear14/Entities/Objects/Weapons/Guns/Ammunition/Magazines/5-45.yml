@@ -1,0 +1,41 @@
+#Sirius Add: 5.45 magazines moved from Corvax to _Nuclear14
+- type: entity
+  id: BaseMagazine545Rifle
+  name: "magazine (5.45mm)"
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags: 
+      - Magazine545Rifle
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14Cartridge545Rifle
+    proto: N14Cartridge545Rifle
+    capacity: 24
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    netsync: false
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/5.45/ak112mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: Magazine545Rifle
+  name: "magazine (5.45mm)"
+  parent: BaseMagazine545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545Rifle

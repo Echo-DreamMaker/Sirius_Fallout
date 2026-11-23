@@ -32,6 +32,8 @@
 
 
     ##MARK: Пистолеты
+    - type: loadout # #Sirius Add: Eighties pipe weapons
+      id: SiriusLoadoutEightiesPipePistol
     - type: loadout
       id: N14LoadoutWeaponPistol10mmPipe
     - type: loadout
@@ -53,6 +55,8 @@
 
 
     ##MARK: Дробовики
+    - type: loadout # #Sirius Add: Eighties pipe weapons
+      id: SiriusLoadoutEightiesPipeShotgun
     - type: loadout
       id: N14LoadoutWeaponShotgunBoomstick
     - type: loadout
@@ -84,6 +88,12 @@
 
 
     ##MARK: СМГ
+    - type: loadout # #Sirius Add: Eighties pipe weapons
+      id: SiriusLoadoutEightiesPipeSMG10
+    - type: loadout
+      id: SiriusLoadoutEightiesPipeSMG45
+    - type: loadout
+      id: SiriusLoadoutEightiesPipeSMG12
     - type: loadout
       id: N14LoadoutWeaponSMG9mm
     - type: loadout
@@ -114,6 +124,8 @@
 
 
     ##MARK: Автоматы и винтовки
+    - type: loadout # #Sirius Add: Eighties pipe weapons
+      id: SiriusLoadoutEightiesPipeRifle
     - type: loadout
       id: N14LoadoutWeaponSniper556Tribal
     - type: loadout
@@ -232,6 +244,8 @@
       id: N14LoadoutWeaponSniper50AntiMateriel
     - type: loadout
       id: N14LoadoutWeaponSniper50Pipe
+    - type: loadout # #Sirius Add: cheap pipe sniper for all roles with weapon loadouts
+      id: SiriusLoadoutWeaponSniper308PipeRifle
 
 
 

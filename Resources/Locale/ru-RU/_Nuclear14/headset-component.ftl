@@ -26,3 +26,6 @@ chat-radio-followers = Последователи
 chat-radio-ncr-rangers = Рейнджеры НКР
 chat-radio-osi = OSI
 chat-radio-zax-binary = ZAX Бинарный
+
+# Sirius Add: Townsfolk radio channel
+chat-radio-townsfolk = Базар

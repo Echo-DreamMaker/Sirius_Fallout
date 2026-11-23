@@ -1,7 +1,7 @@
 # Brahdo vendor categories are Misfits-owned, alongside their Misfits Brahdo prototypes.
 - type: storeCategoryStructured
   id: WasterBuy2_Animals
-  name: "Animals"
+  name: nc-store-category-wasterbuy2-animals
   entries:
   - proto: MisfitsMobBrahdo_Standard
     price: 150
@@ -24,7 +24,7 @@
 
 - type: storeCategoryStructured
   id: NCRBuy2_Animals
-  name: "Animals"
+  name: nc-store-category-ncrbuy2-animals
   entries:
   - proto: MisfitsMobBrahdo_Fast
     price: 200
@@ -43,7 +43,7 @@
 
 - type: storeCategoryStructured
   id: LegionBuy2_Animals
-  name: "Animals"
+  name: nc-store-category-legionbuy2-animals
   entries:
   - proto: MisfitsMobBrahdo_Tank
     price: 500

@@ -10,9 +10,10 @@
   description: job-description-bos-west-elder-comm
   playTimeTracker: BoSWestElderCommander
   requirements:
-    - !type:CharacterSpeciesRequirement
+    - !type:CharacterSpeciesRequirement #Sirius Change: allow Ghouls in all BoS jobs
       species:
       - Human
+      - Ghoul
     - !type:CharacterDepartmentTimeRequirement
       department: BrotherhoodOfSteel
       min: 252000 # 70 hours

@@ -141,9 +141,10 @@
 
 # #Misfits Add — Bazaar Townsfolk private radio channel
 # longRange: true so it works without a dedicated telecomms server on the map
+# Sirius Fix: raw channel name -> FTL key
 - type: radioChannel
   id: Townsfolk
-  name: Bazaar
+  name: chat-radio-townsfolk
   keycode: 't'
   frequency: 6767
   color: "#019a64"

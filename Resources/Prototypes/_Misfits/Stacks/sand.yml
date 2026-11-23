@@ -1,7 +1,7 @@
 # Sand stack type used by the N14Sand material entity.
 - type: stack
   id: N14Sand
-  name: sand
+  name: ent-N14Sand1
   icon: { sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi, state: powder_brass }
   spawn: N14Sand1
   maxCount: 30

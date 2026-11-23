@@ -19,9 +19,10 @@
   description: job-description-bos-honor-guard
   playTimeTracker: BoSHonorGuard
   requirements:
-    - !type:CharacterSpeciesRequirement
+    - !type:CharacterSpeciesRequirement #Sirius Change: allow Ghouls in all BoS jobs
       species:
       - Human
+      - Ghoul
   startingGear: BoSHonorGuardGear
   alwaysUseSpawner: true
   requireAdminNotify: true

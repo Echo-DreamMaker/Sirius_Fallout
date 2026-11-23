@@ -1,6 +1,6 @@
 - type: stack
   id: N14Traumapack
-  name: traumapack
+  name: ent-N14Traumapack
   icon: { sprite: "_Nuclear14/Objects/Specific/Medical/drugs.rsi", state: traumapack }
   spawn: N14Traumapack
   maxCount: 10
@@ -8,7 +8,7 @@
 
 - type: stack
   id: N14AloeSalve
-  name: aloe salve
+  name: ent-N14AloeSalve1
   icon: { sprite: "_Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi", state: aloe1 }
   spawn: N14AloeSalve1
   maxCount: 10 # Forge-Change
@@ -16,7 +16,7 @@
 
 - type: stack
   id: N14DirtyGauze10
-  name: roll of gauze
+  name: ent-N14DirtyGauze1
   icon: { sprite: "_Nuclear14/Objects/Specific/Medical/ms13_medical.rsi", state: gauze_diy1 }
   spawn: N14DirtyGauze1
   maxCount: 10
@@ -24,7 +24,7 @@
 
 - type: stack
   id: N14CleanGauze10
-  name: roll of gauze
+  name: ent-N14CleanGauze1
   icon: { sprite: "_Nuclear14/Objects/Specific/Medical/ms13_medical.rsi", state: gauze }
   spawn: N14CleanGauze1
   maxCount: 10
@@ -32,7 +32,7 @@
 
 - type: stack
   id: N14Ointment10
-  name: oitnment
+  name: ent-N14Ointment1
   icon: { sprite: "_Nuclear14/Objects/Specific/Medical/ms13_medical.rsi", state: tube1 }
   spawn: N14Ointment1
   maxCount: 10

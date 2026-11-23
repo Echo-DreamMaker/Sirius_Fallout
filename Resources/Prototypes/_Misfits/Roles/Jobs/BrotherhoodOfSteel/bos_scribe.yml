@@ -60,9 +60,10 @@
   description: job-description-bos-scribe
   playTimeTracker: BoSScribe
   requirements:
-    - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
+    - !type:CharacterSpeciesRequirement #Sirius Change: allow Ghouls in all BoS jobs
       species:
       - Human
+      - Ghoul
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T3 faction timelock (8h BoS)
       department: BrotherhoodOfSteel
       min: 28800 # 8 hours

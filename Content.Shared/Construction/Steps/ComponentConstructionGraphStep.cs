@@ -20,13 +20,17 @@ namespace Content.Shared.Construction.Steps
 
         public override void DoExamine(ExaminedEvent examinedEvent)
         {
-            examinedEvent.PushMarkup(string.IsNullOrEmpty(Name)
-                ? Loc.GetString(
+            if (string.IsNullOrEmpty(Name))
+            {
+                examinedEvent.PushMarkup(Loc.GetString(
                     "construction-insert-entity-with-component",
-                    ("componentName", Component))// Terrible.
-                : Loc.GetString(
-                    "construction-insert-exact-entity",
-                    ("entityName", Name)));
+                    ("componentName", Component)));// Terrible.
+                return;
+            }
+
+            // Sirius: localize ingredient/step name when a step-* key exists.
+            var entityName = Loc.TryGetString($"step-{Name.Replace(' ', '-')}", out var locName) ? locName : Name;
+            examinedEvent.PushMarkup(Loc.GetString("construction-insert-exact-entity", ("entityName", entityName)));
         }
     }
 }

@@ -1,27 +1,44 @@
-# Legal Information
+# Правовая информация / Legal Information
 
-## Copyright
+<!-- #Sirius Change: полу-закрытая модель — оригинальный код Sirius закрыт, спрайты CC BY-NC-SA 4.0, унаследованный контент остаётся под своими лицензиями. -->
 
-Authors retain all rights to the works presented in this repository.
+## Кратко
 
-## Licenses
+| Категория | Лицензия | Источник |
+| --- | --- | --- |
+| Код апстрима до 17.02.2024 | MIT | `LICENSE-MIT.txt` |
+| Код апстрима после 17.02.2024 | AGPLv3 | `LICENSE-AGPLv3.txt` |
+| Оригинальный код Sirius | **SIRIUS-PL v1.0** (закрытая, source-available) | `LICENSE-SIRIUS-CODE.txt`, `SIRIUS-CONTENT.md` |
+| Оригинальные спрайты Sirius | **CC BY-NC-SA 4.0** | `meta.json`, `SIRIUS-CONTENT.md` |
+| Misfits / N14 / Nuclear14 / Corvax / DeltaV / ваниль | как указано в исходнике | `meta.json`, `attributions.yml`, `CREDITS.md` |
 
-### Code
+## 1. Код
 
-> [!NOTE]
-> If you need code under the MIT license, refer to the Space Wizards repository [here](https://github.com/space-wizards/space-station-14/).
-> If the code you need exists here under AGPLv3 but not under MIT, you can request re-licensing from the authors.
->
-> If you cannot determine the license or authors of specific code, ask in our [Discord](https://discord.gg/X4QEXxUrsJ).
+### 1.1. Унаследованный код
 
-All code added after commit [87c70a8](https://github.com/Simple-Station/Einstein-Engines/commit/87c70a89a67d0521a56388e6b1c3f2cb947943e4) is licensed under the GNU Affero General Public License v3.0 unless stated otherwise. See [LICENSE-AGPLv3](./LICENSE-AGPLv3.txt).
+Код, добавленный в репозиторий до коммита `87c70a89a67d0521a56388e6b1c3f2cb947943e4` (17 февраля 2024, 21:48 UTC), распространяется по **MIT**. Код, добавленный после него, — по **AGPLv3**, если в файле не указано иное.
 
-Code added before that commit is licensed under MIT unless stated otherwise. See [LICENSE-MIT](./LICENSE-MIT.txt).
+Соглашение `LICENSE-ICLA-EN.txt` относится к проекту **WWhiteDreamProject/wwdpublic** и **не является лицензией Sirius Fallout**. Оно оставлено в репозитории только как исторический файл и ни на что в этой сборке не распространяется.
 
-Commit [87c70a8](https://github.com/Simple-Station/Einstein-Engines/commit/87c70a89a67d0521a56388e6b1c3f2cb947943e4) was made on February 17, 2024 at 21:48 UTC.
+### 1.2. Оригинальный код Sirius
 
-### Assets
+Файлы в каталогах `Content.*/_Sirius/**`, `Resources/Prototypes/_Sirius/**` и `Resources/Locale/*/_Sirius/**`, которые не являются копией или переделкой файла под MIT/AGPLv3, принадлежат Sirius и распространяются по **SIRIUS-PL v1.0** (`LICENSE-SIRIUS-CODE.txt`). Полный перечень — в `SIRIUS-CONTENT.md`.
 
-Most assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise. License and copyright are listed in metadata files. [Example](./Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
+**Важно:** маркеры `#Sirius Add:` / `#Sirius Change:` / `#Sirius Fix:` / `#Sirius Perf:` показывают авторство правки, но **не меняют лицензию файла**. Если файл изначально под AGPLv3, правка внутри него остаётся под AGPLv3 (п. 5 и 13 лицензии). Чтобы сделать такой код закрытым, его надо вынести в отдельный модуль, не производный от AGPL-кода, и оформить передачу прав.
 
-Note that some assets are under non-commercial licenses ([CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) or similar) and must be removed for commercial use of the project.
+AGPLv3 (п. 13) обязывает предлагать исходный код всем пользователям, взаимодействующим с сервером по сети. SIRIUS-PL не отменяет это обязательство для AGPL-частей программы: если закрытый модуль собран в единую программу с AGPLv3-кодом, права пользователей по AGPLv3 сохраняются в полном объёме.
+
+## 2. Спрайты и ресурсы
+
+* Оригинальные спрайты Sirius — **CC BY-NC-SA 4.0** (`https://creativecommons.org/licenses/by-nc-sa/4.0/`). Лицензия и автор указаны в `meta.json` каждого RSI.
+* Производные спрайты: если спрайт — переработка материала под CC-BY-SA / CC-BY-NC-SA, он **обязан** остаться под лицензией исходника. Ужесточать условия (например, добавлять NC к CC-BY-SA) нельзя без прямого согласия правообладателя. Такие файлы перечислены в `SIRIUS-CONTENT.md` и пока не изменены.
+* Унаследованные ресурсы (N14, Misfits, Corvax, DeltaV, ваниль, SS13-форки) сохраняют лицензию из `meta.json` / `attributions.yml` / `CREDITS.md`. Многие тайлы N14 — **CC-BY-NC-SA 3.0**; это не «свободно» в коммерческом смысле.
+* Материалы, извлечённые из официальных игр Fallout (например, постеры), не являются нашей собственностью и не лицензируются от нашего имени.
+
+## 3. Подтверждение прав
+
+Авторские права возникают автоматически, но для закрытого режима важно письменное подтверждение от каждого автора: передача исключительных прав или исключительная лицензия в пользу RavenAzala (`RavenReaper`). Шаблон — `CLA-Sirius.md`. Пока подписи нет, автор вправе использовать свою работу в других проектах.
+
+## 4. Нарушения
+
+Претензии по использованию закрытого кода и спрайтов Sirius: RavenAzala / RavenReaper, Discord проекта. Для доказательства используются маркеры `#Sirius`, история коммитов, `meta.json` и `SIRIUS-CONTENT.md`.

@@ -838,7 +838,8 @@ public sealed partial class HolotapeWindow : DefaultWindow
         }
 
         // Header reflects faction display name + accent color
-        DatabaseHeaderLabel.Text = state.DisplayName;
+        // Sirius Fix: display name may be an FTL key.
+        DatabaseHeaderLabel.Text = Loc.TryGetString(state.DisplayName, out var dbName) ? dbName : state.DisplayName;
         if (TryParseColor(state.AccentColor, out var accent))
             DatabaseHeaderLabel.FontColorOverride = accent;
 

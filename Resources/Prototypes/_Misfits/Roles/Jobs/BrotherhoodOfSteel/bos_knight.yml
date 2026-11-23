@@ -62,9 +62,10 @@
   description: job-description-bos-knight
   playTimeTracker: BoSKnight
   requirements:
-    - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls #Sirius Change - allow SuperMutant/Nightkin with WL access
+    - !type:CharacterSpeciesRequirement #Sirius Change: allow Ghouls (and SuperMutant/Nightkin with WL access) in all BoS jobs
       species:
       - Human
+      - Ghoul
       - SuperMutant
       - Nightkin
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T3 faction timelock (8h BoS)

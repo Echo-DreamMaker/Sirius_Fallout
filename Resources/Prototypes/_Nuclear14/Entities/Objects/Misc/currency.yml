@@ -99,7 +99,7 @@
 
 - type: stack
   id: Caps
-  name: caps
+  name: ent-N14CurrencyCap
   icon: { sprite: _Nuclear14/Objects/Misc/currency.rsi, state: caps3 }
   spawn: N14CurrencyCap
 
@@ -213,7 +213,7 @@
 
 - type: stack
   id: PrewarMoney
-  name: pre-war money
+  name: ent-N14CurrencyPrewar
   icon: { sprite: /Textures/_Nuclear14/Objects/Misc/currency.rsi, state: prewar3 }
   spawn: N14CurrencyPrewar
 
@@ -264,7 +264,8 @@
 
 - type: material
   id: NcrCredit
-  name: ncrCredit
+  # Sirius Fix: raw material name -> FTL key
+  name: materials-ncr-credit
   unit: materials-unit-bill
   stackEntity: N14CurrencyNCRDollar
   icon: { sprite: /Textures/_Nuclear14/Objects/Misc/currency.rsi, state: ncr3 }
@@ -326,7 +327,7 @@
 
 - type: stack
   id: NCRDollar
-  name: NCR dollars
+  name: ent-N14CurrencyNCRDollar
   icon: { sprite: /Textures/_Nuclear14/Objects/Misc/currency.rsi, state: ncr3 }
   spawn: N14CurrencyNCRDollar
 
@@ -443,7 +444,7 @@
 
 - type: stack
   id: LegionAureus
-  name: legion aurei
+  name: ent-N14CurrencyLegionAureus
   icon: { sprite: /Textures/_Nuclear14/Objects/Misc/currency.rsi, state: aurelius3 }
   spawn: N14CurrencyLegionAureus
 
@@ -482,7 +483,8 @@
 
 - type: material
   id: LegionAurei
-  name: legionAurei
+  # Sirius Fix: raw material name -> FTL key
+  name: materials-legion-aurei
   unit: materials-unit-bill
   stackEntity: N14CurrencyLegionAureus
   icon: { sprite: /Textures/_Nuclear14/Objects/Misc/currency.rsi, state: aurelius3 }
@@ -519,7 +521,7 @@
 
 - type: stack
   id: LegionDenarius
-  name: legion denarii
+  name: ent-N14CurrencyLegionDenarius
   icon: { sprite: /Textures/_Nuclear14/Objects/Misc/currency.rsi, state: denarius3 }
   spawn: N14CurrencyLegionDenarius
 
@@ -559,7 +561,8 @@
 
 - type: material
   id: LegionDenarius
-  name: legiondenarius
+  # Sirius Fix: raw material name -> FTL key
+  name: materials-legion-denarius
   unit: materials-unit-bill
   stackEntity: N14CurrencyLegionDenarius
   icon: { sprite: /Textures/_Nuclear14/Objects/Misc/currency.rsi, state: denarius3 }

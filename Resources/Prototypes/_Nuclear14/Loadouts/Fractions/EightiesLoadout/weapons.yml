@@ -1,0 +1,78 @@
+#Sirius Add: pipe weapons for the Eighties gang. Pistols are cheap, SMGs cost more.
+- type: loadout
+  id: SiriusLoadoutEightiesPipePistol
+  category: Firearms
+  cost: 2
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutGuns
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Eighties
+  items:
+    - N14WeaponPistol10mmPipe
+
+- type: loadout
+  id: SiriusLoadoutEightiesPipeSMG10
+  category: Firearms
+  cost: 3
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutGuns
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Eighties
+  items:
+    - N14WeaponSMG10mmPipe
+
+- type: loadout
+  id: SiriusLoadoutEightiesPipeSMG45
+  category: Firearms
+  cost: 3
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutGuns
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Eighties
+  items:
+    - SiriusWeaponPipeSMG45
+
+- type: loadout
+  id: SiriusLoadoutEightiesPipeSMG12
+  category: Firearms
+  cost: 4
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutGuns
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Eighties
+  items:
+    - N14WeaponSMG12mmPipe
+
+- type: loadout
+  id: SiriusLoadoutEightiesPipeShotgun
+  category: Firearms
+  cost: 4
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutGuns
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Eighties
+  items:
+    - N14WeaponShotgunPipe
+
+- type: loadout
+  id: SiriusLoadoutEightiesPipeRifle
+  category: Firearms
+  cost: 5
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutGuns
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Eighties
+  items:
+    - N14WeaponRifle556Pipe

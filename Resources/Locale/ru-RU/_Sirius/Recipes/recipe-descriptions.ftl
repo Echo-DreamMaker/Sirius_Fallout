@@ -273,3 +273,5 @@ recipe-SignalButtonRecipe-desc = Кнопка для активации меха
 recipe-BlastDoor-desc = На этой двери написано «BLAST DONGER».
 recipe-ConveyorBelt-desc = Конвейерная лента, обычно используемая для быстрой транспортировки большого количества предметов.
 recipe-Torch-desc = Факел, сделанный из дерева.
+recipe-CraftWasterBurrito-name = { ent-MisfitsFoodWasterBurrito }
+recipe-CraftWasterBurrito_super-name = { ent-MisfitsFoodWasterBurrito_super }

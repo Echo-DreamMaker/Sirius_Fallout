@@ -1,0 +1,46 @@
+SIRIUS FALLOUT PROPRIETARY CODE LICENSE (SIRIUS-PL v1.0)
+28.11.2026
+
+Copyright (c) 2026 RavenAzala (Raven, ckey RavenReaper). All rights reserved.
+
+#Sirius Add: закрытая лицензия на оригинальный код Sirius Fallout.
+
+1. SCOPE
+
+This license applies only to the files listed in SIRIUS-CONTENT.md and to
+source files explicitly marked with "#Sirius Legal: SIRIUS-PL". It does not
+apply to MIT-licensed, AGPLv3-licensed or CC-licensed upstream material,
+including files that merely contain "#Sirius Add/Change/Fix/Perf" markers.
+
+2. GRANT
+
+Permission is granted to RavenAzala and to the Sirius Fallout project to
+use, copy, modify, build and distribute the Covered Code as part of
+Sirius Fallout.
+
+3. NO OTHER RIGHTS
+
+No person or project other than the Sirius Fallout project may copy, modify,
+distribute, sublicense, publish or otherwise use the Covered Code, in source
+or binary form, without prior written permission from RavenAzala. Using the
+Covered Code in another game fork or another project is not permitted under
+this license.
+
+4. INTERACTION WITH AGPLv3
+
+Where the Covered Code is combined with AGPLv3-licensed material into a
+single work, the rights and obligations granted by AGPLv3 - including
+section 13 (Corresponding Source offered to users interacting via network)
+- remain in force and are not limited by this license. Nothing here revokes
+or narrows rights that third parties already have under MIT, AGPLv3 or CC
+licenses.
+
+5. AS IS
+
+THE COVERED CODE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES
+OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE COVERED CODE OR THE USE OR
+OTHER DEALINGS IN THE COVERED CODE.

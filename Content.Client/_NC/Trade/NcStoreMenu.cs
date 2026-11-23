@@ -119,7 +119,8 @@ public sealed partial class NcStoreMenu : FancyWindow
         {
             NcStoreClientCatalogModel.CatIdReady => Loc.GetString("nc-store-cat-ready-short"),
             NcStoreClientCatalogModel.CatIdCrate => Loc.GetString("nc-store-cat-crate-short"),
-            _ => catId
+            // Sirius Fix: store category names may be FTL keys.
+            _ => Loc.TryGetString(catId, out var name) ? name : catId
         };
 
     private string GetCategoryToolTip(string catId) =>
@@ -127,7 +128,8 @@ public sealed partial class NcStoreMenu : FancyWindow
         {
             NcStoreClientCatalogModel.CatIdReady => Loc.GetString("nc-store-cat-ready-full"),
             NcStoreClientCatalogModel.CatIdCrate => Loc.GetString("nc-store-cat-crate-full"),
-            _ => catId
+            // Sirius Fix: store category names may be FTL keys.
+            _ => Loc.TryGetString(catId, out var name) ? name : catId
         };
 
     public event Action<string>? OnSearchChanged;

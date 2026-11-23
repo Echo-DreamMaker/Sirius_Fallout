@@ -4,28 +4,32 @@
 ## Factions
 - type: stealTargetGroup
   id: FactionPlansNCR
-  name: NCR Plans Holotape
+  # Sirius Fix: raw name -> FTL key
+  name: steal-target-group-faction-plans-ncr
   sprite:
     sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
     state: holotape_red
 
 - type: stealTargetGroup
   id: FactionPlansEnclave
-  name: U.S. Army Plans Holotape
+  # Sirius Fix: raw name -> FTL key
+  name: steal-target-group-faction-plans-enclave
   sprite:
     sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
     state: holotape_enclave
 
 - type: stealTargetGroup
   id: FactionPlansVault
-  name: GECK Location Holotape
+  # Sirius Fix: raw name -> FTL key
+  name: steal-target-group-faction-plans-vault
   sprite:
     sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
     state: holotape_green
 
 - type: stealTargetGroup
   id: FactionPlansBOSW
-  name: Brotherhood Plans Holotape
+  # Sirius Fix: raw name -> FTL key
+  name: steal-target-group-faction-plans-bosw
   sprite:
     sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
     state: holotape_blue
@@ -33,7 +37,8 @@
 # #Misfits Change - Legion intelligence holotape for cross-faction steal objectives
 - type: stealTargetGroup
   id: FactionPlansLegion
-  name: Legion Orders Holotape
+  # Sirius Fix: raw name -> FTL key
+  name: steal-target-group-faction-plans-legion
   sprite:
     sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
     state: holotape_black

@@ -11,9 +11,10 @@
   description: job-description-bos-mid-knight
   playTimeTracker: BoSMidKnight
   requirements:
-    - !type:CharacterSpeciesRequirement # BoS does not accept Ghouls or Glowing Ghouls
+    - !type:CharacterSpeciesRequirement #Sirius Change: allow Ghouls in all BoS jobs
       species:
       - Human
+      - Ghoul
     - !type:CharacterDepartmentTimeRequirement
       department: BrotherhoodOfSteel
       min: 57600 # 16 hours

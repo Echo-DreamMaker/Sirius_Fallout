@@ -3,6 +3,9 @@
   mapName: 'Mercer Island'
   mapPath: /Maps/N14/MercerIslandSurface.yml
   minPlayers: 0
+  #Sirius Add: небо Mercer Island — пустой Z-уровень +1 (как WendoverSky)
+  mapsAbove:
+    - /Maps/N14/MercerIslandSky.yml
   stations:
     MercerIsland:
       stationProto: FalloutStation

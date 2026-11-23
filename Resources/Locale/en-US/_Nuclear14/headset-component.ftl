@@ -25,3 +25,6 @@ chat-radio-wasteland = Wasteland
 chat-radio-wasteland-global = Wasteland
 chat-radio-followers = Followers
 chat-radio-zax-binary = ZAX Binary
+
+# Sirius Add: Townsfolk radio channel
+chat-radio-townsfolk = Bazaar
