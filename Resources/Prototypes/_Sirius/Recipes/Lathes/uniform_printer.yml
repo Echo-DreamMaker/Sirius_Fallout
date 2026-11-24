@@ -1,0 +1,116 @@
+#Sirius Add: recipes for the new uniform printer.
+#Sirius Change: only vault-related crafts remain here. Price: 10 cloth + 10 thread.
+
+- type: latheRecipe
+  id: SiriusUniformPrinterBase
+  abstract: true
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingBackpackVaultBlue
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingBackpackVaultBlue
+  category: N14Containers
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingBackpackVaultOrange
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingBackpackVaultOrange
+  category: N14Containers
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingBackpackVaultGreen
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingBackpackVaultGreen
+  category: N14Containers
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingBackpackVaultGreenDark
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingBackpackVaultGreenDark
+  category: N14Containers
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingBackpackVaultPurple
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingBackpackVaultPurple
+  category: N14Containers
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingBackpackVaultRed
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingBackpackVaultRed
+  category: N14Containers
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingBackpackVaultBlueDark
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingBackpackVaultBlueDark
+  category: N14Containers
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingBackpackDuffelVaultSirius
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingBackpackDuffelVaultSirius
+  category: N14Containers
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingHeadsetVaultDweller
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingHeadsetVaultDweller
+  category: SiriusHeadwear
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingHeadHatVaultRiot
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingHeadHatVaultRiot
+  category: SiriusHeadwear
+
+- type: latheRecipe
+  id: SiriusPrintSiriusClothingHeadHatRaiderVaultRiot
+  parent: SiriusUniformPrinterBase
+  result: SiriusClothingHeadHatRaiderVaultRiot
+  category: SiriusHeadwear
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingOuterVaultSecVest
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingOuterVaultSecVest
+  category: N14Armor
+
+- type: latheRecipe
+  id: SiriusPrintSiriusClothingOuterVaultRaiderSecVest
+  parent: SiriusUniformPrinterBase
+  result: SiriusClothingOuterVaultRaiderSecVest
+  category: N14Armor
+
+- type: latheRecipe
+  id: SiriusPrintClothingSuperMutantVaultSuit
+  parent: SiriusUniformPrinterBase
+  result: ClothingSuperMutantVaultSuit
+  category: SiriusClothing
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingUniformJumpsuitVault
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingUniformJumpsuitVault
+  category: SiriusClothing
+
+- type: latheRecipe
+  id: SiriusPrintN14ClothingUniformJumpsuitVault14
+  parent: SiriusUniformPrinterBase
+  result: N14ClothingUniformJumpsuitVault14
+  category: SiriusClothing
+
+#Sirius Add: board recipe, identical to the vanilla uniform printer board.
+- type: latheRecipe
+  id: SiriusUniformPrinterMachineCircuitboard
+  result: SiriusUniformPrinterMachineCircuitboard
+  category: Circuitry
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 500

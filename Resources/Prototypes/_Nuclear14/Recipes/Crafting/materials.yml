@@ -24,18 +24,7 @@
   objectType: Item
   hide: false
 
-# Gunpowder — mix 1 sulfur, 1 coal, and 1 fertilizer by hand to produce 1 gunpowder unit
-- type: construction
-  name: gunpowder
-  id: N14GunpowderCraft
-  graph: N14GunpowderCraft
-  startNode: start
-  targetNode: gunpowder
-  category: construction-category-materials
-  description: "Grind sulfur, coal, and fertilizer together into crude gunpowder."
-  icon: { sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi, state: powder_lead }
-  objectType: Item
-  hide: false
+#Sirius Fix: Misfits hand-craft gunpowder recipe removed. The graph stays because N14Gunpowder uses it as its Construction component.
 
 # #Misfits Add: Floor tile crafting recipes
 # #Misfits Tweak: Icons changed from _Nuclear14/Objects/Misc/tiles.rsi (missing) to upstream /Objects/Tiles/tile.rsi

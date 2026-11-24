@@ -1,0 +1,146 @@
+#Sirius Add: extra armor-workbench recipes with Sirius-specific prices.
+# Lathe material units are 100 per physical stack item: 10 leather = 1000, 5 thread = 500.
+
+# --- Leather armor: light 10 leather + 5 thread, normal 15 leather + 5 thread ---
+- type: latheRecipe
+  id: SiriusArmorbenchLightLeatherArmor
+  result: N14ClothingOuterLightLeatherArmor
+  category: N14Armor
+  completetime: 4
+  materials:
+    Leather: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusArmorbenchLeatherArmor
+  result: N14ClothingOuterLeatherArmor
+  category: N14Armor
+  completetime: 4
+  materials:
+    Leather: 1500
+    Thread: 500
+
+# --- Town trenchcoats ---
+# Plain: 5 leather + 4 thread.
+- type: latheRecipe
+  id: SiriusArmorbenchTownCoat
+  result: N14ClothingOuterTownCoat
+  category: SiriusOuterwear
+  completetime: 6
+  materials:
+    Leather: 500
+    Thread: 400
+
+# Reinforced: 5 leather + 2 scrap steel + 5 thread + 5 LV cables.
+- type: latheRecipe
+  id: SiriusArmorbenchTownMediumCoat
+  result: N14ClothingOuterTownMediumCoat
+  category: SiriusOuterwear
+  completetime: 8
+  materials:
+    Leather: 500
+    ScrapSteel: 200
+    Thread: 500
+  itemCosts:
+    CableApcStack1: 5
+
+# Armored: 7 leather + 5 thread + 5 scrap iron + 5 rebar + 5 LV cables.
+- type: latheRecipe
+  id: SiriusArmorbenchTownHeavyCoat
+  result: N14ClothingOuterTownHeavyCoat
+  category: SiriusOuterwear
+  completetime: 10
+  materials:
+    Leather: 700
+    Thread: 500
+    Scrap: 500
+  itemCosts:
+    PartRodMetal1: 5
+    CableApcStack1: 5
+
+#Sirius Change: Armored Super Mutant T-45 helmet now costs 10 physical scrap steel + 4 threads.
+- type: latheRecipe
+  id: SiriusArmorbenchSMArmoredHelmet
+  result: ClothingSuperMutantScavengedHelmet
+  category: SiriusHeadwear
+  completetime: 8
+  itemCosts:
+    N14ScrapSteel: 10
+  materials:
+    Thread: 400
+
+# --- Armored masks: 5 steel + 2 thread ---
+- type: latheRecipe
+  id: SiriusArmorbenchMaskHockey
+  result: N14ClothingMaskHockey
+  category: SiriusMasks
+  completetime: 5
+  materials:
+    Steel: 500
+    Thread: 200
+
+- type: latheRecipe
+  id: SiriusArmorbenchMaskPlate
+  result: N14ClothingMaskPlate
+  category: SiriusMasks
+  completetime: 5
+  materials:
+    Steel: 500
+    Thread: 200
+
+- type: latheRecipe
+  id: SiriusArmorbenchMaskGrill
+  result: N14ClothingMaskGrill
+  category: SiriusMasks
+  completetime: 5
+  materials:
+    Steel: 500
+    Thread: 200
+
+- type: latheRecipe
+  id: SiriusArmorbenchMaskSkirmisher
+  result: N14ClothingMaskSkirmisher
+  category: SiriusMasks
+  completetime: 5
+  materials:
+    Steel: 500
+    Thread: 200
+
+#Sirius Add: craftable N14 shields at the armor workbench.
+# Base shield is abstract and intentionally has no recipe.
+# Reinforced tier: 15 physical scrap steel + 5 threads.
+- type: latheRecipe
+  id: SiriusArmorbenchScrapShieldReinforced
+  result: N14ScrapShieldSirius
+  #Sirius Fix: shields belong to the shield category.
+  category: N14Shield
+  completetime: 10
+  itemCosts:
+    N14ScrapSteel: 15
+  materials:
+    Thread: 500
+
+# Heavy tier: 25 steel + 10 leather + 5 threads.
+- type: latheRecipe
+  id: SiriusArmorbenchLegionHeavyShield
+  result: N14LegionHeavyShieldSirius
+  #Sirius Fix: shields belong to the shield category.
+  category: N14Shield
+  completetime: 12
+  materials:
+    Steel: 2500
+    Leather: 1000
+    Thread: 500
+
+# Tower tier: 30 steel + 10 iron ingots + 10 HV cable stacks.
+- type: latheRecipe
+  id: SiriusArmorbenchDoorShieldTower
+  result: N14doorShieldSirius
+  #Sirius Fix: shields belong to the shield category.
+  category: N14Shield
+  completetime: 15
+  materials:
+    Steel: 3000
+  itemCosts:
+    N14IngotIron: 10
+    CableApcStack1: 10

@@ -32,6 +32,11 @@ namespace Content.Shared.Lathe
         /// </summary>
         public List<EntityUid?> QueueActors = new();
 
+        // #Sirius Add: Last player to open/queue at this lathe. Item costs are looked up in this
+        // player's hands and inventory in addition to the workbench storage container.
+        [ViewVariables]
+        public EntityUid? LastUser;
+
         /// <summary>
         /// The sound that plays when the lathe is producing an item, if any
         /// </summary>

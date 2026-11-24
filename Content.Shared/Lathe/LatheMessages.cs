@@ -19,12 +19,16 @@ public sealed class LatheUpdateState : BoundUserInterfaceState
     // when PhysicalCompositionComponent is not yet synced to the client.
     public Dictionary<ProtoId<MaterialPrototype>, int> AvailableMaterials;
 
-    public LatheUpdateState(List<ProtoId<LatheRecipePrototype>> recipes, List<LatheRecipePrototype> queue, LatheRecipePrototype? currentlyProducing = null, Dictionary<ProtoId<MaterialPrototype>, int>? availableMaterials = null)
+    // #Sirius Add: Server-computed counts of whole item prototypes available to item costs.
+    public Dictionary<EntProtoId, int> AvailableItems;
+
+    public LatheUpdateState(List<ProtoId<LatheRecipePrototype>> recipes, List<LatheRecipePrototype> queue, LatheRecipePrototype? currentlyProducing = null, Dictionary<ProtoId<MaterialPrototype>, int>? availableMaterials = null, Dictionary<EntProtoId, int>? availableItems = null)
     {
         Recipes = recipes;
         Queue = queue;
         CurrentlyProducing = currentlyProducing;
         AvailableMaterials = availableMaterials ?? new Dictionary<ProtoId<MaterialPrototype>, int>();
+        AvailableItems = availableItems ?? new Dictionary<EntProtoId, int>();
     }
 }
 

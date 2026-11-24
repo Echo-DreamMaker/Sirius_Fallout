@@ -121,8 +121,8 @@
 
 - type: storeContract
   id: caravan_contract_N14MaterialThread
-  name: "Open Wide Your Hand"
-  description: "Refugees from conflict zones have arrived with rags on their backs. The Followers of the Apocalypse need thread to mend their attire."
+  name: nc-contract-caravan_contract_N14MaterialThread-name
+  description: nc-contract-caravan_contract_N14MaterialThread-desc
   difficulty: Road Kill
   targets:
   - id: N14MaterialThread1
@@ -139,8 +139,8 @@
 
 - type: storeContract
   id: caravan_contract_N14FloraProduceWildBrocFlower
-  name: "Flowers for the Needy"
-  description: "The Followers of the Apocalypse need to restock their medical supplies, provide broc flowers for the overworked volunteers."
+  name: nc-contract-caravan_contract_N14FloraProduceWildBrocFlower-name
+  description: nc-contract-caravan_contract_N14FloraProduceWildBrocFlower-desc
   difficulty: Road Kill
   targets:
   - id: N14FloraProduceWildBrocFlower
@@ -157,8 +157,8 @@
 
 - type: storeContract
   id: caravan_contract_MaterialCloth
-  name: "Tinker, Tailor, Soldier, Spy"
-  description: "The State of Dayglow has a new wave of recruits ready to enter training, but they're short on material. Supply some cloth for new NCR uniforms, quickly."
+  name: nc-contract-caravan_contract_MaterialCloth-name
+  description: nc-contract-caravan_contract_MaterialCloth-desc
   difficulty: Road Kill
   targets:
   - id: MaterialCloth1
@@ -175,8 +175,8 @@
 
 - type: storeContract
   id: caravan_contract_N14FloraLogTimber
-  name: "The Unfriendly North"
-  description: "The City of Arroyo needs firewood to help keep all its citizens warm in the approaching cold season. Provide it and help the NCR care for its people."
+  name: nc-contract-caravan_contract_N14FloraLogTimber-name
+  description: nc-contract-caravan_contract_N14FloraLogTimber-desc
   difficulty: Road Kill
   targets:
   - id: N14FloraLogTimber
@@ -193,8 +193,8 @@
 
 - type: storeContract
   id: caravan_contract_N14FoodDogfood
-  name: "Let Loose the Dogs of War"
-  description: "The major settlement of Junktown is training dogs for the New California Republic Army, but they're running low on dog food."
+  name: nc-contract-caravan_contract_N14FoodDogfood-name
+  description: nc-contract-caravan_contract_N14FoodDogfood-desc
   difficulty: Road Kill
   repeatable: false
   targets:
@@ -212,8 +212,8 @@
 
 - type: storeContract
   id: caravan_contract_MaterialWoodPlank1
-  name: "Always Look on the Bright Side of Life"
-  description: "Caesar's Legion needs wood to construct new crucifixes for their enemies, and they have plenty of enemies. This will likely be a repeat job."
+  name: nc-contract-caravan_contract_MaterialWoodPlank1-name
+  description: nc-contract-caravan_contract_MaterialWoodPlank1-desc
   difficulty: Road Kill
   targets:
   - id: MaterialWoodPlank1
@@ -230,8 +230,8 @@
 
 - type: storeContract
   id: caravan_contract_N14Scraps
-  name: "Military Industrial Complex? No, Its Quite Simple!"
-  description: "The Brotherhood of Steel intends to ramp up its efforts on confiscating dangerous technology from everyone else. They need material to feed ever-depleting ammo stockpiles."
+  name: nc-contract-caravan_contract_N14Scraps-name
+  description: nc-contract-caravan_contract_N14Scraps-desc
   difficulty: Road Kill
   targetCount: 1
   targets:
@@ -256,8 +256,8 @@
 
 - type: storeContract
   id: caravan_contract_N14Scrap1
-  name: "Recycling for Victory"
-  description: "One of the remaining vaults from Vault-Tec needs more scrap metal to help repair damage to their water purifier tank, and will pay generously for the material."
+  name: nc-contract-caravan_contract_N14Scrap1-name
+  description: nc-contract-caravan_contract_N14Scrap1-desc
   difficulty: Road Kill
   targets:
   - id: N14Scrap1
@@ -274,8 +274,8 @@
 
 - type: storeContract
   id: caravan_contract_N14FloraProduceWildCoyoteTobacco
-  name: "Smoking out the Hive"
-  description: "While they normally attack on sight, the local Locust raiders are willing to deal. Provide them some coyote tobacco, and they'll let a few of our caravans pass by."
+  name: nc-contract-caravan_contract_N14FloraProduceWildCoyoteTobacco-name
+  description: nc-contract-caravan_contract_N14FloraProduceWildCoyoteTobacco-desc
   difficulty: Road Kill
   targets:
   - id: N14FloraProduceWildCoyoteTobacco
@@ -292,8 +292,8 @@
 
 - type: storeContract
   id: caravan_contract_N14FloraProduceWildCannabis
-  name: "A High Opportunity"
-  description: "A local shaman is running dangerously low on natural cannabis and claims it is needed to hear the voices of their gods. Help keep their visions alive, and perhaps our new trading relationship will flourish."
+  name: nc-contract-caravan_contract_N14FloraProduceWildCannabis-name
+  description: nc-contract-caravan_contract_N14FloraProduceWildCannabis-desc
   difficulty: Road Kill
   targets:
   - id: N14FloraProduceWildCannabis
@@ -310,8 +310,8 @@
 
 - type: storeContract
   id: caravan_contract_MisfitsFloraProduceWildKokoa
-  name: "It's all about chocolate sometimes"
-  description: "Who doesn't like chocolate? Export some kokoa pods and they'll do the rest."
+  name: nc-contract-caravan_contract_MisfitsFloraProduceWildKokoa-name
+  description: nc-contract-caravan_contract_MisfitsFloraProduceWildKokoa-desc
   difficulty: Road Kill
   targets:
     - id: MisfitsFloraProduceWildKokoa
@@ -328,8 +328,8 @@
 
 - type: storeContract
   id: caravan_contract_N14FloraProduceWildCarrot
-  name: "What's Up Doc?"
-  description: "The Followers of the Apocalypse need to feed hungry refugees from nearby conflict zones, and they are requesting wild carrots en masse."
+  name: nc-contract-caravan_contract_N14FloraProduceWildCarrot-name
+  description: nc-contract-caravan_contract_N14FloraProduceWildCarrot-desc
   difficulty: Lazy Lizard
   targets:
   - id: N14FloraProduceWildCarrot
@@ -347,8 +347,8 @@
 
 - type: storeContract
   id: caravan_contract_N14WeaponSniper556VarmintRifle
-  name: "To Arms, Countrymen!"
-  description: "The little settlement of Sac-Town in the NCR is expanding its molerat ranches, but that means more troopers are needed to guard the herd. Send over some rifles!"
+  name: nc-contract-caravan_contract_N14WeaponSniper556VarmintRifle-name
+  description: nc-contract-caravan_contract_N14WeaponSniper556VarmintRifle-desc
   difficulty: Lazy Lizard
   targets:
   - id: N14WeaponSniper556VarmintRifle
@@ -365,8 +365,8 @@
 
 - type: storeContract
   id: caravan_contract_N14FoodMeatRadRaw
-  name: "You Call This Food?"
-  description: "The New California Republic Correctional Facility needs to feed their prisoners. Don't worry, they'll cook the meat first. Its a slight improvement."
+  name: nc-contract-caravan_contract_N14FoodMeatRadRaw-name
+  description: nc-contract-caravan_contract_N14FoodMeatRadRaw-desc
   difficulty: Lazy Lizard
   targets:
   - id: N14FoodMeatRadRaw
@@ -383,8 +383,8 @@
 
 - type: storeContract
   id: caravan_contract_N14Weapon9mm
-  name: "Shit Out of Luck"
-  description: "A bouncer for one of the casinos in New Reno dropped his gun in the toilet. He's not about to reach in to get it, so he needs a replacement before his boss finds out."
+  name: nc-contract-caravan_contract_N14Weapon9mm-name
+  description: nc-contract-caravan_contract_N14Weapon9mm-desc
   difficulty: Lazy Lizard
   targetCount: 1
   targets:
@@ -406,8 +406,8 @@
 
 - type: storeContract
   id: caravan_contract_N14BrassKnife
-  name: "Knife to Meat You!"
-  description: "A professional chef in New Vegas requires new knives for his kitchen staff. Pre-war tools won't do, chipped, dulled and rusted; he wants a fresh brass knife."
+  name: nc-contract-caravan_contract_N14BrassKnife-name
+  description: nc-contract-caravan_contract_N14BrassKnife-desc
   difficulty: Lazy Lizard
   targets:
   - id: N14BrassKnife
@@ -424,8 +424,8 @@
 
 - type: storeContract
   id: caravan_contract_N14FloraProduceWildCaveFungusRad
-  name: "Rad-Ical Science"
-  description: "A rogue Vault-Tec scientist believes that research into irradiated fungus could lead to a future where America is radiation free. They are willing to pay handsomely for samples."
+  name: nc-contract-caravan_contract_N14FloraProduceWildCaveFungusRad-name
+  description: nc-contract-caravan_contract_N14FloraProduceWildCaveFungusRad-desc
   difficulty: Lazy Lizard
   targets:
   - id: N14FloraProduceWildCaveFungusRad
@@ -442,8 +442,8 @@
 
 - type: storeContract
   id: caravan_contract_N14MaterialLeather1
-  name: "Doing Your Patriotic Duty"
-  description: "One of the vaults requires material to produce new dweller jumpsuits. Normally the caravan network doesn't deal with these fanatics, but they have caps instead of pre-war dollars this time."
+  name: nc-contract-caravan_contract_N14MaterialLeather1-name
+  description: nc-contract-caravan_contract_N14MaterialLeather1-desc
   difficulty: Lazy Lizard
   targets:
   - id: N14MaterialLeather1
@@ -460,8 +460,8 @@
 
 - type: storeContract
   id: caravan_contract_N14MobGhoulFeral
-  name: "The Long, Violent Goodbye"
-  description: "The Followers of the Apocalypse want to properly understand why ghouls go feral, and how to possibly stop or reverse it. Send them some fresh research material."
+  name: nc-contract-caravan_contract_N14MobGhoulFeral-name
+  description: nc-contract-caravan_contract_N14MobGhoulFeral-desc
   difficulty: Junktown Rat
   targets:
   - id: N14MobGhoulFeral
@@ -478,8 +478,8 @@
 
 - type: storeContract
   id: caravan_contract_N14MobRaiderPsycho
-  name: "Headhunting for Profit"
-  description: "Raiders continue to be a problem, and their attacks on NCR tourists has reached a tipping point. There is now a bounty on local outlaws, until the voters are satisfied."
+  name: nc-contract-caravan_contract_N14MobRaiderPsycho-name
+  description: nc-contract-caravan_contract_N14MobRaiderPsycho-desc
   difficulty: Junktown Rat
   targets:
   - id: N14BaseMobRaider # Misfits Fix — accept any raider variant (abstract = auto-Descendants)
@@ -496,8 +496,8 @@
 
 - type: storeContract
   id: caravan_contract_N14DrinkNukaCola
-  name: "Water, Water Everywhere, Not a Drop to Drink!"
-  description: "Even with a lack of new branded merchandise for over two centuries, Nuka Cola still has die-hard loyalists. These fanatics will pay absurd amounts to the caravan network for just a bottle."
+  name: nc-contract-caravan_contract_N14DrinkNukaCola-name
+  description: nc-contract-caravan_contract_N14DrinkNukaCola-desc
   difficulty: Junktown Rat
   targetCount: 1
   targets:
@@ -531,8 +531,8 @@
 
 - type: storeContract
   id: caravan_contract_N14MobRaiderBoss
-  name: "California Blues"
-  description: "The local raider bosses have expanded from attacking drifters and NCR settlers, and begun ambushing their rangers and soldiers. The NCR is paying a bounty on local outlaw leaders now."
+  name: nc-contract-caravan_contract_N14MobRaiderBoss-name
+  description: nc-contract-caravan_contract_N14MobRaiderBoss-desc
   difficulty: Hub Mercenary
   targets:
   - id: N14MobEnforcerWarden
@@ -549,8 +549,8 @@
 
 - type: storeContract
   id: caravan_contract_N14MobCazador
-  name: "Pest Control"
-  description: "Cazador nests continue to spread and kill the native wildlife, thin out their population and bring the caravan network proof the job was done. Pack some antidote, as well."
+  name: nc-contract-caravan_contract_N14MobCazador-name
+  description: nc-contract-caravan_contract_N14MobCazador-desc
   difficulty: Hub Mercenary
   targets:
   - id: N14MobCazador
@@ -567,8 +567,8 @@
 
 - type: storeContract
   id: caravan_contract_N14SuperSledgeHammer
-  name: "Hammer Time"
-  description: "The Brotherhood of Steel tend to love these hammers. When you have a hammer in your hands, everything looks like a nail. And really big nails need really big hammers. The paladins naturally, want a few more."
+  name: nc-contract-caravan_contract_N14SuperSledgeHammer-name
+  description: nc-contract-caravan_contract_N14SuperSledgeHammer-desc
   difficulty: Hub Mercenary
   targets:
   - id: N14SuperSledgeHammer
@@ -586,8 +586,8 @@
 
 - type: storeContract
   id: caravan_contract_N14MobDeathclaw
-  name: "Payback, With Interest"
-  description: "Deathclaws have begun predating on NCR caravaneers and settlers in the region. The Rangers are now paying a generous bounty for proof of any deathclaws killed by our contractors."
+  name: nc-contract-caravan_contract_N14MobDeathclaw-name
+  description: nc-contract-caravan_contract_N14MobDeathclaw-desc
   difficulty: Bunker Buster
   targets:
   - id: N14MobDeathclaw
@@ -604,8 +604,8 @@
 
 - type: storeContract
   id: caravan_contract_N14MobDeathclawMetal
-  name: "Didn't Stop to Think if They Should"
-  description: "The caravan network has heard reports of armored deathclaws in the region, which would be a serious threat to our expansion efforts. Send us proof you've eliminated the issue for payment."
+  name: nc-contract-caravan_contract_N14MobDeathclawMetal-name
+  description: nc-contract-caravan_contract_N14MobDeathclawMetal-desc
   difficulty: Wasteland Legend
   targets:
   - id: N14MobDeathclawMetal
@@ -641,8 +641,8 @@
 # Misfits Add — new Easy contracts
 - type: storeContract
   id: caravan_contract_N14FoodCannedFish
-  name: "Prepare for the Future"
-  description: "Some people suspect the world might end again soon, that some maniac might get their hands on a surviving nuclear warhead and bury us all. These wastelanders want to stock up for disaster, and quickly."
+  name: nc-contract-caravan_contract_N14FoodCannedFish-name
+  description: nc-contract-caravan_contract_N14FoodCannedFish-desc
   difficulty: Road Kill
   targets:
   - id: N14FoodCannedFish
@@ -659,8 +659,8 @@
 
 - type: storeContract
   id: caravan_contract_N14FoodEggChicken
-  name: "Eggs, Over Easy"
-  description: "In large industrial cities such as The Hub, things like fresh eggs can be hard to get. Citizens of the NCR will pay generously for clean, fresh food from the frontiers."
+  name: nc-contract-caravan_contract_N14FoodEggChicken-name
+  description: nc-contract-caravan_contract_N14FoodEggChicken-desc
   difficulty: Road Kill
   targets:
   - id: N14FoodEggChicken
@@ -695,8 +695,8 @@
 
 - type: storeContract
   id: caravan_contract_N14Whip
-  name: "Where There's A Whip, There's A Way!"
-  description: "Legion slavemasters have broken their whips from overuse on unarmed women and children; send them replacements to continue their brave beatings of those who can't fight back."
+  name: nc-contract-caravan_contract_N14Whip-name
+  description: nc-contract-caravan_contract_N14Whip-desc
   difficulty: Lazy Lizard
   targets:
   - id: N14Whip
@@ -714,8 +714,8 @@
 # Misfits Add — new Medium contracts
 - type: storeContract
   id: caravan_contract_N14MobRadscorpion
-  name: "Sting of the Scorpion"
-  description: "Radscorpions have begun getting bold and now attack the explorers of Caesar's Legion, even far afield from their nests. Remove these invasive pests and you'll be generously compensated."
+  name: nc-contract-caravan_contract_N14MobRadscorpion-name
+  description: nc-contract-caravan_contract_N14MobRadscorpion-desc
   difficulty: Junktown Rat
   targets:
   - id: N14MobRadscorpion
@@ -732,8 +732,8 @@
 
 - type: storeContract
   id: caravan_contract_N14MobMirelurk
-  name: "Operation Fish-in-a-Barrel"
-  description: "Mirelurks in the region have proven to be a consistent bother to the local Brotherhood of Steel. Allied chapters with an interest in their success are paying a bounty on local mirelurks as a result."
+  name: nc-contract-caravan_contract_N14MobMirelurk-name
+  description: nc-contract-caravan_contract_N14MobMirelurk-desc
   difficulty: Junktown Rat
   targets:
   - id: N14MobMirelurk
@@ -750,8 +750,8 @@
 
 - type: storeContract
   id: caravan_contract_N14WeaponRifleAk112
-  name: "Remember Helios One"
-  description: "A group of rogue Brotherhood of Steel knights are looking to go against orders, and honor their lost brothers of the Mojave Chapter by baptising some NCR recruits in heavy machine gun fire."
+  name: nc-contract-caravan_contract_N14WeaponRifleAk112-name
+  description: nc-contract-caravan_contract_N14WeaponRifleAk112-desc
   difficulty: Junktown Rat
   targets:
   - id: N14WeaponRifleAk112
@@ -768,8 +768,8 @@
 
 - type: storeContract
   id: caravan_contract_N14ClothingLegionReconArmor
-  name: "Revenge, for Charity"
-  description: "Escaped slaves of Caesar's Legion have pooled together their savings to see at least a few of their tormentors dead. Instead of taking ears, the refugees will be satisfied with this as proof instead."
+  name: nc-contract-caravan_contract_N14ClothingLegionReconArmor-name
+  description: nc-contract-caravan_contract_N14ClothingLegionReconArmor-desc
   difficulty: Junktown Rat
   targets:
   - id: N14ClothingLegionReconArmor
@@ -786,8 +786,8 @@
 
 - type: storeContract
   id: caravan_contract_N14PilumSpear
-  name: "Spears of Destiny"
-  description: "A collector of authentic Legion weaponry back in The Hub is looking to complete his display with a few more pilum spears. Satisfy his request and this eccentric will compensate the caravan network handsomely."
+  name: nc-contract-caravan_contract_N14PilumSpear-name
+  description: nc-contract-caravan_contract_N14PilumSpear-desc
   difficulty: Junktown Rat
   targets:
   - id: N14PilumSpear
@@ -823,8 +823,8 @@
 
 - type: storeContract
   id: caravan_contract_N14MobRadMirelurk
-  name: "Gone Fishing"
-  description: "Glowing mirelurks have proven to be a nuisance to Caesar's Legion, with their shells deflecting bullets like power armor. Remove this obstacle to their explorers, and be richly rewarded."
+  name: nc-contract-caravan_contract_N14MobRadMirelurk-name
+  description: nc-contract-caravan_contract_N14MobRadMirelurk-desc
   difficulty: Hub Mercenary
   targets:
   - id: N14MobRadMirelurk
@@ -843,8 +843,8 @@
 
 - type: storeContract
   id: caravan_contract_N14Gladius
-  name: "Cut to the Marrow"
-  description: "There are disagreements among those of Caesar's Legion, and some Old Guard elements are paying quite well for proof you've eliminated 'false legion' in their eyes. Send the trophies to get paid."
+  name: nc-contract-caravan_contract_N14Gladius-name
+  description: nc-contract-caravan_contract_N14Gladius-desc
   difficulty: Hub Mercenary
   targets:
   - id: N14Gladius
@@ -879,8 +879,8 @@
 
 - type: storeContract
   id: caravan_contract_N14VeteranLegionArmor
-  name: "Blood and Sand"
-  description: "The New California Republic is paying well for proof of dead Legion scum. Strip a set of veteran armor off a fresh corpse as evidence you finished the job, and send it in for your payment."
+  name: nc-contract-caravan_contract_N14VeteranLegionArmor-name
+  description: nc-contract-caravan_contract_N14VeteranLegionArmor-desc
   difficulty: Hub Mercenary
   targets:
   - id: N14ClothingOuterDeanLegionnaireVeteranArmor
@@ -919,8 +919,8 @@
 
 - type: storeContract
   id: caravan_contract_N14MobDeathclawGrandHunt
-  name: "The Bottom Line"
-  description: "Deathclaws have attacked local merchants, leading to significant losses of trusted caravaneers. The caravan network is offering a generous reward for those who will thin out their nests."
+  name: nc-contract-caravan_contract_N14MobDeathclawGrandHunt-name
+  description: nc-contract-caravan_contract_N14MobDeathclawGrandHunt-desc
   difficulty: Wasteland Legend
   targets:
   - id: N14MobDeathclaw
@@ -937,8 +937,8 @@
 
 - type: storeContract
   id: caravan_contract_N14WeaponPlasmaRifleDelivery
-  name: "Ad Victorium"
-  description: "The Brotherhood of Steel is paying a fortune for a functional plasma rifle in working condition. They don't care how you get it, and the caravan network agrees with the sentiment."
+  name: nc-contract-caravan_contract_N14WeaponPlasmaRifleDelivery-name
+  description: nc-contract-caravan_contract_N14WeaponPlasmaRifleDelivery-desc
   difficulty: Wasteland Legend
   targets:
   - id: N14WeaponPlasmaRifleUrban
@@ -956,8 +956,8 @@
 #Misfits Add - more contracts to compensate for the ones removes and then some ---pierow
 - type: storeContract
   id: caravan_contract_N14VaultPDA
-  name: "Corporate Espionage"
-  description: "The pip-boys from the local vault have valuable data and the demand among the caravan network's clientele is significant. We don't care if you have to saw it off their wrists, get it done."
+  name: nc-contract-caravan_contract_N14VaultPDA-name
+  description: nc-contract-caravan_contract_N14VaultPDA-desc
   difficulty: Wasteland Legend
   targets:
   - id: N14VaultPDA
@@ -974,8 +974,8 @@
 
 - type: storeContract
   id: caravan_contract_N14ChineseSword
-  name: "People's Liberation Army"
-  description: "While most ghoulified remnants of the PLA or their descendents have moved on from the past or died out, some take up the banner still. A new group needs a symbol of the past to fight drifters with."
+  name: nc-contract-caravan_contract_N14ChineseSword-name
+  description: nc-contract-caravan_contract_N14ChineseSword-desc
   difficulty: Hub Mercenary
   targets:
   - id: N14ChineseSword
@@ -992,8 +992,8 @@
 
 - type: storeContract
   id: caravan_contract_N14HolotapeQuestGECK
-  name: "Grow Me A Paradise"
-  description: "OSI scientists in the City of Dayglow are interested in GECK holotape data, and are willing to pay a generous sum. They assure us the government can be trusted not to mishandle this information."
+  name: nc-contract-caravan_contract_N14HolotapeQuestGECK-name
+  description: nc-contract-caravan_contract_N14HolotapeQuestGECK-desc
   difficulty: Bunker Buster
   targets:
   - id: N14HolotapeQuestGECK
@@ -1010,8 +1010,8 @@
 
 - type: storeContract
   id: caravan_contract_N14HolotapeEnclave
-  name: "America the Not-So Beautiful"
-  description: "Information pulled from the cold dead hands of the Enclave is always valuable to the Brotherhood of Steel, and their representatives are interested in more data stolen from the remnants of America's elite."
+  name: nc-contract-caravan_contract_N14HolotapeEnclave-name
+  description: nc-contract-caravan_contract_N14HolotapeEnclave-desc
   difficulty: Wasteland Legend
   targets:
   - id: N14HolotapeEnclave
@@ -1028,8 +1028,8 @@
 
 - type: storeContract
   id: caravan_contract_N14CurrencyPrewar
-  name: "Cash is Still King"
-  description: "A delusional Vault-Tec Overseer believes that pre-war currency is still valuable, and wishes to stockpile it. As long as they have caps to trade for it with the caravan network, we'll feed this fantasy."
+  name: nc-contract-caravan_contract_N14CurrencyPrewar-name
+  description: nc-contract-caravan_contract_N14CurrencyPrewar-desc
   difficulty: Bunker Buster
   targets:
   - id: N14CurrencyPrewar

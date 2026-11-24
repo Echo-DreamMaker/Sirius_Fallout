@@ -31,6 +31,13 @@ ent-MeatSpikeConstruction = Мясной шип
 
 hand-craft-intell-too-low-intelligence = Вы недостаточно умны, чтобы изготовить это вручную.
 hand-craft-intell-insufficient-materials = У вас недостаточно материалов, чтобы изготовить это вручную.
+#Sirius Add: whole-item and tool requirements for hand crafting.
+hand-craft-intell-missing-items = У вас нет необходимых предметов для ручного крафта.
+hand-craft-intell-missing-tools = У вас нет нужных инструментов для ручного крафта.
+hand-craft-intell-item-cost = {$amount}x {$name}
+hand-craft-intell-tool-required = Нужен инструмент: {$tool}
+hand-craft-intell-tool-Wirecutter = кусачки
+hand-craft-intell-tool-Knife = любой нож
 hand-craft-intell-leftover-materials-title = Оставшиеся материалы
 
 n14-armor-penetration-examine = Бронепробитие: {$value}%.

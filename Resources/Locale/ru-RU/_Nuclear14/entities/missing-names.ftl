@@ -1420,6 +1420,9 @@ ent-N14MiscBighornerSkull = череп бигорна
     .desc = очищенный череп большерога.
 ent-N14MiscBrahminSkull = череп брамина
     .desc = Очищенный череп брамина.
+#Sirius Add: deathclaw skull crafting component.
+ent-N14MiscDeathclawSkull = череп когтя смерти
+    .desc = Очищенный череп когтя смерти. Ценится племенными охотниками.
 ent-N14MiscCorpseGhoulNCRTrooper = мёртвый солдат-гуль НКР
     .desc = Мёртвый дикий гуль в остатках снаряжения солдата НКР.
 ent-N14MiscRadstagSkull = череп радо-оленя

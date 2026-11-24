@@ -1,0 +1,58 @@
+#Sirius Add: hand crafting recipes that need whole items and tools.
+# Tools (ToolTags) are required but never consumed.
+
+# Wearable brahmin skull: 1 brahmin skull + 1 thread.
+- type: handCraftIntellRecipe
+  id: SiriusHandCraftBrahminSkullHat
+  minInt: 5
+  result: N14ClothingTribalMuffaloskull
+  completeTime: 6
+  materials:
+    Thread: 100
+  itemCosts:
+    N14MiscBrahminSkull: 1
+
+# Spiked club: 1 log + 6 rebar; wire cutters and any knife are needed but not consumed.
+- type: handCraftIntellRecipe
+  id: SiriusHandCraftSpikedClub
+  minInt: 6
+  result: N14TribalBigClubDecorated
+  completeTime: 12
+  itemCosts:
+    N14FloraLogTimber: 1
+    PartRodMetal1: 6
+  toolTags:
+  - Wirecutter
+  - Knife
+
+#Sirius Change: deathclaw-skull crafts moved off the armor workbench into hand crafting.
+# One deathclaw skull plus thread for each item.
+- type: handCraftIntellRecipe
+  id: SiriusHandCraftDeathclawHelmet
+  minInt: 6
+  result: N14ClothingDeathclawHelm
+  completeTime: 8
+  itemCosts:
+    N14MiscDeathclawSkull: 1
+  materials:
+    Thread: 100
+
+- type: handCraftIntellRecipe
+  id: SiriusHandCraftSMTribalSkullHelmet
+  minInt: 6
+  result: ClothingSuperMutantSkullHelmetTribal
+  completeTime: 8
+  itemCosts:
+    N14MiscDeathclawSkull: 1
+  materials:
+    Thread: 200
+
+- type: handCraftIntellRecipe
+  id: SiriusHandCraftSMTribalPauldron
+  minInt: 6
+  result: ClothingSuperMutantNeckCapeTribal
+  completeTime: 10
+  itemCosts:
+    N14MiscDeathclawSkull: 1
+  materials:
+    Thread: 200

@@ -1,0 +1,31 @@
+#Sirius Add: additional lathe categories so crafted clothing is not all lumped into "Броня".
+
+- type: latheCategory
+  id: SiriusClothing
+  name: sirius-lathe-category-clothing
+
+- type: latheCategory
+  id: SiriusShoes
+  name: sirius-lathe-category-shoes
+
+#Sirius Add: gloves are not boots and get their own category.
+- type: latheCategory
+  id: SiriusGloves
+  name: sirius-lathe-category-gloves
+
+- type: latheCategory
+  id: SiriusHeadwear
+  name: sirius-lathe-category-headwear
+
+- type: latheCategory
+  id: SiriusMasks
+  name: sirius-lathe-category-masks
+
+- type: latheCategory
+  id: SiriusOuterwear
+  name: sirius-lathe-category-outerwear
+
+#Sirius Add: Legion helmets are separated from generic armor in the forge UI.
+- type: latheCategory
+  id: SiriusLegionHelmets
+  name: sirius-lathe-category-legion-helmets

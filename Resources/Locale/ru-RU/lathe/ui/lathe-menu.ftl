@@ -25,6 +25,10 @@ lathe-menu-material-amount-missing = { $amount ->
     [1] { NATURALFIXED($amount, 2) } { $unit } { $material } ([color=red]{ NATURALFIXED($missingAmount, 2) } { $unit } не хватает[/color])
     *[other] { NATURALFIXED($amount, 2) } { $unit } { $material } ([color=red]{ NATURALFIXED($missingAmount, 2) } { $unit } не хватает[/color])
 }
+#Sirius Add: item costs (whole entities) in lathe recipes
+lathe-menu-sirius-item-amount = { $amount } × { $item }
+lathe-menu-sirius-item-amount-missing = { $amount } × { $item } ([color=red]не хватает { $missing }[/color])
+lathe-menu-sirius-one-of = Одно из: { $costs }
 lathe-menu-no-materials-message = Материалы не загружены
 lathe-menu-silo-linked-message = Хранилище связано
 lathe-menu-fabricating-message = Производится...

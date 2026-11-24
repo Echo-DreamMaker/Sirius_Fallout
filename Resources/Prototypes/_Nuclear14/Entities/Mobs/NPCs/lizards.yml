@@ -601,6 +601,9 @@
       amount: 12
     - id: N14MaterialRawLeather1
       amount: 8
+    #Sirius Add: skull needed by the deathclaw helmet/trophy recipes.
+    - id: N14MiscDeathclawSkull
+      amount: 1
 
 #MARK: Albino Deathclaw
 - type: entity

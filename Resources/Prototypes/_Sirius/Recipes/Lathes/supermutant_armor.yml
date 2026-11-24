@@ -1,0 +1,128 @@
+#Sirius Add: Super Mutant outer armor and robes from _Misfits, crafted at the armor workbench.
+#Sirius Add: placeholder price until faction-specific costs are defined:
+# 10 cloth + 5 leather + 5 steel (stored as 10 x 100 material units).
+
+- type: latheRecipe
+  id: SiriusArmorbenchSMOuterClothing
+  result: ClothingSuperMutantOuterClothing
+  category: SiriusClothing
+  completetime: 10
+  materials:
+    Cloth: 1000
+    Leather: 500
+    Steel: 500
+
+- type: latheRecipe
+  id: SiriusArmorbenchSMGladiatorArmor
+  result: ClothingSuperMutantGladiatorArmor
+  category: N14Armor
+  completetime: 10
+  materials:
+    Cloth: 1000
+    Leather: 500
+    Steel: 500
+
+- type: latheRecipe
+  id: SiriusArmorbenchSMRangerArmor
+  result: ClothingSuperMutantRangerArmor
+  category: N14Armor
+  completetime: 10
+  materials:
+    Cloth: 1000
+    Leather: 500
+    Steel: 500
+
+- type: latheRecipe
+  id: SiriusArmorbenchSMCustomizedCombatArmor
+  result: ClothingSuperMutantCustomizedCombatArmor
+  category: N14Armor
+  completetime: 10
+  materials:
+    Cloth: 1000
+    Leather: 500
+    Steel: 500
+
+- type: latheRecipe
+  id: SiriusArmorbenchSMCustomDuster
+  result: ClothingSuperMutantCustomDuster
+  category: SiriusOuterwear
+  completetime: 10
+  materials:
+    Cloth: 1000
+    Leather: 500
+    Steel: 500
+
+- type: latheRecipe
+  id: SiriusArmorbenchSMTrooperArmor
+  result: ClothingSuperMutantTrooperArmor
+  category: N14Armor
+  completetime: 10
+  materials:
+    Cloth: 1000
+    Leather: 500
+    Steel: 500
+
+- type: latheRecipe
+  id: SiriusArmorbenchSMOutfitC
+  result: ClothingSuperMutantOutfitC
+  category: SiriusClothing
+  completetime: 10
+  materials:
+    Cloth: 1000
+    Leather: 500
+    Steel: 500
+
+#Sirius Change: Super Tribal Pauldron Trophy costs one deathclaw skull and two threads.
+- type: latheRecipe
+  id: SiriusArmorbenchSMFOTArmoredLabcoat
+  result: MisfitsFOTASuperMutantArmoredLabcoat
+  category: N14Armor
+  completetime: 10
+  materials:
+    Cloth: 1000
+    Leather: 500
+    Steel: 500
+
+- type: latheRecipe
+  id: SiriusArmorbenchSMScavengedArmor
+  result: ClothingSuperMutantScavengedArmor
+  category: N14Armor
+  completetime: 10
+  materials:
+    Cloth: 1000
+    Leather: 500
+    Steel: 500
+
+#Sirius Add: Super Mutant helmets use physical scrap steel and thread, and are made here,
+# not at the sewing machine. 10 x N14ScrapSteel + 4 x thread.
+- type: latheRecipe
+  id: SiriusArmorbenchSMGladiatorHelmet
+  result: ClothingSuperMutantGladiatorHelmet
+  category: SiriusHeadwear
+  completetime: 8
+  itemCosts:
+    N14ScrapSteel: 10
+  materials:
+    Thread: 400
+
+- type: latheRecipe
+  id: SiriusArmorbenchSMRangerHelmet
+  result: ClothingSuperMutantRangerHelmet
+  category: SiriusHeadwear
+  completetime: 8
+  itemCosts:
+    N14ScrapSteel: 10
+  materials:
+    Thread: 400
+
+- type: latheRecipe
+  id: SiriusArmorbenchSMTrooperHelmet
+  result: ClothingSuperMutantTrooperHelmet
+  category: SiriusHeadwear
+  completetime: 8
+  itemCosts:
+    N14ScrapSteel: 10
+  materials:
+    Thread: 400
+
+#Sirius Add: deathclaw helmets cost one deathclaw skull and one thread.

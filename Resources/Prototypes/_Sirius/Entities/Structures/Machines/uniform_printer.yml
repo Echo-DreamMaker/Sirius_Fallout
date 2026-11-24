@@ -1,0 +1,29 @@
+#Sirius Add: uniform printer identical to the vanilla one, with a different recipe list.
+#Sirius Change: only vault-related prints are available here.
+
+- type: entity
+  parent: UniformPrinter
+  id: SiriusUniformPrinter
+  name: ent-SiriusUniformPrinter
+  description: ent-SiriusUniformPrinter.desc
+  components:
+  - type: Machine
+    board: SiriusUniformPrinterMachineCircuitboard
+  - type: Lathe
+    staticRecipes:
+    - SiriusPrintN14ClothingBackpackVaultBlue
+    - SiriusPrintN14ClothingBackpackVaultOrange
+    - SiriusPrintN14ClothingBackpackVaultGreen
+    - SiriusPrintN14ClothingBackpackVaultGreenDark
+    - SiriusPrintN14ClothingBackpackVaultPurple
+    - SiriusPrintN14ClothingBackpackVaultRed
+    - SiriusPrintN14ClothingBackpackVaultBlueDark
+    - SiriusPrintN14ClothingBackpackDuffelVaultSirius
+    - SiriusPrintN14ClothingHeadsetVaultDweller
+    - SiriusPrintN14ClothingHeadHatVaultRiot
+    - SiriusPrintSiriusClothingHeadHatRaiderVaultRiot
+    - SiriusPrintN14ClothingOuterVaultSecVest
+    - SiriusPrintSiriusClothingOuterVaultRaiderSecVest
+    - SiriusPrintClothingSuperMutantVaultSuit
+    - SiriusPrintN14ClothingUniformJumpsuitVault
+    - SiriusPrintN14ClothingUniformJumpsuitVault14

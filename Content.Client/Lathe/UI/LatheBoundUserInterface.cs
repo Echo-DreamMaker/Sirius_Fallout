@@ -50,6 +50,8 @@ namespace Content.Client.Lathe.UI
                         // client can accurately determine CanProduce without relying on
                         // PhysicalCompositionComponent being synced from storage entities.
                         _menu.ServerAvailableMaterials = msg.AvailableMaterials;
+                        // #Sirius Add: whole-item costs are counted server-side too.
+                        _menu.ServerAvailableItems = msg.AvailableItems;
                     }
                     _menu?.PopulateRecipes();
                     _menu?.UpdateCategories();

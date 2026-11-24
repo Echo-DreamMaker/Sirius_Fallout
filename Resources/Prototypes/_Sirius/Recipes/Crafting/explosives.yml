@@ -1,0 +1,14 @@
+#Sirius Add: dynamite in the hand-crafting (G) menu.
+- type: construction
+  name: recipe-SiriusDynamiteRecipe-name
+  id: SiriusDynamiteRecipe
+  graph: SiriusDynamiteGraph
+  startNode: start
+  targetNode: dynamite
+  category: construction-category-explosives
+  objectType: Item
+  description: recipe-SiriusDynamiteRecipe-desc
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Grenades/Dynamite.rsi
+    state: icon
+  hide: false

@@ -1,0 +1,228 @@
+#Sirius Add: Super Mutant innerclothing from _Misfits, crafted at the sewing machine.
+#Sirius Change: helmets are armor and were moved to N14WorkbenchArmorbench.
+# Excludes the vault suit (ClothingSuperMutantVaultSuit) and all outer armor pieces,
+# which stay at the armor workbench. Price: 10 cloth + 5 thread (1000 / 500 units).
+#Sirius Add: shoes cost 3 leather + 3 cloth + 3 thread; gloves cost 1 leather + 2 cloth + 2 thread.
+
+- type: latheRecipe
+  id: SiriusSewSMJumpsuit
+  result: ClothingSuperMutantJumpsuit
+  category: SiriusClothing
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMGloves
+  result: ClothingSuperMutantGloves
+  #Sirius Fix: gloves have their own category.
+  category: SiriusGloves
+  completetime: 6
+  materials:
+    Leather: 100
+    Cloth: 200
+    Thread: 200
+
+- type: latheRecipe
+  id: SiriusSewSMShoes
+  result: ClothingSuperMutantShoes
+  category: SiriusShoes
+  completetime: 6
+  materials:
+    Leather: 300
+    Cloth: 300
+    Thread: 300
+
+- type: latheRecipe
+  id: SiriusSewSMHead
+  result: ClothingSuperMutantHead
+  category: SiriusHeadwear
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMMask
+  result: ClothingSuperMutantMask
+  category: SiriusMasks
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMNeck
+  result: ClothingSuperMutantNeck
+  category: SiriusClothing
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMGladiatorLoincloth
+  result: ClothingSuperMutantGladiatorLoincloth
+  category: SiriusClothing
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMGladiatorBoots
+  result: ClothingSuperMutantGladiatorBoots
+  category: SiriusShoes
+  completetime: 6
+  materials:
+    Leather: 300
+    Cloth: 300
+    Thread: 300
+
+- type: latheRecipe
+  id: SiriusSewSMRangerHat
+  result: ClothingSuperMutantRangerHat
+  category: SiriusHeadwear
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMRangerHatAlt
+  result: ClothingSuperMutantRangerHatAlt
+  category: SiriusHeadwear
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMLeatherBoots
+  result: ClothingSuperMutantLeatherBoots
+  category: SiriusShoes
+  completetime: 6
+  materials:
+    Leather: 300
+    Cloth: 300
+    Thread: 300
+
+- type: latheRecipe
+  id: SiriusSewSMBlackGloves
+  result: SupermutantBlackGloves
+  #Sirius Fix: gloves have their own category.
+  category: SiriusGloves
+  completetime: 6
+  materials:
+    Leather: 100
+    Cloth: 200
+    Thread: 200
+
+- type: latheRecipe
+  id: SiriusSewSMRangerShirt
+  result: ClothingSuperMutantRangerShirt
+  category: SiriusClothing
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMNeckTrinket
+  result: ClothingSuperMutantNeckTrinket
+  category: SiriusClothing
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMTribalLoincloth
+  result: ClothingSuperMutantTribalLoincloth
+  #Sirius Fix: loincloth is clothing, not armor.
+  category: SiriusClothing
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMTribalGloves
+  result: ClothingSuperMutantTribalGloves
+  #Sirius Fix: gloves have their own category.
+  category: SiriusGloves
+  completetime: 6
+  materials:
+    Leather: 100
+    Cloth: 200
+    Thread: 200
+
+- type: latheRecipe
+  id: SiriusSewSMFollowerGloves
+  result: SupermutantFollowerGloves
+  #Sirius Fix: gloves have their own category.
+  category: SiriusGloves
+  completetime: 6
+  materials:
+    Leather: 100
+    Cloth: 200
+    Thread: 200
+
+- type: latheRecipe
+  id: SiriusSewSMLabcoat
+  result: ClothingSuperMutantLabcoat
+  category: SiriusOuterwear
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMSterileMask
+  result: ClothingSuperMutantSterileMask
+  category: SiriusMasks
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMDoctorBeret
+  result: ClothingSuperMutantDoctorBeret
+  category: SiriusClothing
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMZootSuit
+  result: ClothingSuperMutantZootSuit
+  category: SiriusClothing
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMZootHat
+  result: ClothingSuperMutantZootHat
+  category: SiriusHeadwear
+  completetime: 6
+  materials:
+    Cloth: 1000
+    Thread: 500
+
+- type: latheRecipe
+  id: SiriusSewSMZootBoot
+  result: ClothingSuperMutantZootBoot
+  #Sirius Fix: boots belong to the shoes category.
+  category: SiriusShoes
+  completetime: 6
+  materials:
+    Leather: 300
+    Cloth: 300
+    Thread: 300
+#Sirius Fix: super armor T-45 gloves and boots removed as duplicates;
+# armor and helmet recipes stay on the armor workbench.
