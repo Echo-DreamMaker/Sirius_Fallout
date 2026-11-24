@@ -18,9 +18,9 @@
               doAfter: 5
 
     - node: WorkbenchSewingFrame
+      entity: N14WorkbenchArmorbenchFrame
       actions:
       - !type:AppearanceChange
-        entity: N14WorkbenchArmorbenchFrame
       edges:
         - to: WorkbenchSewingUnwelded
           steps:
@@ -28,9 +28,9 @@
               doAfter: 2
 
     - node: WorkbenchSewingUnwelded
+      entity: N14WorkbenchArmorbenchFrame
       actions:
       - !type:AppearanceChange
-        entity: N14WorkbenchArmorbenchFrame
       edges:
         - to: WorkbenchSewingCircuitry
           steps:
@@ -39,9 +39,9 @@
               doAfter: 2
 
     - node: WorkbenchSewingCircuitry
+      entity: N14WorkbenchArmorbenchFrame
       actions:
       - !type:AppearanceChange
-        entity: N14WorkbenchArmorbenchFrame
       edges:
         - to: WorkbenchSewingUnscrewed
           steps:
@@ -49,9 +49,9 @@
               doAfter: 2
 
     - node: WorkbenchSewingUnscrewed
+      entity: N14WorkbenchArmorbenchFrame
       actions:
       - !type:AppearanceChange
-        entity: N14WorkbenchArmorbenchFrame
       edges:
         - to: WorkbenchSewingIron
           steps:
@@ -60,9 +60,9 @@
               doAfter: 5
 
     - node: WorkbenchSewingIron
+      entity: N14WorkbenchArmorbenchFrame
       actions:
       - !type:AppearanceChange
-        entity: N14WorkbenchArmorbenchFrame
       edges:
         - to: WorkbenchSewing
           steps:
@@ -88,9 +88,9 @@
               doAfter: 5
 
     - node: WorkbenchLegionForgeFrame
+      entity: N14WorkbenchForgeFrame
       actions:
       - !type:AppearanceChange
-        entity: N14WorkbenchForgeFrame
       edges:
         - to: WorkbenchLegionForgeUnwelded
           steps:
@@ -98,9 +98,9 @@
               doAfter: 2
 
     - node: WorkbenchLegionForgeUnwelded
+      entity: N14WorkbenchForgeFrame
       actions:
       - !type:AppearanceChange
-        entity: N14WorkbenchForgeFrame
       edges:
         - to: WorkbenchLegionForgeCircuitry
           steps:
@@ -109,9 +109,9 @@
               doAfter: 2
 
     - node: WorkbenchLegionForgeCircuitry
+      entity: N14WorkbenchForgeFrame
       actions:
       - !type:AppearanceChange
-        entity: N14WorkbenchForgeFrame
       edges:
         - to: WorkbenchLegionForgeUnscrewed
           steps:
@@ -119,9 +119,9 @@
               doAfter: 2
 
     - node: WorkbenchLegionForgeUnscrewed
+      entity: N14WorkbenchForgeFrame
       actions:
       - !type:AppearanceChange
-        entity: N14WorkbenchForgeFrame
       edges:
         - to: WorkbenchLegionForgeIron
           steps:
@@ -130,9 +130,9 @@
               doAfter: 5
 
     - node: WorkbenchLegionForgeIron
+      entity: N14WorkbenchForgeFrame
       actions:
       - !type:AppearanceChange
-        entity: N14WorkbenchForgeFrame
       edges:
         - to: WorkbenchLegionForge
           steps:
