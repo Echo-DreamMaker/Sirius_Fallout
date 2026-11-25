@@ -4,6 +4,10 @@ defaultWindowTitle: "Rocket 69. A Fallout roleplay game. [18+][MRP]."
 windowIconSet: /Textures/Logo/Rocket69/icon
 #Sirius Change: новый фон загрузки
 splashLogo: /Textures/_Sirius/Logo/Rocket69.png
+#Sirius Add: generic loading bar appearance (engine reads these via loading.bar_* CVars).
+loading_bar_frame_texture: /Textures/_Sirius/Interface/Loading/roulette_bar_frame.png
+loading_bar_fill_texture: /Textures/_Sirius/Interface/Loading/roulette_bar_fill.png
+loading_bar_color: "#33FF66"
 # #Misfits Removed - WebView module marked insecure on official Robust CDN; all versions deprecated by space-wizards
 # modules:
 #   - "Robust.Client.WebView"
