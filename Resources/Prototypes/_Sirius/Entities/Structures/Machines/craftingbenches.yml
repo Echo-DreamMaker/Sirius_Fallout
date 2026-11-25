@@ -1,0 +1,195 @@
+#Sirius Add: new crafting stations based on the N14 armor workbench and forge.
+# Both reuse existing sprites; only the recipe lists and names differ.
+
+- type: entity
+  parent: N14WorkbenchArmorbench
+  id: SiriusWorkbenchSewing
+  name: ent-SiriusWorkbenchSewing
+  description: ent-SiriusWorkbenchSewing.desc
+  components:
+  - type: Construction
+    graph: SiriusWorkbenchSewing
+    node: WorkbenchSewing
+  #Sirius Add: brass scrap is needed by the bag recipes, so it must be insertable into
+  # MaterialStorage. The armor workbench whitelist only has Sheet/RawMaterial/Ingot/RawLeather.
+  - type: MaterialStorage
+    insertOnInteract: false
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+      - RawLeather
+      - Scrap
+  - type: Lathe
+    staticRecipes:
+    # Clothing
+    - SiriusSewCoatDuster
+    - SiriusSewCoatLeatherDuster
+    - SiriusSewCoatLeatherJacket
+    - SiriusSewCoatLeatherCoat
+    - SiriusSewBlackRobes
+    - SiriusSewLeatherRobes
+    - SiriusSewFlannelRed
+    - SiriusSewFlannelAqua
+    - SiriusSewFlannelBrown
+    - SiriusSewJacketBomber
+    #Sirius Fix: armor moved to N14WorkbenchArmorbench; the sewing machine keeps clothing only.
+    - SiriusSewMysteriousTrenchcoat
+    - SiriusSewBattlecoatCoat
+    - SiriusSewBattlecoatTan
+    - SiriusSewJumpsuitRags
+    - SiriusSewJumpsuitSettlerRags
+    - SiriusSewJumpsuitCheckered
+    - SiriusSewJumpsuitWastelandDoc
+    - SiriusSewJumpsuitMerc
+    - SiriusSewJumpsuitMerchant
+    - SiriusSewJumpsuitTrader
+    - SiriusSewJumpsuitCaravan
+    - SiriusSewJumpsuitMechanic
+    - SiriusSewJumpsuitPreWarRelaxed
+    - SiriusSewJumpsuitPreWarCasual
+    # Bags
+    - SiriusSewBackpackTrekker
+    - SiriusSewBackpackHiking
+    - SiriusSewBackpackExplorer
+    - SiriusSewBackpackDuffel
+    #Sirius Fix: NCR vests and Combat MK2 boots removed from the sewing machine.
+    # Dynamite vest
+    - SiriusSewDynamiteVestSmall
+    # Boots
+    - SiriusSewBootsBlack
+    - SiriusSewBootsCombat
+    - SiriusSewBootsCowboy
+    - SiriusSewBootsFire
+    - SiriusSewBootsLeather
+    - SiriusSewBootsMountie
+    # Super Mutant innerclothing (vault suit and outer armor excluded)
+    - SiriusSewSMJumpsuit
+    - SiriusSewSMGloves
+    - SiriusSewSMShoes
+    - SiriusSewSMHead
+    - SiriusSewSMMask
+    - SiriusSewSMNeck
+    - SiriusSewSMGladiatorLoincloth
+    - SiriusSewSMGladiatorBoots
+    - SiriusSewSMRangerHat
+    - SiriusSewSMRangerHatAlt
+    - SiriusSewSMLeatherBoots
+    - SiriusSewSMBlackGloves
+    #Sirius Fix: ranger gas masks removed from the sewing machine.
+    - SiriusSewSMRangerShirt
+    - SiriusSewSMNeckTrinket
+    - SiriusSewSMTribalLoincloth
+    #Sirius Fix: deathclaw and Super Mutant helmets moved to N14WorkbenchArmorbench.
+    - SiriusSewSMTribalGloves
+    - SiriusSewSMFollowerGloves
+    - SiriusSewSMLabcoat
+    - SiriusSewSMSterileMask
+    - SiriusSewSMDoctorBeret
+    - SiriusSewSMZootSuit
+    - SiriusSewSMZootHat
+    - SiriusSewSMZootBoot
+    #Sirius Fix: super armor T-45 gloves and boots removed from crafting.
+    #Sirius Add: 37 neutral innerclothing recipes.
+    - SiriusSewInnerAncient
+    - SiriusSewInnerCasualBlue
+    - SiriusSewInnerCasualPurple
+    - SiriusSewInnerCasualRed
+    - SiriusSewInnerLoungewear
+    - SiriusSewInnerTurtleneckGrey
+    - SiriusSewInnerTrackpants
+    #Sirius Fix: hidden-twin duplicates (checkered suit, cowboy outfits) removed.
+    - SiriusSewInnerFlannel
+    - SiriusSewInnerFlannelOveralls
+    - SiriusSewInnerLightBlueShirt
+    - SiriusSewInnerGreyShirt
+    - SiriusSewInnerFlannelJeans
+    - SiriusSewInnerFlannelBlackJeans
+    - SiriusSewInnerFlannelKhakis
+    - SiriusSewInnerFlannelBlackKhakis
+    - SiriusSewInnerHawaiBlack
+    - SiriusSewInnerHawaiBlue
+    - SiriusSewInnerHawaiRed
+    - SiriusSewInnerHawaiYellow
+    - SiriusSewInnerDisheveled
+    - SiriusSewInnerRippedPunk
+    - SiriusSewInnerSuitStriped
+    - SiriusSewInnerSuitRolledSleeves
+    - SiriusSewInnerSuitBlueBlazer
+    - SiriusSewInnerYogaGymBra
+    - SiriusSewInnerSuitVictorianVest
+    - SiriusSewInnerSuitVictorianRedVest
+    - SiriusSewInnerBlueSuit
+    - SiriusSewInnerNCowboyBrown
+    - SiriusSewInnerNCowboyGrey
+    - SiriusSewInnerDesertPants
+    - SiriusSewInnerDesertPantsFull
+    - SiriusSewInnerSkirtFalloutBlack
+    - SiriusSewInnerSkirtFalloutBlue
+    - SiriusSewInnerSkirtDressBlack
+    - SiriusSewInnerSkirtDressBlue
+    - SiriusSewInnerSkirtSundress
+
+- type: entity
+  parent: N14WorkbenchForge
+  id: SiriusWorkbenchLegionForge
+  name: ent-SiriusWorkbenchLegionForge
+  description: ent-SiriusWorkbenchLegionForge.desc
+  components:
+  - type: Construction
+    graph: SiriusWorkbenchLegionForge
+    node: WorkbenchLegionForge
+  #Sirius Add: storage for whole-item costs (combat armor), same layout as the armor workbench.
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.LatheUiKey.Key:
+        type: LatheBoundUserInterface
+  - type: Storage
+    craft: true
+    maxItemSize: Ginormous
+    grid:
+    - 0,0,12,9
+  #Sirius Add: keep physical material stacks in Storage until crafting; item costs are never melted.
+  - type: MaterialStorage
+    insertOnInteract: false
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+      - Ore
+      - Scrap
+  - type: Lathe
+    staticRecipes:
+    # Legion armor
+    - SiriusLegionForgeRecruitArmor
+    - SiriusLegionForgeBaseArmor
+    - SiriusLegionForgeVeteranArmor
+    - SiriusLegionForgeReconnaissanceArmor
+    - SiriusLegionForgeReconArmor
+    - SiriusLegionForgeExplorerArmor
+    - SiriusLegionForgeVexillariusArmor
+    - SiriusLegionForgeOratorArmor
+    - SiriusLegionForgeDeanRecruitArmor
+    - SiriusLegionForgeDeanPrimeArmor
+    - SiriusLegionForgeDeanVeteranArmor
+    - SiriusLegionForgeHeavyCenturionArmor
+    - SiriusLegionForgePaladinSlayerCenturionArmor
+    - SiriusLegionForgeRangerHunterCenturionArmor
+    # Legion helmets
+    - SiriusLegionForgeCenturionHelmet
+    - SiriusLegionForgeDeanVeteranHelmet
+    - SiriusLegionForgeDeanPrimeHelmet
+    - SiriusLegionForgeDeanRecruitHelmet
+    - SiriusLegionForgeExplorerHelmet
+    - SiriusLegionForgeBaseballHelmet
+    - SiriusLegionForgeLightBaseballHelmet
+    - SiriusLegionForgePaladinSlayerCenturionHelmet
+    - SiriusLegionForgeRangerHunterCenturionHelmet
+    - SiriusLegionForgeLegionHood

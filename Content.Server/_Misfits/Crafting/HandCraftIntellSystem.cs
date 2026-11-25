@@ -6,6 +6,7 @@ using Content.Shared._Misfits.Special;
 using Content.Shared.DoAfter;
 using Content.Shared.Materials;
 using Content.Shared.Stacks;
+using Content.Shared.Tag;
 using Robust.Shared.Containers;
 using Robust.Shared.Localization;
 using Robust.Shared.Player;
@@ -21,6 +22,7 @@ public sealed class HandCraftIntellSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
+    [Dependency] private readonly TagSystem _tags = default!;
 
     public override void Initialize()
     {
@@ -50,6 +52,19 @@ public sealed class HandCraftIntellSystem : EntitySystem
             return;
         }
 
+        // #Sirius Add: whole items and tool tags (tools are required but never consumed).
+        if (!CheckItemsAvailable(player.Value, craftData.ItemCosts))
+        {
+            _popup.PopupEntity(Loc.GetString("hand-craft-intell-missing-items"), player.Value, player.Value);
+            return;
+        }
+
+        if (!CheckToolsAvailable(player.Value, craftData.ToolTags))
+        {
+            _popup.PopupEntity(Loc.GetString("hand-craft-intell-missing-tools"), player.Value, player.Value);
+            return;
+        }
+
         var ev = new HandCraftIntellDoAfterEvent(msg.RecipeId);
         var doAfterArgs = new DoAfterArgs(EntityManager, player.Value, craftData.CompleteTime, ev, player.Value)
         {
@@ -71,9 +86,22 @@ public sealed class HandCraftIntellSystem : EntitySystem
         if (!_proto.TryIndex<HandCraftIntellRecipePrototype>(args.RecipeId, out var craftData))
             return;
 
+        // #Sirius Add: re-check after the do-after before spending anything.
+        if (!CheckItemsAvailable(player, craftData.ItemCosts) || !CheckToolsAvailable(player, craftData.ToolTags))
+        {
+            _popup.PopupEntity(Loc.GetString("hand-craft-intell-missing-items"), player, player);
+            return;
+        }
+
         if (!TryConsumeMaterials(player, craftData.Materials))
         {
             _popup.PopupEntity(Loc.GetString("hand-craft-intell-insufficient-materials"), player, player);
+            return;
+        }
+
+        if (!TryConsumeItems(player, craftData.ItemCosts))
+        {
+            _popup.PopupEntity(Loc.GetString("hand-craft-intell-missing-items"), player, player);
             return;
         }
 
@@ -216,5 +244,108 @@ public sealed class HandCraftIntellSystem : EntitySystem
                 ScanContainers(contained, items, visited);
             }
         }
+    }
+
+    // #Sirius Add: whole-item costs and non-consumed tools for hand crafting.
+
+    private List<EntityUid> CollectItems(EntityUid player)
+    {
+        var items = new List<EntityUid>();
+        var visited = new HashSet<EntityUid>();
+        ScanItems(player, items, visited);
+        return items;
+    }
+
+    private void ScanItems(EntityUid uid, List<EntityUid> items, HashSet<EntityUid> visited)
+    {
+        if (!visited.Add(uid) || !TryComp<ContainerManagerComponent>(uid, out var containers))
+            return;
+
+        foreach (var container in containers.Containers.Values)
+        {
+            foreach (var contained in container.ContainedEntities)
+            {
+                items.Add(contained);
+                ScanItems(contained, items, visited);
+            }
+        }
+    }
+
+    private bool CheckItemsAvailable(EntityUid player, Dictionary<EntProtoId, int> required)
+    {
+        if (required.Count == 0)
+            return true;
+
+        var counts = new Dictionary<string, int>();
+        foreach (var entity in CollectItems(player))
+        {
+            var id = MetaData(entity).EntityPrototype?.ID;
+            if (id is null)
+                continue;
+
+            var count = TryComp<StackComponent>(entity, out var stack) ? stack.Count : 1;
+            counts[id] = counts.GetValueOrDefault(id) + count;
+        }
+
+        foreach (var (item, amount) in required)
+        {
+            if (counts.GetValueOrDefault(item.Id) < amount)
+                return false;
+        }
+        return true;
+    }
+
+    private bool CheckToolsAvailable(EntityUid player, List<string> toolTags)
+    {
+        if (toolTags.Count == 0)
+            return true;
+
+        var items = CollectItems(player);
+        foreach (var tag in toolTags)
+        {
+            var found = false;
+            foreach (var item in items)
+            {
+                if (_tags.HasTag(item, tag))
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+                return false;
+        }
+        return true;
+    }
+
+    private bool TryConsumeItems(EntityUid player, Dictionary<EntProtoId, int> required)
+    {
+        foreach (var (item, amount) in required)
+        {
+            var remaining = amount;
+            foreach (var entity in CollectItems(player))
+            {
+                if (remaining <= 0)
+                    break;
+
+                if (MetaData(entity).EntityPrototype?.ID != item.Id)
+                    continue;
+
+                if (TryComp<StackComponent>(entity, out var stack) && stack.Count > remaining)
+                {
+                    _stack.SetCount(entity, stack.Count - remaining, stack);
+                    remaining = 0;
+                    break;
+                }
+
+                QueueDel(entity);
+                remaining--;
+            }
+
+            if (remaining > 0)
+                return false;
+        }
+        return true;
     }
 }

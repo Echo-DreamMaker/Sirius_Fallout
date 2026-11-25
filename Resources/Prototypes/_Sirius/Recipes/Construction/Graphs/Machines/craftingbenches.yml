@@ -1,0 +1,143 @@
+#Sirius Add: construction graphs for the new Sirius workbenches.
+# Both use the N14 armor bench price (10 steel + 4 circuitry + 5 iron ingots);
+# only the frame appearance and the final spawn entity differ.
+
+- type: constructionGraph
+  id: SiriusWorkbenchSewing
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: WorkbenchSewingFrame
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 10
+              doAfter: 5
+
+    - node: WorkbenchSewingFrame
+      entity: N14WorkbenchArmorbenchFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WorkbenchSewingUnwelded
+          steps:
+            - tool: Welding
+              doAfter: 2
+
+    - node: WorkbenchSewingUnwelded
+      entity: N14WorkbenchArmorbenchFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WorkbenchSewingCircuitry
+          steps:
+            - material: Circuitry
+              amount: 4
+              doAfter: 2
+
+    - node: WorkbenchSewingCircuitry
+      entity: N14WorkbenchArmorbenchFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WorkbenchSewingUnscrewed
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: WorkbenchSewingUnscrewed
+      entity: N14WorkbenchArmorbenchFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WorkbenchSewingIron
+          steps:
+            - material: N14Iron
+              amount: 5
+              doAfter: 5
+
+    - node: WorkbenchSewingIron
+      entity: N14WorkbenchArmorbenchFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WorkbenchSewing
+          steps:
+            - tool: Anchoring
+              doAfter: 4
+
+    - node: WorkbenchSewing
+      entity: SiriusWorkbenchSewing
+
+- type: constructionGraph
+  id: SiriusWorkbenchLegionForge
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: WorkbenchLegionForgeFrame
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 10
+              doAfter: 5
+
+    - node: WorkbenchLegionForgeFrame
+      entity: N14WorkbenchForgeFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WorkbenchLegionForgeUnwelded
+          steps:
+            - tool: Welding
+              doAfter: 2
+
+    - node: WorkbenchLegionForgeUnwelded
+      entity: N14WorkbenchForgeFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WorkbenchLegionForgeCircuitry
+          steps:
+            - material: Circuitry
+              amount: 4
+              doAfter: 2
+
+    - node: WorkbenchLegionForgeCircuitry
+      entity: N14WorkbenchForgeFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WorkbenchLegionForgeUnscrewed
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: WorkbenchLegionForgeUnscrewed
+      entity: N14WorkbenchForgeFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WorkbenchLegionForgeIron
+          steps:
+            - material: N14Iron
+              amount: 5
+              doAfter: 5
+
+    - node: WorkbenchLegionForgeIron
+      entity: N14WorkbenchForgeFrame
+      actions:
+      - !type:AppearanceChange
+      edges:
+        - to: WorkbenchLegionForge
+          steps:
+            - tool: Anchoring
+              doAfter: 4
+
+    - node: WorkbenchLegionForge
+      entity: SiriusWorkbenchLegionForge

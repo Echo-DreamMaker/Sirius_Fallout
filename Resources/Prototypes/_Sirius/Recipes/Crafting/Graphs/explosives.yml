@@ -1,0 +1,21 @@
+#Sirius Add: hand-crafted dynamite from 5 plastic, 2 thread, 2 cloth and 10 gunpowder.
+- type: constructionGraph
+  id: SiriusDynamiteGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: dynamite
+          steps:
+            - material: Plastic
+              amount: 5
+            - material: Thread
+              amount: 2
+            - material: Cloth
+              amount: 2
+            - material: N14Gunpowder
+              amount: 10
+              doAfter: 3
+
+    - node: dynamite
+      entity: N14Dynamite

@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Emag.Systems;
@@ -63,6 +64,18 @@ public abstract class SharedLatheSystem : EntitySystem
             if (_materialStorage.GetAvailableMaterialAmount(uid, material) < adjustedAmount * amount)
                 return false;
         }
+
+        // #Sirius Add: whole-item costs come from bench storage, hands and inventory.
+        foreach (var (item, needed) in recipe.ItemCosts)
+        {
+            if (GetAvailableItemAmount(uid, item, component) < needed * amount)
+                return false;
+        }
+
+        // #Sirius Add: alternative item costs ("either this item or that item").
+        if (!CanPayAnyOfItemCosts(recipe, amount, item => GetAvailableItemAmount(uid, item, component)))
+            return false;
+
         return true;
     }
 
@@ -95,10 +108,29 @@ public abstract class SharedLatheSystem : EntitySystem
             if (_materialStorage.GetAvailableMaterialAmount(uid, material) < adjustedAmount * amount)
                 return false;
         }
+
+        // #Sirius Add: whole-item costs come from bench storage, hands and inventory.
+        foreach (var (item, needed) in recipe.ItemCosts)
+        {
+            if (GetAvailableItemAmount(uid, item, component) < needed * amount)
+                return false;
+        }
+
+        // #Sirius Add: alternative item costs ("either this item or that item").
+        if (!CanPayAnyOfItemCosts(recipe, amount, item => GetAvailableItemAmount(uid, item, component)))
+            return false;
+
         return true;
     }
 
     public bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount, Dictionary<ProtoId<MaterialPrototype>, int> availableMaterials, float materialUseMultiplier, LatheComponent? component = null)
+    {
+        return CanProduce(uid, recipe, amount, availableMaterials, new Dictionary<EntProtoId, int>(), materialUseMultiplier, component);
+    }
+
+    // #Sirius Add: Server-provided item counts let the client enable/disable recipes that need
+    // concrete entities (armor, dynamite, chips, wires, batteries) in addition to materials.
+    public bool CanProduce(EntityUid uid, LatheRecipePrototype recipe, int amount, Dictionary<ProtoId<MaterialPrototype>, int> availableMaterials, Dictionary<EntProtoId, int> availableItems, float materialUseMultiplier, LatheComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return false;
@@ -112,8 +144,25 @@ public abstract class SharedLatheSystem : EntitySystem
             if (available < adjustedAmount * amount)
                 return false;
         }
+
+        foreach (var (item, needed) in recipe.ItemCosts)
+        {
+            if (availableItems.GetValueOrDefault(item, 0) < needed * amount)
+                return false;
+        }
+
+        // #Sirius Add: alternative item costs ("either this item or that item").
+        if (!CanPayAnyOfItemCosts(recipe, amount, item => availableItems.GetValueOrDefault(item, 0)))
+            return false;
+
         return true;
     }
+
+    /// <summary>
+    /// #Sirius Add: Server overrides this to count matching entities in bench storage,
+    /// the acting player's hands and the player's inventory. The client has no such access.
+    /// </summary>
+    protected virtual int GetAvailableItemAmount(EntityUid uid, EntProtoId prototype, LatheComponent component) => 0;
 
     private void OnEmagged(EntityUid uid, EmagLatheRecipesComponent component, ref GotEmaggedEvent args)
     {
@@ -122,6 +171,21 @@ public abstract class SharedLatheSystem : EntitySystem
 
     public static int AdjustMaterial(int original, bool reduce, float multiplier)
         => reduce ? (int) MathF.Ceiling(original * multiplier) : original;
+
+    // #Sirius Add: no alternatives means no extra requirement; otherwise one complete option must be affordable.
+    private static bool CanPayAnyOfItemCosts(LatheRecipePrototype recipe, int amount, Func<EntProtoId, int> available)
+    {
+        if (recipe.AnyOfItemCosts.Count == 0)
+            return true;
+
+        foreach (var option in recipe.AnyOfItemCosts)
+        {
+            if (option.All(pair => available(pair.Key) >= pair.Value * amount))
+                return true;
+        }
+
+        return false;
+    }
 
     protected abstract bool HasRecipe(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component);
 
@@ -164,6 +228,11 @@ public abstract class SharedLatheSystem : EntitySystem
 
         if (proto.Result is { } result)
         {
+            // #Sirius Add: prefer the entity FTL so recipe names are translated in the Russian build.
+            if (Loc.TryGetString($"ent-{result}", out var localizedName) &&
+                !string.IsNullOrWhiteSpace(localizedName))
+                return localizedName;
+
             // #Misfits Fix - Some blueprint recipes may still reference missing or abstract-only
             // result prototypes. Fall back to the raw prototype ID instead of crashing the UI.
             if (_proto.TryIndex<EntityPrototype>(result, out var resultProto))
@@ -195,6 +264,11 @@ public abstract class SharedLatheSystem : EntitySystem
 
         if (proto.Result is { } result)
         {
+            // #Sirius Add: use the localized entity description when one exists.
+            if (Loc.TryGetString($"ent-{result}.desc", out var localizedDescription) &&
+                !string.IsNullOrWhiteSpace(localizedDescription))
+                return localizedDescription;
+
             // #Misfits Fix - Match GetRecipeName's defensive lookup so invalid blueprint results
             // don't crash description generation during UI refresh.
             if (_proto.TryIndex<EntityPrototype>(result, out var resultProto))

@@ -1,0 +1,408 @@
+#Sirius Add: Legion armor and helmets for the Legion forge (legate set excluded).
+# Price: 1 combat armor (whole item) + 1 steel sheet (100 material units, placeholder).
+
+#Sirius Change: price set to 1 leather jacket + 2 threads.
+- type: latheRecipe
+  id: SiriusLegionForgeRecruitArmor
+  result: N14ClothingOuterLegionnaireRecruitArmor
+  category: N14Armor
+  completetime: 8
+  itemCosts:
+    N14ClothingOuterCoatLeatherJacket: 1
+  materials:
+    Thread: 200
+
+#Sirius Change: price set to leather armor OR light leather armor + 5 threads.
+- type: latheRecipe
+  id: SiriusLegionForgeBaseArmor
+  result: N14ClothingOuterLegionnaireBaseArmor
+  category: N14Armor
+  completetime: 8
+  anyOfItemCosts:
+    - N14ClothingOuterLeatherArmor: 1
+    - N14ClothingOuterLightLeatherArmor: 1
+  materials:
+    Thread: 500
+
+#Sirius Change: price set to 1 metal armor + 10 leather + 5 threads + 10 iron ingots.
+- type: latheRecipe
+  id: SiriusLegionForgeVeteranArmor
+  result: N14ClothingOuterLegionnaireVeteranArmor
+  category: N14Armor
+  completetime: 8
+  itemCosts:
+    N14ClothingOuterMetalArmor: 1
+    N14IngotIron: 10
+  materials:
+    Leather: 1000
+    Thread: 500
+
+#Sirius Change: price set to any power armor + 5 threads.
+- type: latheRecipe
+  id: SiriusLegionForgeReconnaissanceArmor
+  result: N14ClothingOuterLegionnaireReconnaissanceArmor
+  category: N14Armor
+  completetime: 8
+  anyOfItemCosts:
+    - N14ClothingOuterPowerArmorAdvanced1: 1
+    - N14ClothingOuterPowerArmorAdvanced1NCR: 1
+    - N14ClothingOuterPowerArmorAdvanced2: 1
+    - N14ClothingOuterPowerArmorAdvanced2Hellfire: 1
+    - N14ClothingOuterPowerArmorAdvanced2HellfireMisfit: 1
+    - N14ClothingOuterPowerArmorAdvanced2Tesla: 1
+    - N14ClothingOuterPowerArmorLegion: 1
+    - N14ClothingOuterPowerArmorLegionPrinceps: 1
+    - N14ClothingOuterPowerArmorMidwest: 1
+    - N14ClothingOuterPowerArmorMidwestCommander: 1
+    - N14ClothingOuterPowerArmorMidwestSilver: 1
+    - N14ClothingOuterPowerArmorRaider: 1
+    - N14ClothingOuterPowerArmorT45: 1
+    - N14ClothingOuterPowerArmorT45NCRSalvaged: 1
+    - N14ClothingOuterPowerArmorT45Sierra: 1
+    - N14ClothingOuterPowerArmorT51: 1
+    - N14ClothingOuterPowerArmorT51BC: 1
+    - N14ClothingOuterPowerArmorT51Canadian: 1
+    - N14ClothingOuterPowerArmorT51China: 1
+    - N14ClothingOuterPowerArmorT51NCR: 1
+    - N14ClothingOuterPowerArmorT60: 1
+    - N14ClothingOuterPowerArmorT60BOS: 1
+    - N14ClothingOuterPowerArmorT60NCR: 1
+    - N14ClothingOuterPowerArmorT60Tesla: 1
+    - N14ClothingOuterPowerArmorTribalAPA: 1
+    - N14ClothingOuterPowerArmorWashT51: 1
+    - N14ClothingOuterPowerArmorWashT51Elite: 1
+  materials:
+    Thread: 500
+
+#Sirius Change: price set to 1 light metal armor + 5 iron ingots + 5 threads.
+- type: latheRecipe
+  id: SiriusLegionForgeReconArmor
+  result: N14ClothingLegionReconArmor
+  category: N14Armor
+  completetime: 8
+  itemCosts:
+    N14ClothingOuterLightMetalArmor: 1
+    N14IngotIron: 5
+  materials:
+    Thread: 500
+
+#Sirius Change: price set to any basic NCR vest or Midwest BoS initiate armor + 5 threads.
+- type: latheRecipe
+  id: SiriusLegionForgeExplorerArmor
+  result: N14ClothingOuterLegionnaireExplorerArmor
+  category: N14Armor
+  completetime: 8
+  anyOfItemCosts:
+    - N14ClothingOuterNCRVestDesert: 1
+    - N14ClothingOuterNCRVestWoods: 1
+    - N14ClothingOuterNCRVestSnow: 1
+    - N14ClothingOuterMBoSInitiateArmor: 1
+  materials:
+    Thread: 500
+
+#Sirius Change: price set to 1 combat armor + 7 iron ingots + 7 threads.
+- type: latheRecipe
+  id: SiriusLegionForgeVexillariusArmor
+  result: N14ClothingOuterLegionnaireVexillariusArmor
+  category: N14Armor
+  completetime: 8
+  itemCosts:
+    N14ClothingOuterCombatArmor: 1
+    N14IngotIron: 7
+  materials:
+    Thread: 700
+
+#Sirius Change: price set to 1 combat armor MK2 + 10 iron ingots.
+- type: latheRecipe
+  id: SiriusLegionForgeOratorArmor
+  result: N14ClothingOuterLegionnaireOratorArmor
+  category: N14Armor
+  completetime: 8
+  itemCosts:
+    N14ClothingOuterCombatArmorMK2: 1
+    N14IngotIron: 10
+
+#Sirius Change: price set to 1 raider combat armor + 10 iron ingots.
+- type: latheRecipe
+  id: SiriusLegionForgeDeanRecruitArmor
+  result: N14ClothingOuterDeanLegionnaireRecruitArmor
+  category: N14Armor
+  completetime: 8
+  itemCosts:
+    N14ClothingOuterRaiderCombat1: 1
+    N14IngotIron: 10
+
+#Sirius Change: price set to 1 combat armor + 10 iron ingots.
+- type: latheRecipe
+  id: SiriusLegionForgeDeanPrimeArmor
+  result: N14ClothingOuterDeanLegionnairePrimeArmor
+  category: N14Armor
+  completetime: 8
+  itemCosts:
+    N14ClothingOuterCombatArmor: 1
+    N14IngotIron: 10
+
+#Sirius Change: price set to 1 combat armor MK2 + 10 iron ingots.
+- type: latheRecipe
+  id: SiriusLegionForgeDeanVeteranArmor
+  result: N14ClothingOuterDeanLegionnaireVeteranArmor
+  category: N14Armor
+  completetime: 8
+  itemCosts:
+    N14ClothingOuterCombatArmorMK2: 1
+    N14IngotIron: 10
+
+#Sirius Change: price set to any T-51 power armor + 20 iron ingots.
+- type: latheRecipe
+  id: SiriusLegionForgeHeavyCenturionArmor
+  result: N14ClothingOuterHeavyCenturionArmor
+  category: N14Armor
+  completetime: 8
+  itemCosts:
+    N14IngotIron: 20
+  anyOfItemCosts:
+    - N14ClothingOuterPowerArmorT51: 1
+    - N14ClothingOuterPowerArmorT51BC: 1
+    - N14ClothingOuterPowerArmorT51Canadian: 1
+    - N14ClothingOuterPowerArmorT51China: 1
+    - N14ClothingOuterPowerArmorT51NCR: 1
+    - N14ClothingOuterPowerArmorWashT51: 1
+    - N14ClothingOuterPowerArmorWashT51Elite: 1
+
+#Sirius Change: price set to any T-60 or Midwest BoS commander power armor + 25 iron ingots.
+- type: latheRecipe
+  id: SiriusLegionForgePaladinSlayerCenturionArmor
+  result: N14ClothingOuterPaladinSlayerCenturionArmor
+  category: N14Armor
+  completetime: 8
+  itemCosts:
+    N14IngotIron: 25
+  anyOfItemCosts:
+    - N14ClothingOuterPowerArmorT60: 1
+    - N14ClothingOuterPowerArmorT60BOS: 1
+    - N14ClothingOuterPowerArmorT60NCR: 1
+    - N14ClothingOuterPowerArmorT60Tesla: 1
+    - N14ClothingOuterPowerArmorMidwestCommander: 1
+
+#Sirius Change: same price as the Paladin Slayer centurion armor.
+- type: latheRecipe
+  id: SiriusLegionForgeRangerHunterCenturionArmor
+  result: N14ClothingOuterRangerHunterCenturionArmor
+  category: N14Armor
+  completetime: 8
+  itemCosts:
+    N14IngotIron: 25
+  anyOfItemCosts:
+    - N14ClothingOuterPowerArmorT60: 1
+    - N14ClothingOuterPowerArmorT60BOS: 1
+    - N14ClothingOuterPowerArmorT60NCR: 1
+    - N14ClothingOuterPowerArmorT60Tesla: 1
+    - N14ClothingOuterPowerArmorMidwestCommander: 1
+
+#Sirius Change: Legion helmets now use their own category.
+#Sirius Change: price set to any power armor helmet (tribal included) + 5 iron ingots.
+- type: latheRecipe
+  id: SiriusLegionForgeCenturionHelmet
+  result: N14ClothingHeadHatCenturionHelmet
+  category: SiriusLegionHelmets
+  completetime: 8
+  itemCosts:
+    N14IngotIron: 5
+  anyOfItemCosts:
+    - N14ClothingHeadHelmetPowerArmorT51China: 1
+    - N14ClothingHeadHelmetPowerArmorT51NCR: 1
+    - N14ClothingHeadHelmetPowerArmorT60NCR: 1
+    - N14ClothingHeadHelmetPowerArmorX01NCR: 1
+    - N14ClothingHeadHelmetPowerArmorX02Tesla: 1
+    - N14ClothingHeadHelmetPowerArmorT45Sierra: 1
+    - N14ClothingHeadHelmetPowerArmorT45: 1
+    - MisfitsEnclavePowerArmorHelmet: 1
+    - N14ClothingHeadHelmetPowerArmorT45BOS: 1
+    - N14ClothingHeadHelmetPowerArmorT51: 1
+    - N14ClothingHeadHelmetPowerArmorT60: 1
+    - N14ClothingHeadHelmetPowerArmorT60BOS: 1
+    - N14ClothingHeadHelmetPowerArmorX01: 1
+    - N14ClothingHeadHelmetPowerArmorX02: 1
+    - N14ClothingHeadHelmetPowerArmorHellfire: 1
+    - N14ClothingHeadHelmetPowerArmorT51BC: 1
+    - N14ClothingHeadHelmetPowerArmorT45NCR: 1
+    - N14ClothingHeadHelmetPowerArmorMidwest: 1
+    - N14ClothingHeadHelmetPowerArmorMidwestSilver: 1
+    - N14ClothingHeadHelmetPowerArmorMidwestCommander: 1
+    - N14ClothingHeadHelmetPowerArmorT51Wash: 1
+    - N14ClothingHeadHelmetPowerArmorT51WashElite: 1
+    - N14ClothingHeadHelmetPowerArmorTribalAPA: 1
+    - MisfitsClothingHeadHelmetPowerArmorRanger: 1
+    - N14ClothingHeadHelmetPowerArmorHellfireMisfit: 1
+
+#Sirius Change: price set to 1 combat armor MK2 helmet + 5 iron ingots.
+- type: latheRecipe
+  id: SiriusLegionForgeDeanVeteranHelmet
+  result: N14ClothingHeadHatDeanVeteranHelmet
+  category: SiriusLegionHelmets
+  completetime: 8
+  itemCosts:
+    N14ClothingHeadHatCombatHelmetMK2: 1
+    N14IngotIron: 5
+
+#Sirius Change: price set to 1 combat helmet + 5 iron ingots.
+- type: latheRecipe
+  id: SiriusLegionForgeDeanPrimeHelmet
+  result: N14ClothingHeadHatDeanPrimeHelmet
+  category: SiriusLegionHelmets
+  completetime: 8
+  itemCosts:
+    N14ClothingHeadHatCombatHelmet: 1
+    N14IngotIron: 5
+
+#Sirius Change: price set to 1 combat helmet + 5 iron ingots.
+- type: latheRecipe
+  id: SiriusLegionForgeDeanRecruitHelmet
+  result: N14ClothingHeadHatDeanRecruitHelmet
+  category: SiriusLegionHelmets
+  completetime: 8
+  itemCosts:
+    N14ClothingHeadHatCombatHelmet: 1
+    N14IngotIron: 5
+
+#Sirius Change: price set to 10 leather + 2 cloth + 3 threads.
+- type: latheRecipe
+  id: SiriusLegionForgeExplorerHelmet
+  result: N14ClothingHeadHatExplorerHelmet
+  category: SiriusLegionHelmets
+  completetime: 8
+  materials:
+    Leather: 1000
+    Cloth: 200
+    Thread: 300
+
+#Sirius Change: price set to any NCR or Brotherhood helmet + 3 iron ingots.
+- type: latheRecipe
+  id: SiriusLegionForgeBaseballHelmet
+  result: N14ClothingHeadHatBaseballHelmet
+  category: SiriusLegionHelmets
+  completetime: 8
+  itemCosts:
+    N14IngotIron: 3
+  anyOfItemCosts:
+    - N14ClothingHeadHatNCRCombatHelmet: 1
+    - N14ClothingHeadHatNCRCombatHelmetBrodie: 1
+    - N14ClothingHeadHatNCRHelmetMetalDesert: 1
+    - N14ClothingHeadHatNCRHelmetMetalGhillie: 1
+    - N14ClothingHeadHatNCRHelmetMetalMedic: 1
+    - N14ClothingHeadHatNCRHelmetMetalMilitaryPolice: 1
+    - N14ClothingHeadHatNCRHelmetMetalRadioSnow: 1
+    - N14ClothingHeadHatNCRHelmetMetalRadioWood: 1
+    - N14ClothingHeadHatNCRHelmetMetalSnow: 1
+    - N14ClothingHeadHatNCRHelmetMetalWoods: 1
+    - N14ClothingHeadHatNCRHelmetNoCover: 1
+    - N14ClothingHeadHatNCRM1Helmet: 1
+    - N14ClothingHeadHatNCRM1HelmetMedic: 1
+    - N14ClothingHeadHatNCRM1HelmetNoCover: 1
+    - FalloutNCRmilitarypoliceHelmet: 1
+    - N14ClothingHeadHatBrotherhoodHelmet: 1
+    - N14ClothingHeadHatBrotherhoodHelmetKnight: 1
+    - N14ClothingHeadHatBrotherhoodHelmetCaptain: 1
+    - N14ClothingHeadHatBrotherhoodHelmetPaladin: 1
+    - N14ClothingHeadHatBrotherhoodHelmetOutcast: 1
+    - N14ClothingHeadHatBrotherhoodHelmetMK2: 1
+    - N14ClothingHeadHatBrotherhoodHelmetMK3: 1
+    - N14ClothingHeadHatBrotherhoodHelmetSeniorKnight: 1
+    - N14ClothingHeadHatBrotherhoodHelmetSeniorKnight509: 1
+    - N14ClothingHeadHatBrotherhoodHelmetHeadKnight: 1
+    - N14ClothingHeadHatBrotherhoodHelmetHeadKnight509: 1
+    - N14ClothingHeadHatBrotherhoodMidwestHelmet: 1
+    - N14ClothingHeadHatBrotherhoodMidwestHelmetRecon: 1
+    - N14ClothingHeadHatBrotherhoodMidwestHelmetVeteran: 1
+
+#Sirius Change: price set to 10 leather + 5 steel + 3 threads.
+- type: latheRecipe
+  id: SiriusLegionForgeLightBaseballHelmet
+  result: N14ClothingHeadHatLightBaseballHelmet
+  category: SiriusLegionHelmets
+  completetime: 8
+  materials:
+    Leather: 1000
+    Steel: 500
+    Thread: 300
+
+#Sirius Change: price set to any power armor helmet + 10 steel sheets.
+# No steel ingot entity exists; steel sheets are charged as 100 material units each.
+- type: latheRecipe
+  id: SiriusLegionForgePaladinSlayerCenturionHelmet
+  result: N14ClothingHeadHatPaladinSlayerCenturionHelmet
+  category: SiriusLegionHelmets
+  completetime: 8
+  materials:
+    Steel: 1000
+  anyOfItemCosts:
+    - N14ClothingHeadHelmetPowerArmorT51China: 1
+    - N14ClothingHeadHelmetPowerArmorT51NCR: 1
+    - N14ClothingHeadHelmetPowerArmorT60NCR: 1
+    - N14ClothingHeadHelmetPowerArmorX01NCR: 1
+    - N14ClothingHeadHelmetPowerArmorX02Tesla: 1
+    - N14ClothingHeadHelmetPowerArmorT45Sierra: 1
+    - N14ClothingHeadHelmetPowerArmorT45: 1
+    - MisfitsEnclavePowerArmorHelmet: 1
+    - N14ClothingHeadHelmetPowerArmorT45BOS: 1
+    - N14ClothingHeadHelmetPowerArmorT51: 1
+    - N14ClothingHeadHelmetPowerArmorT60: 1
+    - N14ClothingHeadHelmetPowerArmorT60BOS: 1
+    - N14ClothingHeadHelmetPowerArmorX01: 1
+    - N14ClothingHeadHelmetPowerArmorX02: 1
+    - N14ClothingHeadHelmetPowerArmorHellfire: 1
+    - N14ClothingHeadHelmetPowerArmorT51BC: 1
+    - N14ClothingHeadHelmetPowerArmorT45NCR: 1
+    - N14ClothingHeadHelmetPowerArmorMidwest: 1
+    - N14ClothingHeadHelmetPowerArmorMidwestSilver: 1
+    - N14ClothingHeadHelmetPowerArmorMidwestCommander: 1
+    - N14ClothingHeadHelmetPowerArmorT51Wash: 1
+    - N14ClothingHeadHelmetPowerArmorT51WashElite: 1
+    - N14ClothingHeadHelmetPowerArmorTribalAPA: 1
+    - MisfitsClothingHeadHelmetPowerArmorRanger: 1
+    - N14ClothingHeadHelmetPowerArmorHellfireMisfit: 1
+
+#Sirius Change: same price as the Paladin Slayer centurion helmet.
+- type: latheRecipe
+  id: SiriusLegionForgeRangerHunterCenturionHelmet
+  result: N14ClothingHeadHatRangerHunterCenturionHelmet
+  category: SiriusLegionHelmets
+  completetime: 8
+  materials:
+    Steel: 1000
+  anyOfItemCosts:
+    - N14ClothingHeadHelmetPowerArmorT51China: 1
+    - N14ClothingHeadHelmetPowerArmorT51NCR: 1
+    - N14ClothingHeadHelmetPowerArmorT60NCR: 1
+    - N14ClothingHeadHelmetPowerArmorX01NCR: 1
+    - N14ClothingHeadHelmetPowerArmorX02Tesla: 1
+    - N14ClothingHeadHelmetPowerArmorT45Sierra: 1
+    - N14ClothingHeadHelmetPowerArmorT45: 1
+    - MisfitsEnclavePowerArmorHelmet: 1
+    - N14ClothingHeadHelmetPowerArmorT45BOS: 1
+    - N14ClothingHeadHelmetPowerArmorT51: 1
+    - N14ClothingHeadHelmetPowerArmorT60: 1
+    - N14ClothingHeadHelmetPowerArmorT60BOS: 1
+    - N14ClothingHeadHelmetPowerArmorX01: 1
+    - N14ClothingHeadHelmetPowerArmorX02: 1
+    - N14ClothingHeadHelmetPowerArmorHellfire: 1
+    - N14ClothingHeadHelmetPowerArmorT51BC: 1
+    - N14ClothingHeadHelmetPowerArmorT45NCR: 1
+    - N14ClothingHeadHelmetPowerArmorMidwest: 1
+    - N14ClothingHeadHelmetPowerArmorMidwestSilver: 1
+    - N14ClothingHeadHelmetPowerArmorMidwestCommander: 1
+    - N14ClothingHeadHelmetPowerArmorT51Wash: 1
+    - N14ClothingHeadHelmetPowerArmorT51WashElite: 1
+    - N14ClothingHeadHelmetPowerArmorTribalAPA: 1
+    - MisfitsClothingHeadHelmetPowerArmorRanger: 1
+    - N14ClothingHeadHelmetPowerArmorHellfireMisfit: 1
+
+#Sirius Change: price set to 5 cloth + 1 thread.
+- type: latheRecipe
+  id: SiriusLegionForgeLegionHood
+  result: N14ClothingHeadHatLegionHood
+  category: SiriusLegionHelmets
+  completetime: 8
+  materials:
+    Cloth: 500
+    Thread: 100

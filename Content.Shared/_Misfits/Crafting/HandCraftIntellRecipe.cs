@@ -18,6 +18,14 @@ public sealed partial class HandCraftIntellRecipePrototype : IPrototype
     [DataField]
     public Dictionary<ProtoId<MaterialPrototype>, int> Materials = new();
 
+    // #Sirius Add: whole items consumed by the recipe (skulls, logs, rebar, ...).
+    [DataField]
+    public Dictionary<EntProtoId, int> ItemCosts = new();
+
+    // #Sirius Add: tags an item in the player's inventory must have. Tools are checked, never consumed.
+    [DataField]
+    public List<string> ToolTags = new();
+
     [DataField]
     public TimeSpan CompleteTime = TimeSpan.FromSeconds(5);
 }

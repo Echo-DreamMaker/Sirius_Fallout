@@ -55,6 +55,9 @@ public sealed partial class LatheMenu : DefaultWindow
     // client hasn't yet synced storage entity components.
     public Dictionary<ProtoId<MaterialPrototype>, int>? ServerAvailableMaterials;
 
+    // #Sirius Add: server-provided counts of whole items available for item costs.
+    public Dictionary<EntProtoId, int>? ServerAvailableItems;
+
     private uint? _lastMiningPoints; // DeltaV: used to avoid Loc.GetString every frame
 
     public LatheMenu()
@@ -193,8 +196,9 @@ public sealed partial class LatheMenu : DefaultWindow
             // #Misfits Fix: Use server-provided material amounts when available so that
             // materials physically stored in the workbench storage container (not just
             // the material pool) are counted, enabling the button correctly.
+            // #Sirius Add: include server-provided whole-item counts for item costs.
             var canProduce = ServerAvailableMaterials != null
-                ? _lathe.CanProduce(Entity, prototype, quantity, ServerAvailableMaterials, materialUseMultiplier, component: lathe)
+                ? _lathe.CanProduce(Entity, prototype, quantity, ServerAvailableMaterials, ServerAvailableItems ?? new Dictionary<EntProtoId, int>(), materialUseMultiplier, component: lathe)
                 : _lathe.CanProduce(Entity, prototype, quantity, materialUseMultiplier, component: lathe);
 
             var control = new RecipeControl(_lathe, prototype, () => GenerateTooltipText(prototype), canProduce, GetRecipeDisplayControl(prototype));
@@ -210,8 +214,9 @@ public sealed partial class LatheMenu : DefaultWindow
         foreach (var prototype in sortedBlueprintRecipesToShow)
         {
             // #Misfits Fix: Same server-material-amount check for blueprint recipes.
+            // #Sirius Add: include server-provided whole-item counts for item costs.
             var canProduce = ServerAvailableMaterials != null
-                ? _lathe.CanProduce(Entity, prototype, quantity, ServerAvailableMaterials, materialUseMultiplier, component: lathe)
+                ? _lathe.CanProduce(Entity, prototype, quantity, ServerAvailableMaterials, ServerAvailableItems ?? new Dictionary<EntProtoId, int>(), materialUseMultiplier, component: lathe)
                 : _lathe.CanProduce(Entity, prototype, quantity, materialUseMultiplier, component: lathe);
 
             var control = new RecipeControl(_lathe, prototype, () => GenerateTooltipText(prototype), canProduce, GetRecipeDisplayControl(prototype));
@@ -269,8 +274,9 @@ public sealed partial class LatheMenu : DefaultWindow
 
             // Only include recipes the player can currently build
             // #Misfits Fix: Use server-provided material amounts when available.
+            // #Sirius Add: include server-provided whole-item counts for item costs.
             var canBuild = ServerAvailableMaterials != null
-                ? _lathe.CanProduce(Entity, proto, quantity, ServerAvailableMaterials, materialUseMultiplier, component: lathe)
+                ? _lathe.CanProduce(Entity, proto, quantity, ServerAvailableMaterials, ServerAvailableItems ?? new Dictionary<EntProtoId, int>(), materialUseMultiplier, component: lathe)
                 : _lathe.CanProduce(Entity, proto, quantity, materialUseMultiplier, component: lathe);
             if (canBuild)
                 buildable.Add(proto);
@@ -346,6 +352,41 @@ public sealed partial class LatheMenu : DefaultWindow
             }
 
             sb.AppendLine(tooltipText);
+        }
+
+        // #Sirius Add: show whole-item costs (armor, dynamite, chips, wires, batteries) too.
+        foreach (var (id, amount) in prototype.ItemCosts)
+        {
+            if (!_prototypeManager.TryIndex(id, out var itemProto))
+                continue;
+
+            var available = ServerAvailableItems?.GetValueOrDefault(id, 0) ?? 0;
+            var missing = Math.Max(0, amount - available);
+            var tooltipText = missing > 0
+                ? Loc.GetString("lathe-menu-sirius-item-amount-missing", ("amount", amount), ("item", itemProto.Name), ("missing", missing))
+                : Loc.GetString("lathe-menu-sirius-item-amount", ("amount", amount), ("item", itemProto.Name));
+
+            sb.AppendLine(tooltipText);
+        }
+
+        // #Sirius Add: alternative item costs are shown as "one of these".
+        foreach (var option in prototype.AnyOfItemCosts)
+        {
+            var parts = new List<string>();
+            foreach (var (id, amount) in option)
+            {
+                if (!_prototypeManager.TryIndex(id, out var itemProto))
+                    continue;
+
+                var available = ServerAvailableItems?.GetValueOrDefault(id, 0) ?? 0;
+                var missing = Math.Max(0, amount - available);
+                parts.Add(missing > 0
+                    ? Loc.GetString("lathe-menu-sirius-item-amount-missing", ("amount", amount), ("item", itemProto.Name), ("missing", missing))
+                    : Loc.GetString("lathe-menu-sirius-item-amount", ("amount", amount), ("item", itemProto.Name)));
+            }
+
+            if (parts.Count > 0)
+                sb.AppendLine(Loc.GetString("lathe-menu-sirius-one-of", ("costs", string.Join(" / ", parts))));
         }
 
         var desc = _lathe.GetRecipeDescription(prototype);

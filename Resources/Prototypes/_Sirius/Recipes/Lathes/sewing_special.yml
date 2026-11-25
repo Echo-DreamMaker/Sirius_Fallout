@@ -1,0 +1,121 @@
+#Sirius Add: non-clothing recipes for the sewing machine.
+# Lathe material units are 100 per physical stack item: 3 leather = 300, 2 cloth = 200, etc.
+
+# --- Bags: 3 leather, 2 cloth, 5 thread, 2 scrap brass ---
+- type: latheRecipe
+  id: SiriusSewBackpackTrekker
+  result: N14ClothingBackpackTrekker
+  category: N14Containers
+  completetime: 6
+  materials:
+    Leather: 300
+    Cloth: 200
+    Thread: 500
+    ScrapBrass: 200
+
+- type: latheRecipe
+  id: SiriusSewBackpackHiking
+  result: N14ClothingBackpackHiking
+  category: N14Containers
+  completetime: 6
+  materials:
+    Leather: 300
+    Cloth: 200
+    Thread: 500
+    ScrapBrass: 200
+
+- type: latheRecipe
+  id: SiriusSewBackpackExplorer
+  result: N14ClothingBackpackExplorer
+  category: N14Containers
+  completetime: 6
+  materials:
+    Leather: 300
+    Cloth: 200
+    Thread: 500
+    ScrapBrass: 200
+
+- type: latheRecipe
+  id: SiriusSewBackpackDuffel
+  result: N14ClothingBackpackDuffel
+  category: N14Containers
+  completetime: 6
+  materials:
+    Leather: 300
+    Cloth: 200
+    Thread: 500
+    ScrapBrass: 200
+
+# --- Assault pouches: 5 leather, 2 cloth, 5 thread ---
+- type: latheRecipe
+  id: SiriusSewDynamiteVestSmall
+  result: MisfitsSuicideVest
+  category: N14Armor
+  completetime: 12
+  itemCosts:
+    N14ClothingOuterPoliceVest: 1
+    N14Dynamite: 6
+    N14MaterialCircuitry1: 6
+    CableApcStack1: 10
+    N14PowerCellSmall: 1
+
+# --- Boots: 3 leather, 1 cloth, 3 thread ---
+- type: latheRecipe
+  id: SiriusSewBootsBlack
+  result: N14ClothingBootsBlack
+  category: SiriusShoes
+  completetime: 4
+  materials:
+    Leather: 300
+    Cloth: 100
+    Thread: 300
+
+- type: latheRecipe
+  id: SiriusSewBootsCombat
+  result: N14ClothingBootsCombat
+  category: SiriusShoes
+  completetime: 4
+  materials:
+    Leather: 300
+    Cloth: 100
+    Thread: 300
+
+- type: latheRecipe
+  id: SiriusSewBootsCowboy
+  result: N14ClothingBootsCowboy
+  category: SiriusShoes
+  completetime: 4
+  materials:
+    Leather: 300
+    Cloth: 100
+    Thread: 300
+
+- type: latheRecipe
+  id: SiriusSewBootsFire
+  result: N14ClothingBootsFire
+  category: SiriusShoes
+  completetime: 4
+  materials:
+    Leather: 300
+    Cloth: 100
+    Thread: 300
+
+- type: latheRecipe
+  id: SiriusSewBootsLeather
+  result: N14ClothingBootsLeather
+  category: SiriusShoes
+  completetime: 4
+  materials:
+    Leather: 300
+    Cloth: 100
+    Thread: 300
+
+- type: latheRecipe
+  id: SiriusSewBootsMountie
+  result: N14ClothingBootsMountie
+  category: SiriusShoes
+  completetime: 4
+  materials:
+    Leather: 300
+    Cloth: 100
+    Thread: 300

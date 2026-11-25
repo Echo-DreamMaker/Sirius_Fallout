@@ -33,3 +33,16 @@
     state: icon
   - type: Item
     size: Small
+
+#Sirius Add: deathclaw skull, used as a crafting component for deathclaw helmets and trophies.
+- type: entity
+  parent: BaseItem
+  id: N14MiscDeathclawSkull
+  name: deathclaw skull
+  description: The cleaned skull of a deathclaw. Prized by tribal hunters.
+  components:
+  - type: Sprite
+    sprite: Corvax/Decals/bones.rsi
+    state: skullDeathclaw
+  - type: Item
+    size: Small

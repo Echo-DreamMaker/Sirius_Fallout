@@ -1,0 +1,11 @@
+#Sirius Add: circuit board for the new uniform printer. Same requirements as the vanilla board.
+- type: entity
+  id: SiriusUniformPrinterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: ent-SiriusUniformPrinterMachineCircuitboard
+  components:
+  - type: MachineBoard
+    prototype: SiriusUniformPrinter
+    requirements:
+      MatterBin: 1
+      Manipulator: 2

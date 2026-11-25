@@ -498,6 +498,8 @@
     - CondenserMachineCircuitBoard
     - HotplateMachineCircuitboard
     - UniformPrinterMachineCircuitboard
+    #Sirius Add: board for our uniform printer.
+    - SiriusUniformPrinterMachineCircuitboard
     - FloorGreenCircuit
     - FloorBlueCircuit
     - MicrowaveMachineCircuitboard

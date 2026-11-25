@@ -524,6 +524,21 @@ namespace Content.Client.Construction.UI
 
                 stepList.AddItem(label, matIcon, false);
             }
+
+            // #Sirius Add: whole-item costs and tools (tools are required but not consumed).
+            foreach (var (item, amount) in craftData.ItemCosts)
+            {
+                var itemName = Loc.GetString($"ent-{item}");
+                stepList.AddItem(Loc.GetString("hand-craft-intell-item-cost", ("amount", amount), ("name", itemName)), Texture.Transparent, false);
+            }
+
+            foreach (var tool in craftData.ToolTags)
+            {
+                var toolName = Loc.TryGetString($"hand-craft-intell-tool-{tool}", out var localizedTool)
+                    ? localizedTool
+                    : tool;
+                stepList.AddItem(Loc.GetString("hand-craft-intell-tool-required", ("tool", toolName)), Texture.Transparent, false);
+            }
         }
 
         public void UpdateLeftoverMaterials()

@@ -696,7 +696,8 @@
     # Armor
     - N14ClothingOuterCoatLeatherDuster
     - N14ClothingOuterCoatWinterArmored
-    - N14ClothingOuterLeatherArmor
+    #Sirius Change: leather armors use Sirius prices (see armorbench_extra.yml).
+    - SiriusArmorbenchLeatherArmor
     - N14ClothingOuterChitinArmor
     - N14ClothingOuterPainspike
     - N14ClothingOuterTribalArmorHeavy
@@ -704,13 +705,42 @@
     - N14ClothingOuterMetalArmor
     - N14ClothingOuterZealotDuster
     - N14ClothingOuterReinforcedLeatherArmor
-    - N14ClothingOuterLightLeatherArmor
+    - SiriusArmorbenchLightLeatherArmor
     - N14ClothingOuterLeatherRobes
     - N14ClothingOuterBlackRobes
+    #Sirius Add: town trenchcoats.
+    - SiriusArmorbenchTownCoat
+    - SiriusArmorbenchTownMediumCoat
+    - SiriusArmorbenchTownHeavyCoat
+    #Sirius Add: armored Super Mutant helmet and armored masks.
+    - SiriusArmorbenchSMArmoredHelmet
+    - SiriusArmorbenchMaskHockey
+    - SiriusArmorbenchMaskPlate
+    - SiriusArmorbenchMaskGrill
+    - SiriusArmorbenchMaskSkirmisher
+    #Sirius Add: Super Mutant helmets moved off the sewing machine.
+    - SiriusArmorbenchSMGladiatorHelmet
+    - SiriusArmorbenchSMRangerHelmet
+    - SiriusArmorbenchSMTrooperHelmet
+    #Sirius Add: Super Mutant outer armor and robes (placeholder costs).
+    - SiriusArmorbenchSMOuterClothing
+    - SiriusArmorbenchSMGladiatorArmor
+    - SiriusArmorbenchSMRangerArmor
+    - SiriusArmorbenchSMCustomizedCombatArmor
+    - SiriusArmorbenchSMCustomDuster
+    - SiriusArmorbenchSMTrooperArmor
+    - SiriusArmorbenchSMOutfitC
+    #Sirius Fix: deathclaw-skull crafts are now handcrafted.
+    - SiriusArmorbenchSMFOTArmoredLabcoat
+    - SiriusArmorbenchSMScavengedArmor
     # Shield's
     - N14InsectShield
     - MakeshiftShield
     - WoodenBuckler
+    #Sirius Add: craftable Sirius shield tiers.
+    - SiriusArmorbenchScrapShieldReinforced
+    - SiriusArmorbenchLegionHeavyShield
+    - SiriusArmorbenchDoorShieldTower
     # Forge-Change-Start
     # Blueprints
     #- N14ClothingOuterCombatArmorBlueprint  # #Misfits Remove: Blueprint recipe deleted with Stalker14 crafting system

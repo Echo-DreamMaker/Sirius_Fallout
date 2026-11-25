@@ -63,6 +63,17 @@ namespace Content.Shared.Research.Prototypes
         [DataField]
         public Dictionary<ProtoId<MaterialPrototype>, int> Materials = new();
 
+        // #Sirius Add: Concrete entity costs (armor, dynamite, microchips, wires, batteries, ...).
+        // Unlike Materials these are whole item prototypes, consumed from the workbench storage
+        // container, the acting player's hands and the player's inventory.
+        [DataField]
+        public Dictionary<EntProtoId, int> ItemCosts = new();
+
+        // #Sirius Add: alternative whole-item costs. Each dictionary is a complete option;
+        // one of them must be affordable and is consumed. Example: "leather armor OR light leather armor".
+        [DataField]
+        public List<Dictionary<EntProtoId, int>> AnyOfItemCosts = new();
+
         [DataField]
         public bool ApplyMaterialDiscount = true;
 

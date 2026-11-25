@@ -1,0 +1,39 @@
+#Sirius Add: construction menu entries for the new workbenches.
+
+- type: construction
+  name: recipe-SiriusWorkbenchSewing-name
+  id: SiriusWorkbenchSewing
+  graph: SiriusWorkbenchSewing
+  startNode: start
+  targetNode: WorkbenchSewing
+  category: construction-category-machines
+  description: recipe-SiriusWorkbenchSewing-desc
+  icon:
+    sprite: _Nuclear14/Structures/Misc/workbenches.rsi
+    state: armorbench
+  offset: 0.5, 0
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: recipe-SiriusWorkbenchLegionForge-name
+  id: SiriusWorkbenchLegionForge
+  graph: SiriusWorkbenchLegionForge
+  startNode: start
+  targetNode: WorkbenchLegionForge
+  category: construction-category-machines
+  description: recipe-SiriusWorkbenchLegionForge-desc
+  icon:
+    sprite: _Nuclear14/Structures/Misc/forgeworkbench.rsi
+    state: forge
+  offset: 0.5, 0
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+  hide: false

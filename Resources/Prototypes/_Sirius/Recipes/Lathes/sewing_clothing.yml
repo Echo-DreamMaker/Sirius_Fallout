@@ -1,0 +1,220 @@
+#Sirius Add: 40 clothing recipes for the sewing machine.
+# Price: 10 cloth + 10 thread, stored as 10 x 100 material units (one pack = 100 units).
+
+- type: latheRecipe
+  id: SiriusSewCoatDuster
+  result: N14ClothingOuterCoatDuster
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewCoatLeatherDuster
+  result: N14ClothingOuterCoatLeatherDuster
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewCoatLeatherJacket
+  result: N14ClothingOuterCoatLeatherJacket
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewCoatLeatherCoat
+  result: N14ClothingOuterCoatLeatherCoat
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewBlackRobes
+  result: N14ClothingOuterBlackRobes
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewLeatherRobes
+  result: N14ClothingOuterLeatherRobes
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewFlannelRed
+  result: N14ClothingOuterFlannelRed
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewFlannelAqua
+  result: N14ClothingOuterFlannelAqua
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewFlannelBrown
+  result: N14ClothingOuterFlannelBrown
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewJacketBomber
+  result: N14ClothingOuterJacketBomber
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+#Sirius Fix: the trenchcoat RSI icon state was a 2x2 sheet, now a single coat icon.
+- type: latheRecipe
+  id: SiriusSewMysteriousTrenchcoat
+  result: N14ClothingOuterMysteriousTrenchcoat
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewBattlecoatCoat
+  result: N14ClothingOuterBattlecoatCoat
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewBattlecoatTan
+  result: N14ClothingOuterBattlecoatTan
+  category: SiriusOuterwear
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewJumpsuitRags
+  result: N14ClothingUniformJumpsuitRags
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewJumpsuitSettlerRags
+  result: N14ClothingUniformJumpsuitSettlerRags
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewJumpsuitCheckered
+  result: N14ClothingUniformJumpsuitCheckered
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewJumpsuitWastelandDoc
+  result: N14ClothingUniformJumpsuitWastelandDoc
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewJumpsuitMerc
+  result: N14ClothingUniformJumpsuitMerc
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewJumpsuitMerchant
+  result: N14ClothingUniformJumpsuitMerchant
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewJumpsuitTrader
+  result: N14ClothingUniformJumpsuitTrader
+  #Sirius Fix: clothing was mis-categorized as armor.
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewJumpsuitCaravan
+  result: N14ClothingUniformJumpsuitCaravan
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewJumpsuitMechanic
+  result: N14ClothingUniformJumpsuitMechanic
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewJumpsuitPreWarRelaxed
+  result: N14ClothingUniformJumpsuitPreWarRelaxed
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewJumpsuitPreWarCasual
+  result: N14ClothingUniformJumpsuitPreWarCasual
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000

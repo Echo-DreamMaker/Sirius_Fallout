@@ -22,6 +22,10 @@ lathe-menu-material-amount-missing = { $amount ->
 }
 lathe-menu-material-raw-amount = {$amount} {$material}
 lathe-menu-material-raw-amount-missing = {$amount} {$material} ([color=red]{$missingAmount} missing[/color])
+#Sirius Add: item costs (whole entities) in lathe recipes
+lathe-menu-sirius-item-amount = {$amount} × {$item}
+lathe-menu-sirius-item-amount-missing = {$amount} × {$item} ([color=red]{$missing} missing[/color])
+lathe-menu-sirius-one-of = One of: {$costs}
 lathe-menu-no-materials-message = No materials loaded.
 lathe-menu-connected-to-silo-message = Connected to material silo.
 lathe-menu-fabricating-message = Fabricating...

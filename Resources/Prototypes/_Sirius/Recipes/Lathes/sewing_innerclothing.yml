@@ -1,0 +1,340 @@
+#Sirius Add: 37 neutral innerclothing recipes for the sewing machine.
+# No faction, role or profession items: only generic innerclothing.
+# Price matches the existing sewing recipes: 10 cloth + 10 thread (1000 + 1000 material units).
+
+- type: latheRecipe
+  id: SiriusSewInnerAncient
+  result: ClothingUniformJumpsuitAncient
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerCasualBlue
+  result: ClothingUniformJumpsuitCasualBlue
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerCasualPurple
+  result: ClothingUniformJumpsuitCasualPurple
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerCasualRed
+  result: ClothingUniformJumpsuitCasualRed
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerLoungewear
+  result: ClothingUniformJumpsuitLoungewear
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerTurtleneckGrey
+  result: ClothingUniformJumpsuitTurtleneckGrey
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerTrackpants
+  result: ClothingUniformJumpsuitTrackpants
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+#Sirius Fix: hidden-twin variants without the N14 prefix removed as duplicates;
+# their localized N14 counterparts (SiriusSewJumpsuitCheckered / SiriusSewInnerNCowboyBrown /
+# SiriusSewInnerNCowboyGrey) stay in the recipe list.
+
+- type: latheRecipe
+  id: SiriusSewInnerFlannel
+  result: ClothingUniformJumpsuitFlannel
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerFlannelOveralls
+  result: ClothingUniformJumpsuitFlannelOveralls
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerLightBlueShirt
+  result: ClothingUniformJumpsuitLightBlueShirt
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerGreyShirt
+  result: ClothingUniformJumpsuitGreyShirt
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerFlannelJeans
+  result: ClothingUniformJumpsuitFlannelJeans
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerFlannelBlackJeans
+  result: ClothingUniformJumpsuitFlannelBlackJeans
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerFlannelKhakis
+  result: ClothingUniformJumpsuitFlannelKhakis
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerFlannelBlackKhakis
+  result: ClothingUniformJumpsuitFlannelBlackKhakis
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerHawaiBlack
+  result: ClothingUniformJumpsuitHawaiBlack
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerHawaiBlue
+  result: ClothingUniformJumpsuitHawaiBlue
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerHawaiRed
+  result: ClothingUniformJumpsuitHawaiRed
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerHawaiYellow
+  result: ClothingUniformJumpsuitHawaiYellow
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerDisheveled
+  result: ClothingUniformJumpsuitDisheveled
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerRippedPunk
+  result: ClothingUniformJumpsuitRippedPunk
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerSuitStriped
+  result: ClothingUniformJumpsuitSuitStriped
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerSuitRolledSleeves
+  result: ClothingUniformJumpsuitSuitRolledSleeves
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerSuitBlueBlazer
+  result: ClothingUniformJumpsuitSuitBlueBlazer
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerYogaGymBra
+  result: ClothingUniformJumpsuitYogaGymBra
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerSuitVictorianVest
+  result: ClothingUniformJumpsuitSuitVictorianVest
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerSuitVictorianRedVest
+  result: ClothingUniformJumpsuitSuitVictorianRedVest
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerBlueSuit
+  result: N14ClothingUniformJumpsuitBlueSuit
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerNCowboyBrown
+  result: N14ClothingUniformJumpsuitCowboyBrown
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerNCowboyGrey
+  result: N14ClothingUniformJumpsuitCowboyGrey
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerDesertPants
+  result: N14ClothingUniformDesertPants
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerDesertPantsFull
+  result: N14ClothingUniformDesertPantsFull
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerSkirtFalloutBlack
+  result: N14ClothingUniformJumpskirtFalloutBlack
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerSkirtFalloutBlue
+  result: N14ClothingUniformJumpskirtFalloutBlue
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerSkirtDressBlack
+  result: N14ClothingUniformJumpskirtDressBlack
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerSkirtDressBlue
+  result: N14ClothingUniformJumpskirtDressBlue
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000
+
+- type: latheRecipe
+  id: SiriusSewInnerSkirtSundress
+  result: N14ClothingUniformJumpskirtSundress
+  category: SiriusClothing
+  completetime: 4
+  materials:
+    Cloth: 1000
+    Thread: 1000

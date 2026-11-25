@@ -233,6 +233,11 @@ namespace Content.Server.Lathe
             if (!CanProduce(uid, recipe, 1, materialUseMultiplier, component))
                 return false;
 
+            // #Sirius Add: consume whole-item costs (armor, dynamite, chips, wires, batteries)
+            // from bench storage, the acting player's hands and inventory.
+            if (!TryConsumeItemCosts(uid, recipe, component, actor))
+                return false;
+
             foreach (var (mat, amount) in recipe.Materials)
             {
                 var adjustedAmount = recipe.ApplyMaterialDiscount
@@ -413,7 +418,9 @@ namespace Content.Server.Lathe
             foreach (var matId in materialIds)
                 availableMaterials[matId] = _materialStorage.GetAvailableMaterialAmount(uid, matId);
 
-            var state = new LatheUpdateState(availableRecipes, component.Queue, producing, availableMaterials);
+            // #Sirius Add: item costs are counted server-side from bench storage + last user.
+            var availableItems = GetAvailableItemAmounts(uid, component, component.LastUser);
+            var state = new LatheUpdateState(availableRecipes, component.Queue, producing, availableMaterials, availableItems);
             _uiSys.SetUiState(uid, LatheUiKey.Key, state);
         }
 
@@ -464,7 +471,9 @@ namespace Content.Server.Lathe
             // (canProduce / available material amounts change) are inserted into storage.
             // #Misfits Add: Also refresh when a blueprint is inserted so newly unlocked
             // recipes appear immediately.
-            if (!HasComp<MaterialComponent>(args.Entity) && !HasComp<BlueprintComponent>(args.Entity))
+            // #Sirius Add: item-cost entities must refresh the UI too.
+            if (!HasComp<MaterialComponent>(args.Entity) && !HasComp<BlueprintComponent>(args.Entity) &&
+                !IsItemCostPrototype(uid, component, args.Entity))
                 return;
 
             // #Misfits Fix - Rebuild material whitelist when a blueprint is inserted so
@@ -482,7 +491,9 @@ namespace Content.Server.Lathe
             // entities are removed so available amounts are recalculated.
             // #Misfits Add: Also refresh when a blueprint is removed so its recipes
             // disappear from the available list.
-            if (!HasComp<MaterialComponent>(args.Entity) && !HasComp<BlueprintComponent>(args.Entity))
+            // #Sirius Add: item-cost entities must refresh the UI too.
+            if (!HasComp<MaterialComponent>(args.Entity) && !HasComp<BlueprintComponent>(args.Entity) &&
+                !IsItemCostPrototype(uid, component, args.Entity))
                 return;
 
             // #Misfits Fix - Rebuild material whitelist when a blueprint is removed so
@@ -550,6 +561,9 @@ namespace Content.Server.Lathe
             // #Misfits Add: Debug logging for blueprint crafting pipeline
             Log.Info($"LatheQueueRecipe: actor={args.Actor}, recipe={args.ID}, qty={args.Quantity}");
 
+            // #Sirius Add: remember who is crafting so item costs can be found in hands/inventory.
+            component.LastUser = args.Actor;
+
             if (!CanUseLatheWithIntelligence(args.Actor))
             {
                 _popup.PopupEntity(Loc.GetString("construction-system-construct-too-low-intelligence"), uid, args.Actor);
@@ -561,7 +575,7 @@ namespace Content.Server.Lathe
             {
                 // Convert raw material entities in storage into the material pool before queuing.
                 // This avoids availability/consumption mismatches from physical material stacks.
-                NormalizeStoredMaterialsToPool(uid, args.Actor);
+                NormalizeStoredMaterialsToPool(uid, args.Actor, component);
 
                 var count = 0;
                 for (var i = 0; i < args.Quantity; i++)
@@ -607,6 +621,9 @@ namespace Content.Server.Lathe
 
         private void OnLatheOpenAttempt(EntityUid uid, LatheComponent component, ActivatableUIOpenAttemptEvent args)
         {
+            // #Sirius Add: item costs are resolved against the player who opened the workbench.
+            component.LastUser = args.User;
+
             if (CanUseLatheWithIntelligence(args.User))
                 return;
 
@@ -647,7 +664,7 @@ namespace Content.Server.Lathe
         /// Converts material entities currently inside attached storage into the machine material pool.
         /// This makes queue-time consumption deterministic and avoids physical-stack edge cases.
         /// </summary>
-        private void NormalizeStoredMaterialsToPool(EntityUid uid, EntityUid actor)
+        private void NormalizeStoredMaterialsToPool(EntityUid uid, EntityUid actor, LatheComponent component)
         {
             if (!TryComp<StorageComponent>(uid, out var storage))
                 return;
@@ -655,6 +672,10 @@ namespace Content.Server.Lathe
             foreach (var ent in storage.Container.ContainedEntities.ToArray())
             {
                 if (!HasComp<MaterialComponent>(ent) || !HasComp<PhysicalCompositionComponent>(ent))
+                    continue;
+
+                // #Sirius Add: whole-item costs are consumed as entities, never melted into materials.
+                if (IsItemCostPrototype(uid, component, ent))
                     continue;
 
                 _materialStorage.TryInsertMaterialEntity(actor, ent, uid);
