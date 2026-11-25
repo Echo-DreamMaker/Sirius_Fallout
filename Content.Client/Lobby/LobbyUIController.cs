@@ -117,6 +117,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
         _profileEditor.RefreshAntags();
         _profileEditor.RefreshJobs();
+        _profileEditor.UpdateSiriusEroControls(); // #Sirius Add: пересчитать замки ЕРП по общему времени
     }
 
     private void OnPrototypesReloaded(PrototypesReloadedEventArgs obj)

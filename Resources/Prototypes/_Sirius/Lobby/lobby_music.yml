@@ -102,3 +102,10 @@
   file: /Audio/_Nuclear14/Lobby/WhyDontYouDoRight.ogg
   title: "Why Don't You Do Right?"
   artist: Peggy Lee
+
+#Sirius Add: подпись нового трека в лобби (название и автор)
+- type: lobbyMusic
+  id: LobbyMusicToddRhodesRocket69
+  file: /Audio/_Nuclear14/Lobby/todd-rhodes-rocket-69.ogg
+  title: Rocket 69
+  artist: Todd Rhodes

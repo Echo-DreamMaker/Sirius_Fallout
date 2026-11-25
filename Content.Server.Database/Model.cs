@@ -479,6 +479,8 @@ namespace Content.Server.Database
         public int Age { get; set; }
         public string Sex { get; set; } = null!;
         public string Gender { get; set; } = null!;
+        // #Sirius Add: 0 = Без ЕРП, 1 = Лайт ЕРП, 2 = Хард ЕРП.
+        public int SiriusEro { get; set; } = 0;
         public string? DisplayPronouns { get; set; }
         public string? StationAiName { get; set; }
         public string? CyborgName { get; set; }

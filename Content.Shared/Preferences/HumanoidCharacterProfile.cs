@@ -10,6 +10,7 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Roles;
 using Content.Shared._Misfits.Chat; // #Misfits Add - name slur filter
 using Content.Shared._Misfits.Special;
+using Content.Shared._Sirius.Preferences; // #Sirius Add: ERP-режим персонажа
 using Content.Shared._NC.Speech.Synthesis;
 using Content.Shared._NC.TTS; // Corvax-Fallout-Barks
 using Content.Shared.Speech; // #Misfits Add - vocal style
@@ -95,6 +96,10 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     [DataField]
     public Gender Gender { get; private set; } = Gender.Male;
+
+    // #Sirius Add: 0 = Без ЕРП, 1 = Лайт ЕРП, 2 = Хард ЕРП.
+    [DataField]
+    public SiriusEroMode Ero { get; private set; } = SiriusEroMode.None;
 
     [DataField] // Corvax-Fallout-Barks
     public string BarkVoice { get; set; } = SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Corvax-Fallout-Barks
@@ -228,6 +233,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.SpeechVerbPreference) // #Misfits Add - vocal style
     {
         Special = SpecialProfile.EnsureValid(other.Special);
+        Ero = other.Ero; // #Sirius Add: сохранять режим при Clone() и With...().
     }
 
     /// <summary>
@@ -336,6 +342,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public HumanoidCharacterProfile WithAge(int age) => new(this) { Age = age };
     public HumanoidCharacterProfile WithSex(Sex sex) => new(this) { Sex = sex };
     public HumanoidCharacterProfile WithGender(Gender gender) => new(this) { Gender = gender };
+    public HumanoidCharacterProfile WithSiriusEro(SiriusEroMode mode) => new(this) { Ero = mode }; // #Sirius Add
     public HumanoidCharacterProfile WithDisplayPronouns(string? displayPronouns) => new(this) { DisplayPronouns = displayPronouns };
     public HumanoidCharacterProfile WithStationAiName(string? stationAiName) => new(this) { StationAiName = stationAiName };
     public HumanoidCharacterProfile WithCyborgName(string? cyborgName) => new(this) { CyborgName = cyborgName };
@@ -448,6 +455,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             && Appearance.MemberwiseEquals(other.Appearance)
             && SpecialProfile.EnsureValid(Special).MemberwiseEquals(SpecialProfile.EnsureValid(other.Special))
             && FlavorText == other.FlavorText
+            && Ero == other.Ero // #Sirius Add
             && BarkVoice == other.BarkVoice // Corvax-Fallout-Barks
             && SpeechVerbPreference == other.SpeechVerbPreference; // #Misfits Add - vocal style
     }
@@ -486,6 +494,16 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             Gender.Male => Gender.Male,
             Gender.Neuter => Gender.Neuter,
             _ => Gender.Epicene // Invalid enum values.
+        };
+
+        // #Sirius Add: защита от невалидного значения из БД/сети/импорта.
+        // Проверку playtime здесь делать нельзя: это shared-код без серверного менеджера времени.
+        var ero = Ero switch
+        {
+            SiriusEroMode.None => SiriusEroMode.None,
+            SiriusEroMode.Light => SiriusEroMode.Light,
+            SiriusEroMode.Hard => SiriusEroMode.Hard,
+            _ => SiriusEroMode.None,
         };
 
         string name;
@@ -727,6 +745,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         Age = age;
         Sex = sex;
         Gender = gender;
+        Ero = ero; // #Sirius Add
         Appearance = appearance;
         SpawnPriority = spawnPriority;
 
@@ -817,6 +836,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         hashCode.Add(Age);
         hashCode.Add((int) Sex);
         hashCode.Add((int) Gender);
+        hashCode.Add((int) Ero); // #Sirius Add
         hashCode.Add(Appearance);
         hashCode.Add(Special);
         hashCode.Add(BarkVoice); // Corvax-Fallout-Barks

@@ -1,3 +1,4 @@
+using System; // #Sirius Add: TimeSpan для замков ЕРП
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -24,6 +25,8 @@ using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared._Misfits.Special;
 using Content.Shared._Misfits.Special.Prototypes;
+using Content.Shared._Sirius.Preferences; // #Sirius Add: ERP-режим персонажа
+using Content.Shared.Players.PlayTimeTracking; // #Sirius Add: общий tracker времени
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
@@ -344,6 +347,30 @@ namespace Content.Client.Lobby.UI
             };
 
             #endregion Gender
+
+            // #Sirius Add: выбор ЕРП-режима с блокировкой по общему времени игры.
+            #region Sirius ERP
+
+            EroButton.AddItem(Loc.GetString("sirius-ero-none"), (int) SiriusEroMode.None);
+            EroButton.AddItem(Loc.GetString("sirius-ero-light"), (int) SiriusEroMode.Light);
+            EroButton.AddItem(Loc.GetString("sirius-ero-hard"), (int) SiriusEroMode.Hard);
+
+            EroButton.OnItemSelected += args =>
+            {
+                var mode = (SiriusEroMode) args.Id;
+
+                if (!mode.IsUnlocked(SiriusOverallPlaytime()))
+                {
+                    UpdateSiriusEroControls();
+                    return;
+                }
+
+                EroButton.SelectId(args.Id);
+                Profile = Profile?.WithSiriusEro(mode);
+                SetDirty();
+            };
+
+            #endregion Sirius ERP
 
             // Corvax-Fallout-Barks-start
             #region Barks
@@ -1071,6 +1098,7 @@ namespace Content.Client.Lobby.UI
             UpdateNameEdit();
             UpdateSexControls();
             UpdateGenderControls();
+            UpdateSiriusEroControls(); // #Sirius Add: выбор и замки ЕРП
             UpdateDisplayPronounsControls();
             UpdateStationAiControls();
             UpdateCyborgControls();
@@ -2447,6 +2475,49 @@ namespace Content.Client.Lobby.UI
                 return;
 
             PronounsButton.SelectId((int) Profile.Gender);
+        }
+
+        // #Sirius Add: общий time-tracker приходит с сервера в MsgPlayTime.
+        private TimeSpan SiriusOverallPlaytime()
+        {
+            return _requirements.GetRawPlayTimeTrackers()
+                .TryGetValue(PlayTimeTrackingShared.TrackerOverall, out var time)
+                    ? time
+                    : TimeSpan.Zero;
+        }
+
+        // #Sirius Add: публичный метод — LobbyUIController обновляет замки при Updated.
+        public void UpdateSiriusEroControls()
+        {
+            var overall = SiriusOverallPlaytime();
+
+            foreach (var mode in new[]
+                     {
+                         SiriusEroMode.None,
+                         SiriusEroMode.Light,
+                         SiriusEroMode.Hard,
+                     })
+            {
+                // SetItemDisabled принимает индекс, а не id.
+                var idx = EroButton.GetIdx((int) mode);
+                EroButton.SetItemDisabled(idx, !mode.IsUnlocked(overall));
+            }
+
+            var selected = Profile?.Ero ?? SiriusEroMode.None;
+            if (!selected.IsUnlocked(overall))
+                selected = SiriusEroMode.None;
+
+            if (Profile != null && Profile.Ero != selected)
+            {
+                Profile = Profile.WithSiriusEro(selected);
+                SetDirty();
+            }
+
+            EroButton.SelectId((int) selected);
+            EroButton.ToolTip = Loc.GetString("sirius-ero-tooltip",
+                ("light", (int) SiriusEroModeExtensions.LightUnlock.TotalMinutes),
+                ("hard", (int) SiriusEroModeExtensions.HardUnlock.TotalMinutes),
+                ("current", (int) overall.TotalMinutes));
         }
 
         private void UpdateDisplayPronounsControls()

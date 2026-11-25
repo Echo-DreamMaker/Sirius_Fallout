@@ -1,0 +1,5 @@
+# #Sirius Add: имя и описание сервера для лаунчера/хаба.
+# Применяется только если на сервере задать config.presets = "Sirius/rocket69".
+[game]
+hostname = "Rocket 69. A Fallout roleplay game. [18+][MRP]."
+desc     = "Rocket 69. A Fallout roleplay game. [18+][MRP]."

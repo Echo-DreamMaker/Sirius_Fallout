@@ -187,7 +187,13 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             _special.TryApplyProfileBaseValues(entity.Value, profile);
             _metaSystem.SetEntityName(entity.Value, profile.Name);
             if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
-                EnsureComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+            {
+                // #Sirius Add: не затирать ЕРП-строку, добавленную при загрузке профиля.
+                var details = EnsureComp<DetailExaminableComponent>(entity.Value);
+                details.Content = string.IsNullOrEmpty(details.Content)
+                    ? profile.FlavorText
+                    : details.Content.TrimEnd('\n') + "\n" + profile.FlavorText;
+            }
         }
 
         DoJobSpecials(job, entity.Value);
