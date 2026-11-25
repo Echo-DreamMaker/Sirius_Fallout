@@ -14,6 +14,7 @@ using Content.Shared.Speech; // #Misfits Add - vocal style
 using Content.Shared._NC.Speech.Synthesis.Components;
 using Content.Shared._NC.TTS; // Corvax-Fallout-Barks
 using Content.Shared._Misfits.Prosthetics;
+using Content.Shared._Sirius.Preferences; // #Sirius Add: ERP-режим в описании
 using Content.Shared.Preferences;
 using Content.Shared.HeightAdjust;
 // Microsoft.Extensions.Configuration removed - using Robust.Shared.Configuration instead
@@ -137,6 +138,10 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         if (component.DisplayPronouns != null)
             args.PushText(Loc.GetString("humanoid-appearance-component-examine-pronouns", ("user", identity), ("pronouns", component.DisplayPronouns)));
+
+        // #Sirius Add: PushMarkup, иначе цветные теги FTL покажутся как обычный текст.
+        if (component.Ero != SiriusEroMode.None)
+            args.PushMarkup(Loc.GetString($"sirius-ero-examine-{component.Ero.ToString().ToLowerInvariant()}"));
 
         if (!args.IsInDetailsRange)
             return;
@@ -505,6 +510,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         humanoid.StationAiName = profile.StationAiName;
         humanoid.CyborgName = profile.CyborgName;
         humanoid.Age = profile.Age;
+        humanoid.Ero = profile.Ero; // #Sirius Add
 
         humanoid.CustomSpecieName = profile.Customspeciename;
 
@@ -521,6 +527,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         Dirty(uid, humanoid);
         RaiseLocalEvent(uid, new ProfileLoadFinishedEvent());
+        RaiseLocalEvent(uid, new SiriusEroProfileLoadedEvent(profile.Ero)); // #Sirius Add: подробный осмотр
     }
 
     /// <summary>

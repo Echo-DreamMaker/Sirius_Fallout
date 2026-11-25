@@ -72,6 +72,12 @@
                                 <Control HorizontalExpand="True"/>
                                 <OptionButton Name="SexButton" HorizontalAlignment="Right" />
                             </BoxContainer>
+                            <!-- #Sirius Add: ERP-режим персонажа сразу под «Пол». -->
+                            <BoxContainer Name="EroContainer" HorizontalExpand="True">
+                                <Label Text="{Loc sirius-ero-label}" />
+                                <Control HorizontalExpand="True"/>
+                                <OptionButton Name="EroButton" HorizontalAlignment="Right" />
+                            </BoxContainer>
                             <BoxContainer HorizontalExpand="True">
                                 <Label Text="{Loc humanoid-profile-editor-pronouns-label}" />
                                 <Control HorizontalExpand="True"/>

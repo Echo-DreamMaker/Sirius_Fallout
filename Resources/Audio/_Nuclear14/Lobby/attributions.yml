@@ -18,4 +18,10 @@
 - files: ["Frank-Sinatra-Jingle-Bells.ogg"]
   license: "Custom"
   copyright: "Copyright owned by respective artists, see source link for details."
-  source: "https://www.youtube.com/watch?v=hLf0-lro8X8" 
+  source: "https://www.youtube.com/watch?v=hLf0-lro8X8"
+
+# #Sirius Add: трек лобби из Fallout 4 (2015), Todd Rhodes
+- files: ["todd-rhodes-rocket-69.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Rocket 69 by Todd Rhodes (Fallout 4 soundtrack, 2015)."
+  source: "https://fallout.fandom.com/wiki/Fallout_4_soundtrack"

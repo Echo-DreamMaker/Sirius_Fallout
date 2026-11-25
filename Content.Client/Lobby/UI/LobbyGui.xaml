@@ -97,6 +97,10 @@
                     <controls:HSpacer Spacing="10" />
                     <!-- Server info -->
                     <Label StyleClasses="PipBoyHeading" Text="{Loc 'ui-lobby-server-info-block'}" />
+                    <!-- #Sirius Add: описание/новое имя сервера прямо в лобби -->
+                    <Label Text="{Loc 'ui-lobby-server-description'}" HorizontalAlignment="Left"
+                           FontColorOverride="{x:Static style:StyleNano.PipBoyGreenDim}"
+                           Margin="3 0 3 0" />
                     <PanelContainer StyleClasses="PipBoyDivider" MinSize="0 1" />
                     <info:ServerInfo Name="ServerInfo" Access="Public" MinSize="0 30" VerticalExpand="false"
                                      Margin="3 3 3 3" MaxWidth="400" HorizontalAlignment="Left" />

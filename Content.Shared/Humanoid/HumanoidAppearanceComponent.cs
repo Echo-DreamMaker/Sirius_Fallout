@@ -1,6 +1,7 @@
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences; // DeltaV
+using Content.Shared._Sirius.Preferences; // #Sirius Add: ERP-режим в описании
 using Content.Shared._NC.Speech.Synthesis;
 using Content.Shared._NC.TTS; // Corvax-Frontier-Barks
 using Robust.Shared.Enums;
@@ -48,6 +49,10 @@ public sealed partial class HumanoidAppearanceComponent : Component
 
     [DataField, AutoNetworkedField]
     public int Age = 18;
+
+    // #Sirius Add: ERP-режим персонажа; None по умолчанию — строки в описании нет.
+    [DataField, AutoNetworkedField]
+    public SiriusEroMode Ero = SiriusEroMode.None;
 
     [DataField("barkvoice")] // Corvax-Fallout-Barks
     public ProtoId<BarkPrototype> BarkVoice { get; set; } = SharedHumanoidAppearanceSystem.DefaultBarkVoice; // Corvax-Fallout-Barks

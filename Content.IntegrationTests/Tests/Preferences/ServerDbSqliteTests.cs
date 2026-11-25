@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Content.Server.Database;
+using Content.Shared._Sirius.Preferences; // #Sirius Add: ERP-режим профиля
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -86,6 +87,21 @@ namespace Content.IntegrationTests.Tests.Preferences
             var username = new NetUserId(new Guid("640bd619-fc8d-4fe2-bf3c-4a5fb17d6ddd"));
             const int slot = 0;
             var originalProfile = CharlieCharlieson();
+            await db.InitPrefsAsync(username, originalProfile);
+            var prefs = await db.GetPlayerPreferencesAsync(username);
+            Assert.That(prefs.Characters.Single(p => p.Key == slot).Value.MemberwiseEquals(originalProfile));
+            await pair.CleanReturnAsync();
+        }
+
+        // #Sirius Add: проверяем, что ERP-режим переживает запись/чтение БД.
+        [Test]
+        public async Task TestSiriusEroPersists()
+        {
+            var pair = await PoolManager.GetServerClient();
+            var db = GetDb(pair.Server);
+            var username = new NetUserId(new Guid("640bd619-fc8d-4fe2-bf3c-4a5fb17d6ddd"));
+            const int slot = 0;
+            var originalProfile = CharlieCharlieson().WithSiriusEro(SiriusEroMode.Hard);
             await db.InitPrefsAsync(username, originalProfile);
             var prefs = await db.GetPlayerPreferencesAsync(username);
             Assert.That(prefs.Characters.Single(p => p.Key == slot).Value.MemberwiseEquals(originalProfile));

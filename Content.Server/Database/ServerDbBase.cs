@@ -11,6 +11,7 @@ using Content.Server.Administration.Managers;
 using Content.Shared.Administration.Logs;
 using Content.Shared._Misfits.Administration;
 using Content.Shared._Misfits.Special;
+using Content.Shared._Sirius.Preferences; // #Sirius Add: ERP-режим профиля
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -224,6 +225,15 @@ namespace Content.Server.Database
             if (Enum.TryParse<Gender>(profile.Gender, true, out var genderVal))
                 gender = genderVal;
 
+            // #Sirius Add: не доверяем int из БД.
+            var ero = profile.SiriusEro switch
+            {
+                (int) SiriusEroMode.None => SiriusEroMode.None,
+                (int) SiriusEroMode.Light => SiriusEroMode.Light,
+                (int) SiriusEroMode.Hard => SiriusEroMode.Hard,
+                _ => SiriusEroMode.None,
+            };
+
             // Corvax-TTS-Start
             var voice = profile.Voice;
             if (voice == String.Empty)
@@ -332,7 +342,7 @@ namespace Content.Server.Database
                 speechVerbPreference // #Misfits Add - vocal style
             );
 
-            return humanoid.WithSpecial(special);
+            return humanoid.WithSpecial(special).WithSiriusEro(ero); // #Sirius Add
         }
 
         private static Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
@@ -365,6 +375,7 @@ namespace Content.Server.Database
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
             profile.Gender = humanoid.Gender.ToString();
+            profile.SiriusEro = (int) humanoid.Ero; // #Sirius Add
             profile.DisplayPronouns = humanoid.DisplayPronouns;
             profile.StationAiName = humanoid.StationAiName;
             profile.CyborgName = humanoid.CyborgName;

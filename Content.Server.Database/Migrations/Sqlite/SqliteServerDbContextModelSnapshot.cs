@@ -906,7 +906,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("custom_name");
 
-                    // #Sirius Add: per-job loadout storage.
                     b.Property<string>("JobName")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -1481,6 +1480,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("sex");
+
+                    b.Property<int>("SiriusEro")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("sirius_ero");
 
                     b.Property<string>("SkinColor")
                         .IsRequired()

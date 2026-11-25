@@ -1,9 +1,13 @@
+using System; // #Sirius Add: TimeSpan для гейта ЕРП
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
+using Content.Server.Players.PlayTimeTracking; // #Sirius Add: серверный гейт ЕРП
 using Content.Shared.CCVar;
+using Content.Shared._Sirius.Preferences; // #Sirius Add: ERP-режим персонажа
+using Content.Shared.Players.PlayTimeTracking; // #Sirius Add: TrackerOverall
 using Content.Shared.Preferences;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -31,6 +35,7 @@ namespace Content.Server.Preferences.Managers
         [Dependency] private readonly ILogManager _log = default!;
         [Dependency] private readonly UserDbDataManager _userDb = default!;
         [Dependency] private readonly IPrototypeManager _protos = default!;
+        [Dependency] private readonly PlayTimeTrackingManager _playTime = default!; // #Sirius Add
 
         // Cache player prefs on the server so we don't need as much async hell related to them.
         private readonly Dictionary<NetUserId, PlayerPrefData> _cachedPlayerPrefs =
@@ -143,6 +148,29 @@ namespace Content.Server.Preferences.Managers
                 && incomingHumanoid.Species != existingHumanoid.Species)
             {
                 profile = incomingHumanoid.WithSpecies(existingHumanoid.Species);
+            }
+
+            // #Sirius Add: отключённые пункты в UI — не защита. Сервер перепроверяет общее время игры.
+            // Если данные playtime ещё не загрузились, не обнуляем выбор: иначе нормально
+            // выбранный в лобби режим теряется и строка никогда не попадает в осмотр.
+            if (profile is HumanoidCharacterProfile eroProfile
+                && eroProfile.Ero != SiriusEroMode.None
+                && _playTime.TryGetTrackerTime(
+                    session,
+                    PlayTimeTrackingShared.TrackerOverall,
+                    out var fetched)
+                && fetched is { } overall)
+            {
+                var allowed = eroProfile.Ero.IsUnlocked(overall)
+                    ? eroProfile.Ero
+                    : SiriusEroMode.None;
+
+                if (allowed != eroProfile.Ero)
+                {
+                    _sawmill.Debug($"Sirius Ero downgraded for {userId}: {eroProfile.Ero} -> {allowed} " +
+                                   $"at {overall.TotalMinutes} min overall playtime.");
+                    profile = eroProfile.WithSiriusEro(allowed);
+                }
             }
 
             var profiles = new Dictionary<int, ICharacterProfile>(curPrefs.Characters)

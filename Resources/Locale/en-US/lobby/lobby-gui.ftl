@@ -1,4 +1,7 @@
-﻿ui-lobby-title = Lobby: Sirius Fallout [RU] [MRP+]
+﻿#Sirius Change: new server name
+ui-lobby-title = Lobby: Rocket 69 [18+][MRP]
+#Sirius Add: server description in the lobby info block
+ui-lobby-server-description = Rocket 69. A Fallout roleplay game. [18+][MRP].
 ui-lobby-ahelp-button = AHelp
 ui-lobby-options-button = Options
 ui-lobby-leave-button = Leave

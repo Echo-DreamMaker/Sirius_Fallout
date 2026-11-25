@@ -956,7 +956,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("custom_name");
 
-                    // #Sirius Add: per-job loadout storage.
                     b.Property<string>("JobName")
                         .IsRequired()
                         .HasColumnType("text")
@@ -1554,6 +1553,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("sex");
+
+                    b.Property<int>("SiriusEro")
+                        .HasColumnType("integer")
+                        .HasColumnName("sirius_ero");
 
                     b.Property<string>("SkinColor")
                         .IsRequired()

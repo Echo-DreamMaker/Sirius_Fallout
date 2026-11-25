@@ -293,6 +293,10 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.EyeColor = profile.Appearance.EyeColor;
         humanoid.Height = profile.Height;
         humanoid.Width = profile.Width;
+        // #Sirius Add: ЕРП-режим нужен и клиенту — иначе лобби-превью и предсказанный
+        // осмотр показывают описание без ЕРП-строки до прихода состояния от сервера.
+        humanoid.Ero = profile.Ero;
+        humanoid.LastProfileLoaded = profile;
 
         UpdateSprite(humanoid, Comp<SpriteComponent>(uid));
     }

@@ -1,6 +1,9 @@
-defaultWindowTitle: "Sirius: Nuclear Wasteland"
-windowIconSet: /Textures/Logo/Misfits/icon
-splashLogo: /Textures/Logo/MisfitsNuclearWasteland.png
+#Sirius Change: ребрендинг клиента — Rocket 69
+defaultWindowTitle: "Rocket 69. A Fallout roleplay game. [18+][MRP]."
+#Sirius Change: набор иконок окна вырезан из постера Rocket 69 (вместо Misfits)
+windowIconSet: /Textures/Logo/Rocket69/icon
+#Sirius Change: новый фон загрузки
+splashLogo: /Textures/_Sirius/Logo/Rocket69.png
 # #Misfits Removed - WebView module marked insecure on official Robust CDN; all versions deprecated by space-wizards
 # modules:
 #   - "Robust.Client.WebView"
