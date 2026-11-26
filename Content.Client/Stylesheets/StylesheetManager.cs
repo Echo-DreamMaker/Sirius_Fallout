@@ -33,10 +33,7 @@ namespace Content.Client.Stylesheets
         public void SetActivePalette(string id)
         {
             if (_prototype.TryIndex<UiThemePrototype>(id, out var theme))
-            {
                 StyleNano.ApplyPalette(theme);
-                SyncLoadingBarColor(theme); // #Sirius Add
-            }
 
             SheetNano = new StyleNano(_resourceCache).Stylesheet;
             _userInterfaceManager.Stylesheet = SheetNano;
@@ -46,16 +43,7 @@ namespace Content.Client.Stylesheets
         private void ApplySavedPalette()
         {
             if (_prototype.TryIndex<UiThemePrototype>(_cfg.GetCVar(CCVars.UiThemePalette), out var theme))
-            {
                 StyleNano.ApplyPalette(theme);
-                SyncLoadingBarColor(theme); // #Sirius Add
-            }
-        }
-
-        // #Sirius Add: keep generic engine loading-bar color in sync with UI theme accent.
-        private void SyncLoadingBarColor(UiThemePrototype theme)
-        {
-            _cfg.SetCVar(Robust.Shared.CVars.LoadingBarColor, theme.Accent.ToHex());
         }
     }
 }
